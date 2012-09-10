@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://cufxstandards.com/Application.xsd"
+	elementFormDefault="qualified" xmlns:common="http://cufxstandards.com/Common.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://cufxstandards.com/Application.xsd">
+
+	<xsd:import schemaLocation="Common.xsd"
+		namespace="http://cufxstandards.com/Common.xsd"></xsd:import>
+	<xsd:complexType name="Applicant">
+		<xsd:sequence>
+			<xsd:element name="taxId" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Individual"></xsd:enumeration>
+						<xsd:enumeration value="Organization"></xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="organizationType" minOccurs="0"
+				maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="SoleProprietorshipt"></xsd:enumeration>
+						<xsd:enumeration value="LLC"></xsd:enumeration>
+						<xsd:enumeration value="Partnership"></xsd:enumeration>
+						<xsd:enumeration value="Corporation"></xsd:enumeration>
+						<xsd:enumeration value="NotForProfit"></xsd:enumeration>
+						<xsd:enumeration value="Club"></xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="firstName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="middleName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="lastName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="role" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Primary"></xsd:enumeration>
+						<xsd:enumeration value="Secondary"></xsd:enumeration>
+						<xsd:enumeration value="AuthorizedUser"></xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="birthdate" type="xsd:date" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Birth date of the individual</xsd:documentation></xsd:annotation></xsd:element>
+			<xsd:element name="address" type="common:AddressDetails" minOccurs="0" maxOccurs="1"></xsd:element>
+			<xsd:element name="creditBureauScore" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Application">
+		<xsd:sequence>
+			<xsd:element name="productId" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
+			<xsd:element name="applicants" type="Applicant"
+				maxOccurs="unbounded"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
