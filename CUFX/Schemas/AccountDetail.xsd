@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+		targetNamespace="http://cufxstandards.com/AccountDetail.xsd"
+		xmlns="http://cufxstandards.com/AccountDetail.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		elementFormDefault="qualified"
+		attributeFormDefault="unqualified">
+
+	<xsd:complexType name="AccountDetail">
+		<xsd:annotation>
+			<xsd:documentation>
+				This is a comment added by Curt.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						The account ID is a persistent and unique identifier for the account. 
+						It must be unique for all users across the institution and remain the same over the life of the account.
+					</xsd:documentation>
+				</xsd:annotation>				
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						The account description is the textual representation of the account. 
+						This value is visible to the user and must be human-readable.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="type" type="AccountType">
+				<xsd:annotation>
+					<xsd:documentation>
+						The account type is the textual representation the kind of account. 
+						This value is visible to the user and must be human-readable.  
+						Note: CD’s and MONEY MARKETS should be denoted as INVESTMENT.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="openDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>
+						The date that the account was opened.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="subType" type="xsd:string"></xsd:element>
+			<xsd:element name="accountName" type="xsd:string"></xsd:element>
+			<xsd:element name="actualBalance" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>
+						Negative, Zero or Positive amount.  
+						If this is a loan any balance owed to the financial institution will show as a positive amount.  
+						If this is a deposit product, if the product is overdrawn it will be a negative amount.  
+						Positive is assumed if the sign does not appear in the data.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="availableBalance" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>
+						Negative, Zero or Positive amount.  
+						If this is a loan any balance owed to the financial institution will show as a positive amount.  
+						If this is a deposit product, if the product is overdrawn it will be a negative amount.  
+						Positive is assumed if the sign does not appear in the data.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="customData" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Account level name/data pairs list of fields that are not yet available the general specification.  
+						This should be used as LAST RESORT as any customizations will not be supported by all data providers and able to be processed by client applications.  
+						ANY use of this field must be reported to the architecture or working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xsd:documentation>
+				</xsd:annotation>				
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- TODO: Need to review.  Conflict with LoanAccountCategories.  Values are not mutually exlcusive (I can be a loan, and a LOC)-->
+	<xsd:simpleType name="AccountType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CHECKING">
+				<xsd:annotation>
+					<xsd:documentation>
+						TODO: Please someone
+					</xsd:documentation>
+				</xsd:annotation>				
+			</xsd:enumeration>
+			<xsd:enumeration value="SAVINGS"></xsd:enumeration>
+			<xsd:enumeration value="LOAN"></xsd:enumeration>
+			<xsd:enumeration value="CREDIT_CARD"></xsd:enumeration>
+			<xsd:enumeration value="INVESTMENT"></xsd:enumeration>
+			<xsd:enumeration value="LINE_OF_CREDIT"></xsd:enumeration>
+			<xsd:enumeration value="MORTGAGE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

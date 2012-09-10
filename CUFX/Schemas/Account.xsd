@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+		targetNamespace="http://cufxstandards.com/Account.xsd"
+		xmlns="http://cufxstandards.com/Account.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:ad="http://cufxstandards.com/AccountDetail.xsd"
+		xmlns:m="http://cufxstandards.com/Meta.xsd"
+		elementFormDefault="qualified"
+		version="1.2.3"
+		attributeFormDefault="unqualified">
+	
+		<xsd:import namespace="http://cufxstandards.com/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
+		<xsd:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
+
+		<xsd:complexType name="account">
+			<xsd:sequence>
+				<xsd:element name="accountDetail" type="ad:AccountDetail"></xsd:element>
+			<xsd:element name="transactions" type="Transactions"></xsd:element>
+			<xsd:element name="Meta" type="m:Meta" minOccurs="1"
+				maxOccurs="1" nillable="true">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Transactions">
+		<xsd:sequence>
+			<xsd:element name="transaction" maxOccurs="unbounded"
+				nillable="true">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="id" type="xsd:string" minOccurs="1">
+						</xsd:element>
+						<xsd:element name="type">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="DEBIT"></xsd:enumeration>
+									<xsd:enumeration value="CREDIT"></xsd:enumeration>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="amount" type="xsd:decimal"></xsd:element>
+						<xsd:element name="description" type="xsd:string">
+						</xsd:element>
+						<xsd:element name="datePosted" type="xsd:date">
+						</xsd:element>
+						<xsd:element name="status">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="POSTED"></xsd:enumeration>
+									<xsd:enumeration value="PENDING"></xsd:enumeration>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="principalAmount" type="xsd:decimal">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

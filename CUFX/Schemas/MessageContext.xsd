@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/MessageContext.xsd"
+	xmlns="http://cufxstandards.com/MessageContext.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/Common.xsd"
+	elementFormDefault="qualified"
+	version="0.0.1"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+
+<xs:complexType name="MessageContext">
+		<xs:annotation>
+			<xs:documentation>
+				The MessageContext contains information that is passed as part of each CUFX message call.
+				All the fields are optional, and whether or not they contain information is determined byt he specific implementation requirements.
+				For example, in a multitenant environment where multiple financial institutions are hosted, the Financial Institution ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.  For a single tenant environment with only one financial institution, the Financial Institution ID may not be necessary.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="vendorID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The vendor id is an &quot;agreed upon&quot; unique identifier that identifies the vendor that is creating a message.
+						The client application sends this along with the messages so that logging or other business may take place based on the vendor  utilizing the service.
+						This id is not generated per data or security request but is generated &quot;out-of-band&quot; of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
+						A standard error will be returned if the vendorId is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app id is an &quot;agreed upon&quot; unique identifier that identifies the application that is creating a message.
+						The client application sends this along with the messages so that logging or other business may take place based on the application utilizing the service.
+						This id is not generated per data or security request but is generated &quot;out-of-band&quot; of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
+						A standard error will be returned if the appId is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The fiId  is used by systems to uniquely identify each financial institution.
+						This id is determined outside of the process and stored in each system of record.
+						This is helpful for applications that are multi-tenant and service more than one financial institution.
+						See dataSourceId for more info about multiple data sources for a single FI.
+						A standard error will be returned if the fiId is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataSourceID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The dataSourceId  is used by the systems to uniquely identify a registered data source within the financial institution.
+						This is an agreed upon id determined outside of the process and stored in each system of record.
+						There may be more than one data source id per financial institution.
+						For instance, one dataSourceId may represent the financial institution’s core provider and another may be used to represent the credit card provider that is not within the core.  i.e.
+						There may be a one-to-many relationship between fiID  and dataSourceId.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userIdList" type="User" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of user(s) associated to a message.
+						Typically, there will be only one user associated to a message request, but providing the flexibility in case future use cases have two user Id’s associated to one message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:ValuePair" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The customData section allows the flexibility to add additional information to the messageContext.
+						This should be utilized as a last resort and any use should result in requested modifications to the message or messageContext .
+						Note: that typically the data required will be in the message (such as party id, accountId, etc.) rather than contained in the messageContext.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="User">
+		<xs:annotation>
+			<xs:documentation>
+				The MessageContext contains information that is passed as part of each CUFX message call.
+				All the fields are optional, and whether or not they contain information is determined byt he specific implementation requirements.
+				For example, in a multitenant environment where multiple financial institutions are hosted, the Financial Institution ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.  For a single tenant environment with only one financial institution, the Financial Institution ID may not be necessary.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="userID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The userId is a unique identifier for the user based on the type of user (see userIdType below) that is requesting the message to be performed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userType" type="UserType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The userIdType identifies what type of user is requesting the service.
+						The following values can be passed in.
+						Note, if ANONYMOUS is used, most likely the userId will be blank, not provided or some constant value.
+						FI_USER_ID would be used in the case a consumer is trying to perform functions via online banking.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="UserType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="EMPLOYEE_ID" />
+			<xs:enumeration value="VENDOR_EMPLOYEE_ID" />
+			<xs:enumeration value="ANONYMOUS" />
+			<xs:enumeration value="FI_USER_ID" />
+			<xs:enumeration value="CUSTOM" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
