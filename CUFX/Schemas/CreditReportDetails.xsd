@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema 
+	targetNamespace="http://cufxstandards.com/CreditReportDetails.xsd" 
+	xmlns="http://cufxstandards.com/CreditReportDetails.xsd" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:complexType name="CreditReportDetails">
+		<xs:annotation>
+			<xs:documentation>
+				Details relating credit scores used in determining loan decisioning, risk based pricing, or for membership eligibility.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							e.g. Experian, Equifax, TransUnion, FastStart, FICA, etc
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reportType" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							TODO
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="creditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							e.g. 812, 615
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="creditTier" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Risk Tier assigned when the loan is originated
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="reportData" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Would contain the entire credit report in text format.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
