@@ -572,6 +572,11 @@
     <xs:sequence>
       <xs:element name="identificationDocument" type="IdentificationDocument" minOccurs="0" maxOccurs="unbounded"
 				nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of identification documents.
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
