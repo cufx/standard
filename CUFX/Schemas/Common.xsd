@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema 
-	targetNamespace="http://cufxstandards.com/Common.xsd" 
-	xmlns="http://cufxstandards.com/Common.xsd" 
+<xs:schema
+	targetNamespace="http://cufxstandards.com/Common.xsd"
+	xmlns="http://cufxstandards.com/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:simpleType name="AccountCategories">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Savings" />
-			<xs:enumeration value="Checking" />
-			<xs:enumeration value="MoneyMarket" />
-			<xs:enumeration value="Certificate" />
-			<xs:enumeration value="IRA" />
-			<xs:enumeration value="HSA" />
-			<xs:enumeration value="Other" />
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="AccountCategories">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Savings" />
+      <xs:enumeration value="Checking" />
+      <xs:enumeration value="MoneyMarket" />
+      <xs:enumeration value="Certificate" />
+      <xs:enumeration value="IRA" />
+      <xs:enumeration value="HSA" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Money">
+    <xs:sequence>
+      <xs:element name="value" minOccurs ="1" maxOccurs="1">
+      </xs:element>
+
+      <xs:element name="currencyCode" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Currency Code in ISO 4217 3 character format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="AdditionalIncomeDetails">
     <xs:annotation>
@@ -24,19 +39,19 @@
         Describes additional non-standard sources of income (child support, investments, e-bay, etc)
       </xs:documentation>
     </xs:annotation>
-      <xs:complexContent>
-        <xs:extension base="MainIncomeDetails">
-          <xs:sequence>
-            <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The source of the additional income
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
+    <xs:complexContent>
+      <xs:extension base="MainIncomeDetails">
+        <xs:sequence>
+          <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The source of the additional income
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="AddressDetails">
@@ -128,7 +143,7 @@
       <xs:element name="Allocation" type="xs:integer" minOccurs="0" maxOccurs="1" />
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="BeneficiaryTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Primary" />
@@ -150,13 +165,13 @@
       <xs:enumeration value="Share"/>
     </xs:restriction>
   </xs:simpleType>
-  
-	<xs:simpleType name="Email">
-		<xs:restriction base="xs:string">
-			<!-- email regex based on information found here: http://www.regular-expressions.info/email.html -->
-			<!--<xs:pattern value="^[a-zA-Z0-9\._\-/]+@([a-zA-Z0-9\-\.]+\.)+[a-zA-Z0-9]{2,4}$" />-->
-		</xs:restriction>
-	</xs:simpleType>
+
+  <xs:simpleType name="Email">
+    <xs:restriction base="xs:string">
+      <!-- email regex based on information found here: http://www.regular-expressions.info/email.html -->
+      <!--<xs:pattern value="^[a-zA-Z0-9\._\-/]+@([a-zA-Z0-9\-\.]+\.)+[a-zA-Z0-9]{2,4}$" />-->
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="EmploymentDetails">
     <xs:annotation>
@@ -274,20 +289,20 @@
     </xs:restriction>
   </xs:simpleType>
 
-	<xs:simpleType name="Gender">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Male" />
-			<xs:enumeration value="Female" />
-		</xs:restriction>
-	</xs:simpleType>
-  
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="HoldDurationUnits">
     <xs:restriction base="xs:string">
       <xs:enumeration value="CalendarDays" />
       <xs:enumeration value="BusinessDays" />
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="HousingStatusType">
     <xs:annotation>
       <xs:documentation>
@@ -307,12 +322,12 @@
   </xs:simpleType>
 
   <xs:complexType name="IdentificationDetails">
-		<xs:sequence>
-			<xs:element name="IdType" type="IdentificationTypes" minOccurs="1" maxOccurs="1" />
-			<xs:element name="IdNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
-			<xs:element name="IdIssuer" type="xs:string" minOccurs="1" maxOccurs="1" />
-			<xs:element name="IssueDate" type="xs:date" minOccurs="0" maxOccurs="1" />
-			<xs:element name="ExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" />
+    <xs:sequence>
+      <xs:element name="IdType" type="IdentificationTypes" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IdNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IdIssuer" type="xs:string" minOccurs="1" maxOccurs="1" />
+      <xs:element name="IssueDate" type="xs:date" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" />
       <xs:element name="WasIdVerified" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -335,23 +350,23 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="IdentificationTypes">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Birth Certificate" />
-			<xs:enumeration value="Driver License" />
-			<xs:enumeration value="Foreign Driver License" />
-			<xs:enumeration value="Foreign Government Issued Id" />
-			<xs:enumeration value="Foreign Passport" />
-			<xs:enumeration value="Military Id" />
-			<xs:enumeration value="Resident Alien Card" />
-			<xs:enumeration value="Social Security Card" />
-			<xs:enumeration value="State Issued Id" />
-			<xs:enumeration value="US Passport" />
-		</xs:restriction>
-	</xs:simpleType>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="IdentificationTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Birth Certificate" />
+      <xs:enumeration value="Driver License" />
+      <xs:enumeration value="Foreign Driver License" />
+      <xs:enumeration value="Foreign Government Issued Id" />
+      <xs:enumeration value="Foreign Passport" />
+      <xs:enumeration value="Military Id" />
+      <xs:enumeration value="Resident Alien Card" />
+      <xs:enumeration value="Social Security Card" />
+      <xs:enumeration value="State Issued Id" />
+      <xs:enumeration value="US Passport" />
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="IncomeDetails">
     <xs:sequence>
@@ -413,7 +428,7 @@
       <xs:element name="ExcludeLiabilityFromCalculations" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            By default liabilities are included in any appliable 
+            By default liabilities are included in any appliable
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -495,7 +510,7 @@
             The text(s) of the Note.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>   
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -713,15 +728,15 @@
       <xs:enumeration value="Pager"/>
       <xs:enumeration value="Other"/>
     </xs:restriction>
-  </xs:simpleType> 
-  
+  </xs:simpleType>
+
   <xs:simpleType name="RateType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Fixed" />
       <xs:enumeration value="Variable" />
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:complexType name="ResidenceDetails">
     <xs:annotation>
       <xs:documentation>
@@ -746,22 +761,22 @@
     </xs:sequence>
   </xs:complexType>
 
-	<xs:simpleType name="SupportedChannels">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Web" />
-			<xs:enumeration value="Branch" />
-			<xs:enumeration value="CallCenter" />
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="SupportedChannels">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Web" />
+      <xs:enumeration value="Branch" />
+      <xs:enumeration value="CallCenter" />
+    </xs:restriction>
+  </xs:simpleType>
 
-	<xs:simpleType name="TaxIdTypes">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="SocialSecurityNumber" />
-			<xs:enumeration value="EmployerIdentificationNumber" />
-			<xs:enumeration value="ForeignNational" />
-			<xs:enumeration value="ForeignNumberNoTIN" />
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="TaxIdTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SocialSecurityNumber" />
+      <xs:enumeration value="EmployerIdentificationNumber" />
+      <xs:enumeration value="ForeignNational" />
+      <xs:enumeration value="ForeignNumberNoTIN" />
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="TimeOfDayType">
     <xs:annotation>
@@ -785,12 +800,12 @@
   </xs:simpleType>
 
   <xs:complexType name="ValuePair">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
-				<xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1" />
-			</xs:sequence>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:sequence>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="Value" type="xs:string" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
