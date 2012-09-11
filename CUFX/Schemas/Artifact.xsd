@@ -5,119 +5,156 @@
     xmlns="http://cufxstandards.com/Artifact.xsd"
     xmlns:mstns="http://cufxstandards.com/Artifact.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 >
-  <xsd:import namespace="http://cufxstandards.com/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
- 
-  <xs:complexType id="Artifact" name="Artifact" >
+  <xs:import namespace="http://cufxstandards.com/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+
+  <xs:element name= "artifacts" type ="Artifacts">
     <xs:annotation>
       <xs:documentation>
-        The Artifact
+        The artifacts collection/array contains all the artifacts for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="Artifacts">
+    <xs:annotation>
+      <xs:documentation>
+        The artifacts collection/array contains all the artifacts for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="artifact" type="Artifact" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Artifact" >
+    <xs:annotation>
+      <xs:documentation>
+        The Artifact.  An artificat is a binary reprensentation of an image, document, etc. that needs to be stored
+        in a back end system for later retrieval.
       </xs:documentation>
     </xs:annotation>
 
-
-    <xsd:sequence>
-      <xsd:element name="artifactId" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false">
+    <xs:sequence>
+      <xs:element name="artifactId" type="ArtifactId" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
             A unique number used to identify one and only one artifact within the Repository.
           </xs:documentation>
         </xs:annotation>        
-      </xsd:element>
-      <xsd:element name="artifactType" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactType" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The MIME type of the Artifact.  See RFC 2046 for valid MIME type.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="externalId" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             An identifier or reference value typically used by the Repository consumer.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifact" type="xsd:base64Binary" minOccurs="1" maxOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="artifact" type="xs:base64Binary" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
             This is the binary object containing the digital data to be stored in the Repository.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactName" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactName" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             A human readable name of the Artifact.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactDescription" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactDescription" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             A human readable text describing the contents of the Artifact.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactOwner" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactOwner" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             A human readable string describing the owner of the Artifact.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactCreationDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactCreationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The date and time at which an Artifact was created.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactModifiedDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactModifiedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The date and time at which an Artifact was modified.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactArchivedDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactArchivedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The date and time at which an Artifact was archived.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactDeletedDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactDeletedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The date and time at which an Artifact was deleted.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactCompressionType" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true">
+      </xs:element>
+      <xs:element name="artifactCompressionType" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             The type of compression used to reduce the size of the Artifact for transport over the wire (e.g “zip”, “tar”, “gzip”, “rar”, “none” etc.).  If this field is blank or null, then it is assumed that the Artifact is not in a compressed state.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-      <xsd:element name="artifactArchived" type="xsd:boolean" minOccurs="1" maxOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="artifactArchived" type="xs:boolean" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
             A flag used to determine if the Artifact has been archived or not.
           </xs:documentation>
         </xs:annotation>
-      </xsd:element>
-
-
-    </xsd:sequence>
-
-
-
-
-
-
-
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name ="ArtifactId">
+    <xs:annotation>
+      <xs:documentation>
+        A unique number used to identify one and only one artifact within the Repository.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name ="ArtifactIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Definition of list of Artifact ID's that can be used by other objects to
+        point to the each artifact in a list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="ArtifactId" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
 </xs:schema>
