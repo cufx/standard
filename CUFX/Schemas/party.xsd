@@ -1,0 +1,917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/party.xsd"
+	xmlns="http://cufxstandards.com/party.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/contact.xsd"
+	xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd"
+
+	elementFormDefault="qualified"
+	version="0.0.9"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+
+  <xs:element name= "parties" type ="Parties">
+    <xs:annotation>
+      <xs:documentation>
+        The parties collection/array contains all the parties for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="Parties">
+    <xs:annotation>
+      <xs:documentation>
+        The parties collection/array contains all the parties for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="party" type="Party" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Party">
+    <xs:annotation>
+      <xs:documentation>
+        The party object defines all the fields necessary to define a person,
+        business or vendor related to a financial institution.
+        The id uniquely identifies the party within the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="id" type="PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party ID is a persistent and unique identifier for the party not related to the accounts
+            they own but tied to that person or business. It should be unique for all parties across the
+            institution and remain the same over the life of the relationship with the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:group ref="irs" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields related to IRS reporting for the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+
+      <xs:element name="type" type="PartyType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party type is the textual representation of what the party record represents.
+            If Organization is Noted: then certain fields like first and last name won't apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="entity" type="Entity">
+        <xs:annotation>
+          <xs:documentation>
+            All the fields related to the party that define it as an entity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="identificationDocumentList" type="IdentificationDocumentList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of identification Documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="eligibilityRequirementsMet" type="EligibilityRequirementsMet" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of how the party qualified for membership with the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of how the party can be contacted for existing contact points.
+            This is a list of Contact ID's and the details are available in the contact records.
+            This is provided to enable a method for connecting parties to existing contact points.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ContactList" type="contact:Contacts" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of how the party can be contacted for new contact points.
+            This is a list of Contact information not yet available in the existing contact points.
+            This is provided to enable a method for providing information for contact points not yet
+            available.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="credentialList" type="CredentialList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is a list of crecentials used to access systems for the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name ="PartyId">
+    <xs:sequence>
+      <xs:element name ="id">
+        <xs:annotation>
+          <xs:documentation>
+            The party ID is a persistent and unique identifier for the party not related to the accounts
+            they own but tied to that person or organization. It should be unique for all parties across the
+            institution and remain the same over the life of the relationship with the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name ="PartyIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Definition of list of party ID's that can be used by other objects to
+        point to the each party in a list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="PartyId" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:group name ="irs">
+    <xs:sequence>
+      <xs:element name="taxId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
+            or the organizational Employer Identification Number (EIN).
+            Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
+            i.e. 9 digit string with no dashes and zero filled.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:pattern value="[0-9]{9}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="reportingFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whether the financial income for this party should be reported to the U.S.
+            government (IRS) when related to an account in a way which requires
+            reporting (for example, primary, joint ownership).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="verifiedTaxIdFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The taxId has been verified by the IRS as valid.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="taxIdWarningCount" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Number of times that the IRS has notified the FI that there are issues with the taxId.
+            This is not used in initial creation but can be used for later processing.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="backupWithholdingFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This taxId is subject to backup withholding.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="backupWithholdingReason" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The reason that the taxId is subject to backup withholding.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="backupWithholdingExemptionReason"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The reason that the taxId is NOT subject to backup withholding
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ExceptFromWithholding" />
+            <xs:enumeration value="NotNotifiedByIrs" />
+            <xs:enumeration value="IrsNotifiedNoLongSubject" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="backupWithholdingEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Date the taxId has submitted their backup withholding information.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) formats is supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:complexType name="Entity">
+    <xs:choice>
+      <xs:group ref="organization" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields specific to organization party type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+
+      <xs:group ref="individual" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields specific to individual party type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+
+      <xs:group ref="trust" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields specific to trust party type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+
+      <xs:group ref="estate" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields specific to estate party type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+    </xs:choice>
+  </xs:complexType>
+
+
+  <xs:group name="organization">
+    <xs:annotation>
+      <xs:documentation>
+        Fields related to when the party is a an Organization.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Organization Type is the textual representation
+            of what kind of organization it is.
+            Completed if party Type is ORGANIZATION.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="organizationName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Standard/legal name the organization.
+            Used if Type is NOT INDIVIDUAL
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="doingBusinessAsList" type="DoingBusinessAsList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Either the organization that the record represents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:simpleType name="OrganizationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SoleProprietorship" />
+      <xs:enumeration value="Llc" />
+      <xs:enumeration value="Partnership" />
+      <xs:enumeration value="Corporation" />
+      <xs:enumeration value="NotForProfit" />
+      <xs:enumeration value="Club" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:group name="individual">
+    <xs:annotation>
+      <xs:documentation>
+        Fields related to when the party is a an individual.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s first name is the persons given name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s middle name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="lastName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s last name or surname.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s prefix to their name such as title.  Typical examples are Dr. Mr., Mrs, etc..
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s suffix to their name.  Typical examples are Jr. III, etc..
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="formattedName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            All party name fields combined into one.
+            This is typically read-only field that can be return by the data source.
+            But, to remain flexible this field can be either written to
+            or returned by the data source.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s casual or familiar name reference.
+            Typical examples might be Tim if firstname is Timothy, or Jenny instead of Jennifer.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="birthdate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Birth date of the individual
+            Used if Type is INDIVIDUAL.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) formats is supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="gender" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Gender of party
+            Used if Type is INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Male" />
+            <xs:enumeration value="Female" />
+            <xs:enumeration value="Other" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="cityOfBirth" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Birth place of individual (city only)
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="citizenshipList" type="CitizenshipList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of Countries where the member has citizenship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="occupation" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Occupation of the individual.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="employer" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Employer of the individual.  Typically will have Self Employed if
+            running own business.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="grossMonthlyPay" type="xs:decimal" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Monthly income stream for individual from the employer before taxes.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="netMonthlyPay" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Monthly income stream for individual from the employer after taxes
+            and other deductible items.
+            Used only for type equal to INDIVIDUAL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:group name="trust">
+    <xs:annotation>
+      <xs:documentation>
+        Fields related to when the party is a TRUST.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Legal name of the Trust.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:group name="estate">
+    <xs:annotation>
+      <xs:documentation>
+        Fields related to when the party is a ESTATE.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Legal name of the Estate.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+
+  <xs:complexType name="CitizenshipList">
+    <xs:annotation>
+      <xs:documentation>
+        List of countries where the party has citizenship.  Country code is expected to be ISO 3166-1 2 character codes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="citizenship" type="ISOCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="PartyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Individual" />
+      <xs:enumeration value="Organization" />
+      <xs:enumeration value="Trust" />
+      <xs:enumeration value="Estate" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="DoingBusinessAsList">
+    <xs:sequence>
+      <xs:element name="doingBusinessAs" type="DoingBusinessAs" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DoingBusinessAs">
+    <xs:sequence>
+      <xs:element name="doingBusinessAsId" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Doing business as id to uniquely identify each Doing Business As (DBA) description.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="doingBusinessAsName" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name that the business is Doing Business As
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IdentificationDocumentList">
+    <xs:sequence>
+      <xs:element name="identificationDocument" type="IdentificationDocument" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IdentificationDocument">
+    <xs:sequence>
+      <xs:element name="documentNumber" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The actual identifier assigned by the state, government or other institution to the document.
+            Examples would be a driver’s license or passport number.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:group ref="documentType" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Type of document.  Related to the party type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:group>
+
+      <xs:element name="documentDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description of ID beyond the type… such as State of issuance,
+            country of issuance, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="displayOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The order in which this document will be displayed
+            when multiple documents exist and are brought up on the screen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="effectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the document became effective…
+            For example, when was business started based on articles of incorporation.
+
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="expirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of that the documents expired or will expire.
+
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="artifactId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Artifact ID for the image of the documentation that is stored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:group name="documentType">
+    <xs:choice>
+      <xs:element name="individualDocument" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Documentation Type for individuals
+          </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="DriversLicense" />
+            <xs:enumeration value="Passport" />
+            <xs:enumeration value="MilitaryId" />
+            <xs:enumeration value="StateIssuedId" />
+            <xs:enumeration value="BirthCertficate" />
+            <xs:enumeration value="ForeignPassport" />
+            <xs:enumeration value="KnownExistingParty" />
+            <xs:enumeration value="ForeignGovernmentId" />
+            <xs:enumeration value="ResidentAlienCard" />
+            <xs:enumeration value="DisabledElderlyWithNoId" />
+            <xs:enumeration value="ForeignEntityWithNoId" />
+            <xs:enumeration value="LawEnforcementId" />
+            <xs:enumeration value="AmishPartyWithNoId" />
+            <xs:enumeration value="ForeignDriversLicense" />
+            <xs:enumeration value="InsuranceCard" />
+            <xs:enumeration value="OrganizationalMembershipCard" />
+            <xs:enumeration value="PropertyTaxBill" />
+            <xs:enumeration value="SocialSecurityCard" />
+            <xs:enumeration value="StudentId" />
+            <xs:enumeration value="UtilityBill" />
+            <xs:enumeration value="Visa" />
+            <xs:enumeration value="VoterRegistrationCard" />
+            <xs:enumeration value="Photo" />
+            <xs:enumeration value="Other" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="organizationDocument" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Documentation Types for Organizations.
+            Used only for type equal to ORGANIZATON.
+          </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="StateDba" />
+            <xs:enumeration value="ArticlesOfIncorporation" />
+            <xs:enumeration value="BusinessLicense" />
+            <xs:enumeration value="CorporateResolution" />
+            <xs:enumeration value="SecretaryOfStateFilingReceipt" />
+            <xs:enumeration value="AssociationMinutes" />
+            <xs:enumeration value="PartnershipAgreement" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="trustDocument" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Documentation Types for Trusts.
+            Used only for type equal to TRUST.
+          </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TrustDocument" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="estateDocument" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Documentation Types for Trusts.
+            Used only for type equal to TRUST.
+          </xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Will" />
+            <xs:enumeration value="EstateInstrument" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+
+  <xs:complexType name="EligibilityRequirementsMet">
+    <xs:annotation>
+      <xs:documentation>
+        List of how the party qualified for membership with the
+        financial institution
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="eligibilityRequirementMet" type="EligibilityRequirementMet" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            How the party was eligibile.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EligibilityRequirementMet">
+    <xs:sequence>
+      <xs:element name="requirementID" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Identifier for type of the eligibility requirement that the party met.
+            For most financial institution this might be a select employee group,
+            a community identifier or other field of membership criteria identifier.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="referenceDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description of how the party met eligibility requirement
+            or additional information beyond the Reference ID (such as
+            a geographical reference, etc.)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CredentialList">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of credentials for the party for accessing different systems.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="credentialGroup" type="CredentialGroup" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Combination of credentials necessary
+            to get access to a system.  For example, combination of username,
+            password and token.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CredentialGroup">
+    <xs:sequence>
+      <xs:element name="fiUserId" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier used to find the party
+            credential group for updating in the future
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="credentials" type="Credentials" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Credentials is a list of fields for a credential.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Credentials">
+    <xs:sequence>
+      <xs:element name="type" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Type of the credentials being used.
+            Codeword is used to accessing account when in person or over the phone.
+            This is typically different than password used when accessing the
+            account electronically.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:enumeration value="Username" />
+            <xs:enumeration value="Password" />
+            <xs:enumeration value="Pin" />
+            <xs:enumeration value="Codeword" />
+            <xs:enumeration value="Token" />
+            <xs:enumeration value="SecurityQuestion" />
+            <xs:enumeration value="SecurityAnswer" />
+            <xs:enumeration value="ChallengeQuestion" />
+            <xs:enumeration value="ChallengeAnswer" />
+            <xs:enumeration value="AntiphishingPhrase" />
+            <xs:enumeration value="AntiphishingImageUrl" />
+            <xs:enumeration value="AntiphishingImageArtifactId" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="encrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True, indicates that the credential was encrypted.
+            Encryption method is agreed upon by application end point
+            providers.  Assume it’s NOT encrypted if this flag is not provided.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="value" type="xs:NMTOKEN" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The value of the credential.  i.e the actual password, pin,
+            answer, question, url for the image,  etc.  Recommended: This
+            value can be encrypted beyond the message encryption since the
+            data values are very sensitive.   Optionally, client and Security
+            Services can pass encrypted credential values using RSA-2048.
+            credential encrypted flag indicates that it was encrypted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Expiration date and time of the credentials.  The date/time
+            should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="temporary" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True, the credentials are temporary and must be reset
+            upon first use of the credentials.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name/data pairs list of fields that are not yet available
+            the general specification.  This should be used as LAST RESORT
+            as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this
+            field must be reported to the architecture or working group committee
+            to ensure that fields are somehow handled in the future release of
+            specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/lead.xsd"
+	xmlns="http://cufxstandards.com/lead.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:contact="http://cufxstandards.com/contact.xsd"
+	xmlns:party="http://cufxstandards.com/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/relationship.xsd"
+  
+  elementFormDefault="qualified"
+	version="0.0.4"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
+
+  <xs:element name="leads" type="Leads">
+    <xs:annotation>
+      <xs:documentation>
+        The leads collection/array contains all the leads, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
+
+        The lead may be connected to an existing party, relationship and/or contact.
+        In addition, a lead may exist without an existing relationship or contact.
+        The lead if created without connection to existing party, contact or relationship
+        could be converted to be connected to an existing party, contact and relationship
+        or aid in creating a contact, party and relationship.  If created without connection
+        to existing party, etc. then it might be sent to a CRM system for follow up with the
+        contact or pushed to another system after the lead has been fullfilled.
+      </xs:documentation>
+    </xs:annotation>
+    </xs:element>
+
+
+  <xs:complexType name ="Leads">
+    <xs:annotation>
+      <xs:documentation>
+        The leads collection/array contains all the leads, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="lead" type="Lead" minOccurs="0" maxOccurs="unbounded" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of fields for a lead
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType>
+
+  <xs:complexType name ="Lead">
+    <xs:annotation>
+      <xs:documentation>
+        The lead object defines all the fields necessary to define a
+        that an existing or potential party is interested in a particular product.
+        The lead can migrate throguh several statuses as the lead progresses.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="leadId" type="LeadId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the lead.  This is not provided as an input,
+            but as an output after the lead has been created.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="productsOfInterest" type="ProductsOfInterest" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A list of Products that the contact is interested in.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadSource" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            What channel did this lead originate from…for example but not limited to web site,
+            new member application, walk up, partner web site, business development, marketing, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name ="contactIdList" type ="contact:ContactIdList">
+        <xs:annotation>
+          <xs:documentation>
+            Use if this is for an existing contacts.  Contains a list of existing unique contact ID's
+            for how the party/parties which to be contacted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of key fields to point to a list of existing parties for which the lead applies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name ="parties" type ="party:Parties"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Use if this is for new Parties that do not yet exist on the back end systems.
+            Contains a list of parties for how the party/parties would like to be contacted.
+            There may be a very limited subset of party data available as this is only a lead for a new
+            party and the amount of information provided for the lead may be very minimal.
+            (such as first and last name and contacts may be email address or a phone number)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of key fields to point to a list of
+            existing relationships for which the lead applies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadStatus" type="LeadStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Status of the lead to indicate how the lead is progressing from a workflow standpoint.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadCreateDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The UTC date/time that the lead was created in the system.  The date/time
+            should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadRequestorNotes" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Notes entered by requestor.  Free form comments.  This may have been notes entered by the party
+            or by the person on behalf of the party to initiate the lead.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadFulfillmentNotes" type="LeadFulfillmentNotes" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Notes entered by personnel that is attempting to follow up on the lead to conclusion.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductsOfInterest">
+    <xs:annotation>
+      <xs:documentation>
+        A list of Products that the contact is interested in.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productOfInterest" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A product or service that the party is interested in…for example but not
+            limited to credit card, mortgage, membership , new account, insurance, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType >
+
+  <xs:complexType name ="LeadId">
+    <xs:sequence>
+      <xs:element name ="id">
+        <xs:annotation>
+          <xs:documentation>
+            The lead ID is a persistent and unique identifier for the lead.
+            It should be unique for all leads across the institution and remain
+            the same over the life of the lead within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name ="LeadIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Definition of list of lead ID's that can be used by other objects to
+        point to the each lead in a list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="LeadId" minOccurs="0" maxOccurs="unbounded"
+        nillable="true">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="LeadStatus">
+    <xs:annotation>
+      <xs:documentation>
+        Status of the lead to indicate how the lead is progressing from a workflow standpoint.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="New">
+        <xs:annotation>
+          <xs:documentation>
+            The lead is new and has not been handled by internal teams.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Assigned">
+        <xs:annotation>
+          <xs:documentation>
+            The lead is has been allocated to a resource to get back to the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="InDiscussion">
+        <xs:annotation>
+          <xs:documentation>
+            The internal resource has contacted the lead and negotiating with the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="InProposal">
+        <xs:annotation>
+          <xs:documentation>
+            The internal resource has proposed a product or service to the party and is waiting on an answer from the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="VerbalCommitment">
+        <xs:annotation>
+          <xs:documentation>
+            The party has tentatively accepted the proposal but not officially committed to the offer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Converted">
+        <xs:annotation>
+          <xs:documentation>
+            The party has accepted the proposal and committed to the offer and the process is complete for the lead.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Lost">
+        <xs:annotation>
+          <xs:documentation>
+            The party has rejected the proposal and is not interested in further proposals and the process is complete for the lead.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="LeadStatusList">
+    <xs:sequence>
+     <xs:element name="leadStatus" type="LeadStatus" minOccurs="0" maxOccurs="unbounded">
+       <xs:annotation>
+         <xs:documentation>
+           List of Lead status, typically used for filtering.
+         </xs:documentation>
+       </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LeadFulfillmentNotes">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of fulfillment note fields.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LeadFulfillmentNote" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Text of the note entered by person attempting to bring lead to conclusion.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LeadFulfillmentNote">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of fulfillment note fields.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="leadFulfillmentNoteText" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Text of the note entered by person attempting to bring lead to conclusion.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="leadFulfillmentNoteDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date of when the note was entered into the system by the user.  The date/time
+            should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType >
+</xs:schema>
+
+
+

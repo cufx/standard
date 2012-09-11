@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 	targetNamespace="http://cufxstandards.com/preference.xsd"
+	xmlns="http://cufxstandards.com/preference.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/contact.xsd"
+	xmlns:party="http://cufxstandards.com/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/relationship.xsd"
+	xmlns:card="http://cufxstandards.com/card.xsd"
+	xmlns:account="http://cufxstandards.com/Account.xsd"
+
+	elementFormDefault="qualified"
+	version="0.0.5"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
+	<!-- <xs:import namespace="http://cufxstandards.com/card.xsd" schemaLocation="card.xsd" /> -->
+	<!--<xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" /> -->
+
+	<xs:element name="preferences" type="Preferences">
+		<xs:annotation>
+			<xs:documentation>
+				The preferences collection/array contains all the preferences, for instance, that the credential set is
+				authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:complexType name ="Preferences">
+		<xs:annotation>
+			<xs:documentation>
+				The parties collection/array contains all the parties for instance that the credential set is
+				authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="preference" type="Preference" minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of fields for a preference
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType>
+
+
+	<xs:complexType name ="Preference">
+		<xs:annotation>
+			<xs:documentation>
+				The preference object defines all the fields necessary to define a
+				person, business or vendor related to a financial institution.
+				The id uniquely identifies the party within the financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="preferenceId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the preference.  This is not provided as an input,
+						but as an output after the preference has been created.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of parties for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="relationshipList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of relationships for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<!-- <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of accounts for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>  -->
+
+			<!-- <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of cards for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+
+			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of contacts for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="type" type="Type" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Preference Type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="subType" type="SubType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Sub type of preference.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lastChangedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date that the preference was last changed.  Typically read only.  
+						The date/time should be ISO 8601 UTC format.  
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assume to be 00:00Z if omitted. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The value specified for the preference.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="alertCustomText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional custom text to send in an alert.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+
+	</xs:complexType>
+
+	<xs:simpleType name ="Type">
+		<xs:annotation>
+			<xs:documentation>
+				Type of preference.  Additions to this list can be submitted to the CUFX committee.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="EAlert" />
+			<xs:enumeration value ="EStatment" />
+			<xs:enumeration value ="ENotice" />
+			<xs:enumeration value ="Newsletter" />
+			<xs:enumeration value ="Communication" />
+			<xs:enumeration value ="Laguage" />
+			<xs:enumeration value ="ContactHours" />
+			<xs:enumeration value ="WebSiteFormat" />
+			<xs:enumeration value ="MobileSiteFormat" />
+			<xs:enumeration value ="ContactFormat" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name ="SubType">
+		<xs:annotation>
+			<xs:documentation>
+				Sub Type of preference.  Additions to this list can be submitted to the CUFX committee.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="AtmTransactionExceeds" />
+			<xs:enumeration value ="AtmDepositExceeds" />
+			<xs:enumeration value ="AutomatedTransferExceeds" />
+			<xs:enumeration value ="BalanceFellBelow" />
+			<xs:enumeration value ="BalanceExceeds" />
+			<xs:enumeration value ="BillPayExceeds" />
+			<xs:enumeration value ="BillPayPayeeAdded" />
+			<xs:enumeration value ="BillPayPaymentRejected" />
+			<xs:enumeration value ="BillPayPaymentPaid" />
+			<xs:enumeration value ="CourtesyPayExceeds" />
+			<xs:enumeration value ="CheckWithdrawalExceeds" />
+			<xs:enumeration value ="DebitCardTransactionExceeds" />
+			<xs:enumeration value ="DepositedFundsHaveBeenReturned" />
+			<xs:enumeration value ="DirectDepositExceeds" />
+			<xs:enumeration value ="ExternalTransferExceeds" />
+			<xs:enumeration value ="IncomingWireExceeds" />
+			<xs:enumeration value ="HoldPlacedOnAccount" />
+			<xs:enumeration value ="HoldRemovedFromAccount" />
+			<xs:enumeration value ="LoginAttempted" />
+			<xs:enumeration value ="OutgoingWireExceeds" />
+			<xs:enumeration value ="ScheduledPaymentHasStopped" />
+			<xs:enumeration value ="ScheduledPaymentHasFailed" />
+			<xs:enumeration value ="SpecificCheckNumberHasCleared" />
+			<xs:enumeration value ="StatementAvailable" />
+			<xs:enumeration value ="ScheduledMessage" />
+			<xs:enumeration value ="InsufficientFundsToPayCheck" />
+			<xs:enumeration value ="Html" />
+			<xs:enumeration value ="Text" />
+			<xs:enumeration value ="StyleSheet" />
+			<xs:enumeration value ="Widget" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>

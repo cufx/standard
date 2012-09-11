@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/contact.xsd"
+	xmlns="http://cufxstandards.com/contact.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/Common.xsd"
+	xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd"
+	elementFormDefault="qualified"
+	version="0.0.8"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+
+	<xs:element name ="contacts" type ="Contacts">
+		<xs:annotation>
+			<xs:documentation>
+				The contacts collection/array contains all the contacts for instance that the
+				credential set is authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	
+	<xs:complexType name="Contacts">
+		<xs:annotation>
+			<xs:documentation>
+				List of how the party can be contacted.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						Each contact within the ContactList.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Contact">
+		<xs:sequence>
+			<xs:element name="contactId" type="ContactId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier either within system to uniquely
+						identify this contact point.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="contactType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						High level category for contacting the party.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Address" />
+						<xs:enumeration value="Phone" />
+						<xs:enumeration value="Email" />
+						<xs:enumeration value="InstantMessaging" />
+						<xs:enumeration value="Social" />
+						<xs:enumeration value="Website" />
+						<xs:enumeration value="Other" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:group ref="point" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Details on the contact point based on the contact type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:group>
+
+			<xs:element name="demonstratedAccess" type="DemonstratedAccess" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Is a collection of fields that identifies that appropriate access has been 
+						demonstrated to receive information electronically for this contact point.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="ContactIdList">
+		<xs:annotation>
+			<xs:documentation>
+				Definition of list of contact ID's that can be used by other objects to
+				point to the list.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+		<xs:element name="contactId" type="ContactId" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifer for a contact record.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:group name="point" >
+		<xs:choice>
+			<xs:element name="address" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to address contact points.
+					</xs:documentation>
+				</xs:annotation>
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="type"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Address Type.  CTR is used if the CTR address is
+									different than the primary address.  Temporary
+									address is used for vacation homes, etc. when contact
+									is not at home or work address.
+									The temporary address overrides the home address when
+									effective/expiration dates signal that temporary address
+									is effective.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Home" />
+									<xs:enumeration value="Work" />
+									<xs:enumeration value="Mailing" />
+									<xs:enumeration value="Temporary" />
+									<xs:enumeration value="CTR" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+
+						<xs:element name="effectiveDate" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Used on if address is type is TEMPORARY.
+									Address Effective Date and time.
+									The date/time should be ISO 8601 UTC format.
+									yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z)
+									or yyyy-mm-dd (2011-03-28) formats are supported.
+									The time is assume to be 00:00Z if omitted.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="expirationDate" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Used on if address is type is TEMPORARY.
+									Address Expiraton Date and time.
+									The date/time should be ISO 8601 UTC format.
+									yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z)
+									or yyyy-mm-dd (2011-03-28) formats are supported.
+									The time is assume to be 00:00Z if omitted.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						
+						<xs:element name="line1" type="xs:string"  minOccurs="1" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Street address (Physical Address).
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						
+						<xs:element name="line2" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Additional Address Information.  Typically contains additional
+									information such as an apartment number, etc.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="line3" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Additional Address Information.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+
+						<xs:element name="city" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									City where party resides.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="state" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									State where party resides.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="postalCode" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Postal code or Zip Code where party resides.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="countryCode" type="ISOCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Country where party resides.  This is the ISO 3166 2 Character 
+									Country Code.  Back end systems can translate this into the
+									country description.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Country where party resides.
+									This is typically read only as it recommended to be
+									calculated based on the CountryCode.
+									Description based on the ISO 3166 2 Character Country Code.
+									Back end systems can translate this to from the country code.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="phone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to phone contact points when phone type selected.
+					</xs:documentation>
+				</xs:annotation>
+				
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="type"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Phone Type.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Home" />
+									<xs:enumeration value="Work" />
+									<xs:enumeration value="Cell" />
+									<xs:enumeration value="Pager" />
+									<xs:enumeration value="Fax" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+
+						<xs:element name="number" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Phone Number.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="extension" type="xs:string"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Phone Number Extension.  This is typically only
+									seen when Phone Type is WORK but can apply to others in
+									rare circumstances.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="planFormat" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									The format of the phone number.   Note: The NANP
+									(North American Number Plan) is a subset of the ITU E.164
+									standard.  Please refer to the E.164 specifications for
+									possible length of a fully qualified phone number.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Nanp">
+										<xs:annotation>
+											<xs:documentation>
+												(North American Number Plan Administration):
+												+1-NPA-NXX-xxxx  : Example: 1-847-555-1212
+											</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+
+									<xs:enumeration value="NanpLessCountryCode">
+										<xs:annotation>
+											<xs:documentation>
+												(North American Number Plan
+												without the Country Code):  NPA-NXX-xxxx
+												: Example 847-555-1212
+											</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+
+									<xs:enumeration value="OtherInternational">
+										<xs:annotation>
+											<xs:documentation>
+												Non-North American Number Plan phone numbers.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+
+									<xs:enumeration value="NationalNumber">
+										<xs:annotation>
+											<xs:documentation>
+												This is an exception to the E.164 standard
+												such as 411, 911, etc. to support shortened
+												numbers within national boarders.  This
+												value was provided to ensure 100% coverage of all
+												types.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:enumeration>
+								</xs:restriction >
+							</xs:simpleType>
+						</xs:element>
+
+						<xs:element name="smsRegistered" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Phone Number is registered to receive SMS messages.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence >
+				</xs:complexType >
+			</xs:element>
+
+			<xs:element name="email" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to email contact points when email type selected.
+					</xs:documentation>
+				</xs:annotation>
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="type"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Email Type.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Home" />
+									<xs:enumeration value="Work" />
+									<xs:enumeration value="Other" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+
+						<xs:element name="address" type="common:Email" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Contact Email Address
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element >
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="instantMessage" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to instant message contact points when instant message type selected.
+					</xs:documentation>
+				</xs:annotation>
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="messagingService" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Instant Messaging Service.  Examples would be Google IM, 
+									Jabber, AOL, Yahoo, Facebook, Skype, etc.  Not a restricted value
+									as these services change a lot.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Contact user name within the instant messaging platform.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="social" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to social contact points when social type selected.
+					</xs:documentation>
+				</xs:annotation>
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="socialService" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Social Service.  Examples would be Facebook, Twitter,
+									Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+									as these services change a lot.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Contact user name within the social platform.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="website" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to website contact points when website type selected.
+					</xs:documentation>
+				</xs:annotation>
+
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="sitename" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									The URL of the web site.  Examples would be Facebook, Twitter,
+									Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+									as these services change a lot.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+
+						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Contact user name within the social platform.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+
+	<xs:complexType name="DemonstratedAccess">
+		<xs:annotation>
+			<xs:documentation>
+				Is a collection of fields that identifies that appropriate access has been
+				demonstrated to receive information electronically for this contact point.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="dateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date/time that the party demonstrated that they have access
+						to using this contact point for electronic delivery.
+						The date/time should be ISO 8601 UTC format.  
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fullName" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The full name of the party demonstrated that they have access to
+						using this preference.  Depending upon the use case, this may or
+						may not be provided but will typically be the name that the user 
+						typed in when they agreed to the conditions.  Since a person’s
+						name can change name overtime, best practice is to store this at
+						time that agreement was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="userName" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The credential username of the party that demonstrated they have access. 
+						Since the username for a contact may change over time, best practice 
+						is to store this at the time that agreement was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="ContactId">
+    <xs:sequence>
+      <xs:element name="contactId" type="xs:string" minOccurs="0" maxOccurs ="1">
+      </xs:element >
+    </xs:sequence>
+	</xs:complexType>
+</xs:schema>
