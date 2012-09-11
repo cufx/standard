@@ -5,14 +5,17 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/contact.xsd"
+  xmlns:artifact="http://cufxstandards.com/Artifact.xsd"
+
 	xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
-	version="0.0.9"
+	version="0.0.10"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Artifact.xsd" schemaLocation="Artifact.xsd" />
   <xs:import namespace="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
   <xs:element name= "parties" type ="Parties">
@@ -643,7 +646,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="artifactId" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="artifactId" type="artifact:ArtifactId"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The Artifact ID for the image of the documentation that is stored.
