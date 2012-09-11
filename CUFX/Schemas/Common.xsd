@@ -3,8 +3,12 @@
 	targetNamespace="http://cufxstandards.com/Common.xsd"
 	xmlns="http://cufxstandards.com/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCurrencyCodeType.xsd"
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 
   <xs:simpleType name="AccountCategories">
     <xs:restriction base="xs:string">
@@ -23,10 +27,11 @@
       <xs:element name="value" minOccurs ="1" maxOccurs="1">
       </xs:element>
 
-      <xs:element name="currencyCode" minOccurs ="1" maxOccurs="1">
+      <xs:element name="currencyCode" type="ISOCountryCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
         <xs:annotation>
           <xs:documentation>
             Currency Code in ISO 4217 3 character format.
+            If currency code isn't provided it should be defaulted to USD.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
