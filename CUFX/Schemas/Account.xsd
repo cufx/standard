@@ -1,62 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema
-		targetNamespace="http://cufxstandards.com/Account.xsd"
-		xmlns="http://cufxstandards.com/Account.xsd"
-		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-		xmlns:ad="http://cufxstandards.com/AccountDetail.xsd"
-		xmlns:m="http://cufxstandards.com/Meta.xsd"
-		elementFormDefault="qualified"
-		version="1.2.3"
-		attributeFormDefault="unqualified">
-	
-		<xsd:import namespace="http://cufxstandards.com/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
-		<xsd:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
+<xs:schema
+  targetNamespace="http://cufxstandards.com/Account.xsd"
+	xmlns="http://cufxstandards.com/Account.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:m="http://cufxstandards.com/Meta.xsd"
+  xmlns:common="http://cufxstandards.com/Common.xsd"
+	elementFormDefault="qualified"
+	version="1.2.3"
+	attributeFormDefault="unqualified">
+  
+  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
 
-		<xsd:complexType name="account">
-			<xsd:sequence>
-				<xsd:element name="accountDetail" type="ad:AccountDetail"></xsd:element>
-			<xsd:element name="transactions" type="Transactions"></xsd:element>
-			<xsd:element name="Meta" type="m:Meta" minOccurs="1"
+
+  <xs:element name= "accounts" type ="Accounts">
+    <xs:annotation>
+      <xs:documentation>
+        The accounts collection/array contains all the accounts for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="Accounts">
+    <xs:annotation>
+      <xs:documentation>
+        The accounts collection/array contains all the accounts for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Account">
+	  <xs:sequence>
+      <xs:element name="id" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The account ID is a persistent and unique identifier for the account.
+            It must be unique for all users across the institution and remain the same over the life of the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The account description is the textual representation of the account.
+            This value is visible to the user and must be human-readable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="type" type="AccountType">
+        <xs:annotation>
+          <xs:documentation>
+            The account type is the textual representation the kind of account.
+            This value is visible to the user and must be human-readable.
+            Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="subType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            The account sub type that identifies the specific account type
+            that the back end system will recognize based on
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="openDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the account was opened.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountName" type="xs:string"></xs:element>
+
+      <xs:element name="actualBalance" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>
+            Negative, Zero or Positive amount.
+            If this is a loan any balance owed to the financial institution will show as a positive amount.
+            If this is a deposit product, if the product is overdrawn it will be a negative amount.
+            Positive is assumed if the sign does not appear in the data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="availableBalance" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>
+            Negative, Zero or Positive amount.
+            If this is a loan any balance owed to the financial institution will show as a positive amount.
+            If this is a deposit product, if the product is overdrawn it will be a negative amount.
+            Positive is assumed if the sign does not appear in the data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Account level name/data pairs list of fields that are not yet available the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers and able to be processed by client applications.
+            ANY use of this field must be reported to the architecture or working group committee to ensure that fields are somehow handled in the future release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Meta" type="m:Meta" minOccurs="1"
 				maxOccurs="1" nillable="true">
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+      </xs:element>
+			<xs:element name="transactions" type="Transactions"></xs:element>
 
-	<xsd:complexType name="Transactions">
-		<xsd:sequence>
-			<xsd:element name="transaction" maxOccurs="unbounded"
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Transactions">
+		<xs:sequence>
+			<xs:element name="transaction" maxOccurs="unbounded"
 				nillable="true">
-				<xsd:complexType>
-					<xsd:sequence>
-						<xsd:element name="id" type="xsd:string" minOccurs="1">
-						</xsd:element>
-						<xsd:element name="type">
-							<xsd:simpleType>
-								<xsd:restriction base="xsd:string">
-									<xsd:enumeration value="DEBIT"></xsd:enumeration>
-									<xsd:enumeration value="CREDIT"></xsd:enumeration>
-								</xsd:restriction>
-							</xsd:simpleType>
-						</xsd:element>
-						<xsd:element name="amount" type="xsd:decimal"></xsd:element>
-						<xsd:element name="description" type="xsd:string">
-						</xsd:element>
-						<xsd:element name="datePosted" type="xsd:date">
-						</xsd:element>
-						<xsd:element name="status">
-							<xsd:simpleType>
-								<xsd:restriction base="xsd:string">
-									<xsd:enumeration value="POSTED"></xsd:enumeration>
-									<xsd:enumeration value="PENDING"></xsd:enumeration>
-								</xsd:restriction>
-							</xsd:simpleType>
-						</xsd:element>
-						<xsd:element name="principalAmount" type="xsd:decimal">
-						</xsd:element>
-					</xsd:sequence>
-				</xsd:complexType>
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" type="xs:string" minOccurs="1">
+						</xs:element>
+						<xs:element name="type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Debit"></xs:enumeration>
+									<xs:enumeration value="Credit"></xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="amount" type="xs:decimal"></xs:element>
+						<xs:element name="description" type="xs:string">
+						</xs:element>
+						<xs:element name="datePosted" type="xs:date">
+						</xs:element>
+						<xs:element name="status">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Posted"></xs:enumeration>
+									<xs:enumeration value="Pending"></xs:enumeration>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="principalAmount" type="xs:decimal">
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-</xsd:schema>
+  <!-- Do we need both AccountCategories and AccountType?  It seems like categories is only related to deposits and should be moved-->
+  <xs:simpleType name="AccountCategories">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Savings" />
+      <xs:enumeration value="Checking" />
+      <xs:enumeration value="MoneyMarket" />
+      <xs:enumeration value="Certificate" />
+      <xs:enumeration value="IRA" />
+      <xs:enumeration value="HSA" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- TODO: Need to review.  Conflict with LoanAccountCategories.  Values are not mutually exlcusive (I can be a loan, and a LOC)-->
+  <xs:simpleType name="AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Checking">
+        <xs:annotation>
+          <xs:documentation>
+            Checking account. i.e. checks can be written against the account.
+            Money market accounts can be included here or in money markets.  It's up to the institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Savings">
+        <xs:annotation>
+          <xs:documentation>
+            Savings and club accounts.  This can optionally include CD's, but up to institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Loan">
+        <xs:annotation>
+          <xs:documentation>
+            Loans that are NOT line of credit or credit cards.  Auto's, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CreditCard">
+        <xs:annotation>
+          <xs:documentation>
+            Loan behind the credit credit.  Note that the actual card information in the card object.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LineOfCredit">
+        <xs:annotation>
+          <xs:documentation>
+            Loan that is a line of credit but NOT a credit card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mortgage">
+        <xs:annotation>
+          <xs:documentation>
+            Loan that is a line of credit but NOT a credit card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Investment">
+        <xs:annotation>
+          <xs:documentation>
+            Investment accounts such as brokerage and this can optionally include CD's, but up to institution.
+            May include Money markets.  It's up to the institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

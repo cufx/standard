@@ -1,101 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema
+<xs:schema
 		targetNamespace="http://cufxstandards.com/AccountDetail.xsd"
 		xmlns="http://cufxstandards.com/AccountDetail.xsd"
-		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:common="http://cufxstandards.com/Common.xsd"
+		xmlns:account="http://cufxstandards.com/Account.xsd"
+    xmlns:party="http://cufxstandards.com/party.xsd"
+    xmlns:relationship="http://cufxstandards.com/relationship.xsd"
+    xmlns:contact="http://cufxstandards.com/contact.xsd"
+
 		elementFormDefault="qualified"
 		attributeFormDefault="unqualified">
 
-	<xsd:complexType name="AccountDetail">
-		<xsd:annotation>
-			<xsd:documentation>
-				This is a comment added by Curt.
-			</xsd:documentation>
-		</xsd:annotation>
-		<xsd:sequence>
-			<xsd:element name="id" type="xsd:string">
-				<xsd:annotation>
-					<xsd:documentation>
-						The account ID is a persistent and unique identifier for the account. 
-						It must be unique for all users across the institution and remain the same over the life of the account.
-					</xsd:documentation>
-				</xsd:annotation>				
-			</xsd:element>
-			<xsd:element name="description" type="xsd:string">
-				<xsd:annotation>
-					<xsd:documentation>
-						The account description is the textual representation of the account. 
-						This value is visible to the user and must be human-readable.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="type" type="AccountType">
-				<xsd:annotation>
-					<xsd:documentation>
-						The account type is the textual representation the kind of account. 
-						This value is visible to the user and must be human-readable.  
-						Note: CD’s and MONEY MARKETS should be denoted as INVESTMENT.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="openDate" type="xsd:date">
-				<xsd:annotation>
-					<xsd:documentation>
-						The date that the account was opened.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="subType" type="xsd:string"></xsd:element>
-			<xsd:element name="accountName" type="xsd:string"></xsd:element>
-			<xsd:element name="actualBalance" type="xsd:decimal">
-				<xsd:annotation>
-					<xsd:documentation>
-						Negative, Zero or Positive amount.  
-						If this is a loan any balance owed to the financial institution will show as a positive amount.  
-						If this is a deposit product, if the product is overdrawn it will be a negative amount.  
-						Positive is assumed if the sign does not appear in the data.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="availableBalance" type="xsd:decimal">
-				<xsd:annotation>
-					<xsd:documentation>
-						Negative, Zero or Positive amount.  
-						If this is a loan any balance owed to the financial institution will show as a positive amount.  
-						If this is a deposit product, if the product is overdrawn it will be a negative amount.  
-						Positive is assumed if the sign does not appear in the data.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="customData" type="xsd:string">
-				<xsd:annotation>
-					<xsd:documentation>
-						Account level name/data pairs list of fields that are not yet available the general specification.  
-						This should be used as LAST RESORT as any customizations will not be supported by all data providers and able to be processed by client applications.  
-						ANY use of this field must be reported to the architecture or working group committee to ensure that fields are somehow handled in the future release of specifications.
-					</xsd:documentation>
-				</xsd:annotation>				
-			</xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
 
-	<!-- TODO: Need to review.  Conflict with LoanAccountCategories.  Values are not mutually exlcusive (I can be a loan, and a LOC)-->
-	<xsd:simpleType name="AccountType">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="CHECKING">
-				<xsd:annotation>
-					<xsd:documentation>
-						TODO: Please someone
-					</xsd:documentation>
-				</xsd:annotation>				
-			</xsd:enumeration>
-			<xsd:enumeration value="SAVINGS"></xsd:enumeration>
-			<xsd:enumeration value="LOAN"></xsd:enumeration>
-			<xsd:enumeration value="CREDIT_CARD"></xsd:enumeration>
-			<xsd:enumeration value="INVESTMENT"></xsd:enumeration>
-			<xsd:enumeration value="LINE_OF_CREDIT"></xsd:enumeration>
-			<xsd:enumeration value="MORTGAGE"></xsd:enumeration>
-		</xsd:restriction>
-	</xsd:simpleType>
+  <xs:element name= "accountsDetail" type ="AccountsDetail">
+    <xs:annotation>
+      <xs:documentation>
+        The accountsDetail collection/array contains all the accountsDetail for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
 
-</xsd:schema>
+  <xs:complexType name="AccountsDetail">
+    <xs:annotation>
+      <xs:documentation>
+        The accountsDetail collection/array contains all the accountsDetail for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accountDetail" type="AccountDetail" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of account detail fields that extends the account definition.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="AccountDetail">
+		<xs:annotation>
+			<xs:documentation>
+				Includes account plus additional fields for further defining an account.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+      <xs:element name="account" type="account:Account">
+        <xs:annotation>
+          <xs:documentation>
+            A collection of account fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partyList" type="PartyList">
+        <xs:annotation>
+          <xs:documentation>
+            A collection of party id’s that uniquely identify each party associated to this account.
+            This list is subset with additional fiels of the party data.
+            This list is in additional to the relationship parties if available.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+  <xs:complexType name="PartyList">
+    <xs:annotation>
+      <xs:documentation>
+        A collection of party id’s that uniquely identify each party associated to this account.
+        This list is subset with additional fiels of the party data.
+        This list is in additional to the relationship parties if available.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="party" type="Party" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+             This object is subset with additional fields of the party data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Party">
+    <xs:annotation>
+      <xs:documentation>
+        This object is subset with additional fields of the party data.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the party.  Must be a valid party id.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyRelationshipType" type="PartyRelationshipType">
+        <xs:annotation>
+          <xs:documentation>
+            Level of ownership the party has over the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="ssnOverride" type="xs:boolean" minOccurs="0" maxOccurs="1" default ="false">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s SSN should be used rather the PRIMARY’s SSN when reporting to the IRS.
+            Only used if partyRelationshipType is NOT PRIMARY.  Only one of these can appear
+            on an account if applicable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of contacts for the party within this relationship.  Only contains the
+            contactId for each contact.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PartyRelationshipType">
+    <xs:annotation>
+      <xs:documentation>
+        The party relationship type is the textual representation of what the
+        party record represents to this account such as primary or joint
+        ownership, beneficiary or some other type of relationship. This value
+        may be visible to the user and must be human-readable.  If the same
+        party exists at the relationshiop level, the account level
+        relationship type overrides the relationship.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="holder" type="relationship:Holder" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Owner of all the products under relationship.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="beneficiary" type="relationship:Beneficiary" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Receiver of funds in certain circumstances based on product type.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="agent" type="relationship:Agent" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Acts on behalf of the account holders.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="payee" type="relationship:Payee" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Receives divident or distrubtion checks from an account or relationship.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="guarantor" type="relationship:Guarantor" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Guarantees/carries liability for deposit or loan from an account or across entire
+            relationship.  If at Relationship level, guarantees all deposits and loans within
+            relationship.  For deposit accounts, guarantees any negative account balances.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="collateralGrantor" type="relationship:CollateralGrantor" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Party who put up collateral for the loan but is not liabile for the loan balance.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="safeDepositBoxUser" type="relationship:SafeDepositBoxUser" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Party who has access to the safe deposit box attached to an account.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+</xs:schema>

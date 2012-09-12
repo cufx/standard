@@ -10,18 +10,6 @@
 
   <xs:import namespace="http://cufxstandards.com/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 
-  <xs:simpleType name="AccountCategories">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Savings" />
-      <xs:enumeration value="Checking" />
-      <xs:enumeration value="MoneyMarket" />
-      <xs:enumeration value="Certificate" />
-      <xs:enumeration value="IRA" />
-      <xs:enumeration value="HSA" />
-      <xs:enumeration value="Other" />
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:complexType name="Money">
     <xs:sequence>
       <xs:element name="value" minOccurs ="1" maxOccurs="1">
