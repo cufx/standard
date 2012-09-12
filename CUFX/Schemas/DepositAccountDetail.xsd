@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/CUFX_DepositAccountDetail.xsd"
+  xmlns="http://cufxstandards.com/CUFX_DepositAccountDetail.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://cufxstandards.com/CUFX_Common.xsd"
+  xmlns:base="http://cufxstandards.com/CUFX_AccountDetail.xsd"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/CUFX_Common.xsd"
+             schemaLocation="CUFX_Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CUFX_AccountDetail.xsd"
+             schemaLocation="CUFX_AccountDetail.xsd" />
+
+  <xs:complexType name="DepositAccountDetails">
+    <xs:annotation>
+      <xs:documentation>
+        Details relating to deposit account
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="base:AccountDetail">
+        <xs:sequence>
+          <xs:element name="Branch" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Name or number identifying the branch that owns the deposit account.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BumpEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Date on which the BumpRate becomes effective.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BumpExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Date on which the BumpRate expires.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="BumpRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The percentage to add to the normal rate during dividend calculations.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DepositAccountType" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Name or number identifying the type of deposit account.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DividendPostCode" type="DividendPostCodeType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Defines how the dividends earned will be posted.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DividendRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The percentage rate used to calculate dividends for this account. The DividendType must be set to allow for a custom rate.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DividendTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Unique identifier of the account to post dividends to when the "Transfer" DividendPostCode is selected.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DividendType" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Name or number identifying the type of dividend calculation performed for this account.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DividendRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The percentage rate used to calculate dividends for this account. The DividendType must be set to allow for a custom rate.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="IRSCode" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Defines IRS reporting requirements on this account.  Used to identify special requirements such as IRA or HSA.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MaturityDate" type="xs:date" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The date the account matures.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MaturityPostCode" type="MaturityPostCodeType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Defines how the account balance should be handled upon maturity.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MaturityTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Unique identifier of the account to transfer the balance to when the "Transfer" MaturityPostCode is selected.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MICRAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The account number portion of a draft account's MICR line.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MinimumBalance" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The minimum balance required for this account.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MinimumDeposit" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The minimum amount that can be deposited to the account in a single transaction.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="MinimumWithdrawal" type="xs:decimal" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The minimum amount that can be withdrawn from the account in a single transaction.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="NickName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Nickname for the account.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SourceCode" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                FI defined source of application i.e. customer request, cross sell, counter offer, promo etc.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:simpleType name="DividendPostCodeType">
+    <xs:annotation>
+      <xs:documentation>
+        Provides types for posting dividends earned on the account.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ToAccount">
+        <xs:annotation>
+          <xs:documentation>
+            Dividends earned should be posted to the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ByCheck">
+        <xs:annotation>
+          <xs:documentation>
+            Dividends earned should be sent by check to the member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transfer">
+        <xs:annotation>
+          <xs:documentation>
+            Dividends earned should be transferred to another account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Forfeit">
+        <xs:annotation>
+          <xs:documentation>
+            Dividends earned should not be posted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MaturityPostCodeType">
+    <xs:annotation>
+      <xs:documentation>
+        Provides types for posting the account balance upon maturity.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Renew">
+        <xs:annotation>
+          <xs:documentation>
+            Account renews upon maturity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ByCheck">
+        <xs:annotation>
+          <xs:documentation>
+            Account balance should be sent by check to the member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transfer">
+        <xs:annotation>
+          <xs:documentation>
+            Account balance should be transferred to another account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Suspend">
+        <xs:annotation>
+          <xs:documentation>
+            Funds should remain in the account until transferred manually.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
