@@ -110,7 +110,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="ContactList" type="contact:Contacts" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="contactList" type="contact:Contacts" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of how the party can be contacted for new contact points.
@@ -194,12 +194,13 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="reportingFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+      <xs:element name="reportingFlag" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
         <xs:annotation>
           <xs:documentation>
             Whether the financial income for this party should be reported to the U.S.
             government (IRS) when related to an account in a way which requires
             reporting (for example, primary, joint ownership).
+            Defaults to true if not specified.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -484,14 +485,6 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="occupation" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Occupation of the individual.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="employmentDetails" type="EmploymentDetails" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -525,7 +518,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="EmployerNamePartyID" type="PartyId" minOccurs="0" maxOccurs="1">
+      <xs:element name="employerPartyId" type="PartyId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             If the employer is an existing party, then some fields may not be required.
@@ -533,7 +526,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="EmployerName" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="employerName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The employer name
@@ -541,7 +534,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="EmployementStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
+      <xs:element name="employementStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The employment start date
@@ -549,7 +542,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="EmployeeOccupation" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="employeeOccupation" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The position the individual holds in the business
@@ -557,7 +550,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="EmploymentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
+      <xs:element name="employmentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The individual's employment status
@@ -565,7 +558,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="EmployerAddress" type="contact:Address" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="employerAddress" type="contact:Address" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The employer's address
@@ -573,7 +566,7 @@
         </xs:annotation>
       </xs:element>
  
-      <xs:element name="EmployerPhone" type="contact:Phone" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="employerPhone" type="contact:Phone" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Contains details describing phone-specific employer data elements
@@ -581,7 +574,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="TimeAtEmployer" type="xs:duration" minOccurs="0" maxOccurs="1">
+      <xs:element name="timeAtEmployer" type="xs:duration" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The duration spent at the employer.
@@ -599,21 +592,21 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="EmployerStatus" type="EmployerStatusType" minOccurs="0" maxOccurs="1">
+      <xs:element name="employerStatus" type="EmployerStatusType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The status of the individual at the employer
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Type" type="EmploymentType" minOccurs="0" maxOccurs="1">
+      <xs:element name="type" type="EmploymentType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The employer type that relates to the individual
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="EmploymentIncome" type="IncomeDetails" minOccurs="0" maxOccurs="1">
+      <xs:element name="employmentIncome" type="IncomeDetails" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The individual's income amount and frequency
@@ -674,7 +667,7 @@
             The individual's gross income amount and frequency
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
+      </xs:element
       <xs:element name="netIncomeData" type="Income" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -795,7 +788,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="cescription" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The liability description

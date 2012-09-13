@@ -37,7 +37,7 @@
   
   <xs:complexType name="Account">
 	  <xs:sequence>
-      <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="id" type="AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account ID is a persistent and unique identifier for the account.
@@ -161,6 +161,31 @@
 
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:complexType name="AccountId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account ID is a persistent and unique identifier for the account.
+            It must be unique for all users across the institution and remain the same over the life of the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AccountIdList">
+    <xs:sequence>
+      <xs:element name="accountIdList" type="AccountId" minOccurs="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of unique account Id's to point to a list of accounts.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 	<xs:complexType name="Transactions">
 		<xs:sequence>
