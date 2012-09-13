@@ -52,14 +52,24 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-      <xs:element name="account" type="account:Account">
+      <xs:element name="account" type="account:Account" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A collection of account fields.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyList" type="PartyList">
+
+      <xs:element name="sourceCode" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            FI defined code that identifies the source of the application that created
+            the account such as customer request, cross sale, counter offer, promo, etc.
+          </xs:documentation >
+        </xs:annotation >
+      </xs:element >
+
+      <xs:element name="partyList" type="PartyList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A collection of party id’s that uniquely identify each party associated to this account.

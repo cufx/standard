@@ -11,10 +11,21 @@
   <xs:import namespace="http://cufxstandards.com/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 
   <xs:complexType name="Money">
+    <xs:annotation>
+      <xs:documentation>
+        Standard definition for Money values to include both the value and the currency.
+        Currency defaults to USD (United States $) if not specified.
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="value" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the money as defined by the currencyCode.
+          </xs:documentation >
+        </xs:annotation>
       </xs:element>
-
+ 
       <xs:element name="currencyCode" type="ISOCountryCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
         <xs:annotation>
           <xs:documentation>
@@ -26,28 +37,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="AdditionalIncomeDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Describes additional non-standard sources of income (child support, investments, e-bay, etc)
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="MainIncomeDetails">
-        <xs:sequence>
-          <xs:element name="Source" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                The source of the additional income
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-
-
+  <!-- TODO "should this be moved out to a notes.xsd?" -->
   <xs:simpleType name="CoreRecordType">
     <xs:annotation>
       <xs:documentation>
@@ -62,290 +52,6 @@
       <xs:enumeration value="Share"/>
     </xs:restriction>
   </xs:simpleType>
-
-  <xs:complexType name="EmploymentDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Employer details related to an individual
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="StartDate" type="xs:date" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The employment start date
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-     <!-- <xs:element name="EmployerAddress" type="AddressDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The employer's address
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      -->
-      <xs:element name="EmployerName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The employer name
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Occupation" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The position the individual holds in the business
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="PhoneData" type="PhoneDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Contains details describing phone-specific employer data elements
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="TimeAtEmployer" type="xs:duration" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The duration spent at the employer
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="EmployerStatus" type="EmployerStatusType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The status of the individual at the employer
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Type" type="EmploymentType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The employer type that relates to the individual
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="IncomeData" type="IncomeDetails" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's income amount and frequency
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="EmployerStatusType">
-    <xs:annotation>
-      <xs:documentation>
-        Represents available individual employer status values
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Current"/>
-      <xs:enumeration value="Previous"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="EmploymentStatusType">
-    <xs:annotation>
-      <xs:documentation>
-        Represents available individual employment status values
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Contract"/>
-      <xs:enumeration value="Employed"/>
-      <xs:enumeration value="Homemaker"/>
-      <xs:enumeration value="Other"/>
-      <xs:enumeration value="Retired"/>
-      <xs:enumeration value="SelfEmployed"/>
-      <xs:enumeration value="Student"/>
-      <xs:enumeration value="Temporary"/>
-      <xs:enumeration value="Unemployed"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="EmploymentType">
-    <xs:annotation>
-      <xs:documentation>
-        Represents available individual employer type values
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="FullTime"/>
-      <xs:enumeration value="PartTime"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="Gender">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Male" />
-      <xs:enumeration value="Female" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="HoldDurationUnits">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="CalendarDays" />
-      <xs:enumeration value="BusinessDays" />
-    </xs:restriction>
-  </xs:simpleType>
-
-
-  <xs:complexType name="IdentificationDetails">
-    <xs:sequence>
-      <xs:element name="IdType" type="IdentificationTypes" minOccurs="1" maxOccurs="1" />
-      <xs:element name="IdNumber" type="xs:string" minOccurs="1" maxOccurs="1" />
-      <xs:element name="IdIssuer" type="xs:string" minOccurs="1" maxOccurs="1" />
-      <xs:element name="IssueDate" type="xs:date" minOccurs="0" maxOccurs="1" />
-      <xs:element name="ExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" />
-      <xs:element name="WasIdVerified" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Whether or not the identification document was verified;
-            Used mostly in branch when a teller is collecting this data
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="IdVerifyDate" type="xs:date" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date the identification type/document was verified
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="IdDescription" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Provides additional details describing the id
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="IdentificationTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Birth Certificate" />
-      <xs:enumeration value="Driver License" />
-      <xs:enumeration value="Foreign Driver License" />
-      <xs:enumeration value="Foreign Government Issued Id" />
-      <xs:enumeration value="Foreign Passport" />
-      <xs:enumeration value="Military Id" />
-      <xs:enumeration value="Resident Alien Card" />
-      <xs:enumeration value="Social Security Card" />
-      <xs:enumeration value="State Issued Id" />
-      <xs:enumeration value="US Passport" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="IncomeDetails">
-    <xs:sequence>
-      <xs:element name="GrossIncomeData" type="MainIncomeDetails" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's gross income amount and frequency
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="NetIncomeData" type="MainIncomeDetails" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's net income amount and frequency
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="IncomeFrequencyType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Biweekly" />
-      <xs:enumeration value="Monthly" />
-      <xs:enumeration value="Other" />
-      <xs:enumeration value="Weekly" />
-      <xs:enumeration value="Yearly" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:complexType name="LiabilityDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Details related to liability
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The liability description
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="MonthlyPayment" type="xs:decimal" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The liability monthly payment amount
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Balance" type="xs:decimal" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The liability remaining balance amount
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ExcludeLiabilityFromCalculations" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            By default liabilities are included in any appliable
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="MainIncomeDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Details related to the applicant main income
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="Amount" type="xs:decimal" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The income amount
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Frequency" type="IncomeFrequencyType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The frequency of the income
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="OtherFrequencyType" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Free form text that describes the IncomeFrequencyType "Other" when sent in the Frequency element
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ExcludeIncomeFromCalculations" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            By default income details are included in any appliable calculations
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 
   <xs:complexType name="NoteDetails">
     <xs:annotation>
@@ -388,61 +94,8 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="OwnerDetails">
-    <xs:sequence>
-      <xs:element name="AssociatedProduct" type="OwnerToProductLinkageDetails" minOccurs="1" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Details relating to any products associated to this owner
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="PersonalInfo" type="PersonalDetails" minOccurs="1" maxOccurs="1" />
-      <xs:element name="CustomerId" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="HomeBankingPassword" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="SecurityPassword" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="AudioPin" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="ATMPin" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="DebitPin" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="IsSubjectToBackupWithholding" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-      <xs:element name="Identification" type="IdentificationDetails" minOccurs="0" maxOccurs="1" />
-      <xs:element name="RelationshipCode" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="ApplicantId" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Unique identifier assigned to the applicant/owner and used for linkage within a request/response
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="OwnerToProductLinkageDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Contains details describing which products an owner is linked to
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence>
-        <xs:element name="Type" type="OwnerType" minOccurs="1" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              The owner type as it relates to a specific product
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="ProductId" type="xs:string" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              Unique identifier assigned to a product and used for linkage within a request/response
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:complexType>
-
+  <!-- TODO "Move OwnerType to loan when ready" -->
+  
   <xs:simpleType name="OwnerType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="AuthorizedSigner" />
@@ -459,153 +112,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="PersonalDetails">
-    <xs:sequence>
-    
-      <xs:element name="EmploymentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's employment status
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="EmploymentData" type="EmploymentDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's employment data
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="AdditionalIncomeData" type="AdditionalIncomeDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's additional income data
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="LiabilityData" type="LiabilityDetails" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's additional liability data
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="WasTaxIdCertified" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Result of the answer to a question regarding that the person certified they have provided a correct tax id
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="WasElectronicDisclosureAgreed" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Result of the answer to a question regarding the person accepting an Electronic Disclosure Agreement presented to them
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="WasUSCitizenCertified" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Result of the answer to a question regarding that the person certified that they are a US citizen
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="PhoneDetails">
-    <xs:annotation>
-      <xs:documentation>
-        Contains details describing phone-specific data elements
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence>
-        <xs:element name="Type" type="PhoneType" minOccurs="1" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              Indicates which type of phone the details represent
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              Text describing the phone
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="TimeOfDay" type="TimeOfDayType" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              The best contact time of day to call
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Number" type="xs:string" minOccurs="1" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              The phone number value (nine digits with no - characters)
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="Extension" type="xs:string" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              The phone number extension value
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="PhoneType">
-    <xs:annotation>
-      <xs:documentation>
-        The type of phone
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Business"/>
-      <xs:enumeration value="Fax"/>
-      <xs:enumeration value="Home"/>
-      <xs:enumeration value="Mobile"/>
-      <xs:enumeration value="Pager"/>
-      <xs:enumeration value="Other"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="RateType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Fixed" />
-      <xs:enumeration value="Variable" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="TaxIdTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SocialSecurityNumber" />
-      <xs:enumeration value="EmployerIdentificationNumber" />
-      <xs:enumeration value="ForeignNational" />
-      <xs:enumeration value="ForeignNumberNoTIN" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="TimeOfDayType">
-    <xs:annotation>
-      <xs:documentation>
-        The best contact time of day to call type for phone numbers
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Afternoon"/>
-      <xs:enumeration value="Evening"/>
-      <xs:enumeration value="Morning"/>
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="Uuid">
     <xs:restriction base="xs:string">
       <!-- TODO: Use this pattern instead; requires change to DMS Account History -->
@@ -614,6 +120,28 @@
     </xs:restriction>
   </xs:simpleType>
 
+
+  <xs:complexType name="CustomData">
+    <xs:annotation>
+      <xs:documentation>
+        The customData section allows the flexibility to add additional information to the messageContext.
+        This should be utilized as a last resort and any use should result in requested modifications to the message or messageContext .
+        Note: that typically the data required will be in the message (such as party id, accountId, etc.) rather than contained in the messageContext.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The customData section allows the flexibility to add additional information to objects where it is used.
+            This should be utilized as a last resort and any use should result in requested modifications to the
+            object where it is used in future specifications.
+           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="ValuePair">
     <xs:sequence>
       <xs:sequence>

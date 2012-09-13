@@ -3,18 +3,22 @@
 	targetNamespace="http://cufxstandards.com/Loan.xsd"
 	xmlns="http://cufxstandards.com/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-   xmlns:common="http://cufxstandards.com/Common.xsd"
+  xmlns:common="http://cufxstandards.com/Common.xsd"
+  xmlns:account="http://cufxstandards.com/Account.xsd"
 	xmlns:ad="http://cufxstandards.com/AccountDetail.xsd"
 	xmlns:m="http://cufxstandards.com/Meta.xsd"
+  xmlns:credit="http://cufxstandards.com/CreditReportDetails.xsd"
 	elementFormDefault="qualified"
 	version="0.0.1"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
-	<xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CreditReportDetails.xsd" schemaLocation="CreditReportDetails.xsd" />
 
-	<!-- ROOT NODE FOR LOAN ORIGINATION -->
+  <!-- ROOT NODE FOR LOAN ORIGINATION -->
 	<xs:complexType name="Loan">
 		<xs:annotation>
 			<xs:documentation>
@@ -89,14 +93,14 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="requestedAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="requestedAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Original balance of the loan
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="noteAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="noteAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							This includes fees, insurance etc.
@@ -105,7 +109,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="creditLimit" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="creditLimit" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Maximum approved credit limit for credit Cards or lines of credit
@@ -151,10 +155,10 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="minimumBalance" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
-							The minimum balance that a loan may have
+							The minimum balance that an account may have
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
@@ -165,7 +169,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="minimumAdvanceAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="minimumAdvanceAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							The minimum amount that is allowed for advances
@@ -173,7 +177,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="maximumAdvanceAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="maximumAdvanceAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							The maximum amount that is allowed for advances
@@ -216,7 +220,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="creditReportData" type="common:CreditReportDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="creditReportData" type="credit:CreditReportDetails" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>
 							Details relating credit scores used in determining loan approval
@@ -266,14 +270,14 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="prePaidFinanceCharges" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="prePaidFinanceCharges" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Additional amounts included in a loan (points, flood ins etc.)
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="prepaidInterest" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="prepaidInterest" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Amount of interest pre-paid
@@ -295,7 +299,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="balloonAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="balloonAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Balloon Payment Amount
@@ -337,7 +341,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="prepaymentPenaltyBasisAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="prepaymentPenaltyBasisAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Amount of penalty amount;
@@ -504,7 +508,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="amount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Auto payment amount
@@ -518,7 +522,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fromProductCategory" type="common:AccountCategories" minOccurs="0" maxOccurs="1">
+			<xs:element name="fromProductCategory" type="account:AccountCategories" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The category of the from account
@@ -572,7 +576,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="totalSecuredAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="totalSecuredAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Total Amount pledged;
@@ -595,7 +599,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="valuationOfCollateral" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="valuationOfCollateral" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Value of Collateral (savings, CD, Auto, Motorcycle, Boat, RV etc);
@@ -659,7 +663,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="securedAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="securedAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Amount pledged;
@@ -743,7 +747,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DistributionAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="DistributionAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Amount specified for this particular funding method
@@ -776,21 +780,21 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="insuranceMaximum" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="insuranceMaximum" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Maximum insurable loan balance
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="insuranceAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="insuranceAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							The insurance amount
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="insuranceFeeAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="insuranceFeeAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Any applicable insurance fee amount
@@ -901,7 +905,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="feeAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="feeAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Flat fee that may be applied
@@ -922,28 +926,28 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="feeMin" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="feeMin" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Minimum fee amount
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="feeMax" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="feeMax" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Maximum fee amount
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="prePaidAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="prePaidAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							The subset of the fee amount that relates to the prepaid amount of the fee
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="financedFeeAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="financedFeeAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Subset of the fee amount that is included in the principal
@@ -952,7 +956,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="unamortizedFees" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="unamortizedFees" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Total amount of fees to be amortized for the term of the loan;
@@ -1155,7 +1159,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="periodicCapAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="periodicCapAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Maximum (cap) amount the interest rate can change during a given period
@@ -1190,7 +1194,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="splitRateBalance" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="splitRateBalance" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Used to define the balance that will trigger a split rate
@@ -1277,7 +1281,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="paymentAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="paymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Includes P and I, Fees, insurance, escrow etc.
@@ -1299,7 +1303,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="minimumPaymentAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="minimumPaymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Minimim payment amount
@@ -1307,14 +1311,14 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="latePaymentAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="latePaymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Calculated amount for loans with fixed monthly payment and fixed late fees
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="finalPaymentAmount" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="finalPaymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Last payment amount
@@ -1359,7 +1363,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="amountIncludingPrincipalAndInterest" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:element name="amountIncludingPrincipalAndInterest" type="common:Money" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Payment amount including ONLY principal and interest
@@ -1559,7 +1563,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="purchasePrice" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="purchasePrice" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						MSRP or Purchase Price

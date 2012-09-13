@@ -3,12 +3,14 @@
   xmlns="http://cufxstandards.com/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:common="http://cufxstandards.com/Common.xsd"
+  xmlns:credit="http://cufxstandards.com/CreditReportDetails.xsd"
   xmlns:party="http://cufxstandards.com/party.xsd"
   
   elementFormDefault="qualified" >
 
   <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/Common.xsd"></xs:import>
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CreditReportDetails.xsd" schemaLocation="CreditReportDetails.xsd" />
 
   <xs:complexType name="Application">
     <xs:sequence>
@@ -57,7 +59,21 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-    <xs:element name="creditBureauScore" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+    <xs:element name="finalCreditBureauScore" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>
+          Credit score that was used to approve the application.  This is typically calculated
+          using a variety of methods at each financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:element>
+    <xs:element name="creditReportData" type="credit:CreditReportDetails" minOccurs="0" maxOccurs="unbounded">
+      <xs:annotation>
+        <xs:documentation>
+          Details relating credit scores used in determining loan approval
+        </xs:documentation>
+      </xs:annotation>
+    </xs:element>
     <xs:element name="PartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
@@ -78,6 +94,4 @@
     </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-
 </xs:schema>

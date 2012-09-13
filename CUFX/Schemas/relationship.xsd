@@ -56,6 +56,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="rewardsCode" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+             A code that represents a level of rewards that this relationship has access to
+             based on the all the products and services used by the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
       <xs:element name="partyList" type="PartyList">
         <xs:annotation>
@@ -97,7 +106,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name ="PartyList">
+  <xs:complexType name="PartyList">
     <xs:annotation>
       <xs:documentation>
         A collection of party id’s that uniquely identify each party associated to this relationship
@@ -162,7 +171,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="customData" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Name/data pairs list of fields that are not yet available

@@ -37,7 +37,7 @@
   
   <xs:complexType name="Account">
 	  <xs:sequence>
-      <xs:element name="id" type="xs:string">
+      <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account ID is a persistent and unique identifier for the account.
@@ -46,7 +46,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="description" type="xs:string">
+      <xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account description is the textual representation of the account.
@@ -55,7 +55,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="type" type="AccountType">
+      <xs:element name="type" type="AccountType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account type is the textual representation the kind of account.
@@ -65,16 +65,16 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="subType" type="xs:string">
+      <xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account sub type that identifies the specific account type
-            that the back end system will recognize based on
+            that the back end system will recognize.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="openDate" type="xs:date">
+      <xs:element name="openDate" type="xs:date"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date that the account was opened.
@@ -82,9 +82,31 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountName" type="xs:string"></xs:element>
+      <xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description by the member or user that overrides the default description.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
-      <xs:element name="actualBalance" type="xs:decimal">
+      <xs:element name="micrAccountNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account number portion of a draft or Line of Credit MICR line.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="branch" type="xs:string"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name or number identifying which branch owns the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="actualBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Negative, Zero or Positive amount.
@@ -95,7 +117,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="availableBalance" type="xs:decimal">
+      <xs:element name="availableBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Negative, Zero or Positive amount.
@@ -106,17 +128,34 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="customData" type="xs:string">
+      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The minimum balance that an account may have
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="rateType" type="RateType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whether the rate type is fixed or variable based on some index.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Account level name/data pairs list of fields that are not yet available the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers and able to be processed by client applications.
-            ANY use of this field must be reported to the architecture or working group committee to ensure that fields are somehow handled in the future release of specifications.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Meta" type="m:Meta" minOccurs="1"
-				maxOccurs="1" nillable="true">
+      <xs:element name="Meta" type="m:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
       </xs:element>
 			<xs:element name="transactions" type="Transactions"></xs:element>
 
@@ -129,9 +168,9 @@
 				nillable="true">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="id" type="xs:string" minOccurs="1">
+						<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
 						</xs:element>
-						<xs:element name="type">
+						<xs:element name="type" minOccurs="0" maxOccurs ="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Debit"></xs:enumeration>
@@ -139,12 +178,12 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="amount" type="xs:decimal"></xs:element>
-						<xs:element name="description" type="xs:string">
+						<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1"></xs:element>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
 						</xs:element>
-						<xs:element name="datePosted" type="xs:date">
+						<xs:element name="dateTimePosted" type="xs:date" minOccurs="0" maxOccurs ="1">
 						</xs:element>
-						<xs:element name="status">
+						<xs:element name="status" minOccurs="0" maxOccurs ="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Posted"></xs:enumeration>
@@ -152,13 +191,25 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="principalAmount" type="xs:decimal">
+						<xs:element name="principalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:simpleType name="RateType">
+    <xs:annotation>
+      <xs:documentation>
+        Whether the rate type is fixed or variable based on some index.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fixed" />
+      <xs:enumeration value="Variable" />
+    </xs:restriction>
+  </xs:simpleType>
 
   <!-- Do we need both AccountCategories and AccountType?  It seems like categories is only related to deposits and should be moved-->
   <xs:simpleType name="AccountCategories">

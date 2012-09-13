@@ -69,7 +69,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="customData" type="common:ValuePair" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The customData section allows the flexibility to add additional information to the messageContext.
