@@ -123,13 +123,7 @@
 						<xs:element name="type"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
-									Address Type.  CTR is used if the CTR address is
-									different than the primary address.  Temporary
-									address is used for vacation homes, etc. when contact
-									is not at home or work address.
-									The temporary address overrides the home address when
-									effective/expiration dates signal that temporary address
-									is effective.
+									Address Type.
 								</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
@@ -137,13 +131,29 @@
 									<xs:enumeration value="Home" />
 									<xs:enumeration value="Work" />
 									<xs:enumeration value="Mailing" />
-									<xs:enumeration value="Temporary" />
-									<xs:enumeration value="CTR" />
+                  <xs:enumeration value="Previous" />
+                  <xs:enumeration value="Temporary">
+                    <xs:annotation>
+                      <xs:documentation>
+                        The temporary address overrides the home address when
+                        effective/expiration dates signal that temporary address
+                        is effective.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value="CTR">
+                    <xs:annotation>
+                      <xs:documentation>
+                        CTR (Cash Transaction Report) address is used if the
+                        CTR address is different than the primary address.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration >
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 
-						<xs:element name="effectiveDate" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
+						<xs:element name="effectiveDateTime" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
 									Used on if address is type is TEMPORARY.
@@ -156,7 +166,7 @@
 							</xs:annotation>
 						</xs:element>
 
-						<xs:element name="expirationDate" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
+						<xs:element name="expirationDateTime" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
 									Used on if address is type is TEMPORARY.
@@ -203,10 +213,10 @@
 							</xs:annotation>
 						</xs:element>
 
-						<xs:element name="state" type="xs:string"  minOccurs="0" maxOccurs="1">
+						<xs:element name="stateProvince" type="xs:string"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
-									State where party resides.
+									State or Province (international) where party resides.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -240,6 +250,27 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
+
+            <xs:element name="MonthsAtAddress" type="xs:integer" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The number of months of residence at the address.  A year and half would be 
+                  denoted as 18 months.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="AddressVerifyDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The date the address was verified.
+                  The date/time should be ISO 8601 UTC format.
+                  yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z)
+                  or yyyy-mm-dd (2011-03-28) formats are supported.
+                  The time is assume to be 00:00Z if omitted.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -352,39 +383,12 @@
 				</xs:complexType >
 			</xs:element>
 
-			<xs:element name="email" minOccurs="0" maxOccurs="1">
+			<xs:element name="email" type="Email" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Fields related to email contact points when email type selected.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="type"  minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Email Type.
-								</xs:documentation>
-							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Home" />
-									<xs:enumeration value="Work" />
-									<xs:enumeration value="Other" />
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
-
-						<xs:element name="address" type="common:Email" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Contact Email Address
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element >
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
 			<xs:element name="instantMessage" minOccurs="0" maxOccurs="1">
@@ -479,6 +483,33 @@
 		</xs:choice>
 	</xs:group>
 
+  <xs:complexType name="Email">
+    <xs:sequence>
+      <xs:element name="type"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Email Type.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Home" />
+            <xs:enumeration value="Work" />
+            <xs:enumeration value="Other" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="address" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Contact Email Address
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
 	<xs:complexType name="DemonstratedAccess">
 		<xs:annotation>
 			<xs:documentation>

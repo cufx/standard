@@ -299,9 +299,24 @@
           </xs:documentation >
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="beneficiaryTypes" type="BeneficiaryTypes" minOccurs ="1" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Wether the benefiary is the primary benefiary ro contingent if the primary passes away.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
+  <xs:simpleType name="BeneficiaryTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Primary" />
+      <xs:enumeration value="Contingent" />
+    </xs:restriction>
+  </xs:simpleType>
+  
   <xs:complexType name ="Agent">
     <xs:sequence>
       <xs:element	name="qualifer" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">

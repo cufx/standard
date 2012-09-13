@@ -1,59 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema targetNamespace="http://cufxstandards.com/Application.xsd"
-	elementFormDefault="qualified" xmlns:common="http://cufxstandards.com/Common.xsd"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://cufxstandards.com/Application.xsd">
+<xs:schema targetNamespace="http://cufxstandards.com/Application.xsd"
+  xmlns="http://cufxstandards.com/Application.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:common="http://cufxstandards.com/Common.xsd"
+  xmlns:party="http://cufxstandards.com/party.xsd"
+  
+  elementFormDefault="qualified" >
 
-	<xsd:import schemaLocation="Common.xsd"
-		namespace="http://cufxstandards.com/Common.xsd"></xsd:import>
-	<xsd:complexType name="Applicant">
-		<xsd:sequence>
-			<xsd:element name="taxId" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-			<xsd:element name="type">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:enumeration value="Individual"></xsd:enumeration>
-						<xsd:enumeration value="Organization"></xsd:enumeration>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-			<xsd:element name="organizationType" minOccurs="0"
-				maxOccurs="1">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:enumeration value="SoleProprietorshipt"></xsd:enumeration>
-						<xsd:enumeration value="LLC"></xsd:enumeration>
-						<xsd:enumeration value="Partnership"></xsd:enumeration>
-						<xsd:enumeration value="Corporation"></xsd:enumeration>
-						<xsd:enumeration value="NotForProfit"></xsd:enumeration>
-						<xsd:enumeration value="Club"></xsd:enumeration>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-			<xsd:element name="firstName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-			<xsd:element name="middleName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-			<xsd:element name="lastName" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-			<xsd:element name="role" minOccurs="1" maxOccurs="1">
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:enumeration value="Primary"></xsd:enumeration>
-						<xsd:enumeration value="Secondary"></xsd:enumeration>
-						<xsd:enumeration value="AuthorizedUser"></xsd:enumeration>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
-			<xsd:element name="birthdate" type="xsd:date" minOccurs="1">
-				<xsd:annotation>
-					<xsd:documentation>Birth date of the individual</xsd:documentation></xsd:annotation></xsd:element>
-			<xsd:element name="address" type="common:AddressDetails" minOccurs="0" maxOccurs="1"></xsd:element>
-			<xsd:element name="creditBureauScore" type="xsd:string" minOccurs="0" maxOccurs="1"></xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
+  <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/Common.xsd"></xs:import>
+  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
 
-	<xsd:complexType name="Application">
-		<xsd:sequence>
-			<xsd:element name="productId" type="xsd:string" minOccurs="1" maxOccurs="1"></xsd:element>
-			<xsd:element name="applicants" type="Applicant"
-				maxOccurs="unbounded"></xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
-</xsd:schema>
+  <xs:complexType name="Application">
+    <xs:sequence>
+      <xs:element name="productId" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="applicants" type="Applicants" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of applicants for the product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="Applicants">
+    <xs:annotation>
+      <xs:documentation>
+        List of applicants for the product.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="applicant" type="Applicant" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of fields to describe an applicant for the product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+ 
+  <xs:complexType name="Applicant">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of fields to describe an applicant for the product.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="role" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Primary"></xs:enumeration>
+            <xs:enumeration value="Secondary"></xs:enumeration>
+            <xs:enumeration value="AuthorizedUser"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    <xs:element name="creditBureauScore" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+    <xs:element name="PartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>
+          Key fields to point to an existing party applying for a product.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:element>
+
+    <xs:element name ="party" type ="party:Party"  minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>
+          Use if this application is for a new Party that does not yet exist on the back end systems.
+          Contains a list of contacts for how the party would like to be contacted.
+          There may be a very limited subset of party data available as this is an application for a new
+          party and the amount of information provided for the applicant may be minimal.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>

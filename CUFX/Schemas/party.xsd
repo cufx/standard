@@ -392,6 +392,15 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="MothersMaidenName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party's mother's maiden name.  This has recently been falling out of favor
+            for an account code word.  See the credential's collection.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -542,6 +551,48 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="ResidenceDetails">
+    <xs:annotation>
+      <xs:documentation>
+        Details related to residence
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CurrentHousingStatus" type="HousingStatusType" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person's current housing status
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CurrentMonthlyHousingExpense" type="common:Money" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the monthly housing expense for the person's residence type
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HousingStatusType">
+    <xs:annotation>
+      <xs:documentation>
+        The residence housing status type
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Rent"/>
+      <xs:enumeration value="GovernmentHousing"/>
+      <xs:enumeration value="LiveWithParents"/>
+      <xs:enumeration value="MilitaryHousing"/>
+      <xs:enumeration value="NoHousingExpense"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="OwnWithMortgage"/>
+      <xs:enumeration value="OwnWithoutMortgage"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="DoingBusinessAsList">
     <xs:sequence>
       <xs:element name="doingBusinessAs" type="DoingBusinessAs" minOccurs="0" maxOccurs="unbounded"
@@ -620,7 +671,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="effectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+      <xs:element name="effectiveDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date that the document became effective…
@@ -633,7 +684,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="expirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+      <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date of that the documents expired or will expire.
@@ -848,7 +899,7 @@
           <xs:restriction base ="xs:string">
             <xs:enumeration value="Username" />
             <xs:enumeration value="Password" />
-            <xs:enumeration value="Pin" />
+            <xs:enumeration value="AtmPin" />
             <xs:enumeration value="Codeword" />
             <xs:enumeration value="Token" />
             <xs:enumeration value="SecurityQuestion" />
@@ -872,6 +923,7 @@
         </xs:annotation>
       </xs:element>
 
+      
       <xs:element name="value" type="xs:NMTOKEN" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -905,6 +957,15 @@
         </xs:annotation>
       </xs:element>
 
+
+      <xs:element name="deliveryChannels" type="DeliveryChannels" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of applicable delivery channels for these credentials.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="customData" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -921,4 +982,32 @@
 
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="DeliveryChannels">
+    <xs:annotation>
+      <xs:documentation>
+        List of applicable delivery channels for these credentials.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deliveryChannel" type="DeliveryChannel" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The delivery channel for which this credential applies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="DeliveryChannel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CallCenter" />
+      <xs:enumeration value="OnlineBanking" />
+      <xs:enumeration value="Mobile" />
+      <xs:enumeration value="ATM" />
+      <xs:enumeration value="IVR" />
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
