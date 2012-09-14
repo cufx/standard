@@ -896,6 +896,23 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="PartyTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        List of party types.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partyType" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Party type : Organization, Individual, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="ResidenceDetails">
     <xs:annotation>
       <xs:documentation>
