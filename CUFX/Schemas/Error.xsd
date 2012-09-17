@@ -81,7 +81,7 @@
       <xs:documentation>
         Standard CUFX code returned by the service point.
         The documentation contains the standard message to return.
-        When %s is in the message, it should be replaced with additional
+        When '%s' is in the message, it should be replaced with additional
         details relative to the message content.
       </xs:documentation>
     </xs:annotation>
@@ -97,7 +97,7 @@
       <xs:enumeration value ="301">
         <xs:annotation>
           <xs:documentation>
-            Invalid Data length in field %s.
+            Invalid Data length in field '%s'.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -153,7 +153,7 @@
       <xs:enumeration value ="411">
         <xs:annotation>
           <xs:documentation>
-            Incomplete request.  The request omitted the following required fields: %s
+            Incomplete request.  The request omitted the following required fields: '%s'
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -161,6 +161,7 @@
       <xs:enumeration value ="412">
         <xs:annotation>
           <xs:documentation>
+              Previous request required.  A '%s' request must be made before this one, and was not.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -176,7 +177,7 @@
       <xs:enumeration value ="415">
         <xs:annotation>
           <xs:documentation>
-            Unsupported value.  The value ‘%s’ is not supported for the field ‘%s’ by this service. Valid values include %s.
+            Unsupported value.  The value ‘%s’ is not supported for the field ‘%s’ by this service. Valid values include '%s'.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -184,7 +185,7 @@
       <xs:enumeration value ="422">
         <xs:annotation>
           <xs:documentation>
-            Unprocessable entity.  The request contained the following references to entities that could not be found: %s
+            Unprocessable entity.  The request contained the following references to entities that could not be found: '%s'
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -232,7 +233,7 @@
       <xs:enumeration value ="430">
         <xs:annotation>
           <xs:documentation>
-            Invalid language.  The requested language %s is not supported.
+            Invalid language.  The requested language '%s' is not supported.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -273,7 +274,7 @@
       <xs:enumeration value ="435">
         <xs:annotation>
           <xs:documentation>
-            Unable to parse request. Invalid JSON/XML
+            Unable to parse request. Invalid JSON/XML.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -281,7 +282,7 @@
       <xs:enumeration value ="436">
         <xs:annotation>
           <xs:documentation>
-            Access Denied.  Access to resource requested was denied.	subCode may contain additional details
+            Access Denied.  Access to resource requested was denied.	subCode may contain additional details.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -313,7 +314,7 @@
       <xs:enumeration value ="504">
         <xs:annotation>
           <xs:documentation>
-            Service is temporarily unavailable.  Service is expected to be back up at %s.
+            Service is temporarily unavailable.  Service is expected to be back up at '%s'.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>

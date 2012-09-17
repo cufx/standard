@@ -1248,10 +1248,18 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="credentials" type="Credentials" minOccurs="0" maxOccurs="1">
+      <xs:element name="credentials" type="Credentials" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Credentials is a list of fields for a credential.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deliveryChannels" type="DeliveryChannels" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of applicable delivery channels for these credentials.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1331,15 +1339,6 @@
         </xs:annotation>
       </xs:element>
 
-
-      <xs:element name="deliveryChannels" type="DeliveryChannels" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of applicable delivery channels for these credentials.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
       <xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
