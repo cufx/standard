@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/preferenceFilter.xsd"
+	xmlns="http://cufxstandards.com/preferenceFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:contact="http://cufxstandards.com/contact.xsd"
+	xmlns:party="http://cufxstandards.com/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/relationship.xsd"
+  xmlns:account="http://cufxstandards.com/Account.xsd"
+  xmlns:preference="http://cufxstandards.com/preference.xsd"
+ 	xmlns:card="http://cufxstandards.com/card.xsd"
+
+  elementFormDefault="qualified"
+	version="0.0.1"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/preference.xsd" schemaLocation="preference.xsd" />
+  <!--<xs:import namespace="http://cufxstandards.com/card.xsd" schemaLocation="card.xsd" />-->
+
+  <xs:element name="preferenceFilter" type="PreferenceFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting preference data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="PreferenceFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting preference data.  The options can be used
+        in combination or by themselves and it is up to the data source to either return or affect the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of partyId's that should be returned or affected by a read, update or delete party request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of relationshipId's that should have their associated preferences either returned or affected
+            by a read, update or delete lead request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Account Id's that should have their associated preferences either returned or affected
+            by a read, update or delete lead request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <!-- <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields to point to a list of cards for which the preference applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element> -->
+      
+      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of contact Id's that should have their associated preferences either returned or affected
+            by a read, update or delete lead request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+      <xs:element name="preferenceTypeList" type="preference:PreferenceTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Preference Types that should have their associated preferences either returned or affected
+            by a read, update or delete lead request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="preferenceSubTypeList" type="preference:PreferenceSubTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Preference Sub Types that should have their associated preferences either returned or affected
+            by a read, update or delete lead request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

@@ -152,6 +152,24 @@
 
 	</xs:complexType>
 
+
+  <xs:complexType name="PreferenceTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        Preference Type list used for filtering.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence >
+      <xs:element name ="type" type="Type" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Preference Type used for filtering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
 	<xs:simpleType name ="Type">
 		<xs:annotation>
 			<xs:documentation>
@@ -166,13 +184,30 @@
 			<xs:enumeration value ="Communication" />
 			<xs:enumeration value ="Laguage" />
 			<xs:enumeration value ="ContactHours" />
-			<xs:enumeration value ="WebSiteFormat" />
+			<xs:enumeration value ="WebsiteFormat" />
 			<xs:enumeration value ="MobileSiteFormat" />
 			<xs:enumeration value ="ContactFormat" />
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name ="SubType">
+  <xs:complexType name="PreferenceSubTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        Preference Sub Type list used for filtering.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence >
+      <xs:element name ="subType" type="SubType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Preference Sub Type Type used for filtering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name ="SubType">
 		<xs:annotation>
 			<xs:documentation>
 				Sub Type of preference.  Additions to this list can be submitted to the CUFX committee.
