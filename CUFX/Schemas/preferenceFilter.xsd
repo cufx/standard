@@ -41,7 +41,7 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should be returned or affected by a read, update or delete party request.
+            The list of partyId's that should be returned or affected by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -50,7 +50,7 @@
         <xs:annotation>
           <xs:documentation>
             The list of relationshipId's that should have their associated preferences either returned or affected
-            by a read, update or delete lead request.
+            by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -59,7 +59,7 @@
         <xs:annotation>
           <xs:documentation>
             The list of Account Id's that should have their associated preferences either returned or affected
-            by a read, update or delete lead request.
+            by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -76,7 +76,7 @@
         <xs:annotation>
           <xs:documentation>
             The list of contact Id's that should have their associated preferences either returned or affected
-            by a read, update or delete lead request.
+            by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -86,7 +86,7 @@
         <xs:annotation>
           <xs:documentation>
             The list of Preference Types that should have their associated preferences either returned or affected
-            by a read, update or delete lead request.
+            by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -95,7 +95,7 @@
         <xs:annotation>
           <xs:documentation>
             The list of Preference Sub Types that should have their associated preferences either returned or affected
-            by a read, update or delete lead request.
+            by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

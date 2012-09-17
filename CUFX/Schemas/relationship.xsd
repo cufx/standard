@@ -6,6 +6,7 @@
 	xmlns:contact="http://cufxstandards.com/contact.xsd"
 	xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd"
 	xmlns:party="http://cufxstandards.com/party.xsd"
+  xmlns:account="http://cufxstandards.com/Account.xsd"
 			
 	elementFormDefault="qualified"
 	version="0.0.1"
@@ -15,6 +16,7 @@
   <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name ="relationships" type ="Relationships">
     <xs:annotation>
@@ -71,6 +73,14 @@
           <xs:documentation>
             A collection of party id’s that uniquely identify each party associated to this relationship
             along with how the party is related to the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIdList" type="account:AccountIdList">
+        <xs:annotation>
+          <xs:documentation>
+            A collection of account id’s that uniquely identify each account associated to this relationship.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
