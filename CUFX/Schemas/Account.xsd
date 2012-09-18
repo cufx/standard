@@ -189,13 +189,35 @@
 
 	<xs:complexType name="Transactions">
 		<xs:sequence>
-			<xs:element name="transaction" maxOccurs="unbounded"
-				nillable="true">
-				<xs:complexType>
+			<xs:element name="transaction" maxOccurs="unbounded" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            If start date where provided or required, the Transactions collection/array should remain empty
+            if no transactions were posted during the provided date period.
+            In this case, the Data Provider should still return all other account information.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
 					<xs:sequence>
 						<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Transaction ID is a persistent and unique identifier for each transaction.
+                  It must be unique within the account as it is used for matching purposes.
+                  Transactions should always be returned with the same ID, even if transactional
+                  information has changed (type, amount, description, date, etc.) since the
+                  previous account data pull.
+                </xs:documentation>
+              </xs:annotation>
 						</xs:element>
 						<xs:element name="type" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Transaction Type simply reflects whether the account was debited or credited.
+                  For comment only transactions, the value can be either Debit or Credit and the 
+                  transaction amount can be null, not return or 0.00.
+                </xs:documentation>
+              </xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Debit"></xs:enumeration>
@@ -203,12 +225,40 @@
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1"></xs:element>
+						<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Transaction Amount should always be the absolute value of the transaction.
+                  The sign of the amount will be determined based on the transaction type.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
 						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Description represents the memo of the transaction and should be no longer
+                  than 5000 characters.
+                </xs:documentation>
+              </xs:annotation>
 						</xs:element>
-						<xs:element name="dateTimePosted" type="xs:date" minOccurs="0" maxOccurs ="1">
+						<xs:element name="dateTimePosted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Date Transaction Posted is the date the transaction was posted to the account.
+                  If this date is unavailable, it is acceptable to use the date that the transaction
+                  took place.
+                  The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+                  (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+                  supported.  The time is assume to be 00:00Z if omitted.
+                </xs:documentation>
+              </xs:annotation>
 						</xs:element>
-						<xs:element name="status" minOccurs="0" maxOccurs ="1">
+						<xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
+              <xs:annotation>
+                <xs:documentation>
+                  Whether the transaction is pending or posted.
+                </xs:documentation>
+              </xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Posted"></xs:enumeration>
@@ -217,7 +267,42 @@
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="principalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  How much of a loan payment was applied toward principal of the loan
+                  (actually reducing the amount of the loan balance)
+                </xs:documentation>
+              </xs:annotation>
 						</xs:element>
+            <xs:element name="interestAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  What amount of the loan payment was paid to the financial institution for interest.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="merchantCategoryCode" type="xs:integer" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  A four digit number used by the payment card industry to classify businesses
+                  into market segments by the type of goods or services they provide.
+                  THE MCC is assigned based on the supplier’s primary line of business.
+                  Only applies to debit or credit card purchases.
+                  List should be based on standard merchant category codes.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="source" type="TransactionSource" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  A four digit number used by the payment card industry to classify businesses
+                  into market segments by the type of goods or services they provide.
+                  THE MCC is assigned based on the supplier’s primary line of business.
+                  Only applies to debit or credit card purchases.
+                  List should be based on standard merchant category codes.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -303,6 +388,47 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="AccountTypeList">
+    <xs:sequence>
+      <xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of account types to return in a filter request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name ="TransactionSource">
+    <xs:annotation>
+      <xs:documentation>
+        System or delivery channel that originated the transaction
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="Ach" />
+      <xs:enumeration value ="Atm" />
+      <xs:enumeration value ="BillPay" />
+      <xs:enumeration value ="BulkDeposit" />
+      <xs:enumeration value ="Cash" />
+      <xs:enumeration value ="Check" />
+      <xs:enumeration value ="Fee" />
+      <xs:enumeration value ="HomeBanking" />
+      <xs:enumeration value ="Insurance" />
+      <xs:enumeration value ="InterestEarned" />
+      <xs:enumeration value ="InterestPaid" />
+      <xs:enumeration value ="Ivr" />
+      <xs:enumeration value ="MobileBanking" />
+      <xs:enumeration value ="Other" />
+      <xs:enumeration value ="Payroll" />
+      <xs:enumeration value ="PinPurchase" />
+      <xs:enumeration value ="SharedBranch" />
+      <xs:enumeration value ="Signature" />
+      <xs:enumeration value ="Wire" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
