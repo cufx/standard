@@ -71,6 +71,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of taxId'ss that should be returned or affected by a read, update or delete party request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="partyTypeList" type="party:PartyTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
