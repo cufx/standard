@@ -3,14 +3,16 @@
 		targetNamespace="http://cufxstandards.com/Meta.xsd"
 		xmlns="http://cufxstandards.com/Meta.xsd"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:common="http://cufxstandards.com/Common.xsd"
 		elementFormDefault="qualified"
 		attributeFormDefault="unqualified">
 
-	<xsd:complexType name="Meta" abstract="true">
+  <xsd:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+
+  <xsd:complexType name="Meta" abstract="true">
 		<xsd:annotation>
 			<xsd:documentation>
-				For each account type, optional meta information
-				MAY be
+				For each account type, optional meta information MAY be
 				provided with these tags depending upon accountType
 				returned
 			</xsd:documentation>
@@ -20,28 +22,63 @@
 
 	<xsd:complexType name="LoanMeta">
 		<xsd:complexContent>
+      <xsd:annotation>
+        <xsd:documentation>
+          Auto loans, etc. Loans that are NOT line of credit or credit cards.
+        </xsd:documentation>
+      </xsd:annotation>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="interestRate" type="xsd:decimal">
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate Percent of the loan.
+                Determines the amount charged each time period
+                based on the loan period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="interestType">
-						<xsd:simpleType>
-							<xsd:restriction base="xsd:string">
-								<xsd:enumeration value="FIXED"></xsd:enumeration>
-								<xsd:enumeration value="FLOATING"></xsd:enumeration>
-							</xsd:restriction>
-						</xsd:simpleType>
+				  <xsd:element name="maturityDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that the loan must be paid off.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="openDate" type="xsd:date"></xsd:element>
-					<xsd:element name="maturityDate" type="xsd:date">
+					<xsd:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Original balance of the loan.  i.e. How much was borrowed.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="minimumPayment" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The amount due each payment period to keep the loan in good standing.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="originalBalance" type="xsd:string">
+					<xsd:element name="currentDueDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that payment is due for the loan to keep in good standing and avoid penalties.
+                Many times institutions will institute a grace period beyond this date,
+                but this is the published due date.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="minimumPayment" type="xsd:decimal">
-					</xsd:element>
-					<xsd:element name="currentDueDate" type="xsd:date">
-					</xsd:element>
-					<xsd:element name="currentPayoffBalance" type="xsd:decimal"></xsd:element>
+					<xsd:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The Current Payoff Balance represents the amount required to pay off the loan
+                at the date/time the request was made.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -51,14 +88,15 @@
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="apy" type="xsd:decimal">
+					<xsd:element name="apy" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
 						<xsd:annotation>
 							<xsd:documentation>
-								Annual Percentage Yield
-							</xsd:documentation>
+                Annual Percentage Yield.
+                999.999   (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
 						</xsd:annotation>
 					</xsd:element>
-					<xsd:element name="minimumBalance" type="xsd:decimal">
+					<xsd:element name="minimumBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 						<xsd:annotation>
 							<xsd:documentation>
 								Minimum required balance
@@ -74,15 +112,54 @@
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="interestRate" type="xsd:decimal">
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate Percent of the credit card.
+                Determines The amount charged each time period based on the period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="brand" type="xsd:string"></xsd:element>
-					<xsd:element name="creditLimit" type="xsd:decimal"></xsd:element>
-					<xsd:element name="minimumPayment" type="xsd:decimal">
+					<xsd:element name="brand" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.)
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="creditLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Credit limit… institutions may not allow a person to charge more than this limit on the card.
+                In cases where the limit is exceeded typically over-the-limit charges occur.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="minimumPayment" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The amount due each payment period to keep the credit card in good standing.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="currentDueDate" type="xsd:date">
+					<xsd:element name="currentDueDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that payment is due for the credit card to keep in good standing and avoid penalties.
+                Many times institutions will institute a grace period beyond this date,
+                but this is the published due date.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="currentPayoffBalance" type="xsd:decimal">
+					<xsd:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The Current Payoff Balance represents the amount required to pay off the credit card
+                at the date/time the request was made.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
@@ -93,13 +170,37 @@
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="startingBalance" type="xsd:decimal">
+					<xsd:element name="startingBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Amount that was deposited into the investment product when it was originally opened.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="maturityDate" type="xsd:date">
+					<xsd:element name="maturityDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that the investment will pay out the full balance including any gains.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="interestRate" type="xsd:decimal">
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate earned by the investment.
+                Determines The amount earned each time period based on the period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="compoundingFrequency" type="xsd:string"></xsd:element>
+					<xsd:element name="compoundingFrequency" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                How often the interest is paid.  This field is open text but some examples might be Daily, Monthly,etc.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -109,14 +210,56 @@
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="interestRate" type="xsd:decimal"></xsd:element>
-					<xsd:element name="originalBalance" type="xsd:decimal"></xsd:element>
-					<xsd:element name="creditLimit" type="xsd:decimal"></xsd:element>
-					<xsd:element name="minimumPayment" type="xsd:decimal"></xsd:element>
-					<xsd:element name="currentDueDate" type="xsd:date"></xsd:element>
-					<xsd:element name="currentPayoffBalance" type="xsd:decimal"></xsd:element>
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate charged to the the line of credit.
+                Determines The amount charged each time period based on the period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Original balance of the line of credit.  i.e. How much was borrowed.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="creditLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Credit limit… institutions may not allow a person to charge more than this limit on the card.
+                In cases where the limit is exceeded typically over-the-limit charges occur.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="minimumPayment" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The amount due each payment period to keep the line of credit in good standing.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="currentDueDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that payment is due for the line of credit to keep in good standing and avoid penalties.
+                Many times institutions will institute a grace period beyond this date,
+                but this is the published due date.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The Current Payoff Balance represents the amount required to pay off the line of credit
+                at the date/time the request was made.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
 				</xsd:sequence>
-
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
@@ -125,51 +268,148 @@
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="interestRate" type="xsd:decimal">
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate charged to the the mortgage.
+                Determines The amount charged each time period based on the period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="originalBalance" type="xsd:decimal">
+					<xsd:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Original balance of the mortgage.  i.e. How much was borrowed.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="openDate" type="xsd:date"></xsd:element>
-					<xsd:element name="maturityDate" type="xsd:date">
+					<xsd:element name="maturityDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that the loan must be paid off.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="escrowBalance" type="xsd:decimal">
+					<xsd:element name="escrowBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Amount held in escrow for paying taxes on a mortgage financial instrument.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="minimumPayment" type="xsd:decimal">
+					<xsd:element name="minimumPayment" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The amount due each payment period to keep the mortgage in good standing.
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="currentDueDate" type="xsd:date">
+					<xsd:element name="currentDueDate" type="xsd:date" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The date that payment is due for the mortgage to keep in good standing and avoid penalties.
+                Many times institutions will institute a grace period beyond this date,
+                but this is the published due date.
+                The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="currentPayoffBalance" type="xsd:decimal"></xsd:element>
+					<xsd:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The Current Payoff Balance represents the amount required to pay off the mortgage
+                at the date/time the request was made.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+
+  <!--TO DO: we might move this to ProductOffering -->
 	<xsd:complexType name="ProductCreditCardMeta">
 		<xsd:complexContent>
 			<xsd:extension base="Meta">
 				<xsd:sequence>
-					<xsd:element name="description" type="xsd:string"></xsd:element>
-					<xsd:element name="interestRate"
-						type="xsd:decimal">
+					<xsd:element name="description" type="xsd:string" minOccurs ="0" maxOccurs ="1"></xsd:element>
+					<xsd:element name="interestRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                Interest Rate charged to the the credit card.
+                Determines The amount charged each time period based on the period.
+                999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="points" type="xsd:string"></xsd:element>
-					<xsd:element name="introductoryRate"
-						type="xsd:decimal">
+					<xsd:element name="points" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+               
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="introductoryRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+               
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="balanceConsolidationRate"
-						type="xsd:decimal">
+					<xsd:element name="balanceConsolidationRate" type="xsd:decimal" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="brand" type="xsd:string"></xsd:element>
-					<xsd:element name="minimumLimit"
-						type="xsd:decimal">
+					<xsd:element name="brand" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+                The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.)
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="minimumLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="maximumLimit"
-						type="xsd:decimal">
+					<xsd:element name="maximumLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
 					</xsd:element>
-					<xsd:element name="system" type="xsd:string"></xsd:element>
-					<xsd:element name="principal" type="xsd:decimal"></xsd:element>
-					<xsd:element name="agent" type="xsd:string"></xsd:element>
+					<xsd:element name="system" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="principal" type="common:Money" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+					<xsd:element name="agent" type="xsd:string" minOccurs ="0" maxOccurs ="1">
+            <xsd:annotation>
+              <xsd:documentation>
+
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
+ 
 </xsd:schema>

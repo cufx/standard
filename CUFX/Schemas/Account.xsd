@@ -156,9 +156,14 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="Meta" type="m:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            For each account type, optional meta information MAY be provided with these tags depending 
+            upon accountType returned
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>
 			<xs:element name="transactions" type="Transactions"></xs:element>
-
 		</xs:sequence>
 	</xs:complexType>
 
@@ -355,7 +360,7 @@
       <xs:enumeration value="Loan">
         <xs:annotation>
           <xs:documentation>
-            Loans that are NOT line of credit or credit cards.  Auto's, etc.
+            Auto loans, etc. Loans that are NOT line of credit or credit cards.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
