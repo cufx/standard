@@ -1,118 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema
-	version="1.0.7" 
+	version="0.0.10" 
 	targetNamespace="http://cufxstandards.com/Validation.xsd"
 	elementFormDefault="qualified"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/Validation.xsd"
 	xmlns:app="http://cufxstandards.com/Application.xsd">
 
-	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/Application.xsd"></xsd:import>
-
-	<xsd:complexType name="Choice">
-		<xsd:sequence>
-		</xsd:sequence>
-		<xsd:attribute name="choiceId" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					An identifier for a multiple-choice answer to the out-of-wallet question.
-					Must be unique within the list of choices. 
-					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		
-		<xsd:attribute name="choiceText" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-									The text of the choice.					
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-
-	<xsd:complexType name="ChoiceList">
-		<xsd:sequence>
-			<xsd:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
-
-	<xsd:complexType name="Question">
-		<xsd:sequence>
-			<xsd:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-		<xsd:attribute name="questionId" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					An identifier for the out-of-wallet question.
-					Must be unique within the list of questions. 
-					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		
-		<xsd:attribute name="questionText" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					The text of the out-of-wallet question.					
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-	
-	<xsd:complexType name="QuestionList">
-		<xsd:sequence>
-			<xsd:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
-	
-	<xsd:complexType name="SimpleValidationRequest">
-		<xsd:sequence>
-			<xsd:element name="applicant" type="app:Applicant" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-		<xsd:attribute name="validationType" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					Service provider specified validation type (Exs.: OFAC, CU Loss, …)
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-	
-	<xsd:simpleType name = "ValidationStatus">
-    <xsd:annotation>
-      <xsd:documentation>Enumeration defining possible results of a simple validation.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base = "xsd:string">
-    	<xsd:enumeration value = "Pass">
-       		<xsd:annotation>
-       			<xsd:documentation>
-       				The applicant is valid.
-       	 		</xsd:documentation>
-       		</xsd:annotation>
-      	</xsd:enumeration>
-      <xsd:enumeration value = "Fail">
-       		<xsd:annotation>
-       			<xsd:documentation>
-       				The applicant is not valid.
-       	 		</xsd:documentation>
-       		</xsd:annotation>
-      	</xsd:enumeration>
-      <xsd:enumeration value = "Indeterminate">
-       		<xsd:annotation>
-       			<xsd:documentation>
-       				It could not be determined if the applicant is valid or not.
-       	 		</xsd:documentation>
-       		</xsd:annotation>
-      	</xsd:enumeration>
-      <xsd:enumeration value = "Error">
-       		<xsd:annotation>
-       			<xsd:documentation>
-       				There was an error in the validation process.
-       	 		</xsd:documentation>
-       		</xsd:annotation>
-      	</xsd:enumeration>
-    </xsd:restriction>
-  </xsd:simpleType>
+<!-- Replaced by QuestionList, ValidationStatus, and SimpleValidation request
+Will delete soon.
+ -->
 
 </xsd:schema>
