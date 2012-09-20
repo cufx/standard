@@ -287,6 +287,71 @@
         </xs:annotation>
       </xs:enumeration>
 
+      <xs:enumeration value ="437">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact not found.	The artifactId could not be found in the Repository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="438">
+        <xs:annotation>
+          <xs:documentation>
+            Update to field not allowed.	The Repository does not allow updates to '%s'.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="439">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact could not be decompressed.	 artifactCompressionType did not result in a successful decompression of the artifact
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+
+      <xs:enumeration value ="440">
+        <xs:annotation>
+          <xs:documentation>
+            MIME Type not supported. 	Repository rejected the MIME type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="441">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact has been archived.	The artifact with the given artifactId has been archived out of the repository. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="442">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact too large.	The Repository has rejected the artifact because the artifact has exceeded the Repository’s size limit.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="443">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact too small.	The Repository has rejected the artifact because the artifact is smaller than its minimum size limit.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="444">
+        <xs:annotation>
+          <xs:documentation>
+            Artifact rejected. 	The Repository has rejected the artifact. See the sub error codes for the specific reason.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
       <xs:enumeration value ="475">
         <xs:annotation>
           <xs:documentation>
