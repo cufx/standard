@@ -3,14 +3,14 @@
   xmlns="http://cufxstandards.com/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:common="http://cufxstandards.com/Common.xsd"
-  xmlns:credit="http://cufxstandards.com/CreditReportDetail.xsd"
+  xmlns:credit="http://cufxstandards.com/CreditReport.xsd"
   xmlns:party="http://cufxstandards.com/party.xsd"
   
   elementFormDefault="qualified" >
 
   <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/Common.xsd"></xs:import>
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/CreditReportDetail.xsd" schemaLocation="CreditReportDetail.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
 
   <xs:complexType name="Application">
     <xs:sequence>
@@ -24,7 +24,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
 
   <xs:complexType name="ApplicantList">
     <xs:annotation>
@@ -67,7 +66,7 @@
         </xs:documentation>
       </xs:annotation>
     </xs:element>
-    <xs:element name="creditReportDetail" type="credit:CreditReportDetail" minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="creditReportList" type="credit:CreditReportList" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Details relating credit scores used in determining loan approval

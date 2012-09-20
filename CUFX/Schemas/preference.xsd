@@ -20,7 +20,7 @@
 	<!-- <xs:import namespace="http://cufxstandards.com/card.xsd" schemaLocation="card.xsd" /> -->
 	<xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
 
-	<xs:element name="preferences" type="Preferences">
+	<xs:element name="preferenceList" type="PreferenceList">
 		<xs:annotation>
 			<xs:documentation>
 				The preferences collection/array contains all the preferences, for instance, that the credential set is
@@ -29,7 +29,7 @@
 		</xs:annotation>
 	</xs:element>
 	
-	<xs:complexType name ="Preferences">
+	<xs:complexType name ="PreferenceList">
 		<xs:annotation>
 			<xs:documentation>
 				The parties collection/array contains all the parties for instance that the credential set is

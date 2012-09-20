@@ -480,7 +480,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="employmentDetail" type="EmploymentDetail" minOccurs="0" maxOccurs="1">
+      <xs:element name="employmentList" type="EmploymentList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Employer of the individual, start date, status, etc.
@@ -503,10 +503,31 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+ 
+    <xs:element name="residence" type="Residence" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>
+          Current living quarters status.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:element>
     </xs:sequence>
   </xs:group>
 
-  <xs:complexType name="EmploymentDetail">
+  <xs:complexType name="EmploymentList">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of Employer details related to an individual
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="employment" type="Employment" minOccurs ="0" maxOccurs="unbounded">
+        
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Employment">
     <xs:annotation>
       <xs:documentation>
         Employer details related to an individual
@@ -908,7 +929,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ResidenceDetails">
+  <xs:complexType name="Residence">
     <xs:annotation>
       <xs:documentation>
         Details related to residence
@@ -1243,7 +1264,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="credentials" type="Credentials" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Credentials is a list of fields for a credential.
@@ -1251,7 +1272,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deliveryChannels" type="DeliveryChannels" minOccurs="0" maxOccurs="1">
+      <xs:element name="deliveryChannelList" type="DeliveryChannelList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             List of applicable delivery channels for these credentials.
@@ -1261,7 +1282,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Credentials">
+  <xs:complexType name="Credential">
     <xs:sequence>
       <xs:element name="type" minOccurs="1" maxOccurs="1">
         <xs:annotation>
@@ -1351,7 +1372,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="DeliveryChannels">
+  <xs:complexType name="DeliveryChannelList">
     <xs:annotation>
       <xs:documentation>
         List of applicable delivery channels for these credentials.

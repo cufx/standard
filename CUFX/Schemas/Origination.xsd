@@ -2,24 +2,31 @@
 <xsd:schema targetNamespace="http://cufxstandards.com/Origination.xsd"
 	elementFormDefault="qualified"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns="http://cufxstandards.com/Origination.xsd" xmlns:app="http://cufxstandards.com/Application.xsd">
+	xmlns="http://cufxstandards.com/Origination.xsd"
+  xmlns:app="http://cufxstandards.com/Application.xsd">
 
 	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/Application.xsd"></xsd:import>
 	<xsd:complexType name="Origination">
 		<xsd:sequence>
-			<xsd:element name="applicants" type="app:Applicant" maxOccurs="unbounded">
+			<xsd:element name="applicantList" type="app:ApplicantList" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>The applicant(s) collection/array contains one to many applicants.</xsd:documentation></xsd:annotation></xsd:element>
+					<xsd:documentation>
+            The applicant(s) collection/array contains one to many applicants.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
 			<xsd:element name="type" minOccurs="1" maxOccurs="1">
-                <xsd:annotation>
-                	<xsd:documentation></xsd:documentation>
-                </xsd:annotation>
-                <xsd:simpleType>
-					<xsd:restriction base="xsd:string">
-						<xsd:enumeration value="Individual"></xsd:enumeration>
-						<xsd:enumeration value="Organization"></xsd:enumeration>
-					</xsd:restriction>
-				</xsd:simpleType>
+        <xsd:annotation>
+          <xsd:documentation>
+                    
+          </xsd:documentation>
+        </xsd:annotation>
+      <xsd:simpleType>
+			  <xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Individual"></xsd:enumeration>
+					<xsd:enumeration value="Organization"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
 			</xsd:element>
 			<xsd:element name="companyId" type="xsd:string" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
@@ -57,9 +64,13 @@
 			<xsd:element name="creditLimit" type="xsd:decimal" minOccurs="0" maxOccurs="1"></xsd:element>
 			<xsd:element name="openDate" type="xsd:date" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
-					<xsd:documentation>Date the loan (credit) account was opened.  This allows for flexibility where we create the account at a late date (i.e. batch process), 
-however we still want to reflect the date the account was opened.</xsd:documentation>
-				</xsd:annotation></xsd:element>
+					<xsd:documentation>
+            Date the loan (credit) account was opened.  This allows for flexibility where
+            we create the account at a late date (i.e. batch process), 
+            however we still want to reflect the date the account was opened.
+          </xsd:documentation>
+				</xsd:annotation>
+      </xsd:element>
 			<xsd:element name="plasticCount" type="xsd:int" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation>Specify the number of plastics to issue.</xsd:documentation></xsd:annotation></xsd:element>
