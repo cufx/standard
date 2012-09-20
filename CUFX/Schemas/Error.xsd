@@ -360,6 +360,23 @@
         </xs:annotation>
       </xs:enumeration>
 
+
+      <xs:enumeration value ="497">
+        <xs:annotation>
+          <xs:documentation>
+            Transaction Dates are out of order.  The transaction end date is before the transaction start date
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="498">
+        <xs:annotation>
+          <xs:documentation>
+            Transaction Date Range Too Wide.  Date Range is too wide for the data source to handle.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
       <xs:enumeration value ="499">
         <xs:annotation>
           <xs:documentation>
