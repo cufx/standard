@@ -15,7 +15,7 @@
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
   <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
 
-  <xs:element name="leads" type="Leads">
+  <xs:element name="leadList" type="LeadList">
     <xs:annotation>
       <xs:documentation>
         The leads collection/array contains all the leads, for instance, that the credential set is
@@ -33,7 +33,7 @@
     </xs:element>
 
 
-  <xs:complexType name ="Leads">
+  <xs:complexType name ="LeadList">
     <xs:annotation>
       <xs:documentation>
         The leads collection/array contains all the leads, for instance, that the credential set is
@@ -69,7 +69,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productsOfInterest" type="ProductsOfInterest" minOccurs="0" maxOccurs="1">
+      <xs:element name="productOfInterestList" type="ProductOfInterestList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A list of Products that the contact is interested in.
@@ -103,7 +103,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name ="parties" type ="party:Parties"  minOccurs="0" maxOccurs="1">
+      <xs:element name ="partyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Use if this is for new Parties that do not yet exist on the back end systems.
@@ -152,7 +152,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadFulfillmentNotes" type="LeadFulfillmentNotes" minOccurs="0" maxOccurs="1">
+      <xs:element name="leadFulfillmentNoteList" type="LeadFulfillmentNoteList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Notes entered by personnel that is attempting to follow up on the lead to conclusion.
@@ -162,7 +162,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ProductsOfInterest">
+  <xs:complexType name="ProductOfInterestList">
     <xs:annotation>
       <xs:documentation>
         A list of Products that the contact is interested in.
@@ -279,7 +279,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="LeadFulfillmentNotes">
+  <xs:complexType name="LeadFulfillmentNoteList">
     <xs:annotation>
       <xs:documentation>
         Collection of fulfillment note fields.

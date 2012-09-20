@@ -18,7 +18,7 @@
   <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
 
-  <xs:element name= "accountsDetail" type ="AccountsDetail">
+  <xs:element name= "accountDetail" type ="AccountDetailList">
     <xs:annotation>
       <xs:documentation>
         The accountsDetail collection/array contains all the accountsDetail for instance that the credential set is
@@ -27,7 +27,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="AccountsDetail">
+  <xs:complexType name="AccountDetailList">
     <xs:annotation>
       <xs:documentation>
         The accountsDetail collection/array contains all the accountsDetail for instance that the credential set is

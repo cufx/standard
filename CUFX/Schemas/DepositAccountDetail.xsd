@@ -1,19 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/CUFX_DepositAccountDetail.xsd"
-  xmlns="http://cufxstandards.com/CUFX_DepositAccountDetail.xsd"
+  targetNamespace="http://cufxstandards.com/DepositAccountDetail.xsd"
+  xmlns="http://cufxstandards.com/DepositAccountDetail.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://cufxstandards.com/CUFX_Common.xsd"
-  xmlns:base="http://cufxstandards.com/CUFX_AccountDetail.xsd"
+  xmlns:common="http://cufxstandards.com/Common.xsd"
+  xmlns:base="http://cufxstandards.com/AccountDetail.xsd"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/CUFX_Common.xsd"
-             schemaLocation="CUFX_Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/CUFX_AccountDetail.xsd"
-             schemaLocation="CUFX_AccountDetail.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
 
-  <xs:complexType name="DepositAccountDetails">
+  <xs:element name="depositAccountDetail" type="DepositAccountDetail">
+    <xs:annotation>
+      <xs:documentation>
+        Top level element for Details relating to deposit account
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+    
+  <xs:complexType name="DepositAccountDetail">
     <xs:annotation>
       <xs:documentation>
         Details relating to deposit account
@@ -82,13 +88,6 @@
             <xs:annotation>
               <xs:documentation>
                 Name or number identifying the type of dividend calculation performed for this account.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="DividendRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                The percentage rate used to calculate dividends for this account. The DividendType must be set to allow for a custom rate.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -205,6 +204,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  
   <xs:simpleType name="MaturityPostCodeType">
     <xs:annotation>
       <xs:documentation>

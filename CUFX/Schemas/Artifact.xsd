@@ -7,7 +7,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
 
-  <xs:element name= "artifacts" type ="Artifacts">
+  <xs:element name= "artifactList" type ="ArtifactList">
     <xs:annotation>
       <xs:documentation>
         The artifacts collection/array contains all the artifacts for instance that the credential set is
@@ -16,7 +16,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="Artifacts">
+  <xs:complexType name="ArtifactList">
     <xs:annotation>
       <xs:documentation>
         The artifacts collection/array contains all the artifacts for instance that the credential set is
@@ -150,7 +150,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="id" type="ArtifactId" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="artifactId" type="ArtifactId" minOccurs="0" maxOccurs="unbounded"
 				nillable="true">
       </xs:element>
     </xs:sequence>

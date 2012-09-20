@@ -7,7 +7,7 @@
   xmlns:account="http://cufxstandards.com/Account.xsd"
 	xmlns:ad="http://cufxstandards.com/AccountDetail.xsd"
 	xmlns:m="http://cufxstandards.com/Meta.xsd"
-  xmlns:credit="http://cufxstandards.com/CreditReportDetails.xsd"
+  xmlns:credit="http://cufxstandards.com/CreditReport.xsd"
 	elementFormDefault="qualified"
 	version="0.0.1"
 	attributeFormDefault="unqualified">
@@ -16,9 +16,35 @@
 	<xs:import namespace="http://cufxstandards.com/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
   <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
-  <xs:import namespace="http://cufxstandards.com/CreditReportDetails.xsd" schemaLocation="CreditReportDetails.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
 
   <!-- ROOT NODE FOR LOAN ORIGINATION -->
+   <xs:element name="loanList" type="LoanList">
+    <xs:annotation>
+      <xs:documentation>
+        Top level loans list collection element
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="LoanList">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          Collection of loans data definition
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="loan" type="Loan" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to loan account
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+ 
 	<xs:complexType name="Loan">
 		<xs:annotation>
 			<xs:documentation>
@@ -220,21 +246,21 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="creditReportData" type="credit:CreditReportDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="creditReportList" type="credit:CreditReportList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
-							Details relating credit scores used in determining loan approval
+							Collection of credit reports which relate credit scores used in determining loan approval
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="loanInterestRateData" type="LoanInterestRateDetails" minOccurs="0" maxOccurs="1">
+				<xs:element name="loanInterestRateDetail" type="LoanInterestRateDetail" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details realted to the interest rate for the loan
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="fundsDistributionData" type="FundsDistributionDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="fundsDistribution" type="FundsDistribution" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>
 							Details for disbursing funds;
@@ -242,7 +268,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="paymentOptionData" type="PaymentOptionDetails" minOccurs="0" maxOccurs="1">
+				<xs:element name="paymentOption" type="PaymentOption" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details relating to the loan payment options
@@ -401,14 +427,14 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="loanFeeData" type="LoanFeeDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="loanFeeList" type="LoanFeeList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details relating to loan fees
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="insuranceAddOnData" type="InsuranceAddOnDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="insuranceAddOnList" type="InsuranceAddOnList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details relating to insurance details added to the loan;
@@ -416,21 +442,21 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="collateralRecordData" type="CollateralRecordDetails" minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="collateralRecordList" type="CollateralRecordList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
-							Details related to collateral record
+							Details related to each collateral record
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="autoPaymentOptionData" type="AutoPaymentOptionDetails" minOccurs="0" maxOccurs="1">
+				<xs:element name="autoPaymentOption" type="AutoPaymentOption" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details related to auto payment options
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="delinquencyNoticeData" type="DelinquencyNoticeDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="delinquencyNoticeList" type="DelinquencyNoticeList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details related to delinquency notices; describes/details the actions taken
@@ -438,7 +464,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="skipPaymentData" type="SkipPaymentDetails" minOccurs="0" maxOccurs="1">
+				<xs:element name="skipPayment" type="SkipPayment" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Details describing upfront skip payment parameters available specific loan product
@@ -452,7 +478,7 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="noteData" type="common:NoteDetails" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="noteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Note Details related to the Loan App/Loan
@@ -463,7 +489,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="AutoPaymentOptionDetails">
+	<xs:complexType name="AutoPaymentOption">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to auto payment options
@@ -522,7 +548,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fromProductCategory" type="account:AccountCategories" minOccurs="0" maxOccurs="1">
+			<xs:element name="fromProductCategory" type="account:AccountCategory" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The category of the from account
@@ -539,7 +565,25 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="CollateralRecordDetails">
+  <xs:complexType name="CollateralRecordList">
+    <xs:annotation>
+      <xs:documentation>
+        Details related to collateral for the loan
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="collateralRecord" type="CollateralRecord" minOccurs="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to each collateral record
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="CollateralRecord">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to collateral record
@@ -584,14 +628,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="collateralSecurityData" type="CollateralSecurityDetails" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="collateralSecurityList" type="CollateralSecurityList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details relating to how the collateral is secured
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="collateral" type="CollateralDetails" minOccurs="0" maxOccurs="unbounded">
+      
+			<xs:element name="collateralList" type="CollateralList" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Details related to vehicle colateral
@@ -641,7 +686,24 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="CollateralSecurityDetails">
+  <xs:complexType name="CollateralSecurityList">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of each collateral item and the details relating to how the collateral is secured
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="collateralSecurity" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to how the collateral is secured
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+	<xs:complexType name="CollateralSecurityDetail">
 		<xs:annotation>
 			<xs:documentation>
 				Details relating to how the collateral is secured
@@ -682,7 +744,26 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="DelinquencyNoticeDetails">
+  <xs:complexType name="DelinquencyNoticeList" >
+    <xs:annotation>
+      <xs:documentation>
+        Details related to delinquency notices; describes/details the actions taken
+        when the loan is in a delinquent status
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="delinquencyNotice" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to each delinquency notice; describes/details the actions taken
+            when the loan is in a delinquent status
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+	<xs:complexType name="DelinquencyNotice">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to delinquency notices; describes/details the actions taken
@@ -723,7 +804,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="FundsDistributionDetails">
+	<xs:complexType name="FundsDistribution">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to where the funds are being distributed
@@ -757,7 +838,26 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="InsuranceAddOnDetails">
+  <xs:complexType name="InsuranceAddOnList">
+    <xs:annotation>
+      <xs:documentation>
+        Details relating to insurance details added to the loan;
+        Insurance that is directly related to the loan
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="insuranceAddOn" type="InsuranceAddOn" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to each insurance add on placed on the loan;
+            Insurance that is directly related to the loan
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+	<xs:complexType name="InsuranceAddOn">
 		<xs:annotation>
 			<xs:documentation>
 				Details relating to insurance details added to the loan;
@@ -852,7 +952,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="LateChargeFeeDetails">
+	<xs:complexType name="LateChargeFee">
 		<xs:annotation>
 			<xs:documentation>
 				Late charge fee related details
@@ -890,7 +990,25 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="LoanFeeDetails">
+
+  <xs:complexType name="LoanFeeList" >
+		<xs:annotation>
+			<xs:documentation>
+				Details relating to loan fees
+			</xs:documentation>
+		</xs:annotation>
+    <xs:sequence>
+      <xs:element name="loanFee" type="LoanFee" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to loan fees
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+	</xs:complexType>
+          
+	<xs:complexType name="LoanFee">
 		<xs:annotation>
 			<xs:documentation>
 				Details relating to loan fees
@@ -898,7 +1016,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element name="lateChargeFeeData" type="LateChargeFeeDetails" minOccurs="0" maxOccurs="1">
+				<xs:element name="lateChargeFee" type="LateChargeFee" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							Late charge fee related details
@@ -976,7 +1094,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="LoanInterestRateDetails">
+	<xs:complexType name="LoanInterestRateDetail">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to the interest rate for the loan
@@ -1205,7 +1323,7 @@
 		</xs:sequence>
 	</xs:complexType>	
 
-	<xs:complexType name="PaymentOptionDetails">
+	<xs:complexType name="PaymentOption">
 		<xs:annotation>
 			<xs:documentation>
 				Details relating to the loan payment options				
@@ -1374,7 +1492,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="SkipPaymentDetails">
+	<xs:complexType name="SkipPayment">
 		<xs:annotation>
 			<xs:documentation>
 				Details describing upfront skip payment parameters available specific loan product
@@ -1428,14 +1546,31 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="CollateralDetails">
+  <xs:complexType name="CollateralList" >
+    <xs:annotation>
+      <xs:documentation>
+        Collection of collateral records related to vehicle colateral
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name ="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Contains Details about each collateral. Different types are supported
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+	<xs:complexType name="Collateral">
 		<xs:annotation>
 			<xs:documentation>
 				Contains Details about collateral. different types are supported
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="collateralType" type="CollateralDetailsType" minOccurs="0" maxOccurs="1">
+			<xs:element name="collateralType" type="CollateralType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The type of collateral
@@ -1443,21 +1578,21 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="otherCollateralType" type="xs:string" minOccurs="0" maxOccurs="1" />
-			<xs:element name="motorVehicleColateral" type="VehicleCollateralDetails" minOccurs="0" maxOccurs="1">
+			<xs:element name="motorVehicleColateral" type="VehicleCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details related to vehicle colateral
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="pleasureBoatColateral" type="PleasureBoatCollateralDetails" minOccurs="0" maxOccurs="1" />
-			<xs:element name="shipColateral" type="ShipCollateralDetails" minOccurs="0" maxOccurs="1" />
-			<xs:element name="aircraftColateral" type="AircraftCollateralDetails" minOccurs="0" maxOccurs="1" />
-			<xs:element name="trailerColateral" type="TrailerCollateralDetails" minOccurs="0" maxOccurs="1" />
+			<xs:element name="pleasureBoatCollateral" type="PleasureBoatCollateral" minOccurs="0" maxOccurs="1" />
+			<xs:element name="shipCollateral" type="ShipCollateral" minOccurs="0" maxOccurs="1" />
+			<xs:element name="aircraftCollateral" type="AircraftCollateral" minOccurs="0" maxOccurs="1" />
+			<xs:element name="trailerCollateral" type="TrailerCollateral" minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="PleasureBoatCollateralDetails">
+	<xs:complexType name="PleasureBoatCollateral">
 		<xs:annotation>
 			<xs:documentation>
 				todo
@@ -1467,7 +1602,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="ShipCollateralDetails">
+	<xs:complexType name="ShipCollateral">
 		<xs:annotation>
 			<xs:documentation>
 				todo
@@ -1477,7 +1612,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="AircraftCollateralDetails">
+	<xs:complexType name="AircraftCollateral">
 		<xs:annotation>
 			<xs:documentation>
 				todo
@@ -1487,7 +1622,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="TrailerCollateralDetails">
+	<xs:complexType name="TrailerCollateral">
 		<xs:annotation>
 			<xs:documentation>
 				todo
@@ -1497,7 +1632,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="VehicleCollateralDetails">
+	<xs:complexType name="VehicleCollateral">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to vehicle collateral
@@ -1639,7 +1774,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="CollateralDetailsType">
+	<xs:simpleType name="CollateralType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="MotorVehicle" />
 			<xs:enumeration value="MobileHome" />
@@ -1875,5 +2010,6 @@
 			<xs:enumeration value="PercentOfUndisbursed" />
 		</xs:restriction>
 	</xs:simpleType>
+
 
 </xs:schema>

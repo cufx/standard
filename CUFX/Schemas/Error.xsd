@@ -7,7 +7,7 @@
 	version="0.0.4"
 	attributeFormDefault="unqualified">
 
-  <xs:element name ="errors" type ="Errors">
+  <xs:element name ="errorList" type ="ErrorList">
     <xs:annotation>
       <xs:documentation>
         The Error collection/array contains all the errors returned when
@@ -16,7 +16,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="Errors">
+  <xs:complexType name="ErrorList">
     <xs:annotation>
       <xs:documentation>
         The Error collection/array contains all the errors returned when

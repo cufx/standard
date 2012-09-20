@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema 
-	targetNamespace="http://cufxstandards.com/CreditReportDetails.xsd" 
-	xmlns="http://cufxstandards.com/CreditReportDetails.xsd" 
+	targetNamespace="http://cufxstandards.com/CreditReport.xsd" 
+	xmlns="http://cufxstandards.com/CreditReport.xsd" 
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:complexType name="CreditReportDetails">
+
+  <xs:element name="creditReportList" type="CreditReportList">
+    <xs:annotation>
+      <xs:documentation>
+        Top Level collection of credit reports.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="CreditReportList">
+    <xs:annotation>
+      <xs:documentation>
+         Collection of credit reports.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="creditReport" type="CreditReport" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating credit scores used in determining loan decisioning, risk based pricing, or for membership eligibility.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+   <xs:complexType name="CreditReport">
 		<xs:annotation>
 			<xs:documentation>
 				Details relating credit scores used in determining loan decisioning, risk based pricing, or for membership eligibility.

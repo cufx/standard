@@ -13,7 +13,7 @@
   <xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
 
 
-  <xs:element name= "accounts" type ="Accounts">
+  <xs:element name= "accountList" type ="AccountList">
     <xs:annotation>
       <xs:documentation>
         The accounts collection/array contains all the accounts for instance that the credential set is
@@ -22,7 +22,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="Accounts">
+  <xs:complexType name="AccountList">
     <xs:annotation>
       <xs:documentation>
         The accounts collection/array contains all the accounts for instance that the credential set is
@@ -163,7 +163,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-			<xs:element name="transactions" type="Transactions"></xs:element>
+			<xs:element name="transactionList" type="TransactionList">
+        <xs:annotation>
+          <xs:documentation>
+            If start date where provided or required, the TransactionList collection/array should remain empty
+            if no transactions were posted during the provided date period.
+            In this case, the Data Provider should still return all other account information.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -192,9 +200,9 @@
     </xs:sequence>
   </xs:complexType>
 
-	<xs:complexType name="Transactions">
+	<xs:complexType name="TransactionList">
 		<xs:sequence>
-			<xs:element name="transaction" maxOccurs="unbounded" nillable="true">
+			<xs:element name="transaction" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
             If start date where provided or required, the Transactions collection/array should remain empty
@@ -327,7 +335,7 @@
   </xs:simpleType>
 
   <!-- Do we need both AccountCategories and AccountType?  It seems like categories is only related to deposits and should be moved-->
-  <xs:simpleType name="AccountCategories">
+  <xs:simpleType name="AccountCategory">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Savings" />
       <xs:enumeration value="Checking" />

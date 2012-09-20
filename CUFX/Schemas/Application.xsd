@@ -3,19 +3,19 @@
   xmlns="http://cufxstandards.com/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	xmlns:common="http://cufxstandards.com/Common.xsd"
-  xmlns:credit="http://cufxstandards.com/CreditReportDetails.xsd"
+  xmlns:credit="http://cufxstandards.com/CreditReportDetail.xsd"
   xmlns:party="http://cufxstandards.com/party.xsd"
   
   elementFormDefault="qualified" >
 
   <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/Common.xsd"></xs:import>
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/CreditReportDetails.xsd" schemaLocation="CreditReportDetails.xsd" />
+  <xs:import namespace="http://cufxstandards.com/CreditReportDetail.xsd" schemaLocation="CreditReportDetail.xsd" />
 
   <xs:complexType name="Application">
     <xs:sequence>
       <xs:element name="productId" type="xs:string" minOccurs="1" maxOccurs="1"></xs:element>
-      <xs:element name="applicants" type="Applicants" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="applicantList" type="ApplicantList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of applicants for the product.
@@ -26,7 +26,7 @@
   </xs:complexType>
 
 
-  <xs:complexType name="Applicants">
+  <xs:complexType name="ApplicantList">
     <xs:annotation>
       <xs:documentation>
         List of applicants for the product.
@@ -67,7 +67,7 @@
         </xs:documentation>
       </xs:annotation>
     </xs:element>
-    <xs:element name="creditReportData" type="credit:CreditReportDetails" minOccurs="0" maxOccurs="unbounded">
+    <xs:element name="creditReportDetail" type="credit:CreditReportDetail" minOccurs="0" maxOccurs="unbounded">
       <xs:annotation>
         <xs:documentation>
           Details relating credit scores used in determining loan approval
