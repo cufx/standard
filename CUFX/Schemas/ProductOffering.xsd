@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cufxstandards.com/ProductOffering.xsd"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://cufxstandards.com/ProductOffering.xsd"
+  xmlns:account="http://cufxstandards.com/Account.xsd"
+  xmlns:meta="http://cufxstandards.com/Meta.xsd"
+  xmlns:common="http://cufxstandards.com/Common.xsd">
+
+  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+
+  <xs:element name= "productOfferingList" type ="ProductOfferingList">
+    <xs:annotation>
+      <xs:documentation>
+        The product offering collection/array contains all the possible product types for an instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ProductOfferingList">
+    <xs:annotation>
+      <xs:documentation>
+        The product offering collection/array contains all the possible product types for an instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productOffering" type="ProductOffering" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of fields that define a specific product offering at the institution level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ProductOffering">
+    <xs:sequence>
+      <xs:element name="productId" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for each Product Offering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductType" type="account:AccountType" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Defines a general category for the product types.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productSubType" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Product sub type identifies how the product will be identified in the back end system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="description" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the product, i.e. Visa Classic, MasterCard Gold, Electronic Checking, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="pointsRewardsProgram" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            if true, this product offering is part of a points rewards program.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="interestRateList" type="InterestRateList" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            For each product type, provide the list of available Interest Rates that might apply to the product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="minimumBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Product has a minimum Balance requirement. This would be the minimum balance acceptable for product.
+            Fees are typically assessed if the balance drops below the minimum balance.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="maximumBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Product has a maximum Balance requirement. This would be the maximum balance acceptable for product.
+            Fees are typically assessed if the maximum balance is exceeded.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="brand" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.).
+            Only applies to CreditCard.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="system" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="principal" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="agent" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InterestRateList">
+    <xs:annotation>
+      <xs:documentation>
+        The interest rate  list collection/array contains all the possible interest rates for a product offering.
+        This can be used for tiered pricing, risk pricing or effective date pricing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interestRate" type="InterestRate" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of fields that define a an interest rate for a specific product offering at the institution level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InterestRate" >
+    <xs:annotation>
+      <xs:documentation>
+        Defines the interest rate fields for a product offering at the institution level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interestRateId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the interest rate .
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="interestPointsRewardsProgram" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            if true, this interest rate is only paid if the product is part of a points rewards program.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="introductoryRate" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is an introductory rate for the product offering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="balanceConsolidationRate" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is an balance consolidaiton rate for the product offering.
+            Applicable to loans and line of credits.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="riskRate" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is an risk based rate for the product offering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="riskRateClassificationMinimum" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If this this is an risk based rate for the product offering, 
+            this is the risk classification minimum requirement to acquire or maintain this rate.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="interestRateDescription" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the interest rate .
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="interestRateCriteria" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Crtieria as to when the interest rate applies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="effectiveDateTime" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:annotation>
+              <xs:documentation>
+                The UTC date that the interest Rate  becomes effective…
+                If this value is not available or in the past then the Interest Rate is currently effective depending
+                on the expiration date/time.
+                If this value is in the future then the interest rate is not effective.
+                The date/time should be ISO 8601 UTC format.
+                yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+                formats are supported.  The time is assume to be 00:00Z if omitted.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="expirationDateTime" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            <xs:annotation>
+              <xs:documentation>
+                The UTC date that the interest Rate becomes ineffective…
+                If this value is not provided or is in the future then the interest rate is currently effective
+                depending on the effective date/time.
+                If this value is in the past then the interest rate is not effective.
+                The date/time should be ISO 8601 UTC format.
+                yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+                formats are supported.  The time is assume to be 00:00Z if omitted.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Interest Rate charged to the the credit card.
+            Determines The amount charged each time period based on the period.
+            999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
