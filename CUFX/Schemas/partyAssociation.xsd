@@ -89,7 +89,7 @@
         The partyAssociationType identifies how the parentParty relates to the childParty.
       </xs:documentation>
     </xs:annotation>
-    <xs:choice>
+    <xs:sequence>
       <xs:element name="partner" type="Partner">
         <xs:annotation>
           <xs:documentation>
@@ -129,7 +129,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:choice>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Partner">

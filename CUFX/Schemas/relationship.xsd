@@ -71,7 +71,7 @@
       <xs:element name="partyList" type="PartyList">
         <xs:annotation>
           <xs:documentation>
-            A collection of party id’s that uniquely identify each party associated to this relationship
+            A specialized collection of party id’s that uniquely identify each party associated to this relationship
             along with how the party is related to the relationship.
           </xs:documentation>
         </xs:annotation>
@@ -177,6 +177,7 @@
           <xs:documentation>
             Collection of contacts for the party within this relationship.  Only contains the
             contactId for each contact.
+            Overrides anything at the party Id level.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -210,7 +211,7 @@
         also be in the accounts via partyList with the account object.
       </xs:documentation>
     </xs:annotation>
-    <xs:choice>
+    <xs:sequence>
       <xs:element name="holder" type="Holder" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -268,12 +269,12 @@
           </xs:documentation >
         </xs:annotation>
       </xs:element>
-    </xs:choice>
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name ="Holder">
     <xs:sequence>
-      <xs:element	name="qualifer" type="PrimaryJoint" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="PrimaryJoint" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies if Primary (only one on account) or a joint owner.
@@ -293,7 +294,7 @@
 
   <xs:complexType name ="Beneficiary">
     <xs:sequence>
-      <xs:element	name="qualifer" type="BeneficiaryQualifier" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="BeneficiaryQualifier" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies when the beneficiary receives the funds based on the account type.
@@ -332,13 +333,19 @@
   <xs:simpleType name="BeneficiaryTypes">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Primary" />
-      <xs:enumeration value="Contingent" />
+      <xs:enumeration value="Contingent">
+        <xs:annotation>
+          <xs:documentation>
+            If the primary passes away, then the contingent beneficiary receives the benefits.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   
   <xs:complexType name ="Agent">
     <xs:sequence>
-      <xs:element	name="qualifer" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies the type of agent that is acting on behalf of the account or relationship holders.
@@ -359,7 +366,7 @@
 
   <xs:complexType name ="Payee">
     <xs:sequence>
-      <xs:element	name="qualifer" type="PayeeQualifier" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="PayeeQualifier" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies the type of payee to determine when payee receives funds from dividends.
@@ -405,7 +412,7 @@
 
   <xs:complexType name ="SafeDepositBoxUser">
     <xs:sequence>
-      <xs:element	name="qualifer" type="SafeDepositBoxUserQualifier" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="SafeDepositBoxUserQualifier" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies the type of ownership the party has over the safe deposit box.
@@ -519,7 +526,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration >
-      <xs:enumeration value ="CTR_TRANSACTOR" >
+      <xs:enumeration value ="CtrTransactor" >
         <xs:annotation>
           <xs:documentation>
             Party reported to government for CTR transations on behalf of the account holder or borrower.

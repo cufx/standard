@@ -480,6 +480,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="employmentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The individual's employment status.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="employmentList" type="EmploymentList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -566,13 +574,6 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="employmentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's employment status
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       
       <xs:element name="employerAddress" type="contact:Address" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
@@ -746,7 +747,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="frequency" type="IncomeFrequencyType" minOccurs="0" maxOccurs="1">
+      <xs:element name="frequency" type="FrequencyType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The frequency of the income
@@ -756,7 +757,7 @@
       <xs:element name="otherFrequencyType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Free form text that describes the IncomeFrequencyType "Other" when sent in the Frequency element
+            Free form text that describes the FrequencyType "Other" when sent in the Frequency element
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -770,10 +771,23 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name="IncomeFrequencyType">
+  <xs:simpleType name="FrequencyType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Biweekly" />
+      <xs:enumeration value="Biweekly">
+        <xs:annotation>
+          <xs:documentation>
+            Paid Every other week.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
       <xs:enumeration value="Monthly" />
+      <xs:enumeration value="SemiMonthly">
+        <xs:annotation>
+          <xs:documentation>
+            Paid twice a month.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Other" />
       <xs:enumeration value="Weekly" />
       <xs:enumeration value="Yearly" />
@@ -811,10 +825,17 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="monthlyPayment" type="common:Money"  minOccurs="0" maxOccurs="1">
+      <xs:element name="Payment" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The liability monthly payment amount
+            The liability payment amount
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PaymentFrequency" type="FrequencyType"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The liability payment frequency, monthly, weekly, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -943,10 +964,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CurrentMonthlyHousingExpense" type="common:Money" minOccurs="0" maxOccurs="1">
+      <xs:element name="CurrentHousingType" type="HousingType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The amount of the monthly housing expense for the person's residence type
+            The person's current housing type (primary, etc.)
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -968,6 +989,18 @@
       <xs:enumeration value="Other"/>
       <xs:enumeration value="OwnWithMortgage"/>
       <xs:enumeration value="OwnWithoutMortgage"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HousingType">
+    <xs:annotation>
+      <xs:documentation>
+        The residence housing  type
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PrimaryResidence"/>
+      <xs:enumeration value="NonPrimaryResidence"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -1140,7 +1173,7 @@
         <xs:annotation>
           <xs:documentation>
             Documentation Types for Organizations.
-            Used only for type equal to ORGANIZATON.
+            Used only for type equal to Organization.
           </xs:documentation>
         </xs:annotation>
 
@@ -1161,7 +1194,7 @@
         <xs:annotation>
           <xs:documentation>
             Documentation Types for Trusts.
-            Used only for type equal to TRUST.
+            Used only for type equal to Trust.
           </xs:documentation>
         </xs:annotation>
 
@@ -1176,7 +1209,7 @@
         <xs:annotation>
           <xs:documentation>
             Documentation Types for Trusts.
-            Used only for type equal to TRUST.
+            Used only for type equal to Estate.
           </xs:documentation>
         </xs:annotation>
 
@@ -1391,11 +1424,20 @@
 
   <xs:simpleType name="DeliveryChannel">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="CallCenter" />
+      <xs:enumeration value="LiveSupport">
+        <xs:annotation>
+          <xs:documentation>
+            When a person calls in or walks up to a teller, sometimes a codeword
+            is asked for to verify there identity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
       <xs:enumeration value="OnlineBanking" />
       <xs:enumeration value="Mobile" />
+      <xs:enumeration value="Kiosk" />
       <xs:enumeration value="ATM" />
       <xs:enumeration value="IVR" />
+      <xs:enumeration value="Other" />
     </xs:restriction>
   </xs:simpleType>
 
