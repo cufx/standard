@@ -286,7 +286,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="LeadFulfillmentNote" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="leadFulfillmentNote" type="LeadFulfillmentNote" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             Text of the note entered by person attempting to bring lead to conclusion.

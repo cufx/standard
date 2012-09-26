@@ -64,7 +64,7 @@
       <xs:element name="description" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Description of the product, i.e. Visa Classic, MasterCard Gold, Electronic Checking, etc.
+            Description of the product, i.e. Visa Classic, MasterCard Gold, Electronic Checking, New Auto, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -107,7 +107,7 @@
         <xs:annotation>
           <xs:documentation>
             The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.).
-            Only applies to CreditCard.
+            Only applies to CreditCard and Debit Cards.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -180,7 +180,7 @@
       <xs:element name="introductoryRate" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            This is an introductory rate for the product offering.
+            This is an introductory/promotional rate for the product offering.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -188,7 +188,7 @@
       <xs:element name="balanceConsolidationRate" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            This is an balance consolidaiton rate for the product offering.
+            This is an balance consolidation rate for the product offering.
             Applicable to loans and line of credits.
           </xs:documentation>
         </xs:annotation>
@@ -205,8 +205,17 @@
       <xs:element name="riskRateClassificationMinimum" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            If this this is an risk based rate for the product offering, 
+            If this is a risk based rate for the product offering, 
             this is the risk classification minimum requirement to acquire or maintain this rate.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="riskRateClassificationMaximum" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If this is a risk based rate for the product offering,
+            this is the risk classification maximum requirement to acquire or maintain this rate.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -214,7 +223,7 @@
       <xs:element name="interestRateDescription" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the interest rate .
+            Description for the interest rate .
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -222,7 +231,7 @@
       <xs:element name="interestRateCriteria" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Crtieria as to when the interest rate applies.
+            Criteria as to when the interest rate applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -262,10 +271,11 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Interest Rate charged to the the credit card.
+            Interest Rate charged for a loan product or earned by a deposit or investment product
             Determines The amount charged each time period based on the period.
             999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
           </xs:documentation>

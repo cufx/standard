@@ -309,7 +309,7 @@
           <xs:documentation>
             Organization Type is the textual representation
             of what kind of organization it is.
-            Completed if party Type is ORGANIZATION.
+            Completed if party Type is Organization.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -353,12 +353,72 @@
   
   <xs:simpleType name="OrganizationType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="SoleProprietorship" />
-      <xs:enumeration value="Llc" />
-      <xs:enumeration value="Partnership" />
-      <xs:enumeration value="Corporation" />
-      <xs:enumeration value="NotForProfit" />
-      <xs:enumeration value="Club" />
+      <xs:enumeration value="SoleProprietorship">
+        <xs:annotation>
+          <xs:documentation>
+            A business that legally has no separate existence from its owner.
+            Income and losses are taxed on the individual's personal income tax return.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Llc" >
+        <xs:annotation>
+          <xs:documentation>
+            Legal form of company that provides limited liability to its owners
+            in the vast majority of United States jurisdictions.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Partnership"  >
+        <xs:annotation>
+          <xs:documentation>
+            A nominate contract between individuals who, in a spirit of cooperation,
+            agree to carry on an enterprise; contribute to it by combining property,
+            knowledge or activities; and share its profit.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Corporation" >
+        <xs:annotation>
+          <xs:documentation>
+            An association of individuals, created by law or under authority of law,
+            having a continuous existence independent of the existences of its members,
+            and powers and liabilities distinct from those of its members.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotForProfit" >
+        <xs:annotation>
+          <xs:documentation>
+            A not for profit organization is a type of organization that does not
+            earn profits for its owners. All of the money earned by or donated to 
+            a not for profit organization is used in pursuing the organization's
+            objectives. Typically not for profit organizations are charities or other
+            types of public service organizations. Generally, not for profit 
+            organizations can apply for a tax exempt status so that the organization 
+            is not subject to most forms of taxation. Donations made to a tax exempt not for profit organization may also be tax-deductible for the donor.
+            Taken from investopedia.com.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Club" >
+        <xs:annotation>
+          <xs:documentation>
+            An organization composed of people who voluntarily meet on a regular basis
+            for a mutual purpose other than educational, religious, charitable, or
+            financial pursuits. A club is any kind of group that has members who meet
+            for a social, literary, or political purpose, such as health clubs,
+            country clubs, book clubs, and women's associations. The term club is
+            not a legal term per se, but a group that organizes itself as a club
+            must comply with any laws governing its organization and otherwise be
+            cognizant of the legal ramifications in undertaking to organize itself
+            in this manner.
+            Taken from legal-dictionary.thefreedictionary.com
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 

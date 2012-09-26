@@ -133,7 +133,18 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="otherSubType" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Used in case the preference Sub Type is Other.  This is provided to 
+            allow exptensibility if the specification doesn't have a particular option 
+            present.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The value specified for the preference.
@@ -182,7 +193,7 @@
 			<xs:enumeration value ="ENotice" />
 			<xs:enumeration value ="Newsletter" />
 			<xs:enumeration value ="Communication" />
-			<xs:enumeration value ="Laguage" />
+			<xs:enumeration value ="Language" />
 			<xs:enumeration value ="ContactHours" />
 			<xs:enumeration value ="WebsiteFormat" />
 			<xs:enumeration value ="MobileSiteFormat" />
@@ -244,6 +255,7 @@
 			<xs:enumeration value ="Text" />
 			<xs:enumeration value ="StyleSheet" />
 			<xs:enumeration value ="Widget" />
+      <xs:enumeration value ="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
 	

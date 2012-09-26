@@ -2082,7 +2082,7 @@
       <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Collection of contacts for the party within this account.  Only contains the
+            Collection of contacts for the party within this loan.  Only contains the
             contactId for each contact.
           </xs:documentation>
         </xs:annotation>
@@ -2146,7 +2146,7 @@
 
   <xs:complexType name ="Borrower">
     <xs:sequence>
-      <xs:element	name="qualifer" type="relationship:PrimaryJoint" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="qualifier" type="relationship:PrimaryJoint" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies if Primary (only one on account) or a one or more joint borrowers (co-borrower).
