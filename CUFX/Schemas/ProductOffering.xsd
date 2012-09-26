@@ -46,7 +46,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ProductType" type="account:AccountType" minOccurs="1" maxOccurs="1">
+      <xs:element name="productType" type="account:AccountType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Defines a general category for the product types.
@@ -284,4 +284,41 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="ProductTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        Product type filter for making a request.  If the list is Nil then that indicates
+        that no filters should be applied for product type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="unbounded" nillable ="true">
+        <xs:annotation>
+          <xs:documentation>
+            Defines a general category for the product type to filter on.  If none are provided then
+            all should be returned.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ProductSubTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        Product Sub type filter for making a request.  If the list is Nil then that indicates
+        that no filters should be applied for product sub type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productSubType" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable ="true">
+        <xs:annotation>
+          <xs:documentation>
+            Product sub type identifies how the product will be identified in the back end system.
+            If none are provided then all should be returned.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

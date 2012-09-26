@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://cufxstandards.com/ProductOfferingFilter.xsd"
+	xmlns="http://cufxstandards.com/ProductOfferingFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:account="http://cufxstandards.com/Account.xsd"
+  xmlns:productOffering="http://cufxstandards.com/ProductOffering.xsd"
+
+  elementFormDefault="qualified"
+	version="0.0.1"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+
+  <xs:element name="productOfferingFilter" type="ProductOfferingFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting product Offering data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ProductOfferingFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting produt Offering data.  The options can be used
+        in combination or by themselves and it is up to the data source to either return the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product Types that should be returned by a read productOffering request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="interestDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The UTC date and time that should be used when filtering for effective and expiration dates on the
+            product interest rates.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="pointsRewardsProgram" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            if provided and true, only product offering that part of a points rewards program will
+            be returned.  If provided and false, only product offerings that are NOT part of a points
+            rewards program will be returned.  If not provided, then no filtering will
+            occur based on the pointsRewardsProgram.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="brand" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If provided only the product offerings that match the company that sponsors the card
+            (i.e. Visa, MasterCard, American Express, etc.) will be returned.  If not provided
+            then no filtering by brand will occur.
+            Only applies to CreditCard and Debit Cards product offerings.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="riskRateClassification" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If provided will only return risk interest rates where riskRateClassificationMinimum
+            is below or equal to this provided value and the riskRateClassificationMaximum is
+            above or equal to this value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
