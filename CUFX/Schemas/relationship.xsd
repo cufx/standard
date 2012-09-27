@@ -29,7 +29,7 @@
   
   <xs:complexType name="RelationshipList">
     <xs:sequence>
-      <xs:element name="relationship" type="relationship" minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="relationship" type="Relationship" minOccurs="0" maxOccurs="unbounded" >
         <xs:annotation>
           <xs:documentation>
             The relationships collection/array contains all the relationships for instance that the
@@ -40,7 +40,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="relationship">
+  <xs:complexType name="Relationship">
     <xs:annotation>
       <xs:documentation>
         A grouping of related accounts tied to one or more parties that have an account
