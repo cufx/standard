@@ -321,4 +321,23 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="ProductIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Product Sub type filter for making a request.  If the list is Nil then that indicates
+        that no filters should be applied for product sub type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productId" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable ="true">
+        <xs:annotation>
+          <xs:documentation>
+            Product Id is a unique identifer for the product.  
+            If none are provided then no filters should be applied by Product Id.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

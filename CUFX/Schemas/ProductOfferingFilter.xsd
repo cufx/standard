@@ -29,6 +29,14 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="productIdList" type="productOffering:ProductIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product Ids that should be returned by a read productOffering request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -36,7 +44,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
+      <xs:element name="productSubTypeList" type="productOffering:ProductSubTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product sub Types that should be returned by a read productOffering request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="interestDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

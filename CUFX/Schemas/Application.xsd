@@ -5,12 +5,15 @@
 	xmlns:common="http://cufxstandards.com/Common.xsd"
   xmlns:credit="http://cufxstandards.com/CreditReport.xsd"
   xmlns:party="http://cufxstandards.com/party.xsd"
+  xmlns:productOffering="http://cufxstandards.com/ProductOffering.xsd"
+
   
   elementFormDefault="qualified" >
 
   <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/Common.xsd"></xs:import>
   <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
   <xs:import namespace="http://cufxstandards.com/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
 
   <xs:complexType name="Application">
     <xs:sequence>
