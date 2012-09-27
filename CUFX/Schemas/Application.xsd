@@ -188,10 +188,17 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="productAppliedForId" type="xs:string" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Product Applied for Id is a unique identifer for the product request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="productId" type="xs:string" minOccurs ="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Product Id is a unique identifer for the product that is being applied for.
+            Product Id is a unique identifer for the reference data for the product that is being applied for.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
