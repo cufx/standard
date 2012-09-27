@@ -23,9 +23,17 @@ namespace DocGenerator
 			// Look in the project output directory for all xsd files
 			string[] files = Directory.GetFiles(Environment.CurrentDirectory, "*.xsd");
 
+			// Create the output directory for the generated HTML files
+			string outputDirectory = Path.Combine(Environment.CurrentDirectory, "Generated HTML Docs");
+			if (!Directory.Exists(outputDirectory))
+			{
+				Directory.CreateDirectory(outputDirectory);
+			}
+
 			foreach (string xsdFilePath in files)
 			{
-				using(StreamWriter outfile = new StreamWriter(Path.ChangeExtension(xsdFilePath, ".html")))
+				string outfileName = Path.Combine(outputDirectory,Path.GetFileNameWithoutExtension(xsdFilePath)) + ".html";
+				using (StreamWriter outfile = new StreamWriter(outfileName))
 				{
 					string documentTitle = Path.GetFileNameWithoutExtension(xsdFilePath);
 					documentTitle = documentTitle.Replace("CUFX_", "");
