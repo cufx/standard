@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/Application.xsd"
   xmlns="http://cufxstandards.com/Application.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/Common.xsd"
   xmlns:credit="http://cufxstandards.com/CreditReport.xsd"
   xmlns:party="http://cufxstandards.com/party.xsd"
@@ -45,11 +45,11 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Application">
     <xs:annotation>
       <xs:documentation>
-        An application contains the details becoming a consumer of a financial institution if they 
+        An application contains the details becoming a consumer of a financial institution if they
         are not already along with the details of the products requested.
       </xs:documentation>
     </xs:annotation>
@@ -110,7 +110,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
- 
+
   <xs:complexType name="Applicant">
     <xs:annotation>
       <xs:documentation>
@@ -127,40 +127,40 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-    <xs:element name="creditReportList" type="credit:CreditReportList" minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>
-          Details relating credit scores used in determining loan approval
-        </xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    <xs:element name="relationshipId" type="relationship:RelationshipId">
-      <xs:annotation>
-        <xs:documentation>
-          Key fields to point to an existing relationship that product(s) should
-          be added to in the event they are to be booked.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:element>
-      
-    <xs:element name="PartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>
-          Key fields to point to an existing party applying for a product.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:element>
+      <xs:element name="creditReportList" type="credit:CreditReportList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating credit scores used in determining loan approval
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relationshipId" type="relationship:RelationshipId">
+        <xs:annotation>
+          <xs:documentation>
+            Key fields to point to an existing relationship that product(s) should
+            be added to in the event they are to be booked.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
-    <xs:element name ="party" type ="party:Party"  minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>
-          Use if this application is for a new Party that does not yet exist on the back end systems.
-          Contains a list of contacts for how the party would like to be contacted.
-          There may be a very limited subset of party data available as this is an application for a new
-          party and the amount of information provided for the applicant may be minimal.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:element>
+      <xs:element name="PartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Key fields to point to an existing party applying for a product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name ="party" type ="party:Party"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Use if this application is for a new Party that does not yet exist on the back end systems.
+            Contains a list of contacts for how the party would like to be contacted.
+            There may be a very limited subset of party data available as this is an application for a new
+            party and the amount of information provided for the applicant may be minimal.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -227,7 +227,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="deposit" type="deposit:Deposit">
         <xs:annotation>
           <xs:documentation>
@@ -309,12 +309,30 @@
       <xs:enumeration value ="Lost">
         <xs:annotation>
           <xs:documentation>
-            The applicants have rejected the conditions of the application and are not interested 
+            The applicants have rejected the conditions of the application and are not interested
             in further proposals and the process is complete for the application.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="ApplicationIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of applicaton Id's used for filtering on read, update or delete application service
+        requests.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="applicationId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Filter for the unique identifier for the application in the back end system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
 
 </xs:schema>

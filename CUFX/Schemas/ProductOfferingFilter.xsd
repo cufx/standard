@@ -23,7 +23,7 @@
   <xs:complexType name="ProductOfferingFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting produt Offering data.  The options can be used
+        The list of options for filters for services requesting product Offering data.  The options can be used
         in combination or by themselves and it is up to the data source to either return the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
@@ -64,7 +64,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="pointsRewardsProgram" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
