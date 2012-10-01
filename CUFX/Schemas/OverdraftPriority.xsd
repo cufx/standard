@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/OverdraftPriority.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/OverdraftPriority.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:ISOCountryCodeType="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+
+  <xs:element name="overdraftPriorityList">
+    <xs:annotation>
+      <xs:documentation>
+        Establishes the overdraft priority list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="account:AccountId">
+          <xs:annotation>
+            <xs:documentation>
+              The account to apply this overdraft priority list to.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="overdraftPriority" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              An entry in an account's overdraft priority list.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="accountId" type="account:AccountId">
+                <xs:annotation>
+                  <xs:documentation>
+                    The Account ID is a persistent and unique identifier for the account. It must be unique for all users across the institution and remain the same over the life of the account.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="priority" type="PriorityType">
+                <xs:annotation>
+                  <xs:documentation>
+                    Indicates the priority order of accounts to be used as sources of overdraft protection.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="PriorityType">
+    <xs:restriction base="xs:int">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
