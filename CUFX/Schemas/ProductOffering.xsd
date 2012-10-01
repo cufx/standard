@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/ProductOffering.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ProductOffering.xsd"
+	version="2.0.$Revision$"
 	elementFormDefault="qualified"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns="http://cufxstandards.com/ProductOffering.xsd"
-  xmlns:account="http://cufxstandards.com/Account.xsd"
-  xmlns:meta="http://cufxstandards.com/Meta.xsd"
-  xmlns:common="http://cufxstandards.com/Common.xsd">
+	xmlns="http://cufxstandards.com/v2/ProductOffering.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd">
 
-  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name= "productOfferingList" type ="ProductOfferingList">
     <xs:annotation>

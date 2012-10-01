@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/ProductOfferingFilter.xsd"
-	xmlns="http://cufxstandards.com/ProductOfferingFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ProductOfferingFilter.xsd"
+	version="2.0.$Revision$"			  
+	xmlns="http://cufxstandards.com/v2/ProductOfferingFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:account="http://cufxstandards.com/Account.xsd"
-  xmlns:productOffering="http://cufxstandards.com/ProductOffering.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
 
-  elementFormDefault="qualified"
-	version="0.0.1"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
 
   <xs:element name="productOfferingFilter" type="ProductOfferingFilter">
     <xs:annotation>

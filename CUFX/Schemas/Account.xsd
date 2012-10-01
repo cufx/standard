@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/Account.xsd"
-	xmlns="http://cufxstandards.com/Account.xsd"
+   targetNamespace="http://cufxstandards.com/v2/Account.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:m="http://cufxstandards.com/Meta.xsd"
-  xmlns:common="http://cufxstandards.com/Common.xsd"
-	elementFormDefault="qualified"
-	version="1.2.3"
+	xmlns:m="http://cufxstandards.com/v2/Meta.xsd"
+   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	elementFormDefault="qualified"	
 	attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/Meta.xsd" schemaLocation="Meta.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
 
 
   <xs:element name= "accountList" type ="AccountList">

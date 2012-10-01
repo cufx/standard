@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema 	targetNamespace="http://cufxstandards.com/relationship.xsd"
-	xmlns="http://cufxstandards.com/relationship.xsd"
+<xs:schema 	targetNamespace="http://cufxstandards.com/v2/relationship.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/relationship.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/Common.xsd"
-	xmlns:contact="http://cufxstandards.com/contact.xsd"
-	xmlns:ISOCountryCodeType="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd"
-	xmlns:party="http://cufxstandards.com/party.xsd"
-  xmlns:account="http://cufxstandards.com/Account.xsd"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
+	xmlns:ISOCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
+	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 			
 	elementFormDefault="qualified"
-	version="0.0.1"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
-  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name ="relationshipList" type ="RelationshipList">
     <xs:annotation>

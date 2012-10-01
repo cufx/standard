@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/partyFilter.xsd"
-	xmlns="http://cufxstandards.com/partyFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/partyFilter.xsd"
+	version="2.0.$Revision$"			  
+	xmlns="http://cufxstandards.com/v2/partyFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/contact.xsd"
-	xmlns:party="http://cufxstandards.com/party.xsd"
-	xmlns:relationship="http://cufxstandards.com/relationship.xsd"
-  xmlns:account="http://cufxstandards.com/Account.xsd"
-  xmlns:lead="http://cufxstandards.com/lead.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:lead="http://cufxstandards.com/v2/lead.xsd"
   
-  elementFormDefault="qualified"
-	version="0.0.1"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/lead.xsd" schemaLocation="lead.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/lead.xsd" schemaLocation="lead.xsd" />
 
   <xs:element name="partyFilter" type="PartyFilter">
     <xs:annotation>

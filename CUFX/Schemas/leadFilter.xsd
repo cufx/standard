@@ -1,83 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/leadFilter.xsd"
-	xmlns="http://cufxstandards.com/leadFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/leadFilter.xsd"
+	xmlns="http://cufxstandards.com/v2/leadFilter.xsd"
+	version="2.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/contact.xsd"
-	xmlns:party="http://cufxstandards.com/party.xsd"
-	xmlns:relationship="http://cufxstandards.com/relationship.xsd"
-  xmlns:lead="http://cufxstandards.com/lead.xsd"
-  
-  elementFormDefault="qualified"
-	version="0.0.1"
+	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
+	xmlns:lead="http://cufxstandards.com/v2/lead.xsd"  
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/contact.xsd" schemaLocation="contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/relationship.xsd" schemaLocation="relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/lead.xsd" schemaLocation="lead.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/lead.xsd" schemaLocation="lead.xsd" />
 
-  <xs:element name="leadFilter" type="LeadFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of options for filters for services reqwuesting lead data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="leadFilter" type="LeadFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of options for filters for services reqwuesting lead data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="LeadFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of options for filters for services reqwuesting lead data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="leadIdList" type="lead:LeadIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of leadId's that should be returned or affected by a read, update or delete lead request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
- 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of relationshipId's that should have their associated leads either returned or affected
-            by a read, update or delete lead request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="LeadFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of options for filters for services reqwuesting lead data.  The options can be used
+				in combination or by themselves and it is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="leadIdList" type="lead:LeadIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of leadId's that should be returned or affected by a read, update or delete lead request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of party Id's that should have their associated leads either returned or affected
-            by a read, update or delete lead request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationshipId's that should have their associated leads either returned or affected
+						by a read, update or delete lead request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of contact Id's that should have their associated leads either returned or affected
-            by a read, update or delete lead request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party Id's that should have their associated leads either returned or affected
+						by a read, update or delete lead request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="leadStatusList" type="lead:LeadStatusList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of contact Id's that should have their associated leads either returned or affected
-            by a read, update or delete lead request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of contact Id's that should have their associated leads either returned or affected
+						by a read, update or delete lead request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="leadStatusList" type="lead:LeadStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of contact Id's that should have their associated leads either returned or affected
+						by a read, update or delete lead request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema
-	version="0.0.10" 
-	targetNamespace="http://cufxstandards.com/QuestionList.xsd"
+<xsd:schema	
+	targetNamespace="http://cufxstandards.com/v2/QuestionList.xsd"
+	version="2.0.$Revision$"
 	elementFormDefault="qualified"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns="http://cufxstandards.com/QuestionList.xsd"
-	xmlns:app="http://cufxstandards.com/Application.xsd">
+	xmlns:xsd="http://www.w3.org/2001/v2/XMLSchema"
+	xmlns="http://cufxstandards.com/v2/QuestionList.xsd"
+	xmlns:app="http://cufxstandards.com/v2/Application.xsd">
 
-	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/Application.xsd"></xsd:import>
+	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"></xsd:import>
 
 	<xsd:complexType name="Choice">
 		<xsd:sequence>

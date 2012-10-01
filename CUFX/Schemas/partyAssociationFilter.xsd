@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/partyAssociationFilter.xsd"
-	xmlns="http://cufxstandards.com/partyAssociationFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/partyAssociationFilter.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/partyAssociationFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:partyAssociation="http://cufxstandards.com/partyAssociation.xsd"
+	xmlns:partyAssociation="http://cufxstandards.com/v2/partyAssociation.xsd"
   
-  elementFormDefault="qualified"
-	version="0.0.1"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/partyAssociation.xsd" schemaLocation="partyAssociation.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/partyAssociation.xsd" schemaLocation="partyAssociation.xsd" />
   
   <xs:element name="partyFilter" type="PartyAssociationFilter">
     <xs:annotation>

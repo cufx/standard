@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema targetNamespace="http://cufxstandards.com/Origination.xsd"
+<xsd:schema targetNamespace="http://cufxstandards.com/v2/Origination.xsd"
+	version="2.0.$Revision$"
 	elementFormDefault="qualified"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns="http://cufxstandards.com/Origination.xsd"
-  xmlns:app="http://cufxstandards.com/Application.xsd">
+	xmlns="http://cufxstandards.com/v2/Origination.xsd"
+	xmlns:app="http://cufxstandards.com/v2/Application.xsd">
 
-	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/Application.xsd"></xsd:import>
+	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"></xsd:import>
 	<xsd:complexType name="Origination">
 		<xsd:sequence>
 			<xsd:element name="applicantList" type="app:ApplicantList" minOccurs="0" maxOccurs="1">

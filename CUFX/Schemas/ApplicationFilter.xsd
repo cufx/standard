@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/ApplicationFilter.xsd"
-xmlns="http://cufxstandards.com/ApplicationFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ApplicationFilter.xsd"
+version="2.0.$Revision$"
+xmlns="http://cufxstandards.com/v2/ApplicationFilter.xsd"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:party="http://cufxstandards.com/party.xsd"
-xmlns:productOffering="http://cufxstandards.com/ProductOffering.xsd"
-xmlns:relationship="http://cufxstandards.com/relationship.xsd"
-xmlns:application="http://cufxstandards.com/Application.xsd"           
+xmlns:party="http://cufxstandards.com/v2/party.xsd"
+xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
+xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
+xmlns:application="http://cufxstandards.com/v2/Application.xsd"           
 
 elementFormDefault="qualified" >
 
-<xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
-<xs:import namespace ="http://cufxstandards.com/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
-<xs:import namespace ="http://cufxstandards.com/relationship.xsd" schemaLocation ="relationship.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/Application.xsd" schemaLocation ="Application.xsd" />
+<xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+<xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+<xs:import namespace ="http://cufxstandards.com/v2/relationship.xsd" schemaLocation ="relationship.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v2/Application.xsd" schemaLocation ="Application.xsd" />
   
   <xs:element name="applicationFilter" type="ApplicationFilter">
     <xs:annotation>

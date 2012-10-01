@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema
-		targetNamespace="http://cufxstandards.com/Meta.xsd"
-		xmlns="http://cufxstandards.com/Meta.xsd"
-		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:common="http://cufxstandards.com/Common.xsd"
-		elementFormDefault="qualified"
-		attributeFormDefault="unqualified">
+	targetNamespace="http://cufxstandards.com/v2/Meta.xsd"
+	version="2.0.$Revision$"		
+	xmlns="http://cufxstandards.com/v2/Meta.xsd"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 
-  <xsd:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
+  <xsd:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 
   <xsd:complexType name="Meta" abstract="true">
 		<xsd:annotation>

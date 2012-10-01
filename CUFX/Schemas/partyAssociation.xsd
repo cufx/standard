@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/partyAssociation.xsd"
-	xmlns="http://cufxstandards.com/partyAssociation.xsd"
+	targetNamespace="http://cufxstandards.com/v2/partyAssociation.xsd"
+	version="2.0.$Revision$"	
+	xmlns="http://cufxstandards.com/v2/partyAssociation.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/Common.xsd"
-  xmlns:party="http://cufxstandards.com/party.xsd"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v2/party.xsd"
 
 	elementFormDefault="qualified"
-	version="0.0.2"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
 
   <xs:element name= "partyAssociationList" type ="PartyAssociationList">
     <xs:annotation>

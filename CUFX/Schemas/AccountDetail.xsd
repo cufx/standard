@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-		targetNamespace="http://cufxstandards.com/AccountDetail.xsd"
-		xmlns="http://cufxstandards.com/AccountDetail.xsd"
+		targetNamespace="http://cufxstandards.com/v2/AccountDetail.xsd"
+		version="2.0.$Revision$"
+		xmlns="http://cufxstandards.com/v2/AccountDetail.xsd"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:common="http://cufxstandards.com/Common.xsd"
-		xmlns:account="http://cufxstandards.com/Account.xsd"
-    xmlns:party="http://cufxstandards.com/party.xsd"
+      xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+		xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+      xmlns:party="http://cufxstandards.com/v2/party.xsd"
   		elementFormDefault="qualified"
 		attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
  
   <xs:element name= "accountDetail" type ="AccountDetailList">
     <xs:annotation>
