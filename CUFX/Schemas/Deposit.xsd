@@ -72,13 +72,6 @@
             </xs:annotation>
           </xs:element>
           
-          <xs:element name="Branch" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                Name or number identifying the branch that owns the deposit account.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
           <xs:element name="BumpEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
@@ -93,17 +86,10 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="BumpRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+          <xs:element name="BumpRate" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The percentage to add to the normal rate during dividend calculations.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="DepositAccountType" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                Name or number identifying the type of deposit account.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -114,7 +100,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DividendRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+          <xs:element name="DividendRate" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The percentage rate used to calculate dividends for this account. The DividendType must be set to allow for a custom rate.
@@ -163,38 +149,17 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MICRAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                The account number portion of a draft account's MICR line.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="MinimumBalance" type="xs:decimal" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                The minimum balance required for this account.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="MinimumDeposit" type="xs:decimal" minOccurs="0" maxOccurs="1">
+          <xs:element name="MinimumDeposit" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The minimum amount that can be deposited to the account in a single transaction.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MinimumWithdrawal" type="xs:decimal" minOccurs="0" maxOccurs="1">
+          <xs:element name="MinimumWithdrawal" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The minimum amount that can be withdrawn from the account in a single transaction.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="NickName" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                Nickname for the account.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
