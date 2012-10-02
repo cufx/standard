@@ -9,6 +9,8 @@
   xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
   xmlns:loan="http://cufxstandards.com/v2/Loan.xsd"
   xmlns:deposit="http://cufxstandards.com/v2/Deposit.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+
   xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
   
   elementFormDefault="qualified" >
@@ -20,6 +22,7 @@
   <xs:import namespace ="http://cufxstandards.com/v2/Loan.xsd" schemaLocation ="Loan.xsd" />
   <xs:import namespace ="http://cufxstandards.com/v2/Deposit.xsd" schemaLocation ="Deposit.xsd" />
   <xs:import namespace ="http://cufxstandards.com/v2/relationship.xsd" schemaLocation ="relationship.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v2/Account.xsd" schemaLocation ="Account.xsd" />
 
   <xs:element name="applicationList" type="ApplicationList">
     <xs:annotation>
@@ -119,6 +122,14 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="applicantId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the applicant...
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="role" minOccurs="1" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -196,13 +207,26 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="productId" type="xs:string" minOccurs ="1" maxOccurs="1">
+
+      <xs:element name="productType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Product Id is a unique identifer for the reference data for the product that is being applied for.
+            The product type is the textual representation the kind of account.
+            This value is visible to the user and must be human-readable.
+            Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="productSubType" type="xs:string"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The product sub type that identifies the specific product type
+            that the back end system will recognize.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="productApplicationStatus" type="ApplicationStatus">
         <xs:annotation>
           <xs:documentation>
