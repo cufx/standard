@@ -12,7 +12,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
-	<xs:element name ="contacts" type ="Contacts">
+	<xs:element name ="contactList" type ="ContactList">
 		<xs:annotation>
 			<xs:documentation>
 				The contacts collection/array contains all the contacts for instance that the
@@ -21,7 +21,7 @@
 		</xs:annotation>
 	</xs:element>
 	
-	<xs:complexType name="Contacts">
+	<xs:complexType name="ContactList">
 		<xs:annotation>
 			<xs:documentation>
 				List of how the party can be contacted.
