@@ -113,11 +113,11 @@
 
 	<xs:simpleType name="UserType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="EMPLOYEE_ID" />
-			<xs:enumeration value="VENDOR_EMPLOYEE_ID" />
-			<xs:enumeration value="ANONYMOUS" />
-			<xs:enumeration value="FI_USER_ID" />
-			<xs:enumeration value="CUSTOM" />
+			<xs:enumeration value="EmployeeId" />
+			<xs:enumeration value="VendorEmployeeId" />
+			<xs:enumeration value="Anonymous" />
+			<xs:enumeration value="FIUserId" />
+			<xs:enumeration value="Custom" />
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
