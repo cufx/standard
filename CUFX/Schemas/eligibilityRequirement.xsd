@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 	
+  targetNamespace="http://cufxstandards.com/v2/eligibilityRequirement.xsd"
+	version="2.0.$Revision: 55 $"
+	xmlns="http://cufxstandards.com/v2/eligibilityRequirement.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+  <xs:element name="eligibilityRequirementList" type="EligibilityRequirementList">
+    <xs:annotation>
+      <xs:documentation>
+        List of how a party can qualify for a relationship with the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="EligibilityRequirementList">
+    <xs:annotation>
+      <xs:documentation>
+        List of how a party can qualify for a relationship with the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="eligibilityRequirement" type="EligibilityRequirement" minOccurs="0" maxOccurs="unbounded"
+				nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            How the party was eligibile.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="EligibilityRequirement">
+    <xs:sequence>
+      <xs:element name="requirementID" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Identifier for type of the eligibility requirement.
+            For most financial institution this might be a select employee group,
+            a community identifier or other field of membership criteria identifier.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the eligibility requirement.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="affinityBrandList" type="AffinityBrandList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of affinity brands were this requirement is applicable.  Some institutions
+            have sub-financial instutions that are affinity branded with a different
+            name than the parent.  If no Affinity Brands are listed then the eligibility
+            requirement is applicable for all.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="nextActionRequiredId" type="xs:integer" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Not present unless if the member selects this eligibility requirement if there are additional
+            actions required besides continuing with the application, then this will
+            tell the application what action should be requested.  It is up to the
+            application provider to work out with the financial institution to determine what
+            the nextActionRequiredId's represent and present that in the applicable language.
+            For instance, "Please go to the nearest branch to complete the application",
+            or "Please login to complete your application" or to gather additional information
+            regarding their eligibility.  For instance, if this was an geographical based
+            qualification, it might ask for zip code or street address, or if it is a 
+            business requirement, then it may ask for the business unit.  The answers
+            to the additional qualification criteria would be saved in the 
+            eligibilityRequirementMet referenceDescription field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AffinityBrandList">
+    <xs:annotation>
+      <xs:documentation>
+        List of affinity brands were this requirement is applicable.  Some institutions
+        have sub-financial instutions that are affinity branded with a different
+        name than the parent.  If no Affinity Brands are listed then the eligibility
+        requirement is applicable for all.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="affinityBrand" type="xs:string" minOccurs="0" maxOccurs="unbounded"
+              nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            An affinity brand where the eligibility requirement is applicable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EligibilityRequirementIdList">
+    <xs:sequence>
+      <xs:element name="requirementID" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Identifier for type of the eligibility requirement.
+            For most financial institution this might be a select employee group,
+            a community identifier or other field of membership criteria identifier.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
