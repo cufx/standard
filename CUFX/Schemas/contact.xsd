@@ -50,23 +50,12 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="contactType" minOccurs="1" maxOccurs="1">
+			<xs:element name="contactType" type="ContactType" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						High level category for contacting the party.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Address" />
-						<xs:enumeration value="Phone" />
-						<xs:enumeration value="Email" />
-						<xs:enumeration value="InstantMessaging" />
-						<xs:enumeration value="Social" />
-						<xs:enumeration value="Website" />
-						<xs:enumeration value="Other" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
 			<xs:group ref="point" minOccurs ="0" maxOccurs ="1">
@@ -614,5 +603,33 @@
     </xs:sequence>
 	</xs:complexType>
 
+	<xs:simpleType name="ContactType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Address" />
+			<xs:enumeration value="Phone" />
+			<xs:enumeration value="Email" />
+			<xs:enumeration value="InstantMessaging" />
+			<xs:enumeration value="Social" />
+			<xs:enumeration value="Website" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
+  <xs:complexType name="ContactTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        List of contact types for filtering.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contactType" type="ContactType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            High level category for contacting the party.  Used for filtering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
