@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema	
+<xs:schema	
 	targetNamespace="http://cufxstandards.com/v2/QuestionList.xsd"
 	version="2.0.$Revision$"
 	elementFormDefault="qualified"
-	xmlns:xsd="http://www.w3.org/2001/v2/XMLSchema"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/v2/QuestionList.xsd"
 	xmlns:app="http://cufxstandards.com/v2/Application.xsd">
 
-	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"></xsd:import>
+	<xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"/>
 
-	<xsd:complexType name="Choice">
-		<xsd:sequence>
-		</xsd:sequence>
-		<xsd:attribute name="choiceId" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
+	<xs:complexType name="Choice">
+		<xs:sequence>
+		</xs:sequence>
+		<xs:attribute name="choiceId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
 					An identifier for a multiple-choice answer to the out-of-wallet question.
 					Must be unique within the list of choices. 
 					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		
-		<xsd:attribute name="choiceText" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
+		<xs:attribute name="choiceText" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
 									The text of the choice.					
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
 
-	<xsd:complexType name="ChoiceList">
-		<xsd:sequence>
-			<xsd:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
+	<xs:complexType name="ChoiceList">
+		<xs:sequence>
+			<xs:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 
-	<xsd:complexType name="Question">
-		<xsd:sequence>
-			<xsd:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-		<xsd:attribute name="questionId" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
+	<xs:complexType name="Question">
+		<xs:sequence>
+			<xs:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="questionId" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
 					An identifier for the out-of-wallet question.
 					Must be unique within the list of questions. 
 					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		
-		<xsd:attribute name="questionText" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
+		<xs:attribute name="questionText" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>
 					The text of the out-of-wallet question.					
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
 	
-	<xsd:complexType name="QuestionList">
-		<xsd:sequence>
-			<xsd:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded"/>
-		</xsd:sequence>
-	</xsd:complexType>
+	<xs:complexType name="QuestionList">
+		<xs:sequence>
+			<xs:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 
-</xsd:schema>
+</xs:schema>
