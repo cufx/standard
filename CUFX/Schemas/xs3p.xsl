@@ -226,7 +226,33 @@
         template. -->
    <xsl:variable name="ORIGINAL_SCHEMA" select="/xsd:schema"/>
 
-   <!-- ******** Main Document ******** -->
+
+	<!-- CLM - There has got to be a more efficent way at doing this-->
+	<xsl:variable name="versionWithoutRevisionText">
+		<xsl:call-template name="string-replace-all">
+			<xsl:with-param name="text" select="/xsd:schema/@version" />
+			<xsl:with-param name="replace" select="'$Revision:'" />
+			<xsl:with-param name="by" select="''" />
+		</xsl:call-template>
+	</xsl:variable>
+
+	<xsl:variable name="versionWithoutSpaces">
+		<xsl:call-template name="string-replace-all">
+			<xsl:with-param name="text" select="$versionWithoutRevisionText" />
+			<xsl:with-param name="replace" select="' '" />
+			<xsl:with-param name="by" select="''" />
+		</xsl:call-template>
+	</xsl:variable>
+
+	<xsl:variable name="version">
+		<xsl:call-template name="string-replace-all">
+			<xsl:with-param name="text" select="$versionWithoutSpaces" />
+			<xsl:with-param name="replace" select="'$'" />
+			<xsl:with-param name="by" select="''" />
+		</xsl:call-template>
+	</xsl:variable>
+
+	<!-- ******** Main Document ******** -->
 
    <!--
      Main template that starts the process
@@ -245,36 +271,13 @@
       </xsl:if>
 
       <!-- Get title of document -->
-		<!-- CLM - There has got to be a more efficent way at doing this-->
-		<xsl:variable name="versionWithoutRevisionText"><xsl:call-template name="string-replace-all">
-				<xsl:with-param name="text" select="@version" />
-				<xsl:with-param name="replace" select="'$Revision:'" />
-				<xsl:with-param name="by" select="''" /></xsl:call-template>
-		</xsl:variable>
-
-		<xsl:variable name="versionWithoutSpaces">
-			<xsl:call-template name="string-replace-all">
-				<xsl:with-param name="text" select="$versionWithoutRevisionText" />
-				<xsl:with-param name="replace" select="' '" />
-				<xsl:with-param name="by" select="''" />
-			</xsl:call-template>
-		</xsl:variable>
-
-		<xsl:variable name="versionWithoutDollarSign">
-			<xsl:call-template name="string-replace-all">
-				<xsl:with-param name="text" select="$versionWithoutSpaces" />
-				<xsl:with-param name="replace" select="'$'" />
-				<xsl:with-param name="by" select="''" />
-			</xsl:call-template>
-		</xsl:variable>		
-
 		<xsl:variable name="actualTitle">
          <xsl:choose>
             <xsl:when test="$title != ''">
                <xsl:value-of select="$title"/>
 					<xsl:value-of select="$DEFAULT_TITLE"/>
 					<xsl:if test="@version">
-						- V<xsl:value-of select="$versionWithoutDollarSign"/>
+						- V<xsl:value-of select="$version"/>
 					</xsl:if>
 				</xsl:when>
             <xsl:otherwise>
@@ -2836,10 +2839,10 @@ div#legend div.hint {
             </td>
          </tr>
          <!-- Version -->
-         <xsl:if test="@version">
+         <xsl:if test="$version">
             <tr>
                <th>Version</th>
-               <td><xsl:value-of select="@version"/></td>
+               <td><xsl:value-of select="$version"/></td>
             </tr>
          </xsl:if>
          <!-- Language -->
