@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/CardFilter.xsd"
+  version="2.0.$Revision: 55 $"
+  xmlns="http://cufxstandards.com/v2/CardFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:card="http://cufxstandards.com/v2/Card.xsd"
+  elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
+
+  <xs:element name="cardFilter" type="CardFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting card data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="CardFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting card data.
+        The options can be used in combination or by themselves and it is up to the data source
+        to either return or affect the data requested or return a standard error identifying
+        why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cardIdList" type="card:CardIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Card Id's that should have their associated cards either returned or affected
+            by a read, update or delete card request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of partyId's that should be returned or affected by a read, update or
+            delete card request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Account Types that should have their associated cards either returned or affected
+            by a read, update or delete card request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="transactionStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to start searching the transactions.
+            Indicates the UTC posted date of the earliest transaction to be sent back
+            in the response.  Start and End date filter work together.
+            Must be less than or equal to end date if an end date is supplied.
+            Should be less to or equal to today’s date.
+            If neither transactionStartDate or transactionEndDate is provided,
+            NO transaction history data will be returned.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="transactionEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to end searching the transactions.
+            Indicates the UTC posted date of the latest transaction to be sent back in the response.
+            Start and End date filter work together.
+            Must be less than greater than or equal to start transaction start date/time.
+            If not supplied response returns all of the transactions on or after the transactionStartDate.
+            If neither transactionStartDate or transactionEndDate is provided,
+            no transaction history data will be returned.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
