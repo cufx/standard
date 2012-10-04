@@ -25,15 +25,6 @@
 	<xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
 
-	<!-- ROOT NODE FOR LOAN ORIGINATION -->
-	<xs:element name="loanList" type="LoanList">
-		<xs:annotation>
-			<xs:documentation>
-				Top level loans list collection element
-			</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-
 	<xs:complexType name="LoanList">
 		<xs:sequence>
 			<xs:annotation>
@@ -45,6 +36,19 @@
 				<xs:annotation>
 					<xs:documentation>
 						Details relating to loan account
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="LoanId">
+		<xs:sequence>
+			<xs:element name ="id">
+				<xs:annotation>
+					<xs:documentation>
+						The loan ID is a persistent and unique identifier for the loan. It should be unique for all loans across the
+						institution and remain the same over the life of the relationship with the financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
