@@ -1000,7 +1000,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="partyType" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="partyType" type="PartyType" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             Party type : Organization, Individual, etc.
