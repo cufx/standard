@@ -40,7 +40,7 @@
       <xs:element name="linkedAccountList" type="LinkedAccountList" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Specifies the "flavor" of the card (ie: platinum, sports team branded, etc.)
+            The list of deposit or loan accounts linked to the card.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -70,11 +70,11 @@
   <xs:complexType name="LinkedAccount">
     <xs:annotation>
       <xs:documentation>
-        An account linked to a card that is accessible from an ATM.
+        A deposit or loan account that is accessible by the card.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="accountId" type="a:AccountId" minOccurs="1" maxOccurs="1">
+      <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>The ID of the linked account.</xs:documentation>
         </xs:annotation>
