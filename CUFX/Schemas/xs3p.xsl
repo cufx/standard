@@ -90,11 +90,12 @@
  xmlns="http://www.w3.org/1999/xhtml" 
  xmlns:html="http://www.w3.org/1999/xhtml" 
  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
- xmlns:ppp="http://titanium.dstc.edu.au/xml/xs3p" 
- version="1.0" 
+ xmlns:ppp="http://titanium.dstc.edu.au/xml/xs3p"
+ xmlns:fn="http://www.w3.org/2005/xpath-functions"
+ version="1.0"
  exclude-result-prefixes="xsd ppp html">
 
-   <xsl:output 
+<xsl:output 
     method="xml" 
     encoding="ISO-8859-1"
     standalone="yes"
@@ -244,13 +245,36 @@
       </xsl:if>
 
       <!-- Get title of document -->
-      <xsl:variable name="actualTitle">
+		<!-- CLM - There has got to be a more efficent way at doing this-->
+		<xsl:variable name="versionWithoutRevisionText"><xsl:call-template name="string-replace-all">
+				<xsl:with-param name="text" select="@version" />
+				<xsl:with-param name="replace" select="'$Revision:'" />
+				<xsl:with-param name="by" select="''" /></xsl:call-template>
+		</xsl:variable>
+
+		<xsl:variable name="versionWithoutSpaces">
+			<xsl:call-template name="string-replace-all">
+				<xsl:with-param name="text" select="$versionWithoutRevisionText" />
+				<xsl:with-param name="replace" select="' '" />
+				<xsl:with-param name="by" select="''" />
+			</xsl:call-template>
+		</xsl:variable>
+
+		<xsl:variable name="versionWithoutDollarSign">
+			<xsl:call-template name="string-replace-all">
+				<xsl:with-param name="text" select="$versionWithoutSpaces" />
+				<xsl:with-param name="replace" select="'$'" />
+				<xsl:with-param name="by" select="''" />
+			</xsl:call-template>
+		</xsl:variable>		
+
+		<xsl:variable name="actualTitle">
          <xsl:choose>
             <xsl:when test="$title != ''">
                <xsl:value-of select="$title"/>
 					<xsl:value-of select="$DEFAULT_TITLE"/>
 					<xsl:if test="@version">
-						- V <xsl:value-of select="@version"/>
+						- V<xsl:value-of select="$versionWithoutDollarSign"/>
 					</xsl:if>
 				</xsl:when>
             <xsl:otherwise>
@@ -8595,4 +8619,25 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
          </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
+
+	<xsl:template name="string-replace-all">
+		<xsl:param name="text" />
+		<xsl:param name="replace" />
+		<xsl:param name="by" />
+		<xsl:choose>
+			<xsl:when test="contains($text, $replace)">
+				<xsl:value-of select="substring-before($text,$replace)" />
+				<xsl:value-of select="$by" />
+				<xsl:call-template name="string-replace-all">
+					<xsl:with-param name="text"
+					select="substring-after($text,$replace)" />
+					<xsl:with-param name="replace" select="$replace" />
+					<xsl:with-param name="by" select="$by" />
+				</xsl:call-template>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$text" />
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 </xsl:stylesheet>
