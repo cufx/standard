@@ -54,6 +54,19 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="CardList">
+    <xs:annotation>
+      <xs:documentation>
+        The cards collection/array contains all the cards for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:simpleType name="CardType">
     <xs:annotation>
       <xs:documentation>
