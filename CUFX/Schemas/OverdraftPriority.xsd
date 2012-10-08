@@ -17,47 +17,60 @@
   <xs:element name="overdraftPriorityList">
     <xs:annotation>
       <xs:documentation>
-        Establishes the overdraft priority list.
+        Establishes the overdraft priority List accross multiple accounts list
+        (used for returning any accounts that match DepositFilter.)
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="id" type="account:AccountId">
+        <xs:element name="overdraftPriority" minOccurs ="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>
-              The account to apply this overdraft priority list to.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="overdraftPriority" minOccurs="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation>
-              An entry in an account's overdraft priority list.
+              Establishes the overdraft priority.
             </xs:documentation>
           </xs:annotation>
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="accountId" type="account:AccountId">
+              <xs:element name="id" type="account:AccountId">
                 <xs:annotation>
                   <xs:documentation>
-                    The Account ID is a persistent and unique identifier for the account. It must be unique for all users across the institution and remain the same over the life of the account.
+                    The account to apply this overdraft priority list to.
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="priority" type="PriorityType">
+              <xs:element name="overdraftPriorityAccountList" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:documentation>
-                    Indicates the priority order of accounts to be used as sources of overdraft protection.
+                    An entry in an account's overdraft priority list.  i.e.
+                    Where should funds be pulled from to cover the overdraft.
                   </xs:documentation>
                 </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="accountId" type="account:AccountId">
+                      <xs:annotation>
+                        <xs:documentation>
+                          The Account ID is a persistent and unique identifier for the account. It must be unique for all users across the institution and remain the same over the life of the account.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="priority" type="PriorityType">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Indicates the priority order of accounts to be used as sources of overdraft protection.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:simpleType name="PriorityType">
     <xs:restriction base="xs:int">
       <xs:minExclusive value="0"/>

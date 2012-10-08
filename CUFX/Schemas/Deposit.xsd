@@ -19,7 +19,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
 
-  <xs:element name="DepositList" type="DepositList">
+  <xs:element name="depositList" type="DepositList">
     <xs:annotation>
       <xs:documentation>
         Top level deposit list collection element
@@ -44,7 +44,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:element name="Deposit" type="Deposit">
+  <xs:element name="deposit" type="Deposit">
     <xs:annotation>
       <xs:documentation>
         Top level element for Details relating to deposit account
@@ -61,7 +61,7 @@
     <xs:complexContent>
       <xs:extension base="base:AccountDetail">
         <xs:sequence>
-          <xs:element name="PartyList" type="PartyList" minOccurs="0" maxOccurs="1">
+          <xs:element name="partyList" type="PartyList" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 A collection of parties that associate each party associated to this deposit.
@@ -71,106 +71,92 @@
             </xs:annotation>
           </xs:element>
           
-          <xs:element name="BumpEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+          <xs:element name="bumpEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Date on which the BumpRate becomes effective.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="BumpExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+          <xs:element name="bumpExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Date on which the BumpRate expires.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="BumpRate" type="common:Money" minOccurs="0" maxOccurs="1">
+          <xs:element name="bumpRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The percentage to add to the normal rate during dividend calculations.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DividendPostCode" type="DividendPostCodeType" minOccurs="0" maxOccurs="1">
+          <xs:element name="dividendPostCode" type="DividendPostCodeType" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Defines how the dividends earned will be posted.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DividendRate" type="common:Money" minOccurs="0" maxOccurs="1">
+          <xs:element name="dividendRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                The percentage rate used to calculate dividends for this account. The DividendType must be set to allow for a custom rate.
+                The percentage rate used to calculate dividends for this account. 
+                The dividendType must be set to allow for a custom rate.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DividendTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="dividendTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Unique identifier of the account to post dividends to when the "Transfer" DividendPostCode is selected.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="DividendType" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="dividendType" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Name or number identifying the type of dividend calculation performed for this account.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="IRSCode" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="irsCode" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Defines IRS reporting requirements on this account.  Used to identify special requirements such as IRA or HSA.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MaturityDate" type="xs:date" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                The date the account matures.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="MaturityPostCode" type="MaturityPostCodeType" minOccurs="0" maxOccurs="1">
+          <xs:element name="maturityPostCode" type="MaturityPostCodeType" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Defines how the account balance should be handled upon maturity.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MaturityTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="maturityTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Unique identifier of the account to transfer the balance to when the "Transfer" MaturityPostCode is selected.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MinimumDeposit" type="common:Money" minOccurs="0" maxOccurs="1">
+          <xs:element name="minimumDeposit" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The minimum amount that can be deposited to the account in a single transaction.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="MinimumWithdrawal" type="common:Money" minOccurs="0" maxOccurs="1">
+          <xs:element name="minimumWithdrawal" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 The minimum amount that can be withdrawn from the account in a single transaction.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="SourceCode" type="xs:string" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                FI defined source of application i.e. customer request, cross sell, counter offer, promo etc.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
         </xs:sequence>
-
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
