@@ -35,7 +35,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="contactIdList" type="contact:ContactId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of contact Id's that should have their associated parties either returned or affected
@@ -44,7 +44,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that should be returned or affected by a read, update or delete contact request.
@@ -52,7 +52,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of relationshipId's that should have their associated contacts either returned or affected
@@ -61,7 +61,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of Account Id's that should have their associated contacts either returned or affected
@@ -70,7 +70,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="taxIdList" type="party:TaxId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of taxId's that should have their associated contacts be returned or affected by a 

@@ -12,33 +12,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
-	<xs:element name ="contactList" type ="ContactList">
-		<xs:annotation>
-			<xs:documentation>
-				The contacts collection/array contains all the contacts for instance that the
-				credential set is authorized to access at the Institution based on applied filters
-			</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-	
-	<xs:complexType name="ContactList">
-		<xs:annotation>
-			<xs:documentation>
-				List of how the party can be contacted.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-				<xs:annotation>
-					<xs:documentation>
-						Each contact within the ContactList.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	
+
 	<xs:complexType name="Contact">
 		<xs:sequence>
 			<xs:element name="contactId" type="ContactId" minOccurs="1" maxOccurs="1">
@@ -83,25 +57,6 @@
 				</xs:annotation>
 			</xs:element>
 			
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name ="ContactIdList">
-		<xs:annotation>
-			<xs:documentation>
-				Definition of list of contact ID's that can be used by other objects to
-				point to the list.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-		<xs:element name="contactId" type="ContactId" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifer for a contact record.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 

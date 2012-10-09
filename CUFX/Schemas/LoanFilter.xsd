@@ -40,7 +40,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="relationshipIdList" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The list of relationshipId's that should have their associated leads either returned or affected
@@ -49,7 +49,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="partyIdList" type="party:PartyId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party Id's that should have their associated leads either returned or affected

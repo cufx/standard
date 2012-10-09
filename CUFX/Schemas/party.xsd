@@ -100,7 +100,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="contactIdList" type="contact:ContactId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             List of how the party can be contacted for existing contact points.
@@ -110,7 +110,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactList" type="contact:ContactList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="contactList" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             List of how the party can be contacted for new contact points.
@@ -150,20 +150,6 @@
             institution and remain the same over the life of the relationship with the financial institution.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name ="PartyIdList">
-    <xs:annotation>
-      <xs:documentation>
-        Definition of list of party ID's that can be used by other objects to
-        point to the each party in a list.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="id" type="PartyId" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -993,23 +979,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="PartyTypeList">
-    <xs:annotation>
-      <xs:documentation>
-        List of party types.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="partyType" type="PartyType" minOccurs ="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Party type : Organization, Individual, etc.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="Residence">
     <xs:annotation>
       <xs:documentation>
@@ -1514,25 +1483,5 @@
         <xs:pattern value="[0-9]{9}"/>
       </xs:restriction>
   </xs:simpleType>
-
-  <xs:complexType name="TaxIdList">
-    <xs:annotation>
-      <xs:documentation>
-        List of tax Id's.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-            or the organizational Employer Identification Number (EIN).
-            Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
-            i.e. 9 digit string with no dashes and zero filled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 
 </xs:schema>

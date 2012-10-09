@@ -41,7 +41,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that should be returned or affected by a read, update or

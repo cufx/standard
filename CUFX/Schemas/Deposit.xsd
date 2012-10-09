@@ -291,7 +291,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="contactIdList" type="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Collection of contacts for the party within this account.  Only contains the

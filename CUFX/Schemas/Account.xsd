@@ -188,18 +188,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="AccountIdList">
-    <xs:sequence>
-      <xs:element name="accountIdList" type="AccountId" minOccurs="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Collection of unique account Id's to point to a list of accounts.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
 	<xs:complexType name="TransactionList">
 		<xs:sequence>
 			<xs:element name="transaction" minOccurs="0" maxOccurs="unbounded" nillable="true">
