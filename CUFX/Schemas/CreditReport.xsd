@@ -43,7 +43,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
 							e.g. Experian, Equifax, TransUnion, FastStart, FICA, etc
@@ -53,10 +53,18 @@
 				<xs:element name="reportType" type="xs:string" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
-							TODO
-						</xs:documentation>
+              For example “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and supported by individual service providers
+              Can request more than one reportType to be returned for each applicant if available.
+            </xs:documentation>
 					</xs:annotation>
 				</xs:element>
+        <xs:element name="scoreType" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              FICO, VantageScore, etc.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
         <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>
