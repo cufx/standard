@@ -9,17 +9,26 @@
 
 	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"></xsd:import>
 
+  <xsd:element name="simpleValidationRequest" type="SimpleValidationRequest">
+    <xsd:annotation>
+      <xsd:documentation>
+        Top level element for simple validation request.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  
 	<xsd:complexType name="SimpleValidationRequest">
-		<xsd:sequence>
-			<xsd:element name="applicant" type="app:Applicant" minOccurs="1" maxOccurs="1"/>
-		</xsd:sequence>
-		<xsd:attribute name="validationType" type="xsd:string" use="required">
-			<xsd:annotation>
-				<xsd:documentation>
-					Service provider specified validation type (Exs.: OFAC, CU Loss, …)
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
+    <xsd:sequence>
+	     <xsd:element name="validationType" type="xsd:string" minOccurs="1" maxOccurs ="1">
+        <xsd:annotation>
+          <xsd:documentation>
+            Service provider specified validation type (Exs.: OFAC, CU Loss, …)
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="applicant" type="app:Applicant" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+		
 	</xsd:complexType>
 
 </xsd:schema>
