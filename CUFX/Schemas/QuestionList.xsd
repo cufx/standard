@@ -9,61 +9,63 @@
 
 	<xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"/>
 
-	<xs:complexType name="Choice">
-		<xs:sequence>
-		</xs:sequence>
-		<xs:attribute name="choiceId" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>
-					An identifier for a multiple-choice answer to the out-of-wallet question.
-					Must be unique within the list of choices. 
-					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		
-		<xs:attribute name="choiceText" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>
-									The text of the choice.					
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
+  <xs:element name="questionList" >
+    
+  </xs:element>
+  <xs:complexType name="QuestionList">
+    <xs:sequence>
+      <xs:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="ChoiceList">
-		<xs:sequence>
-			<xs:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="Question">
+    <xs:sequence>
+      <xs:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="questionId" type="xs:string"  minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An identifier for the out-of-wallet question.
+            Must be unique within the list of questions.
+            May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
+      <xs:element name="questionText" type="xs:string" minOccurs="1" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The text of the out-of-wallet question.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="Question">
-		<xs:sequence>
-			<xs:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
-		</xs:sequence>
-		<xs:attribute name="questionId" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>
-					An identifier for the out-of-wallet question.
-					Must be unique within the list of questions. 
-					May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		
-		<xs:attribute name="questionText" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>
-					The text of the out-of-wallet question.					
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	
-	<xs:complexType name="QuestionList">
-		<xs:sequence>
-			<xs:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="ChoiceList">
+    <xs:sequence>
+      <xs:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 
+  <xs:complexType name="Choice">
+		<xs:sequence>
+		  <xs:element name="choiceId" type="xs:string" minOccurs="1" maxOccurs ="1">
+			  <xs:annotation>
+				  <xs:documentation>
+					  An identifier for a multiple-choice answer to the out-of-wallet question.
+					  Must be unique within the list of choices. 
+					  May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+				  </xs:documentation>
+			  </xs:annotation>
+		  </xs:element>
+
+      <xs:element name="choiceText" type="xs:string" minOccurs="1" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The text of the choice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+	</xs:complexType>
 </xs:schema>
