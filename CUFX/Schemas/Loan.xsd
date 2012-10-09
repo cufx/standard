@@ -562,24 +562,10 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fromAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="fromAccount" type="account:AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account to take the payment from
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="fromProductCategory" type="account:AccountCategory" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The category of the from account
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="fromSuffix" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The suffix to take the payment from if applicable
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

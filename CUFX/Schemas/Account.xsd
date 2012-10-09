@@ -322,19 +322,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- Do we need both AccountCategories and AccountType?  It seems like categories is only related to deposits and should be moved-->
-  <xs:simpleType name="AccountCategory">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Savings" />
-      <xs:enumeration value="Checking" />
-      <xs:enumeration value="MoneyMarket" />
-      <xs:enumeration value="Certificate" />
-      <xs:enumeration value="IRA" />
-      <xs:enumeration value="HSA" />
-      <xs:enumeration value="Other" />
-    </xs:restriction>
-  </xs:simpleType>
-
   <!-- TODO: Need to review.  Conflict with LoanAccountCategories.  Values are not mutually exlcusive (I can be a loan, and a LOC)-->
   <xs:simpleType name="AccountType">
     <xs:restriction base="xs:string">

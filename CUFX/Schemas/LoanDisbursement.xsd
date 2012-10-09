@@ -5,12 +5,14 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	 xmlns:common="http://cufxstandards.com/v2/Common.xsd"
 	 xmlns:loan="http://cufxstandards.com/v2/Loan.xsd"
+	 xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 			  
 	 elementFormDefault="qualified"
 	 attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Loan.xsd" schemaLocation="Loan.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:complexType name="LoanDisbursementList">
 		<xs:sequence>
@@ -122,6 +124,15 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="toAccountType" type="account:AccountType" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The account number on the host that would have the funds deposited to it.
+								This would be the full account number including everything the core needs to
+								deposit the funds.  This field is required.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>					
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
