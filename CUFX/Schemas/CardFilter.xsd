@@ -50,15 +50,15 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="accountIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Types that should have their associated cards either returned or affected
+            The list of Account Id's that should have their associated cards either returned or affected
             by a read, update or delete card request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      
       <xs:element name="transactionStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

@@ -12,6 +12,28 @@
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="Party.xsd" />
 
+  <xs:element name="cardList" type="CardList">
+    <xs:annotation>
+      <xs:documentation>
+        Top level element cards collection/array contains all the cards for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:complexType name="CardList">
+    <xs:annotation>
+      <xs:documentation>
+        The cards collection/array contains all the cards for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Card">
     <xs:sequence>
       <xs:element name="id" type="CardId" minOccurs="0" maxOccurs="1">
@@ -51,19 +73,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="CardList">
-    <xs:annotation>
-      <xs:documentation>
-        The cards collection/array contains all the cards for instance that the credential set is
-        authorized to access at the Institution based on applied filters
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
-      </xs:element >
+      <xs:element name="nameOnCard" type="xs:string" minOccurs="0" maxOccurs="2">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the name on card if overriding the name from the party.
+            0 instances - means use the party formatted name.
+            1st instance - use as line one.
+            2nd instance - use as line two.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -94,8 +113,11 @@
       </xs:element>
       <xs:element name="priority" type="xs:positiveInteger" minOccurs="1" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>Indicates the priority order of the account.</xs:documentation>
-        </xs:annotation>
+          <xs:documentation>
+             Indicates the priority order of the account.  Priority 1 is the is the first
+             account to hit, priority 2 is the second account to try, etc.
+           </xs:documentation>
+         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
