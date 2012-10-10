@@ -6,11 +6,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:a="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:p="http://cufxstandards.com/v2/party.xsd"
+  xmlns:c="http://cufxstandards.com/v2/contact.xsd"
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
 
   <xs:element name="cardList" type="CardList">
     <xs:annotation>
@@ -45,6 +48,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="cardNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The card number is the visible numbers that appear on the card.
+            It is up to the end points to determine if the card number can/should be transmitted.
+            It is up to the end points to determine encryption methodology if required.
+            It must be unique for all users across the institution and remain the same over the life of the card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="cardType" type="CardType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -59,6 +72,29 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Expiration date is either the expiration date that is calculated by the 
+            card data provider or the expiration date that is provided in the creation of the card.
+            It is up to the end points to determine if the exprration date can/should be transmitted.
+            It must be unique for all users across the institution and remain the same over the life of the card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CVV2" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            CVV2 is the 3 or 4 digit security code that is printed on the back of the card.
+            This field is typically read only because it is generated 2-3 days after the card is
+            requested to be printed.
+            It is up to the end points to determine if the CVV2 date can/should be transmitted.
+            It is up to the end points to determine encryption methodology if required.
+            The CVV2 is provided as a string in case encryption has been utilized.
+            It must be unique for all users across the institution and remain the same over the life of the card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="linkedAccountList" type="LinkedAccountList" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -70,6 +106,13 @@
         <xs:annotation>
           <xs:documentation>
             Specifies the party whose name appears on the card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="overrideAddressContactId" type="c:ContactId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Overrides the address information supplied by the party.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
