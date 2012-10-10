@@ -142,19 +142,17 @@
   <xs:complexType name="CustomData">
     <xs:annotation>
       <xs:documentation>
-        The customData section allows the flexibility to add additional information to the messageContext.
-        This should be utilized as a last resort and any use should result in requested modifications to the message or messageContext .
-        Note: that typically the data required will be in the message (such as party id, accountId, etc.) rather than contained in the messageContext.
+        The customData section allows the flexibility to add additional information to the message.
+        This should be utilized as a last resort and any use should result in requested modifications
+        to the message.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The customData section allows the flexibility to add additional information to objects where it is used.
-            This should be utilized as a last resort and any use should result in requested modifications to the
-            object where it is used in future specifications.
-           </xs:documentation>
+            Each combination of name and value.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
