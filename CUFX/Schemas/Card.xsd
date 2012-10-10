@@ -72,7 +72,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+      <xs:element name="expirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Expiration date is either the expiration date that is calculated by the 
@@ -82,10 +82,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CVV2" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="cvv2" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            CVV2 is the 3 or 4 digit security code that is printed on the back of the card.
+            cvv2 is the 3 or 4 digit security code that is printed on the back of the card.
             This field is typically read only because it is generated 2-3 days after the card is
             requested to be printed.
             It is up to the end points to determine if the CVV2 date can/should be transmitted.
