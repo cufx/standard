@@ -1854,7 +1854,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<!-- TODO: Review.  Conflict with AccountDetail.AccountType -->
 	<xs:simpleType name="LoanAccountCategories">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AverageDailyBalanceLineOfCredit" />
