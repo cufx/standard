@@ -62,6 +62,22 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="systemProductKeys" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Product level name/data pairs that identify the product type in the back end system when
+            something beyond Productid, productType and productSubType are required to identify the
+            Product to the product creation process.
+            This typically would only apply for card based products, but concept may work well for other products.
+            For example, for one card processor the systemBankIdentifier, principalBankIdentifier and agentBankIdentifier
+            are each four digit values that define a card program on the card platform. They are
+            hierarchical System down to Agent. Setting are defined at each level that determine the behavior of a
+            card program.   Another card processor, uses bin, another processor uses bin + planId. The bin
+            is six digits and the planId is three. In house processors typically just use the six digit bin.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="description" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -108,32 +124,12 @@
         <xs:annotation>
           <xs:documentation>
             The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.).
-            Only applies to CreditCard and Debit Cards.
+            Only applies to card based products.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="system" type="xs:string" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="principal" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="agent" type="xs:string" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+    
     </xs:sequence>
   </xs:complexType>
 
