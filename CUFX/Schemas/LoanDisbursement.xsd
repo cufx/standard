@@ -180,5 +180,24 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
+	<xs:complexType name="LoanDisbursementGL">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					A disbursement to a General Ledger account.  Could be used to pay business partners, GAP etc.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="LoanDisbursement">
+				<xs:sequence>
+					<xs:element name="GLAccount" type="xs:string" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the dealer that this disbursement should go to.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>					
 </xs:schema>

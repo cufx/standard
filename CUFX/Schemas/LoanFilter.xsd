@@ -7,6 +7,7 @@
 		xmlns:party="http://cufxstandards.com/v2/party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
 	xmlns:loan="http://cufxstandards.com/v2/Loan.xsd"  
+   xmlns:account="http://cufxstandards.com/v2/Account.xsd"  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -14,6 +15,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Loan.xsd" schemaLocation="Loan.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name="loanFilter" type="LoanFilter">
 		<xs:annotation>
@@ -36,6 +38,23 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of loanId's that should be returned or affected by a read, or update request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="loanTypeList" type="loan:LoanType" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The list of loan types that should be used to filter the returned loans.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Account Id's that should have their associated loans either returned or affected
+						by a read, update or delete loan request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
