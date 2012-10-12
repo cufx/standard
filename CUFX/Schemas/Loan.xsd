@@ -135,7 +135,7 @@
 					<xs:element name="requestedAmount" type="common:Money" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Original balance of the loan
+								The original request loan amount from the member
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -409,15 +409,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="employeeDirector" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Code - not all FIs will have this as part of the loan;
-								Code indicates a specific relationship to the FI that is reported;
-								Some FIs will have this in a Person record
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="debtIncomeRatio" type="xs:decimal" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -440,7 +431,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="collateralRecordList" type="CollateralRecordList" minOccurs="0" maxOccurs="1">
+					<xs:element name="collateralList" type="CollateralList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Details related to each collateral record
@@ -550,7 +541,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="CollateralRecordList">
+	<xs:complexType name="CollateralList">
 		<xs:annotation>
 			<xs:documentation>
 				Details related to collateral for the loan
