@@ -157,7 +157,7 @@
       <xs:element name="priority" type="xs:positiveInteger" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-             Indicates the priority order of the account.  Priority 1 is the is the first
+             Indicates the priority order of the account.  Priority 1 is the first
              account to hit, priority 2 is the second account to try, etc.
            </xs:documentation>
          </xs:annotation>
@@ -195,7 +195,7 @@
       <xs:element name="cardIdList" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Collection of unique card Id's to point to a list of cards.
+            Collection of unique card ID's to point to a list of cards.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
