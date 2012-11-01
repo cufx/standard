@@ -3,19 +3,17 @@
   version="2.0.$Revision$"
   xmlns="http://cufxstandards.com/v2/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:credit="http://cufxstandards.com/v2/CreditReport.xsd"
   xmlns:party="http://cufxstandards.com/v2/party.xsd"
   xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
   xmlns:loan="http://cufxstandards.com/v2/Loan.xsd"
   xmlns:deposit="http://cufxstandards.com/v2/Deposit.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-
   xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
-  
   elementFormDefault="qualified" >
 
-  <xs:import schemaLocation="Common.xsd"	namespace="http://cufxstandards.com/v2/Common.xsd"></xs:import>
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
   <xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
@@ -42,8 +40,8 @@
       <xs:element name="application" type="Application" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            An application contains the details becoming a consumer of a financial institution if they
-            are not already along with the details of the products requested.
+            An application contains the details of a consumer becoming a customer of a financial institution 
+				(if they are not already) along with the details of the products requested.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -53,29 +51,29 @@
   <xs:complexType name="Application">
     <xs:annotation>
       <xs:documentation>
-        An application contains the details becoming a consumer of a financial institution if they
-        are not already along with the details of the products requested.
+			An application contains the details of a consumer becoming a customer of a financial institution 
+			(if they are not already) along with the details of the products requested.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="applicationId" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the application in the back end system..
+            Unique identifier for the application in the back end system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="applicationStatus" type="ApplicationStatus" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Status of the application.  Where is the application in the approval process.
+            Status of the application in the approval process.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name ="productAppliedForList" type="ProductAppliedForList">
         <xs:annotation>
           <xs:documentation>
-            Products applied for and their requested amounts, quoted rates, etc..
+            Products applied for and their requested amounts, quoted rates, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -91,7 +89,7 @@
           <xs:documentation>
             Credit score that was used to approve the application.  This is typically calculated
             using a variety of methods at each financial institution based on the credit report data for
-            either primary or joint or combination fo primary and joint credit statistics.
+            either primary or joint or combination for primary and joint credit statistics.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -129,7 +127,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
       <xs:element name="role" minOccurs="1" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -154,15 +151,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      <xs:element name="PartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Key fields to point to an existing party applying for a product.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name ="party" type ="party:Party"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -207,17 +202,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name="productType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The product type is the textual representation the kind of account.
             This value is visible to the user and must be human-readable.
-            Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+            Note: CD's and MONEY MARKETS can be denoted as INVESTMENT.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name="productSubType" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -226,7 +219,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
       <xs:element name="productApplicationStatus" type="ApplicationStatus">
         <xs:annotation>
           <xs:documentation>
@@ -243,7 +235,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
+  
   <xs:complexType name="ProductDetail">
     <xs:annotation>
       <xs:documentation>
@@ -259,7 +251,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name="deposit" type="deposit:Deposit">
         <xs:annotation>
           <xs:documentation>
