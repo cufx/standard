@@ -82,6 +82,17 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+        <xs:element name="pin" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+                <xs:documentation>
+                    PIN is the 4 digit security code that used to authenticate user and allow access to 
+                    the associated accounts of the card.
+                    It is up to the end points to determine if the PIN can/should be transmitted.
+                    It is up to the end points to determine encryption methodology if required.
+                    The PIN is provided as a string in case encryption has been utilized.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:element>
       <xs:element name="cvv2" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
