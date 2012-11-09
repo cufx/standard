@@ -4,7 +4,7 @@
 	version="2.0.$Revision$"
 	xmlns="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:m="http://cufxstandards.com/v2/Meta.xsd"
+	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
    xmlns:common="http://cufxstandards.com/v2/Common.xsd"
 	elementFormDefault="qualified"	
 	attributeFormDefault="unqualified">
@@ -155,7 +155,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="meta" type="m:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
+      <xs:element name="meta" type="meta:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
             For each account type, optional meta information MAY be provided with these tags depending 

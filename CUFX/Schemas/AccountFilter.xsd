@@ -4,18 +4,18 @@
    version="2.0.$Revision$"
 	xmlns="http://cufxstandards.com/v2/AccountFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
-	xmlns:party="http://cufxstandards.com/v2/party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
-   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-   elementFormDefault="qualified"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/lead.xsd" schemaLocation="lead.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Lead.xsd" schemaLocation="Lead.xsd" />
 
   <xs:element name="accountFilter" type="AccountFilter">
     <xs:annotation>

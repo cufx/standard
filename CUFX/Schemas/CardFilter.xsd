@@ -4,14 +4,14 @@
   version="2.0.$Revision: 55 $"
   xmlns="http://cufxstandards.com/v2/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
   xmlns:card="http://cufxstandards.com/v2/Card.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
 
   <xs:element name="cardFilter" type="CardFilter">

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/lead.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/Lead.xsd"
 	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/lead.xsd"
+	xmlns="http://cufxstandards.com/v2/Lead.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
-	xmlns:party="http://cufxstandards.com/v2/party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
   
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 
   <xs:element name="leadList" type="LeadList">
     <xs:annotation>

@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema  targetNamespace="http://cufxstandards.com/v2/eligibilityRequirementFilter.xsd"
+<xs:schema  targetNamespace="http://cufxstandards.com/v2/EligibilityRequirementFilter.xsd"
 	version="2.0.$Revision: 55 $"
-	xmlns="http://cufxstandards.com/v2/eligibilityRequirementFilter.xsd"
+	xmlns="http://cufxstandards.com/v2/EligibilityRequirementFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:eligibility="http://cufxstandards.com/v2/eligibilityRequirement.xsd"
+  xmlns:eligibility="http://cufxstandards.com/v2/EligibilityRequirement.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/eligibilityRequirement.xsd" schemaLocation="eligibilityRequirement.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/EligibilityRequirement.xsd" schemaLocation="eligibilityRequirement.xsd" />
 
   <xs:element name="eligibilityRequirementFilter" type="EligibilityRequirementFilter">
     <xs:annotation>
@@ -24,7 +24,7 @@
   <xs:complexType name="EligibilityRequirementFilter">
     <xs:annotation>
       <xs:documentation>
-        he list of options for filters for requesting possible eligibility requirements for creating
+        The list of options for filters for requesting possible eligibility requirements for creating
         a relationship with a financial institution.  The options can be used
         in combination or by themselves and it is up to the data source to return the list
         a standard error identifying why the request was rejected.

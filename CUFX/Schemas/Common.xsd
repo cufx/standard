@@ -4,7 +4,7 @@
 	version="2.0.$Revision$"
 	xmlns="http://cufxstandards.com/v2/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:ISOCountryCodeType="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd"
+  xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -27,7 +27,7 @@
         </xs:annotation>
       </xs:element>
  
-      <xs:element name="currencyCode" type="ISOCountryCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
+      <xs:element name="currencyCode" type="isoCountryCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
         <xs:annotation>
           <xs:documentation>
             Currency Code in ISO 4217 3 character format.

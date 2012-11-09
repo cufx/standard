@@ -6,12 +6,11 @@
   xmlns="http://cufxstandards.com/v2/AnswerList.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:question="http://cufxstandards.com/v2/QuestionList.xsd"
-	xmlns:party="http://cufxstandards.com/v2/party.xsd"
-
-	xmlns:app="http://cufxstandards.com/v2/Application.xsd">
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	>
 
   <xs:import schemaLocation="QuestionList.xsd" namespace="http://cufxstandards.com/v2/QuestionList.xsd"/>
-  <xs:import schemaLocation="party.xsd" namespace="http://cufxstandards.com/v2/party.xsd"/>
+  <xs:import schemaLocation="Party.xsd" namespace="http://cufxstandards.com/v2/Party.xsd"/>
 
   <xs:element name="answerList" >
     <xs:annotation>

@@ -4,16 +4,14 @@
 	version="2.0.$Revision: 55 $"
 	xmlns="http://cufxstandards.com/v2/Card.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:a="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:p="http://cufxstandards.com/v2/party.xsd"
-  xmlns:c="http://cufxstandards.com/v2/contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 
   <xs:element name="cardList" type="CardList">
     <xs:annotation>
@@ -113,14 +111,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyId" type="p:PartyId" minOccurs="1" maxOccurs="1">
+      <xs:element name="partyId" type="party:PartyId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Specifies the party whose name appears on the card.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="overrideAddressContactId" type="c:ContactId" minOccurs="0" maxOccurs="1">
+      <xs:element name="overrideAddressContactId" type="contact:ContactId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Overrides the address information supplied by the party.

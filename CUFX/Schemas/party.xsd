@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v2/party.xsd"
+	targetNamespace="http://cufxstandards.com/v2/Party.xsd"
 	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/party.xsd"
+	xmlns="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
-	xmlns:ISOCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
@@ -956,7 +956,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="citizenship" type="ISOCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1"
+      <xs:element name="citizenship" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1"
 				nillable="true">
       </xs:element>
       <xs:element name="WasCitizenshipCertified" type="xs:boolean" minOccurs="0" maxOccurs="1">

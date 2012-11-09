@@ -4,12 +4,12 @@
 	version="2.0.$Revision: 55 $"
 	xmlns="http://cufxstandards.com/v2/CreditReportRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v2/party.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
 
 
   <xs:element name="creditReportRequest" type="CreditReportRequest">

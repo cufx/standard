@@ -6,12 +6,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:ad="http://cufxstandards.com/v2/AccountDetail.xsd"
-	xmlns:m="http://cufxstandards.com/v2/Meta.xsd"
+	xmlns:accountDetail="http://cufxstandards.com/v2/AccountDetail.xsd"
 	xmlns:credit="http://cufxstandards.com/v2/CreditReport.xsd"
-	xmlns:relationship="http://cufxstandards.com/v2/relationship.xsd"
-	xmlns:contact="http://cufxstandards.com/v2/contact.xsd"
-	xmlns:party="http://cufxstandards.com/v2/party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -19,11 +18,10 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/relationship.xsd" schemaLocation="relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/contact.xsd" schemaLocation="contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/party.xsd" schemaLocation="party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:complexType name="LoanList">
 		<xs:sequence>
@@ -62,7 +60,7 @@
 					Details relating to loan account
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="ad:AccountDetail">
+			<xs:extension base="accountDetail:AccountDetail">
 				<xs:sequence>
 					<xs:element name="loanId" type="LoanId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>

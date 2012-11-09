@@ -5,7 +5,7 @@
 	elementFormDefault="qualified"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/v2/SimpleValidationRequest.xsd"
-	xmlns:app="http://cufxstandards.com/v2/Application.xsd">
+	xmlns:application="http://cufxstandards.com/v2/Application.xsd">
 
 	<xsd:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"></xsd:import>
 
@@ -26,7 +26,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="applicant" type="app:Applicant" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="applicant" type="application:Applicant" minOccurs="1" maxOccurs="1"/>
     </xsd:sequence>
 		
 	</xsd:complexType>
