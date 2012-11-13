@@ -23,9 +23,9 @@
 			<xs:element name="vendorID" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The vendor id is an &quot;agreed upon&quot; unique identifier that identifies the vendor that is creating a message.
+						The vendor id is unique identifier which identifies the vendor that is creating a message. The vendor id is assigned by the FI or establised in concert by the vendor and FI.
 						The client application sends this along with the messages so that logging or other business may take place based on the vendor  utilizing the service.
-						This id is not generated per data or security request but is generated &quot;out-of-band&quot; of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
+						This id is not generated per data or security request but is generated &quot;out-of-band&quot; (i.e., prior generation by some external mechanism) of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
 						A standard error will be returned if the vendorId is not provided when it is required.
 					</xs:documentation>
 				</xs:annotation>
@@ -35,7 +35,7 @@
 					<xs:documentation>
 						The app id is an &quot;agreed upon&quot; unique identifier that identifies the application that is creating a message.
 						The client application sends this along with the messages so that logging or other business may take place based on the application utilizing the service.
-						This id is not generated per data or security request but is generated &quot;out-of-band&quot; of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
+						This id is not generated per data or security request but is generated &quot;out-of-band&quot; (i.e., prior generation by some external mechanism) of this process and stored in the Financial Institution&apos;s and Vendor’s systems.
 						A standard error will be returned if the appId is not provided when it is required.
 					</xs:documentation>
 				</xs:annotation>
@@ -44,7 +44,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The fiId  is used by systems to uniquely identify each financial institution.
-						This id is determined outside of the process and stored in each system of record.
+						This id is determined outside of the process and stored in each system of record, e.g., local application database, vendor configuration file, FI core database,etc.
 						This is helpful for applications that are multi-tenant and service more than one financial institution.
 						See dataSourceId for more info about multiple data sources for a single FI.
 						A standard error will be returned if the fiId is not provided when it is required.
