@@ -992,14 +992,31 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="CurrentHousingStatus" type="HousingStatusType" minOccurs="1" maxOccurs="1">
+      <xs:element name="CurrentHousingStatus" type="HousingStatusType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's current housing status
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="CurrentHousingType" type="HousingType" minOccurs="1" maxOccurs="1">
+      
+      <xs:element name="CurrentHousingOwnershipType" type="HousingOwnershipType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person's residence housing ownership type
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="CurrentHousingDebtType" type="HousingDebtType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person's residence housing debt type
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="CurrentHousingType" type="HousingType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's current housing type (primary, etc.)
@@ -1017,13 +1034,36 @@
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Rent"/>
-      <xs:enumeration value="GovernmentHousing"/>
-      <xs:enumeration value="LiveWithParents"/>
-      <xs:enumeration value="MilitaryHousing"/>
-      <xs:enumeration value="NoHousingExpense"/>
+      <xs:enumeration value="Own" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HousingOwnershipType">
+    <xs:annotation>
+      <xs:documentation>
+        The residence housing ownership type
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Self"/>
+      <xs:enumeration value="Government"/>
+      <xs:enumeration value="Military"/>
       <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HousingDebtType">
+    <xs:annotation>
+      <xs:documentation>
+        The residence housing debt type
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
       <xs:enumeration value="OwnWithMortgage"/>
       <xs:enumeration value="OwnWithoutMortgage"/>
+      <xs:enumeration value="Rent"/>
+      <xs:enumeration value="NoHousingExpense"/>
     </xs:restriction>
   </xs:simpleType>
 
