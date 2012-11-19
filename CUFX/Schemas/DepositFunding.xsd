@@ -13,7 +13,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name="depositFundingList" type="DepositFundingList">
+  <xs:element name="depositFundingList" type="DepositFundingList"> 
     <xs:annotation>
       <xs:documentation>
         List of accounts with accounts that they transfer to.  This is used for filtering
