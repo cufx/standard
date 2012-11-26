@@ -621,7 +621,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="vehicalCollateral" type="VehicalCollateral" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="vehicleCollateral" type="VehicleCollateral" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Details related to vehicle collateral
@@ -1490,7 +1490,7 @@
 	</xs:complexType>
 
 
-	<xs:complexType name="VehicalCollateral" abstract="true">
+	<xs:complexType name="VehicleCollateral" abstract="true">
 		<xs:annotation>
 			<xs:documentation>
 				Contains Details about collateral. different types are supported
@@ -1558,15 +1558,19 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="PleasureBoatCollateral">
-		<xs:annotation>
-			<xs:documentation>
-				Details related to pleasure boat collateral.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-		</xs:sequence>
-	</xs:complexType>
+    <xs:complexType name="BoatCollateral">
+        <xs:complexContent>
+            <xs:annotation>
+                <xs:documentation>
+                    Details related to pleasure boat collateral.
+                </xs:documentation>
+            </xs:annotation>
+            <xs:extension base="VehicleCollateral">
+                <xs:sequence>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
 	<xs:complexType name="ShipCollateral">
 		<xs:complexContent>
@@ -1575,7 +1579,7 @@
 					Details related to ship collateral.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="VehicalCollateral">
+			<xs:extension base="VehicleCollateral">
 				<xs:sequence>
 				</xs:sequence>
 			</xs:extension>
@@ -1589,7 +1593,7 @@
 					Details related to aircraft collateral.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="VehicalCollateral">
+			<xs:extension base="VehicleCollateral">
 				<xs:sequence>
 					<xs:element name="hours" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
@@ -1610,7 +1614,7 @@
 					Details related to trailer collateral.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="VehicalCollateral">
+			<xs:extension base="VehicleCollateral">
 				<xs:sequence>
 				</xs:sequence>
 			</xs:extension>
@@ -1624,7 +1628,7 @@
 					Details related to vehicle collateral
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="VehicalCollateral">
+			<xs:extension base="VehicleCollateral">
 				<xs:sequence>
 					<xs:element name="vehicleIdentificationNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
