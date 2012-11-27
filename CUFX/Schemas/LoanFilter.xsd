@@ -42,10 +42,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="loanTypeList" type="loan:LoanType" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="loanTypeList" type="loan:LoanAccountCategories" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The list of loan types that should be used to filter the returned loans.
+						The list of loan category that should be used to filter the returned loans.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
