@@ -53,6 +53,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="type" type="Type" minOccurs="1" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            CUFX Error Type.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="subCode" type="xs:integer" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -402,4 +410,60 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+
+
+  <xs:simpleType name="Type">
+    <xs:annotation>
+      <xs:documentation>
+        Standard CUFX code returned by the service point.
+        The documentation contains the standard message to return.
+        When '%s' is in the message, it should be replaced with additional
+        details relative to the message content.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:integer">
+      <xs:enumeration value ="100">
+        <xs:annotation>
+          <xs:documentation>
+            Informational – Some kind of information warning that should not stop processing
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="200">
+        <xs:annotation>
+          <xs:documentation>
+            ValidationException – Data values were out of range based on acceptable values
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="300">
+        <xs:annotation>
+          <xs:documentation>
+            DataRequestError – The data request was not well formed
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="400">
+        <xs:annotation>
+          <xs:documentation>
+            SystemNonFatalError – temporary system error occured such as a temporary system outage, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="500">
+        <xs:annotation>
+          <xs:documentation>
+            SystemFatalError – critical system error occurred such as full system outage, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
