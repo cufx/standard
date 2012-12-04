@@ -81,6 +81,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="substitutionList" type="SubstitutionList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Optional list to send data to the end-point about which fields may be in
+            error and/or which values may be out-of-range.  The error message can be
+            scanned for potential substitution id's (for example '%1', '%2') and replaced
+            with the value from the substitution list.  This is useful for when an end
+            point wants to support multiple languages or wants to all the message to be
+            reconfigured for better consumption.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -466,4 +478,47 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="SubstitutionList">
+    <xs:sequence>
+      <xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Optional substitution to send data to the end-point about which fields may be in
+            error and/or which values may be out-of-range.  The error message can be
+            scanned for potential substitution id's (for example '%1', '%2') and replaced
+            with the value from the substitution list.  This is useful for when an end
+            point wants to support multiple languages or wants to all the message to be
+            reconfigured for better consumption.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>    
+  </xs:complexType>
+
+  <xs:complexType name="Substitution">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            id of the substituion as it appears in the error message.
+            For example, %1, %2, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="value" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The data that should be placed in the error message where
+            wherever the substitution id shows up in the error message.
+            This would most likely be a field name, field value, etc.
+            This is done to allow the rest of the error message to be translated
+            by the consuming end point if the message was not translated by the
+            core.  It's up to the endpoints to determine which end point will
+            translate if supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
