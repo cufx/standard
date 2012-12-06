@@ -8,7 +8,7 @@
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:lead="http://cufxstandards.com/v2/Lead.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"
   
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -17,7 +17,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Lead.xsd" schemaLocation="Lead.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
   <xs:element name="partyFilter" type="PartyFilter">
     <xs:annotation>
