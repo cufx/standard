@@ -16,64 +16,64 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
-	<xs:element name="leadFilter" type="LeadFilter">
+	<xs:element name="productServiceRequestFilter" type="ProductServiceRequestFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of options for filters for services reqwuesting lead data.
-			</xs:documentation>
+        The list of options for filters for services requesting productServiceRequest data.
+      </xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
-	<xs:complexType name="LeadFilter">
+	<xs:complexType name="ProductServiceRequestFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of options for filters for services reqwuesting lead data.  The options can be used
-				in combination or by themselves and it is up to the data source to either return or affect the
-				data requested or return a standard error identifying why the request was rejected.
-			</xs:documentation>
+        The list of options for filters for services requesting productServiceRequest data.  The options can be used
+        in combination or by themselves and it is up to the data source to either return or affect the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="leadIdList" type="productServiceRequest:LeadIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="productServiceRequestIdList" type="productServiceRequest:productServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of leadId's that should be returned or affected by a read, update or delete lead request.
-					</xs:documentation>
+            The list of productServiceRequestId's that should be returned or affected by a read, update or delete productServiceRequest request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
 			<xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationshipId's that should have their associated leads either returned or affected
-						by a read, update or delete lead request.
-					</xs:documentation>
+            The list of relationshipId's that should have their associated productServiceRequests either returned or affected
+            by a read, update or delete productServiceRequest request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
 			<xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party Id's that should have their associated leads either returned or affected
-						by a read, update or delete lead request.
-					</xs:documentation>
+            The list of party Id's that should have their associated productServiceRequests either returned or affected
+            by a read, update or delete productServiceRequest request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
 			<xs:element name="contactIdList" type="contact:ContactId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact Id's that should have their associated leads either returned or affected
-						by a read, update or delete lead request.
-					</xs:documentation>
+            The list of contact Id's that should have their associated productServiceRequests either returned or affected
+            by a read, update or delete productServiceRequest request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="leadStatusList" type="productServiceRequest:LeadStatusList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:StatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact Id's that should have their associated leads either returned or affected
-						by a read, update or delete lead request.
-					</xs:documentation>
+            The list of contact Id's that should have their associated productServiceRequests either returned or affected
+            by a read, update or delete productServiceRequest request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

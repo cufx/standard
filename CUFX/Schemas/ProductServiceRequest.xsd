@@ -15,56 +15,58 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 
-  <xs:element name="leadList" type="LeadList">
+  <xs:element name="productServiceRequestList" type="ProductServiceRequestList">
     <xs:annotation>
       <xs:documentation>
-        The leads collection/array contains all the leads, for instance, that the credential set is
-        authorized to access at the Institution based on applied filters.
+        The productServiceRequestList collection/array contains all the productServiceRequests, 
+        for instance, that the credential set is authorized to access at the Institution based
+        on applied filters.
 
-        The lead may be connected to an existing party, relationship and/or contact.
-        In addition, a lead may exist without an existing relationship or contact.
-        The lead if created without connection to existing party, contact or relationship
+        The productServiceRequest may be connected to an existing party, relationship and/or contact.
+        In addition, a productServiceRequest may exist without an existing relationship or contact.
+        The productServiceRequest if created without connection to existing party, contact or relationship
         could be converted to be connected to an existing party, contact and relationship
         or aid in creating a contact, party and relationship.  If created without connection
         to existing party, etc. then it might be sent to a CRM system for follow up with the
-        contact or pushed to another system after the lead has been fullfilled.
+        contact or pushed to another system after the productServiceRequest has been fullfilled.
       </xs:documentation>
     </xs:annotation>
     </xs:element>
 
 
-  <xs:complexType name ="LeadList">
+  <xs:complexType name ="ProductServiceRequestList">
     <xs:annotation>
       <xs:documentation>
-        The leads collection/array contains all the leads, for instance, that the credential set is
-        authorized to access at the Institution based on applied filters
+        The productServiceRequesList collection/array contains all the productServiceRequests,
+        for instance, that the credential set is authorized to access at the Institution based
+        on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="lead" type="Lead" minOccurs="0" maxOccurs="unbounded" nillable="true">
+      <xs:element name="productServiceRequest" type="ProductServiceRequest" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
-            Collection of fields for a lead
+            Collection of fields for a productServiceRequest
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence >
   </xs:complexType>
 
-  <xs:complexType name ="Lead">
+  <xs:complexType name ="ProductServiceRequest">
     <xs:annotation>
       <xs:documentation>
-        The lead object defines all the fields necessary to define a
-        that an existing or potential party is interested in a particular product.
-        The lead can migrate throguh several statuses as the lead progresses.
+        The productServiceRequest object defines all the fields necessary to define a
+        that an existing or potential party is interested in a particular product or service.
+        The productServiceRequest can migrate through several statuses as the ProductServiceRequest progresses.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="leadId" type="LeadId" minOccurs="0" maxOccurs="1">
+      <xs:element name="productServiceRequestId" type="ProductServiceRequestId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the lead.  This is not provided as an input,
-            but as an output after the lead has been created.
+            Unique identifier for the productServiceRequest.  This is not provided as an input,
+            but as an output after the productServiceRequest has been created.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -77,10 +79,10 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadSource" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="productServiceRequestSource" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            What channel did this lead originate from…for example but not limited to web site,
+            What channel did this productServiceRequest originate from, for example but not limited to web site,
             new member application, walk up, partner web site, business development, marketing, etc.
           </xs:documentation>
         </xs:annotation>
@@ -98,7 +100,8 @@
       <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Collection of key fields to point to a list of existing parties for which the lead applies.
+            Collection of key fields to point to a list of existing parties for
+            which the productServiceRequest applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -108,8 +111,9 @@
           <xs:documentation>
             Use if this is for new Parties that do not yet exist on the back end systems.
             Contains a list of parties for how the party/parties would like to be contacted.
-            There may be a very limited subset of party data available as this is only a lead for a new
-            party and the amount of information provided for the lead may be very minimal.
+            There may be a very limited subset of party data available as this is only a
+            productServiceRequest for a new party and the amount of information provided
+            for the productServiceRequest may be very minimal.
             (such as first and last name and contacts may be email address or a phone number)
           </xs:documentation>
         </xs:annotation>
@@ -119,23 +123,24 @@
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of
-            existing relationships for which the lead applies.
+            existing relationships for which the productServiceRequest applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadStatus" type="LeadStatus" minOccurs="0" maxOccurs="1">
+      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Status of the lead to indicate how the lead is progressing from a workflow standpoint.
+            Status of the productServiceRequest to indicate how the ProductServiceRequest 
+            is progressing from a workflow standpoint.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadCreateDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+      <xs:element name="createDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The UTC date/time that the lead was created in the system.  The date/time
+            The UTC date/time that the productServiceRequest was created in the system.  The date/time
             should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
@@ -143,19 +148,19 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadRequestorNote" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ProductServiceRequestRequestorNote" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Notes entered by requestor.  Free form comments.  This may have been notes entered by the party
-            or by the person on behalf of the party to initiate the lead.
+            or by the person on behalf of the party to initiate the ProductServiceRequest.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadFulfillmentNoteList" type="LeadFulfillmentNoteList" minOccurs="0" maxOccurs="1">
+      <xs:element name="productServiceRequestFulfillmentNoteList" type="ProductServiceRequestFulfillmentNoteList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Notes entered by personnel that is attempting to follow up on the lead to conclusion.
+            Notes entered by personnel that is attempting to follow up on the productServiceRequest to conclusion.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -180,59 +185,59 @@
     </xs:sequence>
   </xs:complexType >
 
-  <xs:complexType name ="LeadId">
-    <xs:sequence>
-      <xs:element name ="id">
-        <xs:annotation>
-          <xs:documentation>
-            The lead ID is a persistent and unique identifier for the lead.
-            It should be unique for all leads across the institution and remain
-            the same over the life of the lead within the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name ="ProductServiceRequestId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The productServiceRequest ID is a persistent and unique identifier
+          for the productServiceRequest.
+          It should be unique for all ProductServiceRequests across the institution and remain
+          the same over the life of the ProductServiceRequest within the financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction >
+  </xs:simpleType>
 
-  <xs:complexType name ="LeadIdList">
+  <xs:complexType name ="productServiceRequestIdList">
     <xs:annotation>
       <xs:documentation>
-        Definition of list of lead ID's that can be used by other objects to
-        point to the each lead in a list.
+        Definition of list of ProductServiceRequest ID's that can be used by other objects to
+        point to the each ProductServiceRequest in a list.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="id" type="LeadId" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="productServiceRequestId" type="ProductServiceRequestId" minOccurs="0" maxOccurs="unbounded"
         nillable="true">
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name="LeadStatus">
+  <xs:simpleType name="Status">
     <xs:annotation>
       <xs:documentation>
-        Status of the lead to indicate how the lead is progressing from a workflow standpoint.
+        Status of the productServiceRequest to indicate how the 
+        productServiceRequest is progressing from a workflow standpoint.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base ="xs:string">
       <xs:enumeration value ="New">
         <xs:annotation>
           <xs:documentation>
-            The lead is new and has not been handled by internal teams.
+            The ProductServiceRequest is new and has not been handled by internal teams.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value ="Assigned">
         <xs:annotation>
           <xs:documentation>
-            The lead is has been allocated to a resource to get back to the party.
+            The ProductServiceRequest is has been allocated to a resource to get back to the party.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value ="InDiscussion">
         <xs:annotation>
           <xs:documentation>
-            The internal resource has contacted the lead and negotiating with the party.
+            The internal resource has contacted the ProductServiceRequest and negotiating with the party.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -253,65 +258,65 @@
       <xs:enumeration value ="Converted">
         <xs:annotation>
           <xs:documentation>
-            The party has accepted the proposal and committed to the offer and the process is complete for the lead.
+            The party has accepted the proposal and committed to the offer and the process is complete for the ProductServiceRequest.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value ="Lost">
         <xs:annotation>
           <xs:documentation>
-            The party has rejected the proposal and is not interested in further proposals and the process is complete for the lead.
+            The party has rejected the proposal and is not interested in further proposals and the process is complete for the ProductServiceRequest.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="LeadStatusList">
+  <xs:complexType name="StatusList">
     <xs:sequence>
-     <xs:element name="leadStatus" type="LeadStatus" minOccurs="0" maxOccurs="unbounded">
+     <xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded">
        <xs:annotation>
          <xs:documentation>
-           List of Lead status, typically used for filtering.
+           List of ProductServiceRequest status, typically used for filtering.
          </xs:documentation>
        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="LeadFulfillmentNoteList">
+  <xs:complexType name="ProductServiceRequestFulfillmentNoteList">
     <xs:annotation>
       <xs:documentation>
         Collection of fulfillment note fields.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="leadFulfillmentNote" type="LeadFulfillmentNote" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="productServiceRequestFulfillmentNote" type="ProductServiceRequestFulfillmentNote" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Text of the note entered by person attempting to bring lead to conclusion.
+            Text of the note entered by person attempting to bring ProductServiceRequest to conclusion.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="LeadFulfillmentNote">
+  <xs:complexType name="ProductServiceRequestFulfillmentNote">
     <xs:annotation>
       <xs:documentation>
         Collection of fulfillment note fields.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="leadFulfillmentNoteText" type="xs:string" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="productServiceRequestFulfillmentNoteText" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Text of the note entered by person attempting to bring lead to conclusion.
+            Text of the note entered by person attempting to bring ProductServiceRequest to conclusion.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="leadFulfillmentNoteDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="productServiceRequestFulfillmentNoteDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             UTC Date of when the note was entered into the system by the user.  The date/time
