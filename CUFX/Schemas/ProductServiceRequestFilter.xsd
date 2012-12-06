@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/LeadFilter.xsd"
-	xmlns="http://cufxstandards.com/v2/LeadFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ProductServiceRequestFilter.xsd"
+	xmlns="http://cufxstandards.com/v2/ProductServiceRequestFilter.xsd"
 	version="2.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-	xmlns:lead="http://cufxstandards.com/v2/Lead.xsd"  
+	xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Lead.xsd" schemaLocation="Lead.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
 	<xs:element name="leadFilter" type="LeadFilter">
 		<xs:annotation>
@@ -33,7 +33,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="leadIdList" type="lead:LeadIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="leadIdList" type="productServiceRequest:LeadIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of leadId's that should be returned or affected by a read, update or delete lead request.
@@ -68,7 +68,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="leadStatusList" type="lead:LeadStatusList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="leadStatusList" type="productServiceRequest:LeadStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of contact Id's that should have their associated leads either returned or affected
