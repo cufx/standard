@@ -47,10 +47,13 @@
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Account"/>
-      <xs:enumeration value="ApplicationRecord"/>
-      <xs:enumeration value="LoanRecord"/>
+      <xs:enumeration value="Application"/>
+      <xs:enumeration value="Loan"/>
       <xs:enumeration value="Portfolio"/>
-      <xs:enumeration value="ShareRecord"/>
+      <xs:enumeration value="Deposit"/>
+      <xs:enumeration value="ProductServiceRequest"/>
+      <xs:enumeration value="Request"/>
+      <xs:enumeration value="Activity"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -61,7 +64,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="note" minOccurs ="0" maxOccurs="unbounded">
+      <xs:element name="note" type="Note" minOccurs ="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Details related to a specific note.
@@ -78,7 +81,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="RecordType" type="CoreRecordType" minOccurs="0" maxOccurs="1">
+      <xs:element name="recordType" type="CoreRecordType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
@@ -88,24 +91,38 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NoteCode" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="noteCode" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The code associated to this Note.  It could determine the type of Note or reference predefined Notes configured on the core.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NoteExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" >
+      <xs:element name="noteExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The date this note expires.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="NoteText" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="noteText" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The text(s) of the Note.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="noteCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date time when note was created.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="noteCreator" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Either name or id of person, system or end user that created the note.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

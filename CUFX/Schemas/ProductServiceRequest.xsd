@@ -7,6 +7,8 @@
 	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -14,6 +16,8 @@
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation ="Common.xsd" />
 
   <xs:element name="productServiceRequestList" type="ProductServiceRequestList">
     <xs:annotation>
@@ -62,6 +66,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+
       <xs:element name="productServiceRequestId" type="ProductServiceRequestId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -71,15 +76,16 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productOfInterestList" type="ProductOfInterestList" minOccurs="0" maxOccurs="1">
+      <xs:element name="requestList" type="RequestList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A list of Products that the contact is interested in.
+            A list of products or services the person is interested in or questions they have about
+            institution's products and services as part of this request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productServiceRequestSource" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             What channel did this productServiceRequest originate from, for example but not limited to web site,
@@ -88,50 +94,10 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name ="contactIdList" type ="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Use if this is for an existing contacts.  Contains a list of existing unique contact ID's
-            for how the party/parties which to be contacted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Collection of key fields to point to a list of existing parties for
-            which the productServiceRequest applies.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name ="partyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Use if this is for new Parties that do not yet exist on the back end systems.
-            Contains a list of parties for how the party/parties would like to be contacted.
-            There may be a very limited subset of party data available as this is only a
-            productServiceRequest for a new party and the amount of information provided
-            for the productServiceRequest may be very minimal.
-            (such as first and last name and contacts may be email address or a phone number)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Collection of key fields to point to a list of
-            existing relationships for which the productServiceRequest applies.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Status of the productServiceRequest to indicate how the ProductServiceRequest 
+            Overall status of the productServiceRequest to indicate how the it
             is progressing from a workflow standpoint.
           </xs:documentation>
         </xs:annotation>
@@ -148,43 +114,338 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="ProductServiceRequestRequestorNote" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="productServiceRequestRelatedTo" type="RelatedTo" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Notes entered by requestor.  Free form comments.  This may have been notes entered by the party
-            or by the person on behalf of the party to initiate the ProductServiceRequest.
+            List of contacts, parties, relationships and accounts related to this productServiceRequest.
+            These are used as the default if there are not related to contacts, etc. at the
+            Request or Activity levels.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productServiceRequestFulfillmentNoteList" type="ProductServiceRequestFulfillmentNoteList" minOccurs="0" maxOccurs="1">
+      <xs:element name="productServiceRequestCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Notes entered by personnel that is attempting to follow up on the productServiceRequest to conclusion.
+            If current CUFX data model doesn't support all needed data, these name value pairs
+            can be used to pass along additional data as LAST resort.  Any use of this structure
+            should be communicated to the CUFX AC committee for future inclusion in the CUFX data model.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ProductOfInterestList">
+  <xs:complexType name="RequestList">
     <xs:annotation>
       <xs:documentation>
-        A list of Products that the contact is interested in.
+        A list of products or services the person is interested in or questions they have about
+        institution's products and services.
       </xs:documentation>
     </xs:annotation>
+
     <xs:sequence>
-      <xs:element name="productOfInterest" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="request" type="Request" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A product or service that the party is interested in…for example but not
-            limited to credit card, mortgage, membership , new account, insurance, etc.
+            An individual request that's part of a larger request of products, services, etc.
+            that the member is requesting.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-  </xs:complexType >
+  </xs:complexType>
 
+  <xs:complexType name="Request">
+    <xs:annotation>
+      <xs:documentation>
+        An individual request that's part of a larger request of products, services, etc.
+        that the member is requesting.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="requestItem" type="RequestItem" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            A product, service or question related to products and services.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="requestStatus" type="ActivityStatus" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            A summary of all underlying activity status to fulfill the request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+      
+      <xs:element name="requestedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when activity was requested.  In most cases this will be the same as the
+            productServiceRequest create date unless this request was subsequently added.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when request was started to be serviced.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when request is due.  This will most likely be the
+            due date of the last activity related to the request.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="completedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when request was completed.  THis is most likely
+            when the last activity was completed related to the request.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+      
+      <xs:element name="requestNoteList" type="common:NoteList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Notes entered by party or by user fulfulling the request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="requestRelatedTo" type="RelatedTo">
+        <xs:annotation>
+          <xs:documentation>
+            List of contacts, parties, relationships and accounts related to this request.
+            These are used as the default if there are not related to contacts, etc. at the
+            Activity level.  These override any contacts, etc. at the productServiceRequest level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="activityList" type="ActivityList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of activities to fulfill the request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="requestCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If current CUFX data model doesn't support all needed data, these name value pairs
+            can be used to pass along additional data as LAST resort.  Any use of this structure
+            should be communicated to the CUFX AC committee for future inclusion in the CUFX data model.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RequestItem">
+    <xs:annotation>
+      <xs:documentation>
+        A product, service or question related to products and services.
+      </xs:documentation>
+    </xs:annotation >
+  
+    <xs:choice>
+      <xs:element name="productOfInterest" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            A product that the party is interested in…for example but not
+            limited to credit card, mortgage, membership , new account, insurance, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="serviceOfInterest" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            A service that the party is interested in…for example but not
+            limited to online banking, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="question" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            A question the member has which may lead to a product or service request
+            such as 'what are your rates', etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="ActivityList">
+    <xs:annotation>
+      <xs:documentation>
+        Activities to fulfill the request.
+      </xs:documentation>
+    </xs:annotation >
+    <xs:sequence>
+      <xs:element name="activity" type="Activity" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Activity to fulfill the request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Activity">
+    <xs:sequence>
+      <xs:element name="activityId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the activity
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="previousActivityId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Previous activity that indicates what order the activities should be performed in.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="nextActivityId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Next activity that indicates what order the activities should be performed in.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+      
+      <xs:element name="activityName" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            User readable name for the activity for example 'Order checks', 'Ship checks'
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="activityStatus" type="ActivityStatus" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Current status of activity.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="creator" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name or id of person that created the activity.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="requestedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when activity was requested.  In most cases this will be the same as the
+            productServiceRequest create date unless this activity was subsequently added.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when activity was started.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when activity is due.  
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="completedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC Date and time when activity completed.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="activityNoteList" type="common:NoteList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of notes that were entered by the fulfullment processor or member related
+            to this activity.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="activityRelatedTo" type="RelatedTo">
+        <xs:annotation>
+          <xs:documentation>
+            List of contacts, parties, relationships and accounts related to this activity.
+            These override any contacts, etc. at the productServiceRequest or request level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="activityCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If current CUFX data model doesn't support all needed data, these name value pairs
+            can be used to pass along additional data as LAST resort.  Any use of this structure
+            should be communicated to the CUFX AC committee for future inclusion in the CUFX data model.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+ 
   <xs:simpleType name ="ProductServiceRequestId">
     <xs:restriction base="xs:string">
       <xs:annotation>
@@ -198,7 +459,7 @@
     </xs:restriction >
   </xs:simpleType>
 
-  <xs:complexType name ="productServiceRequestIdList">
+  <xs:complexType name ="ProductServiceRequestIdList">
     <xs:annotation>
       <xs:documentation>
         Definition of list of ProductServiceRequest ID's that can be used by other objects to
@@ -230,7 +491,7 @@
       <xs:enumeration value ="Assigned">
         <xs:annotation>
           <xs:documentation>
-            The ProductServiceRequest is has been allocated to a resource to get back to the party.
+            The ProductServiceRequest has been allocated to a resource to get back to the party.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -284,50 +545,112 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ProductServiceRequestFulfillmentNoteList">
+  <xs:simpleType name="ActivityStatus">
     <xs:annotation>
       <xs:documentation>
-        Collection of fulfillment note fields.
+        Status of the activity within request to indicate how the
+        where the activity is from a workflow standpoint.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="New">
+        <xs:annotation>
+          <xs:documentation>
+            The activity is new and has not been handled by internal teams.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Assigned">
+        <xs:annotation>
+          <xs:documentation>
+            The activity  has been allocated to a resource but no time has been spent on the activity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="InProgress">
+        <xs:annotation>
+          <xs:documentation>
+            The activity is being worked on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Completed">
+        <xs:annotation>
+          <xs:documentation>
+            The activity has been completed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Cancelled">
+        <xs:annotation>
+          <xs:documentation>
+            The activity has been cancelled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="RelatedTo">
+    <xs:annotation>
+      <xs:documentation>
+        List of contacts, parties, relationships and accounts related to this request.
+        The lowest level will "override" the high levels.  The highest level items are used as defaults
+        if the lower level items are not provided.
+        Additionally, if contacts, parties, relationships or accounts are created as a result of the
+        request, they can be included in the "RelatedTo" fields.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productServiceRequestFulfillmentNote" type="ProductServiceRequestFulfillmentNote" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name ="contactIdList" type ="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Text of the note entered by person attempting to bring ProductServiceRequest to conclusion.
+            Use if this is for an existing contacts.  Contains a list of existing unique contact ID's
+            for how the party/parties which to be contacted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of key fields to point to a list of existing parties for
+            which should be contacted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name ="partyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Use if this is for new Parties that do not yet exist on the back end systems.
+            Contains a list of parties for how the party/parties would like to be contacted.
+            There may be a very limited subset of party data available since amount of new party
+            information provided may be very minimal.
+            (such as first and last name and contacts may be email address or a phone number)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of key fields to point to a list of
+            existing relationships for which the productServiceRequest applies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of key fields to point to a list of
+            existing acounts for which the productServiceRequest applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-  <xs:complexType name="ProductServiceRequestFulfillmentNote">
-    <xs:annotation>
-      <xs:documentation>
-        Collection of fulfillment note fields.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="productServiceRequestFulfillmentNoteText" type="xs:string" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Text of the note entered by person attempting to bring ProductServiceRequest to conclusion.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="productServiceRequestFulfillmentNoteDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            UTC Date of when the note was entered into the system by the user.  The date/time
-            should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType >
 </xs:schema>
 
 
