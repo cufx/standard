@@ -118,7 +118,7 @@
         <xs:annotation>
           <xs:documentation>
             List of contacts, parties, relationships and accounts related to this productServiceRequest.
-            These are used as the default if there are not related to contacts, etc. at the
+            These are used as the default if there are no related contacts, etc. at the
             Request or Activity levels.
           </xs:documentation>
         </xs:annotation>
@@ -165,6 +165,14 @@
     </xs:annotation>
 
     <xs:sequence>
+      <xs:element name="requestId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
       <xs:element name="requestItem" type="RequestItem" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -193,10 +201,11 @@
         </xs:annotation >
       </xs:element>
 
-      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            UTC Date and time when request was started to be serviced.
+            UTC Date and time when request is due.  This will most likely be the
+            due date of the last activity related to the request.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
@@ -204,11 +213,10 @@
         </xs:annotation >
       </xs:element>
 
-      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            UTC Date and time when request is due.  This will most likely be the
-            due date of the last activity related to the request.
+            UTC Date and time when request was started to be serviced.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
@@ -366,7 +374,7 @@
       <xs:element name="creator" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Name or id of person that created the activity.
+            Name or id of person, system, etc. that created the activity.
           </xs:documentation>
         </xs:annotation >
       </xs:element>
@@ -383,21 +391,21 @@
         </xs:annotation >
       </xs:element>
 
-      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            UTC Date and time when activity was started.
+            UTC Date and time when activity is due.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation >
       </xs:element>
-
-      <xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      
+      <xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            UTC Date and time when activity is due.  
+            UTC Date and time when activity was started.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
@@ -567,10 +575,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value ="InProgress">
+      <xs:enumeration value ="InProgressActive">
         <xs:annotation>
           <xs:documentation>
-            The activity is being worked on.
+            The activity is being actively being worked on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="InProgressInactive">
+        <xs:annotation>
+          <xs:documentation>
+            The activity is in progress but has stalled due to some issue.
+            The details of why it's being held up will be in the notes related to the request/activity.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
