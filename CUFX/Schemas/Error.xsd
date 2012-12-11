@@ -60,7 +60,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="subCode" type="xs:integer" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -133,19 +133,19 @@
       <xs:enumeration value ="400">
         <xs:annotation>
           <xs:documentation>
-           Bad Request.  Data in the request was invalid.
+            Bad Request.  Data in the request was invalid.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="401">
         <xs:annotation>
           <xs:documentation>
-           Login Invalid.  The user token or credentials were invalid.
+            Login Invalid.  The user token or credentials were invalid.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="402">
         <xs:annotation>
           <xs:documentation>
@@ -153,7 +153,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="403">
         <xs:annotation>
           <xs:documentation>
@@ -161,7 +161,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="409">
         <xs:annotation>
           <xs:documentation>
@@ -169,7 +169,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="411">
         <xs:annotation>
           <xs:documentation>
@@ -177,15 +177,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="412">
         <xs:annotation>
           <xs:documentation>
-              Previous request required.  A '%s' request must be made before this one, and was not.
+            Previous request required.  A '%s' request must be made before this one, and was not.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="413">
         <xs:annotation>
           <xs:documentation>
@@ -193,7 +193,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="415">
         <xs:annotation>
           <xs:documentation>
@@ -201,7 +201,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="422">
         <xs:annotation>
           <xs:documentation>
@@ -343,7 +343,7 @@
       <xs:enumeration value ="441">
         <xs:annotation>
           <xs:documentation>
-            Artifact has been archived.	The artifact with the given artifactId has been archived out of the repository. 
+            Artifact has been archived.	The artifact with the given artifactId has been archived out of the repository.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -396,7 +396,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value ="499">
         <xs:annotation>
           <xs:documentation>
@@ -428,10 +428,8 @@
   <xs:simpleType name="Type">
     <xs:annotation>
       <xs:documentation>
-        Standard CUFX code returned by the service point.
-        The documentation contains the standard message to return.
-        When '%s' is in the message, it should be replaced with additional
-        details relative to the message content.
+        Standard CUFX error type returned by the service point which indicates the
+        level/category of the error.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
@@ -459,6 +457,22 @@
         </xs:annotation>
       </xs:enumeration>
 
+      <xs:enumeration value ="310">
+        <xs:annotation>
+          <xs:documentation>
+            UnsupportedError – The request is not supported by the server implementation
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="320">
+        <xs:annotation>
+          <xs:documentation>
+            PermissionError – The client lacks the necessary security permission to access the object or operation
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
       <xs:enumeration value ="400">
         <xs:annotation>
           <xs:documentation>
@@ -474,7 +488,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
     </xs:restriction>
   </xs:simpleType>
 
@@ -492,7 +506,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:sequence>    
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Substitution">
