@@ -114,15 +114,7 @@
         </xs:annotation>
       </xs:enumeration>
 
-      <xs:enumeration value ="301">
-        <xs:annotation>
-          <xs:documentation>
-            Invalid Data length in field '%s'.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-
-      <xs:enumeration value ="302">
+       <xs:enumeration value ="302">
         <xs:annotation>
           <xs:documentation>
             No matching records were found.
@@ -134,6 +126,10 @@
         <xs:annotation>
           <xs:documentation>
             Bad Request.  Data in the request was invalid.
+            This error code should only be used if there is not a more detailed
+            error listed below that matches the situation.  Any use of this error
+            code should be communicated to the CUFX team so that the condition
+            can be convered in future versions of the error object.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -277,7 +273,7 @@
       <xs:enumeration value ="433">
         <xs:annotation>
           <xs:documentation>
-            Invalid FI ID.  The Financial Institution ID was not recognized.
+            Invalid Data Source ID.  The Data Source ID was not recognized.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -285,11 +281,10 @@
       <xs:enumeration value ="434">
         <xs:annotation>
           <xs:documentation>
-            Invalid Parent FI ID.  The Parent Financial Institution ID was not recognized.
+            Invalid FI ID.  The Financial Institution ID was not recognized.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
 
       <xs:enumeration value ="435">
         <xs:annotation>
@@ -351,7 +346,7 @@
       <xs:enumeration value ="442">
         <xs:annotation>
           <xs:documentation>
-            Artifact too large.	The Repository has rejected the artifact because the artifact has exceeded the Repository’s size limit.
+            Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -359,7 +354,7 @@
       <xs:enumeration value ="443">
         <xs:annotation>
           <xs:documentation>
-            Artifact too small.	The Repository has rejected the artifact because the artifact is smaller than its minimum size limit.
+            Artifact too small.	The artifact was rejected because the artifact is smaller than its minimum size limit.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -368,6 +363,14 @@
         <xs:annotation>
           <xs:documentation>
             Artifact rejected. 	The Repository has rejected the artifact. See the sub error codes for the specific reason.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="445">
+        <xs:annotation>
+          <xs:documentation>
+            Invalid Data length in field '%s'.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
