@@ -5,6 +5,7 @@
   xmlns="http://cufxstandards.com/v2/Deposit.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
   xmlns:accountDetail="http://cufxstandards.com/v2/AccountDetail.xsd"
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
@@ -14,6 +15,7 @@
   attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/AccountDetail.xsd" schemaLocation="AccountDetail.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
@@ -107,7 +109,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="dividendTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="dividendTransferAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Unique identifier of the account to post dividends to when the "Transfer" DividendPostCode is selected.
@@ -135,7 +137,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="maturityTransferAccountId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:element name="maturityTransferAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
                 Unique identifier of the account to transfer the balance to when the "Transfer" MaturityPostCode is selected.
