@@ -124,6 +124,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="productServiceRequestNoteList" type="common:NoteList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Notes entered by party or by user fulfulling all the requests.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
       <xs:element name="productServiceRequestCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
