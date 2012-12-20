@@ -46,6 +46,18 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="idtype" type="IdType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Used when requesting and receiving reserved account numbers, before the account record is created.
+            Reserving account numbers is an optional additional step that is typically done to produce documentation 
+            marked with the account number that must be complete and signed before the account record is created.
+            The reserved number is then provided when creating the account.
+            The account ID should be presumed actual if this field is absent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -184,6 +196,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IdType">
+    <xs:annotation>
+      <xs:documentation>
+        Whether the ID is actual, or simply reserved.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Reserved"/>
+      <xs:enumeration value="Actual"/>
+    </xs:restriction>
   </xs:simpleType>
 
 	<xs:complexType name="TransactionList">
