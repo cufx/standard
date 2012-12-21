@@ -7,6 +7,7 @@
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
+	xmlns:credentialGroup="http://cufxstandards.com/v2/CredentialGroup.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
@@ -15,6 +16,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
   <xs:element name= "partyList" type ="PartyList">
@@ -121,10 +123,12 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="credentialList" type="CredentialList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            This is a list of crecentials used to access systems for the party.
+            This is a pointer to the list of crecentials used to access systems for the party.
+            Will need to access the credentialsGroup to get details.
+            The fiUserId is purely their user id.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1341,180 +1345,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="CredentialList">
-    <xs:annotation>
-      <xs:documentation>
-        Collection of credentials for the party for accessing different systems.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="credentialGroup" type="CredentialGroup" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-        <xs:annotation>
-          <xs:documentation>
-            Combination of credentials necessary
-            to get access to a system.  For example, combination of username,
-            password and token.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="CredentialGroup">
-    <xs:sequence>
-      <xs:element name="fiUserId" type="xs:string" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Unique identifier used to find the party
-            credential group for updating in the future
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="credential" type="Credential" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Credentials is a list of fields for a credential.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="deliveryChannelList" type="DeliveryChannelList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of applicable delivery channels for these credentials.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="Credential">
-    <xs:sequence>
-      <xs:element name="type" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Type of the credentials being used.
-            Codeword is used to accessing account when in person or over the phone.
-            This is typically different than password used when accessing the
-            account electronically.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base ="xs:string">
-            <xs:enumeration value="Username" />
-            <xs:enumeration value="Password" />
-            <xs:enumeration value="AtmPin" />
-            <xs:enumeration value="Codeword" />
-            <xs:enumeration value="Token" />
-            <xs:enumeration value="SecurityQuestion" />
-            <xs:enumeration value="SecurityAnswer" />
-            <xs:enumeration value="ChallengeQuestion" />
-            <xs:enumeration value="ChallengeAnswer" />
-            <xs:enumeration value="AntiphishingPhrase" />
-            <xs:enumeration value="AntiphishingImageUrl" />
-            <xs:enumeration value="AntiphishingImageArtifactId" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-
-      <xs:element name="encrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If True, indicates that the credential was encrypted.
-            Encryption method is agreed upon by application end point
-            providers.  Assume it’s NOT encrypted if this flag is not provided.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      
-      <xs:element name="value" type="xs:NMTOKEN" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The value of the credential.  i.e the actual password, pin,
-            answer, question, url for the image,  etc.  Recommended: This
-            value can be encrypted beyond the message encryption since the
-            data values are very sensitive.   Optionally, client and Security
-            Services can pass encrypted credential values using RSA-2048.
-            credential encrypted flag indicates that it was encrypted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Expiration date and time of the credentials.  The date/time
-            should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="temporary" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If True, the credentials are temporary and must be reset
-            upon first use of the credentials.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Name/data pairs list of fields that are not yet available
-            the general specification.  This should be used as LAST RESORT
-            as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this
-            field must be reported to the architecture or working group committee
-            to ensure that fields are somehow handled in the future release of
-            specifications.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="DeliveryChannelList">
-    <xs:annotation>
-      <xs:documentation>
-        List of applicable delivery channels for these credentials.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="deliveryChannel" type="DeliveryChannel" minOccurs ="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The delivery channel for which this credential applies.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="DeliveryChannel">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="LiveSupport">
-        <xs:annotation>
-          <xs:documentation>
-            When a person calls in or walks up to a teller, sometimes a codeword
-            is asked for to verify there identity.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value="OnlineBanking" />
-      <xs:enumeration value="Mobile" />
-      <xs:enumeration value="Kiosk" />
-      <xs:enumeration value="ATM" />
-      <xs:enumeration value="IVR" />
-      <xs:enumeration value="Other" />
-    </xs:restriction>
-  </xs:simpleType>
 
   <xs:simpleType name="TaxId">
     <xs:annotation>
