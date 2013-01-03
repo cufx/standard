@@ -132,7 +132,6 @@
 				</xs:annotation>
 			</xs:element>
 
-
       <xs:element name="otherSubType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -158,10 +157,20 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence >
 
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Preference level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
 	</xs:complexType>
-
 
   <xs:complexType name="PreferenceTypeList">
     <xs:annotation>
