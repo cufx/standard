@@ -151,6 +151,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Party level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -590,7 +602,11 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="employment" type="Employment" minOccurs ="0" maxOccurs="unbounded">
-        
+        <xs:annotation>
+          <xs:documentation>
+            Collection of Employer details related to an individual
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -598,7 +614,7 @@
   <xs:complexType name="Employment">
     <xs:annotation>
       <xs:documentation>
-        Employer details related to an individual
+        Employment/Employer details related to an individual
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -648,7 +664,6 @@
         </xs:annotation>
       </xs:element>
 
-
       <xs:element name="employeeOccupation" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -656,7 +671,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
       
       <xs:element name="employerAddress" type="contact:Address" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
@@ -674,7 +688,6 @@
         </xs:annotation>
       </xs:element>
 
-      
       <xs:element name="employerStatus" type="EmployerStatusType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -682,6 +695,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="type" type="EmploymentType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -689,6 +703,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="employmentIncome" type="IncomeDetail" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -696,6 +711,19 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Employment level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
     </xs:sequence>
   </xs:complexType>
 
@@ -834,6 +862,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Income level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -919,6 +959,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Liability level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -984,6 +1036,18 @@
           <xs:documentation>
             Result of the answer to a question regarding that the person certified that they are a citizen of the country
             that was selected.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Citizenship level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1119,6 +1183,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Employment level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1217,6 +1293,17 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Identification Document level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1353,9 +1440,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eligibility Requirements Met level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-
 
   <xs:simpleType name="TaxId">
     <xs:annotation>
