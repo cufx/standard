@@ -85,7 +85,7 @@
         <xs:annotation>
           <xs:documentation>
             Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
-            However, there may be times that it is not so obvious - i.e. in LoanAccountDetails which can be used when creating either
+            However, there may be times that it is not so obvious - i.e. in Loan which can be used when creating either
             a Loan Application Record and/or a Loan Record.  This would be required to determine which record type (Loan App or Loan)
             to create the Note Record for.
           </xs:documentation>
