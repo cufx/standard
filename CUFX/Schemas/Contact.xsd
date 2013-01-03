@@ -67,7 +67,7 @@
 				</xs:annotation>
 			</xs:group>
 
-      <xs:element name="TimeOfDay" type="TimeOfDayType" minOccurs="0" maxOccurs="1">
+      <xs:element name="timeOfDay" type="TimeOfDayType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The best time of day to contact
@@ -355,7 +355,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="TimeAtAddress" type="xs:duration" minOccurs="0" maxOccurs="1">
+      <xs:element name="timeAtAddress" type="xs:duration" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The duration spent at the address.
@@ -373,7 +373,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="AddressVerifyDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+      <xs:element name="addressVerifyDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date the address was verified.
@@ -587,12 +587,10 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name ="ContactId">
-    <xs:sequence>
-      <xs:element name="contactId" type="xs:string" minOccurs="0" maxOccurs ="1">
-      </xs:element >
-    </xs:sequence>
-	</xs:complexType>
+	<xs:simpleType name ="ContactId">
+    <xs:restriction base="xs:string"></xs:restriction>
+    
+	</xs:simpleType>
 
 	<xs:simpleType name="ContactType">
 		<xs:restriction base="xs:string">
@@ -605,22 +603,5 @@
 			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
-
-  <xs:complexType name="ContactTypeList">
-    <xs:annotation>
-      <xs:documentation>
-        List of contact types for filtering.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="contactType" type="ContactType" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            High level category for contacting the party.  Used for filtering.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 
 </xs:schema>
