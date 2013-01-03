@@ -69,11 +69,10 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="partyList" type="PartyList" minOccurs="0" maxOccurs="1">
+					<xs:element name="loanPartyList" type="LoanPartyList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								A collection of parties that associate each party associated to this account.
-								Note that this is a specialized subset of fields for party which identify how the party is related.
+								A collection of parties and how each party is associated to this loan.
 								The details of the party can be pulled from the party object using the party ID.
 							</xs:documentation>
 						</xs:annotation>
@@ -1991,27 +1990,56 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="PartyList">
+  <xs:complexType name="LoanPartyList">
+    <xs:annotation>
+      <xs:documentation>
+        A collection of party id’s that uniquely identify each party associated to this loan
+        and additional field on how the party relates to the loan.
+        This list is in additional to the relationship parties if available.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Each partyId and how it relates to the loan.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+	<xs:complexType name="LoanParty">
 		<xs:annotation>
 			<xs:documentation>
-				A collection of party id’s that uniquely identify each party associated to this loan
-				and additional field on how the party relates to the loan.
-				This list is subset with additional fields of the party data.
-				This list is in additional to the relationship parties if available.
+				Each partyId and how it relates to the loan.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="party" type="party:Party" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="loanPartyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						This object is subset with additional fields of the party data.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+      <xs:element name="loanPartyRelationshipType" type="LoanPartyRelationshipType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party relationship type is the textual representation of what the
+            party record represents to this loan such as primary or coborrower,
+            beneficiary or some other type of relationship. This value
+            may be visible to the user and must be human-readable.  If the same
+            party exists at the relationshiop level, the account level
+            relationship type overrides the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="PartyRelationshipType">
+	<xs:complexType name="LoanPartyRelationshipType">
 		<xs:annotation>
 			<xs:documentation>
 				The party relationship type is the textual representation of what the
