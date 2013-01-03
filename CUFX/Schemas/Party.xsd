@@ -166,19 +166,16 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name ="PartyId">
-    <xs:sequence>
-      <xs:element name ="id">
-        <xs:annotation>
-          <xs:documentation>
-            The party ID is a persistent and unique identifier for the party not related to the accounts
-            they own but tied to that person or organization. It should be unique for all parties across the
-            institution and remain the same over the life of the relationship with the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name ="PartyId">
+    <xs:annotation>
+       <xs:documentation>
+          The party ID is a persistent and unique identifier for the party not related to the accounts
+          they own but tied to that person or organization. It should be unique for all parties across the
+          institution and remain the same over the life of the relationship with the financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    <xs:restriction base="xs:string" ></xs:restriction>
+  </xs:simpleType>
 
   <xs:group name ="irs">
     <xs:sequence>
@@ -917,7 +914,7 @@
     </xs:sequence>
   </xs:complexType>
 
-    <xs:complexType name="Liability">
+  <xs:complexType name="Liability">
     <xs:annotation>
       <xs:documentation>
         Details related to liability
@@ -931,14 +928,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Payment" type="common:Money"  minOccurs="0" maxOccurs="1">
+      <xs:element name="payment" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The liability payment amount
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="PaymentFrequency" type="FrequencyType"  minOccurs="0" maxOccurs="1">
+      <xs:element name="paymentFrequency" type="FrequencyType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The liability payment frequency, monthly, weekly, etc.
@@ -1031,7 +1028,7 @@
       <xs:element name="citizenship" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1"
 				nillable="true">
       </xs:element>
-      <xs:element name="WasCitizenshipCertified" type="xs:boolean" minOccurs="0" maxOccurs="1">
+      <xs:element name="wasCitizenshipCertified" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Result of the answer to a question regarding that the person certified that they are a citizen of the country
@@ -1070,7 +1067,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="CurrentHousingStatus" type="HousingStatusType" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentHousingStatus" type="HousingStatusType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's current housing status
@@ -1078,7 +1075,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="CurrentHousingOwnershipType" type="HousingOwnershipType" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentHousingOwnershipType" type="HousingOwnershipType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's residence housing ownership type
@@ -1086,7 +1083,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="CurrentHousingDebtType" type="HousingDebtType" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentHousingDebtType" type="HousingDebtType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's residence housing debt type
@@ -1094,7 +1091,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="CurrentHousingType" type="HousingType" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentHousingType" type="HousingType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The person's current housing type (primary, etc.)
