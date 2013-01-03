@@ -4,13 +4,15 @@
 	xmlns="http://cufxstandards.com/v2/PartyAssociationFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:partyAssociation="http://cufxstandards.com/v2/PartyAssociation.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/PartyAssociation.xsd" schemaLocation="PartyAssociation.xsd" />
-  
-  <xs:element name="partyFilter" type="PartyAssociationFilter">
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+   
+  <xs:element name="partyAssociationFilter" type="PartyAssociationFilter">
     <xs:annotation>
       <xs:documentation>
         The list of options for filters for services requesting party data.
@@ -27,7 +29,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of partyAssociationId's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -35,7 +37,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="parentPartyIdTypeList" type="partyAssociation:ParentPartyIdTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="parentPartyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of parent Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -43,7 +45,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="childPartyIdTypeList" type="partyAssociation:ChildPartyIdTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="childPartyIdList" type="party:PartyId"  minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of child Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -51,7 +53,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyAssociationTypeList" type="partyAssociation:PartyAssociationTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="partyAssociationTypeList" type="partyAssociation:PartyAssociationType" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The party Association Type List that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request

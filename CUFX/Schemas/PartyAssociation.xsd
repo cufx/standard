@@ -552,26 +552,17 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="PartyAssociationId">
-    <xs:annotation>
-      <xs:documentation>
-        The partyAssociation ID is a persistent and unique identifier for the partyAssociation.
-        It should be unique for all parties across the institution and remain the same over
-        the life of the relationship with the financial institution.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="partyAssociationid">
-        <xs:annotation>
-          <xs:documentation>
-            The partyAssociation ID is a persistent and unique identifier for the partyAssociation.
-            It should be unique for all parties across the institution and remain the same over
-            the life of the relationship with the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name="PartyAssociationId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The partyAssociation ID is a persistent and unique identifier for the partyAssociation.
+          It should be unique for all parties across the institution and remain the same over
+          the life of the relationship with the financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
   
   <xs:complexType name="PartyAssociationIdList">
     <xs:annotation>
@@ -581,7 +572,7 @@
     </xs:annotation>
 
     <xs:sequence>
-      <xs:element name="partyAssociationId" minOccurs="0" maxOccurs ="unbounded">
+      <xs:element name="partyAssociationId" type="PartyAssociationId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The unique identifer to be filtered on.
@@ -592,7 +583,7 @@
   </xs:complexType>
 
 
-  <xs:complexType name="ParentPartyIdTypeList">
+  <xs:complexType name="ParentPartyIdList">
     <xs:annotation>
       <xs:documentation>
         The parent party Id List is used for filtering to only pull associations for particular party Id's where
@@ -608,41 +599,5 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence >
-  </xs:complexType>
-
-  <xs:complexType name="ChildPartyIdTypeList">
-    <xs:annotation>
-      <xs:documentation>
-        The child party Id List is used for filtering to only pull associations for particular party Id's where
-        that party is the child in the association..
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="childPartyId" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The child Party Id is the second party in the relationship to include in the filter request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence >
-  </xs:complexType>
-
-  <xs:complexType name="PartyAssociationTypeList">
-    <xs:annotation>
-      <xs:documentation>
-        The party Association Type List is used for filtering to only pull associations of a particular type.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="partyAssociationType" minOccurs ="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The party Association Type identifies how the parent Party relates to the child Party.
-            This is included for filtering for party associations of this type.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
   </xs:complexType>
 </xs:schema>
