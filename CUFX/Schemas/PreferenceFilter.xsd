@@ -19,6 +19,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Preference.xsd" schemaLocation="Preference.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
 
   <xs:element name="preferenceFilter" type="PreferenceFilter">
     <xs:annotation>
@@ -63,13 +64,13 @@
         </xs:annotation>
       </xs:element>
       
-      <!-- <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="cardIdList" type="card:CardId" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of key fields to point to a list of cards for which the preference applies.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element> -->
+			</xs:element>
       
       <xs:element name="contactIdList" type="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
@@ -79,7 +80,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
 
       <xs:element name="preferenceTypeList" type="preference:PreferenceTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
