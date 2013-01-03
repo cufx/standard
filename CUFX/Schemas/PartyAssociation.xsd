@@ -594,22 +594,4 @@
     </xs:sequence>
   </xs:complexType>
 
-
-  <xs:complexType name="ParentPartyIdList">
-    <xs:annotation>
-      <xs:documentation>
-        The parent party Id List is used for filtering to only pull associations for particular party Id's where
-        that party is the parent in the association..
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="parentPartyId" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The parent Party Id is the first party in the relationship to include in the filter request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence >
-  </xs:complexType>
 </xs:schema>
