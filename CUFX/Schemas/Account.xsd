@@ -38,7 +38,7 @@
   
   <xs:complexType name="Account">
 	  <xs:sequence>
-      <xs:element name="accountid" type="AccountId" minOccurs="0" maxOccurs="1">
+      <xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account ID is a persistent and unique identifier for the account.
@@ -187,6 +187,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="meta" type="meta:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
@@ -364,7 +365,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!-- TODO: Need to review.  Conflict with LoanAccountCategories.  Values are not mutually exlcusive (I can be a loan, and a LOC)-->
   <xs:simpleType name="AccountType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Checking">
