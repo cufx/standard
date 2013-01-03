@@ -141,6 +141,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="householdId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+           Calculated and stored by the back end core system or some other marketing
+           system.  This ID is used to reduce mailing costs during marketing campaigns
+           to avoid sending duplicate materials to parties residing at the same address.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
