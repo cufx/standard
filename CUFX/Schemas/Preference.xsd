@@ -57,7 +57,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="preferenceId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="preferenceId" type="PreferenceId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the preference.  This is not provided as an input,
@@ -90,7 +90,7 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="cardIdList" type="card:CardId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of cards for which the preference applies.
@@ -267,5 +267,15 @@
       <xs:enumeration value ="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
+  <xs:simpleType name="PreferenceId">
+    <xs:annotation>
+      <xs:documentation>
+        Unique identifier for the preference.  This is not provided as an input,
+        but as an output after the preference has been created.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  
 </xs:schema>
