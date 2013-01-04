@@ -56,7 +56,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="applicationId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="applicationId" type="ApplicationId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for the application in the back end system.
@@ -348,7 +348,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="applicationId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="applicationId" type="ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             Filter for the unique identifier for the application in the back end system.
@@ -358,4 +358,13 @@
     </xs:sequence >
   </xs:complexType >
 
+
+  <xs:simpleType name="ApplicationId">
+    <xs:annotation>
+      <xs:documentation>
+        Unique identifier for the application in the back end system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
 </xs:schema>

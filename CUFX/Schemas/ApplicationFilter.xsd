@@ -6,7 +6,8 @@
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:application="http://cufxstandards.com/v2/Application.xsd"           
+  xmlns:application="http://cufxstandards.com/v2/Application.xsd"       
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 
   elementFormDefault="qualified" >
 
@@ -14,6 +15,7 @@
   <xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
   <xs:import namespace ="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation ="Relationship.xsd" />
   <xs:import namespace ="http://cufxstandards.com/v2/Application.xsd" schemaLocation ="Application.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v2/Account.xsd" schemaLocation ="Account.xsd" />
   
   <xs:element name="applicationFilter" type="ApplicationFilter">
     <xs:annotation>
@@ -32,7 +34,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="applicationIdList" type="application:ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of application Ids that should have their associated applications be returned
@@ -41,7 +43,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="productTypeList" type="account:AccountType" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of product Types that should have their associated applications be returned

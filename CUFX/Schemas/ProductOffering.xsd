@@ -40,7 +40,7 @@
 
   <xs:complexType name="ProductOffering">
     <xs:sequence>
-      <xs:element name="productId" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="productId" type="ProductId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for each product offering.
@@ -54,7 +54,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="productSubType" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="productSubType" type="ProductSubType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Product sub type identifies how the product will be identified in the back end system.
@@ -293,7 +293,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productSubType" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="true">
+      <xs:element name="productSubType" type="ProductSubType" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
             Product sub type identifies how the product will be identified in the back end system.
@@ -312,7 +312,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productId" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="true">
+      <xs:element name="productId" type="ProductId" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
             Product Id is a unique identifer for the product.  
@@ -322,4 +322,22 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name="ProductId">
+    <xs:annotation>
+      <xs:documentation>
+        Product Id is a unique identifer for the product.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string" />
+  </xs:simpleType>
+  
+  <xs:simpleType name="ProductSubType">
+    <xs:annotation>
+      <xs:documentation>
+        Product sub type identifies how the product will be identified in the back end system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string" />
+  </xs:simpleType>
 </xs:schema>
