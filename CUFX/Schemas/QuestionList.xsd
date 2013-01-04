@@ -20,7 +20,7 @@
   <xs:complexType name="Question">
     <xs:sequence>
       <xs:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="questionId" type="xs:string"  minOccurs="1" maxOccurs="1">
+      <xs:element name="questionId" type="QuestionId"  minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             An identifier for the out-of-wallet question.
@@ -39,6 +39,17 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name="QuestionId">
+    <xs:annotation>
+      <xs:documentation>
+        An identifier for the out-of-wallet question.
+        Must be unique within the list of questions.
+        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
 
   <xs:complexType name="ChoiceList">
     <xs:sequence>
@@ -67,4 +78,15 @@
       </xs:element>
     </xs:sequence>
 	</xs:complexType>
+
+  <xs:simpleType name="ChoiceId">
+    <xs:annotation>
+      <xs:documentation>
+        An identifier for a multiple-choice answer to the out-of-wallet question.
+        Must be unique within the list of choices.
+        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
 </xs:schema>
