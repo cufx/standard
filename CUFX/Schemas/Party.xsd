@@ -78,7 +78,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="entity" type="Entity">
+      <xs:element name="characteristics" type="Characteristics">
         <xs:annotation>
           <xs:documentation>
             All the fields related to the party that define it as an entity.
@@ -269,7 +269,7 @@
     </xs:sequence>
   </xs:group>
 
-  <xs:complexType name="Entity">
+  <xs:complexType name="Characteristics">
     <xs:choice>
       <xs:group ref="organization" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
