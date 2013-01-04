@@ -185,9 +185,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="CardId">
-    <xs:sequence>
-      <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
+  <xs:simpleType name="CardId">
         <xs:annotation>
           <xs:documentation>
             The card ID is a persistent and unique identifier for the card.
@@ -195,9 +193,8 @@
             The card ID should not be the same as the card number embossed on the card.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:restriction base ="xs:string" />
+  </xs:simpleType>
 
   <xs:complexType name="CardIdList">
     <xs:sequence>
