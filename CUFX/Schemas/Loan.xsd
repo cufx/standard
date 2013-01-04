@@ -38,18 +38,15 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name ="LoanId">
-		<xs:sequence>
-			<xs:element name ="id" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>
-						The loan ID is a persistent and unique identifier for the loan. It should be unique for all loans across the
-						institution and remain the same over the life of the relationship with the financial institution.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+	<xs:simpleType name ="LoanId">
+	  <xs:annotation>
+		  <xs:documentation>
+				The loan ID is a persistent and unique identifier for the loan. It should be unique for all loans across the
+				institution and remain the same over the life of the relationship with the financial institution.
+			</xs:documentation>
+		</xs:annotation>
+    <xs:restriction base="xs:string" />
+	</xs:simpleType>
 
 	<xs:complexType name="Loan">
 		<xs:complexContent>
