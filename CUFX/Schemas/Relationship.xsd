@@ -66,7 +66,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyList" type="party:PartyType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="relationshipPartyList" type="RelationshipPartyList" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             A specialized collection of party id’s that uniquely identify each party associated to this relationship
@@ -86,21 +86,18 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name ="RelationshipId">
-    <xs:sequence>
-      <xs:element name ="relationshipId" type="xs:string">
-        <xs:annotation>
-          <xs:documentation>
-            The relationship ID is a persistent and unique identifier for the relationship.
-            It should be unique for all relationships across the institution and remain
-            the same over the life of the relationship with the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:simpleType name ="RelationshipId">
+    <xs:annotation>
+      <xs:documentation>
+        The relationship ID is a persistent and unique identifier for the relationship.
+        It should be unique for all relationships across the institution and remain
+        the same over the life of the relationship with the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
 
-  <xs:complexType name="PartyList">
+  <xs:complexType name="RelationshipPartyList">
     <xs:annotation>
       <xs:documentation>
         A collection of party id’s that uniquely identify each party associated to this relationship
@@ -108,7 +105,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="party" type="Party" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="relationshipParty" type="RelationshipParty" minOccurs="0" maxOccurs="unbounded"
 				nillable="true">
         <xs:annotation>
           <xs:documentation>
@@ -121,7 +118,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Party">
+  <xs:complexType name="RelationshipParty">
     <xs:annotation>
       <xs:documentation>
         A collection of fields required to relate this relationship with the identified
