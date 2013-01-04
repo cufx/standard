@@ -31,7 +31,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="eligibilityRequirementIdList" type="eligibility:EligibilityRequirementIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="eligibilityRequirementIdList" type="eligibility:RequirementId" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of Eligibility Requirement Id's that should be returned by a read.
@@ -39,7 +39,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="affinityBrandList" type="eligibility:AffinityBrandList" minOccurs="0" maxOccurs="1">
+      <xs:element name="affinityBrandList" type="eligibility:AffinityBrand" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
             List of affinity brands to include when filtering the elibility requirement list.

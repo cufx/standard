@@ -39,7 +39,7 @@
   
   <xs:complexType name="EligibilityRequirement">
     <xs:sequence>
-      <xs:element name="requirementID" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="requirementID" type="RequirementId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Identifier for type of the eligibility requirement.
@@ -113,7 +113,7 @@
     </xs:annotation>
 
     <xs:sequence>
-      <xs:element name="affinityBrand" type="xs:string" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="affinityBrand" type="AffinityBrand" minOccurs="0" maxOccurs="unbounded"
               nillable="true">
         <xs:annotation>
           <xs:documentation>
@@ -124,9 +124,18 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:simpleType name="AffinityBrand">
+    <xs:annotation>
+      <xs:documentation>
+        An affinity brand where the eligibility requirement is applicable.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
   <xs:complexType name="EligibilityRequirementIdList">
     <xs:sequence>
-      <xs:element name="requirementID" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="requirementID" type="RequirementId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Identifier for type of the eligibility requirement.
@@ -137,4 +146,16 @@
       </xs:element>
     </xs:sequence >
   </xs:complexType >
+
+
+  <xs:simpleType name="RequirementId">
+    <xs:annotation>
+      <xs:documentation>
+        Identifier for type of the eligibility requirement.
+        For most financial institution this might be a select employee group,
+        a community identifier or other field of membership criteria identifier.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
 </xs:schema>
