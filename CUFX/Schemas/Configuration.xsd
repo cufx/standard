@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 	targetNamespace="http://cufxstandards.com/v2/Configuration.xsd"
+	version="2.0.$Revision: 196 $"
+	xmlns="http://cufxstandards.com/v2/Configuration.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+
+  <xs:element name="configuration" type="Configuration">
+    <xs:annotation>
+      <xs:documentation>
+        The list of supported services, methods, limitations and options within the CUFX instance
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="Configuration">
+    <xs:sequence>
+      <xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of supported services and methods within the CUFX instance
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ServiceList">
+    <xs:sequence>
+      <xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A service and list of methods within the CUFX instance that are supported by this endpoint.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Service">
+    <xs:sequence>
+      <xs:element name="serviceName" type="ServiceName" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Generic name for the service. (Key value)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="protocol" type="Protocol" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Technology web service protocol available. (Key value)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The version for the service. (Key value)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="wsdlUri" type="xs:anyURI" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If the protocol is SOAP 1.1 or 1.2 provide the WSDL URL.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="currencySupportList" type="CurrencySupportList" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Valid values for currency.  If zero currencies are listed then USD is the only supported currency.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="methodList" type="MethodList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Methods such as create, read, update and delete available in the service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MethodList">
+    <xs:sequence>
+      <xs:element name="method" type="Method" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Method such as create, read, update and delete available in the service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Method">
+    <xs:sequence>
+      <xs:element name="methodName" type="MethodName">
+        <xs:annotation>
+          <xs:documentation>
+            Generic name for the service. (Key value)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="uri"  type="xs:anyURI"  minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The base URI for the service.  For example: POST https://api.dataprovider.com/deposit?subMethod=GET
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="methodDependencyList" type="MethodDependencyList" minOccurs ="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The methods that must be executed first before this method can be executed.
+            This allows for orchestration differences amongst different implementations of back end endpoints.
+            For example: Does the party need to be created first or after the account is created.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MethodDependencyList">
+    <xs:annotation>
+      <xs:documentation>
+        The methods that must be executed first before this method can be executed.
+        This allows for orchestration differences amongst different implementations of back end endpoints.
+        For example: Does the party need to be created first or after the account is created.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="methodDependency" type="MethodDependency" minOccurs ="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The method that must be executed before another method.
+            This allows for orchestration differences amongst different implementations of back end endpoints.
+            For example: Does the party need to be created first or after the account is created.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MethodDependency">
+    <xs:sequence>
+      <xs:element name="serviceName" type="ServiceName" minOccurs ="1" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The service name of the method that must be executed first.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="methodName" type="xs:string" minOccurs ="1" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The method name of the method that must be executed first.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The cufxVersion of the method that must be executed first.  The CUFX version is part of the key
+            value since there may be implementation differences between different versions of the same 
+            service/method.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="Protocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="REST-XML"></xs:enumeration>
+      <xs:enumeration value ="REST-JSON"></xs:enumeration>
+      <xs:enumeration value ="SOAP1.1"></xs:enumeration>
+      <xs:enumeration value ="SOAP1.2"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CurrencySupportList">
+    <xs:sequence>
+      <xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Currency supported by the service.  If none were supplied then USD is only valid currency.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CufxVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="1.0.3"></xs:enumeration>
+      <xs:enumeration value ="1.0.6"></xs:enumeration>
+      <xs:enumeration value ="2.0.0"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ServiceName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Account"></xs:enumeration>
+      <xs:enumeration value ="Application"></xs:enumeration>
+      <xs:enumeration value ="Artifact"></xs:enumeration>
+      <xs:enumeration value ="Card"></xs:enumeration>
+      <xs:enumeration value ="Configuration"></xs:enumeration>
+      <xs:enumeration value ="Contact"></xs:enumeration>
+      <xs:enumeration value ="CredentialGroup"></xs:enumeration>
+      <xs:enumeration value ="Deposit"></xs:enumeration>
+      <xs:enumeration value ="DepositFunding"></xs:enumeration>
+      <xs:enumeration value ="EligibilityRequirement"></xs:enumeration>
+      <xs:enumeration value ="Loan"></xs:enumeration>
+      <xs:enumeration value ="LoanDisbursement"></xs:enumeration>
+      <xs:enumeration value ="OverdraftPriority"></xs:enumeration>
+      <xs:enumeration value ="Party"></xs:enumeration>
+      <xs:enumeration value ="PartyAssociation"></xs:enumeration>
+      <xs:enumeration value ="Preference"></xs:enumeration>
+      <xs:enumeration value ="ProductOffering"></xs:enumeration>
+      <xs:enumeration value ="ProductServiceRequest"></xs:enumeration>
+      <xs:enumeration value ="Relationship"></xs:enumeration>
+      <xs:enumeration value ="SimpleValidationRequest"></xs:enumeration>
+      <xs:enumeration value ="CreditReporting"></xs:enumeration>
+      <xs:enumeration value ="Identification"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="MethodName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Create"></xs:enumeration>
+      <xs:enumeration value ="Read"></xs:enumeration>
+      <xs:enumeration value ="Update"></xs:enumeration>
+      <xs:enumeration value ="Delete"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
