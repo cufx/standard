@@ -29,6 +29,21 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="endPointTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The offset of the time zone from Universal Time where this service resides.  If the service
+            provides a serviceTimeZoneUTOffset, it overrides this value for that services.
+            For example,
+            Atlantic Standard Time (AST) =  UT - 4 hours  (serviceTimeZoneUTOffset would be -4)
+            Eastern Standard Time (EST)  =  UT - 5 hours
+            Central Standard Time (CST)  =  UT - 6 hours
+            Mountain Standard Time (MST) =  UT - 7 hours
+            Pacific Standard Time (PST)  =  UT - 8 hours
+            If the location observes daily savings time, this value may need to be updated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -53,6 +68,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="protocol" type="Protocol" minOccurs ="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -60,6 +76,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -67,6 +84,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
       <xs:element name="wsdlUri" type="xs:anyURI" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -74,13 +92,41 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="currencySupportList" type="CurrencySupportList" minOccurs ="0" maxOccurs="unbounded">
+      
+      <xs:element name="currencySupportList" type="CurrencySupportList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Valid values for currency.  If zero currencies are listed then USD is the only supported currency.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="acceptLanguageList" type="AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies which language(s) can be received by the end point which instructs it
+            when generating its response data in which language to return its data and errors.
+            If none are specified then the default is en-us.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="serviceTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If provides, serviceTimeZoneUTOffset overrides the endpointTimeZoneUTOffset.
+            The offset of the time zone from Universal Time where this service resides.
+            For example,
+            Atlantic Standard Time (AST) =  UT - 4 hours  (serviceTimeZoneUTOffset would be -4)
+            Eastern Standard Time (EST)  =  UT - 5 hours
+            Central Standard Time (CST)  =  UT - 6 hours
+            Mountain Standard Time (MST) =  UT - 7 hours
+            Pacific Standard Time (PST)  =  UT - 8 hours
+            If the location observes daily savings time, this value may need to be updated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="methodList" type="MethodList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -89,6 +135,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+
   </xs:complexType>
 
   <xs:complexType name="MethodList">
@@ -195,6 +242,28 @@
         <xs:annotation>
           <xs:documentation>
             Currency supported by the service.  If none were supplied then USD is only valid currency.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AcceptLanguageList">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies which language(s) can be received by the end point which instructs it
+        when generating its response data in which language to return its data and errors.
+        If none are specified then the default is en-us.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies a valid language-region which can be received by the end point which instructs it
+            when generating its response data in which language to return its data and errors.
+            Combination of a language and a region.  For example en-us.
+            http://www.iana.org/assignments/language-subtag-registry
           </xs:documentation>
         </xs:annotation>
       </xs:element>
