@@ -47,15 +47,6 @@
 			</xs:annotation>
 			<xs:extension base="account:Account">
 				<xs:sequence>
-					<xs:element name="loanId" type="LoanId" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Unique identifier for the loan.  This is not provided as an input,
-								but as an output after the loan has been created.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
 					<xs:element name="loanPartyList" type="LoanPartyList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
