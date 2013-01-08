@@ -71,7 +71,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					
+
 					<xs:element name="loanDecisionDate" type="xs:date" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -467,7 +467,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-				</xs:sequence>				
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -605,10 +605,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="baseTitledCollateral" type="BaseTitledCollateral" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="collateralDetails" type="BaseCollateralDetails" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to titled collateral
+						Details related to collateral.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1473,262 +1473,330 @@
 		</xs:sequence>
 	</xs:complexType>
 
-    <!-- Titled Collateral Types (i.e. ownership is evidenced by a Title. -->
-    <xs:complexType name="BaseTitledCollateral" abstract="true">
-        <xs:annotation>
-            <xs:documentation>
-                Contains Details about collateral. different types are supported
-            </xs:documentation>
-        </xs:annotation>
+	<xs:complexType name="BaseCollateralDetails" abstract="true">
 
-        <xs:sequence>
-            <xs:element name="collateralType" type="CollateralType" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The type of collateral
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="year" type="xs:integer" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The year of the vehicle
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The vehicle manufacturer
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="make" type="xs:string" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The vehicle make
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="model" type="xs:string" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The vehicle model
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="color" type="xs:string" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        The color of the vehicle
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="purchasePrice" type="common:Money" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        MSRP or Purchase Price
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="isVehicleUsed" type="xs:boolean" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        Whether the vehicle is used or new
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-            <xs:element name="uccCode" type="xs:string" minOccurs="0" maxOccurs="1">
-                <xs:annotation>
-                    <xs:documentation>
-                        Code used to register boats, RVs etc;
-                        Vehicles that don't have a title value... some states use UCC instead of
-                        titles all together
-                    </xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
+	</xs:complexType>
 
-    <xs:complexType name="MotorVehicleCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to vehicle collateral
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="vehicleIdentificationNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                Vehicle Identification number (VIN)
-                                Conditional - required for vehicle loans
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="mileage" type="xs:integer" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                The mileage of the vehicle
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="licensePlateNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                License Plate number
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="licensePlateState" type="xs:string" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                License Plate State
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="licensePlateExpiration" type="xs:date" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                Expiration Date for license plate;
-                                So registration expiration date for the vehicle
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="titleNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                Collateral Title Number
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="titleState" type="xs:string" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                Title State
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<xs:complexType name="PossessoryCollateral" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Contains Details about possessory collateral types. Examples are: Deposit Accounts/CD; Securities; Notes; Receipts/Bills; Letters of Credit; Other
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseCollateralDetails">
+				<xs:sequence>
+					<!-- TODO: Dan, what fields would be in a possessory collateral-->
+				</xs:sequence>					
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-    <xs:complexType name="MobileHomeCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to trailer collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-                    <xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-                    <xs:element name="descOfEnginesEquip" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<xs:complexType name="RealEstateCollateral" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Contains Details about Real Estate collateral types.  Examples are: 1-4 Family; Multi-Family; Commerical; Land
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseCollateralDetails">
+				<xs:sequence>
+					<!-- TODO: Dan, what fields should we have? -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-    <xs:complexType name="BoatCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to pleasure boat collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-                    <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-                    <xs:element name="marinaPort" type="xs:string"  minOccurs="0"/>
-                    <xs:element name="descOfEnginesEquip" type="xs:string"  minOccurs="0"/>
-                    <xs:element name="descOfLogBooks" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<xs:complexType name="UCCCollateral" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Contains Details about UCC  collateral types.  Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseCollateralDetails">
+				<xs:sequence>
+					<!-- TODO: Dan, what fields should we have? -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-    <xs:complexType name="ShipCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to ship collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="nameOfVessel" type="xs:string"  minOccurs="0"/>
-                    <xs:element name="officialNumber" type="xs:string" minOccurs="0"/>
-                    <xs:element name="marinaPort" type="xs:string" minOccurs="0"/>
-                    <xs:element name="grossTonnage" type="xs:string" minOccurs="0"/>
-                    <xs:element name="netTonnage" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
 
-    <xs:complexType name="AircraftCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to aircraft collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-                    <xs:element name="faaRegistrationNumber" type="xs:string" minOccurs="0"/>
-                    <xs:element name="inspectionReportYN" type="xs:boolean" minOccurs="0"/>
-                    <xs:element name="faaCoverLetterYN" type="xs:boolean" minOccurs="0"/>
-                    <xs:element name="aircraftForCommercialUse" type="xs:boolean" minOccurs="0"/>
-                    <xs:element name="descAvionicsEngines" type="xs:string" minOccurs="0"/>
-                    <xs:element name="descOfLogBooks" type="xs:string" minOccurs="0"/>
-                    <xs:element name="airportHomeBase" type="xs:string" minOccurs="0"/>
-                    <xs:element name="hours" type="xs:integer" minOccurs="0" maxOccurs="1">
-                        <xs:annotation>
-                            <xs:documentation>
-                                The number of hours on the aircraft
-                            </xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<xs:complexType name="OtherCollateral" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Contains Details about Other  collateral types.  Examples are: Contracts
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseCollateralDetails">
+				<xs:sequence>
+					<!-- TODO: Dan, what fields should we have? -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>	
 
-    <xs:complexType name="TrailerCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to trailer collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<!-- Titled Collateral Types (i.e. ownership is evidenced by a Title. -->
+	<xs:complexType name="BaseTitledCollateral" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Contains Details about collateral titled collateral types (i.e ownership is evidenced by a Title)
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseCollateralDetails">
+				<xs:sequence>
+					<xs:element name="collateralType" type="CollateralType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The type of collateral
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="year" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The year of the vehicle
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The vehicle manufacturer
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="make" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The vehicle make
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="model" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The vehicle model
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="color" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The color of the vehicle
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="purchasePrice" type="common:Money" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								MSRP or Purchase Price
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="isVehicleUsed" type="xs:boolean" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Whether the vehicle is used or new
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="uccCode" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Code used to register boats, RVs etc;
+								Vehicles that don't have a title value... some states use UCC instead of
+								titles all together
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-    <xs:complexType name="OtherTitledCollateral">
-        <xs:complexContent>
-            <xs:annotation>
-                <xs:documentation>
-                    Details related to trailer collateral.
-                </xs:documentation>
-            </xs:annotation>
-            <xs:extension base="BaseTitledCollateral">
-                <xs:sequence>
-                    <xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-                    <xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
+	<xs:complexType name="MotorVehicleCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to vehicle collateral
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="vehicleIdentificationNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Vehicle Identification number (VIN)
+								Conditional - required for vehicle loans
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="mileage" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The mileage of the vehicle
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="licensePlateNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								License Plate number
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="licensePlateState" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								License Plate State
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="licensePlateExpiration" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Expiration Date for license plate;
+								So registration expiration date for the vehicle
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="titleNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Collateral Title Number
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="titleState" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Title State
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="MobileHomeCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to trailer collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
+					<xs:element name="descOfEnginesEquip" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BoatCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to pleasure boat collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="marinaPort" type="xs:string"  minOccurs="0"/>
+					<xs:element name="descOfEnginesEquip" type="xs:string"  minOccurs="0"/>
+					<xs:element name="descOfLogBooks" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ShipCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to ship collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="nameOfVessel" type="xs:string"  minOccurs="0"/>
+					<xs:element name="officialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="marinaPort" type="xs:string" minOccurs="0"/>
+					<xs:element name="grossTonnage" type="xs:string" minOccurs="0"/>
+					<xs:element name="netTonnage" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="AircraftCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to aircraft collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="faaRegistrationNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="inspectionReportYN" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="faaCoverLetterYN" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="aircraftForCommercialUse" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="descAvionicsEngines" type="xs:string" minOccurs="0"/>
+					<xs:element name="descOfLogBooks" type="xs:string" minOccurs="0"/>
+					<xs:element name="airportHomeBase" type="xs:string" minOccurs="0"/>
+					<xs:element name="hours" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The number of hours on the aircraft
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TrailerCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to trailer collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OtherTitledCollateral">
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Details related to trailer collateral.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="BaseTitledCollateral">
+				<xs:sequence>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<!-- Simple types - in alpha order -->
 	<xs:simpleType name="AutoPaymentFrequencyType">
@@ -1968,25 +2036,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="LoanPartyList">
-    <xs:annotation>
-      <xs:documentation>
-        A collection of party id’s that uniquely identify each party associated to this loan
-        and additional field on how the party relates to the loan.
-        This list is in additional to the relationship parties if available.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Each partyId and how it relates to the loan.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  
+	<xs:complexType name="LoanPartyList">
+		<xs:annotation>
+			<xs:documentation>
+				A collection of party id’s that uniquely identify each party associated to this loan
+				and additional field on how the party relates to the loan.
+				This list is in additional to the relationship parties if available.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Each partyId and how it relates to the loan.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:complexType name="LoanParty">
 		<xs:annotation>
 			<xs:documentation>
@@ -2002,18 +2070,26 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="loanPartyRelationshipType" type="LoanPartyRelationshipType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party relationship type is the textual representation of what the
-            party record represents to this loan such as primary or coborrower,
-            beneficiary or some other type of relationship. This value
-            may be visible to the user and must be human-readable.  If the same
-            party exists at the relationshiop level, the account level
-            relationship type overrides the relationship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="loanPartyRelationshipType" type="LoanPartyRelationshipType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The party relationship type is the textual representation of what the
+						party record represents to this loan such as primary or coborrower,
+						beneficiary or some other type of relationship. This value
+						may be visible to the user and must be human-readable.  If the same
+						party exists at the relationshiop level, the account level
+						relationship type overrides the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactIdList" type="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of contacts for the party within this account.  Only contains the
+						contactId for each contact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
