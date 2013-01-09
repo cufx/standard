@@ -126,6 +126,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="customDataUseList" type="CustomDataUseList"  minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of XSD paths and comments related to how the custom data sections are being used.
+            This is information only and not processed by the system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="methodList" type="MethodList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
@@ -264,6 +273,54 @@
             when generating its response data in which language to return its data and errors.
             Combination of a language and a region.  For example en-us.
             http://www.iana.org/assignments/language-subtag-registry
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="CustomDataUseList">
+    <xs:annotation>
+      <xs:documentation>
+        List of XSD paths and comments related to how the custom data sections are being used.
+        This is information only and not processed by the system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="customDataUse" type="CustomDataUse" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            List of comments related to how the custom data sections are being used.
+            This is information only and not processed by the system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomDataUse" >
+    <xs:annotation>
+      <xs:documentation>
+        An XSD path and comment related to how the custom data section is being used.
+        This is information only and not processed by the system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="xsdPath" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An XSD path related of the customData.  For example...
+            /partyList/party/customData
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Comment as to what is stored in the customData.
+            For example: Will hold the party's eyecolor in a ValuePair.
+            name=eyecolor and value=blue
           </xs:documentation>
         </xs:annotation>
       </xs:element>
