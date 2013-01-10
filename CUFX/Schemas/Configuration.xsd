@@ -11,17 +11,45 @@
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
-
-  <xs:element name="configuration" type="Configuration">
+  
+  <xs:element name="configurationList" type="ConfigurationList">
     <xs:annotation>
       <xs:documentation>
-        The list of supported services, methods, limitations and options within the CUFX instance
+        The list of configurations available in the CUFX instance.
+        There will be one Configuration for one or more financial instutitions.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="Configuration">
+  <xs:complexType name="ConfigurationList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of configurations available in the CUFX instance. 
+        There will be one Configuration for one or more financial instutitions.
+      </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
+      <xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of supported services, methods, limitations and options within the CUFX instance
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+  
+   <xs:complexType name="Configuration">
+    <xs:sequence>
+      <xs:element name="fiIdList" type="FiIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The valid financial institution list for this instance.
+            Identifies that these configuration parameters are related to a these financial institutions.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -46,7 +74,26 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
+  
+  <xs:complexType name="FiIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The valid financial institution list for this instance.
+        Identifies that these configuration parameters are related to a these financial institutions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fiId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A valid financial institution for this instance.
+            Identifies that these configuration parameters are related to this financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="ServiceList">
     <xs:sequence>
       <xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
@@ -110,6 +157,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="fieldNotSupportedList" type="FieldNotSupportedList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of fields not supported in the service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="serviceTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
@@ -144,7 +199,6 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-
   </xs:complexType>
 
   <xs:complexType name="MethodList">
@@ -279,7 +333,58 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="FieldNotSupportedList">
+    <xs:annotation>
+      <xs:documentation>
+        List of fields not supported in the service.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fieldNotSupported" type="FieldNotSupported" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Describe which fields are not supported by specifying the XSD path and any comments why it isn't supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
+  <xs:complexType name="FieldNotSupported">
+    <xs:annotation>
+      <xs:documentation>
+       Field not supported by the end point.  Specify the XSD path and any comments why it isn't supported.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="xsdFile" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An XSD filename in the CUFX library that is the parent of the field that is not supported.
+            For example...Party.xsd
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="xsdXPath" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An XPath statement that identifies the XSD elements related of the field that is not supported. 
+            For example...
+            /partyList/party/characteristics/individual/citizenshipList/*
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Comment as to why the field(s) is/are not supported.
+            For example: This end point does not support citizenship as the back end core does not support this concept.
+           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="CustomDataUseList">
     <xs:annotation>
       <xs:documentation>
@@ -292,7 +397,7 @@
         <xs:annotation>
           <xs:documentation>
             List of comments related to how the custom data sections are being used.
-            This is information only and not processed by the system.
+            This is informational only and not processed by the system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -307,15 +412,23 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="xsdPath" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="xsdFile" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An XSD path related of the customData.  For example...
-            /partyList/party/customData
+            An XSD filename in the CUFX library that is the parent of the node that holds the customData.
+            For example...Party.xsd
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="xsdXPath" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An XPath statement that identifies XSD node of the customData.  For example...
+            /partyList/party/customData/*
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Comment as to what is stored in the customData.
