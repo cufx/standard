@@ -36,7 +36,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
     </xs:sequence>
   </xs:complexType>
   
@@ -45,15 +44,10 @@
       <xs:element name="fiIdList" type="FiIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The valid financial institution list for this instance.
+            The valid financial institution ID list for this instance.
             Identifies that these configuration parameters are related to a these financial institutions.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of supported services and methods within the CUFX instance
+            The fi ID is the "key" in the CUFX data model for identifying the FI for all services.
+            The fi ID will be passed in the messageContext to filter the request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -72,6 +66,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of supported services and methods within the CUFX instance
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+     
     </xs:sequence>
   </xs:complexType>
   
