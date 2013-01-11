@@ -125,7 +125,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="artifactArchived" type="xs:boolean" minOccurs="1" maxOccurs="1" nillable="false">
+      <xs:element name="artifactArchived" type="xs:boolean" minOccurs="0" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
             A flag used to determine if the Artifact has been archived or not.
