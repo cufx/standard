@@ -62,6 +62,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Applicable to creates and updates.  The return data filter is used to streamline the amount of
+            information to return to the client after an update or create.  The client can request
+            all data from the object, only fields that were updated or created, or no data (just a confirmation that it was successful).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="userIdList" type="User" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
@@ -120,4 +129,20 @@
 			<xs:enumeration value="Custom" />
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:simpleType name="ReturnDataFilter">
+    <xs:annotation>
+      <xs:documentation>
+        Applicable to creates and updates.  The return data filter is used to streamline the amount of
+        information to return to the client after an update or create.  The client can request
+        all data from the object, only fields that were updated or created, 
+        or no data (just a confirmation that it was successful).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All" />
+      <xs:enumeration value="OnlyCreatedOrChangedData" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
