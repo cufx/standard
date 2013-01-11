@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+targetNamespace="http://cufxstandards.com/v2/Disclosure.xsd"
+version="2.0.$Revision: 189 $"
+xmlns="http://cufxstandards.com/v2/Disclosure.xsd"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
+ 
+elementFormDefault="qualified"
+attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+
+  <xs:element name= "disclosureList" type ="DisclosureList">
+    <xs:annotation>
+      <xs:documentation>
+        The Disclosures collection/array list contains all the disclosures for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="DisclosureList">
+    <xs:annotation>
+      <xs:documentation>
+        The Disclosures collection/array list contains all the disclosures for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosure" type="Disclosure" minOccurs="0" maxOccurs="unbounded">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Disclosure">
+    <xs:annotation>
+      <xs:documentation>
+        The disclosure defines the information stored when a person signs a document or agreement electronically
+        or manually.  This also relates disclosures to the party, relationship and/or account for which the dislcosure
+        is legally bound to.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="disclosureId" type="DisclosureId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure ID is a persistent and unique identifier for the disclosure not related to the party, relationship or accounts
+            that the disclosure is for. It should be unique for all disclosures across the
+            institution and remain the same over the life of the dislcosure within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureTitle" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Each disclosure has a title which is determined by the financial institution.
+            Examples are Loan Dislosure, Savings Disclosure, Checking Disclosure, Membership Disclosure, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureStatus" type="DisclosureStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Current Status of the disclosure in the process of being sent, presented, signed, unsigned, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureSignatureType" type="DisclosureSignatureType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If the disclosure has been signed, how was it signed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureSignedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Current Status of the disclosure in the process of being sent, presented, signed, unsigned, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="signedWithIpAddress" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            When electronically signed the following IP address was used was in the session.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Pointer to the document in the artificate repository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of partyId's that relate to this disclosure.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The relationshipId that relates to this disclosure.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Account Id's that relate to this disclosure.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="DisclosureId">
+    <xs:annotation>
+      <xs:documentation>
+        The disclosure ID is a persistent and unique identifier for the disclosure not related to the party, relationship or accounts
+        that the disclosure is for. It should be unique for all disclosures across the
+        institution and remain the same over the life of the dislcosure within the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="DisclosureStatus">
+    <xs:annotation>
+      <xs:documentation>
+        Current Status of the disclosure in the process of being sent, viewed, returned (see signature
+        type to determine if it was returned signed or not.)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Sent">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been sent to the person via mail or electronically but not signed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Viewed">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been viewed online but not signed.  Some disclosures may only require being viewed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Returned">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been returned.  See Signature Type to determine if signed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DisclosureSignatureType">
+    <xs:annotation>
+      <xs:documentation>
+        If the disclosure has been signed, how was it signed.
+      </xs:documentation>
+    </xs:annotation>
+    
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unsigned">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been been sent or viewed online but not signed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ElectronicSignature">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been viewed online and the person agreed to electronically.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SingleClickAcceptance">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been viewed online and the person agreed to electronically with a single click.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WetSignature">
+        <xs:annotation>
+          <xs:documentation>
+            The disclosure has been viewed online and the person agreed to electronically.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+ 
+</xs:schema>
