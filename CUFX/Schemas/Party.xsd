@@ -118,7 +118,7 @@
             List of how the party can be contacted for new contact points.
             This is a list of Contact information not yet available in the existing contact points.
             This is provided to enable a method for providing information for contact points not yet
-            available.
+            available as a convenience so that you don't have to make separate calls ot the contact service.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -177,6 +177,18 @@
             or the organizational Employer Identification Number (EIN).
             Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
             i.e. 9 digit string with no dashes and zero filled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="taxIdEncrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True, indicates that the taxId was encrypted.
+            Encryption method is agreed upon by application end point
+            providers.  Assume it’s NOT encrypted if this flag is not provided.
+            The messageContext will be used by the service to understand which client is calling the service
+            to know which encryption algorithm to apply.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -262,42 +274,42 @@
 
   <xs:complexType name="Characteristics">
     <xs:choice>
-      <xs:group ref="organization" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="organization" type="Organization" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of fields specific to organization party type.
           </xs:documentation>
         </xs:annotation>
-      </xs:group>
+      </xs:element>
 
-      <xs:group ref="individual" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="individual" type="Individual"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of fields specific to individual party type.
           </xs:documentation>
         </xs:annotation>
-      </xs:group>
+      </xs:element>
 
-      <xs:group ref="trust" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="trust" type="Trust" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of fields specific to trust party type.
           </xs:documentation>
         </xs:annotation>
-      </xs:group>
+      </xs:element>
 
-      <xs:group ref="estate" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="estate" type="Estate" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of fields specific to estate party type.
           </xs:documentation>
         </xs:annotation>
-      </xs:group>
+      </xs:element>
     </xs:choice>
   </xs:complexType>
 
 
-  <xs:group name="organization">
+  <xs:complexType name="Organization">
     <xs:annotation>
       <xs:documentation>
         Fields related to when the party is a an Organization.
@@ -331,7 +343,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-  </xs:group>
+  </xs:complexType>
 
   <xs:simpleType name="TaxIdType">
     <xs:annotation>
@@ -422,7 +434,7 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:group name="individual">
+  <xs:complexType name="Individual">
     <xs:annotation>
       <xs:documentation>
         Fields related to when the party is a an individual.
@@ -580,7 +592,7 @@
       </xs:annotation>
     </xs:element>
     </xs:sequence>
-  </xs:group>
+  </xs:complexType>
 
   <xs:complexType name="EmploymentList">
     <xs:annotation>
@@ -963,7 +975,7 @@
   </xs:complexType>
 
 
-  <xs:group name="trust">
+  <xs:complexType name="Trust">
     <xs:annotation>
       <xs:documentation>
         Fields related to when the party is a TRUST.
@@ -978,9 +990,9 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-  </xs:group>
+  </xs:complexType>
 
-  <xs:group name="estate">
+  <xs:complexType name="Estate">
     <xs:annotation>
       <xs:documentation>
         Fields related to when the party is a ESTATE.
@@ -995,7 +1007,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-  </xs:group>
+  </xs:complexType>
 
   <xs:complexType name="CitizenshipList">
     <xs:annotation>
@@ -1236,27 +1248,27 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="effectiveDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+      <xs:element name="effectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date that the document became effective/issued…
             For example, when was business started based on articles of incorporation.
 
-            The date/time should be ISO 8601 UTC format.
-            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-            formats are supported.  The time is assume to be 00:00Z if omitted.
+            The date should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+      <xs:element name="expirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date of that the documents expired or will expire.
 
-            The date/time should be ISO 8601 UTC format.
-            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-            formats are supported.  The time is assume to be 00:00Z if omitted.
+            The date should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) or yyyy-mm-dd (2011-03-28)
+            formats are supported.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1344,6 +1356,7 @@
 
         <xs:simpleType>
           <xs:restriction base="xs:string">
+            <xs:enumeration value="StateCorporateId" />
             <xs:enumeration value="StateDba" />
             <xs:enumeration value="ArticlesOfIncorporation" />
             <xs:enumeration value="BusinessLicense" />
