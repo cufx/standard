@@ -163,7 +163,8 @@
       <xs:element name="fieldNotSupportedList" type="FieldNotSupportedList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of fields not supported in the service.
+            List of fields not supported in the service.  Do not include customData fields which are assumed
+            to be unused unless listed in the customDataUseList in the Configuration.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
