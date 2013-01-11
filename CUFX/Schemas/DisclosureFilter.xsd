@@ -1,0 +1,80 @@
+﻿<xs:schema targetNamespace="http://cufxstandards.com/v2/DisclosureFilter.xsd"
+	version="2.0.$Revision: 123 $"
+	xmlns="http://cufxstandards.com/v2/DisclosureFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:disclosure="http://cufxstandards.com/v2/Disclosure.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Disclosure.xsd" schemaLocation="Disclosure.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+
+  <xs:element name="disclosureFilter" type="DisclosureFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting relationship data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="DisclosureFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting disclosure data.  The options can be used
+        in combination or by themselves and it is up to the data source to either return or affect the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosureIdList" type="disclosure:DisclosureId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of disclosureId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureTitleList" type="disclosure:DisclosureTitle" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of disclosureTitles's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of partyId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of relationshipId's that should have their associated disclosures either returned or affected
+            by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Account Id's that should have their associated disclosures either returned or affected
+            by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+

@@ -61,7 +61,7 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureTitle" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="disclosureTitle" type="DisclosureTitle" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Each disclosure has a title which is determined by the financial institution.
@@ -146,6 +146,16 @@ attributeFormDefault="unqualified">
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="DisclosureTitle">
+    <xs:annotation>
+      <xs:documentation>
+        Each disclosure has a title which is determined by the financial institution.
+        Examples are Loan Dislosure, Savings Disclosure, Checking Disclosure, Membership Disclosure, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string" />
   </xs:simpleType>
   
   <xs:simpleType name="DisclosureStatus">
