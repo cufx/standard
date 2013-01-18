@@ -431,6 +431,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The name that will show up in the valuePair within the customData.  For instance
+            eyecolor
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
