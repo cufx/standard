@@ -618,6 +618,14 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element name="employmentId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifer for the employment record to have a way of identifying this record within the system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="employerPartyId" type="PartyId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
