@@ -34,41 +34,89 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="accountIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="accountIdList">
         <xs:annotation>
           <xs:documentation>
             The list of Account Id's that should have their associated accounts either returned or affected
             by a read, update or delete account request.
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  An Account Id that should have its associated accounts either returned or affected
+                  by a read, update or delete account request.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="partyIdList">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that should be returned or affected by a read, update or
             delete account or account detail request.
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="partyId" type="party:PartyId" minOccurs ="0" maxOccurs ="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  A partyId that should be returned or affected by a read, update or
+                  delete account or account detail request.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="relationshipIdList">
         <xs:annotation>
           <xs:documentation>
             The list of relationshipId's that should have their associated accounts either returned or affected
             by a read, update or delete account or account detail request.
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  A relationshipId that should have its associated accounts either returned or affected
+                  by a read, update or delete account or account detail request.
+                </xs:documentation>
+              </xs:annotation>             
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
 
-      <xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="accountTypeList">
         <xs:annotation>
           <xs:documentation>
             The list of Account Types that should have their associated parties either returned or affected
             by a read, update or delete account request.
           </xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  An Account Type that should have its associated parties either returned or affected
+                  by a read, update or delete account request.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
       <xs:element name="transactionStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
