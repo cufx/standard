@@ -73,6 +73,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatus" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of disclosure statuses that should have their associated disclosures either returned or affected
+            by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of disclosure signature types that should have their associated disclosures either returned or affected
+            by a read, update or delete disclosure request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
