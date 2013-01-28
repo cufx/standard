@@ -34,7 +34,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loanIdList" type="loan:LoanId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="loanIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The list of loanId's that should be returned or affected by a read, or update request.
