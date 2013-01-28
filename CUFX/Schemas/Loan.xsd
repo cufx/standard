@@ -1008,7 +1008,7 @@
 					<xs:element name="numberOfStockPowerForms" type="xs:string" nillable="true" minOccurs="0"/>
 					<xs:element name="marginStock" type="xs:boolean" nillable="true" minOccurs="0"/>
 					<xs:element name="noteToThirdParty" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<!-- Dan, what is this ?? <xs:element name="valuationFrequency" type="ValuationFrequency" nillable="true" minOccurs="0"/> -->
+					<xs:element name="valuationFrequency" type="ValuationFrequency" nillable="true" minOccurs="0"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -2154,5 +2154,17 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:simpleType name="ValuationFrequency">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Weekly"/>
+			<xs:enumeration value="Bi-Weekly"/>
+			<xs:enumeration value="Monthly"/>
+			<xs:enumeration value="Bi-Monthly"/>
+			<xs:enumeration value="Quarterly"/>
+			<xs:enumeration value="Semi-Annually"/>
+			<xs:enumeration value="Annually"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
