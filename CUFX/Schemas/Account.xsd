@@ -13,6 +13,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />	
 
   <xs:element name= "accountList" type ="AccountList">
     <xs:annotation>
@@ -47,7 +48,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="idtype" type="IdType" minOccurs="0" maxOccurs="1">
+      <xs:element name="idType" type="IdType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Used when requesting and receiving reserved account numbers, before the account record is created.
@@ -166,7 +167,7 @@
         </xs:annotation >
       </xs:element >
 
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             A collection of party id’s that uniquely identify each party associated to this account.
