@@ -36,6 +36,9 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <WIN_SDK_PATH>$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SDKs\Windows@CurrentInstallFolder)</WIN_SDK_PATH>
+    <WIN_SDK_BIN_PATH>$(WIN_SDK_PATH)\bin</WIN_SDK_BIN_PATH>
+    <SVCUTIL>"$(WIN_SDK_BIN_PATH)\svcutil.exe"</SVCUTIL>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -60,6 +63,14 @@
     <StartupObject>DocGenerator.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>C:\TFSProjects\Research\CMarjaniemi\nbuilder\Source\FizzWare.NBuilder\bin\Debug\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\TFSProjects\EntFederal\Main\Web\Orcc\Source\Libraries\Ent.Notifications.Shared\Apple\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -70,8 +81,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExampleGenerators\JsonGenerator.cs" />
+    <Compile Include="ExampleGenerators\CodeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExampleGenerators\Facets.cs" />
+    <Compile Include="ExampleGenerators\Generator.cs" />
+    <Compile Include="ExampleGenerators\InstanceAttribute.cs" />
+    <Compile Include="ExampleGenerators\InstanceElement.cs" />
+    <Compile Include="ExampleGenerators\InstanceGroup.cs" />
+    <Compile Include="ExampleGenerators\InstanceObject.cs" />
+    <Compile Include="ExampleGenerators\XmlGen.cs" />
+    <Compile Include="ExampleGenerators\XmlSampleGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Account.xsd">
@@ -162,6 +183,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Newtonsoft.Json.dll" />
     <None Include="OverdraftPriorityList.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -207,10 +229,10 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="AccountFilter.xsd">
+    <Content Include="AccountFilter.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="PartyAssociation.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -281,6 +303,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -289,4 +314,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="XSDSerialization">
+    <ItemGroup>
+      <DCSerializationItems Include="@(Content -> '%(fullpath)')" Condition="'%(Extension)' == '.xsd'" />
+    </ItemGroup>
+    <Exec Command="attrib -r &quot;%(DCSerializationItems.fullpath).cs&quot;" />
+    <Exec Outputs="%(DCSerializationItems.fullpath).cs" Command="$(SVCUTIL) /dconly /serializer:DataContractSerializer /language:C# &quot;/out:%(DCSerializationItems.fullpath).cs&quot; &quot;%(DCSerializationItems.fullpath)&quot;" />
+  </Target>
 </Project>
