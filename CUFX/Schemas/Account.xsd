@@ -167,7 +167,7 @@
         </xs:annotation >
       </xs:element >
 
-      <xs:element name="partyIdList" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             A collection of party id’s that uniquely identify each party associated to this account.
