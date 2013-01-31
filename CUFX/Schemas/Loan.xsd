@@ -552,6 +552,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+      <xs:element name="collateralId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique Id for the collateral in the back end system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
 			<xs:element name="collateralCode" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1052,11 +1060,18 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+      <xs:element name="delinquencyNoticeId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique Id to identify the delinquency notice within the back end system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="code" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Code to identify the delinquency notice;
-						FIs may have multiple delinquency notices so that's why they may need to identify by code;
+						Code to identify the type of delinquency notice
+						FIs may have multiple delinquency notices so that's why they may need to identify by code
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1112,6 +1127,14 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:sequence>
+        <xs:element name="insuranceAddOnId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              Unique identifier for the insurance Add On
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        
 				<xs:element name="insuranceType" type="LoanInsuranceType" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
@@ -1262,6 +1285,13 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:sequence>
+        <xs:element name="loanFeeId" type="xs:string" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+              Unique Id to identify the Loan Fee in the back end system.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
 				<xs:element name="lateChargeFee" type="LateChargeFee" minOccurs="0" maxOccurs="1">
 					<xs:annotation>
 						<xs:documentation>
@@ -1347,225 +1377,223 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="originalEffectiveRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Original effective rate when the loan was opened
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rateDiscountPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Percentage of interest rate discount being given
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rateDiscountReasonCode" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Code-reason for giving the rate discount
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="relationshipRateDiscountPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Relationship Based Pricing Discount;
-							Percentage of interest rate discount for satisfying specific requirements - IE a employee
-							is eligible for a certain discount rate percentage
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="relationshipRateDiscountReasonCode" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Reason for relationship based pricing discount (i.e. multiple loans);
-							FI defined code;
-							Can also be a Relationship Group - so can represent a group (IE all Bose employees)
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Calculated Annual Percentage Rate (APR)
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Interest rate that is used for calculations;
-							Most of the time you would only use rate AND APR when there is a split or variable rate
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="isSplitRate" type="xs:boolean" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Indicates if loan rates are split
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="splitRateCode" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Describes the interest rate type that is used in the interest calculation process
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rateMaximum" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Ceiling interest Rate indicating the highest interest rate allowed - Revolving Loans only (Lines, Credit Card)
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rateMinimum" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Floor Rate indicating the lowest interest rate allowed - Revolving Loans only (Lines, Credit Card)
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="ratePercentageChange" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Percentage rate change allowed
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="margin" type="InterestRateMarginType" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Indicates type of margin: Points or Percentage
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="baseRateIndex" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Base rate used for calcuations
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="rateMarginPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Amount added to the index to determine the interest rate
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maximumFirstRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum first rate change increase
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maximumFirstRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum first rate change decrease
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maximumPercentageAdjustableRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum percentage adjustable rate change increase
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maxPercentageAdjustableRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum percentage adjustable rate change decrease
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maxAnnualRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum annual rate change increase
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="maxAnnualRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum annual rate change decrease
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="isRateMarginAboveIndex" type="xs:boolean" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Indicates if the rate is above or below the index (i.e. above or below Prime)
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="marginRiskRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Value that increases the margin rate;
-							If you have bad credit this is the margin rate applied based on your credit;
-							Used for risk based pricing
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="scheduledRateChangeDate" type="xs:date" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Rate change date
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="periodicCapAmount" type="common:Money" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Maximum (cap) amount the interest rate can change during a given period
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="periodicCapStartRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Starting interest rate for the Periodic Cap period
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="periodicCapStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Starting date for the Periodic Cap Period
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="periodicCapFrequency" type="PeriodicCapFrequencyType" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Defined period during which the Periodic Cap applies
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="periodicCapFrequencyValue" type="xs:integer" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Periodic cap frequency value
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="splitRateBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Used to define the balance that will trigger a split rate
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+			<xs:element name="originalEffectiveRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Original effective rate when the loan was opened
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateDiscountPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Percentage of interest rate discount being given
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateDiscountReasonCode" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Code-reason for giving the rate discount
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relationshipRateDiscountPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Relationship Based Pricing Discount;
+						Percentage of interest rate discount for satisfying specific requirements - IE a employee
+						is eligible for a certain discount rate percentage
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relationshipRateDiscountReasonCode" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Reason for relationship based pricing discount (i.e. multiple loans);
+						FI defined code;
+						Can also be a Relationship Group - so can represent a group (IE all Bose employees)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Calculated Annual Percentage Rate (APR)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Interest rate that is used for calculations;
+						Most of the time you would only use rate AND APR when there is a split or variable rate
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isSplitRate" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if loan rates are split
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="splitRateCode" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the interest rate type that is used in the interest calculation process
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateMaximum" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Ceiling interest Rate indicating the highest interest rate allowed - Revolving Loans only (Lines, Credit Card)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateMinimum" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Floor Rate indicating the lowest interest rate allowed - Revolving Loans only (Lines, Credit Card)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ratePercentageChange" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Percentage rate change allowed
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="margin" type="InterestRateMarginType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates type of margin: Points or Percentage
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="baseRateIndex" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Base rate used for calcuations
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateMarginPercentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Amount added to the index to determine the interest rate
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maximumFirstRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum first rate change increase
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maximumFirstRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum first rate change decrease
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maximumPercentageAdjustableRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum percentage adjustable rate change increase
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxPercentageAdjustableRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum percentage adjustable rate change decrease
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxAnnualRateChangeIncrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum annual rate change increase
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxAnnualRateChangeDecrease" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum annual rate change decrease
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isRateMarginAboveIndex" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if the rate is above or below the index (i.e. above or below Prime)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="marginRiskRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Value that increases the margin rate;
+						If you have bad credit this is the margin rate applied based on your credit;
+						Used for risk based pricing
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="scheduledRateChangeDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Rate change date
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="periodicCapAmount" type="common:Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum (cap) amount the interest rate can change during a given period
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="periodicCapStartRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Starting interest rate for the Periodic Cap period
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="periodicCapStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Starting date for the Periodic Cap Period
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="periodicCapFrequency" type="PeriodicCapFrequencyType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Defined period during which the Periodic Cap applies
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="periodicCapFrequencyValue" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Periodic cap frequency value
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="splitRateBalance" type="common:Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Used to define the balance that will trigger a split rate
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
