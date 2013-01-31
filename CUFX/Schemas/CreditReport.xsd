@@ -42,77 +42,108 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:sequence>
-        <xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							e.g. Experian, Equifax, TransUnion, FastStart, FICA, etc
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="reportType" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-              For example “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and supported by individual service providers
-              Can request more than one reportType to be returned for each applicant if available.
-            </xs:documentation>
-					</xs:annotation>
-				</xs:element>
-        <xs:element name="scoreType" type="xs:string" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              ScoreType is informational only as this isn't a standardized list.
-              FICO, VantageScore, FairIsaacRiskModel, FairIssacAutoLoan, FairIsaccPersonalFinance, etc.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              If the party Id is known, then it can be supplied so that the data provider
-              can store the credit reporting data associated to the existing party.
-              The party ID is a persistent and unique identifier for the party not related to the accounts
-              they own but tied to that person or business. It should be unique for all parties across the
-              institution and remain the same over the life of the relationship with the financial institution.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="taxId" type="party:TaxId" minOccurs="0" maxOccurs="1">
-          <xs:annotation>
-            <xs:documentation>
-              taxId of the requested credit bureau report.  This is to enable
-              processes to easily make the connection between the requested report
-              and the resulting credit bureau report.
-              Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-              or the organizational Employer Identification Number (EIN).
-              Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
-              i.e. 9 digit string with no dashes and zero filled.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-				<xs:element name="creditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							e.g. 812, 615
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
+      <xs:element name="creditReportId" type="CreditReportId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for this credit report in the data repository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						e.g. Experian, Equifax, TransUnion, FastStart, FICA, etc
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reportType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+            For example “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and supported by individual service providers
+            Can request more than one reportType to be returned for each applicant if available.
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      <xs:element name="scoreType" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            ScoreType is informational only as this isn't a standardized list.
+            FICO, VantageScore, FairIsaacRiskModel, FairIssacAutoLoan, FairIsaccPersonalFinance, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If the party Id is known, then it can be supplied so that the data provider
+            can store the credit reporting data associated to the existing party.
+            The party ID is a persistent and unique identifier for the party not related to the accounts
+            they own but tied to that person or business. It should be unique for all parties across the
+            institution and remain the same over the life of the relationship with the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="taxId" type="party:TaxId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            taxId of the requested credit bureau report.  This is to enable
+            processes to easily make the connection between the requested report
+            and the resulting credit bureau report.
+            Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
+            or the organizational Employer Identification Number (EIN).
+            Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
+            i.e. 9 digit string with no dashes and zero filled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element name="creditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						e.g. 812, 615
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
   
-				<xs:element name="creditTier" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Risk Tier assigned when the loan is originated
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="reportData" type="xs:string" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Would contain the entire credit report in text format.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
+			<xs:element name="creditTier" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Risk Tier assigned when the loan is originated
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reportData" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Would contain the entire credit report in text format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:simpleType name="CreditReportId">
+    <xs:annotation>
+      <xs:documentation>
+        Unique identifier for the credit report in the data repository.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string"></xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CreditReportIdList">
+    <xs:annotation>
+      <xs:documentation>
+        List of unique identifier typically used for pulling a list of credit reports from the data repository.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="creditReportId" type="CreditReportId" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identifier for the credit report in the data repository.
+          </xs:documentation>
+        </xs:annotation>      </xs:element>
+    </xs:sequence>
+    
+  </xs:complexType>
 </xs:schema>
