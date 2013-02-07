@@ -123,7 +123,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs ="0" maxOccurs ="1">
+      <!--<xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             This is a pointer to the list of crecentials used to access systems for the party.
@@ -131,7 +131,7 @@
             The fiUserId is purely their user id.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
+      </xs:element>-->
 
       <xs:element name="householdId" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>

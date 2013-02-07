@@ -12,6 +12,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using FizzWare.NBuilder;
 using System.Collections;
+using Newtonsoft.Json.Converters;
 
 namespace ExampleGenerators
 {
@@ -60,7 +61,7 @@ namespace ExampleGenerators
 
 						if (obj != null)
 						{
-							string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
+							string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
 							outJsonFile.WriteLine("\n" + type.FullName);
 							outJsonFile.Write(jsonText);
 						}
