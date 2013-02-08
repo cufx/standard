@@ -102,7 +102,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="category" type="LoanAccountCategories" minOccurs="0" maxOccurs="1">
+					<xs:element name="category" type="LoanAccountCategory" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Defines which type of loan this loan account represents
@@ -1392,7 +1392,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="LoanAccountCategories">
+	<xs:simpleType name="LoanAccountCategory">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AverageDailyBalanceLineOfCredit" />
 			<xs:enumeration value="ClosedEnd" />
@@ -1601,7 +1601,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="contactIdList" type="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of contacts for the party within this account.  Only contains the
@@ -1686,4 +1686,22 @@
 		</xs:sequence>
 	</xs:complexType>
 
+  <xs:complexType name="LoanAccountCategoryList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of loans account categories that should have their associated loans either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="loanCategory" type="LoanAccountCategory" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A loan account category that should have its associated loans either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

@@ -10,8 +10,13 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd"/>
 
-  <xs:element name="questionList" >
-    
+  <xs:element name="questionList" type="QuestionList" >
+    <xs:annotation>
+      <xs:documentation>
+        Top level element for list of multiple-choise questions to ask a potential party to verify that the know the answer
+        to validate their identity.
+      </xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:complexType name="QuestionList">
     <xs:sequence>

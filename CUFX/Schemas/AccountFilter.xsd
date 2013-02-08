@@ -35,71 +35,34 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="accountIdList">
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Account Id's that should have their associated accounts either returned or affected
 						by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>
-									An Account Id that should have its associated accounts either returned or affected
-									by a read, update or delete account request.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="partyIdList">
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Account Id's that should have their associated accounts either returned or affected
 						by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>
-									An Account Id that should have its associated accounts either returned or affected
-									by a read, update or delete account request.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="relationshipIdList">
+			<xs:element name="relationshipIdList" type ="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of relationshipId's that should have their associated accounts either returned or affected
 						by a read, update or delete account or account detail request.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
-							<xs:annotation>
-								<xs:documentation>
-									A relationshipId that should have its associated accounts either returned or affected
-									by a read, update or delete account or account detail request.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
-
-			<xs:element name="accountTypeList" type="account:AccountType" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Account Types that should have their associated parties either returned or affected

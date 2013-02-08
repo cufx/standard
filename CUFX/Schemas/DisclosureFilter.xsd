@@ -32,7 +32,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureIdList" type="disclosure:DisclosureId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureIdList" type="disclosure:DisclosureIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of disclosureId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
@@ -40,7 +40,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureTitleList" type="disclosure:DisclosureTitle" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureTitleList" type="disclosure:DisclosureTitleList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of disclosureTitles's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
@@ -48,7 +48,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
@@ -56,7 +56,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of relationshipId's that should have their associated disclosures either returned or affected
@@ -65,7 +65,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of Account Id's that should have their associated disclosures either returned or affected
@@ -74,7 +74,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatus" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatusList" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of disclosure statuses that should have their associated disclosures either returned or affected
@@ -83,7 +83,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureTypeList" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of disclosure signature types that should have their associated disclosures either returned or affected

@@ -102,7 +102,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             List of how the party can be contacted for existing contact points.
@@ -112,7 +112,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactList" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="contactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             List of how the party can be contacted for new contact points.
@@ -123,7 +123,7 @@
         </xs:annotation>
       </xs:element>
 
-      <!--<xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             This is a pointer to the list of crecentials used to access systems for the party.
@@ -131,7 +131,7 @@
             The fiUserId is purely their user id.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>-->
+      </xs:element>
 
       <xs:element name="householdId" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -168,6 +168,25 @@
     <xs:restriction base="xs:string" ></xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="PartyIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of partyId's that should be returned or affected by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A party Id that should have its associated parties either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+
+  </xs:complexType>
+  
   <xs:group name ="irs">
     <xs:sequence>
       <xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="1">
@@ -1478,4 +1497,41 @@
       </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="TaxIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of tax Id's that should have their associated parties either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A tax Id that should have its associated parties either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PartyTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of party types that should have their associated parties either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="partyType" type="PartyType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A party type that should have its associated parties either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

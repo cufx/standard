@@ -167,7 +167,7 @@
         </xs:annotation >
       </xs:element >
 
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A collection of party id’s that uniquely identify each party associated to this account.
@@ -219,7 +219,26 @@
         </xs:annotation>
       </xs:restriction>
   </xs:simpleType>
-
+  
+  <xs:complexType name="AccountIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of Account Id's that should have their associated accounts either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An Account Id that should have its associated accounts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:simpleType name="IdType">
     <xs:annotation>
       <xs:documentation>

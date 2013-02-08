@@ -21,19 +21,124 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
 
+  <xs:element name="collateralList" type="CollateralList">
+    <xs:annotation>
+      <xs:documentation>
+        List of collateral returned from a data pull that based on filters that were applied.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
 	
 	<xs:complexType name="CollateralList">
 		<xs:annotation>
 			<xs:documentation>
-				Details related to specific collateral for the loan
-			</xs:documentation>
+        List of collateral returned from a data pull that based on filters that were applied.
+      </xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="collateral" type="CollateralId" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to specific collateral for a loan
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:simpleType name="CollateralId">
+  <xs:complexType name="Collateral">
+    <xs:annotation>
+      <xs:documentation>
+        Details related to specific collateral for the loan
+      </xs:documentation>
+    </xs:annotation>
+  
+    <xs:choice>
+      <xs:element name="collateral" type="BaseCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to collateral record
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="titled" type="BaseTitledCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Contains Details about collateral titled collateral types (i.e ownership is evidenced by a Title)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="motorVehicle" type="MotorVehicleCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to vehicle collateral
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pleasureBoat" type="BoatCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to pleasure boat collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mobileHome" type="MobileHomeCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to trailer collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ship" type="ShipCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to ship collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="aircraft" type="AircraftCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to aircraft collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="trailer" type="TrailerCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to trailer collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherTitled" type="OtherTitledCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to trailer collateral.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="possessory" type="BasePossessoryCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Contains Details about possessory collateral types. Examples are: Deposit Accounts/CD; Securities; Notes; Receipts/Bills; Letters of Credit; Other
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="savingsCD" type="SavingsCDCollateral" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Contains Details about share and CD secured collateral types.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="securities" type="SecuritiesCollateral" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="letterOfCredit" type="LetterOfCreditCollateral" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ucc" type="UCCCollateral" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="realEstate" type="RealEstateCollateral" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:simpleType name="CollateralId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
 				<xs:documentation>
@@ -43,6 +148,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:complexType name="CollateralIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of collateral id's that should have their associated collateral either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="collateralId" type="CollateralId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A collateral Id that should have its associated collateral either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
 	<xs:complexType name="BaseCollateral" abstract="true">
 		<xs:annotation>
 			<xs:documentation>
@@ -50,7 +174,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-      <xs:element name="collateralId" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="collateralId" type="CollateralId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Unique Id for the collateral in the back end system.
@@ -464,6 +588,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="SavingsCDCollateral">
+    <xs:annotation>
+      <xs:documentation>
+        Contains Details about share and CD secured collateral types.
+      </xs:documentation>
+    </xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="BasePossessoryCollateral">
 				<xs:sequence>
@@ -502,6 +631,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="SecuritiesCollateral">
+    <xs:annotation>
+      <xs:documentation>
+        Contains Details about Security based secured collateral types.
+      </xs:documentation>
+    </xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="BasePossessoryCollateral">
 				<xs:sequence>

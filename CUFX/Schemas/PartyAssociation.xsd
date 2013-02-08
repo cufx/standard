@@ -594,4 +594,22 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="PartyAssociationTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The partyAssociation Type List contain an Id list for filtering the partyAssociationList services.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="partyAssociationType" type="PartyAssociationType" minOccurs="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+             The partyAssociationType identifies how the parentParty relates to the childParty.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
 </xs:schema>

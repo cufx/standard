@@ -29,7 +29,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of partyAssociationId's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -37,7 +37,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="parentPartyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="parentPartyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of parent Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -45,7 +45,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="childPartyIdList" type="party:PartyId"  minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="childPartyIdList" type="party:PartyIdList"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of child Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
@@ -53,7 +53,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyAssociationTypeList" type="partyAssociation:PartyAssociationType" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="partyAssociationTypeList" type="partyAssociation:PartyAssociationTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The party Association Type List that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request

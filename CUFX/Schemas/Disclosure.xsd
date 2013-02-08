@@ -110,7 +110,7 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that relate to this disclosure.
@@ -126,7 +126,7 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of Account Id's that relate to this disclosure.
@@ -160,6 +160,26 @@ attributeFormDefault="unqualified">
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
 
+  <xs:complexType name="DisclosureIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of disclosure id's that should have their associated disclosures either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosureId" type="DisclosureId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A disclosure Id that should have its associated disclosures either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+
   <xs:simpleType name="DisclosureTitle">
     <xs:annotation>
       <xs:documentation>
@@ -169,6 +189,25 @@ attributeFormDefault="unqualified">
     </xs:annotation>
     <xs:restriction base ="xs:string" />
   </xs:simpleType>
+
+  <xs:complexType name="DisclosureTitleList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of disclosure title's that should have their associated disclosures either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosureTitle" type="DisclosureTitle" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An disclosure title that should have its associated disclosures either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   
   <xs:simpleType name="DisclosureStatus">
     <xs:annotation>
@@ -201,6 +240,25 @@ attributeFormDefault="unqualified">
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="DisclosureStatusList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of disclosure status that should have their associated disclosures either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosureStatus" type="DisclosureStatus" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A disclosure status that should have its associated disclosures either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:simpleType name="DisclosureSignatureType">
     <xs:annotation>
@@ -240,5 +298,24 @@ attributeFormDefault="unqualified">
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
- 
+
+  <xs:complexType name="DisclosureSignatureTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of disclosure signature typethat should have their associated disclosures either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disclosureSignatureType" type="DisclosureSignatureType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A disclosure signature type that should have its associated disclosures either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
 </xs:schema>

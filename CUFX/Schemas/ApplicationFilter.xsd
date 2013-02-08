@@ -34,7 +34,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="applicationIdList" type="application:ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of application Ids that should have their associated applications be returned
@@ -43,7 +43,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productTypeList" type="account:AccountType" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of product Types that should have their associated applications be returned
@@ -52,7 +52,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="productSubTypeList" type="productOffering:ProductSubType" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="productSubTypeList" type="productOffering:ProductSubType" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of product sub Types that should have their associated applications
@@ -61,7 +61,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of relationshipId's that should have their associated applications
@@ -70,7 +70,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of partyId's that should have their associated applications 

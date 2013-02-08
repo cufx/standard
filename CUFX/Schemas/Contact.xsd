@@ -588,10 +588,34 @@
 	</xs:complexType>
 
 	<xs:simpleType name ="ContactId">
-    <xs:restriction base="xs:string"></xs:restriction>
-    
+    <xs:annotation>
+      <xs:documentation>
+        Unique identifier either within system to uniquely
+        identify this contact point.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
 	</xs:simpleType>
 
+  <xs:complexType name="ContactIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of contact id's that should have their associated contacts either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contactId" type="ContactId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A contact id that should have its associated contacts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
 	<xs:simpleType name="ContactType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Address" />
@@ -603,5 +627,24 @@
 			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:complexType name="ContactTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of contact Types's that should have their associated contacts either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contactType" type="ContactType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A contact type that should have its associated contacts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>

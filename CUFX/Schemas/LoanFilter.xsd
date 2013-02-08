@@ -34,7 +34,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loanIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="loanIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of loanId's that should be returned or affected by a read, or update request.
@@ -42,7 +42,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="loanTypeList" type="loan:LoanAccountCategories" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="loanCategoryList" type="loan:LoanAccountCategoryList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of loan category that should be used to filter the returned loans.
@@ -50,7 +50,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="accountIdList" type="account:AccountId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Account Id's that should have their associated loans either returned or affected
@@ -59,7 +59,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of relationshipId's that should have their associated loans either returned or affected
@@ -68,7 +68,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party Id's that should have their associated loans either returned or affected

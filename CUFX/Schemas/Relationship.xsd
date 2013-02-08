@@ -66,7 +66,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="relationshipPartyList" type="RelationshipPartyList" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="relationshipPartyList" type="RelationshipPartyList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A specialized collection of party id’s that uniquely identify each party associated to this relationship
@@ -75,7 +75,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A collection of account id’s that uniquely identify each account associated to this relationship.
@@ -96,6 +96,24 @@
     </xs:annotation>
     <xs:restriction base="xs:string" />
   </xs:simpleType>
+
+  <xs:complexType name="RelationshipIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of RelationshipId's that should be returned or affected by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="relationshipId" type="RelationshipId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A Relationship Id that should have its associated relationships either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="RelationshipPartyList">
     <xs:annotation>
@@ -153,7 +171,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Collection of contacts for the party within this relationship.  Only contains the
