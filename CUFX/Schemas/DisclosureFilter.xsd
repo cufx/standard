@@ -74,7 +74,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatusList" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatusList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of disclosure statuses that should have their associated disclosures either returned or affected
@@ -83,7 +83,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureTypeList" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureTypeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of disclosure signature types that should have their associated disclosures either returned or affected

@@ -77,7 +77,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="contactTypeList" type="contact:ContactType" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="contactTypeList" type="contact:ContactTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of contact Types that should have their associated contacts be returned or affected by a

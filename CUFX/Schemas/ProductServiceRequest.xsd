@@ -624,7 +624,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name ="contactIdList" type ="contact:ContactId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name ="contactIdList" type ="contact:ContactIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Use if this is for an existing contacts.  Contains a list of existing unique contact ID's
@@ -633,7 +633,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of existing parties for
@@ -654,7 +654,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of
@@ -663,7 +663,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of

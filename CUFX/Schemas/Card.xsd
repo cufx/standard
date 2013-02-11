@@ -198,7 +198,7 @@
 
   <xs:complexType name="CardIdList">
     <xs:sequence>
-      <xs:element name="cardIdList" type="CardId" minOccurs="0" maxOccurs ="unbounded">
+      <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
             Collection of unique card ID's to point to a list of cards.

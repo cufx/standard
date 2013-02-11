@@ -71,7 +71,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-			<xs:element name="userIdList" type="User" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="user" type="User" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of user(s) associated to a message.
