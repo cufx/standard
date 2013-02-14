@@ -438,11 +438,41 @@
 			</xs:annotation>
 			<xs:extension base="BaseTitledCollateral">
 				<xs:sequence>
-					<xs:element name="nameOfVessel" type="xs:string"  minOccurs="0"/>
-					<xs:element name="officialNumber" type="xs:string" minOccurs="0"/>
-					<xs:element name="marinaPort" type="xs:string" minOccurs="0"/>
-					<xs:element name="grossTonnage" type="xs:string" minOccurs="0"/>
-					<xs:element name="netTonnage" type="xs:string" minOccurs="0"/>
+					<xs:element name="nameOfVessel" type="xs:string"  minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The name of the ship.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officialNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The official identification number for the ship.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="marinaPort" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The marina or port the ship hails from.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="grossTonnage" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The total tonnage of the ship when it is loaded.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="netTonnage" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The total tonnage of the ship when it is not loaded.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -457,7 +487,13 @@
 			</xs:annotation>
 			<xs:extension base="BaseTitledCollateral">
 				<xs:sequence>
-					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The trailer manufacturer's assigned serial number.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -472,11 +508,41 @@
 			</xs:annotation>
 			<xs:extension base="BaseTitledCollateral">
 				<xs:sequence>
-					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-					<xs:element name="marinaPort" type="xs:string"  minOccurs="0"/>
-					<xs:element name="descOfEnginesEquip" type="xs:string"  minOccurs="0"/>
-					<xs:element name="descOfLogBooks" type="xs:string" minOccurs="0"/>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The body style of the boat.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The boat manufacturer's assigned serial number.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="marinaPort" type="xs:string"  minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The marina or port the boat is primarily docked at.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="descOfEnginesEquip" type="xs:string"  minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Description of the equipment and engines installed in the aircraft.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="descOfLogBooks" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Description of the boat bull and engine log books.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -491,8 +557,20 @@
 			</xs:annotation>
 			<xs:extension base="BaseTitledCollateral">
 				<xs:sequence>
-					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The body style of the collateral.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The manufacturer's assigned serial number.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -507,9 +585,27 @@
 			</xs:annotation>
 			<xs:extension base="BaseTitledCollateral">
 				<xs:sequence>
-					<xs:element name="serialNumber" type="xs:string" minOccurs="0"/>
-					<xs:element name="bodyStyle" type="xs:string" minOccurs="0"/>
-					<xs:element name="descOfEnginesEquip" type="xs:string" minOccurs="0"/>
+					<xs:element name="serialNumber" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The mobile home manufacturer's assigned serial number.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bodyStyle" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The body style of the mobile home.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="descOfEquipment" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Description of the equipment installed in the mobile home.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -519,35 +615,175 @@
 		<xs:complexContent>
 			<xs:annotation>
 				<xs:documentation>
-					Contains Details about Real Estate collateral types.  Examples are: 1-4 Family; Multi-Family; Commerical; Land
+					Contains Details about Real Estate collateral types.  Examples are: 1-4 Family; 
+					Multi-Family; Commerical; Land.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="BaseCollateral">
 				<xs:sequence>
-					<xs:element name="taxID" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="parcelIDNNumber" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="section" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="block" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="lot" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="firstLien" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="existingLiens" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="dwelling" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="numberOfUnits" type="xs:float" nillable="true" minOccurs="0"/>
-					<xs:element name="ownerOccupied" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="principalDwelling" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="assumable" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="manufacturedHousing" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="construction" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="yearBuilt" type="xs:float" nillable="true" minOccurs="0"/>
-					<xs:element name="condoPUD" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="legalDescription" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="rentalProperty" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="hazardInsuranceCoverage" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="yearAcquired" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="originalCost" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="presentValue" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="improvements" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="timeshare" type="xs:boolean" nillable="true" minOccurs="0"/>
+					<xs:element name="taxID" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The property tax identification number for the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="parcelIDNNumber" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The parcel number for the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="section" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The section ID for the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="block" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The block ID for the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="lot" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The lot ID for the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="firstLien" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the loan is the first lien on the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="existingLiens" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is serving as collateral for other
+								existing loans.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dwelling" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is being used as a dwelling,
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="numberOfUnits" type="xs:float" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The number of family living units contained in the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ownerOccupied" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is or will be occupied by the owner.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="principalDwelling" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is the principal dwelling for the owner.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="assumable" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the loan is assumable
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="manufacturedHousing" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property includes a manufactured home.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="construction" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is or will be under construction.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="yearBuilt" type="xs:float" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The year in which the real estate structure was built.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="condoPUD" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is a condominium or a planned unit
+								development.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="legalDescription" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The legal description of the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="rentalProperty" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is used a rental property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="yearAcquired" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The year the owner first acquired the real estate property if currently owned.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="originalCost" type="common:Money" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The original cost of the real estate property if currently owned.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="presentValue" type="common:Money" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The present value of the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="improvements" type="common:Money" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The value of improvments made to the real estate property.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="timeshare" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that the real estate property is a timeshare.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -562,10 +798,34 @@
 			</xs:annotation>
 			<xs:extension base="BaseCollateral">
 				<xs:sequence>
-					<xs:element name="financingStatement" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="generalDescription" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="tortClaimDescription" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="immovableDescription" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="financingStatement" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates that a UCC financing statement has been filed.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="generalDescription" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+							  Description of the UCC collateral.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tortClaimDescription" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Description for a Tort Claim.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="immovableDescription" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Description of immovable UCC collateral.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -575,13 +835,28 @@
 		<xs:complexContent>
 			<xs:annotation>
 				<xs:documentation>
-					Contains Details about possessory collateral types. Examples are: Deposit Accounts/CD; Securities; Notes; Receipts/Bills; Letters of Credit; Other
+					Contains Details about possessory collateral types. Examples are: Deposit Accounts/CD;
+					Securities; Notes; Receipts/Bills; Letters of Credit; Other
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="BaseCollateral">
 				<xs:sequence>
-					<xs:element name="securityCollateralValueLimit" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="securityMarketValueLimit" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="securityCollateralValueLimit" type="common:Money" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The desired minimum value of the collateral below which the loan will be
+								considered in default.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="securityMarketValueLimit" type="xs:decimal" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The desired percentage for the collateral value to loan ration ration below
+								which the loan will be considered in default.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -596,17 +871,39 @@
 		<xs:complexContent>
 			<xs:extension base="BasePossessoryCollateral">
 				<xs:sequence>
-					<xs:element name="faceValue" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="issuerType" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="certified" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="noteToIssuingInst" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="possessoryNumber" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="possessoryInterestRate" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="controlAgreement" type="xs:boolean" nillable="true" minOccurs="0"/>
 					<xs:element name="accountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								The account number providing security for the loan
+								The account number providing security for the loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="faceValue" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The face value of the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="issuerType" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The issuing or depository financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="certified" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates if there is physical evidence of the collateral that the lender
+								can take into its possession (e.g. Passbook, Certificate of Deposit).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="possessoryInterestRate" type="common:Money" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The interest rate the account is earning.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -614,14 +911,14 @@
 						<xs:annotation>
 							<xs:documentation>
 								Amount pledged;
-								Systems will usually default this based on the secured code
+								Systems will usually default this based on the secured code.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="percentage" type="xs:decimal" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Percentage of the loan pledged;
+								Percentage of the loan pledged.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -639,16 +936,68 @@
 		<xs:complexContent>
 			<xs:extension base="BasePossessoryCollateral">
 				<xs:sequence>
-					<xs:element name="faceValue" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="issuer" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="numberOfShares" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="cusipNumber" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="heldBy" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="bookEntry" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="numberOfStockPowerForms" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="marginStock" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="noteToThirdParty" type="xs:boolean" nillable="true" minOccurs="0"/>
-					<xs:element name="valuationFrequency" type="ValuationFrequency" nillable="true" minOccurs="0"/>
+					<xs:element name="possessoryNumber" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The account or other number for the security.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="faceValue" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The face value of the security instrument(s).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="issuer" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The issuer of the security instrument(s).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="numberOfShares" type="xs:decimal" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The number of shares of stock being used as collateral.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="cusipNumber" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Enter the CUSIP No. identifier for this piece of collateral, if it was issued in
+								the United States. If this is a foreign security, enter the CUSIP number. The
+								CUSIP No. identifier consists of seven numbers and two letters and appears on all
+								U.S. securites issued after 1970 in book-entry or certificate form. Foreign 
+								securities issued after 1989 are identified by a nine-digit identifier.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="heldBy" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								If the securites will be held by the lender, indicate lender. If the securities
+								will be held by another holder indicate the other holder.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bookEntry" type="xs:boolean" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates if the security is registered in the books of the depository institution
+								at which it is held and there is no physical evidence of the collateral.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="valuationFrequency" type="ValuationFrequency" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Indicates the frequency by which the value of the security will be updated.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -658,8 +1007,20 @@
 		<xs:complexContent>
 			<xs:extension base="BasePossessoryCollateral">
 				<xs:sequence>
-					<xs:element name="possessoryNumber" type="xs:string" nillable="true" minOccurs="0"/>
-					<xs:element name="issueDate" type="xs:date" nillable="true" minOccurs="0"/>
+					<xs:element name="possessoryNumber" type="xs:string" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The account or other number for the Letter of Credit.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="issueDate" type="xs:date" nillable="true" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								The date on which the Letter of Credit was issued.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
