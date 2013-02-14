@@ -6,12 +6,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name="cardList" type="CardList">
     <xs:annotation>
@@ -37,7 +39,7 @@
 
   <xs:complexType name="Card">
     <xs:sequence>
-      <xs:element name="id" type="CardId" minOccurs="0" maxOccurs="1">
+      <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The card ID is a persistent and unique identifier for the card.
@@ -158,7 +160,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>The ID of the linked account.</xs:documentation>
         </xs:annotation>
