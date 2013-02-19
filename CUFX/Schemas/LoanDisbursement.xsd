@@ -15,14 +15,22 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Loan.xsd" schemaLocation="Loan.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-	<xs:complexType name="LoanDisbursementList">
+  <xs:element name ="loanDisbursementList" type ="LoanDisbursementList">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of loan disbursements
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:complexType name="LoanDisbursementList">
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
 					Collection of loan disbursements
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="loanDisbursements" type="LoanDisbursement" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="loanDisbursement" type="LoanDisbursementOption" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Details relating to loan account
@@ -39,6 +47,50 @@
 		</xs:sequence>
 	</xs:complexType>
 
+  <xs:complexType name="LoanDisbursementOption">
+    <xs:choice>
+      <xs:annotation>
+        <xs:documentation>
+          A loan disbursement contains all the information necessary to disburse the funds
+          for a loan, such as disbursing the funds to a check, a dealer, the member's share, etc.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="loanDisbursementCheck" type="LoanDisbursementCheck" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A check disbursement would be used to produce a check with the given payee for the given amount.
+            The check would draw from the funds of the new loan.  The host system is expected to calculate the
+            check number and print out the check.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="loanDisbursementDepositToAccount" type="LoanDisbursementDepositToAccount" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A deposit to account disbursement would deposit the given amount from the loan,
+            to the provided account and suffix.  This does not have to be the same account
+            as the member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="loanDisbursementDealerAch" type="LoanDisbursementDealerAch" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A dealer ACH loan disbursement would be used for example in the case of an indirect loan
+            where the proceeds of the loan are being ACH'd to the dealer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="loanDisbursementGL" type="LoanDisbursementGL" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A disbursement to a General Ledger account.  Could be used to pay business partners, GAP etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  
 	<xs:complexType name="LoanDisbursement">
 		<xs:sequence>
 			<xs:annotation>
@@ -181,6 +233,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+  
 	<xs:complexType name="LoanDisbursementGL">
 		<xs:complexContent>
 			<xs:annotation>

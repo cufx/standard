@@ -7,13 +7,15 @@
 	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	elementFormDefault="qualified"	
 	attributeFormDefault="unqualified">
   
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />	
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 
   <xs:element name= "accountList" type ="AccountList">
     <xs:annotation>
@@ -173,6 +175,14 @@
             A collection of party id’s that uniquely identify each party associated to this account.
             To determine the ownership level of each party on the account,
             the partyList in the associated product (loan, deposit) will contain the relationship details.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The relationshipId that the account belongs to.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
