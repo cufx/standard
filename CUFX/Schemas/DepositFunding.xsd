@@ -50,11 +50,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="sourceOfFunds" type="account:AccountId" minOccurs="0">
+      <xs:element name="sourceOfFunds" type="SourceOfFunds" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
             Identifies the source of the funds.
-            <!-- [BL]: BSA source of funds? {Cash, Check, Transfer, ACH, None, Credit Card, Wire} -->
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -81,5 +80,22 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  
+  <xs:simpleType name="SourceOfFunds">
+    <xs:annotation>
+      <xs:documentation>
+        Identifies the source of the funds.
+      </xs:documentation>
+    </xs:annotation>
+  	<xs:restriction base="xs:string">
+  		<xs:enumeration value="Cash"/>
+  		<xs:enumeration value="Check"/>
+  		<xs:enumeration value="Transfer"/>
+  		<xs:enumeration value="ACH"/>
+  		<xs:enumeration value="None"/>
+  		<xs:enumeration value="Credit Card"/>
+  		<xs:enumeration value="Wire"/>
+  	</xs:restriction>
+  </xs:simpleType>
  
 </xs:schema>
