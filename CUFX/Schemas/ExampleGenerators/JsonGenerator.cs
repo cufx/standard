@@ -213,7 +213,7 @@ namespace ExampleGenerators
 						p.SetValue(result, arr, null);
 					}
 				}
-				else if (p.GetValue(result, null)== null)
+				else if (p.GetValue(result, null) == null)
 				{
 					// Attempt to create an object
 					try
@@ -243,36 +243,7 @@ namespace ExampleGenerators
 				object o = BuildSingleObject(assembly, type);
 				list.Add(o);
 			}
-			return list.ToArray();
-			//var entityType = assembly.GetType(type);
-
-			//if (entityType == null)
-			//{
-			//   Assembly theAssembly = Assembly.Load("mscorlib");
-			//   entityType = theAssembly.GetType(type);
-			//}
-			//var builderClassType = typeof(Builder<>);
-
-			//Type[] args = { entityType };
-
-			//var genericBuilderType = builderClassType.MakeGenericType(args);
-
-			//var builder = Activator.CreateInstance(genericBuilderType);
-
-			//var createListMethodInfo = builder.GetType().GetMethod("CreateListOfSize", new Type[] { typeof(int) });
-
-			//object[] parametersArray = new object[] { 5 };
-			//var objectBuilder = createListMethodInfo.Invoke(builder, parametersArray);
-
-			//var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
-
-			//var results = buildMethodInfo.Invoke(objectBuilder, null);
-
-			//List<object> list = new List<object>();
-			//foreach (object o in (results as IEnumerable))
-			//   list.Add(o);
-
-			//return list.ToArray();
+			return list.ToArray();			
 		}
 	}
 }
