@@ -30,7 +30,7 @@
 					Collection of loan disbursements
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="loanDisbursement" type="LoanDisbursementOption" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="loanDisbursement" type="LoanDisbursement" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Details relating to loan account
@@ -47,7 +47,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:complexType name="LoanDisbursementOption">
+  <xs:complexType name="LoanDisbursement">
     <xs:choice>
       <xs:annotation>
         <xs:documentation>
@@ -91,7 +91,7 @@
     </xs:choice>
   </xs:complexType>
   
-	<xs:complexType name="LoanDisbursement">
+	<xs:complexType name="LoanDisbursementBase">
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
@@ -142,7 +142,7 @@
 					check number and print out the check.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="LoanDisbursement">
+			<xs:extension base="LoanDisbursementBase">
 				<xs:sequence>
 					<xs:element name="payeeLines" type="xs:string" minOccurs="1" maxOccurs="3">
 						<xs:annotation>
@@ -166,7 +166,7 @@
 					as the member.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="LoanDisbursement">
+			<xs:extension base="LoanDisbursementBase">
 				<xs:sequence>
 					<xs:element name="toAccount" type="xs:string" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
@@ -199,7 +199,7 @@
 					where the proceeds of the loan are being ACH'd to the dealer.  
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="LoanDisbursement">
+			<xs:extension base="LoanDisbursementBase">
 				<xs:sequence>
 					<xs:element name="dealerID" type="xs:string" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
@@ -241,7 +241,7 @@
 					A disbursement to a General Ledger account.  Could be used to pay business partners, GAP etc.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="LoanDisbursement">
+			<xs:extension base="LoanDisbursementBase">
 				<xs:sequence>
 					<xs:element name="GLAccount" type="xs:string" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
