@@ -53,17 +53,33 @@ namespace ExampleGenerators
 					{
 						if (type.IsAbstract)
 						{
-							Console.WriteLine("Could not create abstract type [{0}]", type.FullName);
-							continue;
+							Type subclass = GetFirstSubclass(type, assembly);
+
+							if (subclass == null)
+							{
+								Console.WriteLine("Could not create abstract type [{0}]", type.FullName);
+								continue;
+							}
+
+							var subClassObj = BuildSingleObject(assembly, subclass.FullName);
+
+							if (subClassObj != null)
+							{
+								string jsonText = JsonConvert.SerializeObject(subClassObj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
+								outJsonFile.WriteLine("\n" + type.FullName);
+								outJsonFile.Write(jsonText);
+							}
 						}
-
-						var obj = BuildSingleObject(assembly, type.FullName);
-
-						if (obj != null)
+						else
 						{
-							string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
-							outJsonFile.WriteLine("\n" + type.FullName);
-							outJsonFile.Write(jsonText);
+							var obj = BuildSingleObject(assembly, type.FullName);
+
+							if (obj != null)
+							{
+								string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
+								outJsonFile.WriteLine("\n" + type.FullName);
+								outJsonFile.Write(jsonText);
+							}
 						}
 					}
 					catch (Exception ex)
@@ -84,11 +100,6 @@ namespace ExampleGenerators
 					Console.WriteLine();
 				}
 			}
-			else
-			{
-				Console.WriteLine("Source {0} built into {1} successfully.",
-					 sourceCsFile, cr.PathToAssembly);
-			}
 
 			// Return the results of compilation. 
 			if (cr.Errors.Count > 0)
@@ -100,38 +111,62 @@ namespace ExampleGenerators
 				return true;
 			}
 		}
+
+		public static Type GetFirstSubclass(Type abstractBaseClass, Assembly assembly)
+		{
+			Type[] types = assembly.GetTypes();
+
+			foreach (Type type in types)
+			{
+
+				 if (type.IsSubclassOf(abstractBaseClass))
+					return type;
+			}
+
+			Console.WriteLine("No derived classes found for abstract base class [{0}]", abstractBaseClass.FullName);
+			return null;
+		}
+
 		public static object BuildSingleObject(Assembly assembly, string type)
 		{
+			Assembly systemAssembly = Assembly.Load("mscorlib");
+
 			var entityType = assembly.GetType(type);
 
-			//The interesting (I hope) part is starting (yeah)
-			//get the Builder<T> type
+			if (entityType == null)
+			{
+				// System type?
+				entityType = systemAssembly.GetType(type);
+			}
+
+			if (entityType == null)
+			{
+				Console.WriteLine("Could not find type for: " + type);
+				return null;
+			}
+
+			if (entityType != null && entityType.IsAbstract)
+			{
+				Console.WriteLine("Cannot build abstract type: " + type);
+				return null;
+			}
+
 			var builderClassType = typeof(Builder<>);
 
-			//create generic argument for Builder<T> will take the type of our entity (always an array)
 			Type[] args = { entityType };
 
-			//pass generic arguments to Builder<T>. Which becomes Builder<entityType>
 			var genericBuilderType = builderClassType.MakeGenericType(args);
 
-			//create a new instance of Builder<entityType>
 			var builder = Activator.CreateInstance(genericBuilderType);
 
-			//retrieve the "CreateNew" method, which belongs to Builder<T> class
 			var createNewMethodInfo = builder.GetType().GetMethod("CreateNew");
 
-			//invoke "CreateNew" from our builder instance which gives us an ObjectBuilder<T>, so now an ObjectBuilder<entityType> (well as an ISingleObjectBuilder<entityType>, but... who minds ;))
 			var objectBuilder = createNewMethodInfo.Invoke(builder, null);
 
-			//retrieve the "Build" method, which belongs to ObjectBuilder<T> class
 			var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
 
-			//finally, invoke "Build" from our ObjectBuilder<entityType> instance, which will give us... our entity !
 			var result = buildMethodInfo.Invoke(objectBuilder, null);
-
-			//it would be sad to return nothing after all these efforts, no ??
-
-			Assembly systemAssembly = Assembly.Load("mscorlib");
+			
 			foreach (PropertyInfo p in result.GetType().GetProperties())
 			{
 				if (p.PropertyType.IsArray)
@@ -157,7 +192,7 @@ namespace ExampleGenerators
 					}
 					else
 					{
-						Console.WriteLine("Could not find type [{0}] in system or custom assemblies", typeName);
+						Console.WriteLine("Could not find type [{0}] in system or custom assemblies.  Parent type [{1}]", typeName, type);
 					}
 				
 					// Is this an array of strings?
@@ -178,51 +213,66 @@ namespace ExampleGenerators
 						p.SetValue(result, arr, null);
 					}
 				}
+				else if (p.GetValue(result, null)== null)
+				{
+					// Attempt to create an object
+					try
+					{
+						object o = BuildSingleObject(assembly, p.PropertyType.FullName);
+						if (o != null)
+						{
+							p.SetValue(result, o, null);
+						}
+						else
+							Console.WriteLine("Null value for property: " + p.PropertyType.FullName);
+					}
+					catch (Exception ex)
+					{
+						throw ex;
+					}
+				}
 			}
 			return result;
 		}
 
 		public static object[] BuildList(Assembly assembly, string type)
 		{
-			var entityType = assembly.GetType(type);
-
-			if (entityType == null)
-			{
-				Assembly theAssembly = Assembly.Load("mscorlib");
-				entityType = theAssembly.GetType(type);
-			}
-			var builderClassType = typeof(Builder<>);
-
-			Type[] args = { entityType };
-
-			if (entityType.IsEnum)
-			{
-				int i = 0;
-			}
-
-			//pass generic arguments to Builder<T>. Which becomes Builder<entityType>
-			var genericBuilderType = builderClassType.MakeGenericType(args);
-
-			//create a new instance of Builder<entityType>
-			var builder = Activator.CreateInstance(genericBuilderType);
-			//retrieve the "CreateListOfSize" method, which belongs to Builder<T> class
-			var createListMethodInfo = builder.GetType().GetMethod("CreateListOfSize", new Type[] { typeof(int) });
-
-			//invoke "CreateListOfSize" from our builder instance which gives us an ObjectBuilder<T>, so now an ObjectBuilder<entityType> (well as an ISingleObjectBuilder<entityType>, but... who minds ;))
-			object[] parametersArray = new object[] { 5 };
-			var objectBuilder = createListMethodInfo.Invoke(builder, parametersArray);
-
-			//retrieve the "Build" method, which belongs to ObjectBuilder<T> class
-			var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
-
-			//finally, invoke "Build" from our ObjectBuilder<entityType> instance, which will give us... our entity !
-			var results = buildMethodInfo.Invoke(objectBuilder, null);
-
 			List<object> list = new List<object>();
-			foreach (object o in (results as IEnumerable))
+			for (int i = 0; i < 5; i++)
+			{
+				object o = BuildSingleObject(assembly, type);
 				list.Add(o);
-
+			}
 			return list.ToArray();
+			//var entityType = assembly.GetType(type);
+
+			//if (entityType == null)
+			//{
+			//   Assembly theAssembly = Assembly.Load("mscorlib");
+			//   entityType = theAssembly.GetType(type);
+			//}
+			//var builderClassType = typeof(Builder<>);
+
+			//Type[] args = { entityType };
+
+			//var genericBuilderType = builderClassType.MakeGenericType(args);
+
+			//var builder = Activator.CreateInstance(genericBuilderType);
+
+			//var createListMethodInfo = builder.GetType().GetMethod("CreateListOfSize", new Type[] { typeof(int) });
+
+			//object[] parametersArray = new object[] { 5 };
+			//var objectBuilder = createListMethodInfo.Invoke(builder, parametersArray);
+
+			//var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
+
+			//var results = buildMethodInfo.Invoke(objectBuilder, null);
+
+			//List<object> list = new List<object>();
+			//foreach (object o in (results as IEnumerable))
+			//   list.Add(o);
+
+			//return list.ToArray();
 		}
 	}
 }

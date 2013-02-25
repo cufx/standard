@@ -53,6 +53,21 @@ namespace ExampleGenerators
 			CodeNamespace ns = new CodeNamespace(targetNamespace);
 			XmlCodeExporter exporter = new XmlCodeExporter(ns);
 			// Iterate schema top-level elements and export code for each.
+
+			// TODO: Iterate through the XSD and remove any of the abstract
+			// properties.  For some reason the code generator will not
+			// generate any of the subclasses for abstract base types
+			//foreach (XmlSchemaType schemaType in xsd.SchemaTypes.Values)
+			//{
+			//   XmlSchemaComplexType complexSchemaType = schemaType as XmlSchemaComplexType;
+			//   if(complexSchemaType != null)
+			//      if(complexSchemaType.IsAbstract)
+			//      {
+			//         Console.WriteLine(schemaType.Name);
+			//      }
+			//   Console.WriteLine(schemaType.Name);
+			//}
+
 			foreach (XmlSchemaElement element in xsd.Elements.Values)
 			{
 				// Import the mapping first.
