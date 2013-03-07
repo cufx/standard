@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-targetNamespace="http://cufxstandards.com/v2/Disclosure.xsd"
+targetNamespace="http://cufxstandards.com/v2/Document.xsd"
 version="2.0.$Revision: 189 $"
-xmlns="http://cufxstandards.com/v2/Disclosure.xsd"
+xmlns="http://cufxstandards.com/v2/Document.xsd"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:common="http://cufxstandards.com/v2/Common.xsd"
 xmlns:party="http://cufxstandards.com/v2/Party.xsd"
@@ -19,77 +19,77 @@ attributeFormDefault="unqualified">
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name= "disclosureList" type ="DisclosureList">
+  <xs:element name= "documentList" type ="DocumentList">
     <xs:annotation>
       <xs:documentation>
-        The Disclosures collection/array list contains all the disclosures for instance that the credential set is
+        The Documents collection/array list contains all the documents for instance that the credential set is
         authorized to access at the Institution based on applied filters
       </xs:documentation>
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="DisclosureList">
+  <xs:complexType name="DocumentList">
     <xs:annotation>
       <xs:documentation>
-        The Disclosures collection/array list contains all the disclosures for instance that the credential set is
+        The Documents collection/array list contains all the documents for instance that the credential set is
         authorized to access at the Institution based on applied filters
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosure" type="Disclosure" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="document" type="Document" minOccurs="0" maxOccurs="unbounded">
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Disclosure">
+  <xs:complexType name="Document">
     <xs:annotation>
       <xs:documentation>
-        The disclosure defines the information stored when a person signs a document or agreement electronically
-        or manually.  This also relates disclosures to the party, relationship and/or account for which the dislcosure
+        The document defines the information stored when a person signs a document or agreement electronically
+        or manually.  This also relates documents to the party, relationship and/or account for which the dislcosure
         is legally bound to.
       </xs:documentation>
     </xs:annotation>
 
     <xs:sequence>
-      <xs:element name="disclosureId" type="DisclosureId" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentId" type="DocumentId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The disclosure ID is a persistent and unique identifier for the disclosure not related to the party, relationship or accounts
-            that the disclosure is for. It should be unique for all disclosures across the
+            The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
+            that the document is for. It should be unique for all documents across the
             institution and remain the same over the life of the dislcosure within the financial institution.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureTitle" type="DisclosureTitle" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentTitle" type="DocumentTitle" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Each disclosure has a title which is determined by the financial institution.
+            Each document has a title which is determined by the financial institution.
             Examples are Loan Dislosure, Savings Disclosure, Checking Disclosure, Membership Disclosure, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureStatus" type="DisclosureStatus" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentStatus" type="DocumentStatus" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Current Status of the disclosure in the process of being sent, presented, signed, unsigned, etc.
+            Current Status of the document in the process of being sent, presented, signed, unsigned, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureSignatureType" type="DisclosureSignatureType" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentSignatureType" type="DocumentSignatureType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If the disclosure has been signed, how was it signed.
+            If the document has been signed, how was it signed.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureSignedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentSignedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Current Status of the disclosure in the process of being sent, presented, signed, unsigned, etc.
+            Current Status of the document in the process of being sent, presented, signed, unsigned, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -102,7 +102,7 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Pointer to the document in the artificate repository.
@@ -113,7 +113,7 @@ attributeFormDefault="unqualified">
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that relate to this disclosure.
+            The list of partyId's that relate to this document.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -121,7 +121,7 @@ attributeFormDefault="unqualified">
       <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The relationshipId that relates to this disclosure.
+            The relationshipId that relates to this document.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -129,7 +129,7 @@ attributeFormDefault="unqualified">
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that relate to this disclosure.
+            The list of Account Id's that relate to this document.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -137,7 +137,7 @@ attributeFormDefault="unqualified">
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Disclosure name/data pairs list of fields that are not yet available in the general specification.
+            Document name/data pairs list of fields that are not yet available in the general specification.
             This should be used as LAST RESORT as any customizations will not be supported by all data providers
             and able to be processed by client applications. ANY use of this field must be reported to the
             architecture or working group committee to ensure that fields are somehow handled in the future
@@ -149,29 +149,29 @@ attributeFormDefault="unqualified">
     </xs:sequence>
   </xs:complexType>
   
-  <xs:simpleType name="DisclosureId">
+  <xs:simpleType name="DocumentId">
     <xs:annotation>
       <xs:documentation>
-        The disclosure ID is a persistent and unique identifier for the disclosure not related to the party, relationship or accounts
-        that the disclosure is for. It should be unique for all disclosures across the
+        The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
+        that the document is for. It should be unique for all documents across the
         institution and remain the same over the life of the dislcosure within the financial institution.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
 
-  <xs:complexType name="DisclosureIdList">
+  <xs:complexType name="DocumentIdList">
     <xs:annotation>
       <xs:documentation>
-        The list of disclosure id's that should have their associated disclosures either returned or affected
+        The list of document id's that should have their associated documents either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureId" type="DisclosureId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="documentId" type="DocumentId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A disclosure Id that should have its associated disclosures either returned or affected
+            A document Id that should have its associated documents either returned or affected
             by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
@@ -180,28 +180,28 @@ attributeFormDefault="unqualified">
   </xs:complexType>
   
 
-  <xs:simpleType name="DisclosureTitle">
+  <xs:simpleType name="DocumentTitle">
     <xs:annotation>
       <xs:documentation>
-        Each disclosure has a title which is determined by the financial institution.
+        Each document has a title which is determined by the financial institution.
         Examples are Loan Dislosure, Savings Disclosure, Checking Disclosure, Membership Disclosure, etc.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base ="xs:string" />
   </xs:simpleType>
 
-  <xs:complexType name="DisclosureTitleList">
+  <xs:complexType name="DocumentTitleList">
     <xs:annotation>
       <xs:documentation>
-        The list of disclosure title's that should have their associated disclosures either returned or affected
+        The list of document title's that should have their associated documents either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureTitle" type="DisclosureTitle" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="documentTitle" type="DocumentTitle" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            An disclosure title that should have its associated disclosures either returned or affected
+            An document title that should have its associated documents either returned or affected
             by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
@@ -209,10 +209,10 @@ attributeFormDefault="unqualified">
     </xs:sequence>
   </xs:complexType>
   
-  <xs:simpleType name="DisclosureStatus">
+  <xs:simpleType name="DocumentStatus">
     <xs:annotation>
       <xs:documentation>
-        Current Status of the disclosure in the process of being sent, viewed, returned (see signature
+        Current Status of the document in the process of being sent, viewed, returned (see signature
         type to determine if it was returned signed or not.)
       </xs:documentation>
     </xs:annotation>
@@ -220,39 +220,39 @@ attributeFormDefault="unqualified">
       <xs:enumeration value="Sent">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been sent to the person via mail or electronically but not signed.
+            The document has been sent to the person via mail or electronically but not signed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Viewed">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been viewed online but not signed.  Some disclosures may only require being viewed.
+            The document has been viewed online but not signed.  Some documents may only require being viewed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Returned">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been returned.  See Signature Type to determine if signed.
+            The document has been returned.  See Signature Type to determine if signed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="DisclosureStatusList">
+  <xs:complexType name="DocumentStatusList">
     <xs:annotation>
       <xs:documentation>
-        The list of disclosure status that should have their associated disclosures either returned or affected
+        The list of document status that should have their associated documents either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureStatus" type="DisclosureStatus" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="documentStatus" type="DocumentStatus" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A disclosure status that should have its associated disclosures either returned or affected
+            A document status that should have its associated documents either returned or affected
             by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
@@ -260,10 +260,10 @@ attributeFormDefault="unqualified">
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name="DisclosureSignatureType">
+  <xs:simpleType name="DocumentSignatureType">
     <xs:annotation>
       <xs:documentation>
-        If the disclosure has been signed, how was it signed.
+        If the document has been signed, how was it signed.
       </xs:documentation>
     </xs:annotation>
     
@@ -271,46 +271,46 @@ attributeFormDefault="unqualified">
       <xs:enumeration value="Unsigned">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been been sent or viewed online but not signed.
+            The document has been been sent or viewed online but not signed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="ElectronicSignature">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been viewed online and the person agreed to electronically.
+            The document has been viewed online and the person agreed to electronically.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="SingleClickAcceptance">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been viewed online and the person agreed to electronically with a single click.
+            The document has been viewed online and the person agreed to electronically with a single click.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="WetSignature">
         <xs:annotation>
           <xs:documentation>
-            The disclosure has been viewed online and the person agreed to electronically.
+            The document has been viewed online and the person agreed to electronically.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="DisclosureSignatureTypeList">
+  <xs:complexType name="DocumentSignatureTypeList">
     <xs:annotation>
       <xs:documentation>
-        The list of disclosure signature typethat should have their associated disclosures either returned or affected
+        The list of document signature typethat should have their associated documents either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureSignatureType" type="DisclosureSignatureType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="documentSignatureType" type="DocumentSignatureType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A disclosure signature type that should have its associated disclosures either returned or affected
+            A document signature type that should have its associated documents either returned or affected
             by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>

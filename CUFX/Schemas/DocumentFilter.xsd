@@ -1,8 +1,8 @@
-﻿<xs:schema targetNamespace="http://cufxstandards.com/v2/DisclosureFilter.xsd"
+﻿<xs:schema targetNamespace="http://cufxstandards.com/v2/DocumentFilter.xsd"
 	version="2.0.$Revision: 123 $"
-	xmlns="http://cufxstandards.com/v2/DisclosureFilter.xsd"
+	xmlns="http://cufxstandards.com/v2/DocumentFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:disclosure="http://cufxstandards.com/v2/Disclosure.xsd"
+	xmlns:document="http://cufxstandards.com/v2/Document.xsd"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
@@ -10,12 +10,12 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Disclosure.xsd" schemaLocation="Disclosure.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name="disclosureFilter" type="DisclosureFilter">
+  <xs:element name="documentFilter" type="DocumentFilter">
     <xs:annotation>
       <xs:documentation>
         The list of options for filters for services requesting relationship data.
@@ -23,27 +23,27 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="DisclosureFilter">
+  <xs:complexType name="DocumentFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting disclosure data.  The options can be used
+        The list of options for filters for services requesting document data.  The options can be used
         in combination or by themselves and it is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="disclosureIdList" type="disclosure:DisclosureIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentIdList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of disclosureId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+            The list of documentId's that should have their associated documents returned or affected by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureTitleList" type="disclosure:DisclosureTitleList" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentTitleList" type="document:DocumentTitleList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of disclosureTitles's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+            The list of documentTitles's that should have their associated documents returned or affected by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -51,7 +51,7 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should have their associated disclosures returned or affected by a read, update or delete disclosure request.
+            The list of partyId's that should have their associated documents returned or affected by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -59,8 +59,8 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated disclosures either returned or affected
-            by a read, update or delete disclosure request.
+            The list of relationshipId's that should have their associated documents either returned or affected
+            by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -68,26 +68,26 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that should have their associated disclosures either returned or affected
-            by a read, update or delete disclosure request.
+            The list of Account Id's that should have their associated documents either returned or affected
+            by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureStatusList" type="disclosure:DisclosureStatusList" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentStatusList" type="document:DocumentStatusList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of disclosure statuses that should have their associated disclosures either returned or affected
-            by a read, update or delete disclosure request.
+            The list of document statuses that should have their associated documents either returned or affected
+            by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="disclosureSignatureTypeList" type="disclosure:DisclosureSignatureTypeList" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentSignatureTypeList" type="document:DocumentSignatureTypeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of disclosure signature types that should have their associated disclosures either returned or affected
-            by a read, update or delete disclosure request.
+            The list of document signature types that should have their associated documents either returned or affected
+            by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
