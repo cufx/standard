@@ -45,6 +45,8 @@
         <xs:annotation>
           <xs:documentation>
             A unique number used to identify one and only one artifact within the Repository.
+            Some artifact systems do not have a concept of a unique key but a concept of a combined key to access
+            values in the back end system.
           </xs:documentation>
         </xs:annotation>        
       </xs:element>
@@ -147,15 +149,35 @@
  
   </xs:complexType>
 
-  <xs:simpleType name ="ArtifactId">
+  <xs:complexType name ="ArtifactId">
     <xs:annotation>
       <xs:documentation>
-        A unique number used to identify one and only one artifact within the Repository.
+        A unique value (or values) used to identify one and only one artifact within the Repository.
+        Some artifact systems do not have a concept of a unique key but a concept of a combined key to access
+        values in the back end system.
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base ="xs:string">
-    </xs:restriction>
-  </xs:simpleType>
+    <xs:choice>
+      <xs:element name="artifactUniqueId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A unique value (or values) used to identify one and only one artifact within the Repository.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="artifactIdKeyValueList" type="common:CustomData" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Some artifact systems do not have a concept of a unique key but a concept of a combined key to access
+            values in the back end system.  Instead of having to combine and then have the back end strip the key apart define a 
+            list of name value pairs to uniquely identify an artifact in the repository.
+            For example: type CheckImage, accountNumber 1234, checkNumber 123, datetime 12/1/2014 12:10 PM, amount 35.00
+            If this key value is used, it should be documented in customData area of configuration services for full definition.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
 
   <xs:complexType name ="ArtifactIdList">
     <xs:annotation>

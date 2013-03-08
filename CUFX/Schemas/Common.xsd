@@ -38,7 +38,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!-- TODO "should this be moved out to a notes.xsd?" -->
   <xs:simpleType name="CoreRecordType">
     <xs:annotation>
       <xs:documentation>
@@ -132,33 +131,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-  <!-- TODO "Move OwnerType to loan when ready" -->
-  
-  <xs:simpleType name="OwnerType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="AuthorizedSigner" />
-      <xs:enumeration value="Beneficiary" />
-      <xs:enumeration value="Borrower" />
-      <xs:enumeration value="CoBorrower" />
-      <xs:enumeration value="CoSigner" />
-      <xs:enumeration value="Guarantor" />
-      <xs:enumeration value="Joint" />
-      <xs:enumeration value="LoanApplicant" />
-      <xs:enumeration value="LoanCoApplicant" />
-      <xs:enumeration value="OwnerOfCollateral" />
-      <xs:enumeration value="Primary" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="Uuid">
-    <xs:restriction base="xs:string">
-      <!-- TODO: Use this pattern instead; requires change to DMS Account History -->
-      <!--<xs:pattern value="[0-9|A-F]{32}" />-->
-      <xs:pattern value="[0-9|A-F|a-f|\-]{32,36}" />
-    </xs:restriction>
-  </xs:simpleType>
-
 
   <xs:complexType name="CustomData">
     <xs:annotation>

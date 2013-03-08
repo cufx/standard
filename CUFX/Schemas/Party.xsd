@@ -8,15 +8,17 @@
 	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
 	xmlns:credentialGroup="http://cufxstandards.com/v2/CredentialGroup.xsd"
+  xmlns:document="http://cufxstandards.com/v2/Document.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
-
+  
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
   <xs:element name= "partyList" type ="PartyList">
@@ -1240,7 +1242,7 @@
 
   <xs:complexType name="IdentificationDocument">
     <xs:sequence>
-      <xs:element name="documentNumber" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="IdDocumentIdentifer" type="xs:string" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The actual identifier assigned by the state, government or other institution to the document.
@@ -1249,15 +1251,16 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:group ref="documentType" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="idDocumentType" type="IdDocumentType" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Type of document.  Related to the party type.
+            Type of identifcation document.  Related to the party type.  The overall cateogry of document type in the
+            Document service is IdentificationDocument.  This relates it to the party and its type.
           </xs:documentation>
         </xs:annotation>
-      </xs:group>
+      </xs:element>
 
-      <xs:element name="documentDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="idDocumentDescription" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Description of ID beyond the type… such as State of issuance,
@@ -1266,7 +1269,16 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="displayOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+      <xs:element name="idExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Expiration printed on the ID if there is one.  Note: This is different than the expiration of the document
+            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="idDisplayOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The order in which this document will be displayed
@@ -1275,66 +1287,29 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="effectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the document became effective/issued…
-            For example, when was business started based on articles of incorporation.
-
-            The date should be ISO 8601 UTC format.
-            yyyy-mm-dd (2011-03-28) or yyyy-mm-dd (2011-03-28)
-            formats are supported.  
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="expirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of that the documents expired or will expire.
-
-            The date should be ISO 8601 UTC format.
-            yyyy-mm-dd (2011-03-28) or yyyy-mm-dd (2011-03-28)
-            formats are supported.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="idVerifyDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The date the identification type/document was verified.
-
             The date/time should be ISO 8601 UTC format.
             yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
             formats are supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
-      <xs:element name="artifactId" type="artifact:ArtifactId"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The Artifact ID for the image of the documentation that is stored.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
 
-      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+      <xs:element name="documentId" type="document:DocumentId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Identification Document level name/data pairs list of fields that are not yet available in the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future
-            release of specifications.
+            The unique identifer of the document in the documentation service.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+         
     </xs:sequence>
   </xs:complexType>
 
-  <xs:group name="documentType">
+  <xs:complexType name="IdDocumentType">
     <xs:choice>
       <xs:element name="individualDocument" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -1426,7 +1401,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:choice>
-  </xs:group>
+  </xs:complexType>
 
   <xs:complexType name="EligibilityRequirementMetList">
     <xs:annotation>
