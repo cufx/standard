@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/LocationFilter.xsd"
+	xmlns="http://cufxstandards.com/v2/LocationFilter.xsd"
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+
+	<xs:complexType name="LocationFilter">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A location filter is used to query for locations near and address, for a given type, etc.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="locationId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier for the location.
+					</xs:documentation>
+				</xs:annotation>	
+			</xs:element>
+			<xs:element name="type" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The type of location (e.g. ATM, Branch).
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ATM"></xs:enumeration>
+						<xs:enumeration value="SharedATM"></xs:enumeration>
+						<xs:enumeration value="Branch"></xs:enumeration>
+						<xs:enumeration value="SharedBranch"></xs:enumeration>
+						<xs:enumeration value="Kiosk"></xs:enumeration>
+						<xs:enumeration value="Other"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="address" type="contact:Address" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The address of the ATM or branch.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="maxNumberOfResults" type="xs:integer" minOccurs="0" maxOccurs="1"/>	
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

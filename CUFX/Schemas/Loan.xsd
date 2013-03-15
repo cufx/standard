@@ -511,7 +511,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="autoPaymentDayOfTheWeek" type="DayOfTheWeekType" minOccurs="0" maxOccurs="1">
+			<xs:element name="autoPaymentDayOfTheWeek" type="common:DayOfTheWeek" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A specific day of the month on a monthly basis or weekly on a specific day, or bi-weekly, or yearly;
@@ -1364,18 +1364,6 @@
 			<xs:enumeration value="Aircraft" />
 			<xs:enumeration value="Trailer" />
 			<xs:enumeration value="OtherTitled" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="DayOfTheWeekType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Monday" />
-			<xs:enumeration value="Tuesday" />
-			<xs:enumeration value="Wednesday" />
-			<xs:enumeration value="Thursday" />
-			<xs:enumeration value="Friday" />
-			<xs:enumeration value="Saturday" />
-			<xs:enumeration value="Sunday" />
 		</xs:restriction>
 	</xs:simpleType>
 

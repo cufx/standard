@@ -160,4 +160,33 @@
     </xs:sequence>
   </xs:complexType>
 
+	<xs:complexType name="Coordinate">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="latitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+				<xs:element name="longitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="DayOfTheWeek">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Monday" />
+			<xs:enumeration value="Tuesday" />
+			<xs:enumeration value="Wednesday" />
+			<xs:enumeration value="Thursday" />
+			<xs:enumeration value="Friday" />
+			<xs:enumeration value="Saturday" />
+			<xs:enumeration value="Sunday" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Distance">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="value" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>	
 </xs:schema>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/Location.xsd"
+	xmlns="http://cufxstandards.com/v2/Location.xsd"
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+	<xs:element name="locationList" type="LocationList">
+		<xs:annotation>
+			<xs:documentation>
+				A list of locations (could be either ATM's, Branches, etc).
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="LocationList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A list of locations (could be either ATM's, Branches, etc).
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="location" type="Location" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to a location (e.g. ATM, Branch).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Location">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A location such as an ATM or Branch.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="locationId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier for the location.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="distance" type="common:Distance" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="type" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The type of location (e.g. ATM, Branch).
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ATM"></xs:enumeration>
+						<xs:enumeration value="SharedATM"></xs:enumeration>
+						<xs:enumeration value="Branch"></xs:enumeration>
+						<xs:enumeration value="SharedBranch"></xs:enumeration>
+						<xs:enumeration value="Kiosk"></xs:enumeration>
+						<xs:enumeration value="Other"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="address" type="contact:Address" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The address of the ATM or branch.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="phone" type="contact:Phone" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="mapUrl" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="network" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The network of the ATM (e.g. COOP, NYCE, MoneyPass, Star, etc).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="locationHoursList" type="LocationHoursList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to a location (e.g. ATM, Branch).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="servicesList" type="ServicesList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The services or features of the location.  For example, a branch could have a service of a coin counter, or an ATM could have a feature that it is check deposit taking ATM.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="additionalDataList" type="AdditionalDataList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional data not taken into account in the other data elememnts.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ServicesList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The services or features of the location.  For example, a branch could have a service of a coin counter, or an ATM could have a feature that it is check deposit taking ATM.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="servicesList" type="common:ValuePair" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AdditionalDataList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Additional data not taken into account in the other data elememnts.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="additionalDataList" type="common:ValuePair" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LocationHoursList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A list of location hours.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="locationHours" type="LocationHours" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LocationHours">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A location such as an ATM or Branch.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="locationHoursType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						An optional indicator of the type of hours being described, for example Lobby hours, drive up hours.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Lobby"></xs:enumeration>
+						<xs:enumeration value="DriveUp"></xs:enumeration>
+						<xs:enumeration value="ATM"></xs:enumeration>
+						<xs:enumeration value="Other"></xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1"/>
+			<xs:element name="dayOfTheWeek" type="common:DayOfTheWeek" minOccurs="0" maxOccurs ="1"/>
+			<xs:element name="openTime" type="xs:time" minOccurs="0" maxOccurs ="1"/>
+			<xs:element name="closeTime" type="xs:time" minOccurs="0" maxOccurs ="1"/>
+			<xs:element name="closedAllDay" type="xs:boolean" minOccurs="0" maxOccurs ="1"/>
+			<xs:element name="openAllDay" type="xs:boolean" minOccurs="0" maxOccurs ="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
