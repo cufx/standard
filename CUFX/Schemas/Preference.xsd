@@ -122,16 +122,6 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="otherSubType" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Used in case the preference Sub Type is Other.  This is provided to 
-            allow exptensibility if the specification doesn't have a particular option 
-            present.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="lastChangedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -160,6 +150,15 @@
 				</xs:annotation>
 			</xs:element>
 
+      <xs:element name="widgetName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            When the preference is of Type Widget, this pulls all the preferences related to
+            a specific widget together for the party on the accounts, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -206,7 +205,7 @@
         </xs:annotation>
       </xs:enumeration>
       
-			<xs:enumeration value ="EStatment" >
+			<xs:enumeration value ="EStatement" >
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive eStatments or paper statements. No subTypes apply.
@@ -253,6 +252,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
+      <xs:enumeration value ="ContactHours" >
+        <xs:annotation>
+          <xs:documentation>
+            The value contains a textual description as to when the party prefers to be contacted.  No subTypes apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       
 			<xs:enumeration value ="Language">
         <xs:annotation>
@@ -267,13 +274,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value ="ContactHours" >
-        <xs:annotation>
-          <xs:documentation>
-            The value contains a textual description as to when the party prefers to be contacted.  No subTypes apply.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+
 			<xs:enumeration value ="WebsiteFormatStylesheet">
         <xs:annotation>
           <xs:documentation>
@@ -281,6 +282,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      
       <xs:enumeration value ="MobileSiteFormatStylesheet" >
         <xs:annotation>
           <xs:documentation>
@@ -288,10 +290,29 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      
 			<xs:enumeration value ="EmailFormat" >
         <xs:annotation>
           <xs:documentation>
             See subType for specific type of email contact format should be used.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="Widget" >
+        <xs:annotation>
+          <xs:documentation>
+            A preference associated to widgets being displayed within a web site, mobile, etc.
+            See the WidgetSubType for specifics on displaying the widget within the delivery channel.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="Other">
+        <xs:annotation>
+          <xs:documentation>
+            The value contains information that can be interpreted by the end points.  The data to drive
+            the preference is most likely in customData name/value pairs.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -323,7 +344,7 @@
 		</xs:annotation>
 
     <xs:choice>
-      <xs:element name="eAlertSubType" type="EAlertSubType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="eAlertSubType" type="EAlertSubType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             eAlert Sub Type preference.  These are specific to Alerts that the user would like to receive regarding
@@ -333,12 +354,20 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="communicationSubType" type="CommunicationSubType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="emailFormatSubType" type="EmailFormatSubType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            eAlert Sub Type preference.  These are specific to Alerts that the user would like to receive regarding
-            when a specific event occurs.  For example a threshold was reached of a specific type of transaction or
-            a field changed that has a high security level such as password.
+            Email format Sub Type preference.  Specifies the eMail Format that the user would like to receive emails
+            whenever the FI is communicating to parties on related accounts, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="widgetSubType" type="WidgetSubType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Email format Sub Type preference.  Specifies the eMail Format that the user would like to receive emails
+            whenever the FI is communicating to parties on related accounts, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -633,6 +662,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      
       <xs:enumeration value ="Text">
         <xs:annotation>
           <xs:documentation>
@@ -640,13 +670,59 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+     </xs:restriction>
+  </xs:simpleType>
 
-      <xs:enumeration value ="Widget" />
-      <xs:enumeration value ="Other"/>
+  <xs:simpleType name="WidgetSubType">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="DisplayStatus" >
+        <xs:annotation>
+          <xs:documentation>
+            What is the display statsus fo the widget.
+            The value field will contain one of of several values.
+              Hide - party has selected to hide this widget from view completely.  Up to the end user application on how a party might unhide a widget.
+              AutoShow - party has selected to hide this widget unless for example the cursor is moved over the area of the screen
+                 that reveals the widget.  Order of widgets in autoshow area is controlled by DisplayOrder value.  Up to application on how to hide the widget.
+              AlwaysOnTop - Display this widget above all other widgets.
+              Docked - Display this widget in an area of the screen selected by the party but controlled by the application.  Order of widgets in docked area
+                 is controlled by DisplayOrder value. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="DisplayOrder">
+        <xs:annotation>
+          <xs:documentation>
+            When the 
+            What order did the party wish to display the widget in versus other widgets selected by the party.
+            The order is stored in the value field.
+            The value will be an non negative integer between 0 and the total number of widgets available for display.
+            If value is not available/specified, the widget display order is up to the application to determine.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="ShortCutKey">
+        <xs:annotation>
+          <xs:documentation>
+            The value holds the party selected string of characters that represent the keyboard characters to concurrently press to
+            activate a widget.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DisplayPage">
+        <xs:annotation>
+          <xs:documentation>
+            The value holds the name of the page which the widget should display on.  If widget should display on multiple pages
+            each will require an additional preference instance.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
-      <xs:simpleType name="PreferenceId">
+   <xs:simpleType name="PreferenceId">
     <xs:annotation>
       <xs:documentation>
         Unique identifier for the preference.  This is not provided as an input,
@@ -663,6 +739,7 @@
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
+    
     <xs:sequence>
       <xs:element name="preferenceId" type="PreferenceId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
