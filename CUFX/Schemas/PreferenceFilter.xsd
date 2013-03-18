@@ -106,6 +106,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="widgetNameList" type="preference:WidgetNameList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of widget names  that should have their preference accounts either returned or affected
+            by a read, update or delete a request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 

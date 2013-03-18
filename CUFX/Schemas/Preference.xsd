@@ -132,6 +132,17 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="preferenceActive" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            The preference record is active and should be used when determining actions to take.
+            If the value is false then the preference record should be ignored.
+            This is helpful for retaining values if a preference is temporarily inactivated but the
+            current values want to be retained for future use.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -150,7 +161,7 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="widgetName" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="widgetName" type="WidgetName" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             When the preference is of Type Widget, this pulls all the preferences related to
@@ -209,10 +220,7 @@
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive eStatments or paper statements. No subTypes apply.
-            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that eStatment will be made available.
-            False represents that an eStatment should not be prepared.
+            If this preference is present and active, an eStatement should be generated occurrs.  The value field is ignored.
             See the EAlertSubType StatementAvailable to determine if party wants to be alerted when statement is available.
           </xs:documentation>
         </xs:annotation>
@@ -222,10 +230,7 @@
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive electronic version of Notices. No subTypes apply.
-            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an eNotices should be sent when an eNotice is made available. 
-            False represents taht an eNotice should not be sent.
+            If this preference is present and active, an eNotice should be sent rather than paper if present.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -233,10 +238,8 @@
 			<xs:enumeration value ="Newsletter"  >
         <xs:annotation>
           <xs:documentation>
-            Determines if party(ies) wishes to receive the newsletter (i.e. opted-in or out). No subTypes apply. 
-            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            Determines if party(ies) wishes to receive the newsletter (i.e. opted-in or out). No subTypes apply.
+            If this preference is present and active, a Newsletter can be when available.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -246,9 +249,7 @@
           <xs:documentation>
             Determines how party if specified on relationships, cards, or accounts would like to communicated to.  No subTypes apply.
             The contactId related to this preference is the specific contact that should be used for communicating to the party.
-            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this preference is present and active, communication should go to this contact point specified.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -376,6 +377,35 @@
 
   <xs:simpleType name="EAlertSubType">
 		<xs:restriction base ="xs:string">
+      <xs:enumeration value ="SsnChanged" >
+        <xs:annotation>
+          <xs:documentation>
+            An additional party was added to a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="AddressChanged" >
+        <xs:annotation>
+          <xs:documentation>
+            An address change was made on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="ApproachingCreditLimit" >
+        <xs:annotation>
+          <xs:documentation>
+            A transaction or authorization on a related account (either through party, relationship, card or account)
+            caused a loan balance to approach the credit limit by the amount in the value field.
+            For example if value field was 100.00 and credit limit was 500.00 and the transaction or authorization changed the balance
+            from 350.00 to 410.00 an alert would occur.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
       <xs:enumeration value ="AtmWithdrawalExceeds" >
         <xs:annotation>
           <xs:documentation>
@@ -428,10 +458,8 @@
         <xs:annotation>
           <xs:documentation>
             A bill pay payee was added on a related account (either through party, relationship, card or account).  
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
-          </xs:documentation>
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       
@@ -439,9 +467,7 @@
         <xs:annotation>
           <xs:documentation>
             A bill pay payment was rejected on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -450,28 +476,16 @@
         <xs:annotation>
           <xs:documentation>
             A bill pay payment was paid on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       
-			<xs:enumeration value ="CourtesyPayExceeds" >
+      <xs:enumeration value ="CheckNumberWithinRangeHasCleared" >
         <xs:annotation>
           <xs:documentation>
-            A courtesy payment occurring on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
-            Typically the value will be 0.00 because the user may which to be alerted on any courtesy payment, but the model is flexible in that it make
-            be any value.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-
-      <xs:enumeration value ="CourtesyPayFallsBelow" >
-        <xs:annotation>
-          <xs:documentation>
-            A courtesy payment occurring on a related account (either through party, relationship, card or account) fell below the amount in the value field.
-            This is useful for parties that are trying to manage smaller payments that are causing courtesy payments.
+            A check number was cleared within a range of checks on a related account (either through party, relationship, card or account).
+            The value has the range of checks with the bottom and top checks seperated by a dash (-) that are being monitored for.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -483,11 +497,136 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="DebitCardWithdrawalExceeds" >
+
+      <xs:enumeration value ="CourtesyPayExceeds" >
         <xs:annotation>
           <xs:documentation>
-            A debit card withdrawal on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            A courtesy payment occurring on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be 0.00 because the user may which to be alerted on any courtesy payment, but the model is flexible in that it make
+            be any value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="CourtesyPayFallsBelow" >
+        <xs:annotation>
+          <xs:documentation>
+            A courtesy payment occurring on a related account (either through party, relationship, card or account) fell below the amount in the value field.
+            This is useful for parties that are trying to manage smaller payments that are causing courtesy payments.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="CreditCardAuthorizationDeclined" >
+        <xs:annotation>
+          <xs:documentation>
+            A credit card authorization was declined on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be zero which will cause all declines to be alerted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="CreditCardAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A credit card authorization on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CreditCardFuelDispenserAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A credit card authorization occurred at a fuel dispenser on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be zero which will cause all fuel dispensing attempts to be alerted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CreditCardInternationalAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An international credit card authorization on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CreditCardOnlineAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A credit card online authorization on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CreditCardOutOfStateAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An out-of-state credit card authorization on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+            Typically the value will be zero which will cause all out-of-state authorizations to be alerted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CreditCardRefundExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A credit card reversal/refund/credit on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DebitCardAuthorizationDeclined" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card authorization was declined on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be zero which will cause all declines to be alerted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="DebitCardAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card authorization on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DebitCardFuelDispenserAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card authorization occurred at a fuel dispenser on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be zero which will cause all fuel dispensing attempts to be alerted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DebitCardInternationalAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An international debot card authorization on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DebitCardOnlineAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card online authorization on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="DebitCardOutOfStateAuthorizationExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An out-of-state debit card authorization on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+            Typically the value will be zero which will cause all out-of-state authorizations to be alerted.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -499,15 +638,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="DepositedFundsHaveBeenReturned" >
+
+      <xs:enumeration value ="DepositedFundsHaveBeenReturned" >
         <xs:annotation>
           <xs:documentation>
-            A deposit on a related account (either through party, relationship, card or account) 
+            A deposit on a related account (either through party, relationship, card or account)
             was deemed to need to be returned to the entity that originated the deposit
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -524,6 +661,15 @@
         <xs:annotation>
           <xs:documentation>
             A direct deposit on a related account (either through party, relationship, card or account) fell below the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="EmailAddressChanged" >
+        <xs:annotation>
+          <xs:documentation>
+            An email address change was made on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -551,9 +697,7 @@
           <xs:documentation>
             Insufficient funds where available to pay a check on a related account
             (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -575,15 +719,50 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="LoginAttempted" >
+
+      <xs:enumeration value ="PhoneNumberChanged" >
         <xs:annotation>
           <xs:documentation>
-            A login through a remote channel was attempted on a related account
+            A phone number change was made on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="LoginOccurred" >
+        <xs:annotation>
+          <xs:documentation>
+            A login through a remote channel was successful on a related account
             (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="LoginFailed" >
+        <xs:annotation>
+          <xs:documentation>
+            A login through a remote channel was attempted but failed on a related account
+            (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="NameChangeAttempted" >
+        <xs:annotation>
+          <xs:documentation>
+            A name was changed on a related account (either through party, relationship, card or account)
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="NameChangeOccurred" >
+        <xs:annotation>
+          <xs:documentation>
+            A name was changed on a related account (either through party, relationship, card or account)
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -596,36 +775,76 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
+      <xs:enumeration value ="PaymentDueInXDays" >
+        <xs:annotation>
+          <xs:documentation>
+            A payment is due on a related account (either through party, relationship, card or account)
+            within the number of days in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="PinChanged" >
+        <xs:annotation>
+          <xs:documentation>
+            A Personal identification number (typically 4 digits) was changed on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="PreferenceChanged" >
+        <xs:annotation>
+          <xs:documentation>
+            A preference value was changed on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="ScheduledMessage"  >
+        <xs:annotation>
+          <xs:documentation>
+            The user set up a message to be sent (either through party, relationship, card or account).
+            The value in this EAlert sub type is a date/time for the message to be sent.  This can be used for scheduling birthday reminders, etc. by the user.
+            The text to be sent is in the alertCustomText field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="ScheduledPaymentHasFailed"  >
+        <xs:annotation>
+          <xs:documentation>
+            A scheduled payment failed on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       
 			<xs:enumeration value ="ScheduledPaymentHasStopped" >
         <xs:annotation>
           <xs:documentation>
             A scheduled payment was stopped on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       
-			<xs:enumeration value ="ScheduledPaymentHasFailed"  >
+	    <xs:enumeration value ="SpecificCheckNumberHasCleared" >
         <xs:annotation>
           <xs:documentation>
-            A scheduled payment failed on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            A specific check number was cleared on a related account (either through party, relationship, card or account).
+            The value has the specific check number that should clear is being monitored for.  
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="SpecificCheckNumberHasCleared" >
+
+      <xs:enumeration value ="SsnChanged" >
         <xs:annotation>
           <xs:documentation>
-            A specific check number was cleared scheduled payment on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+            An SSN was changed on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -634,19 +853,7 @@
         <xs:annotation>
           <xs:documentation>
             A statement is available on a related account (either through party, relationship, card or account).
-            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
-            is specified which at that time it could either be "True" or "False".
-            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
-			<xs:enumeration value ="ScheduledMessage"  >
-        <xs:annotation>
-          <xs:documentation>
-            The user set up a message to be sent (either through party, relationship, card or account).
-            The value in this EAlert sub type is a date/time for the message to be sent.  This can be used for scheduling birthday reminders, etc. by the user.
-            The text to be sent is in the alertCustomText field.
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -751,5 +958,37 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
+
+  <xs:simpleType name="WidgetName">
+    <xs:annotation>
+      <xs:documentation>
+        When the preference is of Type Widget, this pulls all the preferences related to
+        a specific widget together for the party on the accounts, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
+  <xs:complexType name="WidgetNameList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of widget names  that should have their preference accounts either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="widgetName" type="WidgetName" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An widget name that should have its associated preference either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
 </xs:schema>
