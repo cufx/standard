@@ -122,17 +122,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="lastChangedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Date that the preference was last changed.  Typically read only.  
-						The date/time should be ISO 8601 UTC format.  
-						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-						formats are supported.  The time is assume to be 00:00Z if omitted. 
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
       <xs:element name="otherSubType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -142,11 +131,23 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="lastChangedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Date that the preference was last changed.  Typically read only.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The value specified for the preference.
+						The value specified for the preference.  This can either be a numeric, boolean, date/time or text value depending upon the type
+            and subType of the preference.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -197,16 +198,103 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="EAlert" />
-			<xs:enumeration value ="EStatment" />
-			<xs:enumeration value ="ENotice" />
-			<xs:enumeration value ="Newsletter" />
-			<xs:enumeration value ="Communication" />
-			<xs:enumeration value ="Language" />
-			<xs:enumeration value ="ContactHours" />
-			<xs:enumeration value ="WebsiteFormat" />
-			<xs:enumeration value ="MobileSiteFormat" />
-			<xs:enumeration value ="ContactFormat" />
+			<xs:enumeration value ="EAlert" >
+        <xs:annotation>
+          <xs:documentation>
+            See subType for specific type of EAlert and how to interpret the value and other preference fields.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="EStatment" >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to receive eStatments or paper statements. No subTypes apply.
+            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that eStatment will be made available.
+            False represents that an eStatment should not be prepared.
+            See the EAlertSubType StatementAvailable to determine if party wants to be alerted when statement is available.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="ENotice"  >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to receive electronic version of Notices. No subTypes apply.
+            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an eNotices should be sent when an eNotice is made available. 
+            False represents taht an eNotice should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="Newsletter"  >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to receive the newsletter (i.e. opted-in or out). No subTypes apply. 
+            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="Communication" >
+        <xs:annotation>
+          <xs:documentation>
+            Determines how party if specified on relationships, cards, or accounts would like to communicated to.  No subTypes apply.
+            The contactId related to this preference is the specific contact that should be used for communicating to the party.
+            If this type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="Language">
+        <xs:annotation>
+          <xs:documentation>
+            The preferred language that the party(ies) wish to communicate with.  No subTypes apply.
+            Value values are IANA – language codes.
+            http://www.iana.org/assignments/language-subtag-registry
+            http://www.w3.org/International/questions/qa-lang-2or3.en.php
+            If this type is specified and the value is not present, the value will assumed to be equal to 'en-us' unless the value field
+            is specified.
+            If this type is not specified, then 'en-us' is assumed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="ContactHours" >
+        <xs:annotation>
+          <xs:documentation>
+            The value contains a textual description as to when the party prefers to be contacted.  No subTypes apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+			<xs:enumeration value ="WebsiteFormatStylesheet">
+        <xs:annotation>
+          <xs:documentation>
+            The website stylesheet preferred is contained in the value field.  No subTypes apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="MobileSiteFormatStylesheet" >
+        <xs:annotation>
+          <xs:documentation>
+            The mobile stylesheet preferred is contained in the value field.  No subTypes apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+			<xs:enumeration value ="EmailFormat" >
+        <xs:annotation>
+          <xs:documentation>
+            See subType for specific type of email contact format should be used.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -227,48 +315,338 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name ="SubType">
+  <xs:complexType name ="SubType">
 		<xs:annotation>
 			<xs:documentation>
-				Sub Type of preference.  Additions to this list can be submitted to the CUFX committee.
+				Sub Type of preference if applicable.  Additions to this list can be submitted to the CUFX committee.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="AtmTransactionExceeds" />
-			<xs:enumeration value ="AtmDepositExceeds" />
-			<xs:enumeration value ="AutomatedTransferExceeds" />
-			<xs:enumeration value ="BalanceFellBelow" />
-			<xs:enumeration value ="BalanceExceeds" />
-			<xs:enumeration value ="BillPayExceeds" />
-			<xs:enumeration value ="BillPayPayeeAdded" />
-			<xs:enumeration value ="BillPayPaymentRejected" />
-			<xs:enumeration value ="BillPayPaymentPaid" />
-			<xs:enumeration value ="CourtesyPayExceeds" />
-			<xs:enumeration value ="CheckWithdrawalExceeds" />
-			<xs:enumeration value ="DebitCardTransactionExceeds" />
-			<xs:enumeration value ="DepositedFundsHaveBeenReturned" />
-			<xs:enumeration value ="DirectDepositExceeds" />
-			<xs:enumeration value ="ExternalTransferExceeds" />
-			<xs:enumeration value ="IncomingWireExceeds" />
-			<xs:enumeration value ="HoldPlacedOnAccount" />
-			<xs:enumeration value ="HoldRemovedFromAccount" />
-			<xs:enumeration value ="LoginAttempted" />
-			<xs:enumeration value ="OutgoingWireExceeds" />
-			<xs:enumeration value ="ScheduledPaymentHasStopped" />
-			<xs:enumeration value ="ScheduledPaymentHasFailed" />
-			<xs:enumeration value ="SpecificCheckNumberHasCleared" />
-			<xs:enumeration value ="StatementAvailable" />
-			<xs:enumeration value ="ScheduledMessage" />
-			<xs:enumeration value ="InsufficientFundsToPayCheck" />
-			<xs:enumeration value ="Html" />
-			<xs:enumeration value ="Text" />
-			<xs:enumeration value ="StyleSheet" />
-			<xs:enumeration value ="Widget" />
-      <xs:enumeration value ="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
 
-  <xs:simpleType name="PreferenceId">
+    <xs:choice>
+      <xs:element name="eAlertSubType" type="EAlertSubType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            eAlert Sub Type preference.  These are specific to Alerts that the user would like to receive regarding
+            when a specific event occurs.  For example a threshold was reached of a specific type of transaction or
+            a field changed that has a high security level such as password.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="communicationSubType" type="CommunicationSubType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            eAlert Sub Type preference.  These are specific to Alerts that the user would like to receive regarding
+            when a specific event occurs.  For example a threshold was reached of a specific type of transaction or
+            a field changed that has a high security level such as password.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:simpleType name="EAlertSubType">
+		<xs:restriction base ="xs:string">
+      <xs:enumeration value ="AtmWithdrawalExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An ATM withdrawal on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="AtmDepositExceeds">
+        <xs:annotation>
+          <xs:documentation>
+            An ATM Deposit on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+        
+			<xs:enumeration value ="AutomatedTransferExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An Automated Transfer on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+        
+			<xs:enumeration value ="BalanceFellBelow" >
+        <xs:annotation>
+          <xs:documentation>
+            A balance on a related account (either through party, relationship, card or account) fell below the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+        
+			<xs:enumeration value ="BalanceExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A balance on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="BillPayExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A bill pay payment on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="BillPayPayeeAdded" >
+        <xs:annotation>
+          <xs:documentation>
+            A bill pay payee was added on a related account (either through party, relationship, card or account).  
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="BillPayPaymentRejected" >
+        <xs:annotation>
+          <xs:documentation>
+            A bill pay payment was rejected on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="BillPayPaymentPaid" >
+        <xs:annotation>
+          <xs:documentation>
+            A bill pay payment was paid on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="CourtesyPayExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A courtesy payment occurring on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+            Typically the value will be 0.00 because the user may which to be alerted on any courtesy payment, but the model is flexible in that it make
+            be any value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="CourtesyPayFallsBelow" >
+        <xs:annotation>
+          <xs:documentation>
+            A courtesy payment occurring on a related account (either through party, relationship, card or account) fell below the amount in the value field.
+            This is useful for parties that are trying to manage smaller payments that are causing courtesy payments.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="CheckWithdrawalExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A check withdrawal on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="DebitCardWithdrawalExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card withdrawal on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value ="DebitCardRefundExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A debit card reversal/refund or credit on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="DepositedFundsHaveBeenReturned" >
+        <xs:annotation>
+          <xs:documentation>
+            A deposit on a related account (either through party, relationship, card or account) 
+            was deemed to need to be returned to the entity that originated the deposit
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="DirectDepositExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A direct deposit on a related account (either through party, relationship, card or account) exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="DirectDepositFellBelow" >
+        <xs:annotation>
+          <xs:documentation>
+            A direct deposit on a related account (either through party, relationship, card or account) fell below the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="ExternalTransferExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            An external transfer to another FI (not a bill pay or wire transfer) on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="IncomingWireExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A incoming wire on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="InsufficientFundsToPayCheck" >
+        <xs:annotation>
+          <xs:documentation>
+            Insufficient funds where available to pay a check on a related account
+            (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="HoldPlacedOnAccountExceeded" >
+        <xs:annotation>
+          <xs:documentation>
+            A hold that was placed on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="HoldThatExceededWasRemovedFromAccount" >
+        <xs:annotation>
+          <xs:documentation>
+            A hold that was placed on a related account (either through party, relationship, card or account)
+            and exceeded the amount in the value field was subsequently removed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="LoginAttempted" >
+        <xs:annotation>
+          <xs:documentation>
+            A login through a remote channel was attempted on a related account
+            (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="OutgoingWireExceeds" >
+        <xs:annotation>
+          <xs:documentation>
+            A outgoing wire on a related account (either through party, relationship, card or account)
+            exceeded the amount in the value field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="ScheduledPaymentHasStopped" >
+        <xs:annotation>
+          <xs:documentation>
+            A scheduled payment was stopped on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="ScheduledPaymentHasFailed"  >
+        <xs:annotation>
+          <xs:documentation>
+            A scheduled payment failed on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="SpecificCheckNumberHasCleared" >
+        <xs:annotation>
+          <xs:documentation>
+            A specific check number was cleared scheduled payment on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="StatementAvailable"  >
+        <xs:annotation>
+          <xs:documentation>
+            A statement is available on a related account (either through party, relationship, card or account).
+            If this alert type is specified and the value is not present, the value will assumed to be equal to True unless the value field
+            is specified which at that time it could either be "True" or "False".
+            True in the value represents that an Alert should be sent if the event occurs.  False represents taht an Alert should not be sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value ="ScheduledMessage"  >
+        <xs:annotation>
+          <xs:documentation>
+            The user set up a message to be sent (either through party, relationship, card or account).
+            The value in this EAlert sub type is a date/time for the message to be sent.  This can be used for scheduling birthday reminders, etc. by the user.
+            The text to be sent is in the alertCustomText field.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="EmailFormatSubType">
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="Html" >
+        <xs:annotation>
+          <xs:documentation>
+            Any emails should be forwarded using Html formats.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Text">
+        <xs:annotation>
+          <xs:documentation>
+            Any emails should be forwarded using text formats.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="Widget" />
+      <xs:enumeration value ="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+      <xs:simpleType name="PreferenceId">
     <xs:annotation>
       <xs:documentation>
         Unique identifier for the preference.  This is not provided as an input,
