@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v2/SecureMessage.xsd"
+  version="2.0.$Revision: 189 $"
+  xmlns="http://cufxstandards.com/v2/SecureMessage.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:card="http://cufxstandards.com/v2/Card.xsd"
+  xmlns:document="http://cufxstandards.com/v2/Document.xsd"
+  xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
+  xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
+
+ 
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
+
+  <xs:element name= "secureMessageList" type ="SecureMessageList">
+    <xs:annotation>
+      <xs:documentation>
+        The SecureMessages collection/array list contains all the secureMessages or secureMessage templates for instance
+        that the credential set is authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="SecureMessageList">
+    <xs:annotation>
+      <xs:documentation>
+        The SecureMessages collection/array list contains all the secureMessages or secureMessage templates for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessage" type="SecureMessage" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage defines the information sent and then received by two or more parties.
+            Also relates secureMessages to the sending and receiving party(ies), and potentially relationship 
+            and/or account(s) for which the secureMessage is bound to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SecureMessage">
+    <xs:annotation>
+      <xs:documentation>
+        The secureMessage defines the information sent and then received by two or more parties.
+        Also relates secureMessages to the sending and receiving party(ies), and potentially relationship
+        and/or account(s) for which the secureMessage is bound to.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="secureMessageId" type="SecureMessageId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
+            that the secureMessage is for. It should be unique for all secureMessages across the
+            institution and remain the same over the life of the secureMessage within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="previousSecureMessageId" type="SecureMessageId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The previous secureMessage ID to be able to create a chain of messages.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="subjectLine" type="SubjectLine" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Each secureMessage has a subject line assigned by the message creator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="messageFrom" type="SecureMessageUser" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whom or what originated the message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="replyTo" type="SecureMessageUser" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whom or what should receive the message reply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="Type" type="SecureMessageType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A valid type of a secureMessage or secureMessage templates.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="status" type="SecureMessageStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Current status of the secureMessage in the process.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="body" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The actual content of the message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="bodyFormat" type="BodyFormat" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The actual content of the message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="documentIdList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Pointers to the documents attached to the secure message.  This is provided as a list in case the secureMessage contains multiple
+            documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="doNotDeliverBeforeDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time that the secureMessage should be sent.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time that the secureMessage expires and should be removed from view.
+            It is up to the endpoint to determine what to do with the message if it has expired.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+  
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            SecureMessage name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as LAST RESORT as any customizations will not be supported by all data providers
+            and able to be processed by client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future
+            release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="SecureMessageId">
+    <xs:annotation>
+      <xs:documentation>
+        The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
+        that the secureMessage is for. It should be unique for all secureMessages across the
+        institution and remain the same over the life of the secureMessage within the financial institution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:complexType name="SecureMessageIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of secureMessage id's that should have their associated secureMessages either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessageId" type="SecureMessageId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A secureMessage Id that should have its associated secureMessages either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:simpleType name="SubjectLine">
+    <xs:annotation>
+      <xs:documentation>
+        Each secureMessage has a subject line supplied by the creator of the secure message.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string" />
+  </xs:simpleType>
+
+  <xs:complexType name="SubjectLineList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of secureMessage subjects's that should have their associated secureMessages either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="subjectLine" type="SubjectLine" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A secureMessage subject line that should have its associated secureMessages either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="SecureMessageStatus">
+    <xs:annotation>
+      <xs:documentation>
+        Current Status of the secureMessage is a template or is in the process of being sent, viewed, returned (see signature
+        type to determine if it was returned signed or not.)
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Template">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has not yet been filled with information and can be used for any party, account, relationship as a template.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Draft">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has been created but not sent to the person.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Read">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has been read by the intended audience.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Replied">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage had a new message created in response to this message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="SecureMessageStatusList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of secureMessage status that should have their associated secureMessages either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessageStatus" type="SecureMessageStatus" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A secureMessage status that should have its associated secureMessages either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name ="SecureMessageType">
+    <xs:annotation>
+      <xs:documentation>
+        Type of secureMessage or secureMessage template such as Product Offer, Notice, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+
+      <xs:enumeration value="Alert">
+        <xs:annotation>
+          <xs:documentation>
+            Contains information about an alert due to an event that occurred that the party requested.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="GeneralMessage">
+        <xs:annotation>
+          <xs:documentation>
+            General information about a product or service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Notice">
+        <xs:annotation>
+          <xs:documentation>
+            Legal notice to party(ies) that is required to be sent when an event happens on their associated accounts.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="ProductOffering">
+        <xs:annotation>
+          <xs:documentation>
+            A product offering which may include confidential information.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="ScheduleMeeting">
+        <xs:annotation>
+          <xs:documentation>
+            Contains information about a meeting request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="ServiceUpdate">
+        <xs:annotation>
+          <xs:documentation>
+            Information on current or new services.  May contain information about next steps that
+            FI is executing or next steps that party is supposed to perform.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="SignatureRequired">
+        <xs:annotation>
+          <xs:documentation>
+            Documents contained within message require an electronic or wet signature.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>
+            This value can be used when no other types relate to the particular secureMessage.  
+            What the secureMessage is can be found using the secureMessage subject line.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction >
+  </xs:simpleType>
+
+  <xs:complexType name="SecureMessageTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of secureMessage type that should have their associated secureMessages either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessageType" type="SecureMessageType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A secureMessage type that should have its associated secureMessages either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name ="SecureMessageUser">
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation>
+          Details relating to loan account
+        </xs:documentation>
+      </xs:annotation>
+      <xs:extension base="messageContext:User">
+        <xs:sequence>
+          <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                If user type is fiUserId, then this is the pointer to the fiUserId relates to.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          
+          <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                If user type is fiUserId, then this is the relationship that the fiUserId relates to.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          
+          <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                If user type is fiUserId, then this is the account that the fiUserId relates to.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="cardId" type="card:CardId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                If user type is fiUserId, then this is the card that the fiUserId relates to.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension >
+    </xs:complexContent >
+  </xs:complexType >
+
+  <xs:simpleType name="BodyFormat">
+    <xs:annotation>
+      <xs:documentation>
+        The format of the body content.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Html">
+        <xs:annotation>
+          <xs:documentation>
+            The body contains full HTML markup.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="Text">
+        <xs:annotation>
+          <xs:documentation>
+            The body contains raw text in ASCII format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>

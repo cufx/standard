@@ -122,11 +122,54 @@
 
 	<xs:simpleType name="UserType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="EmployeeId" />
-			<xs:enumeration value="VendorEmployeeId" />
-			<xs:enumeration value="Anonymous" />
-			<xs:enumeration value="FIUserId" />
-			<xs:enumeration value="Custom" />
+      <xs:enumeration value="EmployeeId" >
+        <xs:annotation>
+          <xs:documentation>
+            The UserId is an employee Id for logging into the network.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="VendorEmployeeId">
+        <xs:annotation>
+          <xs:documentation>
+            The Vendor is a vendor employee Id for logging into the network.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value="Anonymous" >
+        <xs:annotation>
+          <xs:documentation>
+            The User id is a essentially unknown i.e. no credentials are required.
+            Business rules will have been applied to either prevent or allow anonymous access to the service in question.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value="FIUserId" >
+        <xs:annotation>
+          <xs:documentation>
+            The credential group identifier of a party that was used to access the service.  See CredentialGroup schema.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="SystemAccountId" >
+        <xs:annotation>
+          <xs:documentation>
+            The system user identifier of a system account that was used to access the service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+			<xs:enumeration value="Custom" >
+        <xs:annotation>
+          <xs:documentation>
+            The user identification was not one of the above formats.  .
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
