@@ -107,6 +107,15 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="preferenceStatusList" type="preference:PreferenceStatusList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of Preference Statuses that should have their associated preferences either returned or affected
+            by a read, update or delete preference request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="widgetNameList" type="preference:WidgetNameList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

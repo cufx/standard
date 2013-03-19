@@ -70,6 +70,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Collection of key fields to point to a list of parties for which the preference applies.
+            Not applicable to Template status preferences.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -77,16 +78,18 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Collection of key fields to point to a list of relationships for which the preference applies.
-					</xs:documentation>
+            Collection of key fields to point to a list of relationships for which the preference applies.
+            Not applicable to Template status preferences.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Collection of key fields to point to a list of accounts for which the preference applies.
-					</xs:documentation>
+            Collection of key fields to point to a list of accounts for which the preference applies.
+            Not applicable to Template status preferences.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
@@ -94,6 +97,7 @@
         <xs:annotation>
           <xs:documentation>
             Collection of key fields to point to a list of cards for which the preference applies.
+            Not applicable to Template status preferences.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -101,8 +105,9 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Collection of key fields to point to a list of contacts for which the preference applies.
-					</xs:documentation>
+            Collection of key fields to point to a list of contacts for which the preference applies.
+            Not applicable to Template status preferences.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
@@ -133,13 +138,17 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="preferenceActive" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
+      <xs:element name="preferenceStatus" type="PreferenceStatus" minOccurs="0" maxOccurs="1" default="Active">
         <xs:annotation>
           <xs:documentation>
-            The preference record is active and should be used when determining actions to take.
-            If the value is false then the preference record should be ignored.
-            This is helpful for retaining values if a preference is temporarily inactivated but the
-            current values want to be retained for future use.
+            The preference status can either be a Template, Inactive or Active.
+            - If Template, then this indicates that the preference is available for consumption by the all parties.
+                Once the party creates the preference, it would be saved with the account information, etc. to
+                relate it to the accounts, parties, relationships, cards appropriate for the party.
+            - If Active preference should be used when determining actions to take for the party, relationship, etc.
+            - If Inactive then the preference record should be ignored.  This is helpful for retaining 
+                values if a preference is temporarily inactivated but the
+                current values want to be retained for future use.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -149,6 +158,7 @@
 					<xs:documentation>
 						The value specified for the preference.  This can either be a numeric, boolean, date/time or text value depending upon the type
             and subType of the preference.
+            For preference status of Template, this value represents the default value if provided.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -156,10 +166,25 @@
 			<xs:element name="alertCustomText" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Additional custom text to send in an alert.
-					</xs:documentation>
+            When type is EAlert and subType is ScheduledMessage, additional custom text to send in an alert.
+            For preference status of Template, this value represents the default value if provided.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+      <xs:element name="actionableAlert" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Valid only for preference records of EAlert type.
+            Determines if the alert when sent to the party is expecting a response back from the party.
+            For example, if a party receives an alert that states that there loan is overdue you it could
+            ask a question that the user needs to response to to make the payment.  Additional example might be
+            if a transaction went through that appears to be fraudulent, the alert could expect a response
+            back from the party to allow the posting to occur.
+            This field is typically not managed by the party but is set by the system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
       <xs:element name="widgetName" type="WidgetName" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -682,8 +707,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="IncomingWireExceeds" >
+
+      <xs:enumeration value ="PotentialFraud" >
+        <xs:annotation>
+          <xs:documentation>
+            Potential fraud was found on a related account
+            (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="IncomingWireExceeds" >
         <xs:annotation>
           <xs:documentation>
             A incoming wire on a related account (either through party, relationship, card or account)
@@ -776,6 +811,26 @@
         </xs:annotation>
       </xs:enumeration>
 
+      <xs:enumeration value ="PasswordResetSuccess" >
+        <xs:annotation>
+          <xs:documentation>
+            Password was reset was attempted and was successful on a related account
+            (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="PasswordResetFailure" >
+        <xs:annotation>
+          <xs:documentation>
+            A password reset was attempted but failed on a related account
+            (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
       <xs:enumeration value ="PaymentDueInXDays" >
         <xs:annotation>
           <xs:documentation>
@@ -844,6 +899,16 @@
         <xs:annotation>
           <xs:documentation>
             An SSN was changed on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="SystemNotification" >
+        <xs:annotation>
+          <xs:documentation>
+            Party wishes to be contacted using the associated contact channel when there are system issues such as
+            scheduled outages, unexpected outages, etc.
             If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
@@ -973,7 +1038,7 @@
   <xs:complexType name="WidgetNameList">
     <xs:annotation>
       <xs:documentation>
-        The list of widget names  that should have their preference accounts either returned or affected
+        The list of widget names  that should have their preference records either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
@@ -990,5 +1055,65 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:simpleType name="PreferenceStatus" >
+    <xs:annotation>
+      <xs:documentation>
+        The preference status can either be a Template, NotActive or Active.
+        If NotActive then the preference record should be ignored.  This is helpful for retaining
+        values if a preference is temporarily inactivated but the
+        current values want to be retained for future use.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:restriction base="xs:string" >
+      <xs:enumeration value ="Template">
+        <xs:annotation>
+          <xs:documentation>
+            If Template, then this indicates that the preference is available for consumption by the all parties.
+            Once the party creates the preference, it would be saved with the account information, etc. to
+            relate it to the accounts, parties, relationships, cards appropriate for the party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="Active">
+        <xs:annotation>
+          <xs:documentation>
+            If Active preference should be used when determining actions to take for the party, relationship, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="Inactive">
+        <xs:annotation>
+          <xs:documentation>
+            If Inactive then the preference record should be ignored.  This is helpful for retaining
+            values if a preference is temporarily inactivated but the
+            current values want to be retained for future use.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="PreferenceStatusList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of preferences status that should have their preference records either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="preferenceStatus" type="PreferenceStatus" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An widget name that should have its associated preference either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
