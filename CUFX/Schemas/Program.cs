@@ -32,7 +32,7 @@ namespace DocGenerator
 				Directory.CreateDirectory(exampleDirectory);
 
 
-			// For each XSD file, create the HTML documentation, and examples (.cs, .vb, .xml)
+			// For each XSD file, create the HTML documentation, and examples (.cs, .vb, .xml, json)
 			foreach (string xsdFilePath in files)
 			{
 				#region Generate the HTML documentation

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd"
+	xmlns="http://cufxstandards.com/v2/RemoteDepositCapture.xsd"
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+	<xs:element name="remoteDepositCaptureList" type="RemoteDepositCaptureList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level remote deposit capture list collection element
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="RemoteDepositCaptureList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of remote deposit catpure items.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="remoteDepositCapture" type="RemoteDepositCapture" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to remote deposit capture item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositCapture">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					TODO
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="routingTransitNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Routing/Transit number of the financial institution; 9-digits;
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the deposit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cropped" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						If set to true, indicates that the image has already been cropped, if false indicates that the image is not already cropped.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="frontImage" type="xs:base64Binary" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The front image of the check.  Image must be in JPG or PNG format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="backImage" type="xs:base64Binary" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The front image of the check. Image must be in JPG or PNG format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

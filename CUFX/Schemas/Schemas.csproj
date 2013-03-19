@@ -63,8 +63,9 @@
     <StartupObject>DocGenerator.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FizzWare.NBuilder">
-      <HintPath>C:\TFSProjects\Research\CMarjaniemi\nbuilder\Source\FizzWare.NBuilder\bin\Debug\FizzWare.NBuilder.dll</HintPath>
+    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Refs\FizzWare.NBuilder.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -128,6 +129,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Collateral.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RemoteDepositCapture.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -197,6 +202,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Refs\FizzWare.NBuilder.dll" />
     <Content Include="Refs\Newtonsoft.Json.dll" />
     <None Include="OverdraftPriorityList.xsd">
       <SubType>Designer</SubType>
