@@ -330,14 +330,16 @@
 						<xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
               <xs:annotation>
                 <xs:documentation>
-                  Whether the transaction is pending or posted.
+                  Whether the transaction is pending,posted, denied, or Void.
                 </xs:documentation>
               </xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Posted"></xs:enumeration>
 									<xs:enumeration value="Pending"></xs:enumeration>
-								</xs:restriction>
+                  <xs:enumeration value="Denied"></xs:enumeration>
+                  <xs:enumeration value="Void"></xs:enumeration>
+                </xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="principalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
