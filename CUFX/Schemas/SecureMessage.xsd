@@ -263,14 +263,14 @@
       <xs:enumeration value="Draft">
         <xs:annotation>
           <xs:documentation>
-            The secureMessage has been created but not sent to the person.
+            The secureMessage has been created but not sent to the receiver.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Read">
         <xs:annotation>
           <xs:documentation>
-            The secureMessage has been read by the intended audience.
+            The secureMessage has been read by the intended receiver.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -278,6 +278,13 @@
         <xs:annotation>
           <xs:documentation>
             The secureMessage had a new message created in response to this message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Forwarded">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage was forwarded to another receiver.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
