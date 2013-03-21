@@ -91,23 +91,51 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="messageFrom" type="SecureMessageUser" minOccurs="0" maxOccurs="1">
+      <xs:element name="messageFromList" type="SecureMessageUserList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Whom or what originated the message.
+            Whom or what originated the message.  There most like is not multiple from entities.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="replyTo" type="SecureMessageUser" minOccurs="0" maxOccurs="1">
+      <xs:element name="messageToList" type="SecureMessageUserList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Whom or what should receive the message reply.
+            Whom or what should receive the message.  There may likely be multiple receivers.
+            For example, a message to sign a loan document that went to the borrower and co-borrower.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="carbonCopyList" type="SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whom should be carbon copied on the message. There may likely be multiple carbon copy receivers.
+           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="blindCarbonCopyList" type="SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whom should be blind carbon copied on the message. There may likely be multiple carbon copy receivers.
+            The messageTo receivers will not know that a blind carbon copy receiver was sent a copy.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="replyToList" type="SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Whom or what should receive the message reply.  If not present,  then the
+            reply should go to messageFrom.  There may be more than one reply to entities.
+            For example, a message to sign a document might go to legal and to loan processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="Type" type="SecureMessageType" minOccurs="0" maxOccurs="1">
+      <xs:element name="type" type="SecureMessageType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A valid type of a secureMessage or secureMessage templates.
@@ -115,10 +143,19 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="status" type="SecureMessageStatus" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentStatus" type="SecureMessageStatus" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Current status of the secureMessage in the process.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="statusLog" type="StatusLog" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and times with the status that the secureMessage was either drafted, sent, read, replied,
+            forwarded, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -142,8 +179,10 @@
       <xs:element name="documentIdList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Pointers to the documents attached to the secure message.  This is provided as a list in case the secureMessage contains multiple
-            documents.
+            Pointers to the documents attached to the secure message.  This is provided as a list 
+            in case the secureMessage contains multiple documents.  If functionality is available, 
+            the documents will have a status as to whether they are require signature and are signed 
+            or not signed.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -151,14 +190,14 @@
       <xs:element name="doNotDeliverBeforeDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The date and time that the secureMessage should be sent.
+            The date and time that the secureMessage should be sent if put on a delayed delivery schedule.
             The date/time should be ISO 8601 UTC format.
             yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
             formats are supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
+   
       <xs:element name="expirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -216,7 +255,6 @@
     </xs:sequence>
   </xs:complexType>
 
-
   <xs:simpleType name="SubjectLine">
     <xs:annotation>
       <xs:documentation>
@@ -267,6 +305,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="Outbox">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has been placed in a outbox to send but not sent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sent">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has been sent to the intended receiver.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Read">
         <xs:annotation>
           <xs:documentation>
@@ -284,7 +336,15 @@
       <xs:enumeration value="Forwarded">
         <xs:annotation>
           <xs:documentation>
-            The secureMessage was forwarded to another receiver.
+            The secureMessage was forwarded to another receiver.  Typically,
+            a new secureMessage would be created for the new receiver to view.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Archived">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage was archived.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -409,7 +469,12 @@
     <xs:complexContent>
       <xs:annotation>
         <xs:documentation>
-          Details relating to loan account
+          Details relating to secureMessage receiver or sender.
+          Note that messageContext:User contains the necessary information for identifying
+          internal users, system accounts or external users and external fiUserId accounts.
+          If this information is not present, the partyId, account, relationship, etc. may be the "receiver".
+          If both the user info is available and the info is provided below then it's an AND condition.
+          e.g. The message was sent to fiUserId='cufxuser', partyid='123' on account='12334'.
         </xs:documentation>
       </xs:annotation>
       <xs:extension base="messageContext:User">
@@ -417,7 +482,7 @@
           <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                If user type is fiUserId, then this is the pointer to the fiUserId relates to.
+                This is a party that message relates to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -425,7 +490,7 @@
           <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                If user type is fiUserId, then this is the relationship that the fiUserId relates to.
+                This is the relationship that the message relates to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -433,7 +498,7 @@
           <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                If user type is fiUserId, then this is the account that the fiUserId relates to.
+                This is the account the message relates to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -441,7 +506,7 @@
           <xs:element name="cardId" type="card:CardId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                If user type is fiUserId, then this is the card that the fiUserId relates to.
+                This is the card that the message relates to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -450,6 +515,26 @@
     </xs:complexContent >
   </xs:complexType >
 
+  <xs:complexType name="SecureMessageUserList">
+    <xs:annotation>
+      <xs:documentation>
+        Can serve as a list of users that either receive or sent a message or 
+        The list of secureMessage users that should have their associated secureMessages either returned or affected
+        by a read, update or delete a request when filtering
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessageUser" type="SecureMessageUser" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A secureMessage type that should have its associated secureMessages either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:simpleType name="BodyFormat">
     <xs:annotation>
       <xs:documentation>
@@ -474,5 +559,52 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
+  <xs:complexType name="StatusLog">
+    <xs:annotation>
+      <xs:documentation>
+        The date and times with the status that the secureMessage was either drafted, sent, read, replied,
+        forwarded, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statusLogEntry" type="StatusLogEntry" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Status entry at the point in time when the secureMessage was at a given status.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType>
+
+  <xs:complexType name="StatusLogEntry">
+    <xs:annotation>
+      <xs:documentation>
+        The date and times with the status that the secureMessage was either drafted, sent, read, replied,
+        forwarded, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="status" type="SecureMessageStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Status of the secureMessage in the process at a historical point in time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="statusDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time that the secureMessage was either drafted, read, sent, replied,
+            forwarded, etc.  See Status for valid events.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+
 </xs:schema>

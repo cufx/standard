@@ -1,0 +1,182 @@
+﻿<xs:schema targetNamespace="http://cufxstandards.com/v2/SecureMessageFilter.xsd"
+	version="2.0.$Revision: 123 $"
+	xmlns="http://cufxstandards.com/v2/SecureMessageFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:document="http://cufxstandards.com/v2/Document.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:secureMessage="http://cufxstandards.com/v2/SecureMessage.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+
+  <xs:element name="secureMessageFilter" type="SecureMessageFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting relationship data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="SecureMessageFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting secureMessage data.  The options can be used
+        in combination or by themselves and it is up to the data source to either return or affect the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="secureMessageIdList" type="secureMessage:SecureMessageIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessageId's that should have their associated secureMessages
+            returned or affected by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="subjectLineList" type="secureMessage:SubjectLineList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of subjectLines that should have their associated secureMessages returned or
+            affected by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="messageFromList" type="secureMessage:SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage messageFrom senders that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="messageToList" type="secureMessage:SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage messageTo receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="carbonCopyList" type="secureMessage:SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage carbonCopy receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="blindCarbonCopyList" type="secureMessage:SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage blindCarbonCopy receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="replyToList" type="secureMessage:SecureMessageUserList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage replyTo receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="secureMessageTypeList" type="secureMessage:SecureMessageTypeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage types that should have their associated secureMessages either returned or affected
+            by a read, update or delete a request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="currentStatusList" type="secureMessage:SecureMessageStatusList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage current statuses that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="statusLogList" type="secureMessage:SecureMessageStatusList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessage status from a historical perspectie that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="statusLogBeginDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The being date and time that should be used when filtering for secureMessages
+            based on status of the message at a point in time.
+            The time is assumed to be 00:00Z if omitted.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="statusLogEndDate" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The being date and time that should be used when filtering for secureMessages
+            based on status of the message at a point in time.
+            The time is assumed to be 00:00Z if omitted.
+            If left unsupplied then all secureMessages are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="bodyContains" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secureMessages that contain the bodyContains string somewhere 
+            within the body that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="returnConversation" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If true, all previous messages linked to the messages that matched the search criteria 
+            if available will be returned.  Based on previousSecureMessageId.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
