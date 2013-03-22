@@ -11,10 +11,10 @@
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name="remoteDepositCaptureList" type="RemoteDepositCaptureList">
+
+	<xs:element name="remoteDepositCaptureList" type="RemoteDepositCaptureList">
 		<xs:annotation>
 			<xs:documentation>
 				Top level remote deposit capture list collection element
@@ -34,9 +34,9 @@
 					<xs:documentation>
 						Details relating to remote deposit capture item.
 					</xs:documentation>
-				</xs:annotation>       
+				</xs:annotation>
 			</xs:element>
-    </xs:sequence>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="RemoteDepositCapture">
@@ -81,11 +81,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The ID of the linked account.</xs:documentation>
-        </xs:annotation>
-      </xs:element>      
+			<xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The ID of the linked account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
