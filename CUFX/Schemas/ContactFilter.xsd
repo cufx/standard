@@ -85,6 +85,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="badContactPoint" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True then return back only contact points that have bad ContactPoint to set to true.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
     </xs:sequence>
   </xs:complexType>
 
