@@ -9,7 +9,10 @@
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:secureMessage="http://cufxstandards.com/v2/SecureMessage.xsd"
+  xmlns:document="http://cufxstandards.com/v2/Document.xsd"           
   
+           
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -18,6 +21,9 @@
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation ="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
+
 
   <xs:element name="productServiceRequestList" type="ProductServiceRequestList">
     <xs:annotation>
@@ -280,6 +286,26 @@
         </xs:annotation>
       </xs:element >
 
+      <xs:element name="secureMessageId" type="secureMessage:SecureMessageId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
+            that the secureMessage is for. It should be unique for all secureMessages across the
+            institution and remain the same over the life of the secureMessage within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="documentId" type="document:DocumentId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
+            that the document is for. It should be unique for all documents across the
+            institution and remain the same over the life of the document within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      
       </xs:sequence>
   </xs:complexType>
 
