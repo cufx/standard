@@ -179,12 +179,13 @@
     </xs:annotation>
 
     <xs:sequence>
-      <xs:element name="requestId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+      
+      <xs:element name="requestId" type="RequestId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for the request.
           </xs:documentation>
-        </xs:annotation >
+        </xs:annotation>
       </xs:element>
 
       <xs:element name="requestItem" type="RequestItem" minOccurs ="0" maxOccurs ="1">
@@ -276,6 +277,22 @@
         </xs:annotation >
       </xs:element>
 
+      <xs:element name="secureMessageList" type="SecureMessageList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is a list of secure messages associated with the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="documentList" type="DocumentIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is a list of documents associated with the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>  
+
       <xs:element name="requestCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -285,29 +302,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element >
-
-      <xs:element name="secureMessageId" type="secureMessage:SecureMessageId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
-            that the secureMessage is for. It should be unique for all secureMessages across the
-            institution and remain the same over the life of the secureMessage within the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="documentId" type="document:DocumentId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
-            that the document is for. It should be unique for all documents across the
-            institution and remain the same over the life of the document within the financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
       
       </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name="RequestId">
+    <xs:annotation>
+      <xs:documentation>
+        Unique identifier for the request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
 
   <xs:complexType name="RequestItem">
     <xs:annotation>
@@ -480,12 +486,54 @@
       </xs:element >
     </xs:sequence>
   </xs:complexType>
- 
+
+  <xs:complexType name="SecureMessageList">
+    <xs:annotation>
+      <xs:documentation>
+        Secure Messages releated to request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:sequence>
+        <xs:element name="secureMessageId" type="secureMessage:SecureMessageId" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
+              that the secureMessage is for. It should be unique for all secureMessages across the
+              institution and remain the same over the life of the secureMessage within the financial institution.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DocumentIdList">
+    <xs:annotation>
+      <xs:documentation>
+        Documents releated to request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:sequence>
+        <xs:element name="documentId" type="document:DocumentId" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
+              that the document is for. It should be unique for all documents across the
+              institution and remain the same over the life of the document within the financial institution.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:simpleType name ="ProductServiceRequestId">
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The productServiceRequest ID is a persistent and unique identifier
+          The productServiceRequest ID is a persistentent and unique identifier.
           for the productServiceRequest.
           It should be unique for all ProductServiceRequests across the institution and remain
           the same over the life of the ProductServiceRequest within the financial institution.
