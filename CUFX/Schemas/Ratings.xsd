@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/Ratings.xsd"
+	version="2.1.$Revision$"
+  xmlns="http://cufxstandards.com/v2/Ratings.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+
+  <xs:element name="ratingsList">
+    <xs:annotation>
+      <xs:documentation>
+        This is a list of product or service ratings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rating" type="Rating" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              This is an individual rating.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Rating">
+    <xs:sequence>
+      <xs:element name="reviewId" type="RatingId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The rating ID is a persistent and unique identifier for the rating.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewDateTime" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The datetime that review was submitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerName" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The name of reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productCode" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The product code that was being review.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productName" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The product name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="overallRating" type="xs:decimal"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The overall rating in a number format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="featureReview" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description Pending
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="recommended" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Does the reviewer recommend this product (yes/no)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewSubject" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A short description of the rating.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewDescription" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A long description of the rating.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerEmail" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The email of reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerUserId" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The user id of the reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerLocation" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The location of the reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerAge" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The age of the reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reviewerGender" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The gender of the reviewer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productDescription" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A description of the product being rated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productType" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The type or category of product being rated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productURL" type="xs:string"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The URL associated with product getting rated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="RatingId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The account ID is a persistent and unique identifier for the account.
+          It must be unique for all users across the institution and remain the same over the life of the account.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>
