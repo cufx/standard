@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/Transfer.xsd"
+	version="2.1.$Revision: 1 $"
+	xmlns="http://cufxstandards.com/v2/Transfer.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	
+	<xs:complexType name="Transfers">
+		<xs:sequence>
+			<xs:element name="transfer" type="Transfer" minOccurs="0" maxOccurs="unbounded"   />
+		</xs:sequence>
+	</xs:complexType>		
+	
+	<xs:complexType name="Transfer">
+		<xs:sequence>
+			<xs:element name="ProcessDate" type="xs:dateTime" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>The DueDate the user entered for this transfer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProjectedDate" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date the transfer will actually get processed by the system</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Amount" type="xs:decimal" minOccurs="0" />
+      <xs:element name="fromAccount" type="account:Account" minOccurs ="0" maxOccurs ="1"/>
+      <xs:element name="toAccount" type="account:Account" minOccurs ="0" maxOccurs ="1"/>
+		<!--	<xs:element name="FromRTN" type="xs:string" minOccurs="0" />
+			<xs:element name="FromAccountNumber" type="xs:string" minOccurs="0"  />
+			<xs:element name="FromAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="ToRTN" type="xs:string" minOccurs="0" />
+			<xs:element name="ToAccountNumber" type="xs:string" minOccurs="0"   />
+			<xs:element name="ToAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="FromHostAccount1" type="xs:string" minOccurs="0" />
+			<xs:element name="FromHostAccount2" type="xs:string" minOccurs="0" />
+			<xs:element name="FromHostAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="FromHostAccountTypeCode" type="xs:int" minOccurs="0" />
+			<xs:element name="ToHostAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="ToHostAccountTypeCode" type="xs:int" minOccurs="0" />
+			<xs:element name="ToHostAccount1" type="xs:string" minOccurs="0" />
+			<xs:element name="ToHostAccount2" type="xs:string" minOccurs="0" /> 
+			<xs:element name="DefaultAmount" type="xs:decimal" minOccurs="0" />
+			<xs:element name="DefaultToAccountNumber" type="xs:string" minOccurs="0"  />
+			<xs:element name="DefaultFromAccountNumber" type="xs:string" minOccurs="0" /> -->
+			
+      <xs:element name="TransferID" type="xs:long" minOccurs="0"   />
+      <xs:element name="TransferConfirmation" type="xs:string" minOccurs="0"   />
+      
+			<xs:element name="DateCreated" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="DateBeganProcessing" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="DateCompleted" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="DateLastUpdated" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="Immediate" type="xs:dateTime" minOccurs="0" />
+			<!-- enum -->
+      <xs:element name="Status" type="xs:string" minOccurs="0" />
+			<xs:element name="HostTraceNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="RecurringTransferID" type="xs:long" minOccurs="0"  />
+      <!-- enum -->
+			<xs:element name="Frequency" type="xs:string" minOccurs="0" />
+			<xs:element name="OpenEnded" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="TransfersToGenerate" type="xs:int" minOccurs="0"   />
+			<xs:element name="AnchorProcessDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="NextProcessDate" type="xs:dateTime" minOccurs="0" />
+			<!-- <xs:element name="DefaultFromRTN" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultFromAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultFromHostAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultFromHostAccountTypeCode" type="xs:int" minOccurs="0" />
+			<xs:element name="DefaultFromHostAccount1" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultFromHostAccount2" type="xs:string" minOccurs="0" /> 
+			<xs:element name="DefaultToRTN" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultToAccountType" type="xs:string" />
+			<xs:element name="DefaultToHostAccountType" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultToHostAccountTypeCode" type="xs:int" minOccurs="0" />
+			<xs:element name="DefaultToHostAccount1" type="xs:string" minOccurs="0" />
+			<xs:element name="DefaultToHostAccount2" type="xs:string" /> -->
+			<xs:element name="Memo" type="xs:string" minOccurs="0" />
+			<xs:element name="AuxData" type="xs:string" minOccurs="0" />
+			<xs:element name="FinalAmount" type="xs:decimal" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The final amount that is due i.e. the amount to be applied for the last transfer</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FinalTransferDate" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The date on which the final transfer is due to be processed</xs:documentation>
+				</xs:annotation>
+			</xs:element>			 
+			<xs:element name="DateLastStatusUpdate" type="xs:dateTime" minOccurs="0" />
+ 			<xs:element name="DatePosted" type="xs:dateTime" minOccurs="0" />	 
+			<xs:element name="MemoPosted" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether the Transfer has been memo posted or not.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:schema>

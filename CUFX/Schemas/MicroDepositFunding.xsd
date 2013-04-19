@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/MicroDepositFunding.xsd"
+	version="2.1.$Revision: 1 $"
+	xmlns="http://cufxstandards.com/v2/MicroDepositFunding.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd" 
+	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	
+	<xs:complexType name="MicroDepositFunding">
+		<xs:sequence>
+			<xs:element name="fundingAccount" type="account:Account" minOccurs ="0" maxOccurs ="1"/>
+			<xs:element name="microDeposit1" type="xs:decimal" minOccurs ="0" maxOccurs ="1"/>
+			<xs:element name="microDeposit2" type="xs:decimal" minOccurs ="0" maxOccurs ="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	</xs:schema>

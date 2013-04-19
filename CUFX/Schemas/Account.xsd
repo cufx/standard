@@ -152,6 +152,54 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+              Routing number for the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True for an external account, False for an internal account.
+           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalTransferFrom" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True when transfers are allowed from  external account.
+           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="externalTransferTo" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True when transfers are allowed to external account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="transferFrom" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True when transfers are allowed from this account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="transferTo" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True when transfers are allowed to this account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="rateType" type="RateType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>

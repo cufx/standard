@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/TransferFilter.xsd"
+	version="2.1.$Revision: 266 $"
+	xmlns="http://cufxstandards.com/v2/TransferFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xf="http://cufxstandards.com/v2/Transfer.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Transfer.xsd" schemaLocation="Transfer.xsd" />
+
+
+  <xs:element name="transferFilter" type="TransferFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for transfers
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="TransferFilter">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          Retrieve filters based on certain parameters.
+        </xs:documentation>
+      </xs:annotation>
+
+      <xs:element name="FromDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1"/>
+      <xs:element name="ToDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1"/>
+      <xs:element name="Status" type="TransferStatus" minOccurs="0" maxOccurs ="1"/>
+      <xs:element name="IncludeExternal" type="xs:boolean" minOccurs="0" maxOccurs ="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TransferStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending">
+        <xs:annotation>
+          <xs:documentation>
+            Pending transfer status.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="Posted">
+        <xs:annotation>
+          <xs:documentation>
+            Posted transfer status.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+    <xs:enumeration value="Failed">
+      <xs:annotation>
+        <xs:documentation>
+          Failed transfer status.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+
