@@ -25,8 +25,6 @@
     <xs:annotation>
       <xs:documentation>
         This is a list of actions the user is permitted to perform.
-        When requested from the server, presumably at logon, the entire permission list for the FiUserId specified in
-        the message context (or session) is returned.
         Any permissions not explicitly in the list should be assumed as not permitted.
       </xs:documentation>
     </xs:annotation>
@@ -35,7 +33,7 @@
         <xs:element name="permission" type="Permission" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>
-              An action the user is permitted to perform.
+              An action the principal is permitted to perform.
             </xs:documentation>
           </xs:annotation>
         </xs:element>

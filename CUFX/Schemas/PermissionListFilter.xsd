@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/PermissionListFilter.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/PermissionListFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:permissionList="http://cufxstandards.com/v2/PermissionList.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:card="http://cufxstandards.com/v2/Card.xsd"
+	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:credentialGroup="http://cufxstandards.com/v2/CredentialGroup.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/PermissionList.xsd" schemaLocation="PermissionList.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+
+  <xs:element name="permissionListFilter" type="PermissionListFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting permission list data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="PermissionListFilter">
+    <xs:sequence>
+      <xs:element name="principals" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The users, parties, or other authenticated entities to search for.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The user principals to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The party principals to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The relationship principals to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actionList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Actions to search for.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="action" type="permissionList:ExtendedAction" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                An action to search for.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:element>
+      <xs:element name="resources" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The accounts, users, or other securable assets to search for.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Resource accounts to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="fiUserIdList" type="credentialGroup:FiUserIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Resource users to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Resource cards to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Resource relationships to search for.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
