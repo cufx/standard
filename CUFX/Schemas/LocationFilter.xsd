@@ -12,18 +12,25 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 
+	<xs:element name="locationFilter" type="LocationFilter">
+		<xs:annotation>
+			<xs:documentation>
+				Instance of a location filter.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
 	<xs:complexType name="LocationFilter">
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
-					A location filter is used to query for locations near and address, for a given type, etc.
+					A location filter is used to query for locations near an address, for a given type, etc.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="locationId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						A unique identifier for the location.
+						A unique identifier for the location.  Use this for trying to retrieve a single location.
 					</xs:documentation>
 				</xs:annotation>	
 			</xs:element>
@@ -44,15 +51,34 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="address" type="contact:Address" minOccurs="0" maxOccurs="1">
+			<xs:element name="searchFromAddress" type="contact:Address" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The address of the ATM or branch.
+						The address to search for nearby locations.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="maxNumberOfResults" type="xs:integer" minOccurs="0" maxOccurs="1"/>	
+			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Whether or not to include only deposit taking locations in the results.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxNumberOfResults" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum number of results to return.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
+			<xs:element name="maxDistance" type="common:Distance" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Maximum distance (e.g. 25 miles) to search for locations from the searchFromAddress.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

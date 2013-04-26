@@ -51,8 +51,20 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="distance" type="common:Distance" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A optional name for the location that would be used to display to the end user on the application, maps, etc.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
+			<xs:element name="distance" type="common:Distance" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The distance between this location, and the address that was passed into the location filter used to search for these locations.  If no location filter was used, this value would be zero.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
 			<xs:element name="type" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -73,24 +85,42 @@
 			<xs:element name="address" type="contact:Address" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The address of the ATM or branch.
+						The address of the ATM or branch.  This may be just a latitude and longitude coordinate.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="phone" type="contact:Phone" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="mapUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="phone" type="contact:Phone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The phone number for this location.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
+			<xs:element name="mapUrl" type="xs:anyURI" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A url that links to a map displaying this location.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="network" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The network of the ATM (e.g. COOP, NYCE, MoneyPass, Star, etc).
+						The network of the ATM or Shared Branch (e.g. COOP, NYCE, MoneyPass, Star, etc).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Whether or not this location supports taking deposits.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
 			<xs:element name="locationHoursList" type="LocationHoursList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to a location (e.g. ATM, Branch).
+						Contains the hours for this location.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
