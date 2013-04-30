@@ -98,6 +98,9 @@
         </xs:annotation>
       </xs:element>
 
+      
+      
+      
       <xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -375,7 +378,17 @@
                 </xs:documentation>
               </xs:annotation>
 						</xs:element>
-						<xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
+            <xs:element name="dateTimeEffective" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The Date Transaction Effective is the date (and time) the transaction actually occured.
+                  he date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+                  (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+                  supported.  The time is assume to be 00:00Z if omitted.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
               <xs:annotation>
                 <xs:documentation>
                   This attribute shows whether the transaction is pending, posted, denied, or void.
