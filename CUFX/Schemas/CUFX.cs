@@ -19399,7 +19399,7 @@ namespace cufxstandards.com {
         
         private Contact[] contactField;
         
-        private mode[] modeField;
+        private Mode[] modeField;
         
         /// <remarks/>
         public string routingTransitNumber {
@@ -19487,7 +19487,7 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("mode")]
-        public mode[] mode {
+        public Mode[] mode {
             get {
                 return this.modeField;
             }
@@ -19499,7 +19499,7 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd")]
-    public enum mode {
+    public enum Mode {
         
         /// <remarks/>
         Test,
@@ -20324,6 +20324,125 @@ namespace cufxstandards.com {
                 this.customDataField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/TransferFilter.xsd")]
+    public partial class TransferFilter {
+        
+        private System.DateTime fromDateField;
+        
+        private bool fromDateFieldSpecified;
+        
+        private System.DateTime toDateField;
+        
+        private bool toDateFieldSpecified;
+        
+        private TransferStatus statusField;
+        
+        private bool statusFieldSpecified;
+        
+        private bool includeExternalField;
+        
+        private bool includeExternalFieldSpecified;
+        
+        /// <remarks/>
+        public System.DateTime FromDate {
+            get {
+                return this.fromDateField;
+            }
+            set {
+                this.fromDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FromDateSpecified {
+            get {
+                return this.fromDateFieldSpecified;
+            }
+            set {
+                this.fromDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime ToDate {
+            get {
+                return this.toDateField;
+            }
+            set {
+                this.toDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ToDateSpecified {
+            get {
+                return this.toDateFieldSpecified;
+            }
+            set {
+                this.toDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public TransferStatus Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool StatusSpecified {
+            get {
+                return this.statusFieldSpecified;
+            }
+            set {
+                this.statusFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IncludeExternal {
+            get {
+                return this.includeExternalField;
+            }
+            set {
+                this.includeExternalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IncludeExternalSpecified {
+            get {
+                return this.includeExternalFieldSpecified;
+            }
+            set {
+                this.includeExternalFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/TransferFilter.xsd")]
+    public enum TransferStatus {
+        
+        /// <remarks/>
+        Pending,
+        
+        /// <remarks/>
+        Posted,
+        
+        /// <remarks/>
+        Failed,
     }
     
     /// <remarks/>

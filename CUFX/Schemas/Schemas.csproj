@@ -6,9 +6,9 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3C5FB495-549A-48BC-B0C7-B435FC39D269}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocGenerator</RootNamespace>
+    <RootNamespace>CUFX.Schemas</RootNamespace>
     <AssemblyName>DocGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -60,41 +60,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DocGenerator.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FizzWare.NBuilder, Version=3.0.1.0, Culture=neutral, PublicKeyToken=5651b03e12e42c12, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Refs\FizzWare.NBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\TFSProjects\EntFederal\Main\Web\Orcc\Source\Libraries\Ent.Notifications.Shared\Apple\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CUFX.cs" />
-    <Compile Include="ExampleGenerators\JsonGenerator.cs" />
-    <Compile Include="ExampleGenerators\CodeGenerator.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExampleGenerators\Facets.cs" />
-    <Compile Include="ExampleGenerators\Generator.cs" />
-    <Compile Include="ExampleGenerators\InstanceAttribute.cs" />
-    <Compile Include="ExampleGenerators\InstanceElement.cs" />
-    <Compile Include="ExampleGenerators\InstanceGroup.cs" />
-    <Compile Include="ExampleGenerators\InstanceObject.cs" />
-    <Compile Include="ExampleGenerators\XmlGen.cs" />
-    <Compile Include="ExampleGenerators\XmlSampleGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Account.xsd">
@@ -132,6 +112,9 @@
     <None Include="Collateral.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="MicroDepositFunding.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Ratings.xsd">
       <SubType>Designer</SubType>
@@ -207,8 +190,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Refs\FizzWare.NBuilder.dll" />
-    <Content Include="Refs\Newtonsoft.Json.dll" />
     <None Include="OverdraftPriorityList.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -277,6 +258,12 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Transfer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TransferFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ValidationStatus.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -328,10 +315,6 @@
     <None Include="SecureMessageFilter.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="xs3p.xsl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
