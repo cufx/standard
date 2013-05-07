@@ -88,6 +88,11 @@ namespace DocGenerator
 				#endregion
 			}
 
+			// Generate one .cs and .vb for all the types
+			ExampleGenerators.CodeGenerator.GenerateCodeFromXsds(files, 
+				Path.Combine(exampleDirectory, "CUFX.cs"), 
+				Path.Combine(exampleDirectory, "CUFX.vb"));
+
 			Console.WriteLine("Press any key to close");
 			Console.ReadLine();
 		}

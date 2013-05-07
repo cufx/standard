@@ -2,7 +2,8 @@
 
 <xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd"
 	xmlns="http://cufxstandards.com/v2/RemoteDepositCapture.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
            
 	version="2.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -12,6 +13,7 @@
 
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 
 
 	<xs:element name="remoteDepositCaptureList" type="RemoteDepositCaptureList">
@@ -86,6 +88,35 @@
 					<xs:documentation>The ID of the linked account.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="contact" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The contactList collection/array contains all the contacts for instance that the credential set is
+						authorized to access at the Institution based on applied filters
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element >
+			<xs:element name="mode" type="Mode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates whether this is in a production or test mode. If not specified, "Production" is assumed.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:simpleType name="Mode">
+		<xs:annotation>
+			<xs:documentation>
+				Indicates whether this is in a production or test mode.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Test"/>
+			<xs:enumeration value="Production"/>
+		</xs:restriction>
+	</xs:simpleType>	
 </xs:schema>
+
+

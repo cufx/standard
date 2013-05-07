@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CUFX.cs" />
     <Compile Include="ExampleGenerators\JsonGenerator.cs" />
     <Compile Include="ExampleGenerators\CodeGenerator.cs" />
     <Compile Include="Program.cs" />
@@ -134,7 +135,7 @@
     </None>
     <None Include="Ratings.xsd">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="RemoteDepositCapture.xsd">
       <SubType>Designer</SubType>
@@ -322,9 +323,11 @@
     </None>
     <None Include="SecureMessage.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="SecureMessageFilter.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="xs3p.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
