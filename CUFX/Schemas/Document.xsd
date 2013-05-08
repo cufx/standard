@@ -648,5 +648,92 @@ attributeFormDefault="unqualified">
     </xs:annotation>
     <xs:restriction base="xs:string" />
   </xs:simpleType>
+
+  <xs:complexType name="WitnessList">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          Collection of loans data definition
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="witness" type="Witness" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to loan account
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="Witness">
+    <xs:annotation>
+      <xs:documentation>
+        Collection of document witness(s) associated to a document.  There can be multiple witnesses for a single document.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="witnessId" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The witnessId is a unique identifier for the witness based on the type of witness (see witnessIdType below).
+            In the case of a notary, the witnessId may be a concantonation if 'name', 'county', and 'state' to ensure a unique value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="witnessIdType" type="WitnessIdType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The witnessIdType identifies what type of person has witnessed the document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="WitnessIdType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WitnessId" >
+        <xs:annotation>
+          <xs:documentation>
+            The type of witness is an.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="VendorEmployeeId">
+        <xs:annotation>
+          <xs:documentation>
+            The witness is from a third party.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="SystemAccountId" >
+        <xs:annotation>
+          <xs:documentation>
+            The system user identifier if an automated system witnessed the document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="NotaryId" >
+        <xs:annotation>
+          <xs:documentation>
+            The witness is a notary.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Custom" >
+        <xs:annotation>
+          <xs:documentation>
+            The user identification was not one of the above formats.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>  
   
 </xs:schema>
