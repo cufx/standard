@@ -244,8 +244,8 @@
 			<xs:enumeration value ="EStatement" >
         <xs:annotation>
           <xs:documentation>
-            Determines if party(ies) wishes to receive eStatments or paper statements. No subTypes apply.
-            If this preference is present and active, an eStatement should be generated occurrs.  The value field is ignored.
+            Determines if party(ies) wishes to receive eStatments or paper statements.
+            If value is True the they receive and eStatement.  If value is False or record does not exist, the do not receive eStatements.
             See the EAlertSubType StatementAvailable to determine if party wants to be alerted when statement is available.
           </xs:documentation>
         </xs:annotation>
@@ -254,8 +254,8 @@
 			<xs:enumeration value ="ENotice"  >
         <xs:annotation>
           <xs:documentation>
-            Determines if party(ies) wishes to receive electronic version of Notices. No subTypes apply.
-            If this preference is present and active, an eNotice should be sent rather than paper if present.  The value field is ignored.
+            Determines if party(ies) wishes to receive eNotices or paper notices.
+            If value is True the they receive an eNotice.  If value is False or record does not exist, the do not receive eNotices.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -264,7 +264,9 @@
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive the newsletter (i.e. opted-in or out). No subTypes apply.
-            If this preference is present and active, a Newsletter can be when available.  The value field is ignored.
+            Value is set to True or false depending upon preference.  False is assumed if not present.
+            No subTypes apply.
+            If this preference is present and active, a Newsletter can be when available. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -272,9 +274,25 @@
 			<xs:enumeration value ="Communication" >
         <xs:annotation>
           <xs:documentation>
-            Determines how party if specified on relationships, cards, or accounts would like to communicated to.  No subTypes apply.
+            Determines how party if specified on relationships, cards, or accounts would like to communicated to.
+            Value would be boolean True if they want to be communicated to for general operation changes, such as new branch openings, outages, etc.
+            False can be specified or False is assumed if not present.
+            No subTypes apply.
             The contactId related to this preference is the specific contact that should be used for communicating to the party.
-            If this preference is present and active, communication should go to this contact point specified.  The value field is ignored.
+            If this preference is present and active, communication should go to this contact point specified.  
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="Marketing" >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party on specified relationships, cards, or accounts would like to receive marketing material.
+            Value would be boolean True if they want to be marketing material or false if party has opted out of marketing material.
+            False can be specified or False is assumed if not present.
+            No subTypes apply.
+            The contactId related to this preference is the specific contact that should be used for communicating to the party.
+            If this preference is present and active, communication should go to this contact point specified. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
