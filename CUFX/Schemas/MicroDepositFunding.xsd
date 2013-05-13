@@ -13,9 +13,21 @@
 	
 	<xs:complexType name="MicroDepositFunding">
 		<xs:sequence>
-			<xs:element name="fundingAccount" type="account:Account" minOccurs ="0" maxOccurs ="1"/>
-			<xs:element name="microDeposit1" type="xs:decimal" minOccurs ="0" maxOccurs ="1"/>
-			<xs:element name="microDeposit2" type="xs:decimal" minOccurs ="0" maxOccurs ="1"/>
+			<xs:element name="fundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>External Account that needs to be verified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="microDeposit1" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>Micro deposit 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="microDeposit2" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>Micro deposit 2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
