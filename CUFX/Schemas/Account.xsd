@@ -8,6 +8,7 @@
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	elementFormDefault="qualified"	
 	attributeFormDefault="unqualified">
   
@@ -16,7 +17,8 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  
   <xs:element name= "accountList" type ="AccountList">
     <xs:annotation>
       <xs:documentation>
@@ -160,6 +162,18 @@
           <xs:documentation>
               Routing number for the account.
           </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalAccountBankAddress" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>To Address of the bank used for Wire Transfer.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalAccountSWIFTCode" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>SWIFTCode for Wire Transfer.</xs:documentation>
         </xs:annotation>
       </xs:element>
 

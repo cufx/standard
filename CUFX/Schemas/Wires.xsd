@@ -19,8 +19,27 @@
 	</xs:complexType>		
 	
 	<xs:complexType name="Wire">
+
 		<xs:sequence>
-			<xs:element name="ProcessDate" type="xs:dateTime" minOccurs="0" >
+			<xs:element name="WireID" type="xs:string" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>ID to track Wire-Trasnfer Status.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="WireConfirmation" type="xs:string" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>Confirmation when the Wire is successfully processed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Status" type="WireTransferStatusType" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>Status of the Wire-Transfer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="Date" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>The DueDate the user entered for this wire transfer.</xs:documentation>
 				</xs:annotation>
@@ -55,6 +74,15 @@
 					<xs:documentation>EscrowOfficer name for WireTransferType Escrow.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+<!--  Recurring wires?
+			<xs:element name="Frequency" type="WireTransferFrequencyType" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>Frequency of the Wire-Transfer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+-->
 		</xs:sequence>    
 	</xs:complexType>
 	
@@ -67,4 +95,26 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<!--  Recurring wires?
+	<xs:simpleType name="WireTransferFrequencyType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Weekly" />
+			<xs:enumeration value="Biweekly"/>
+			<xs:enumeration value="Monthly" />
+			<xs:enumeration value="SemiMonthly"/>
+			<xs:enumeration value="SemiAnnually" />
+			<xs:enumeration value="Annually" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+-->
+	<xs:simpleType name="WireTransferStatusType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="InProcess" />
+			<xs:enumeration value="Submitted"/>
+			<xs:enumeration value="Canceled" />
+			<xs:enumeration value="Failed"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 </xs:schema>

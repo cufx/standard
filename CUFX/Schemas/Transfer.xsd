@@ -5,11 +5,13 @@
 	xmlns="http://cufxstandards.com/v2/Transfer.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-	
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+
 	<xs:complexType name="TransferList">
 		<xs:sequence>
 			<xs:element name="transfer" type="Transfer" minOccurs="0" maxOccurs="unbounded"   />
@@ -23,128 +25,162 @@
 					<xs:documentation>The DueDate the user entered for this transfer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="ProjectedDate" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date the transfer will actually get processed by the system</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="Amount" type="xs:decimal" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>The amount of the payment.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fromAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+			
+			<xs:element name="FromAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>ID of the account from which to make this transfer from.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="toAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+			
+			<xs:element name="ToAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>ID of the account from which to make this transfer To.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="TransferID" type="xs:long" minOccurs="0"   >
 				<xs:annotation>
 					<xs:documentation>Unique identifier for the transfer associated with this transaction. (Optional).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="TransferConfirmation" type="xs:string" minOccurs="0"   >
 				<xs:annotation>
 					<xs:documentation>Unique confirmation number for the transfer associated with this transaction. For successful transactions.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="DateCreated" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Date user submitted the transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="DateBeganProcessing" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Date core started processing the transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="DateCompleted" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Date core completed the transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="DateLastUpdated" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Date of last know status of the transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="Status" type="TransferStatusType" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Status of the Transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="CoreTraceNumber" type="xs:string" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>This is a unique number assinged by the core for every transaction it processes.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="RecurringTransferID" type="xs:long" minOccurs="0"  >
 				<xs:annotation>
 					<xs:documentation>Transfer id, if this is a recurring transfer</xs:documentation>
 				</xs:annotation>
 			</xs:element>      
+			
 			<xs:element name="Frequency" type="TransferFrequencyType" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Frequency of the transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>      
+			
 			<xs:element name="OpenEnded" type="xs:dateTime" minOccurs="0" >      
 				<xs:annotation>
 					<xs:documentation>If there is no end date on the recurring transfers.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="TransfersToGenerate" type="xs:int" minOccurs="0"   >
 			<xs:annotation>
 					<xs:documentation>Not user interface element.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="AnchorProcessDate" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation> </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="NextProcessDate" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Next process date if it is a schedule transfer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="AuxData" type="xs:string" minOccurs="0" >
 			<xs:annotation>
 					<xs:documentation>Any core specific custom data.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="FinalAmount" type="xs:decimal" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The final amount that is due i.e. the amount to be applied for the last transfer.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="FinalTransferDate" type="xs:dateTime" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>The date on which the final transfer is due to be processed.</xs:documentation>
 				</xs:annotation>
 			</xs:element>			 
+			
 			<xs:element name="DatePosted" type="xs:dateTime" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>Date the transfer is posted.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="MemoPosted" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Indicates whether the Transfer has been memo posted or not.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="Note" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>A user's "note to self" This note is not submitted to the core. (Optional).</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>    
+			
+		</xs:sequence>       
 	</xs:complexType>
+
+	<xs:simpleType name="WireTransferType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Domestic" />
+			<xs:enumeration value="Foreign"/>
+			<xs:enumeration value="Investment" />
+			<xs:enumeration value="Escrow"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="TransferFrequencyType">
 		<xs:restriction base="xs:string">
@@ -166,4 +202,5 @@
 			<xs:enumeration value="Failed"/>
 		</xs:restriction>
 	</xs:simpleType>	
+	
 </xs:schema>
