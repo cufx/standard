@@ -173,15 +173,6 @@
 		</xs:sequence>       
 	</xs:complexType>
 
-	<xs:simpleType name="WireTransferType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Domestic" />
-			<xs:enumeration value="Foreign"/>
-			<xs:enumeration value="Investment" />
-			<xs:enumeration value="Escrow"/>
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="TransferFrequencyType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Weekly" />
