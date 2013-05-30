@@ -95,7 +95,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element >
-			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Indicates whether this is in a production or test mode. If not specified, "Production" is assumed.

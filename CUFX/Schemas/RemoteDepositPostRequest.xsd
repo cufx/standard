@@ -71,16 +71,7 @@
 					<xs:documentation>A unique identifier of the deposited item for reference purposes.  Assigned by the remote deposit vendor.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="contact" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						The contactList collection/array contains all the contacts for instance that the credential set is
-						authorized to access at the Institution based on applied filters
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element >
-			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Indicates whether this is in a production or test mode. If not specified, "Production" is assumed.
