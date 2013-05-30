@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd"
+	xmlns="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+           
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	
+	<xs:element name="remoteDepositPostRequestList" type="RemoteDepositPostRequestList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level remote deposit post request list collection element
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="RemoteDepositPostRequestList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of remote deposit post request items.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="remoteDepositPostRequest" type="RemoteDepositPostRequest" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to remote deposit post request item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositPostRequest">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The RemoteDepositPost data element contains all the attributes for posting the funds to an account for a previously remotely deposited item that was approved.  This includes attributes such as the posting amount.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="routingTransitNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Routing/Transit number of the financial institution; 9-digits;
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the deposit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>The ID of the linked account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reference" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>A unique identifier of the deposited item for reference purposes.  Assigned by the remote deposit vendor.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="contact" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The contactList collection/array contains all the contacts for instance that the credential set is
+						authorized to access at the Institution based on applied filters
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element >
+			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates whether this is in a production or test mode. If not specified, "Production" is assumed.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
+

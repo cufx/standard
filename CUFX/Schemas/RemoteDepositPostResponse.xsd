@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd"
+	xmlns="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+           
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	
+	<xs:element name="remoteDepositPostResponseList" type="RemoteDepositPostResponseList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level remote deposit post response list collection element
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="RemoteDepositPostResponseList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of remote deposit post response items.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="remoteDepositPostResponse" type="RemoteDepositPostResponse" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to remote deposit post response item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositPostResponse">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The RemoteDepositPost data element contains all the attributes for posting the funds to an account for a previously remotely deposited item that was approved.  This includes attributes such as the posting amount.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="postingStatus" type="PostingStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Routing/Transit number of the financial institution; 9-digits;
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name ="PostingStatus">
+		<xs:annotation>
+			<xs:documentation>
+				A enumeration of possible status for a remote deposit post request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="Success">
+				<xs:annotation>
+					<xs:documentation>
+						TODO
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Failure">
+				<xs:annotation>
+					<xs:documentation>
+						TODO
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
+
+

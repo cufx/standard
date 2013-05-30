@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositResponse.xsd"
+	xmlns="http://cufxstandards.com/v2/RemoteDepositResponse.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+           
+	version="2.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+ 	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+
+
+	<xs:element name="remoteDepositResponseList" type="RemoteDepositResponseList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level remote deposit response list collection element.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="RemoteDepositResponseList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of remote deposit response items.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="remoteDepositResponse" type="RemoteDepositResponse" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to remote deposit response item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositResponse">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The RemoteDepositResponse data element contains attributes pertaining to a request to remotely deposit an item. This includes information such as the status of the remotely deposited item (such as Approved, Under Review, Denied), as well as information on why an item was reject, such as poor image quality, over deposit limit, etc.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Routing/Transit number of the financial institution; 9-digits;
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageValidationIssueList" type="ImageValidationIssueList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						If there were any image validation issues
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name ="Status">
+		<xs:annotation>
+			<xs:documentation>
+				A enumeration of possible status for a remote deposit capture request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="ExceedsDepositLimit">
+				<xs:annotation>
+					<xs:documentation>
+						The user exceeded their deposit limit;
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Approved">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit image request was approved.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnderReview">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit request is currently under review, and is not currently approved
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DeclinedRestricted">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit request was declined because the user is currently restricted from using this service.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DeclinedImageValidationIssues">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit image request was declined because of image validation issues.  See the imageValidationIssuesList attribute for a list of the specific issues.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ImageValidation">
+				<xs:annotation>
+					<xs:documentation>
+						The check image has folded corners.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ImageValidationIssueList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of image validation issues.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="imageValidationIssue" type="ImageValidationIssue" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to an image validation issue.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name ="ImageValidationIssue">
+		<xs:annotation>
+			<xs:documentation>
+				A enumeration of possible image validation issues.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="CARMismatchFailed">
+				<xs:annotation>
+					<xs:documentation>
+						CAR read OK, but the amount does not match the amount specified in the remote deposit request.
+					</xs:documentation>
+				</xs:annotation>				
+			</xs:enumeration>
+			<xs:enumeration value ="FoldedCorners">
+				<xs:annotation>
+					<xs:documentation>
+						The check image has folded corners.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ExcessSkew">
+				<xs:annotation>
+					<xs:documentation>
+						Excess skew in the check image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="TooDark">
+				<xs:annotation>
+					<xs:documentation>
+						Check image was too dark
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="TooLight">
+				<xs:annotation>
+					<xs:documentation>
+						Check image was too dark
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="BelowMinSize">
+				<xs:annotation>
+					<xs:documentation>
+						The check image file size was below minimize required size.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AboveMaxSize">
+				<xs:annotation>
+					<xs:documentation>
+						The check image file size was above the maximum allowed size.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UndersizedImage">
+				<xs:annotation>
+					<xs:documentation>
+						The check image height or width is too small.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="OversizedImage">
+				<xs:annotation>
+					<xs:documentation>
+						The check image height or width is too great.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="SpotNoise">
+				<xs:annotation>
+					<xs:documentation>
+						The check image noise was too great.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DateUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The check image date was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="PayeeUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The check image payee was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="SignatureUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The check image signature was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="PayorUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The check image payor was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="MICRUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The check image MICR was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
+
+
