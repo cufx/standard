@@ -184,7 +184,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      <xs:element name="status" type="systemStatus" minOccurs="0" maxOccurs="1" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            The status allows the requesting system to determine if the requested
+            system is available for subsequent requests. A recommended use includes this service upon
+            initial interaction as well as during exception handling. During a sequence of calls, an
+            exception may be generated because the requested system has become unavailable.
+            "Online" implies the system is available for subsequent requests.
+            "Offline" implies the system is not available for subsequent requests.
+            "MemoPost" implies that a subset of features is available. For example, the host system
+            may be in MemoPost mode and accept transactions that are processed at a later time. Examples
+            of such features are: intra-CU transfers and stop pay. Examples of features that may not be
+            available during MemoPost are: loan application and change security settings. These examples
+            are provided for demonstration purposes only, the exact feature list will vary depending on
+            each implementation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="customDataUseList" type="CustomDataUseList"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -494,4 +511,13 @@
       <xs:enumeration value ="Delete"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="systemStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online"></xs:enumeration>
+      <xs:enumeration value="OffLine"></xs:enumeration>
+      <xs:enumeration value="MemoPost"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
