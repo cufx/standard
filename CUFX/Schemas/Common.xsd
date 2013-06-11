@@ -181,7 +181,20 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="Distance">
+  <xs:simpleType name="IntervalFrequencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Weekly" />
+      <xs:enumeration value="Biweekly"/>
+      <xs:enumeration value="Monthly" />
+      <xs:enumeration value="SemiMonthly"/>
+      <xs:enumeration value="SemiAnnually" />
+      <xs:enumeration value="Annually" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="Distance">
 		<xs:sequence>
 			<xs:sequence>
 				<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" />
