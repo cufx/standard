@@ -89,37 +89,45 @@
           </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:choice>
-            <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+          <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element name="accountId" type="account:AccountId">
               <xs:annotation>
                 <xs:documentation>
                   The account the permitted action applies to.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="fiUserId" type="credentialGroup:FiUserId" minOccurs="0" maxOccurs="1">
+            <xs:element name="fiUserId" type="credentialGroup:FiUserId">
               <xs:annotation>
                 <xs:documentation>
                   The user the permitted action applies to.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="cardId" type="card:CardId" minOccurs="0" maxOccurs="1">
+            <xs:element name="cardId" type="card:CardId">
               <xs:annotation>
                 <xs:documentation>
                   The card the permitted action applies to.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+            <xs:element name="relationshipId" type="relationship:RelationshipId">
               <xs:annotation>
                 <xs:documentation>
-                  The relationship allowed to perform the action.
+                  The relationship the permitted action applies to.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:choice>
         </xs:complexType>
+      </xs:element>
+      <xs:element name="maxLimits" type="MaxLimits">
+        <xs:annotation>
+          <xs:documentation>
+            Limits encompassing daily, weekly, and monthly maximums for this action specific to this resource, if specified.
+            If no resource is given, these limits are institution-wide for the principal.
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -149,7 +157,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The feature that the user is permitted to use, or prevented from using.
+          The feature that the user is permitted to use.
         </xs:documentation>
       </xs:annotation>
       <xs:enumeration value="AgreeToTerms">
@@ -373,5 +381,46 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="MaxLimits">
+    <xs:annotation>
+      <xs:documentation>
+        Limits encompassing daily, weekly, and monthly maximums for a given action and resource.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="DailyMax" minOccurs="1" maxOccurs="1" nillable="false">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="xs:integer" name="MaxNumber"/>
+            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="xs:integer" name="RollingNumber"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WeeklyMax" minOccurs="1" maxOccurs="1" nillable="false">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="xs:integer" name="MaxNumber"/>
+            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="xs:integer" name="RollingNumber"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="MonthlyMax" minOccurs="1" maxOccurs="1" nillable="false">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="xs:integer" name="MaxNumber"/>
+            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="xs:integer" name="RollingNumber"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
 
 </xs:schema>
