@@ -100,7 +100,13 @@
         </xs:annotation>
       </xs:element>
 
-      
+      <xs:element name="closeDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the account was closed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>  
       
       
       <xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
