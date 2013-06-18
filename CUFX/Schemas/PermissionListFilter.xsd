@@ -65,23 +65,12 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="actionList" minOccurs="0" maxOccurs="1">
+      <xs:element name="actionList" type="permissionList:ExtendedAction" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Actions to search for.
           </xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-        <xs:sequence>
-          <xs:element name="action" type="permissionList:ExtendedAction" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                An action to search for.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-        </xs:complexType>
       </xs:element>
       <xs:element name="resources" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -124,4 +113,5 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  
 </xs:schema>
