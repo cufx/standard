@@ -183,10 +183,13 @@
 
   <xs:simpleType name="IntervalFrequencyType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="OneTime" />
+      <xs:enumeration value="Daily" />
       <xs:enumeration value="Weekly" />
       <xs:enumeration value="Biweekly"/>
       <xs:enumeration value="Monthly" />
       <xs:enumeration value="SemiMonthly"/>
+      <xs:enumeration value="Quarterly"/>
       <xs:enumeration value="SemiAnnually" />
       <xs:enumeration value="Annually" />
       <xs:enumeration value="Other" />
