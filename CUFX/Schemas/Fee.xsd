@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/Fee.xsd"
+	version="2.1.$Revision: 298 $"
+  xmlns="http://cufxstandards.com/v2/Fee.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+
+  <xs:element name= "feeList" type ="FeeList">
+    <xs:annotation>
+      <xs:documentation>
+        The accounts collection/array contains all the fees for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="FeeList">
+    <xs:annotation>
+      <xs:documentation>
+        The fee collection/array contains all the fees for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fee" type="Fee" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Fee">
+    <xs:sequence>
+      <xs:element name="fee" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="xs:integer" name="partyRelationshipID" nillable="false">
+              <xs:annotation>
+                <xs:documentation>
+                  The price for the function for the given frequency
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="type" type="FeeType"  minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The fee type is the textual representation the kind of fee.
+                  This value is visible to the user and must be human-readable.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The fee sub type that identifies the specific fee type
+                  that the back end system will recognize.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            
+            <xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="1" maxOccurs="1" nillable="false">
+              <xs:annotation>
+                <xs:documentation>
+                  A value that indicates how this price is applied.  For instance, this price may per stop payment, for a stop payment action, which would equate to PerUse. This value may be a recurring monthly charge, regardless of usage, which would be the Monthly frequency.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:integer" name="minimumFrequency" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  A value that indicates to what frequency this price applies.  This element shall only exist for the PerUse frequency.  It can be used to denote tiered pricing. For instance, one party-action coupling may return four Price elements, one for when the function is used between 1 and 10 times, between 11-99 times, 100-999 times, and 1000 times to 10000000 times.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element type="xs:integer" name="maximumFrequency" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The upper bound of a tiered pricing amount
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+
+            <xs:element name="priceList" minOccurs="1" maxOccurs="1">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
+                    <xs:annotation>
+                      <xs:documentation>
+                        A description for the tier of pricing.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element type="common:Money" name="price" minOccurs="1" maxOccurs="1" nillable="false">
+                    <xs:annotation>
+                      <xs:documentation>
+                        The fee for the given tier.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:simpleType name="FeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown">
+        <xs:annotation>
+          <xs:documentation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unpaid">
+        <xs:annotation>
+          <xs:documentation>
+            Unpaid Item Fee Due to Draft or Due to other: for NSF Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Overdraft">
+        <xs:annotation>
+          <xs:documentation>
+            Overdraft Item Fee Due to Draft: for Courtesy Pay Fee (aka Crtsy Fee),
+            Overdraft Item Fee Due to Other: for Courtesy Pay Fee (aka Crtsy Fee),
+            Overdraft Item Fee Force Paid (Draft): for NSF Fee
+            also Combined Transfer Courtesy Fee, Below Min W/D Fee, Rel Lev # Below Min W/D Fee,
+            Below Min Adv Fee, and Rel Lev # Below Min Adv Fee
+            Overdraft Transfer Fee: for Overdraw Withdrawal Transfer Fee (aka Overdraw Withdrawal
+            Xfer Fee and Overdraw W/D Transfer Fee), also Overdraw Addon Transfer Fee
+            (aka Overdraw Addon Xfer Fee), Overdraw Combination Transfer Fee, and Overdraw Both
+            Transfer Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Withdrawal">
+        <xs:annotation>
+          <xs:documentation>
+            Withdrawal Fee: for W/D Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Advance">
+        <xs:annotation>
+          <xs:documentation>
+            Advance Fee: for Adv Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Deposit">
+        <xs:annotation>
+          <xs:documentation>
+            Deposit Fee: for Dep Fee, also Rel Lev # Dep Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Payment">
+        <xs:annotation>
+          <xs:documentation>
+            Payment Fee: for Pmt Fee, also Rel Lev # Pmt Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="StopFee">
+        <xs:annotation>
+          <xs:documentation>
+            Stop Fee: for Stop Fee, also Rel Lev # Stop Fee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Overlimit">
+        <xs:annotation>
+          <xs:documentation>
+            Overlimit Fee Due to Draft: for OVL Fee; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BillPayment">
+        <xs:annotation>
+          <xs:documentation>
+            Bill Payment Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransferFee">
+        <xs:annotation>
+          <xs:documentation>
+            Transfer Fee: for XFR Fee; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WithdrawaltoBelowBaseFee">
+        <xs:annotation>
+          <xs:documentation>
+            Withdrawal to Below Base Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ClosingWithinBaseCountDays">
+        <xs:annotation>
+          <xs:documentation>
+            Closing Within Base Count Days Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WithdrawalWhenBalanceBelowBase">
+        <xs:annotation>
+          <xs:documentation>
+            Withdrawal When Balance Below Base Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LobbyVisit">
+        <xs:annotation>
+          <xs:documentation>
+            Lobby Visit Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TellerUsage">
+        <xs:annotation>
+          <xs:documentation>
+            Teller Usage Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CheckPrinting">
+        <xs:annotation>
+          <xs:documentation>
+            Check Printing Fee: for Check Fees; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CheckOtherFee">
+        <xs:annotation>
+          <xs:documentation>
+            Check Other Fee: for Check Fees; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CallPrice">
+        <xs:annotation>
+          <xs:documentation>
+            Call Price: for Cert Call Price Fees and Loan Call Price Fees; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NewShareFee">
+        <xs:annotation>
+          <xs:documentation>
+            New Share Fee: not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentStamp">
+        <xs:annotation>
+          <xs:documentation>
+            Document Stamp Fee: applies to Loan Tax (LT) teller transactions; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ATMCustom">
+        <xs:annotation>
+          <xs:documentation>
+            ATM Custom Fee: for Custom ATM Fee Edits; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AudioCustom">
+        <xs:annotation>
+          <xs:documentation>
+            Audio Custom Fee: for Custom Audio Fee Edits; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HomeBankingCustom">
+        <xs:annotation>
+          <xs:documentation>
+            Home Banking Custom Fee: for Custom NetTeller MemberConnect Edits;
+            this code is not used for legacy MemberConnect (text) transactions
+            or for Internet home banking; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InternationalTransaction">
+        <xs:annotation>
+          <xs:documentation>
+            International Transaction Fee: for Custom Card Fee Edits for International
+            Transaction Fees; not covered by Reg DD
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PaymentSkip">
+        <xs:annotation>
+          <xs:documentation>
+            Payment Skip Fee: only for open end loans and lines of credit; covered by
+            Regulation Z
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OtherRegulationZ">
+        <xs:annotation>
+          <xs:documentation>
+            Other Regulation Z Fee: only for open end loans and lines of credit
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+
+
+</xs:schema>
