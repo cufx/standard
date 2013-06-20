@@ -184,6 +184,8 @@
   <xs:simpleType name="IntervalFrequencyType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="OneTime" />
+      <xs:enumeration value="PerUse"/>
+      <xs:enumeration value="Hourly"/>
       <xs:enumeration value="Daily" />
       <xs:enumeration value="Weekly" />
       <xs:enumeration value="Biweekly"/>
