@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v2/Fee.xsd"
+   targetNamespace="http://cufxstandards.com/v2/Fee.xsd"
 	version="2.1.$Revision: 298 $"
   xmlns="http://cufxstandards.com/v2/Fee.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -23,7 +23,7 @@
   <xs:complexType name="FeeList">
     <xs:annotation>
       <xs:documentation>
-        The fee collection/array contains all the fees for instance that the credential set is
+        The accounts collection/array contains all the fees for instance that the credential set is
         authorized to access at the Institution based on applied filters
       </xs:documentation>
     </xs:annotation>
@@ -109,7 +109,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
 
   <xs:simpleType name="FeeType">
     <xs:restriction base="xs:string">
@@ -315,8 +314,5 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-
-
-
 
 </xs:schema>
