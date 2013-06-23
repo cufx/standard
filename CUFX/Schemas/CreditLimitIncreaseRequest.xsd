@@ -38,7 +38,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="noteNumber" type="loan:noteNumber" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="noteNumber" type="loan:NoteNumber" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>ID of the Loan for which credit limit increase was requested.</xs:documentation>
         </xs:annotation>
