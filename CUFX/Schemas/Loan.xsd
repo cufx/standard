@@ -103,7 +103,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="noteNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="noteNumber" type="NoteNumber" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Number assigned to the specific loan note; Optional and not all FIs will do this
@@ -1700,4 +1700,15 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+<xs:simpleType name="NoteNumber">
+  <xs:restriction base="xs:string">
+    <xs:annotation>
+      <xs:documentation>
+        A unique number associated with a loan.  This number is not required.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:restriction>
+</xs:simpleType>
+
 </xs:schema>
