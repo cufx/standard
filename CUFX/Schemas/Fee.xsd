@@ -35,10 +35,14 @@
 
   <xs:complexType name="Fee">
     <xs:sequence>
-      <xs:element name="fee" minOccurs="1" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="xs:integer" name="partyRelationshipID" nillable="false">
+            <xs:element name="feeId" type="xs:string"  minOccurs="1" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  The ID for the fee
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>       
+            <xs:element name="partyRelationshipID" type="xs:integer"  nillable="false">
               <xs:annotation>
                 <xs:documentation>
                   The price for the function for the given frequency
@@ -60,8 +64,7 @@
                   that the back end system will recognize.
                 </xs:documentation>
               </xs:annotation>
-            </xs:element>
-            
+            </xs:element> 
             <xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="1" maxOccurs="1" nillable="false">
               <xs:annotation>
                 <xs:documentation>
@@ -69,21 +72,20 @@
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element type="xs:integer" name="minimumFrequency" minOccurs="0" maxOccurs="1">
+            <xs:element name="minimumFrequency" type="xs:integer" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
                   A value that indicates to what frequency this price applies.  This element shall only exist for the PerUse frequency.  It can be used to denote tiered pricing. For instance, one party-action coupling may return four Price elements, one for when the function is used between 1 and 10 times, between 11-99 times, 100-999 times, and 1000 times to 10000000 times.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-            <xs:element type="xs:integer" name="maximumFrequency" minOccurs="0" maxOccurs="1">
+            <xs:element name="maximumFrequency" type="xs:integer"  minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation>
                   The upper bound of a tiered pricing amount
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
-
             <xs:element name="priceList" minOccurs="1" maxOccurs="1">
               <xs:complexType>
                 <xs:sequence>
@@ -104,9 +106,6 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
