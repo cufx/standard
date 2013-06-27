@@ -35,6 +35,17 @@ namespace CUFX.Generator
 			// For each XSD file, create the HTML documentation, and examples (.cs, .vb, .xml, json)
 			foreach (string xsdFilePath in files)
 			{
+                //Don't create HTML documentation or XML samples for base schema
+                if (xsdFilePath == "..\\..\\..\\Schemas\\Common.xsd" ||
+                    xsdFilePath == "..\\..\\..\\Schemas\\ISOCountryCodeType-V2006.xsd" ||
+                    xsdFilePath == "..\\..\\..\\Schemas\\ISOCurrencyCodeType.xsd" ||
+                    xsdFilePath == "..\\..\\..\\Schemas\\MessageContext.xsd" ||
+                    xsdFilePath == "..\\..\\..\\Schemas\\Meta.xsd")
+                {
+                    continue;
+                }
+
+
 				#region Generate the HTML documentation
 				string outHtmlFileName = Path.Combine(outputDirectory, Path.GetFileNameWithoutExtension(xsdFilePath)) + ".html";
 				using (StreamWriter outHtmlfile = new StreamWriter(outHtmlFileName))
