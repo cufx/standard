@@ -41,6 +41,10 @@ namespace cufxstandards.com {
         
         private bool openDateFieldSpecified;
         
+        private System.DateTime closeDateField;
+        
+        private bool closeDateFieldSpecified;
+        
         private string accountNickNameField;
         
         private string micrAccountNumberField;
@@ -55,9 +59,17 @@ namespace cufxstandards.com {
         
         private string routingNumberField;
         
+        private Address externalAccountBankAddressField;
+        
+        private Address externalAccountSWIFTCodeField;
+        
         private bool externalAccountFlagField;
         
         private bool externalAccountFlagFieldSpecified;
+        
+        private bool externalAccountVerifiedField;
+        
+        private bool externalAccountVerifiedFieldSpecified;
         
         private bool externalTransferFromField;
         
@@ -186,6 +198,28 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime closeDate {
+            get {
+                return this.closeDateField;
+            }
+            set {
+                this.closeDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool closeDateSpecified {
+            get {
+                return this.closeDateFieldSpecified;
+            }
+            set {
+                this.closeDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
         public string accountNickName {
             get {
                 return this.accountNickNameField;
@@ -256,6 +290,26 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
+        public Address externalAccountBankAddress {
+            get {
+                return this.externalAccountBankAddressField;
+            }
+            set {
+                this.externalAccountBankAddressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Address externalAccountSWIFTCode {
+            get {
+                return this.externalAccountSWIFTCodeField;
+            }
+            set {
+                this.externalAccountSWIFTCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
         public bool externalAccountFlag {
             get {
                 return this.externalAccountFlagField;
@@ -273,6 +327,27 @@ namespace cufxstandards.com {
             }
             set {
                 this.externalAccountFlagFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool externalAccountVerified {
+            get {
+                return this.externalAccountVerifiedField;
+            }
+            set {
+                this.externalAccountVerifiedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool externalAccountVerifiedSpecified {
+            get {
+                return this.externalAccountVerifiedFieldSpecified;
+            }
+            set {
+                this.externalAccountVerifiedFieldSpecified = value;
             }
         }
         
@@ -481,6 +556,9 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         Investment,
+        
+        /// <remarks/>
+        PrePaidCard,
     }
     
     /// <remarks/>
@@ -6202,6 +6280,1045 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Common.xsd")]
+    public partial class Coordinate {
+        
+        private decimal latitudeField;
+        
+        private decimal longitudeField;
+        
+        /// <remarks/>
+        public decimal latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public partial class Address {
+        
+        private string line1Field;
+        
+        private string line2Field;
+        
+        private string line3Field;
+        
+        private string cityField;
+        
+        private string stateProvinceField;
+        
+        private string postalCodeField;
+        
+        private ISOCountryCodeType countryCodeField;
+        
+        private bool countryCodeFieldSpecified;
+        
+        private string countryField;
+        
+        private Coordinate coordinateField;
+        
+        /// <remarks/>
+        public string line1 {
+            get {
+                return this.line1Field;
+            }
+            set {
+                this.line1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string line2 {
+            get {
+                return this.line2Field;
+            }
+            set {
+                this.line2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string line3 {
+            get {
+                return this.line3Field;
+            }
+            set {
+                this.line3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string city {
+            get {
+                return this.cityField;
+            }
+            set {
+                this.cityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string stateProvince {
+            get {
+                return this.stateProvinceField;
+            }
+            set {
+                this.stateProvinceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string postalCode {
+            get {
+                return this.postalCodeField;
+            }
+            set {
+                this.postalCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ISOCountryCodeType countryCode {
+            get {
+                return this.countryCodeField;
+            }
+            set {
+                this.countryCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool countryCodeSpecified {
+            get {
+                return this.countryCodeFieldSpecified;
+            }
+            set {
+                this.countryCodeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string country {
+            get {
+                return this.countryField;
+            }
+            set {
+                this.countryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Coordinate coordinate {
+            get {
+                return this.coordinateField;
+            }
+            set {
+                this.coordinateField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd")]
+    public enum ISOCountryCodeType {
+        
+        /// <remarks/>
+        AD,
+        
+        /// <remarks/>
+        AE,
+        
+        /// <remarks/>
+        AF,
+        
+        /// <remarks/>
+        AG,
+        
+        /// <remarks/>
+        AI,
+        
+        /// <remarks/>
+        AL,
+        
+        /// <remarks/>
+        AM,
+        
+        /// <remarks/>
+        AN,
+        
+        /// <remarks/>
+        AO,
+        
+        /// <remarks/>
+        AQ,
+        
+        /// <remarks/>
+        AR,
+        
+        /// <remarks/>
+        AS,
+        
+        /// <remarks/>
+        AT,
+        
+        /// <remarks/>
+        AU,
+        
+        /// <remarks/>
+        AW,
+        
+        /// <remarks/>
+        AX,
+        
+        /// <remarks/>
+        AZ,
+        
+        /// <remarks/>
+        BA,
+        
+        /// <remarks/>
+        BB,
+        
+        /// <remarks/>
+        BD,
+        
+        /// <remarks/>
+        BE,
+        
+        /// <remarks/>
+        BF,
+        
+        /// <remarks/>
+        BG,
+        
+        /// <remarks/>
+        BH,
+        
+        /// <remarks/>
+        BI,
+        
+        /// <remarks/>
+        BJ,
+        
+        /// <remarks/>
+        BL,
+        
+        /// <remarks/>
+        BM,
+        
+        /// <remarks/>
+        BN,
+        
+        /// <remarks/>
+        BO,
+        
+        /// <remarks/>
+        BR,
+        
+        /// <remarks/>
+        BS,
+        
+        /// <remarks/>
+        BT,
+        
+        /// <remarks/>
+        BV,
+        
+        /// <remarks/>
+        BW,
+        
+        /// <remarks/>
+        BY,
+        
+        /// <remarks/>
+        BZ,
+        
+        /// <remarks/>
+        CA,
+        
+        /// <remarks/>
+        CC,
+        
+        /// <remarks/>
+        CD,
+        
+        /// <remarks/>
+        CF,
+        
+        /// <remarks/>
+        CG,
+        
+        /// <remarks/>
+        CH,
+        
+        /// <remarks/>
+        CI,
+        
+        /// <remarks/>
+        CK,
+        
+        /// <remarks/>
+        CL,
+        
+        /// <remarks/>
+        CM,
+        
+        /// <remarks/>
+        CN,
+        
+        /// <remarks/>
+        CO,
+        
+        /// <remarks/>
+        CR,
+        
+        /// <remarks/>
+        CU,
+        
+        /// <remarks/>
+        CV,
+        
+        /// <remarks/>
+        CX,
+        
+        /// <remarks/>
+        CY,
+        
+        /// <remarks/>
+        CZ,
+        
+        /// <remarks/>
+        DE,
+        
+        /// <remarks/>
+        DJ,
+        
+        /// <remarks/>
+        DK,
+        
+        /// <remarks/>
+        DM,
+        
+        /// <remarks/>
+        DO,
+        
+        /// <remarks/>
+        DZ,
+        
+        /// <remarks/>
+        EC,
+        
+        /// <remarks/>
+        EE,
+        
+        /// <remarks/>
+        EG,
+        
+        /// <remarks/>
+        EH,
+        
+        /// <remarks/>
+        ER,
+        
+        /// <remarks/>
+        ES,
+        
+        /// <remarks/>
+        ET,
+        
+        /// <remarks/>
+        FI,
+        
+        /// <remarks/>
+        FJ,
+        
+        /// <remarks/>
+        FK,
+        
+        /// <remarks/>
+        FM,
+        
+        /// <remarks/>
+        FO,
+        
+        /// <remarks/>
+        FR,
+        
+        /// <remarks/>
+        GA,
+        
+        /// <remarks/>
+        GB,
+        
+        /// <remarks/>
+        GD,
+        
+        /// <remarks/>
+        GE,
+        
+        /// <remarks/>
+        GF,
+        
+        /// <remarks/>
+        GG,
+        
+        /// <remarks/>
+        GH,
+        
+        /// <remarks/>
+        GI,
+        
+        /// <remarks/>
+        GL,
+        
+        /// <remarks/>
+        GM,
+        
+        /// <remarks/>
+        GN,
+        
+        /// <remarks/>
+        GP,
+        
+        /// <remarks/>
+        GQ,
+        
+        /// <remarks/>
+        GR,
+        
+        /// <remarks/>
+        GS,
+        
+        /// <remarks/>
+        GT,
+        
+        /// <remarks/>
+        GU,
+        
+        /// <remarks/>
+        GW,
+        
+        /// <remarks/>
+        GY,
+        
+        /// <remarks/>
+        HK,
+        
+        /// <remarks/>
+        HM,
+        
+        /// <remarks/>
+        HN,
+        
+        /// <remarks/>
+        HR,
+        
+        /// <remarks/>
+        HT,
+        
+        /// <remarks/>
+        HU,
+        
+        /// <remarks/>
+        ID,
+        
+        /// <remarks/>
+        IE,
+        
+        /// <remarks/>
+        IL,
+        
+        /// <remarks/>
+        IM,
+        
+        /// <remarks/>
+        IN,
+        
+        /// <remarks/>
+        IO,
+        
+        /// <remarks/>
+        IQ,
+        
+        /// <remarks/>
+        IR,
+        
+        /// <remarks/>
+        IS,
+        
+        /// <remarks/>
+        IT,
+        
+        /// <remarks/>
+        JE,
+        
+        /// <remarks/>
+        JM,
+        
+        /// <remarks/>
+        JO,
+        
+        /// <remarks/>
+        JP,
+        
+        /// <remarks/>
+        KE,
+        
+        /// <remarks/>
+        KG,
+        
+        /// <remarks/>
+        KH,
+        
+        /// <remarks/>
+        KI,
+        
+        /// <remarks/>
+        KM,
+        
+        /// <remarks/>
+        KN,
+        
+        /// <remarks/>
+        KP,
+        
+        /// <remarks/>
+        KR,
+        
+        /// <remarks/>
+        KW,
+        
+        /// <remarks/>
+        KY,
+        
+        /// <remarks/>
+        KZ,
+        
+        /// <remarks/>
+        LA,
+        
+        /// <remarks/>
+        LB,
+        
+        /// <remarks/>
+        LC,
+        
+        /// <remarks/>
+        LI,
+        
+        /// <remarks/>
+        LK,
+        
+        /// <remarks/>
+        LR,
+        
+        /// <remarks/>
+        LS,
+        
+        /// <remarks/>
+        LT,
+        
+        /// <remarks/>
+        LU,
+        
+        /// <remarks/>
+        LV,
+        
+        /// <remarks/>
+        LY,
+        
+        /// <remarks/>
+        MA,
+        
+        /// <remarks/>
+        MC,
+        
+        /// <remarks/>
+        MD,
+        
+        /// <remarks/>
+        ME,
+        
+        /// <remarks/>
+        MF,
+        
+        /// <remarks/>
+        MG,
+        
+        /// <remarks/>
+        MH,
+        
+        /// <remarks/>
+        MK,
+        
+        /// <remarks/>
+        ML,
+        
+        /// <remarks/>
+        MM,
+        
+        /// <remarks/>
+        MN,
+        
+        /// <remarks/>
+        MO,
+        
+        /// <remarks/>
+        MP,
+        
+        /// <remarks/>
+        MQ,
+        
+        /// <remarks/>
+        MR,
+        
+        /// <remarks/>
+        MS,
+        
+        /// <remarks/>
+        MT,
+        
+        /// <remarks/>
+        MU,
+        
+        /// <remarks/>
+        MV,
+        
+        /// <remarks/>
+        MW,
+        
+        /// <remarks/>
+        MX,
+        
+        /// <remarks/>
+        MY,
+        
+        /// <remarks/>
+        MZ,
+        
+        /// <remarks/>
+        NA,
+        
+        /// <remarks/>
+        NC,
+        
+        /// <remarks/>
+        NE,
+        
+        /// <remarks/>
+        NF,
+        
+        /// <remarks/>
+        NG,
+        
+        /// <remarks/>
+        NI,
+        
+        /// <remarks/>
+        NL,
+        
+        /// <remarks/>
+        NO,
+        
+        /// <remarks/>
+        NP,
+        
+        /// <remarks/>
+        NR,
+        
+        /// <remarks/>
+        NU,
+        
+        /// <remarks/>
+        NZ,
+        
+        /// <remarks/>
+        OM,
+        
+        /// <remarks/>
+        PA,
+        
+        /// <remarks/>
+        PE,
+        
+        /// <remarks/>
+        PF,
+        
+        /// <remarks/>
+        PG,
+        
+        /// <remarks/>
+        PH,
+        
+        /// <remarks/>
+        PK,
+        
+        /// <remarks/>
+        PL,
+        
+        /// <remarks/>
+        PM,
+        
+        /// <remarks/>
+        PN,
+        
+        /// <remarks/>
+        PR,
+        
+        /// <remarks/>
+        PS,
+        
+        /// <remarks/>
+        PT,
+        
+        /// <remarks/>
+        PW,
+        
+        /// <remarks/>
+        PY,
+        
+        /// <remarks/>
+        QA,
+        
+        /// <remarks/>
+        RE,
+        
+        /// <remarks/>
+        RO,
+        
+        /// <remarks/>
+        RS,
+        
+        /// <remarks/>
+        RU,
+        
+        /// <remarks/>
+        RW,
+        
+        /// <remarks/>
+        SA,
+        
+        /// <remarks/>
+        SB,
+        
+        /// <remarks/>
+        SC,
+        
+        /// <remarks/>
+        SD,
+        
+        /// <remarks/>
+        SE,
+        
+        /// <remarks/>
+        SG,
+        
+        /// <remarks/>
+        SH,
+        
+        /// <remarks/>
+        SI,
+        
+        /// <remarks/>
+        SJ,
+        
+        /// <remarks/>
+        SK,
+        
+        /// <remarks/>
+        SL,
+        
+        /// <remarks/>
+        SM,
+        
+        /// <remarks/>
+        SN,
+        
+        /// <remarks/>
+        SO,
+        
+        /// <remarks/>
+        SR,
+        
+        /// <remarks/>
+        ST,
+        
+        /// <remarks/>
+        SV,
+        
+        /// <remarks/>
+        SY,
+        
+        /// <remarks/>
+        SZ,
+        
+        /// <remarks/>
+        TC,
+        
+        /// <remarks/>
+        TD,
+        
+        /// <remarks/>
+        TF,
+        
+        /// <remarks/>
+        TG,
+        
+        /// <remarks/>
+        TH,
+        
+        /// <remarks/>
+        TJ,
+        
+        /// <remarks/>
+        TK,
+        
+        /// <remarks/>
+        TL,
+        
+        /// <remarks/>
+        TM,
+        
+        /// <remarks/>
+        TN,
+        
+        /// <remarks/>
+        TO,
+        
+        /// <remarks/>
+        TR,
+        
+        /// <remarks/>
+        TT,
+        
+        /// <remarks/>
+        TV,
+        
+        /// <remarks/>
+        TW,
+        
+        /// <remarks/>
+        TZ,
+        
+        /// <remarks/>
+        UA,
+        
+        /// <remarks/>
+        UG,
+        
+        /// <remarks/>
+        UM,
+        
+        /// <remarks/>
+        US,
+        
+        /// <remarks/>
+        UY,
+        
+        /// <remarks/>
+        UZ,
+        
+        /// <remarks/>
+        VA,
+        
+        /// <remarks/>
+        VC,
+        
+        /// <remarks/>
+        VE,
+        
+        /// <remarks/>
+        VG,
+        
+        /// <remarks/>
+        VI,
+        
+        /// <remarks/>
+        VN,
+        
+        /// <remarks/>
+        VU,
+        
+        /// <remarks/>
+        WF,
+        
+        /// <remarks/>
+        WS,
+        
+        /// <remarks/>
+        YE,
+        
+        /// <remarks/>
+        YT,
+        
+        /// <remarks/>
+        ZA,
+        
+        /// <remarks/>
+        ZM,
+        
+        /// <remarks/>
+        ZW,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public partial class ContactAddress : Address {
+        
+        private ContactAddressType typeField;
+        
+        private bool typeFieldSpecified;
+        
+        private System.DateTime effectiveDateTimeField;
+        
+        private bool effectiveDateTimeFieldSpecified;
+        
+        private System.DateTime expirationDateTimeField;
+        
+        private bool expirationDateTimeFieldSpecified;
+        
+        private string timeAtAddressField;
+        
+        private System.DateTime addressVerifyDateTimeField;
+        
+        private bool addressVerifyDateTimeFieldSpecified;
+        
+        /// <remarks/>
+        public ContactAddressType type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool typeSpecified {
+            get {
+                return this.typeFieldSpecified;
+            }
+            set {
+                this.typeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime effectiveDateTime {
+            get {
+                return this.effectiveDateTimeField;
+            }
+            set {
+                this.effectiveDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool effectiveDateTimeSpecified {
+            get {
+                return this.effectiveDateTimeFieldSpecified;
+            }
+            set {
+                this.effectiveDateTimeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime expirationDateTime {
+            get {
+                return this.expirationDateTimeField;
+            }
+            set {
+                this.expirationDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool expirationDateTimeSpecified {
+            get {
+                return this.expirationDateTimeFieldSpecified;
+            }
+            set {
+                this.expirationDateTimeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="duration")]
+        public string timeAtAddress {
+            get {
+                return this.timeAtAddressField;
+            }
+            set {
+                this.timeAtAddressField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime addressVerifyDateTime {
+            get {
+                return this.addressVerifyDateTimeField;
+            }
+            set {
+                this.addressVerifyDateTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool addressVerifyDateTimeSpecified {
+            get {
+                return this.addressVerifyDateTimeFieldSpecified;
+            }
+            set {
+                this.addressVerifyDateTimeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public enum ContactAddressType {
+        
+        /// <remarks/>
+        Home,
+        
+        /// <remarks/>
+        Work,
+        
+        /// <remarks/>
+        Mailing,
+        
+        /// <remarks/>
+        Previous,
+        
+        /// <remarks/>
+        Temporary,
+        
+        /// <remarks/>
+        CTR,
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Account.xsd")]
     public enum RateType {
         
@@ -9207,749 +10324,6 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd")]
-    public enum ISOCountryCodeType {
-        
-        /// <remarks/>
-        AD,
-        
-        /// <remarks/>
-        AE,
-        
-        /// <remarks/>
-        AF,
-        
-        /// <remarks/>
-        AG,
-        
-        /// <remarks/>
-        AI,
-        
-        /// <remarks/>
-        AL,
-        
-        /// <remarks/>
-        AM,
-        
-        /// <remarks/>
-        AN,
-        
-        /// <remarks/>
-        AO,
-        
-        /// <remarks/>
-        AQ,
-        
-        /// <remarks/>
-        AR,
-        
-        /// <remarks/>
-        AS,
-        
-        /// <remarks/>
-        AT,
-        
-        /// <remarks/>
-        AU,
-        
-        /// <remarks/>
-        AW,
-        
-        /// <remarks/>
-        AX,
-        
-        /// <remarks/>
-        AZ,
-        
-        /// <remarks/>
-        BA,
-        
-        /// <remarks/>
-        BB,
-        
-        /// <remarks/>
-        BD,
-        
-        /// <remarks/>
-        BE,
-        
-        /// <remarks/>
-        BF,
-        
-        /// <remarks/>
-        BG,
-        
-        /// <remarks/>
-        BH,
-        
-        /// <remarks/>
-        BI,
-        
-        /// <remarks/>
-        BJ,
-        
-        /// <remarks/>
-        BL,
-        
-        /// <remarks/>
-        BM,
-        
-        /// <remarks/>
-        BN,
-        
-        /// <remarks/>
-        BO,
-        
-        /// <remarks/>
-        BR,
-        
-        /// <remarks/>
-        BS,
-        
-        /// <remarks/>
-        BT,
-        
-        /// <remarks/>
-        BV,
-        
-        /// <remarks/>
-        BW,
-        
-        /// <remarks/>
-        BY,
-        
-        /// <remarks/>
-        BZ,
-        
-        /// <remarks/>
-        CA,
-        
-        /// <remarks/>
-        CC,
-        
-        /// <remarks/>
-        CD,
-        
-        /// <remarks/>
-        CF,
-        
-        /// <remarks/>
-        CG,
-        
-        /// <remarks/>
-        CH,
-        
-        /// <remarks/>
-        CI,
-        
-        /// <remarks/>
-        CK,
-        
-        /// <remarks/>
-        CL,
-        
-        /// <remarks/>
-        CM,
-        
-        /// <remarks/>
-        CN,
-        
-        /// <remarks/>
-        CO,
-        
-        /// <remarks/>
-        CR,
-        
-        /// <remarks/>
-        CU,
-        
-        /// <remarks/>
-        CV,
-        
-        /// <remarks/>
-        CX,
-        
-        /// <remarks/>
-        CY,
-        
-        /// <remarks/>
-        CZ,
-        
-        /// <remarks/>
-        DE,
-        
-        /// <remarks/>
-        DJ,
-        
-        /// <remarks/>
-        DK,
-        
-        /// <remarks/>
-        DM,
-        
-        /// <remarks/>
-        DO,
-        
-        /// <remarks/>
-        DZ,
-        
-        /// <remarks/>
-        EC,
-        
-        /// <remarks/>
-        EE,
-        
-        /// <remarks/>
-        EG,
-        
-        /// <remarks/>
-        EH,
-        
-        /// <remarks/>
-        ER,
-        
-        /// <remarks/>
-        ES,
-        
-        /// <remarks/>
-        ET,
-        
-        /// <remarks/>
-        FI,
-        
-        /// <remarks/>
-        FJ,
-        
-        /// <remarks/>
-        FK,
-        
-        /// <remarks/>
-        FM,
-        
-        /// <remarks/>
-        FO,
-        
-        /// <remarks/>
-        FR,
-        
-        /// <remarks/>
-        GA,
-        
-        /// <remarks/>
-        GB,
-        
-        /// <remarks/>
-        GD,
-        
-        /// <remarks/>
-        GE,
-        
-        /// <remarks/>
-        GF,
-        
-        /// <remarks/>
-        GG,
-        
-        /// <remarks/>
-        GH,
-        
-        /// <remarks/>
-        GI,
-        
-        /// <remarks/>
-        GL,
-        
-        /// <remarks/>
-        GM,
-        
-        /// <remarks/>
-        GN,
-        
-        /// <remarks/>
-        GP,
-        
-        /// <remarks/>
-        GQ,
-        
-        /// <remarks/>
-        GR,
-        
-        /// <remarks/>
-        GS,
-        
-        /// <remarks/>
-        GT,
-        
-        /// <remarks/>
-        GU,
-        
-        /// <remarks/>
-        GW,
-        
-        /// <remarks/>
-        GY,
-        
-        /// <remarks/>
-        HK,
-        
-        /// <remarks/>
-        HM,
-        
-        /// <remarks/>
-        HN,
-        
-        /// <remarks/>
-        HR,
-        
-        /// <remarks/>
-        HT,
-        
-        /// <remarks/>
-        HU,
-        
-        /// <remarks/>
-        ID,
-        
-        /// <remarks/>
-        IE,
-        
-        /// <remarks/>
-        IL,
-        
-        /// <remarks/>
-        IM,
-        
-        /// <remarks/>
-        IN,
-        
-        /// <remarks/>
-        IO,
-        
-        /// <remarks/>
-        IQ,
-        
-        /// <remarks/>
-        IR,
-        
-        /// <remarks/>
-        IS,
-        
-        /// <remarks/>
-        IT,
-        
-        /// <remarks/>
-        JE,
-        
-        /// <remarks/>
-        JM,
-        
-        /// <remarks/>
-        JO,
-        
-        /// <remarks/>
-        JP,
-        
-        /// <remarks/>
-        KE,
-        
-        /// <remarks/>
-        KG,
-        
-        /// <remarks/>
-        KH,
-        
-        /// <remarks/>
-        KI,
-        
-        /// <remarks/>
-        KM,
-        
-        /// <remarks/>
-        KN,
-        
-        /// <remarks/>
-        KP,
-        
-        /// <remarks/>
-        KR,
-        
-        /// <remarks/>
-        KW,
-        
-        /// <remarks/>
-        KY,
-        
-        /// <remarks/>
-        KZ,
-        
-        /// <remarks/>
-        LA,
-        
-        /// <remarks/>
-        LB,
-        
-        /// <remarks/>
-        LC,
-        
-        /// <remarks/>
-        LI,
-        
-        /// <remarks/>
-        LK,
-        
-        /// <remarks/>
-        LR,
-        
-        /// <remarks/>
-        LS,
-        
-        /// <remarks/>
-        LT,
-        
-        /// <remarks/>
-        LU,
-        
-        /// <remarks/>
-        LV,
-        
-        /// <remarks/>
-        LY,
-        
-        /// <remarks/>
-        MA,
-        
-        /// <remarks/>
-        MC,
-        
-        /// <remarks/>
-        MD,
-        
-        /// <remarks/>
-        ME,
-        
-        /// <remarks/>
-        MF,
-        
-        /// <remarks/>
-        MG,
-        
-        /// <remarks/>
-        MH,
-        
-        /// <remarks/>
-        MK,
-        
-        /// <remarks/>
-        ML,
-        
-        /// <remarks/>
-        MM,
-        
-        /// <remarks/>
-        MN,
-        
-        /// <remarks/>
-        MO,
-        
-        /// <remarks/>
-        MP,
-        
-        /// <remarks/>
-        MQ,
-        
-        /// <remarks/>
-        MR,
-        
-        /// <remarks/>
-        MS,
-        
-        /// <remarks/>
-        MT,
-        
-        /// <remarks/>
-        MU,
-        
-        /// <remarks/>
-        MV,
-        
-        /// <remarks/>
-        MW,
-        
-        /// <remarks/>
-        MX,
-        
-        /// <remarks/>
-        MY,
-        
-        /// <remarks/>
-        MZ,
-        
-        /// <remarks/>
-        NA,
-        
-        /// <remarks/>
-        NC,
-        
-        /// <remarks/>
-        NE,
-        
-        /// <remarks/>
-        NF,
-        
-        /// <remarks/>
-        NG,
-        
-        /// <remarks/>
-        NI,
-        
-        /// <remarks/>
-        NL,
-        
-        /// <remarks/>
-        NO,
-        
-        /// <remarks/>
-        NP,
-        
-        /// <remarks/>
-        NR,
-        
-        /// <remarks/>
-        NU,
-        
-        /// <remarks/>
-        NZ,
-        
-        /// <remarks/>
-        OM,
-        
-        /// <remarks/>
-        PA,
-        
-        /// <remarks/>
-        PE,
-        
-        /// <remarks/>
-        PF,
-        
-        /// <remarks/>
-        PG,
-        
-        /// <remarks/>
-        PH,
-        
-        /// <remarks/>
-        PK,
-        
-        /// <remarks/>
-        PL,
-        
-        /// <remarks/>
-        PM,
-        
-        /// <remarks/>
-        PN,
-        
-        /// <remarks/>
-        PR,
-        
-        /// <remarks/>
-        PS,
-        
-        /// <remarks/>
-        PT,
-        
-        /// <remarks/>
-        PW,
-        
-        /// <remarks/>
-        PY,
-        
-        /// <remarks/>
-        QA,
-        
-        /// <remarks/>
-        RE,
-        
-        /// <remarks/>
-        RO,
-        
-        /// <remarks/>
-        RS,
-        
-        /// <remarks/>
-        RU,
-        
-        /// <remarks/>
-        RW,
-        
-        /// <remarks/>
-        SA,
-        
-        /// <remarks/>
-        SB,
-        
-        /// <remarks/>
-        SC,
-        
-        /// <remarks/>
-        SD,
-        
-        /// <remarks/>
-        SE,
-        
-        /// <remarks/>
-        SG,
-        
-        /// <remarks/>
-        SH,
-        
-        /// <remarks/>
-        SI,
-        
-        /// <remarks/>
-        SJ,
-        
-        /// <remarks/>
-        SK,
-        
-        /// <remarks/>
-        SL,
-        
-        /// <remarks/>
-        SM,
-        
-        /// <remarks/>
-        SN,
-        
-        /// <remarks/>
-        SO,
-        
-        /// <remarks/>
-        SR,
-        
-        /// <remarks/>
-        ST,
-        
-        /// <remarks/>
-        SV,
-        
-        /// <remarks/>
-        SY,
-        
-        /// <remarks/>
-        SZ,
-        
-        /// <remarks/>
-        TC,
-        
-        /// <remarks/>
-        TD,
-        
-        /// <remarks/>
-        TF,
-        
-        /// <remarks/>
-        TG,
-        
-        /// <remarks/>
-        TH,
-        
-        /// <remarks/>
-        TJ,
-        
-        /// <remarks/>
-        TK,
-        
-        /// <remarks/>
-        TL,
-        
-        /// <remarks/>
-        TM,
-        
-        /// <remarks/>
-        TN,
-        
-        /// <remarks/>
-        TO,
-        
-        /// <remarks/>
-        TR,
-        
-        /// <remarks/>
-        TT,
-        
-        /// <remarks/>
-        TV,
-        
-        /// <remarks/>
-        TW,
-        
-        /// <remarks/>
-        TZ,
-        
-        /// <remarks/>
-        UA,
-        
-        /// <remarks/>
-        UG,
-        
-        /// <remarks/>
-        UM,
-        
-        /// <remarks/>
-        US,
-        
-        /// <remarks/>
-        UY,
-        
-        /// <remarks/>
-        UZ,
-        
-        /// <remarks/>
-        VA,
-        
-        /// <remarks/>
-        VC,
-        
-        /// <remarks/>
-        VE,
-        
-        /// <remarks/>
-        VG,
-        
-        /// <remarks/>
-        VI,
-        
-        /// <remarks/>
-        VN,
-        
-        /// <remarks/>
-        VU,
-        
-        /// <remarks/>
-        WF,
-        
-        /// <remarks/>
-        WS,
-        
-        /// <remarks/>
-        YE,
-        
-        /// <remarks/>
-        YT,
-        
-        /// <remarks/>
-        ZA,
-        
-        /// <remarks/>
-        ZM,
-        
-        /// <remarks/>
-        ZW,
-    }
-    
-    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Party.xsd")]
     public enum EmploymentStatusType {
         
@@ -10198,302 +10572,6 @@ namespace cufxstandards.com {
                 this.customDataField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public partial class Address {
-        
-        private string line1Field;
-        
-        private string line2Field;
-        
-        private string line3Field;
-        
-        private string cityField;
-        
-        private string stateProvinceField;
-        
-        private string postalCodeField;
-        
-        private ISOCountryCodeType countryCodeField;
-        
-        private bool countryCodeFieldSpecified;
-        
-        private string countryField;
-        
-        private Coordinate coordinateField;
-        
-        /// <remarks/>
-        public string line1 {
-            get {
-                return this.line1Field;
-            }
-            set {
-                this.line1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string line2 {
-            get {
-                return this.line2Field;
-            }
-            set {
-                this.line2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string line3 {
-            get {
-                return this.line3Field;
-            }
-            set {
-                this.line3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string city {
-            get {
-                return this.cityField;
-            }
-            set {
-                this.cityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string stateProvince {
-            get {
-                return this.stateProvinceField;
-            }
-            set {
-                this.stateProvinceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string postalCode {
-            get {
-                return this.postalCodeField;
-            }
-            set {
-                this.postalCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ISOCountryCodeType countryCode {
-            get {
-                return this.countryCodeField;
-            }
-            set {
-                this.countryCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool countryCodeSpecified {
-            get {
-                return this.countryCodeFieldSpecified;
-            }
-            set {
-                this.countryCodeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string country {
-            get {
-                return this.countryField;
-            }
-            set {
-                this.countryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Coordinate coordinate {
-            get {
-                return this.coordinateField;
-            }
-            set {
-                this.coordinateField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Common.xsd")]
-    public partial class Coordinate {
-        
-        private decimal latitudeField;
-        
-        private decimal longitudeField;
-        
-        /// <remarks/>
-        public decimal latitude {
-            get {
-                return this.latitudeField;
-            }
-            set {
-                this.latitudeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal longitude {
-            get {
-                return this.longitudeField;
-            }
-            set {
-                this.longitudeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public partial class ContactAddress : Address {
-        
-        private ContactAddressType typeField;
-        
-        private bool typeFieldSpecified;
-        
-        private System.DateTime effectiveDateTimeField;
-        
-        private bool effectiveDateTimeFieldSpecified;
-        
-        private System.DateTime expirationDateTimeField;
-        
-        private bool expirationDateTimeFieldSpecified;
-        
-        private string timeAtAddressField;
-        
-        private System.DateTime addressVerifyDateTimeField;
-        
-        private bool addressVerifyDateTimeFieldSpecified;
-        
-        /// <remarks/>
-        public ContactAddressType type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool typeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime effectiveDateTime {
-            get {
-                return this.effectiveDateTimeField;
-            }
-            set {
-                this.effectiveDateTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool effectiveDateTimeSpecified {
-            get {
-                return this.effectiveDateTimeFieldSpecified;
-            }
-            set {
-                this.effectiveDateTimeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime expirationDateTime {
-            get {
-                return this.expirationDateTimeField;
-            }
-            set {
-                this.expirationDateTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool expirationDateTimeSpecified {
-            get {
-                return this.expirationDateTimeFieldSpecified;
-            }
-            set {
-                this.expirationDateTimeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="duration")]
-        public string timeAtAddress {
-            get {
-                return this.timeAtAddressField;
-            }
-            set {
-                this.timeAtAddressField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime addressVerifyDateTime {
-            get {
-                return this.addressVerifyDateTimeField;
-            }
-            set {
-                this.addressVerifyDateTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool addressVerifyDateTimeSpecified {
-            get {
-                return this.addressVerifyDateTimeFieldSpecified;
-            }
-            set {
-                this.addressVerifyDateTimeFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public enum ContactAddressType {
-        
-        /// <remarks/>
-        Home,
-        
-        /// <remarks/>
-        Work,
-        
-        /// <remarks/>
-        Mailing,
-        
-        /// <remarks/>
-        Previous,
-        
-        /// <remarks/>
-        Temporary,
-        
-        /// <remarks/>
-        CTR,
     }
     
     /// <remarks/>
@@ -12011,6 +12089,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute("productType", Namespace="http://cufxstandards.com/v2/ProductOffering.xsd")]
         public System.Nullable<AccountType>[] productTypeList {
             get {
@@ -12786,6 +12865,10 @@ namespace cufxstandards.com {
         
         private string serviceTimeZoneUTOffsetField;
         
+        private System.Nullable<SystemStatus> statusField;
+        
+        private bool statusFieldSpecified;
+        
         private CustomDataUse[] customDataUseListField;
         
         private MethodList methodListField;
@@ -12872,6 +12955,28 @@ namespace cufxstandards.com {
             }
             set {
                 this.serviceTimeZoneUTOffsetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<SystemStatus> status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool statusSpecified {
+            get {
+                return this.statusFieldSpecified;
+            }
+            set {
+                this.statusFieldSpecified = value;
             }
         }
         
@@ -13045,6 +13150,20 @@ namespace cufxstandards.com {
                 this.commentField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Configuration.xsd")]
+    public enum SystemStatus {
+        
+        /// <remarks/>
+        Online,
+        
+        /// <remarks/>
+        OffLine,
+        
+        /// <remarks/>
+        MemoPost,
     }
     
     /// <remarks/>
@@ -13662,6 +13781,170 @@ namespace cufxstandards.com {
                 this.accountIdListField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/CreditLimitIncreaseRequest.xsd")]
+    public partial class CreditLimitIncreaseRequestList {
+        
+        private creditLimitIncreaseRequest[] creditlimitincreaserequestField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("creditlimitincreaserequest")]
+        public creditLimitIncreaseRequest[] creditlimitincreaserequest {
+            get {
+                return this.creditlimitincreaserequestField;
+            }
+            set {
+                this.creditlimitincreaserequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/CreditLimitIncreaseRequest.xsd")]
+    public partial class creditLimitIncreaseRequest {
+        
+        private System.DateTime requestDateField;
+        
+        private bool requestDateFieldSpecified;
+        
+        private System.DateTime limitIncreaseDateField;
+        
+        private bool limitIncreaseDateFieldSpecified;
+        
+        private string noteNumberField;
+        
+        private decimal newLimitRequestField;
+        
+        private bool newLimitRequestFieldSpecified;
+        
+        private string memoField;
+        
+        private CreditLimitIncreaseRequestStatusType statusField;
+        
+        private bool statusFieldSpecified;
+        
+        /// <remarks/>
+        public System.DateTime RequestDate {
+            get {
+                return this.requestDateField;
+            }
+            set {
+                this.requestDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RequestDateSpecified {
+            get {
+                return this.requestDateFieldSpecified;
+            }
+            set {
+                this.requestDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime LimitIncreaseDate {
+            get {
+                return this.limitIncreaseDateField;
+            }
+            set {
+                this.limitIncreaseDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool LimitIncreaseDateSpecified {
+            get {
+                return this.limitIncreaseDateFieldSpecified;
+            }
+            set {
+                this.limitIncreaseDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string noteNumber {
+            get {
+                return this.noteNumberField;
+            }
+            set {
+                this.noteNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal newLimitRequest {
+            get {
+                return this.newLimitRequestField;
+            }
+            set {
+                this.newLimitRequestField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool newLimitRequestSpecified {
+            get {
+                return this.newLimitRequestFieldSpecified;
+            }
+            set {
+                this.newLimitRequestFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string memo {
+            get {
+                return this.memoField;
+            }
+            set {
+                this.memoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CreditLimitIncreaseRequestStatusType status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool statusSpecified {
+            get {
+                return this.statusFieldSpecified;
+            }
+            set {
+                this.statusFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/CreditLimitIncreaseRequest.xsd")]
+    public enum CreditLimitIncreaseRequestStatusType {
+        
+        /// <remarks/>
+        InProcess,
+        
+        /// <remarks/>
+        Submitted,
+        
+        /// <remarks/>
+        Canceled,
+        
+        /// <remarks/>
+        Failed,
     }
     
     /// <remarks/>
@@ -15014,6 +15297,298 @@ namespace cufxstandards.com {
             }
             set {
                 this.valueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Fee.xsd")]
+    public partial class FeeList {
+        
+        private Fee[] feeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("fee")]
+        public Fee[] fee {
+            get {
+                return this.feeField;
+            }
+            set {
+                this.feeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Fee.xsd")]
+    public partial class Fee {
+        
+        private string[] feeIdField;
+        
+        private string partyRelationshipIDField;
+        
+        private FeeType typeField;
+        
+        private bool typeFieldSpecified;
+        
+        private string subTypeField;
+        
+        private IntervalFrequencyType frequencyField;
+        
+        private string minimumFrequencyField;
+        
+        private string maximumFrequencyField;
+        
+        private FeePriceList priceListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("feeId")]
+        public string[] feeId {
+            get {
+                return this.feeIdField;
+            }
+            set {
+                this.feeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string partyRelationshipID {
+            get {
+                return this.partyRelationshipIDField;
+            }
+            set {
+                this.partyRelationshipIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FeeType type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool typeSpecified {
+            get {
+                return this.typeFieldSpecified;
+            }
+            set {
+                this.typeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string subType {
+            get {
+                return this.subTypeField;
+            }
+            set {
+                this.subTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public IntervalFrequencyType frequency {
+            get {
+                return this.frequencyField;
+            }
+            set {
+                this.frequencyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string minimumFrequency {
+            get {
+                return this.minimumFrequencyField;
+            }
+            set {
+                this.minimumFrequencyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string maximumFrequency {
+            get {
+                return this.maximumFrequencyField;
+            }
+            set {
+                this.maximumFrequencyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FeePriceList priceList {
+            get {
+                return this.priceListField;
+            }
+            set {
+                this.priceListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Fee.xsd")]
+    public enum FeeType {
+        
+        /// <remarks/>
+        Unknown,
+        
+        /// <remarks/>
+        Unpaid,
+        
+        /// <remarks/>
+        Overdraft,
+        
+        /// <remarks/>
+        Withdrawal,
+        
+        /// <remarks/>
+        Advance,
+        
+        /// <remarks/>
+        Deposit,
+        
+        /// <remarks/>
+        Payment,
+        
+        /// <remarks/>
+        StopFee,
+        
+        /// <remarks/>
+        Overlimit,
+        
+        /// <remarks/>
+        BillPayment,
+        
+        /// <remarks/>
+        TransferFee,
+        
+        /// <remarks/>
+        WithdrawaltoBelowBaseFee,
+        
+        /// <remarks/>
+        ClosingWithinBaseCountDays,
+        
+        /// <remarks/>
+        WithdrawalWhenBalanceBelowBase,
+        
+        /// <remarks/>
+        LobbyVisit,
+        
+        /// <remarks/>
+        TellerUsage,
+        
+        /// <remarks/>
+        CheckPrinting,
+        
+        /// <remarks/>
+        CheckOtherFee,
+        
+        /// <remarks/>
+        CallPrice,
+        
+        /// <remarks/>
+        NewShareFee,
+        
+        /// <remarks/>
+        DocumentStamp,
+        
+        /// <remarks/>
+        ATMCustom,
+        
+        /// <remarks/>
+        AudioCustom,
+        
+        /// <remarks/>
+        HomeBankingCustom,
+        
+        /// <remarks/>
+        InternationalTransaction,
+        
+        /// <remarks/>
+        PaymentSkip,
+        
+        /// <remarks/>
+        OtherRegulationZ,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Common.xsd")]
+    public enum IntervalFrequencyType {
+        
+        /// <remarks/>
+        OneTime,
+        
+        /// <remarks/>
+        PerUse,
+        
+        /// <remarks/>
+        Hourly,
+        
+        /// <remarks/>
+        Daily,
+        
+        /// <remarks/>
+        Weekly,
+        
+        /// <remarks/>
+        Biweekly,
+        
+        /// <remarks/>
+        Monthly,
+        
+        /// <remarks/>
+        SemiMonthly,
+        
+        /// <remarks/>
+        Quarterly,
+        
+        /// <remarks/>
+        SemiAnnually,
+        
+        /// <remarks/>
+        Annually,
+        
+        /// <remarks/>
+        Other,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Fee.xsd")]
+    public partial class FeePriceList {
+        
+        private string descriptionField;
+        
+        private Money priceField;
+        
+        /// <remarks/>
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                this.descriptionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Money price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
             }
         }
     }
@@ -16581,6 +17156,525 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class permissionList {
+        
+        private Permission[] permissionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("permission")]
+        public Permission[] permission {
+            get {
+                return this.permissionField;
+            }
+            set {
+                this.permissionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class Permission {
+        
+        private PermissionPrincipal principalField;
+        
+        private string actionField;
+        
+        private PermissionResource resourceField;
+        
+        private MaxLimits maxLimitsField;
+        
+        /// <remarks/>
+        public PermissionPrincipal principal {
+            get {
+                return this.principalField;
+            }
+            set {
+                this.principalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string action {
+            get {
+                return this.actionField;
+            }
+            set {
+                this.actionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PermissionResource resource {
+            get {
+                return this.resourceField;
+            }
+            set {
+                this.resourceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public MaxLimits maxLimits {
+            get {
+                return this.maxLimitsField;
+            }
+            set {
+                this.maxLimitsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class PermissionPrincipal {
+        
+        private string itemField;
+        
+        private ItemChoiceType itemElementNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("fiUserId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("partyId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("relationshipId", typeof(string))]
+        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+        public string Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public ItemChoiceType ItemElementName {
+            get {
+                return this.itemElementNameField;
+            }
+            set {
+                this.itemElementNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd", IncludeInSchema=false)]
+    public enum ItemChoiceType {
+        
+        /// <remarks/>
+        fiUserId,
+        
+        /// <remarks/>
+        partyId,
+        
+        /// <remarks/>
+        relationshipId,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class PermissionResource {
+        
+        private string itemField;
+        
+        private ItemChoiceType1 itemElementNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("accountId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("cardId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("fiUserId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("relationshipId", typeof(string))]
+        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+        public string Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public ItemChoiceType1 ItemElementName {
+            get {
+                return this.itemElementNameField;
+            }
+            set {
+                this.itemElementNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd", IncludeInSchema=false)]
+    public enum ItemChoiceType1 {
+        
+        /// <remarks/>
+        accountId,
+        
+        /// <remarks/>
+        cardId,
+        
+        /// <remarks/>
+        fiUserId,
+        
+        /// <remarks/>
+        relationshipId,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class MaxLimits {
+        
+        private MaxLimitsDailyMax dailyMaxField;
+        
+        private MaxLimitsWeeklyMax weeklyMaxField;
+        
+        private MaxLimitsMonthlyMax monthlyMaxField;
+        
+        /// <remarks/>
+        public MaxLimitsDailyMax DailyMax {
+            get {
+                return this.dailyMaxField;
+            }
+            set {
+                this.dailyMaxField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public MaxLimitsWeeklyMax WeeklyMax {
+            get {
+                return this.weeklyMaxField;
+            }
+            set {
+                this.weeklyMaxField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public MaxLimitsMonthlyMax MonthlyMax {
+            get {
+                return this.monthlyMaxField;
+            }
+            set {
+                this.monthlyMaxField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class MaxLimitsDailyMax {
+        
+        private decimal maxAmountField;
+        
+        private string maxNumberField;
+        
+        private decimal rollingAmountField;
+        
+        private string rollingNumberField;
+        
+        /// <remarks/>
+        public decimal MaxAmount {
+            get {
+                return this.maxAmountField;
+            }
+            set {
+                this.maxAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string MaxNumber {
+            get {
+                return this.maxNumberField;
+            }
+            set {
+                this.maxNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal RollingAmount {
+            get {
+                return this.rollingAmountField;
+            }
+            set {
+                this.rollingAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string RollingNumber {
+            get {
+                return this.rollingNumberField;
+            }
+            set {
+                this.rollingNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class MaxLimitsWeeklyMax {
+        
+        private decimal maxAmountField;
+        
+        private string maxNumberField;
+        
+        private decimal rollingAmountField;
+        
+        private string rollingNumberField;
+        
+        /// <remarks/>
+        public decimal MaxAmount {
+            get {
+                return this.maxAmountField;
+            }
+            set {
+                this.maxAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string MaxNumber {
+            get {
+                return this.maxNumberField;
+            }
+            set {
+                this.maxNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal RollingAmount {
+            get {
+                return this.rollingAmountField;
+            }
+            set {
+                this.rollingAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string RollingNumber {
+            get {
+                return this.rollingNumberField;
+            }
+            set {
+                this.rollingNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class MaxLimitsMonthlyMax {
+        
+        private decimal maxAmountField;
+        
+        private string maxNumberField;
+        
+        private decimal rollingAmountField;
+        
+        private string rollingNumberField;
+        
+        /// <remarks/>
+        public decimal MaxAmount {
+            get {
+                return this.maxAmountField;
+            }
+            set {
+                this.maxAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string MaxNumber {
+            get {
+                return this.maxNumberField;
+            }
+            set {
+                this.maxNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal RollingAmount {
+            get {
+                return this.rollingAmountField;
+            }
+            set {
+                this.rollingAmountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string RollingNumber {
+            get {
+                return this.rollingNumberField;
+            }
+            set {
+                this.rollingNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionListFilter.xsd")]
+    public partial class PermissionListFilter {
+        
+        private PermissionListFilterPrincipals principalsField;
+        
+        private string actionListField;
+        
+        private PermissionListFilterResources resourcesField;
+        
+        /// <remarks/>
+        public PermissionListFilterPrincipals principals {
+            get {
+                return this.principalsField;
+            }
+            set {
+                this.principalsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string actionList {
+            get {
+                return this.actionListField;
+            }
+            set {
+                this.actionListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PermissionListFilterResources resources {
+            get {
+                return this.resourcesField;
+            }
+            set {
+                this.resourcesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionListFilter.xsd")]
+    public partial class PermissionListFilterPrincipals {
+        
+        private string[] fiUserIdListField;
+        
+        private string[] partyIdListField;
+        
+        private string[] relationshipIdListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("fiUserId", Namespace="http://cufxstandards.com/v2/CredentialGroup.xsd", IsNullable=false)]
+        public string[] fiUserIdList {
+            get {
+                return this.fiUserIdListField;
+            }
+            set {
+                this.fiUserIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("partyId", Namespace="http://cufxstandards.com/v2/Party.xsd", IsNullable=false)]
+        public string[] partyIdList {
+            get {
+                return this.partyIdListField;
+            }
+            set {
+                this.partyIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("relationshipId", Namespace="http://cufxstandards.com/v2/Relationship.xsd", IsNullable=false)]
+        public string[] relationshipIdList {
+            get {
+                return this.relationshipIdListField;
+            }
+            set {
+                this.relationshipIdListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionListFilter.xsd")]
+    public partial class PermissionListFilterResources {
+        
+        private string[] accountIdListField;
+        
+        private string[] fiUserIdListField;
+        
+        private string[] cardIdListField;
+        
+        private string[] relationshipIdListField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("accountId", Namespace="http://cufxstandards.com/v2/Account.xsd", IsNullable=false)]
+        public string[] accountIdList {
+            get {
+                return this.accountIdListField;
+            }
+            set {
+                this.accountIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("fiUserId", Namespace="http://cufxstandards.com/v2/CredentialGroup.xsd", IsNullable=false)]
+        public string[] fiUserIdList {
+            get {
+                return this.fiUserIdListField;
+            }
+            set {
+                this.fiUserIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("cardId", Namespace="http://cufxstandards.com/v2/Card.xsd", IsNullable=false)]
+        public string[] cardIdList {
+            get {
+                return this.cardIdListField;
+            }
+            set {
+                this.cardIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("relationshipId", Namespace="http://cufxstandards.com/v2/Relationship.xsd", IsNullable=false)]
+        public string[] relationshipIdList {
+            get {
+                return this.relationshipIdListField;
+            }
+            set {
+                this.relationshipIdListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Preference.xsd")]
     public partial class PreferenceList {
         
@@ -16851,6 +17945,9 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         Communication,
+        
+        /// <remarks/>
+        Marketing,
         
         /// <remarks/>
         ContactHours,
@@ -18166,7 +19263,7 @@ namespace cufxstandards.com {
         
         private string itemField;
         
-        private ItemChoiceType itemElementNameField;
+        private ItemChoiceType2 itemElementNameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("productOfInterest", typeof(string))]
@@ -18184,7 +19281,7 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType ItemElementName {
+        public ItemChoiceType2 ItemElementName {
             get {
                 return this.itemElementNameField;
             }
@@ -18196,7 +19293,7 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd", IncludeInSchema=false)]
-    public enum ItemChoiceType {
+    public enum ItemChoiceType2 {
         
         /// <remarks/>
         productOfInterest,
@@ -19506,6 +20603,454 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         Production,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd")]
+    public partial class RemoteDepositPostRequestList {
+        
+        private RemoteDepositPostRequest[] remoteDepositPostRequestField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("remoteDepositPostRequest")]
+        public RemoteDepositPostRequest[] remoteDepositPostRequest {
+            get {
+                return this.remoteDepositPostRequestField;
+            }
+            set {
+                this.remoteDepositPostRequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd")]
+    public partial class RemoteDepositPostRequest {
+        
+        private string routingTransitNumberField;
+        
+        private Money amountField;
+        
+        private string accountIdField;
+        
+        private string referenceField;
+        
+        private Mode1 modeField;
+        
+        private bool modeFieldSpecified;
+        
+        /// <remarks/>
+        public string routingTransitNumber {
+            get {
+                return this.routingTransitNumberField;
+            }
+            set {
+                this.routingTransitNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Money amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string accountId {
+            get {
+                return this.accountIdField;
+            }
+            set {
+                this.accountIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string reference {
+            get {
+                return this.referenceField;
+            }
+            set {
+                this.referenceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Mode1 mode {
+            get {
+                return this.modeField;
+            }
+            set {
+                this.modeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool modeSpecified {
+            get {
+                return this.modeFieldSpecified;
+            }
+            set {
+                this.modeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Mode", Namespace="http://cufxstandards.com/v2/Common.xsd")]
+    public enum Mode1 {
+        
+        /// <remarks/>
+        Test,
+        
+        /// <remarks/>
+        Production,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd")]
+    public partial class RemoteDepositPostResponseList {
+        
+        private RemoteDepositPostResponse[] remoteDepositPostResponseField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("remoteDepositPostResponse")]
+        public RemoteDepositPostResponse[] remoteDepositPostResponse {
+            get {
+                return this.remoteDepositPostResponseField;
+            }
+            set {
+                this.remoteDepositPostResponseField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd")]
+    public partial class RemoteDepositPostResponse {
+        
+        private PostingStatus postingStatusField;
+        
+        private bool postingStatusFieldSpecified;
+        
+        /// <remarks/>
+        public PostingStatus postingStatus {
+            get {
+                return this.postingStatusField;
+            }
+            set {
+                this.postingStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool postingStatusSpecified {
+            get {
+                return this.postingStatusFieldSpecified;
+            }
+            set {
+                this.postingStatusFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd")]
+    public enum PostingStatus {
+        
+        /// <remarks/>
+        Success,
+        
+        /// <remarks/>
+        Failure,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositRequest.xsd")]
+    public partial class RemoteDepositRequestList {
+        
+        private RemoteDepositRequest[] remoteDepositRequestField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("remoteDepositRequest")]
+        public RemoteDepositRequest[] remoteDepositRequest {
+            get {
+                return this.remoteDepositRequestField;
+            }
+            set {
+                this.remoteDepositRequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositRequest.xsd")]
+    public partial class RemoteDepositRequest {
+        
+        private string routingTransitNumberField;
+        
+        private Money amountField;
+        
+        private bool croppedField;
+        
+        private bool croppedFieldSpecified;
+        
+        private byte[] frontImageField;
+        
+        private byte[] backImageField;
+        
+        private string accountIdField;
+        
+        private Contact[] contactField;
+        
+        private Mode1 modeField;
+        
+        private bool modeFieldSpecified;
+        
+        /// <remarks/>
+        public string routingTransitNumber {
+            get {
+                return this.routingTransitNumberField;
+            }
+            set {
+                this.routingTransitNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Money amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool cropped {
+            get {
+                return this.croppedField;
+            }
+            set {
+                this.croppedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool croppedSpecified {
+            get {
+                return this.croppedFieldSpecified;
+            }
+            set {
+                this.croppedFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] frontImage {
+            get {
+                return this.frontImageField;
+            }
+            set {
+                this.frontImageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] backImage {
+            get {
+                return this.backImageField;
+            }
+            set {
+                this.backImageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string accountId {
+            get {
+                return this.accountIdField;
+            }
+            set {
+                this.accountIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("contact")]
+        public Contact[] contact {
+            get {
+                return this.contactField;
+            }
+            set {
+                this.contactField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Mode1 mode {
+            get {
+                return this.modeField;
+            }
+            set {
+                this.modeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool modeSpecified {
+            get {
+                return this.modeFieldSpecified;
+            }
+            set {
+                this.modeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositResponse.xsd")]
+    public partial class RemoteDepositResponseList {
+        
+        private RemoteDepositResponse[] remoteDepositResponseField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("remoteDepositResponse")]
+        public RemoteDepositResponse[] remoteDepositResponse {
+            get {
+                return this.remoteDepositResponseField;
+            }
+            set {
+                this.remoteDepositResponseField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositResponse.xsd")]
+    public partial class RemoteDepositResponse {
+        
+        private Status1 statusField;
+        
+        private bool statusFieldSpecified;
+        
+        private ImageValidationIssue[] imageValidationIssueListField;
+        
+        /// <remarks/>
+        public Status1 status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool statusSpecified {
+            get {
+                return this.statusFieldSpecified;
+            }
+            set {
+                this.statusFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("imageValidationIssue", IsNullable=false)]
+        public ImageValidationIssue[] imageValidationIssueList {
+            get {
+                return this.imageValidationIssueListField;
+            }
+            set {
+                this.imageValidationIssueListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Status", Namespace="http://cufxstandards.com/v2/RemoteDepositResponse.xsd")]
+    public enum Status1 {
+        
+        /// <remarks/>
+        ExceedsDepositLimit,
+        
+        /// <remarks/>
+        Approved,
+        
+        /// <remarks/>
+        UnderReview,
+        
+        /// <remarks/>
+        DeclinedRestricted,
+        
+        /// <remarks/>
+        DeclinedImageValidationIssues,
+        
+        /// <remarks/>
+        ImageValidation,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositResponse.xsd")]
+    public enum ImageValidationIssue {
+        
+        /// <remarks/>
+        CARMismatchFailed,
+        
+        /// <remarks/>
+        FoldedCorners,
+        
+        /// <remarks/>
+        ExcessSkew,
+        
+        /// <remarks/>
+        TooDark,
+        
+        /// <remarks/>
+        TooLight,
+        
+        /// <remarks/>
+        BelowMinSize,
+        
+        /// <remarks/>
+        AboveMaxSize,
+        
+        /// <remarks/>
+        UndersizedImage,
+        
+        /// <remarks/>
+        OversizedImage,
+        
+        /// <remarks/>
+        SpotNoise,
+        
+        /// <remarks/>
+        DateUsability,
+        
+        /// <remarks/>
+        PayeeUsability,
+        
+        /// <remarks/>
+        SignatureUsability,
+        
+        /// <remarks/>
+        PayorUsability,
+        
+        /// <remarks/>
+        MICRUsability,
     }
     
     /// <remarks/>
