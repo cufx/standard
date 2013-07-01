@@ -8,7 +8,8 @@
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"  
+	xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"
+  xmlns:secureMessage="http://cufxstandards.com/v2/SecureMessage.xsd"  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -17,6 +18,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
 
 	<xs:element name="productServiceRequestFilter" type="ProductServiceRequestFilter">
 		<xs:annotation>
@@ -79,6 +81,15 @@
 				</xs:annotation>
 			</xs:element>
 
+      <xs:element name="secureMessageIdList" type="secureMessage:SecureMessageIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of secure message Id's that should have their associated productServiceRequests either returned or affected
+            by a read, update or delete productServiceRequest request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
 			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:StatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
