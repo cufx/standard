@@ -8,6 +8,7 @@
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
   xmlns:secureMessage="http://cufxstandards.com/v2/SecureMessage.xsd"
+  xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -18,6 +19,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
   <xs:element name="secureMessageFilter" type="SecureMessageFilter">
     <xs:annotation>
@@ -46,7 +48,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="subjectLineList" type="secureMessage:SubjectLineList" minOccurs="0" maxOccurs="1">
+      <xs:element name="subjectLineContainsList" type="secureMessage:SubjectLineContainsList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of subjectLines that should have their associated secureMessages returned or
@@ -158,7 +160,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="bodyContains" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="bodyContainsList" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The list of secureMessages that contain the bodyContains string somewhere 
@@ -176,6 +178,25 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="documentIDList" type="document:DocumentIdList " minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of document IDs messageTo receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="productServiceRequestIDList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product service request IDs messageTo receivers that should have their associated secureMessages either returned or affected
+            by a read, update or delete secureMessage request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
