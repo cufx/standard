@@ -8,7 +8,8 @@
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+  xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"   
 	elementFormDefault="qualified"	
 	attributeFormDefault="unqualified">
   
@@ -18,6 +19,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
   
   <xs:element name= "accountList" type ="AccountList">
     <xs:annotation>
@@ -663,6 +665,15 @@
           <xs:documentation>
             Reason for the stop/hold.
             This value is visible to the user and must be human-readable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="feeCode" type="fee:Fee"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the definition of a fee that could be associated with a hold.
+            If the hold type is 'uncollected fee'; this field could be used to link to type of fee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
