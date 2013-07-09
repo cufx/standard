@@ -669,7 +669,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="feeCode" type="fee:Fee"  minOccurs="0" maxOccurs="1">
+      <xs:element name="feeCode" type="fee:FeeId"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             This is the definition of a fee that could be associated with a hold.
