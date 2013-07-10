@@ -7,6 +7,7 @@
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"  
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -14,6 +15,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name= "billPayeeList" type ="BillPayeeList">
     <xs:annotation>
@@ -131,7 +133,14 @@
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="defaultPaymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account the payment was taken from.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
     </xs:sequence>
   </xs:complexType>
