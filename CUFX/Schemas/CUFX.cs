@@ -12089,7 +12089,6 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [System.Xml.Serialization.XmlArrayItemAttribute("productType", Namespace="http://cufxstandards.com/v2/ProductOffering.xsd")]
         public System.Nullable<AccountType>[] productTypeList {
             get {
@@ -15329,8 +15328,6 @@ namespace cufxstandards.com {
         
         private FeeType typeField;
         
-        private bool typeFieldSpecified;
-        
         private string subTypeField;
         
         private IntervalFrequencyType frequencyField;
@@ -15370,17 +15367,6 @@ namespace cufxstandards.com {
             }
             set {
                 this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool typeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
             }
         }
         
@@ -15439,7 +15425,62 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Fee.xsd")]
-    public enum FeeType {
+    public partial class FeeType {
+        
+        private FeeTypeFeeCategory feeCategoryField;
+        
+        private bool feeCategoryFieldSpecified;
+        
+        private bool isRegDDApplicableField;
+        
+        private bool isRegDDApplicableFieldSpecified;
+        
+        /// <remarks/>
+        public FeeTypeFeeCategory feeCategory {
+            get {
+                return this.feeCategoryField;
+            }
+            set {
+                this.feeCategoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool feeCategorySpecified {
+            get {
+                return this.feeCategoryFieldSpecified;
+            }
+            set {
+                this.feeCategoryFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsRegDDApplicable {
+            get {
+                return this.isRegDDApplicableField;
+            }
+            set {
+                this.isRegDDApplicableField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsRegDDApplicableSpecified {
+            get {
+                return this.isRegDDApplicableFieldSpecified;
+            }
+            set {
+                this.isRegDDApplicableFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Fee.xsd")]
+    public enum FeeTypeFeeCategory {
         
         /// <remarks/>
         Unknown,
