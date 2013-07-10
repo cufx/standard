@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+   targetNamespace="http://cufxstandards.com/v2/BillPayment.xsd"
+	version="2.1.$Revision: 298 $"
+  xmlns="http://cufxstandards.com/v2/BillPayment.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"   
+   
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  
+  <xs:element name= "billPaymentList" type ="BillPaymentList">
+    <xs:annotation>
+      <xs:documentation>
+        The bill payment collection/array contains all the bills for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="BillPaymentList">
+    <xs:annotation>
+      <xs:documentation>
+        The bill payment collection/array contains all the bills for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPayment" type="BillPayment" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BillPayment">
+    <xs:sequence>
+
+      <xs:element name="billPaymentId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An id that uniquely identifies the bill.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="payeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Id of the payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Negative, Zero or Positive amount.
+            If this is the amount of the bill being paid.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The memo represents the memo of the transaction and should be no longer
+            than 5000 characters.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True for electronic processing, False for sending a paper check.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payment is active, False if payment has been cancelled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payment is active, False if payment has been member cancelled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A party id that uniquely identifies the member with a bill payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sourceAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account to take the payment from
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateCreated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date bill payment was created.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateExpectedDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The expected debit date of bill payment.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateProcessingStarted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date bill payment processing starts.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateFunded" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date bill payment is funded.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateCompleted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The processing date bill payment transaction is completed.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateCheckCleared" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Date bill payment check cleared.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isStopRequested" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payment is a stop payment has been requested, False if a stop payment has not been requested.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateCheckStopped" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Date bill payment was stopped.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nsfCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The number of times the bill payment has failed to process due to insuffient funds.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="checkNumber" type="xs:integer" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The number of bill payment check.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateUpdated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The last date bill payment was updated.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="billPayBatchId" type="xs:string" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            An identifier used to group a set of bills together for processing at the same time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+          
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="BillPaymentId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The Bill Payee D is a persistent and unique identifier for the BIll Payee.
+          It must be unique for all users across the institution and remain the same over the life of the Bill Payee.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
