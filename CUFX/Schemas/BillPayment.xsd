@@ -45,7 +45,7 @@
       <xs:element name="billPaymentId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill.
+            An id that uniquely identifies the bill payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -56,10 +56,17 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A party id that uniquely identifies the member associated with the bill payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Negative, Zero or Positive amount.
+            Negative, Zero, or Positive amount.
             If this is the amount of the bill being paid.
           </xs:documentation>
         </xs:annotation>
@@ -67,8 +74,7 @@
       <xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The memo represents the memo of the transaction and should be no longer
-            than 5000 characters.
+            The memo represents the memo of the transaction.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -89,21 +95,14 @@
       <xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True if the payment is active, False if payment has been member cancelled.
+            True if the payment has been deleted, False if payment is active.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
+      <xs:element name="paymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A party id that uniquely identifies the member with a bill payment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="sourceAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account to take the payment from
+            The account the payment was taken from.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
