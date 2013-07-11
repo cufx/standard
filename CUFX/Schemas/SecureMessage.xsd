@@ -220,6 +220,7 @@
         </xs:annotation >
       </xs:element>
   
+
       
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -357,6 +358,28 @@
         <xs:annotation>
           <xs:documentation>
             The secureMessage was archived.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unread">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage has been created and sent; but has not been read by recipient.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Failed">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage was created and sent; but delivery to recipient failed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Expired">
+        <xs:annotation>
+          <xs:documentation>
+            The secureMessage was sent.  The secureMessage had an expiration date associated.  
+            The expiration date has expired.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
