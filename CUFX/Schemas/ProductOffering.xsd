@@ -274,7 +274,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="unbounded" nillable="true">
+      <xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="unbounded" >
         <xs:annotation>
           <xs:documentation>
             Defines a general category for the product type to filter on.  If none are provided then
