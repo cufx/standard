@@ -20,6 +20,13 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="requestID" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The request id is unique identifier which identifies the request from the source system. The client application sends this along with the messages so that it can be logged as a reference for troubleshooting purposes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="vendorID" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
