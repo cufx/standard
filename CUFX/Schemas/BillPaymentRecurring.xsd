@@ -47,7 +47,7 @@
       <xs:element name="billPaymentRecurringId" type="BillPaymentRecurringId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill payment.
+            An id that uniquely identifies the recurring bill payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -73,14 +73,6 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="frequency" type="common:IntervalFrequencyType"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The frequency of the payment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="isOpenEnded" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -102,8 +94,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      <xs:element name="dateFirstDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="frequency" type="common:IntervalFrequencyType"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The frequency of the payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The first date of recurring payment.
@@ -113,7 +111,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateNextDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="nextDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The next date of recurring payment.
@@ -123,7 +121,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateLast" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="lastModifiedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date of last recurring payment that was made.
@@ -134,7 +132,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="paymentCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
+      <xs:element name="totalPaymentCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The total number of recurring payments to be made.
@@ -165,8 +163,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The Bill Payee D is a persistent and unique identifier for the BIll Payee.
-          It must be unique for all users across the institution and remain the same over the life of the Bill Payee.
+          An id that uniquely identifies the recurring bill payment.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
