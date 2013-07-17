@@ -7,6 +7,7 @@
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
+  xmlns:billpayment="http://cufxstandards.com/v2/BillPayment.xsd"   
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"   
    
 	elementFormDefault="qualified"
@@ -15,6 +16,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayment.xsd" schemaLocation="BillPayment.xsd" />  
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   
   <xs:element name= "billPaymentRecurringList" type ="BillPaymentRecurringList">
@@ -63,33 +65,33 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
+      <xs:element name="paymentId" type="billpayment:BillPaymentId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Negative, Zero, or Positive amount.
-            If this is the amount of the bill being paid.
+            A bill payment id that uniquely identifies the bill payment associated with the recurring payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
+
+      <xs:element name="frequency" type="common:IntervalFrequencyType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The memo represents the memo of the transaction.
+            The frequency of the payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
-      <xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="isOpenEnded" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True for electronic processing, False for sending a paper check.
+            True for payments with no end date, False if there is an end date for payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="isActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
+      <xs:element name="isCompleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True if the payment is active, False if payment has been cancelled.
+            True if the payments are active end date has passed, False if payment is active but end date has not been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -100,123 +102,62 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="paymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="dateFirstDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The account the payment was taken from.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="dateCreated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date bill payment was created.
+            The first date of recurring payment.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateExpectedDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="dateNextDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The expected debit date of bill payment.
+            The next date of recurring payment.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateProcessingStarted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="dateLast" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The date bill payment processing starts.
+            The date of last recurring payment that was made.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateFunded" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+
+      <xs:element name="paymentCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The date bill payment is funded.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
+            The total number of recurring payments to be made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateCompleted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="paymentsLeft" type="xs:integer" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The processing date bill payment transaction is completed.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="dateCheckCleared" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The Date bill payment check cleared.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isStopRequested" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True if the payment is a stop payment has been requested, False if a stop payment has not been requested.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="dateCheckStopped" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The Date bill payment was stopped.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nsfCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The number of times the bill payment has failed to process due to insuffient funds.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="checkNumber" type="xs:integer" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The number of bill payment check.
+            The number of remaining recurring payments to be made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="dateUpdated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The last date bill payment was updated.
+            The last date recurring payment was updated.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-      <xs:element name="billPayBatchId" type="xs:string" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            An identifier used to group a set of bills together for processing at the same time.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-          
-
+      </xs:element> 
     </xs:sequence>
   </xs:complexType>
 
