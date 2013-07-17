@@ -106,7 +106,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateCreated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date bill payment was created.
@@ -116,7 +116,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateExpectedDebit" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="expectedDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The expected debit date of bill payment.
@@ -126,7 +126,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateProcessingStarted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="processingStartedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date bill payment processing started.
@@ -146,7 +146,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateCompleted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="completeddate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The processing date bill payment transaction is completed.
@@ -156,7 +156,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateCheckCleared" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="checkClearedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The Date bill payment check cleared.
@@ -173,7 +173,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateCheckStopped" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="checkStoppedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The Date bill payment was stopped.
@@ -197,7 +197,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="dateUpdated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="updatedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The last date the bill payment was updated.
@@ -213,8 +213,14 @@
             An identifier used to group a set of bills together for processing at the same time.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
-          
+      </xs:element>
+      <xs:element name="isReccurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payment has recurring payments associated, False if the payment is a single payement.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>          
 
     </xs:sequence>
   </xs:complexType>
