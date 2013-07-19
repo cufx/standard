@@ -20500,153 +20500,6 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd")]
-    public partial class RemoteDepositCaptureList {
-        
-        private RemoteDepositCapture[] remoteDepositCaptureField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("remoteDepositCapture")]
-        public RemoteDepositCapture[] remoteDepositCapture {
-            get {
-                return this.remoteDepositCaptureField;
-            }
-            set {
-                this.remoteDepositCaptureField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd")]
-    public partial class RemoteDepositCapture {
-        
-        private string routingTransitNumberField;
-        
-        private Money amountField;
-        
-        private bool croppedField;
-        
-        private bool croppedFieldSpecified;
-        
-        private byte[] frontImageField;
-        
-        private byte[] backImageField;
-        
-        private string accountIdField;
-        
-        private Contact[] contactField;
-        
-        private Mode[] modeField;
-        
-        /// <remarks/>
-        public string routingTransitNumber {
-            get {
-                return this.routingTransitNumberField;
-            }
-            set {
-                this.routingTransitNumberField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Money amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                this.amountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool cropped {
-            get {
-                return this.croppedField;
-            }
-            set {
-                this.croppedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool croppedSpecified {
-            get {
-                return this.croppedFieldSpecified;
-            }
-            set {
-                this.croppedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] frontImage {
-            get {
-                return this.frontImageField;
-            }
-            set {
-                this.frontImageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] backImage {
-            get {
-                return this.backImageField;
-            }
-            set {
-                this.backImageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string accountId {
-            get {
-                return this.accountIdField;
-            }
-            set {
-                this.accountIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("contact")]
-        public Contact[] contact {
-            get {
-                return this.contactField;
-            }
-            set {
-                this.contactField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("mode")]
-        public Mode[] mode {
-            get {
-                return this.modeField;
-            }
-            set {
-                this.modeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositCapture.xsd")]
-    public enum Mode {
-        
-        /// <remarks/>
-        Test,
-        
-        /// <remarks/>
-        Production,
-    }
-    
-    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd")]
     public partial class RemoteDepositPostRequestList {
         
@@ -20676,7 +20529,7 @@ namespace cufxstandards.com {
         
         private string referenceField;
         
-        private Mode1 modeField;
+        private Mode modeField;
         
         private bool modeFieldSpecified;
         
@@ -20721,7 +20574,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public Mode1 mode {
+        public Mode mode {
             get {
                 return this.modeField;
             }
@@ -20743,8 +20596,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="Mode", Namespace="http://cufxstandards.com/v2/Common.xsd")]
-    public enum Mode1 {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Common.xsd")]
+    public enum Mode {
         
         /// <remarks/>
         Test,
@@ -20850,7 +20703,7 @@ namespace cufxstandards.com {
         
         private Contact[] contactField;
         
-        private Mode1 modeField;
+        private Mode modeField;
         
         private bool modeFieldSpecified;
         
@@ -20939,7 +20792,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public Mode1 mode {
+        public Mode mode {
             get {
                 return this.modeField;
             }
