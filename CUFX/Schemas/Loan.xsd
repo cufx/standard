@@ -466,7 +466,15 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+          
+          <xs:element name= "creditLimitIncreaseRequestList" type ="CreditLimitIncreaseRequestList">
+            <xs:annotation>
+              <xs:documentation>
+                This is a collection of credit limit increase requests.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Loan level name/data pairs list of fields that are not yet available the general specification.
@@ -1711,4 +1719,32 @@
   </xs:restriction>
 </xs:simpleType>
 
+  <xs:complexType name="CreditLimitIncreaseRequestList">
+    <xs:sequence>
+      <xs:element name="RequestDate" type="xs:dateTime" minOccurs="0" >
+        <xs:annotation>
+          <xs:documentation>The date the credit limit increase request was made.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LimitIncreaseDate" type="xs:dateTime" minOccurs="0" >
+        <xs:annotation>
+          <xs:documentation>The date credit limit was increased</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="newLimitRequest" type="xs:decimal" minOccurs="0" >
+        <xs:annotation>
+          <xs:documentation>Amount of credit limit increase requested.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="memo" type="xs:string" minOccurs="0"   >
+        <xs:annotation>
+          <xs:documentation>A general memo field.  This field can be used to provide details on why increase was requested. </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+  
 </xs:schema>
