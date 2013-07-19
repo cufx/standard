@@ -88,21 +88,12 @@ namespace CUFX.Generator
 					generator.WriteXml(outXmlFile);
 				}
 				#endregion
-
-				//#region Generate the CS and JSON examples
-				//string outCsFileName = Path.Combine(exampleDirectory, Path.GetFileNameWithoutExtension(xsdFilePath)) + ".cs";
-				//string outVbFileName = Path.Combine(exampleDirectory, Path.GetFileNameWithoutExtension(xsdFilePath)) + ".vb";
-				//CodeGenerator.GenerateCodeFromXsd(xsdFilePath, outCsFileName, outVbFileName);
-
-				//string outJsonFileName = Path.Combine(exampleDirectory, Path.GetFileNameWithoutExtension(xsdFilePath)) + ".json";
-				//JsonGenerator.GenerateJsonFromCs(outCsFileName, outJsonFileName);
-				//#endregion
 			}
 
 			// Generate one .cs for all the types and place it in the Schemas project
 			string cufxCsFile = Path.Combine(schemaProjectDirectory, "CUFX.cs");
 			CodeGenerator.GenerateCodeFromXsds(files, cufxCsFile);
-			JsonGenerator.GenerateJsonFromCs(cufxCsFile, Path.GetFileNameWithoutExtension(cufxCsFile) + ".json");
+			JsonGenerator.GenerateJsonFromCs(cufxCsFile, Path.Combine(exampleDirectory,Path.GetFileNameWithoutExtension(cufxCsFile)) + ".json");
 
 			Console.WriteLine("Press any key to close");
 			Console.ReadLine();
