@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/Contact.xsd"
+	version="2.0.$Revision: 277 $"
+	xmlns="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+
+
+	<xs:element name= "accessProfileList" type ="AccessProfileList">
+		<xs:annotation>
+			<xs:documentation>
+				The access profile collection/array contains all the access profiles for instance that the credential set is
+				authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="AccessProfileList">
+		<xs:annotation>
+			<xs:documentation>
+        The access profile collection/array contains all the access profiles for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accessProfile" type="AccessProfile" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+            The access profile is a collection of attributes that describe the device used to access an application.
+            This profile may describe a mobile phone, laptop, or personal computer.
+          </xs:documentation>
+				</xs:annotation>
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AccessProfile">
+		<xs:sequence>
+			<xs:element name="partyID" type="party:PartyId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier either to uniquely identify the party this access profile is associated with.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+      <xs:element name="accessSource" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The user agent string of the user agent.  This can contain browser name and version, o
+            perating System name and version, and default language.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ipAddress" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The IP address of device that is accessing the application.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="deviceType" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A text description of device or channel used to access applciation.  This may be mobile, personal computer, or other.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deviceName" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The name associated with teh device accessing application.  This may be a computer name assigned by operating system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+ 
+
+      </xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
