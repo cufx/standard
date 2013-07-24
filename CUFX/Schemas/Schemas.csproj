@@ -77,6 +77,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AccessProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Account.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -122,15 +125,17 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="CreditLimitIncreaseRequest.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Fee.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MicroDepositFunding.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PermissionList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PermissionListFilter.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Ratings.xsd">
@@ -200,6 +205,9 @@
     <None Include="Loan.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Wires.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
