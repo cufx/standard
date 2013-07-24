@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v2/Contact.xsd"
+	targetNamespace="http://cufxstandards.com/v2/AccessProfile.xsd"
 	version="2.0.$Revision: 277 $"
-	xmlns="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns="http://cufxstandards.com/v2/AccessProfile.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
@@ -10,82 +10,191 @@
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
-
-	<xs:element name= "accessProfileList" type ="AccessProfileList">
-		<xs:annotation>
-			<xs:documentation>
-				The access profile collection/array contains all the access profiles for instance that the credential set is
-				authorized to access at the Institution based on applied filters
-			</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-
-	<xs:complexType name="AccessProfileList">
-		<xs:annotation>
-			<xs:documentation>
+  <xs:element name= "accessProfileList" type ="AccessProfileList">
+    <xs:annotation>
+      <xs:documentation>
         The access profile collection/array contains all the access profiles for instance that the credential set is
         authorized to access at the Institution based on applied filters
       </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="accessProfile" type="AccessProfile" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="AccessProfileList">
+    <xs:annotation>
+      <xs:documentation>
+        The access profile collection/array contains all the access profiles for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accessProfile" type="AccessProfile" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
             The access profile is a collection of attributes that describe the device used to access an application.
-            This profile may describe a mobile phone, laptop, or personal computer.
+            This profile may describe a mobile phone, laptop, personal computer, IVR system, or other.
           </xs:documentation>
-				</xs:annotation>
-			</xs:element >
-		</xs:sequence>
-	</xs:complexType>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="AccessProfile">
-		<xs:sequence>
-			<xs:element name="partyID" type="party:PartyId" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifier either to uniquely identify the party this access profile is associated with.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+  <xs:complexType name="AccessProfile">
+    <xs:sequence>
 
-      <xs:element name="accessSource" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="accessProfileId" type="xs:string"  >
         <xs:annotation>
           <xs:documentation>
-            The user agent string of the user agent.  This can contain browser name and version, o
-            perating System name and version, and default language.
+            An identificaiton descriptor that identifies the access profile.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="ipAddress" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="partyID" type="party:PartyId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The IP address of device that is accessing the application.
+            Unique identifier either to uniquely identify the party this access profile is associated with.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accessSource" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The user agent string of the user agent.  This can hold the full/unedited user agent string.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="broswerName" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The name of browser, if a browser is used to run client application.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="broswerVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The version of browser, if a browser is used to run client application.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="operatingSystemName" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The name of operating system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="operatingSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The version of operating system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
+      <xs:element name="language" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The language that client application is presenting.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="local" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The originating country of client application.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ipAddress" type="xs:string"  >
+        <xs:annotation>
+          <xs:documentation>
+            The originating IP.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deviceType" type="DeviceType" >
+        <xs:annotation>
+          <xs:documentation>
+            A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="deviceType" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="resolutionVertical" type="xs:int" >
         <xs:annotation>
           <xs:documentation>
-            A text description of device or channel used to access applciation.  This may be mobile, personal computer, or other.
+            The viewable vertical resolution.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deviceName" type="xs:string" minOccurs="1" maxOccurs="1">
+      <xs:element name="reosutionHorizontal" type="xs:int" >
         <xs:annotation>
           <xs:documentation>
-            The name associated with teh device accessing application.  This may be a computer name assigned by operating system.
+            The viewable horizontal resolution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deviceName" type="xs:string" >
+        <xs:annotation>
+          <xs:documentation>
+            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="manufacturer" type="xs:string" >
+        <xs:annotation>
+          <xs:documentation>
+            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       
- 
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="DeviceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mobile">
+        <xs:annotation>
+          <xs:documentation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PersonalComputer">
+        <xs:annotation>
+          <xs:documentation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Notebook">
+        <xs:annotation>
+          <xs:documentation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:documentation>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 
-      </xs:sequence>
-	</xs:complexType>
 
 </xs:schema>
