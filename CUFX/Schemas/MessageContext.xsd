@@ -47,16 +47,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="appInstanceID" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The application instance id is an &quot;agreed upon&quot; unique identifier that identifies the instance of an application that is creating a message.
-            The client application sends this along with the messages so that logging or other business may take place based on the application utilizing the service.
-            This id is not generated per data or security request but is generally generated the first time the application is run on a device.
-            A standard error will be returned if the appInstanceId is not provided when it is required.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="fiID" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
