@@ -108,7 +108,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="local" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+      <xs:element name="locale" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The originating country of client application.
@@ -116,7 +116,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="ipAddress" type="xs:string"  >
+      <xs:element name="ipAddress" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The originating IP.
@@ -124,7 +124,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deviceType" type="DeviceType" >
+      <xs:element name="deviceType" type="DeviceType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
@@ -132,7 +132,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="resolutionVertical" type="xs:int" >
+      <xs:element name="resolutionVertical" type="xs:int" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The viewable vertical resolution.
@@ -140,7 +140,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="reosutionHorizontal" type="xs:int" >
+      <xs:element name="reosutionHorizontal" type="xs:int" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The viewable horizontal resolution.
@@ -148,7 +148,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deviceName" type="xs:string" >
+      <xs:element name="deviceName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The name associated with the device accessing the application.  This may be a device name assigned by operating system.
@@ -156,7 +156,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="manufacturer" type="xs:string" >
+      <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The name associated with the device accessing the application.  This may be a device name assigned by operating system.
