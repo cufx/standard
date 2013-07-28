@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v2/Card.xsd"
+   targetNamespace="http://cufxstandards.com/v2/Card.xsd"
 	version="2.0.$Revision$"
 	xmlns="http://cufxstandards.com/v2/Card.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -14,7 +15,9 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-
+  <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  
+  
   <xs:element name="cardList" type="CardList">
     <xs:annotation>
       <xs:documentation>
@@ -137,6 +140,56 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="activationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the date when the card was activated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cardStatus" type="CardStatus" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the current status of the card.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="blockedReason" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            For a blocked card, specifies the reason for the block.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="blockedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            For a blocked card, specifies the date on which the card was blocked.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="virtualNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The virtual number associated with the card
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="merchantCountryCodes" type="MerchantCountryCodeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A list of permissible country codes where this card can be used
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cardDesignImage " type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A image template for the card
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
     </xs:sequence>
   </xs:complexType>
 
@@ -150,9 +203,23 @@
       <xs:enumeration value="Atm"/>
       <xs:enumeration value="Credit"/>
       <xs:enumeration value="Debit"/>
+      <xs:enumeration value="Prepaid"/>
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="CardStatus">
+    <xs:annotation>
+      <xs:documentation>
+        Enumeration of the different types of status for a card.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Inactive"/>
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Blocked"/>
+    </xs:restriction>
+  </xs:simpleType>  
+  
   <xs:complexType name="LinkedAccount">
     <xs:annotation>
       <xs:documentation>
@@ -209,5 +276,18 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="MerchantCountryCodeList">
+    <xs:sequence>
+      <xs:element name="countryCode" type="xs:string" minOccurs="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of country codes.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
 
 </xs:schema>
