@@ -5,6 +5,7 @@
 	xmlns="http://cufxstandards.com/v2/PermissionList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:accessProfile="http://cufxstandards.com/v2/AccessProfile.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:card="http://cufxstandards.com/v2/Card.xsd"
@@ -15,6 +16,7 @@
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
@@ -43,37 +45,12 @@
 
   <xs:complexType name="Permission">
     <xs:sequence>
-      <xs:element name="principal" minOccurs="0" maxOccurs="1">
+      <xs:element name="actor" minOccurs="0" maxOccurs="1" type="accessProfile:actor">
         <xs:annotation>
           <xs:documentation>
             The user, party, or other authenticated entity that will be permitted to perform the action.
           </xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:choice>
-            <xs:element name="fiUserId" type="credentialGroup:FiUserId" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The user allowed to perform the action.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The party allowed to perform the action.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The relationship allowed to perform the action.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:choice>
-        </xs:complexType>
       </xs:element>
       <xs:element name="action" type="ExtendedAction" minOccurs="1" maxOccurs="1">
         <xs:annotation>
