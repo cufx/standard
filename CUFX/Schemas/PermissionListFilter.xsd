@@ -35,7 +35,7 @@
 
   <xs:complexType name="PermissionListFilter">
     <xs:sequence>
-      <xs:element name="actors" minOccurs="0" maxOccurs="unbounded" type="accessProfile:actor">
+      <xs:element name="actors" minOccurs="0" maxOccurs="unbounded" type="accessProfile:Actor">
         <xs:annotation>
           <xs:documentation>
             The users, parties, or other authenticated entities to search for.

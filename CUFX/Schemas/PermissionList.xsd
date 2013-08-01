@@ -16,7 +16,7 @@
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
@@ -45,7 +45,7 @@
 
   <xs:complexType name="Permission">
     <xs:sequence>
-      <xs:element name="actor" minOccurs="0" maxOccurs="1" type="accessProfile:actor">
+      <xs:element name="actor" minOccurs="0" maxOccurs="1" type="accessProfile:Actor">
         <xs:annotation>
           <xs:documentation>
             The user, party, or other authenticated entity that will be permitted to perform the action.
