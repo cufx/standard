@@ -35,7 +35,7 @@
         <xs:element name="permission" type="Permission" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>
-              An action the principal is permitted to perform.
+              An action the actor is permitted to perform.
             </xs:documentation>
           </xs:annotation>
         </xs:element>
@@ -49,6 +49,8 @@
         <xs:annotation>
           <xs:documentation>
             The user, party, or other authenticated entity that will be permitted to perform the action.
+            If the permission model has been implemented, it will take precedent over the relationships defined in account 
+            schemas.  The configuration service will define if the permision model has been implemented. 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -124,11 +126,11 @@
   <xs:simpleType name="EnumerationExtension">
     <xs:annotation>
       <xs:documentation>
-        A string value that must contain a "x:" prefix.
+        A string value that must contain a "custom:" prefix.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="x:\w+"/>
+      <xs:pattern value="custom:\w+"/>
     </xs:restriction>
   </xs:simpleType>
   
@@ -162,6 +164,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="CreateAccount">
+        <xs:annotation>
+          <xs:documentation>
+            Allows configuring new a user account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>      
       <xs:enumeration value="GrantAccountAccess">
         <xs:annotation>
           <xs:documentation>
