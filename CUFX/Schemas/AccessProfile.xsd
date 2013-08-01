@@ -107,18 +107,18 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="softwareClientId" type="SoftwareClientId">
+      <xs:element name="softwareClient" type="SoftwareClient">
         <xs:annotation>
           <xs:documentation>
-            The unique software client information identifier.
+            The software client information.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deviceId" type="DeviceId">
+      <xs:element name="device" type="Device">
         <xs:annotation>
           <xs:documentation>
-            The unique device identifier.
+            The device information.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -245,7 +245,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="deviceType" type="DeviceType" minOccurs="0" maxOccurs="1">
+      <xs:element name="deviceType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
@@ -296,40 +296,6 @@
           The unique device identifier.
         </xs:documentation>
       </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="DeviceType">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          A list of device types.
-        </xs:documentation>
-      </xs:annotation>
-      <xs:enumeration value="Mobile">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PersonalComputer">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Notebook">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
