@@ -197,7 +197,15 @@ attributeFormDefault="unqualified">
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-        
+
+      <xs:element name="witnessList" type="WitnessList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of witness(s) of document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -468,6 +476,23 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="signaturePurpose" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+           Defines the location and/or purpose of this instance of the signature.
+           This may be acknowledging the terms and conditions, initialing a location on page, or final signature.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="signatureArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This element points to electronic copy of the signature.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="documentSignedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -525,6 +550,22 @@ attributeFormDefault="unqualified">
         <xs:annotation>
           <xs:documentation>
             When electronically signed the user's public key which is part of the user's certificate that was used to create the digital signature.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="viewedConfirmationValue" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+          This is the value the user is presented to confirm the user was able to view document.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="viewedConfirmationStatus" type="ViewedConfirmationStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+          This field shows the status of confirmation. (presented/confirmed/failed)
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -653,19 +694,20 @@ attributeFormDefault="unqualified">
     <xs:sequence>
       <xs:annotation>
         <xs:documentation>
-          Collection of loans data definition
+          Collection of witnesses.
         </xs:documentation>
       </xs:annotation>
       <xs:element name="witness" type="Witness" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Details relating to loan account
+            Details relating to witness list.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
 
+  
 
   <xs:complexType name="Witness">
     <xs:annotation>
@@ -726,6 +768,7 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:enumeration>
 
+      
       <xs:enumeration value="Custom" >
         <xs:annotation>
           <xs:documentation>
@@ -734,6 +777,35 @@ attributeFormDefault="unqualified">
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
-  </xs:simpleType>  
-  
+  </xs:simpleType>
+
+  <xs:simpleType name="ViewedConfirmationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Presented" >
+        <xs:annotation>
+          <xs:documentation>
+            The value has been presented.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Confirmed">
+        <xs:annotation>
+          <xs:documentation>
+            The user has confirmed the value presented.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="Failed" >
+        <xs:annotation>
+          <xs:documentation>
+            The user attempted to confirm value, but user value did not match presented value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
