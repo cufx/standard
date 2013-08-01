@@ -11,6 +11,7 @@
   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:secureMessage="http://cufxstandards.com/v2/SecureMessage.xsd"
   xmlns:document="http://cufxstandards.com/v2/Document.xsd"           
+  xmlns:credential="http://cufxstandards.com/v2/CredentialGroup.xsd"       
   
            
 	elementFormDefault="qualified"
@@ -23,6 +24,8 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation ="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+
 
 
   <xs:element name="productServiceRequestList" type="ProductServiceRequestList">
@@ -277,7 +280,7 @@
         </xs:annotation >
       </xs:element>
 
-      <xs:element name="secureMessageList" type="SecureMessageList" minOccurs="0" maxOccurs="1">
+      <xs:element name="secureMessageList" type="secureMessage:SecureMessageList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             This is a list of secure messages associated with the request.
@@ -285,7 +288,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="documentList" type="DocumentIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="documentList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             This is a list of documents associated with the request.
@@ -466,6 +469,25 @@
         </xs:annotation >
       </xs:element>
 
+      
+      <xs:element name="credentialTypesRequiredList" type="credential:CredentialTypeList" minOccurs ="0" maxOccurs ="1" >
+        <xs:annotation>
+          <xs:documentation>
+          This attribute indicates whether credentials are required to complete this product service request.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+
+      <xs:element name="credentialsProvidedList" type="credential:CredentialGroupList" minOccurs ="0" maxOccurs ="1" >
+        <xs:annotation>
+          <xs:documentation>
+            If credentials are required, this is list of credentials provided.
+          </xs:documentation>
+        </xs:annotation >
+      </xs:element>
+      
+      
+      
       <xs:element name="activityRelatedTo" type="RelatedTo">
         <xs:annotation>
           <xs:documentation>
@@ -487,48 +509,8 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="SecureMessageList">
-    <xs:annotation>
-      <xs:documentation>
-        Secure Messages releated to request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence>
-        <xs:element name="secureMessageId" type="secureMessage:SecureMessageId" minOccurs="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation>
-              The secureMessage ID is a persistent and unique identifier for the secureMessage not related to the party, relationship or accounts
-              that the secureMessage is for. It should be unique for all secureMessages across the
-              institution and remain the same over the life of the secureMessage within the financial institution.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="DocumentIdList">
-    <xs:annotation>
-      <xs:documentation>
-        Documents releated to request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:sequence>
-        <xs:element name="documentId" type="document:DocumentId" minOccurs="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation>
-              The document ID is a persistent and unique identifier for the document not related to the party, relationship or accounts
-              that the document is for. It should be unique for all documents across the
-              institution and remain the same over the life of the document within the financial institution.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:sequence>
-  </xs:complexType>
-
+  
+  
   <xs:simpleType name ="ProductServiceRequestId">
     <xs:restriction base="xs:string">
       <xs:annotation>
@@ -613,6 +595,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value ="Other">
+        <xs:annotation>
+          <xs:documentation>
+            Some other status not covered above.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>      
     </xs:restriction>
   </xs:simpleType>
 
@@ -716,10 +705,10 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name ="partyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
+      <xs:element name ="unknownPartyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Use if this is for new Parties that do not yet exist on the back end systems.
+            Use if this is for new or unknown Parties that do not yet exist on the back end systems.
             Contains a list of parties for how the party/parties would like to be contacted.
             There may be a very limited subset of party data available since amount of new party
             information provided may be very minimal.
