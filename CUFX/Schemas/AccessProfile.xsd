@@ -6,11 +6,15 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd"
+  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:credentialGroup="http://cufxstandards.com/v2/CredentialGroup.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
   <xs:element name= "accessProfileList" type ="AccessProfileList">
     <xs:annotation>
@@ -43,7 +47,7 @@
   <xs:complexType name="AccessProfile">
     <xs:sequence>
 
-      <xs:element name="accessProfileId" type="xs:string"  >
+      <xs:element name="accessProfileId" type="AccessProfileId"  >
         <xs:annotation>
           <xs:documentation>
             An identificaiton descriptor that identifies the access profile.
@@ -51,23 +55,52 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="partyID" type="party:PartyId" minOccurs="1" maxOccurs="1">
+      <xs:element name="actor" type="Actor"  >
         <xs:annotation>
           <xs:documentation>
-            Unique identifier either to uniquely identify the party this access profile is associated with.
+            The person, place, or thing that is accessing the application.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="accessSource" type="xs:string" minOccurs="0" maxOccurs="1" >
+
+      <xs:element name="rawSoftwareClientDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The user agent string of the user agent.  This can hold the full/unedited user agent string.
+            This is collection of data from client system that is accessing host application.
+            If the user string is present, this can hold the full/unedited user agent string or other identifying text.
+            Some of the information in this field may be parsed to populate fields below.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="broswerName" type="xs:string" minOccurs="0" maxOccurs="1" >
+      <xs:element name="rawDeviceDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            This is collection of data about the device from client system that is accessing host application.
+            The device might be a tablet, mobile phone, computer, or phone number in the case of IVR system.   
+            Some of the information in this field may be parsed to populate fields below.            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deviceType" type="DeviceType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="deviceName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      
+      <xs:element name="browserName" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The name of browser, if a browser is used to run client application.
@@ -75,7 +108,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="broswerVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
+      <xs:element name="browserVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The version of browser, if a browser is used to run client application.
@@ -99,19 +132,28 @@
         </xs:annotation>
       </xs:element>
 
-
-      <xs:element name="language" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+      <xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The language that client application is presenting.
+            Don't restrict to ISO language standard collected from remote system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="locale" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+      <xs:element name="locale" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The originating country of client application.
+            Don't restrict to ISO country code standard collected from remote system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="characterEncoding" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The browsers character encoding.  Some examples are UTF-8, UTF-16, and Unicode.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -123,32 +165,8 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      <xs:element name="deviceType" type="DeviceType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       
-      <xs:element name="resolutionVertical" type="xs:int" minOccurs="0" maxOccurs="1" >
-        <xs:annotation>
-          <xs:documentation>
-            The viewable vertical resolution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="reosutionHorizontal" type="xs:int" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The viewable horizontal resolution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="deviceName" type="xs:string" minOccurs="0" maxOccurs="1">
+       <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The name associated with the device accessing the application.  This may be a device name assigned by operating system.
@@ -156,13 +174,24 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="createAccessDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
+            The date and time this profile was created.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="savedAccessProfile" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+           This attribute indicates a profile the user wants to remembers as safe.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
       
     </xs:sequence>
   </xs:complexType>
@@ -196,5 +225,40 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="AccessProfileId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The unique id associated with a message or group of messages.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
 
+  <xs:complexType name="Actor">
+          <xs:choice>
+            <xs:element name="fiUserId" type="credentialGroup:FiUserId" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The user allowed to perform the action.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The party allowed to perform the action.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+              <xs:annotation>
+                <xs:documentation>
+                  The relationship allowed to perform the action.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+  
 </xs:schema>
