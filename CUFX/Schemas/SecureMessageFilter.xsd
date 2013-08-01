@@ -48,6 +48,16 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="threadIdList" type="secureMessage:ThreadIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of thread id's that should have their associated secureMessages
+            returned or affected by a read, update or delete secureMessage request.
+            If left unsupplied then all threads are returned based on other filters applied.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="subjectLineContainsList" type="secureMessage:SubjectLineContainsList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
