@@ -135,6 +135,25 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="AccessProfileIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The access profile collection/array contains all the access profiles for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accessProfileId" type="AccessProfileId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The access profile id list is a collection of attributes that describe the device used to access an application.
+            This profile may describe a mobile phone, laptop, personal computer, IVR system, or other.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Actor">
     <xs:choice>
       <xs:element name="fiUserId" type="credentialGroup:FiUserId" minOccurs="0" maxOccurs="1">
