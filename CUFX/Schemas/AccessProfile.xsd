@@ -106,6 +106,22 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="softwareClientId" type="SoftwareClientId">
+        <xs:annotation>
+          <xs:documentation>
+            
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name-="deviceId" type="DeviceId">
+        <xs:annotation>
+          <xs:documentation>
+            The unique device identifier.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -155,7 +171,7 @@
       <xs:element name="softwareClientId" type="SoftwareClientId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-
+            The unique software client information identifier.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
