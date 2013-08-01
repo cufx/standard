@@ -13,6 +13,7 @@
   xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
   xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
   xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"  
+  xmlns:accessProfile="http://cufxstandards.com/v2/AccessProfile.xsd"  
 
  
   elementFormDefault="qualified"
@@ -26,7 +27,8 @@
   <xs:import namespace="http://cufxstandards.com/v2/Document.xsd" schemaLocation="Document.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />  
+  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
 
   <xs:element name= "secureMessageList" type ="SecureMessageList">
     <xs:annotation>
@@ -182,7 +184,7 @@
       <xs:element name="bodyFormat" type="BodyFormat" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The actual content of the message.
+            The format of message.  Examples would be HTML, Rich Text, or Plain Text.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -307,7 +309,7 @@
   <xs:complexType name="SubjectLineContainsList">
     <xs:annotation>
       <xs:documentation>
-        The list of secureMessage subjects's that should have their associated secureMessages either returned or affected
+        The list of secureMessage subjects that should have their associated secureMessages either returned or affected
         by a read, update or delete a request.
       </xs:documentation>
     </xs:annotation>
@@ -652,6 +654,13 @@
         <xs:annotation>
           <xs:documentation>
             Status of the secureMessage in the process at a historical point in time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="messageAccessProfileId" type="accessProfile:AccessProfileId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The id of the access profile that is used to update this message status.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
