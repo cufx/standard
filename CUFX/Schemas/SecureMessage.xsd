@@ -50,7 +50,8 @@
           <xs:documentation>
             The secureMessage defines the information sent and then received by two or more parties.
             Also relates secureMessages to the sending and receiving party(ies), and potentially relationship 
-            and/or account(s) for which the secureMessage is bound to.
+            and/or account(s) for which the secureMessage is bound to.  The information and message statuses below are in 
+              the context of the user that is viewing the message.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -85,6 +86,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="threadId" type="ThreadId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Id of the thread of messages.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      
       <xs:element name="subjectLine" type="SubjectLine" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -641,5 +650,16 @@
       </xs:element>
     </xs:sequence >
   </xs:complexType >
+
+  <xs:simpleType name="ThreadId">
+    <xs:restriction base="xs:string">    
+    <xs:annotation>
+      <xs:documentation>
+        The unique id associated with a message or group of messages. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:restriction>
+  </xs:simpleType>
+  
 
 </xs:schema>
