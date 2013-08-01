@@ -9,6 +9,7 @@
 	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
 	xmlns:card="http://cufxstandards.com/v2/Card.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:credential="http://cufxstandards.com/v2/CredentialGroup.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -19,6 +20,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:element name="preferenceList" type="PreferenceList">
 		<xs:annotation>
@@ -111,7 +113,15 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="type" type="Type" minOccurs="0" maxOccurs="1">
+      <xs:element name="deliveryChannel" type="credential:DeliveryChannel" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+           The delivery channel to apply the preference to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="preferenceType" type="PreferenceType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Preference Type.
@@ -172,6 +182,15 @@
 				</xs:annotation>
 			</xs:element>
 
+      <xs:element name="whereToContactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If preference is requires a contact point for delivery; this is collection of contacts to be reached at.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+
       <xs:element name="actionableAlert" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -194,6 +213,8 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      
       
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -216,7 +237,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence >
-      <xs:element name ="type" type="Type" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name ="preferenceType" type="PreferenceType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Preference Type used for filtering.
@@ -226,7 +247,7 @@
     </xs:sequence>
   </xs:complexType>
   
-	<xs:simpleType name ="Type">
+	<xs:simpleType name ="PreferenceType">
 		<xs:annotation>
 			<xs:documentation>
 				Type of preference.  Additions to this list can be submitted to the CUFX committee.
@@ -245,13 +266,23 @@
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive eStatments or paper statements.
-            If value is True the they receive and eStatement.  If value is False or record does not exist, the do not receive eStatements.
+            If value is True then they receive and eStatement.  If value is False or record does not exist, the do not receive eStatements.
             See the EAlertSubType StatementAvailable to determine if party wants to be alerted when statement is available.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
-			<xs:enumeration value ="ENotice"  >
+
+      <xs:enumeration value ="ETaxForms" >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to receive eTaxForms or paper tax forms.
+            If value is True then they receive and eTaxForm.  If value is False or record does not exist, the do not receive eTaxForms.
+            See the EAlertSubType Tax From Available to determine if party wants to be alerted when tax form is available.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="ENotice"  >
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive eNotices or paper notices.
@@ -259,8 +290,27 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
+      <xs:enumeration value ="EReceipt"  >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to receive receipts or paper receipts.
+            If value is True the they receive an eReceipt.  If value is False or record does not exist, the do not receive eNotices.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="EnrolledInTextBanking"  >
+        <xs:annotation>
+          <xs:documentation>
+            Determines if party(ies) wishes to be enrolled in text banking.
+            If value is True the they are enrolled.  If value is False or record does not exist, they are not enrolled..
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
       
-			<xs:enumeration value ="Newsletter"  >
+      <xs:enumeration value ="Newsletter"  >
         <xs:annotation>
           <xs:documentation>
             Determines if party(ies) wishes to receive the newsletter (i.e. opted-in or out). No subTypes apply.
@@ -342,7 +392,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
+      <xs:enumeration value ="Timeout" >
+        <xs:annotation>
+          <xs:documentation>
+            A preference associated to the amount of time a session remains active.
+            The value fields hold the number of seconds for session to stay active.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
       <xs:enumeration value ="Widget" >
         <xs:annotation>
           <xs:documentation>
@@ -420,15 +479,7 @@
 
   <xs:simpleType name="EAlertSubType">
 		<xs:restriction base ="xs:string">
-      <xs:enumeration value ="SsnChanged" >
-        <xs:annotation>
-          <xs:documentation>
-            An additional party was added to a related account (either through party, relationship, card or account).
-            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
+     
       <xs:enumeration value ="AddressChanged" >
         <xs:annotation>
           <xs:documentation>
@@ -936,6 +987,15 @@
         <xs:annotation>
           <xs:documentation>
             A statement is available on a related account (either through party, relationship, card or account).
+            If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value ="TaxFormAvailable"  >
+        <xs:annotation>
+          <xs:documentation>
+            A tax form is available on a related account (either through party, relationship, card or account).
             If this alert is present and active, it should be acted upon if event occurrs.  The value field is ignored.
           </xs:documentation>
         </xs:annotation>
