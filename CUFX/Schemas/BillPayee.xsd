@@ -8,7 +8,8 @@
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-     xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+   xmlns:billpayeedetails="http://cufxstandards.com/v2/BillPayeeDetails.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -18,81 +19,96 @@
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayeeDetails.xsd" schemaLocation="BillPayeeDetails.xsd" />
 
-  <xs:complexType name="BillPayee">
+  <xs:element name= "billPayeeRelationshipList" type ="BillPayeeRelationshipList">
+    <xs:annotation>
+      <xs:documentation>
+        The bill payee collection/array contains all the payees for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="BillPayeeRelationshipList">
+    <xs:annotation>
+      <xs:documentation>
+        The accounts collection/array contains all the fees for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPayeeRelationship" type="BillPayeeRelationship" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BillPayeeRelationship">
     <xs:sequence>
       <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill payee.
-            This is the primary key that BillPayment and BillPayementRecurring look to.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>     
-
-      <xs:element name="isGlobal" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True if the payee is used by multiple members.
-            The information for this payee does not change by member.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-
-      <xs:element name="payeeName" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The name of this payee.
+            An id that uniquely identifies the bill payee for the consumer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="payeeAddress" type="contact:ContactAddress" minOccurs="0" maxOccurs="1">
+      <xs:element name="billPayeeDetailsId" type="billpayeedetails:BillPayeeDetailsId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of contact points for the bill payee.
+            An id that uniquely identifies the bill payee for the Billpayment system.            
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="payeePhone" type="contact:Phone" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="billPayeeRelatedTo" type="RelatedTo" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of contact points for the bill payee.
+            Party, relationship, or account related to this request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="payeeEmail" type="contact:Email" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="userDefinedName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of contact points for the bill payee.
+            The user defined name for payee.  Could be a nickname.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="processorName" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="payeeAccountNumber" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A name that uniquely identifies the processor of the bill payee.
+            The payee assigned account number associated with member.  The number could be printed on check or included in memo.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
+      <xs:element name="accountHolderName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True for electronic processing, False for sending a paper check.
+            The name of the person the bill is being paid for.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="minimumDaysToPay" type="xs:int" minOccurs="1" maxOccurs="1">
+      <xs:element name="sortOrder" type="xs:int" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            This is the minimum days in advance a payment must be scheduled for payee to receive payment in time.
+            The lowest value indicates the payee is listed higher or first in ordering.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      
+      <xs:element name="status" type="Status"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The status of the Bill Payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="addDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -113,32 +129,86 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      <xs:element name="payeeACHRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+      
+      <xs:element name="defaultPaymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The ACH routing number for the payee.
+            The default account the payment for this payee should be taken from.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RelatedTo">
+    <xs:annotation>
+      <xs:documentation>
+        Party, relationship, or account related to this request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Id of party related to Payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="payeeACHAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The ACH account number for the payee.
+            Id of relationship related to Payee
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
-      
-    </xs:sequence>
+      </xs:element>
+
+      <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Id of account related to Payee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
   </xs:complexType>
 
+  <xs:simpleType name="Status">
+    <xs:annotation>
+      <xs:documentation>
+        This is enumeration of statuses for Bill Payee.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is active and visible to member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inactive">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and visible to member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Deleted">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and invisible to member.
+            This value indicates the payee can not be re-activated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="BillPayeeId">
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The Bill Payee D is a persistent and unique identifier for the BIll Payee.
-          It must be unique for all users across the institution and remain the same over the life of the Bill Payee.
+          The Bill Payee ID is a persistent and unique identifier for the BIll Payee for the consumer.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
