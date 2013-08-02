@@ -93,7 +93,17 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="createDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="estimatedDeliveryDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The estimated date time that the payment will be received by payee.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element name="createDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date bill payment was created.
@@ -103,7 +113,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="expectedDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="expectedDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The expected debit date of bill payment.
@@ -113,7 +123,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="processingStartedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date bill payment processing started.
@@ -123,7 +133,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="paymentDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="paymentDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The date bill payment was funded.
@@ -133,7 +143,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="completeddate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The processing date bill payment transaction is completed.
@@ -143,7 +153,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="checkClearedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="checkClearedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The Date bill payment check cleared.
@@ -153,6 +163,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
       <xs:element name="isStopRequested" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
