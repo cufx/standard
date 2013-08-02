@@ -85,6 +85,14 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True for members that are signed up for ebills, False for sending a paper check.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="accountHolderName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -93,10 +101,34 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="currentEBillDueAmount" type="common:Money" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the current E Bill.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="currentEBillDueDate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date the current E bill is due.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="sortOrder" type="xs:int" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The lowest value indicates the payee is listed higher or first in ordering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="billPayeeCategory" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+           A member defined category that can be used for reporting purposes.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

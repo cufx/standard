@@ -58,14 +58,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="billPayeeRelatedTo" type="billpayee:RelatedTo" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A party id that uniquely identifies the member associated with the bill payment.
+            Party, relationship, or account related to this request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="paymentId" type="billpayment:BillPaymentId" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="paymentRequestId" type="billpayment:BillPaymentId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A bill payment id that uniquely identifies the bill payment associated with the recurring payment.
@@ -101,7 +103,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="firstDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="firstScheduledDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The first date of recurring payment.
@@ -111,7 +113,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="nextDebitDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="nextDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The next date of recurring payment.
