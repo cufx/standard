@@ -41,14 +41,7 @@
       <xs:element name="feeId" type="FeeId"  minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The ID for the fee
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A party id that uniquely identify each party associated to this fee.
+            The ID for the fee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -56,18 +49,10 @@
         <xs:annotation>
           <xs:documentation>
             The fee type is the textual representation the kind of fee.
-            This value is visible to the user and must be human-readable.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The fee sub type that identifies the specific fee type
-            that the back end system will recognize.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+
       <xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
@@ -302,10 +287,10 @@
         </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="IsRegDDApplicable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+      <xs:element name="IsRegDApplicable" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            This element indicates if the fee is RegulationDD applicable.
+            This element indicates if the fee is RegulationD applicable.
             Default is false.  If element is missing; false is assumed.
           </xs:documentation>
         </xs:annotation>
