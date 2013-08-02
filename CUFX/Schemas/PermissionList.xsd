@@ -187,10 +187,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="LinkAccount">
+      <xs:enumeration value="AddExternalAccount">
         <xs:annotation>
           <xs:documentation>
-            Allows adding persistant access to an external account.
+            Allows adding persistant access to an account from an external financial institution.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -199,23 +199,6 @@
           <xs:documentation>
             Allowed to change an account's nickname or other user-customizable properties.
             Requires account resource.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ManageAccountRelationships">
-        <xs:annotation>
-          <xs:documentation>
-            Allowed to grant or revoke a party's access to the account.
-            Requires account resource.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ManageAlerts">
-        <xs:annotation>
-          <xs:documentation>
-            Allowed to create, alter, or delete notifications relating to account activity, account balance, 
-            suspicious logon behavior, or other automated signalling supported by the system.
-            Requires resources as supported by the alert system.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -235,18 +218,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="ManagePayroll">
-        <xs:annotation>
-          <xs:documentation>
-            Allowed to create, modify, and process existing payroll for a business.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="ManagePreference">
         <xs:annotation>
           <xs:documentation>
             Allowed to modify user preferences details for a business.
             Requires user or relationship resource.
+            Also includes ability to create, alter, or delete notifications relating to account activity, account balance,
+            suspicious logon behavior, or other automated signalling supported by the system.
+            Requires resources as supported by the alert system.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
