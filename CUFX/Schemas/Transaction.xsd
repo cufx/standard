@@ -5,11 +5,12 @@
 	xmlns="http://cufxstandards.com/v2/Transaction.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-  xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+   xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -20,6 +21,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name= "transactionList" type ="TransactionList">
 		<xs:annotation>
@@ -41,7 +43,7 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
+						<xs:element name="transactionId" type="xs:string" minOccurs="0" maxOccurs ="1">
 							<xs:annotation>
 								<xs:documentation>
 									The Transaction ID is a persistent and unique identifier for each transaction.
@@ -49,6 +51,14 @@
 									Transactions should always be returned with the same ID, even if transactional
 									information has changed (type, amount, description, date, etc.) since the
 									previous account data pull.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									The account ID is a persistent and unique identifier for the account.
+									It must be unique for all users across the institution and remain the same over the life of the account.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
