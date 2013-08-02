@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
    targetNamespace="http://cufxstandards.com/v2/BillPayeeDetails.xsd"
 	version="2.1.$Revision: 298 $"
@@ -28,7 +28,7 @@
             This is the primary key that BillPayment and BillPayementRecurring look to.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>     
+      </xs:element>
 
       <xs:element name="payeeName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -59,7 +59,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="processorName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -83,7 +83,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="isGlobal" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -128,7 +128,7 @@
             supported.  The time is assume to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
