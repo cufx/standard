@@ -56,6 +56,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="dateCreated" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Date of the creation of the relationship (i.e., membership date).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="rewardsCode" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
