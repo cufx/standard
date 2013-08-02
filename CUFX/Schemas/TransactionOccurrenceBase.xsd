@@ -31,3 +31,120 @@
  
   </xs:complexType>b
 </xs:schema>
+
+
+<xs:simpleType name="OccurrenceStatus">
+  <xs:annotation>
+    <xs:documentation>
+      This is enumeration of statuses for bill payment.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="Scheduled">
+      <xs:annotation>
+        <xs:documentation>
+          The payment is in process for immediate or future payment and is cancellable by the party since it's not InProcess yet.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="InProcess">
+      <xs:annotation>
+        <xs:documentation>
+          The bill payment is in process and is no longer cancellable but has not been sent.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CancelRequestedByParty">
+      <xs:annotation>
+        <xs:documentation>
+          A bill payment was requested to be cancelled by the party but not yet cancelled.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CancelRequestedByFinancialInstitution">
+      <xs:annotation>
+        <xs:documentation>
+          A bill payment has been cancelled at the request of the party's financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="CancelRequestedByPaymentProvider">
+      <xs:annotation>
+        <xs:documentation>
+          A bill payment has been cancelled at the request of the party's financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Cancelled">
+      <xs:annotation>
+        <xs:documentation>
+          A bill payment has been cancelled.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Cleared">
+      <xs:annotation>
+        <xs:documentation>
+          The payment has cleared the financial institutions account.  The transaction is finished/complete.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Declined">
+      <xs:annotation>
+        <xs:documentation>
+          The payment was declined (for instance in the case that a debit or card was used as the funding source).
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FundsOutbound">
+      <xs:annotation>
+        <xs:documentation>
+          The funds have been transferred to the payment provider but have not arrived at the payment provider yet.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="FundsCleared">
+      <xs:annotation>
+        <xs:documentation>
+          The funds for the payment have been received by the payment provider but the actual payment hasn't
+          cleared at the payee.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Held">
+      <xs:annotation>
+        <xs:documentation>
+          The payment has been held by the payment provider and not sent to the payee.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="InsufficientFunds">
+      <xs:annotation>
+        <xs:documentation>
+          The payment has attempted to clear the financial institution account but there was not enought funds available.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Sent">
+      <xs:annotation>
+        <xs:documentation>
+          Payment has been sent to the payee but has not been received yet.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Returned">
+      <xs:annotation>
+        <xs:documentation>
+          Payment was returned by the payee and not cleared.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+    <xs:enumeration value="Suspended">
+      <xs:annotation>
+        <xs:documentation>
+          Payment was scheduled for recurring payment but has been has been suspended until taken out of suspend status.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:enumeration>
+  </xs:restriction>
+</xs:simpleType>
