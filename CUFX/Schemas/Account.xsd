@@ -181,7 +181,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="externalAccountSWIFTCode" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="externalAccountSWIFTCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>SWIFTCode for Wire Transfer.</xs:documentation>
 				</xs:annotation>
