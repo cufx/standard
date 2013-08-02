@@ -61,7 +61,31 @@
 						</xs:annotation>
 					</xs:element>
 
-				</xs:sequence>
+          <xs:element name="finalTransferDate" type="xs:dateTime" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The date on which the final payment or transfer is due to be processed.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="datePosted" type="xs:dateTime" minOccurs="0" >
+            <xs:annotation>
+              <xs:documentation>Date the payment or transfer is posted.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="memoPosted" type="xs:boolean" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates whether the payment or transfer has been memo posted or not.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="note" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>A user's "note to self" This note is not submitted to the core. (Optional).</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+        </xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
