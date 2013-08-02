@@ -7,8 +7,8 @@
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"  
-     xmlns:party="http://cufxstandards.com/v2/Party.xsd"  
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+     xmlns:party="http://cufxstandards.com/v2/Party.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -43,7 +43,7 @@
 
   <xs:complexType name="BillPayee">
     <xs:sequence>
-     
+
       <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -60,8 +60,8 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
- 
-      
+
+
       <xs:element name="isGlobal" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -78,7 +78,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="payeeName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -137,7 +137,7 @@
         </xs:annotation>
       </xs:element>
 
-      
+
       <xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -153,18 +153,18 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="sortOrder" type="xs:int" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The lowest value indicates the payee is listed higher or first in ordering.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
       <xs:element name="status" type="Status"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The status of the Bill Payee. 
+            The status of the Bill Payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -196,6 +196,22 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="payeeACHRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The ACH routing number for the payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="payeeACHAccountNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The ACH account number for the payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      
     </xs:sequence>
   </xs:complexType>
 
@@ -254,12 +270,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Deleted">    <xs:annotation>
-      <xs:documentation>
-        This value indicates the payee is inactive and invisible to member.
-        This value indicates the payee can not be re-activated.
-      </xs:documentation>
-    </xs:annotation></xs:enumeration>
+      <xs:enumeration value="Deleted">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and invisible to member.
+            This value indicates the payee can not be re-activated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
