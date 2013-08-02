@@ -49,20 +49,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="payeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
+      <xs:element name="payeeId" type="billpayee:BillPayeeRelationshipId"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The Id of the payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyId" type="party:Party" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A party id that uniquely identifies the member associated with the bill payment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+
       <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -85,17 +79,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="isActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
+      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True if the payment is active, False if payment has been cancelled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True if the payment has been deleted, False if payment is active.
+           Status of the bill payment
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -233,6 +220,46 @@
           It must be unique for all users across the institution and remain the same over the life of the Bill Payee.
         </xs:documentation>
       </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Status">
+    <xs:annotation>
+      <xs:documentation>
+        This is enumeration of statuses for bill payment.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pending">
+        <xs:annotation>
+          <xs:documentation>
+           The bill payment is active, scheduled, and can be edited.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Processing">
+        <xs:annotation>
+          <xs:documentation>
+           The bill payment is in process and is no longer cancellable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelRequestedByMember">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and invisible to member.
+            This value indicates the payee can not be re-activated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelledByMember">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and invisible to member.
+            This value indicates the payee can not be re-activated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
