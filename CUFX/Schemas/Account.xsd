@@ -5,383 +5,385 @@
 	xmlns="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-  xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"   
-	elementFormDefault="qualified"	
+   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+   xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+	xmlns:transaction="http://cufxstandards.com/v2/Transaction.xsd"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
-  
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
-  
-  <xs:element name= "accountList" type ="AccountList">
-    <xs:annotation>
-      <xs:documentation>
-        The accounts collection/array contains all the accounts for instance that the credential set is
-        authorized to access at the Institution based on applied filters
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
 
-  <xs:complexType name="AccountList">
-    <xs:annotation>
-      <xs:documentation>
-        The accounts collection/array contains all the accounts for instance that the credential set is
-        authorized to access at the Institution based on applied filters
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
-      </xs:element >
-    </xs:sequence>
-  </xs:complexType>
-  
-  <xs:complexType name="Account">
-	  <xs:sequence>
-      <xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account ID is a persistent and unique identifier for the account.
-            It must be unique for all users across the institution and remain the same over the life of the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Transaction.xsd" schemaLocation="Transaction.xsd" />
 
-      <xs:element name="idType" type="IdType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Used when requesting and receiving reserved account numbers, before the account record is created.
-            Reserving account numbers is an optional additional step that is typically done to produce documentation 
-            marked with the account number that must be complete and signed before the account record is created.
-            The reserved number is then provided when creating the account.
-            The account ID should be presumed actual if this field is absent.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:element name= "accountList" type ="AccountList">
+		<xs:annotation>
+			<xs:documentation>
+				The accounts collection/array contains all the accounts for instance that the credential set is
+				authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-      <xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account description is the textual representation of the account.
-            This value is visible to the user and must be human-readable.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="type" type="AccountType"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account type is the textual representation the kind of account.
-            This value is visible to the user and must be human-readable.
-            Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account sub type that identifies the specific account type
-            that the back end system will recognize.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="openDate" type="xs:date"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the account was opened.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="closeDate" type="xs:date"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the account was closed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>  
-      
-      
-      <xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Description by the party or user that overrides the default description.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="micrAccountNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account number portion of a draft or Line of Credit MICR line.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="branch" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Name or number identifying which branch owns the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="actualBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Negative, Zero or Positive amount.
-            If this is a loan any balance owed to the financial institution will show as a positive amount.
-            If this is a deposit product, if the product is overdrawn it will be a negative amount.
-            Positive is assumed if the sign does not appear in the data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="availableBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Negative, Zero or Positive amount.
-            If this is a loan any balance owed to the financial institution will show as a positive amount.
-            If this is a deposit product, if the product is overdrawn it will be a negative amount.
-            Positive is assumed if the sign does not appear in the data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The minimum balance that an account may have
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-              Routing number for the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="externalAccountBankAddress" type="contact:Address" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>To Address of the bank used for Wire Transfer.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="externalAccountSWIFTCode" type="contact:Address" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>SWIFTCode for Wire Transfer.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True for an external account, False for an internal account.
-           </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="externalAccountVerified" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Default is false.  When user confirms micro deposit this becomes true.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-      
-      <xs:element name="externalTransferFrom" type="xs:boolean"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True when transfers are allowed from  external account.
-           </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      <xs:element name="externalTransferTo" type="xs:boolean"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True when transfers are allowed to external account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="transferFrom" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True when transfers are allowed from this account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      <xs:element name="transferTo" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True when transfers are allowed to this account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      <xs:element name="rateType" type="RateType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Whether the rate type is fixed or variable based on some index.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="sourceCode" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            FI defined code that identifies the source of the application that created
-            the account such as customer request, cross sale, counter offer, promo, etc.
-          </xs:documentation >
-        </xs:annotation >
-      </xs:element >
-
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A collection of party id’s that uniquely identify each party associated to this account.
-            To determine the ownership level of each party on the account,
-            the partyList in the associated product (loan, deposit) will contain the relationship details.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The relationshipId that the account belongs to.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="holdList" type="Hold" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The account holds collection/array contains all the stop/holds associated to a particular account
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      
-      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Account level name/data pairs list of fields that are not yet available in the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future
-            release of specifications.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      <xs:element name="meta" type="meta:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
-        <xs:annotation>
-          <xs:documentation>
-            For each account type, optional meta information MAY be provided with these tags depending 
-            upon accountType returned
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-			<xs:element name="transactionList" type="TransactionList">
-        <xs:annotation>
-          <xs:documentation>
-            If start date where provided or required, the TransactionList collection/array should remain empty
-            if no transactions were posted during the provided date period.
-            In this case, the Data Provider should still return all other account information.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="AccountList">
+		<xs:annotation>
+			<xs:documentation>
+				The accounts collection/array contains all the accounts for instance that the credential set is
+				authorized to access at the Institution based on applied filters
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:simpleType name="AccountId">
-     <xs:restriction base="xs:string">
-        <xs:annotation>
-          <xs:documentation>
-            The account ID is a persistent and unique identifier for the account.
-            It must be unique for all users across the institution and remain the same over the life of the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:restriction>
-  </xs:simpleType>
-  
-  <xs:complexType name="AccountIdList">
-    <xs:annotation>
-      <xs:documentation>
-        The list of Account Id's that should have their associated accounts either returned or affected
-        by a read, update or delete a request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            An Account Id that should have its associated accounts either returned or affected
-            by a read, update or delete request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  
-  <xs:simpleType name="IdType">
-    <xs:annotation>
-      <xs:documentation>
-        Whether the ID is actual, or simply reserved.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Reserved"/>
-      <xs:enumeration value="Actual"/>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:complexType name="Account">
+		<xs:sequence>
+			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account ID is a persistent and unique identifier for the account.
+						It must be unique for all users across the institution and remain the same over the life of the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="idType" type="IdType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Used when requesting and receiving reserved account numbers, before the account record is created.
+						Reserving account numbers is an optional additional step that is typically done to produce documentation
+						marked with the account number that must be complete and signed before the account record is created.
+						The reserved number is then provided when creating the account.
+						The account ID should be presumed actual if this field is absent.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account description is the textual representation of the account.
+						This value is visible to the user and must be human-readable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="type" type="AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account sub type that identifies the specific account type
+						that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="openDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account was opened.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="closeDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account was closed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description by the party or user that overrides the default description.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="micrAccountNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account number portion of a draft or Line of Credit MICR line.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="branch" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Name or number identifying which branch owns the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="actualBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Negative, Zero or Positive amount.
+						If this is a loan any balance owed to the financial institution will show as a positive amount.
+						If this is a deposit product, if the product is overdrawn it will be a negative amount.
+						Positive is assumed if the sign does not appear in the data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="availableBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Negative, Zero or Positive amount.
+						If this is a loan any balance owed to the financial institution will show as a positive amount.
+						If this is a deposit product, if the product is overdrawn it will be a negative amount.
+						Positive is assumed if the sign does not appear in the data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The minimum balance that an account may have
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Routing number for the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalAccountBankAddress" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>To Address of the bank used for Wire Transfer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalAccountSWIFTCode" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>SWIFTCode for Wire Transfer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True for an external account, False for an internal account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalAccountVerified" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Default is false.  When user confirms micro deposit this becomes true.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalTransferFrom" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True when transfers are allowed from  external account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="externalTransferTo" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True when transfers are allowed to external account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="transferFrom" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True when transfers are allowed from this account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="transferTo" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True when transfers are allowed to this account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="rateType" type="RateType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Whether the rate type is fixed or variable based on some index.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="sourceCode" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						FI defined code that identifies the source of the application that created
+						the account such as customer request, cross sale, counter offer, promo, etc.
+					</xs:documentation >
+				</xs:annotation >
+			</xs:element >
+
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A collection of party id’s that uniquely identify each party associated to this account.
+						To determine the ownership level of each party on the account,
+						the partyList in the associated product (loan, deposit) will contain the relationship details.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The relationshipId that the account belongs to.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="holdList" type="Hold" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The account holds collection/array contains all the stop/holds associated to a particular account
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as LAST RESORT as any customizations will not be supported by all data providers
+						and able to be processed by client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future
+						release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="meta" type="meta:Meta" minOccurs="1"	maxOccurs="1" nillable="true">
+				<xs:annotation>
+					<xs:documentation>
+						For each account type, optional meta information MAY be provided with these tags depending
+						upon accountType returned
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transactionList" type="TransactionList">
+				<xs:annotation>
+					<xs:documentation>
+						If start date where provided or required, the TransactionList collection/array should remain empty
+						if no transactions were posted during the provided date period.
+						In this case, the Data Provider should still return all other account information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="AccountId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The account ID is a persistent and unique identifier for the account.
+					It must be unique for all users across the institution and remain the same over the life of the account.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AccountIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Account Id's that should have their associated accounts either returned or affected
+				by a read, update or delete a request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An Account Id that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="IdType">
+		<xs:annotation>
+			<xs:documentation>
+				Whether the ID is actual, or simply reserved.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Reserved"/>
+			<xs:enumeration value="Actual"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="TransactionList">
 		<xs:sequence>
 			<xs:element name="transaction" minOccurs="0" maxOccurs="unbounded" nillable="true">
-        <xs:annotation>
-          <xs:documentation>
-            If start date where provided or required, the Transactions collection/array should remain empty
-            if no transactions were posted during the provided date period.
-            In this case, the Data Provider should still return all other account information.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
+				<xs:annotation>
+					<xs:documentation>
+						If start date where provided or required, the Transactions collection/array should remain empty
+						if no transactions were posted during the provided date period.
+						In this case, the Data Provider should still return all other account information.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Transaction ID is a persistent and unique identifier for each transaction.
-                  It must be unique within the account as it is used for matching purposes.
-                  Transactions should always be returned with the same ID, even if transactional
-                  information has changed (type, amount, description, date, etc.) since the
-                  previous account data pull.
-                </xs:documentation>
-              </xs:annotation>
+							<xs:annotation>
+								<xs:documentation>
+									The Transaction ID is a persistent and unique identifier for each transaction.
+									It must be unique within the account as it is used for matching purposes.
+									Transactions should always be returned with the same ID, even if transactional
+									information has changed (type, amount, description, date, etc.) since the
+									previous account data pull.
+								</xs:documentation>
+							</xs:annotation>
 						</xs:element>
 						<xs:element name="type" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Transaction Type simply reflects whether the account was debited or credited.
-                  For comment only transactions, the value can be either Debit or Credit and the 
-                  transaction amount can be null, not return or 0.00.
-                </xs:documentation>
-              </xs:annotation>
+							<xs:annotation>
+								<xs:documentation>
+									The Transaction Type simply reflects whether the account was debited or credited.
+									For comment only transactions, the value can be either Debit or Credit and the
+									transaction amount can be null, not return or 0.00.
+								</xs:documentation>
+							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Debit"></xs:enumeration>
@@ -390,586 +392,556 @@
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Transaction Amount should always be the absolute value of the transaction.
-                  The sign of the amount will be determined based on the transaction type.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Description represents the memo of the transaction and should be no longer
-                  than 5000 characters.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-						<xs:element name="dateTimePosted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Date Transaction Posted is the date the transaction was posted to the account.
-                  If this date is unavailable, it is acceptable to use the date that the transaction
-                  took place.
-                  The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                  (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                  supported.  The time is assume to be 00:00Z if omitted.
-                </xs:documentation>
-              </xs:annotation>
+							<xs:annotation>
+								<xs:documentation>
+									The Transaction Amount should always be the absolute value of the transaction.
+									The sign of the amount will be determined based on the transaction type.
+								</xs:documentation>
+							</xs:annotation>
 						</xs:element>
-            <xs:element name="dateTimeEffective" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The Date Transaction Effective is the date the transaction tool place.
-                  The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                  (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                  supported.  The time is assume to be 00:00Z if omitted.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
-              <xs:annotation>
-                <xs:documentation>
-                  This attribute shows whether the transaction is pending, posted, denied, or void.
-                </xs:documentation>
-              </xs:annotation>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									The Description represents the memo of the transaction and should be no longer
+									than 5000 characters.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="dateTimePosted" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									The Date Transaction Posted is the date the transaction was posted to the account.
+									If this date is unavailable, it is acceptable to use the date that the transaction
+									took place.
+									The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+									(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+									supported.  The time is assume to be 00:00Z if omitted.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="dateTimeEffective" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									The Date Transaction Effective is the date the transaction tool place.
+									The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+									(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+									supported.  The time is assume to be 00:00Z if omitted.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
+							<xs:annotation>
+								<xs:documentation>
+									This attribute shows whether the transaction is pending, posted, denied, or void.
+								</xs:documentation>
+							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
 									<xs:enumeration value="Posted"></xs:enumeration>
 									<xs:enumeration value="Pending"></xs:enumeration>
-                  <xs:enumeration value="Denied"></xs:enumeration>
-                  <xs:enumeration value="Void"></xs:enumeration>
-                </xs:restriction>
+									<xs:enumeration value="Denied"></xs:enumeration>
+									<xs:enumeration value="Void"></xs:enumeration>
+								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="principalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  How much of a loan payment was applied toward principal of the loan
-                  (actually reducing the amount of the loan balance)
-                </xs:documentation>
-              </xs:annotation>
+							<xs:annotation>
+								<xs:documentation>
+									How much of a loan payment was applied toward principal of the loan
+									(actually reducing the amount of the loan balance)
+								</xs:documentation>
+							</xs:annotation>
 						</xs:element>
-            <xs:element name="interestAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  What amount of the loan payment was paid to the financial institution for interest.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="merchantCategoryCode" type="xs:integer" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  A four digit number used by the payment card industry to classify businesses
-                  into market segments by the type of goods or services they provide.
-                  THE MCC is assigned based on the supplier’s primary line of business.
-                  Only applies to debit or credit card purchases.
-                  List should be based on standard merchant category codes.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="category" type="xs:string" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                 The default or overridden catogry for personal financial management.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>            
-            <xs:element name="source" type="TransactionSource" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  System or delivery channel that originated the transaction
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  Transaction level name/data pairs list of fields that are not yet available in the general specification.
-                  This should be used as LAST RESORT as any customizations will not be supported by all data providers
-                  and able to be processed by client applications. ANY use of this field must be reported to the
-                  architecture or working group committee to ensure that fields are somehow handled in the future
-                  release of specifications.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
+						<xs:element name="interestAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									What amount of the loan payment was paid to the financial institution for interest.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="merchantCategoryCode" type="xs:integer" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									A four digit number used by the payment card industry to classify businesses
+									into market segments by the type of goods or services they provide.
+									THE MCC is assigned based on the supplier’s primary line of business.
+									Only applies to debit or credit card purchases.
+									List should be based on standard merchant category codes.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="category" type="xs:string" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									The default or overridden catogry for personal financial management.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="source" type="transaction:TransactionSource" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									System or delivery channel that originated the transaction
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									Transaction level name/data pairs list of fields that are not yet available in the general specification.
+									This should be used as LAST RESORT as any customizations will not be supported by all data providers
+									and able to be processed by client applications. ANY use of this field must be reported to the
+									architecture or working group committee to ensure that fields are somehow handled in the future
+									release of specifications.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:simpleType name="RateType">
-    <xs:annotation>
-      <xs:documentation>
-        Whether the rate type is fixed or variable based on some index.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Fixed" />
-      <xs:enumeration value="Variable" />
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="RateType">
+		<xs:annotation>
+			<xs:documentation>
+				Whether the rate type is fixed or variable based on some index.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Fixed" />
+			<xs:enumeration value="Variable" />
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name="AccountType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Checking">
-        <xs:annotation>
-          <xs:documentation>
-            Checking account. i.e. checks can be written against the account.
-            Money market accounts can be included here or in money markets.  It's up to the institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Savings">
-        <xs:annotation>
-          <xs:documentation>
-            Savings and club accounts.  This can optionally include CD's, but up to institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Loan">
-        <xs:annotation>
-          <xs:documentation>
-            Auto loans, etc. Loans that are NOT line of credit or credit cards.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CreditCard">
-        <xs:annotation>
-          <xs:documentation>
-            Loan behind the credit credit.  Note that the actual card information in the card object.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="LineOfCredit">
-        <xs:annotation>
-          <xs:documentation>
-            Loan that is a line of credit but NOT a credit card.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Mortgage">
-        <xs:annotation>
-          <xs:documentation>
-            Loan that is a line of credit but NOT a credit card.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Investment">
-        <xs:annotation>
-          <xs:documentation>
-            Investment accounts such as brokerage and this can optionally include CD's, but up to institution.
-            May include Money markets.  It's up to the institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PrePaidCard">
-        <xs:annotation>
-          <xs:documentation>
-            This account is a special type of checking account connected to a pre-paid card.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  
-  <xs:complexType name="AccountTypeList">
-    <xs:sequence>
-      <xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            Collection of account types to return in a filter request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:simpleType name="AccountType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Checking">
+				<xs:annotation>
+					<xs:documentation>
+						Checking account. i.e. checks can be written against the account.
+						Money market accounts can be included here or in money markets.  It's up to the institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Savings">
+				<xs:annotation>
+					<xs:documentation>
+						Savings and club accounts.  This can optionally include CD's, but up to institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Loan">
+				<xs:annotation>
+					<xs:documentation>
+						Auto loans, etc. Loans that are NOT line of credit or credit cards.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CreditCard">
+				<xs:annotation>
+					<xs:documentation>
+						Loan behind the credit credit.  Note that the actual card information in the card object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LineOfCredit">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is a line of credit but NOT a credit card.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mortgage">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is a line of credit but NOT a credit card.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Investment">
+				<xs:annotation>
+					<xs:documentation>
+						Investment accounts such as brokerage and this can optionally include CD's, but up to institution.
+						May include Money markets.  It's up to the institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PrePaidCard">
+				<xs:annotation>
+					<xs:documentation>
+						This account is a special type of checking account connected to a pre-paid card.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name ="TransactionSource">
-    <xs:annotation>
-      <xs:documentation>
-        System or delivery channel that originated the transaction
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base ="xs:string">
-      <xs:enumeration value ="Ach" />
-      <xs:enumeration value ="Atm" />
-      <xs:enumeration value ="BillPay" />
-      <xs:enumeration value ="BulkDeposit" />
-      <xs:enumeration value ="Cash" />
-      <xs:enumeration value ="Check" />
-      <xs:enumeration value ="Fee" />
-      <xs:enumeration value ="HomeBanking" />
-      <xs:enumeration value ="Insurance" />
-      <xs:enumeration value ="InterestEarned" />
-      <xs:enumeration value ="InterestPaid" />
-      <xs:enumeration value ="Ivr" />
-      <xs:enumeration value ="MobileBanking" />
-      <xs:enumeration value ="Other" />
-      <xs:enumeration value ="Payroll" />
-      <xs:enumeration value ="PinPurchase" />
-      <xs:enumeration value ="SharedBranch" />
-      <xs:enumeration value ="Signature" />
-      <xs:enumeration value ="Wire" />
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:complexType name="AccountTypeList">
+		<xs:sequence>
+			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account types to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:complexType name="Hold">
-    <xs:sequence>
+	<xs:complexType name="Hold">
+		<xs:sequence>
+			<xs:element name="holdType" type="HoldType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The hold type is the textual representation the kind of stop/hold.
+						This value is visible to the user and must be human-readable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="holdType" type="HoldType"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The hold type is the textual representation the kind of stop/hold.
-            This value is visible to the user and must be human-readable.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="effectiveDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date/Time hold was created or should take effect
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="effectiveDate" type="xs:date"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Date/Time hold was created or should take effect
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="expirationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date/Time hold should be released
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="expirationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Date/Time hold should be released
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="description" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of hold and/or note attached to hold
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="description" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Description of hold and/or note attached to hold
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Amount of hold
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Amount of hold
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="payee" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For stop payment holds, name of the draft or ACH payee
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="payee" type="xs:string"   minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            For stop payment holds, name of the draft or ACH payee
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="reason" type="HoldReasonType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Reason for the stop/hold.
+						This value is visible to the user and must be human-readable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="reason" type="HoldReasonType"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Reason for the stop/hold.
-            This value is visible to the user and must be human-readable.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="feeCode" type="fee:FeeId"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the definition of a fee that could be associated with a hold.
+						If the hold type is 'uncollected fee'; this field could be used to link to type of fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="feeCode" type="fee:FeeId"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the definition of a fee that could be associated with a hold.
-            If the hold type is 'uncollected fee'; this field could be used to link to type of fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-    </xs:sequence>
-  </xs:complexType>
+	<xs:simpleType name="HoldType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeneralPurpose">
+				<xs:annotation>
+					<xs:documentation>
+						Hold any amount for any purpose
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CheckHold">
+				<xs:annotation>
+					<xs:documentation>
+						Hold the entire amount of a check or a partial amount until the check clears
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CertifiedDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Hhold the entire amount of a certified draft or a partial amount until the certified draft clears
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Stop payment on a draft/check (written authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SignatureAuth">
+				<xs:annotation>
+					<xs:documentation>
+						Reserve funds for a preauthorized credit card purchase or for ATM point of sale transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PledgeHold">
+				<xs:annotation>
+					<xs:documentation>
+						Hold funds pledged against a loan
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopACH">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction (written authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopDraftVerbal">
+				<xs:annotation>
+					<xs:documentation>
+						Stop payment on a draft (verbal authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopACHVerbal">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction (verbal authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RevokeACH">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction for as long as the Hold remains in the account
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MerchantVerification">
+				<xs:annotation>
+					<xs:documentation>
+						hold funds when a merchant calls to verify that funds are available to cover a member's check
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UncollectedFee">
+				<xs:annotation>
+					<xs:documentation>
+						Hold when fees cannot be collected due to insufficient funds
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LoanDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a preapproved loan draft for a zero-balance preapproved loan
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BillPayment">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a member draft used for bill payment until the draft posts to the account, or until the hold expires
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UnauthorizedACHStop">
+				<xs:annotation>
+					<xs:documentation>
+						Hold for unauthorized ACH transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ACHOrigination">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a account that is being used for ACH Origination
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ACHDNE">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on account when a Death Notification Entry (DNE) has been received
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PinAuth">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on PIN-based transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BusinessBlockACHDebit">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting ACH debits for member business shares
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WireHold">
+				<xs:annotation>
+					<xs:documentation>
+						Place the entire amount of a wire transfer on hold until the outgoing wire is posted
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="TotalToDateList">
-    <xs:sequence>
-      <xs:element name="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
-        <xs:annotation>
-          <xs:documentation>
-            A list of aggregate totals of type TotalsToDate, i.e. YTD Dividend, MTD Interest
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-   
-    <xs:complexType name="TotalToDate">
-      <xs:annotation>
-        <xs:documentation>An aggregation of total amount of money based on a start and end datetime frequency.</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-        <xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
-          <xs:annotation>
-            <xs:documentation>
-              Unique identifier for a total to date aggregation.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="type" type="TotalToDateType" minOccurs="0" maxOccurs ="1">
-          <xs:annotation>
-            <xs:documentation>Type of totals aggregation for fixed period of time</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="totalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
-          <xs:annotation>
-            <xs:documentation>
-              The sum amount of money for the totals to date.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="frequencyStartDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-          <xs:annotation>
-            <xs:documentation>
-              The start date/time for the frequency of the aggregate amount of TotalsToDate. i.e. 20XX-01-01
-              The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-              (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-              supported.  The time is assume to be 00:00Z if omitted.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="frequencyEndDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-          <xs:annotation>
-            <xs:documentation>
-              The end date/time for the frequency of the aggregate amount of TotalsToDate, i.e. 20XX-12-31
-              The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-              (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-              supported.  The time is assume to be 00:00Z if omitted.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
+	<xs:simpleType name="HoldReasonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Unknown">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Lost">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Stolen">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Destroyed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NotEndorsed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Certified">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disputed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReturnedMerchandise">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StoppedService">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name="TotalToDateType">
-    <xs:annotation>
-      <xs:documentation>Type of totals aggregation for fixed period of time</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Interest"></xs:enumeration>
-      <xs:enumeration value="Dividend"></xs:enumeration>
-      <xs:enumeration value="Witholding"></xs:enumeration>
-      <xs:enumeration value="Fee"></xs:enumeration>
-      <xs:enumeration value="Insurance"></xs:enumeration>
-      <xs:enumeration value="Refund"></xs:enumeration>
-      <xs:enumeration value="Other"></xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:complexType name="TotalToDateList">
+		<xs:sequence>
+			<xs:element name="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
+				<xs:annotation>
+					<xs:documentation>
+						A list of aggregate totals of type TotalsToDate, i.e. YTD Dividend, MTD Interest
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="HoldType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="GeneralPurpose">
-        <xs:annotation>
-          <xs:documentation>
-            Hold any amount for any purpose
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CheckHold">
-        <xs:annotation>
-          <xs:documentation>
-            Hold the entire amount of a check or a partial amount until the check clears
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CertifiedDraft">
-        <xs:annotation>
-          <xs:documentation>
-            Hhold the entire amount of a certified draft or a partial amount until the certified draft clears
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StopDraft">
-        <xs:annotation>
-          <xs:documentation>
-            Stop payment on a draft/check (written authorization from member)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SignatureAuth">
-        <xs:annotation>
-          <xs:documentation>
-            Reserve funds for a preauthorized credit card purchase or for ATM point of sale transactions
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PledgeHold">
-        <xs:annotation>
-          <xs:documentation>
-            Hold funds pledged against a loan
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StopACH">
-        <xs:annotation>
-          <xs:documentation>
-            Prevent posting an automated clearing house transaction (written authorization from member)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StopDraftVerbal">
-        <xs:annotation>
-          <xs:documentation>
-            Stop payment on a draft (verbal authorization from member)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StopACHVerbal">
-        <xs:annotation>
-          <xs:documentation>
-            Prevent posting an automated clearing house transaction (verbal authorization from member)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="RevokeACH">
-        <xs:annotation>
-          <xs:documentation>
-            Prevent posting an automated clearing house transaction for as long as the Hold remains in the account
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MerchantVerification">
-        <xs:annotation>
-          <xs:documentation>
-            hold funds when a merchant calls to verify that funds are available to cover a member's check
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="UncollectedFee">
-        <xs:annotation>
-          <xs:documentation>
-            Hold when fees cannot be collected due to insufficient funds
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="LoanDraft">
-        <xs:annotation>
-          <xs:documentation>
-            Hold on a preapproved loan draft for a zero-balance preapproved loan
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BillPayment">
-        <xs:annotation>
-          <xs:documentation>
-            Hold on a member draft used for bill payment until the draft posts to the account, or until the hold expires
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="UnauthorizedACHStop">
-        <xs:annotation>
-          <xs:documentation>
-            Hold for unauthorized ACH transactions
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ACHOrigination">
-        <xs:annotation>
-          <xs:documentation>
-            Hold on a account that is being used for ACH Origination
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ACHDNE">
-        <xs:annotation>
-          <xs:documentation>
-            Hold on account when a Death Notification Entry (DNE) has been received
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PinAuth">
-        <xs:annotation>
-          <xs:documentation>
-            Hold on PIN-based transactions
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="BusinessBlockACHDebit">
-        <xs:annotation>
-          <xs:documentation>
-            Prevent posting ACH debits for member business shares
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="WireHold">
-        <xs:annotation>
-          <xs:documentation>
-            Place the entire amount of a wire transfer on hold until the outgoing wire is posted
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:complexType name="TotalToDate">
+		<xs:annotation>
+			<xs:documentation>An aggregation of total amount of money based on a start and end datetime frequency.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for a total to date aggregation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="TotalToDateType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>Type of totals aggregation for fixed period of time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="totalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The sum amount of money for the totals to date.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="frequencyStartDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The start date/time for the frequency of the aggregate amount of TotalsToDate. i.e. 20XX-01-01
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="frequencyEndDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The end date/time for the frequency of the aggregate amount of TotalsToDate, i.e. 20XX-12-31
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="HoldReasonType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Unknown">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Lost">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Stolen">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Destroyed">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="NotEndorsed">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Certified">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Disputed">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ReturnedMerchandise">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="StoppedService">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other">
-        <xs:annotation>
-          <xs:documentation>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="TotalToDateType">
+		<xs:annotation>
+			<xs:documentation>Type of totals aggregation for fixed period of time</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Interest"></xs:enumeration>
+			<xs:enumeration value="Dividend"></xs:enumeration>
+			<xs:enumeration value="Witholding"></xs:enumeration>
+			<xs:enumeration value="Fee"></xs:enumeration>
+			<xs:enumeration value="Insurance"></xs:enumeration>
+			<xs:enumeration value="Refund"></xs:enumeration>
+			<xs:enumeration value="Other"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
