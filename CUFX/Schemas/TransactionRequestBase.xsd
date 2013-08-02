@@ -39,11 +39,11 @@
       <xs:element name="fromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The account the payment was taken from.
+            The account the transfer or payment was taken from.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
+      <xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Status of the payment or transfer.  This uses a  base type that can be extended
@@ -77,4 +77,67 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+
+
+
+  <xs:simpleType name="RequestStatus">
+    <xs:annotation>
+      <xs:documentation>
+        This is enumeration of statuses for bill payment.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Requested">
+        <xs:annotation>
+          <xs:documentation>
+            The payment or transfer request is in process for immediate or future payment and is cancellable by the party since it's not InProcess yet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InProcess">
+        <xs:annotation>
+          <xs:documentation>
+            The payment or transfer request has initiated an occurency which is in process and is no longer cancellable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelRequestedByParty">
+        <xs:annotation>
+          <xs:documentation>
+            A payment or transfer request was requested to be cancelled by the party but not yet cancelled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelRequestedByFinancialInstitution">
+        <xs:annotation>
+          <xs:documentation>
+            A payment or transfer request was requested to be cancelled by the party's financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CancelRequestedByPaymentProvider">
+        <xs:annotation>
+          <xs:documentation>
+            A payment or transfer request was requested to be cancelled by the party's payment provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cancelled">
+        <xs:annotation>
+          <xs:documentation>
+            A payment or transfer request has been cancelled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Suspended">
+        <xs:annotation>
+          <xs:documentation>
+            Payment or transfer request was scheduled for recurring payment but has been has been suspended until taken out of suspend status.
+            This status might be used if a party wants to keep the payment/transfer request in the system but temporarily stop payment
+            from occurring.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>
