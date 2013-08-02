@@ -49,7 +49,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="payeeId" type="billpayee:BillPayeeRelationshipId"   minOccurs="0" maxOccurs="1">
+      <xs:element name="payeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The Id of the payee.
@@ -262,14 +262,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-         <xs:enumeration value="CancelledByFinancialInstitution">
+         <xs:enumeration value="CancelRequestedByFinancialInstitution">
         <xs:annotation>
           <xs:documentation>
             A bill payment has been cancelled at the request of the party's financial institution.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="CancelledByPaymentProvider">
+      <xs:enumeration value="CancelRequestedByPaymentProvider">
         <xs:annotation>
           <xs:documentation>
             A bill payment has been cancelled at the request of the party's financial institution.
@@ -283,17 +283,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Cancelled">
-          <xs:annotation>
-            <xs:documentation>
-              A bill payment has been cancelled.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:enumeration>
       <xs:enumeration value="Cleared">
         <xs:annotation>
           <xs:documentation>
-            The payment has cleared the financial institutions account.
+            The payment has cleared the financial institutions account.  The transaction is finished/complete.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
