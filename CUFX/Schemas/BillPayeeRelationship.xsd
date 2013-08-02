@@ -21,7 +21,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
 
-  <xs:element name= "billPayeeList" type ="BillPayeeList">
+  <xs:element name= "billPayeeRelationshipList" type ="BillPayeeRelationshipList">
     <xs:annotation>
       <xs:documentation>
         The bill payee collection/array contains all the payees for instance that the credential set is
@@ -30,7 +30,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="BillPayeeList">
+  <xs:complexType name="BillPayeeRelationshipList">
     <xs:annotation>
       <xs:documentation>
         The accounts collection/array contains all the fees for instance that the credential set is
@@ -38,19 +38,25 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="billPayee" type="BillPayee" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="billPayeeRelationship" type="BillPayeeRelationship" minOccurs="0" maxOccurs="unbounded">
       </xs:element >
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="BillPayee">
+  <xs:complexType name="BillPayeeRelationship">
     <xs:sequence>
+      <xs:element name="billPayeeRelationshipId" type="BillPayeeRelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An id that uniquely identifies the bill payee for the consumer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
       <xs:element name="billPayeeId" type="billpayee:BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill payee.
-            This is the primary key that BillPayment and BillPayementRecurring look to.
+            An id that uniquely identifies the bill payee for the Billpayment system.            
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -198,4 +204,14 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
+  <xs:simpleType name="BillPayeeRelationshipId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The Bill Payee ID is a persistent and unique identifier for the BIll Payee for the consumer.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
 </xs:schema>
