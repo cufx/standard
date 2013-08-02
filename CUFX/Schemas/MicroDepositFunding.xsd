@@ -19,10 +19,10 @@
 					<xs:documentation>ID to track micro-deposits.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="MicroDepositConfirmation" type="xs:string" minOccurs ="0" maxOccurs ="1">
+<!-- status expiration date and make amount list , casing -->
+			<xs:element name="MicroDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
-					<xs:documentation>Confirmation number for micro-deposits.</xs:documentation>
+					<xs:documentation>Confirmation code for micro-deposits.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
@@ -32,13 +32,13 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="MicroDeposit1" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="MicroAmount1" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>Micro deposit 1</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="MicroDeposit2" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="MicroAmount2" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>Micro deposit 2</xs:documentation>
 				</xs:annotation>
