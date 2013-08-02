@@ -21,7 +21,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/BillPayeeDetails.xsd" schemaLocation="BillPayeeDetails.xsd" />
 
-  <xs:element name= "billPayeeRelationshipList" type ="BillPayeeRelationshipList">
+  <xs:element name= "billPayeeList" type ="BillPayeeList">
     <xs:annotation>
       <xs:documentation>
         The bill payee collection/array contains all the payees for instance that the credential set is
@@ -30,7 +30,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="BillPayeeRelationshipList">
+  <xs:complexType name="BillPayeeList">
     <xs:annotation>
       <xs:documentation>
         The accounts collection/array contains all the fees for instance that the credential set is
@@ -38,12 +38,12 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="billPayeeRelationship" type="BillPayeeRelationship" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="billPayee" type="BillPayee" minOccurs="0" maxOccurs="unbounded">
       </xs:element >
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="BillPayeeRelationship">
+  <xs:complexType name="BillPayee">
     <xs:sequence>
       <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
