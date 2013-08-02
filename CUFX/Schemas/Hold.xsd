@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+   targetNamespace="http://cufxstandards.com/v2/Hold.xsd"
+	version="2.0.$Revision$"
+	xmlns="http://cufxstandards.com/v2/Hold.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+   xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
+
+
+	<xs:complexType name="Hold">
+		<xs:sequence>
+			<xs:element name="holdType" type="HoldType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The hold type is the textual representation the kind of stop/hold.
+						This value is visible to the user and must be human-readable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="effectiveDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date/Time hold was created or should take effect
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="expirationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date/Time hold should be released
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="description" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of hold and/or note attached to hold
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Amount of hold
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="payee" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For stop payment holds, name of the draft or ACH payee
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="reason" type="HoldReasonType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Reason for the stop/hold.
+						This value is visible to the user and must be human-readable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="feeCode" type="fee:FeeId"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the definition of a fee that could be associated with a hold.
+						If the hold type is 'uncollected fee'; this field could be used to link to type of fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="HoldType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GeneralPurpose">
+				<xs:annotation>
+					<xs:documentation>
+						Hold any amount for any purpose
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CheckHold">
+				<xs:annotation>
+					<xs:documentation>
+						Hold the entire amount of a check or a partial amount until the check clears
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CertifiedDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Hhold the entire amount of a certified draft or a partial amount until the certified draft clears
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Stop payment on a draft/check (written authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SignatureAuth">
+				<xs:annotation>
+					<xs:documentation>
+						Reserve funds for a preauthorized credit card purchase or for ATM point of sale transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PledgeHold">
+				<xs:annotation>
+					<xs:documentation>
+						Hold funds pledged against a loan
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopACH">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction (written authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopDraftVerbal">
+				<xs:annotation>
+					<xs:documentation>
+						Stop payment on a draft (verbal authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StopACHVerbal">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction (verbal authorization from member)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RevokeACH">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting an automated clearing house transaction for as long as the Hold remains in the account
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MerchantVerification">
+				<xs:annotation>
+					<xs:documentation>
+						hold funds when a merchant calls to verify that funds are available to cover a member's check
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UncollectedFee">
+				<xs:annotation>
+					<xs:documentation>
+						Hold when fees cannot be collected due to insufficient funds
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LoanDraft">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a preapproved loan draft for a zero-balance preapproved loan
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BillPayment">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a member draft used for bill payment until the draft posts to the account, or until the hold expires
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UnauthorizedACHStop">
+				<xs:annotation>
+					<xs:documentation>
+						Hold for unauthorized ACH transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ACHOrigination">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on a account that is being used for ACH Origination
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ACHDNE">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on account when a Death Notification Entry (DNE) has been received
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PinAuth">
+				<xs:annotation>
+					<xs:documentation>
+						Hold on PIN-based transactions
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BusinessBlockACHDebit">
+				<xs:annotation>
+					<xs:documentation>
+						Prevent posting ACH debits for member business shares
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WireHold">
+				<xs:annotation>
+					<xs:documentation>
+						Place the entire amount of a wire transfer on hold until the outgoing wire is posted
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="HoldReasonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Unknown">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Lost">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Stolen">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Destroyed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NotEndorsed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Certified">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Disputed">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReturnedMerchandise">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StoppedService">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

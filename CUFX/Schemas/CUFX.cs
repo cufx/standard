@@ -438,7 +438,7 @@ namespace cufxstandards.com {
         
         private Address externalAccountBankAddressField;
         
-        private Address externalAccountSWIFTCodeField;
+        private string externalAccountSWIFTCodeField;
         
         private bool externalAccountFlagField;
         
@@ -679,7 +679,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public Address externalAccountSWIFTCode {
+        public string externalAccountSWIFTCode {
             get {
                 return this.externalAccountSWIFTCodeField;
             }
@@ -900,7 +900,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("transaction")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("transaction", Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
         public TransactionListTransaction[] transactionList {
             get {
                 return this.transactionListField;
@@ -2535,7 +2535,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Hold.xsd")]
     public partial class Hold {
         
         private HoldType holdTypeField;
@@ -2690,7 +2690,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Hold.xsd")]
     public enum HoldType {
         
         /// <remarks/>
@@ -2755,7 +2755,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Hold.xsd")]
     public enum HoldReasonType {
         
         /// <remarks/>
@@ -3445,10 +3445,12 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
     public partial class TransactionListTransaction {
         
-        private string idField;
+        private string transactionIdField;
+        
+        private string accountIdField;
         
         private TransactionListTransactionType typeField;
         
@@ -3487,12 +3489,22 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public string id {
+        public string transactionId {
             get {
-                return this.idField;
+                return this.transactionIdField;
             }
             set {
-                this.idField = value;
+                this.transactionIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string accountId {
+            get {
+                return this.accountIdField;
+            }
+            set {
+                this.accountIdField = value;
             }
         }
         
@@ -3665,7 +3677,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
     public enum TransactionListTransactionType {
         
         /// <remarks/>
@@ -3676,7 +3688,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Account.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
     public enum TransactionListTransactionStatus {
         
         /// <remarks/>
@@ -13272,39 +13284,55 @@ namespace cufxstandards.com {
         
         private string billPayeeIdField;
         
+        private string billPayeeGlobalIdField;
+        
+        private bool isGlobalField;
+        
+        private bool isGlobalFieldSpecified;
+        
+        private RelatedTo billPayeeRelatedToField;
+        
         private string payeeNameField;
         
         private string userDefinedNameField;
         
-        private string accountIdentifierField;
+        private string payeeAccountNumberField;
         
-        private Contact[] contactListField;
+        private ContactAddress payeeAddressField;
         
-        private string[] processorIdField;
+        private Phone payeePhoneField;
         
-        private string[] partyIdListField;
+        private Email payeeEmailField;
+        
+        private string accountHolderNameField;
+        
+        private string processorNameField;
         
         private bool isElectronicField;
         
-        private bool isElectronicFieldSpecified;
+        private int minimumDaysToPayField;
         
-        private bool isUserDeletedField;
+        private int sortOrderField;
         
-        private bool isUserDeletedFieldSpecified;
+        private bool sortOrderFieldSpecified;
         
         private Status statusField;
         
         private bool statusFieldSpecified;
         
-        private System.DateTime addDateField;
+        private System.DateTime addDateTimeField;
         
-        private bool addDateFieldSpecified;
+        private bool addDateTimeFieldSpecified;
         
-        private System.DateTime updateDateField;
+        private System.DateTime updatedDateTimeField;
         
-        private bool updateDateFieldSpecified;
+        private bool updatedDateTimeFieldSpecified;
         
         private string defaultPaymentFromAccountIdField;
+        
+        private string payeeACHRoutingNumberField;
+        
+        private string payeeACHAccountNumberField;
         
         /// <remarks/>
         public string billPayeeId {
@@ -13313,6 +13341,47 @@ namespace cufxstandards.com {
             }
             set {
                 this.billPayeeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string billPayeeGlobalId {
+            get {
+                return this.billPayeeGlobalIdField;
+            }
+            set {
+                this.billPayeeGlobalIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool isGlobal {
+            get {
+                return this.isGlobalField;
+            }
+            set {
+                this.isGlobalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool isGlobalSpecified {
+            get {
+                return this.isGlobalFieldSpecified;
+            }
+            set {
+                this.isGlobalFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RelatedTo billPayeeRelatedTo {
+            get {
+                return this.billPayeeRelatedToField;
+            }
+            set {
+                this.billPayeeRelatedToField = value;
             }
         }
         
@@ -13337,45 +13406,62 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public string accountIdentifier {
+        public string payeeAccountNumber {
             get {
-                return this.accountIdentifierField;
+                return this.payeeAccountNumberField;
             }
             set {
-                this.accountIdentifierField = value;
+                this.payeeAccountNumberField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("contact", Namespace="http://cufxstandards.com/v2/Contact.xsd", IsNullable=false)]
-        public Contact[] contactList {
+        public ContactAddress payeeAddress {
             get {
-                return this.contactListField;
+                return this.payeeAddressField;
             }
             set {
-                this.contactListField = value;
+                this.payeeAddressField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("processorId")]
-        public string[] processorId {
+        public Phone payeePhone {
             get {
-                return this.processorIdField;
+                return this.payeePhoneField;
             }
             set {
-                this.processorIdField = value;
+                this.payeePhoneField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("partyId", Namespace="http://cufxstandards.com/v2/Party.xsd", IsNullable=false)]
-        public string[] partyIdList {
+        public Email payeeEmail {
             get {
-                return this.partyIdListField;
+                return this.payeeEmailField;
             }
             set {
-                this.partyIdListField = value;
+                this.payeeEmailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string accountHolderName {
+            get {
+                return this.accountHolderNameField;
+            }
+            set {
+                this.accountHolderNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string processorName {
+            get {
+                return this.processorNameField;
+            }
+            set {
+                this.processorNameField = value;
             }
         }
         
@@ -13390,34 +13476,33 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool isElectronicSpecified {
+        public int minimumDaysToPay {
             get {
-                return this.isElectronicFieldSpecified;
+                return this.minimumDaysToPayField;
             }
             set {
-                this.isElectronicFieldSpecified = value;
+                this.minimumDaysToPayField = value;
             }
         }
         
         /// <remarks/>
-        public bool isUserDeleted {
+        public int sortOrder {
             get {
-                return this.isUserDeletedField;
+                return this.sortOrderField;
             }
             set {
-                this.isUserDeletedField = value;
+                this.sortOrderField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool isUserDeletedSpecified {
+        public bool sortOrderSpecified {
             get {
-                return this.isUserDeletedFieldSpecified;
+                return this.sortOrderFieldSpecified;
             }
             set {
-                this.isUserDeletedFieldSpecified = value;
+                this.sortOrderFieldSpecified = value;
             }
         }
         
@@ -13443,44 +13528,44 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public System.DateTime addDate {
+        public System.DateTime addDateTime {
             get {
-                return this.addDateField;
+                return this.addDateTimeField;
             }
             set {
-                this.addDateField = value;
+                this.addDateTimeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool addDateSpecified {
+        public bool addDateTimeSpecified {
             get {
-                return this.addDateFieldSpecified;
+                return this.addDateTimeFieldSpecified;
             }
             set {
-                this.addDateFieldSpecified = value;
+                this.addDateTimeFieldSpecified = value;
             }
         }
         
         /// <remarks/>
-        public System.DateTime updateDate {
+        public System.DateTime updatedDateTime {
             get {
-                return this.updateDateField;
+                return this.updatedDateTimeField;
             }
             set {
-                this.updateDateField = value;
+                this.updatedDateTimeField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool updateDateSpecified {
+        public bool updatedDateTimeSpecified {
             get {
-                return this.updateDateFieldSpecified;
+                return this.updatedDateTimeFieldSpecified;
             }
             set {
-                this.updateDateFieldSpecified = value;
+                this.updatedDateTimeFieldSpecified = value;
             }
         }
         
@@ -13493,6 +13578,74 @@ namespace cufxstandards.com {
                 this.defaultPaymentFromAccountIdField = value;
             }
         }
+        
+        /// <remarks/>
+        public string payeeACHRoutingNumber {
+            get {
+                return this.payeeACHRoutingNumberField;
+            }
+            set {
+                this.payeeACHRoutingNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string payeeACHAccountNumber {
+            get {
+                return this.payeeACHAccountNumberField;
+            }
+            set {
+                this.payeeACHAccountNumberField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/BillPayee.xsd")]
+    public partial class RelatedTo {
+        
+        private string itemField;
+        
+        private ItemChoiceType1 itemElementNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("accountId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("partyId", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("relationshipId", typeof(string))]
+        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+        public string Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public ItemChoiceType1 ItemElementName {
+            get {
+                return this.itemElementNameField;
+            }
+            set {
+                this.itemElementNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/BillPayee.xsd", IncludeInSchema=false)]
+    public enum ItemChoiceType1 {
+        
+        /// <remarks/>
+        accountId,
+        
+        /// <remarks/>
+        partyId,
+        
+        /// <remarks/>
+        relationshipId,
     }
     
     /// <remarks/>
@@ -13504,6 +13657,9 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         Inactive,
+        
+        /// <remarks/>
+        Deleted,
     }
     
     /// <remarks/>
@@ -17470,11 +17626,7 @@ namespace cufxstandards.com {
         
         private string[] feeIdField;
         
-        private Party partyIdField;
-        
         private FeeType typeField;
-        
-        private string subTypeField;
         
         private IntervalFrequencyType frequencyField;
         
@@ -17496,32 +17648,12 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public Party partyId {
-            get {
-                return this.partyIdField;
-            }
-            set {
-                this.partyIdField = value;
-            }
-        }
-        
-        /// <remarks/>
         public FeeType type {
             get {
                 return this.typeField;
             }
             set {
                 this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string subType {
-            get {
-                return this.subTypeField;
-            }
-            set {
-                this.subTypeField = value;
             }
         }
         
@@ -17576,9 +17708,9 @@ namespace cufxstandards.com {
         
         private bool feeCategoryFieldSpecified;
         
-        private bool isRegDDApplicableField;
+        private bool isRegDApplicableField;
         
-        private bool isRegDDApplicableFieldSpecified;
+        private bool isRegDApplicableFieldSpecified;
         
         /// <remarks/>
         public FeeTypeFeeCategory feeCategory {
@@ -17602,23 +17734,23 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public bool IsRegDDApplicable {
+        public bool IsRegDApplicable {
             get {
-                return this.isRegDDApplicableField;
+                return this.isRegDApplicableField;
             }
             set {
-                this.isRegDDApplicableField = value;
+                this.isRegDApplicableField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsRegDDApplicableSpecified {
+        public bool IsRegDApplicableSpecified {
             get {
-                return this.isRegDDApplicableFieldSpecified;
+                return this.isRegDApplicableFieldSpecified;
             }
             set {
-                this.isRegDDApplicableFieldSpecified = value;
+                this.isRegDApplicableFieldSpecified = value;
             }
         }
     }
@@ -19368,7 +19500,7 @@ namespace cufxstandards.com {
         
         private string itemField;
         
-        private ItemChoiceType1 itemElementNameField;
+        private ItemChoiceType2 itemElementNameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("accountId", typeof(string))]
@@ -19388,7 +19520,7 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType1 ItemElementName {
+        public ItemChoiceType2 ItemElementName {
             get {
                 return this.itemElementNameField;
             }
@@ -19400,7 +19532,7 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd", IncludeInSchema=false)]
-    public enum ItemChoiceType1 {
+    public enum ItemChoiceType2 {
         
         /// <remarks/>
         accountId,
@@ -21014,7 +21146,7 @@ namespace cufxstandards.com {
         
         private bool createDateTimeFieldSpecified;
         
-        private RelatedTo productServiceRequestRelatedToField;
+        private RelatedTo1 productServiceRequestRelatedToField;
         
         private Note[] productServiceRequestNoteListField;
         
@@ -21094,7 +21226,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public RelatedTo productServiceRequestRelatedTo {
+        public RelatedTo1 productServiceRequestRelatedTo {
             get {
                 return this.productServiceRequestRelatedToField;
             }
@@ -21156,7 +21288,7 @@ namespace cufxstandards.com {
         
         private Note[] requestNoteListField;
         
-        private RelatedTo requestRelatedToField;
+        private RelatedTo1 requestRelatedToField;
         
         private Activity[] activityListField;
         
@@ -21303,7 +21435,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public RelatedTo requestRelatedTo {
+        public RelatedTo1 requestRelatedTo {
             get {
                 return this.requestRelatedToField;
             }
@@ -21363,7 +21495,7 @@ namespace cufxstandards.com {
         
         private string itemField;
         
-        private ItemChoiceType2 itemElementNameField;
+        private ItemChoiceType3 itemElementNameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("productOfInterest", typeof(string))]
@@ -21381,7 +21513,7 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType2 ItemElementName {
+        public ItemChoiceType3 ItemElementName {
             get {
                 return this.itemElementNameField;
             }
@@ -21393,7 +21525,7 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd", IncludeInSchema=false)]
-    public enum ItemChoiceType2 {
+    public enum ItemChoiceType3 {
         
         /// <remarks/>
         productOfInterest,
@@ -21429,8 +21561,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd")]
-    public partial class RelatedTo {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="RelatedTo", Namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd")]
+    public partial class RelatedTo1 {
         
         private string[] contactIdListField;
         
@@ -21536,7 +21668,7 @@ namespace cufxstandards.com {
         
         private CredentialGroup[] credentialsProvidedListField;
         
-        private RelatedTo activityRelatedToField;
+        private RelatedTo1 activityRelatedToField;
         
         private ValuePair[] activityCustomDataField;
         
@@ -21720,7 +21852,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public RelatedTo activityRelatedTo {
+        public RelatedTo1 activityRelatedTo {
             get {
                 return this.activityRelatedToField;
             }
@@ -22866,6 +22998,10 @@ namespace cufxstandards.com {
         
         private string relationshipIdField;
         
+        private System.DateTime dateCreatedField;
+        
+        private bool dateCreatedFieldSpecified;
+        
         private string rewardsCodeField;
         
         private RelationshipParty[] relationshipPartyListField;
@@ -22879,6 +23015,28 @@ namespace cufxstandards.com {
             }
             set {
                 this.relationshipIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime dateCreated {
+            get {
+                return this.dateCreatedField;
+            }
+            set {
+                this.dateCreatedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool dateCreatedSpecified {
+            get {
+                return this.dateCreatedFieldSpecified;
+            }
+            set {
+                this.dateCreatedFieldSpecified = value;
             }
         }
         
@@ -23903,14 +24061,14 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="TransactionList", Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
-    public partial class TransactionList1 {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
+    public partial class TransactionList {
         
-        private TransactionListTransaction1[] transactionField;
+        private TransactionListTransaction[] transactionField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("transaction", IsNullable=true)]
-        public TransactionListTransaction1[] transaction {
+        public TransactionListTransaction[] transaction {
             get {
                 return this.transactionField;
             }
@@ -23918,254 +24076,6 @@ namespace cufxstandards.com {
                 this.transactionField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
-    public partial class TransactionListTransaction1 {
-        
-        private string idField;
-        
-        private TransactionListTransactionType1 typeField;
-        
-        private bool typeFieldSpecified;
-        
-        private Money amountField;
-        
-        private string descriptionField;
-        
-        private System.DateTime dateTimePostedField;
-        
-        private bool dateTimePostedFieldSpecified;
-        
-        private System.DateTime dateTimeEffectiveField;
-        
-        private bool dateTimeEffectiveFieldSpecified;
-        
-        private TransactionListTransactionStatus1 statusField;
-        
-        private Money principalAmountField;
-        
-        private Money interestAmountField;
-        
-        private string merchantCategoryCodeField;
-        
-        private string categoryField;
-        
-        private TransactionSource sourceField;
-        
-        private bool sourceFieldSpecified;
-        
-        private ValuePair[] customDataField;
-        
-        public TransactionListTransaction1() {
-            this.statusField = TransactionListTransactionStatus1.Posted;
-        }
-        
-        /// <remarks/>
-        public string id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public TransactionListTransactionType1 type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool typeSpecified {
-            get {
-                return this.typeFieldSpecified;
-            }
-            set {
-                this.typeFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Money amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                this.amountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                this.descriptionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime dateTimePosted {
-            get {
-                return this.dateTimePostedField;
-            }
-            set {
-                this.dateTimePostedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool dateTimePostedSpecified {
-            get {
-                return this.dateTimePostedFieldSpecified;
-            }
-            set {
-                this.dateTimePostedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime dateTimeEffective {
-            get {
-                return this.dateTimeEffectiveField;
-            }
-            set {
-                this.dateTimeEffectiveField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool dateTimeEffectiveSpecified {
-            get {
-                return this.dateTimeEffectiveFieldSpecified;
-            }
-            set {
-                this.dateTimeEffectiveFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.ComponentModel.DefaultValueAttribute(TransactionListTransactionStatus1.Posted)]
-        public TransactionListTransactionStatus1 status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Money principalAmount {
-            get {
-                return this.principalAmountField;
-            }
-            set {
-                this.principalAmountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Money interestAmount {
-            get {
-                return this.interestAmountField;
-            }
-            set {
-                this.interestAmountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string merchantCategoryCode {
-            get {
-                return this.merchantCategoryCodeField;
-            }
-            set {
-                this.merchantCategoryCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string category {
-            get {
-                return this.categoryField;
-            }
-            set {
-                this.categoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public TransactionSource source {
-            get {
-                return this.sourceField;
-            }
-            set {
-                this.sourceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool sourceSpecified {
-            get {
-                return this.sourceFieldSpecified;
-            }
-            set {
-                this.sourceFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("valuePair", Namespace="http://cufxstandards.com/v2/Common.xsd", IsNullable=false)]
-        public ValuePair[] customData {
-            get {
-                return this.customDataField;
-            }
-            set {
-                this.customDataField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
-    public enum TransactionListTransactionType1 {
-        
-        /// <remarks/>
-        Debit,
-        
-        /// <remarks/>
-        Credit,
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Transaction.xsd")]
-    public enum TransactionListTransactionStatus1 {
-        
-        /// <remarks/>
-        Posted,
-        
-        /// <remarks/>
-        Pending,
-        
-        /// <remarks/>
-        Denied,
-        
-        /// <remarks/>
-        Void,
     }
     
     /// <remarks/>
