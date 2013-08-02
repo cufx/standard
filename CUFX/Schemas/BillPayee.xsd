@@ -5,17 +5,19 @@
   xmlns="http://cufxstandards.com/v2/BillPayee.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"  
+     xmlns:party="http://cufxstandards.com/v2/Party.xsd"  
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
 
   <xs:element name= "billPayeeList" type ="BillPayeeList">
     <xs:annotation>
@@ -41,14 +43,42 @@
 
   <xs:complexType name="BillPayee">
     <xs:sequence>
-
+     
       <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             An id that uniquely identifies the bill payee.
+            This is the primary key that BillPayment and BillPayementRecurring look to.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="billPayeeGlobalId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A global id that uniquely identifies the bill payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+ 
+      
+      <xs:element name="isGlobal" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payee is used by multiple members.
+            The information for this payee does not change by member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="billPayeeRelatedTo" type="RelatedTo" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Party, relationship, or account related to this request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="payeeName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -63,50 +93,74 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="accountIdentifier" type="xs:string"   minOccurs="0" maxOccurs="1">
+      <xs:element name="payeeAccountNumber" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The payee assigned account identifier associated with member.  The id could be printed on check or included in memo.
+            The payee assigned account number associated with member.  The number could be printed on check or included in memo.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="contactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
+      <xs:element name="payeeAddress" type="contact:ContactAddress" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             List of contact points for the bill payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="payeePhone" type="contact:Phone" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of contact points for the bill payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="payeeEmail" type="contact:Email" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            List of contact points for the bill payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accountHolderName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The name of the person the bill is being paid for.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
-      <xs:element name="processorId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="processorName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A party id that uniquely identifies the processor of the bill payee.
+            A name that uniquely identifies the processor of the bill payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A collection of party id’s that uniquely identify each party associated to this bill payee.
-            This is field that is used to link a member to a bill payee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
+
+      
+      <xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             True for electronic processing, False for sending a paper check.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+
+      <xs:element name="minimumDaysToPay" type="xs:int" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True if the member has deleted payee, False if payee is active .
+            This is the minimum days in advance a payment must be scheduled for payee to receive payment in time.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="sortOrder" type="xs:int" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The lowest value indicates the payee is listed higher or first in ordering.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
       <xs:element name="status" type="Status"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -114,7 +168,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="addDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="addDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The Date Added is the date the Bill Payee was added to system by member.
@@ -124,7 +178,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="updateDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+      <xs:element name="updatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The Date Updated is the date the Bill Payee was last updated by member.
@@ -137,7 +191,7 @@
       <xs:element name="defaultPaymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The account the payment was taken from.
+            The default account the payment for this payee should be taken from.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -146,6 +200,39 @@
   </xs:complexType>
 
 
+  <xs:complexType name="RelatedTo">
+    <xs:annotation>
+      <xs:documentation>
+        Party, relationship, or account related to this request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Id of party related to Payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Id of relationship related to Payee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Id of account related to Payee
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
   <xs:simpleType name="Status">
     <xs:annotation>
       <xs:documentation>
@@ -153,8 +240,26 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Active"/>
-      <xs:enumeration value="Inactive"/>
+      <xs:enumeration value="Active">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is active and visible to member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inactive">
+        <xs:annotation>
+          <xs:documentation>
+            This value indicates the payee is inactive and visible to member.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Deleted">    <xs:annotation>
+      <xs:documentation>
+        This value indicates the payee is inactive and invisible to member.
+        This value indicates the payee can not be re-activated.
+      </xs:documentation>
+    </xs:annotation></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
