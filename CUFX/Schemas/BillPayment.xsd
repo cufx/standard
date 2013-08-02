@@ -7,7 +7,8 @@
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"   
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:transactionRequestBase="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -16,6 +17,7 @@
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/TransactionRequestBase.xsd" schemaLocation="TransactionRequestBase.xsd" />
   
   <xs:element name= "billPaymentList" type ="BillPaymentList">
     <xs:annotation>
@@ -55,64 +57,9 @@
             The Id of the payee.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-
-      <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Negative, Zero, or Positive amount.
-            If this is the amount of the bill being paid.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The memo represents the memo of the transaction.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True for electronic processing, False for sending a paper check.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-           Status of the bill payment
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="paymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account the payment was taken from.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="estimatedDeliveryDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The estimated date time that the payment will be received by payee.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
       </xs:element>      
-      <xs:element name="createDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date bill payment was created.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+  
+ 
       <xs:element name="expectedDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

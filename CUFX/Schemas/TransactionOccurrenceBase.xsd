@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v2/TransactionScheduledBase.xsd"
+	version="2.1.$Revision: 298 $"
+  xmlns="http://cufxstandards.com/v2/TransactionScheduledBase.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:transactionRequestBase="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
+  
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/TransactionRequestBase.xsd" schemaLocation="TransactionRequestBase.xsd" />
+  
+  <xs:complexType name="TransactionScheduledBase" abstract ="true">
+    <xs:complexContent>
+       <xs:extension base="transactionRequestBase:TransactionRequestBase" >
+          <xs:sequence>
+             
+          </xs:sequence>
+       </xs:extension>
+    </xs:complexContent> 
+ 
+  </xs:complexType>b
+</xs:schema>
