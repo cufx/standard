@@ -28,66 +28,66 @@
 					<xs:element name="estimatedProcessDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
 						<xs:annotation>
 							<xs:documentation>
-                The date to process the payment or transfer.  This date can be in the future.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
+								The date to process the payment or transfer.  This date can be in the future.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 
 					<xs:element name="processedDateTime" type="xs:dateTime" minOccurs="0"  maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-                The date the payment or transfer will actually get processed by the system. 
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
+								The date the payment or transfer will actually get processed by the system. 
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 
 					<xs:element name="createdDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
-                Date user submitted the payment or transfer.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
+								Date user submitted the payment or transfer.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 
-          <xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-            <xs:annotation>
-              <xs:documentation>
-                The date payment or transfer processing started.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
+					<xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								The date payment or transfer processing started.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 
 					<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
-                Date core completed the payment or transfer.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
+								Date core completed the payment or transfer.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 
 					<xs:element name="lastUpdatedDateTime" type="xs:dateTime" minOccurs="0" >
 						<xs:annotation>
 							<xs:documentation>
-                Date of last know status of the payment or transfer.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-                supported.  The time is assume to be 00:00Z if omitted.
-              </xs:documentation>
+								Date of last know status of the payment or transfer.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+								supported.  The time is assume to be 00:00Z if omitted.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 

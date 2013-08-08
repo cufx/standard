@@ -1,143 +1,143 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-  <xs:schema
-  targetNamespace="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
+	<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
 	version="2.1.$Revision: 298 $"
-  xmlns="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
+	xmlns="http://cufxstandards.com/v2/TransactionRequestBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-   
+	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+	xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
+	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:complexType name="TransactionRequestBase" abstract="true" >
-    <xs:annotation>
-      <xs:documentation>
-        This complex type is used for abstrating the tranasctional transfers, bill payments, ACH payments, wires, etc.
-        The request is that a payment or transfer was requested.  This works in tandem
-        with TransactionOccurrenceBase which has the actual occurrence of the payment which
-        will then result in a transaction (history) that is stored on a back end core system.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Negative, Zero, or Positive amount.
-            If this is the amount of the bill being paid.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="fromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account the transfer or payment was taken from.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Status of the payment or transfer.  This uses a  base type that can be extended
-            based on the type of payment or transfer.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The memo represents the a short description that can be applied to the comment of the transaction or printed on a check.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            True for electronic processing, False for sending a paper check.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="createRequestDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date transfer or payment Request was created.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="TransactionRequestBase" abstract="true" >
+		<xs:annotation>
+			<xs:documentation>
+				This complex type is used for abstrating the tranasctional transfers, bill payments, ACH payments, wires, etc.
+				The request is that a payment or transfer was requested.  This works in tandem
+				with TransactionOccurrenceBase which has the actual occurrence of the payment which
+				will then result in a transaction (history) that is stored on a back end core system.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Negative, Zero, or Positive amount.
+						If this is the amount of the bill being paid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account the transfer or payment was taken from.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Status of the payment or transfer.  This uses a  base type that can be extended
+						based on the type of payment or transfer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The memo represents the a short description that can be applied to the comment of the transaction or printed on a check.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True for electronic processing, False for sending a paper check.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="createRequestDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date transfer or payment Request was created.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 
 
-  <xs:simpleType name="RequestStatus">
-    <xs:annotation>
-      <xs:documentation>
-        This is enumeration of statuses for bill payment.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Requested">
-        <xs:annotation>
-          <xs:documentation>
-            The payment or transfer request is in process for immediate or future payment and is cancellable by the party since it's not InProcess yet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="InProcess">
-        <xs:annotation>
-          <xs:documentation>
-            The payment or transfer request has initiated an occurency which is in process and is no longer cancellable.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CancelRequestedByParty">
-        <xs:annotation>
-          <xs:documentation>
-            A payment or transfer request was requested to be cancelled by the party but not yet cancelled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CancelRequestedByFinancialInstitution">
-        <xs:annotation>
-          <xs:documentation>
-            A payment or transfer request was requested to be cancelled by the party's financial institution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CancelRequestedByPaymentProvider">
-        <xs:annotation>
-          <xs:documentation>
-            A payment or transfer request was requested to be cancelled by the party's payment provider.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Cancelled">
-        <xs:annotation>
-          <xs:documentation>
-            A payment or transfer request has been cancelled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Suspended">
-        <xs:annotation>
-          <xs:documentation>
-            Payment or transfer request was scheduled for recurring payment but has been has been suspended until taken out of suspend status.
-            This status might be used if a party wants to keep the payment/transfer request in the system but temporarily stop payment
-            from occurring.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="RequestStatus">
+		<xs:annotation>
+			<xs:documentation>
+				This is enumeration of statuses for bill payment.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Requested">
+				<xs:annotation>
+					<xs:documentation>
+						The payment or transfer request is in process for immediate or future payment and is cancellable by the party since it's not InProcess yet.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="InProcess">
+				<xs:annotation>
+					<xs:documentation>
+						The payment or transfer request has initiated an occurency which is in process and is no longer cancellable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByParty">
+				<xs:annotation>
+					<xs:documentation>
+						A payment or transfer request was requested to be cancelled by the party but not yet cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByFinancialInstitution">
+				<xs:annotation>
+					<xs:documentation>
+						A payment or transfer request was requested to be cancelled by the party's financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByPaymentProvider">
+				<xs:annotation>
+					<xs:documentation>
+						A payment or transfer request was requested to be cancelled by the party's payment provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Cancelled">
+				<xs:annotation>
+					<xs:documentation>
+						A payment or transfer request has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended">
+				<xs:annotation>
+					<xs:documentation>
+						Payment or transfer request was scheduled for recurring payment but has been has been suspended until taken out of suspend status.
+						This status might be used if a party wants to keep the payment/transfer request in the system but temporarily stop payment
+						from occurring.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
