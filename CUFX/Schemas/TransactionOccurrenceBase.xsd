@@ -23,8 +23,19 @@
 	<xs:complexType name="TransactionScheduledBase" abstract ="true">
 		<xs:complexContent>
 			<xs:extension base="transactionRequestBase:TransactionRequestBase" >
+				<xs:annotation>
+					<xs:documentation>
+						This complex type is used for abstrating the tranasctional transfer, bill payment, ACH payment, wire, etc.
+						The request is that a payment or transfer was requested.  This is the actual occurrence of the payment or transfer which
+						will then result in a transaction (history) that is stored on a back end core system.
+					</xs:documentation>
+				</xs:annotation>
 				<xs:sequence>
-
+					<xs:element name="occurrenceId" type="xs:long" minOccurs="0"  >
+						<xs:annotation>
+							<xs:documentation>Id to uniquely identify the occurrence of a the payment or transfer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="estimatedProcessDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
 						<xs:annotation>
 							<xs:documentation>
@@ -35,7 +46,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="processedDateTime" type="xs:dateTime" minOccurs="0"  maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -46,7 +56,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="createdDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
@@ -57,7 +66,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -68,7 +76,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
@@ -79,7 +86,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="lastUpdatedDateTime" type="xs:dateTime" minOccurs="0" >
 						<xs:annotation>
 							<xs:documentation>
@@ -90,19 +96,16 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="memoPosted" type="xs:boolean" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Indicates whether the payment or transfer has been memo posted or not.</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="note" type="xs:string" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>A user's "note to self" This note is not submitted to the core. (Optional).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
 					<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>

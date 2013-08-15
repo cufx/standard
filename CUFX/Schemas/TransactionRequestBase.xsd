@@ -28,6 +28,11 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="recurringTransactionId" type="xs:long" minOccurs="0"  >
+				<xs:annotation>
+					<xs:documentation>Id to uniquely identify a recurring payment or transfer request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
