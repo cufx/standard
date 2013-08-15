@@ -156,6 +156,13 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
+          <xs:element name="overdraftTolerance" type="common:Money" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Maximum amount amount for overdrafts before the overdraft priority list is used to pull from from other accounts.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
