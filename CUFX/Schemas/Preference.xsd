@@ -214,8 +214,6 @@
         </xs:annotation>
       </xs:element>
 
-      
-      
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -254,6 +252,16 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
+      <xs:enumeration value ="CourtesyPayment" >
+        <xs:annotation>
+          <xs:documentation>
+            Has the member opted in to receive coverage of overdrawn accounts (look at status if it is Active) 
+            for the FI to pay the overdrawn account to a certain limit.
+            If so, if there is a member requested total courtesy payment limit look at the value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
 			<xs:enumeration value ="EAlert" >
         <xs:annotation>
           <xs:documentation>
