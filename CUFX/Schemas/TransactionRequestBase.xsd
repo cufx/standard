@@ -80,9 +80,38 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
+			<xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="0" >
+				<xs:annotation>
+					<xs:documentation>Frequency of the transfer or payment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastModifiedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The last modified date of the recurring payment or transfer schedule.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The date all the scheduled transfers or payments are completed.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assume to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="recurringTransactionConfirmationCode" type="xs:string" minOccurs="0"  maxOccurs ="1"  >
+				<xs:annotation>
+					<xs:documentation>Unique confirmation code for the scheduled reucrring transfer or payment.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>    
 	</xs:complexType>
-
 
 
 	<xs:simpleType name="RequestStatus">
@@ -131,6 +160,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						A payment or transfer request has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Completed">
+				<xs:annotation>
+					<xs:documentation>
+						A payment or transfer request has been completed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
