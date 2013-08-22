@@ -97,22 +97,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for product.
-            Fees are typically assessed if the balance drops below the minimum balance.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="maximumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for product.
-            Fees are typically assessed if the maximum balance is exceeded.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="brand" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -151,6 +135,22 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element >
+      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for product.
+            Fees are typically assessed if the balance drops below the minimum balance.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="maximumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for product.
+            Fees are typically assessed if the maximum balance is exceeded.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
   </xs:complexType>
 
