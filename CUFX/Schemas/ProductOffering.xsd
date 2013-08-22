@@ -229,6 +229,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="termDays" type="xs:int" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The term needed to qualify for rate.  The value is stored in days.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="termMonths" type="xs:int" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The term needed to qualify for rate.  The value is stored in month(s).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="effectiveDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
