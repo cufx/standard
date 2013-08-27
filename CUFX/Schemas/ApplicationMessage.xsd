@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ApplicationMessage.xsd"
+	version="2.0.$Revision: 236 $"
+	xmlns="http://cufxstandards.com/v2/ApplicationMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
+  xmlns:application="http://cufxstandards.com/v2/Application.xsd"
+	xmlns:applicationFilter="http://cufxstandards.com/v2/ApplicationFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Application.xsd" schemaLocation="Application.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ApplicationFilter.xsd" schemaLocation="ApplicationFilter.xsd" />
+
+  <xs:element name="applicationMessage" type="ApplicationMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a applicationMessage.  Contains messageContext, applicationFilter and applicationList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ApplicationMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a applicationMessage.  Contains messageContext, applicationFilter and applicationList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The MessageContext contains information that is passed as part of each CUFX message call.
+            Identifies who is sending the request in and enables some level of security or processing to be executed by the
+            service provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="applicationFilter" type="applicationFilter:ApplicationFilter" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Any filters applied to the a read, update or delete application request.
+            Does not apply to a create message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="applicationList" type="application:ApplicationList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the application data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
