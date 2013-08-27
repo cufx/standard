@@ -13,26 +13,28 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name="overdraftPriorityList">
+  <xs:element name="overdraftPriorityList" type="OverdraftPriorityList">
     <xs:annotation>
       <xs:documentation>
         Establishes the overdraft priority List accross multiple accounts list
         (used for returning any accounts that match DepositFilter.)
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="overdraftPriority" type="OverdraftPriority" minOccurs ="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation>
-              Establishes the overdraft priority.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
+   
   </xs:element>
 
+  <xs:complexType name="OverdraftPriorityList">
+    <xs:sequence>
+      <xs:element name="overdraftPriority" type="OverdraftPriority" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Establishes the overdraft priority.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="OverdraftPriority">
     <xs:sequence>
       <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
