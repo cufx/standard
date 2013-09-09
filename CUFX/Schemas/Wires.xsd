@@ -15,6 +15,12 @@
   <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 
+  <xs:complexType name="wireList">
+    <xs:sequence>
+      <xs:element name="Wire" type="Wire" minOccurs="0" maxOccurs="unbounded"   />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Wire">
     <xs:complexContent>
       <xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase" >
