@@ -6,84 +6,50 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+	xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
+	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-	
-	<xs:complexType name="WireList">
-		<xs:sequence>
-			<xs:element name="Wire" type="Wire" minOccurs="0" maxOccurs="unbounded"   />
-		</xs:sequence>
-	</xs:complexType>		
-	
-	<xs:complexType name="Wire">
+  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 
-		<xs:sequence>
-			<xs:element name="WireID" type="xs:string" minOccurs="0" >
-				<xs:annotation>
-					<xs:documentation>ID to track Wire-Trasnfer Status.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="WireConfirmation" type="xs:string" minOccurs="0" >
-				<xs:annotation>
-					<xs:documentation>Confirmation when the Wire is successfully processed.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="Status" type="WireTransferStatusType" minOccurs="0" >
-				<xs:annotation>
-					<xs:documentation>Status of the Wire-Transfer.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="Date" type="xs:dateTime" minOccurs="0" >
-				<xs:annotation>
-					<xs:documentation>The DueDate the user entered for this wire transfer.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="fromAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>ID of the account from which to make this transfer from.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		
-			<xs:element name="WireTransferType" type="WireTransferType" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>Wire Transfer type.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="WireTransferSpecialInstructions" type="xs:string" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>Special Instructions for Wire Transfer.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="EscrowNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>EscrowNumber for WireTransferType Escrow.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="EscrowOfficerName" type="xs:string" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>EscrowOfficer name for WireTransferType Escrow.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-<!--  Recurring wires?
-			<xs:element name="Frequency" type="WireTransferFrequencyType" minOccurs="0" >
-				<xs:annotation>
-					<xs:documentation>Frequency of the Wire-Transfer.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
--->
-		</xs:sequence>    
+  <xs:complexType name="Wire">
+		<xs:complexContent>
+      <xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase" >
+        <xs:sequence>
+          <xs:element name="toAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The account the wire transfer was made to.
+                Swift code/routing number are part of account object. 
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+					<xs:element name="wireTransferType" type="WireTransferType" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>Wire Transfer type.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="wireTransferSpecialInstructions" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>Special Instructions for Wire Transfer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="escrowNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>EscrowNumber for WireTransferType Escrow.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="escrowOfficerName" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>EscrowOfficer name for WireTransferType Escrow.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 	
 	<xs:simpleType name="WireTransferType">
@@ -94,27 +60,5 @@
 			<xs:enumeration value="Escrow"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
-	<!--  Recurring wires?
-	<xs:simpleType name="WireTransferFrequencyType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Weekly" />
-			<xs:enumeration value="Biweekly"/>
-			<xs:enumeration value="Monthly" />
-			<xs:enumeration value="SemiMonthly"/>
-			<xs:enumeration value="SemiAnnually" />
-			<xs:enumeration value="Annually" />
-			<xs:enumeration value="Other" />
-		</xs:restriction>
-	</xs:simpleType>
--->
-	<xs:simpleType name="WireTransferStatusType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="InProcess" />
-			<xs:enumeration value="Submitted"/>
-			<xs:enumeration value="Canceled" />
-			<xs:enumeration value="Failed"/>
-		</xs:restriction>
-	</xs:simpleType>
-
+  
 </xs:schema>
