@@ -45,22 +45,29 @@
     <xs:complexContent>
       <xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase" >
         <xs:sequence>
-      <xs:element name="billPaymentId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
+      <xs:element name="billPaymentOccurenceId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             An id that uniquely identifies the bill payment.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="payeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
+      <xs:element name="billPayeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The Id of the payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-  
-      <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="1">
+          <xs:element name="fundsTransferOccurenceId" type="fundsTransferOccurrenceBase:OccurenceId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                An id that uniquely identifies the bill payment.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             This is enumeration of statuses for bill payment occurrence
