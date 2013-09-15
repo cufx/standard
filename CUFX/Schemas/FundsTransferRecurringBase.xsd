@@ -28,7 +28,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="recurringTransactionId" type="xs:long" minOccurs="0"  >
+			<xs:element name="recurringTransactionId" type="RecurringTransactionId" minOccurs="0"  >
 				<xs:annotation>
 					<xs:documentation>Id to uniquely identify a recurring payment or transfer request.</xs:documentation>
 				</xs:annotation>
@@ -113,8 +113,17 @@
 		</xs:sequence>    
 	</xs:complexType>
 
+    <xs:simpleType name="RecurringTransactionId">
+      <xs:restriction base="xs:long">
+        <xs:annotation>
+          <xs:documentation>
+            Id to uniquely identify a recurring payment or transfer request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:restriction>
+    </xs:simpleType>
 
-	<xs:simpleType name="RequestStatus">
+    <xs:simpleType name="RequestStatus">
 		<xs:annotation>
 			<xs:documentation>
 				This is enumeration of statuses for bill payment.
