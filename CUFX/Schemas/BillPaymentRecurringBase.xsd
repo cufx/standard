@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+   targetNamespace="http://cufxstandards.com/v2/BillPaymentRecurring.xsd"
+	version="2.1.$Revision: 298 $"
+  xmlns="http://cufxstandards.com/v2/BillPaymentRecurring.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
+  xmlns:billpayment="http://cufxstandards.com/v2/BillPayment.xsd"   
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"   
+   
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/BillPayment.xsd" schemaLocation="BillPayment.xsd" />  
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  
+  <xs:element name= "billPaymentRecurringList" type ="BillPaymentRecurringList">
+    <xs:annotation>
+      <xs:documentation>
+        The bill payment collection/array contains all the bills for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="BillPaymentRecurringList">
+    <xs:annotation>
+      <xs:documentation>
+        The bill payment collection/array contains all the bills for instance that the credential set is
+        authorized to access at the Institution based on applied filters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPaymentRecurring" type="BillPaymentRecurring" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BillPaymentRecurring">
+    <xs:sequence>
+
+      <xs:element name="billPaymentRecurringId" type="BillPaymentRecurringId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An id that uniquely identifies the recurring bill payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="payeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Id of the payee.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="billPayeeRelatedTo" type="billpayee:RelatedTo" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Party, relationship, or account related to this request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="paymentRequestId" type="billpayment:BillPaymentId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A bill payment id that uniquely identifies the bill payment associated with the recurring payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="isOpenEnded" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True for payments with no end date, False if there is an end date for payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isCompleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payments are active end date has passed, False if payment is active but end date has not been reached.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the payment has been deleted, False if payment is active.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="frequency" type="common:IntervalFrequencyType"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The frequency of the payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstScheduledDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The first date of recurring payment.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The next date of recurring payment.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastModifiedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of last recurring payment that was made.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="totalPaymentCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The total number of recurring payments to be made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paymentsLeft" type="xs:integer" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The number of remaining recurring payments to be made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dateUpdated" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The last date recurring payment was updated.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+            supported.  The time is assume to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element> 
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="BillPaymentRecurringId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          An id that uniquely identifies the recurring bill payment.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
