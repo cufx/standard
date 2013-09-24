@@ -69,12 +69,26 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1">
+      <xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1" default="All">
         <xs:annotation>
           <xs:documentation>
             Applicable to creates and updates.  The return data filter is used to streamline the amount of
             information to return to the client after an update or create.  The client can request
             all data from the object, only fields that were updated or created, or no data (just a confirmation that it was successful).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="includeBlankFields" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            A boolean to indicate the inclusion of blank or empty fields in the response message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="includeZeroNumerics" type="xs:boolean" default="true">
+        <xs:annotation>
+          <xs:documentation>
+            A boolean to indicate the inclusion of zero values in the response message.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -204,3 +218,4 @@
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
+
