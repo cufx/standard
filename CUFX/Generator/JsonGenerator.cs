@@ -55,14 +55,17 @@ namespace CUFX.Generator
 						{
 							Type subclass = GetFirstSubclass(type, assembly);
 
+                            // Cannot build JSON objects for Abstract classes that have no concrete subclasses
 							if (subclass == null)
 							{
 								Console.WriteLine("Could not create abstract type [{0}]", type.FullName);
 								continue;
 							}
 
+                            // Builds the JSON version of the CS Object (or null if unable to build object)
 							var subClassObj = BuildSingleObject(assembly, subclass.FullName);
 
+                            // Append the JSON object to the .json file
 							if (subClassObj != null)
 							{
 								string jsonText = JsonConvert.SerializeObject(subClassObj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
@@ -71,9 +74,11 @@ namespace CUFX.Generator
 							}
 						}
 						else
-						{
+                        {
+                            // Builds the JSON version of the CS Object (or null if unable to build object)
 							var obj = BuildSingleObject(assembly, type.FullName);
-
+                            
+                            // Append the JSON object to the .json file
 							if (obj != null)
 							{
 								string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
@@ -127,6 +132,8 @@ namespace CUFX.Generator
 			return null;
 		}
 
+        // Builds each object within the file. Returns null if the object can't/shouldn't be built
+        // such as in the case when an Abstract object has no subclasses and therefore nothing to build.
 		public static object BuildSingleObject(Assembly assembly, string type)
 		{
 			Assembly systemAssembly = Assembly.Load("mscorlib");
@@ -144,13 +151,14 @@ namespace CUFX.Generator
 				Console.WriteLine("Could not find type for: " + type);
 				return null;
 			}
-
-			if (entityType != null && entityType.IsAbstract)
+      
+            // Can't create JSON object for Abstract object with no concrete subclasses
+            if (entityType != null && entityType.IsAbstract)
 			{
-				Console.WriteLine("Cannot build abstract type: " + type);
-				return null;
+				Console.WriteLine("Ignoring abstract type: " + type+". No concrete objects to build.");
+                return null;
 			}
-
+            
 			var builderClassType = typeof(Builder<>);
 
 			Type[] args = { entityType };
