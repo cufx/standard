@@ -239,5 +239,13 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-
+  <xs:simpleType name="OccurrenceId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The OccurrenceId to uniquely identify the occurrence of a the payment or transfer.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>  
 </xs:schema>
