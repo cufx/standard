@@ -5,12 +5,12 @@
 	xmlns="http://cufxstandards.com/v2/Hold.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
    xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-   xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+   xmlns:feeSchedule="http://cufxstandards.com/v2/FeeSchedule.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
 
 
 	<xs:complexType name="Hold">
@@ -73,7 +73,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="feeCode" type="fee:FeeId"  minOccurs="0" maxOccurs="1">
+			<xs:element name="feeCode" type="feeSchedule:FeeId"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						This is the definition of a fee that could be associated with a hold.
