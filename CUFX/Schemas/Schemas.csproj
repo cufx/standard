@@ -102,11 +102,13 @@
     <None Include="BillPayeeDetails.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="BillPayment.xsd">
+    <None Include="BillPaymentOccurence.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="BillPaymentRecurring.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Card.xsd">
       <SubType>Designer</SubType>
@@ -130,6 +132,14 @@
     </None>
     <None Include="BillPayee.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="FundsTransferOccurrenceBase.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FundsTransferRecurringBase.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Hold.xsd">
       <SubType>Designer</SubType>
