@@ -9,7 +9,7 @@
    xmlns:common="http://cufxstandards.com/v2/Common.xsd"
    xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
    xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-   xmlns:fee="http://cufxstandards.com/v2/Fee.xsd"
+   xmlns:feeSchedule="http://cufxstandards.com/v2/FeeSchedule.xsd"
 	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -20,7 +20,7 @@
 	<xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Fee.xsd" schemaLocation="Fee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v2/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name= "transactionList" type ="TransactionList">
