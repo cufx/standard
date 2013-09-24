@@ -4,11 +4,21 @@
 	version="2.1.$Revision: 1 $"
 	xmlns="http://cufxstandards.com/v2/FeeFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+  xmlns:feeSchedule="http://cufxstandards.com/v2/FeeSchedule.xsd"
+  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
-
+  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  
   <xs:element name="feeFilter" type="FeeFilter">
     <xs:annotation>
       <xs:documentation>
