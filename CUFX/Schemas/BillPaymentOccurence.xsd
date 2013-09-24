@@ -8,7 +8,7 @@
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
   xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
- xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
+  xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -59,15 +59,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-          <xs:element name="fundsTransferOccurenceId" type="fundsTransferOccurrenceBase:OccurenceId" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>
-                An id that uniquely identifies the bill payment.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
+      <xs:element name="fundsTransferOccurenceId" type="fundsTransferOccurrenceBase:OccurrenceId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            An id that uniquely identifies the bill payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
-          <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             This is enumeration of statuses for bill payment occurrence
