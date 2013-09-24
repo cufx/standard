@@ -6,13 +6,16 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-   
+   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+   xmlns:account="http://cufxstandards.com/v2/Account.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name= "feeList" type ="FeeList">
     <xs:annotation>
@@ -58,16 +61,7 @@
             Party, relationship, or account related to this Fee.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>
-      <xs:simpleType name="ExtendedFeeType">
-        <xs:annotation>
-          <xs:documentation>
-            Allows a fee type unique to the institution or product using the "x:" prefix. 
-            CUFX-compatible client may ignore unrecognized CustomFeeTypes.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:union memberTypes="FeeType CustomFeeType"/>
-      </xs:simpleType>
+      </xs:element>      
 
       <xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:annotation>
@@ -368,6 +362,13 @@
       </xs:element>
     </xs:choice>
   </xs:complexType>
-
-
+  <xs:simpleType name="ExtendedFeeType">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The fee type is the textual representation the kind of fee.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>  
 </xs:schema>
