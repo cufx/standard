@@ -18,7 +18,7 @@
   <xs:element name="documentMessage" type="DocumentMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a DocumentMessage.  Contains messageContext, depositFilter and depositFundingList.
+        All values that can be sent in a DocumentMessage.  Contains messageContext, documentFilter and documentList.
         This is a wrapper to more easily serialize the complete message.  All values are optional.  See
         example specifications for usage.
       </xs:documentation>
