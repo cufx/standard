@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/ProductOfferingMessage.xsd"
+	version="2.0.$Revision: 236 $"
+	xmlns="http://cufxstandards.com/v2/ProductOfferingMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
+  xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
+	xmlns:productOfferingFilter="http://cufxstandards.com/v2/ProductOfferingFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/ProductOfferingFilter.xsd" schemaLocation="ProductOfferingFilter.xsd" />
+
+  <xs:element name="productOfferingMessage" type="ProductOfferingMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a ProductOfferingeMessage.  Contains messageContext, productOfferingFilter and productOfferingList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ProductOfferingMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a ProductOfferingMessage.  Contains messageContext, productOfferingFilter and productOfferingList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The MessageContext contains information that is passed as part of each CUFX message call.
+            Identifies who is sending the request in and enables some level of security or processing to be executed by the
+            service provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productOfferingFilter" type="productOfferingFilter:ProductOfferingFilter" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Any filters applied to the a read, update or delete productOffering request.
+            Does not apply to a create message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="productOfferingList" type="productOffering:ProductOfferingList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the ProductOffering data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
