@@ -5,8 +5,8 @@
 	xmlns="http://cufxstandards.com/v2/DepositMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:Deposit="http://cufxstandards.com/v2/Deposit.xsd"
-	xmlns:DepositFilter="http://cufxstandards.com/v2/DepositFilter.xsd"
+  xmlns:deposit="http://cufxstandards.com/v2/Deposit.xsd"
+	xmlns:depositFilter="http://cufxstandards.com/v2/DepositFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -43,7 +43,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="depositFilter" type="DepositFilter:DepositFilter" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="depositFilter" type="depositFilter:DepositFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Any filters applied to the a read, update or delete Deposit request.
@@ -51,7 +51,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="depositList" type="Deposit:DepositList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="depositList" type="deposit:DepositList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             All the Deposit data.
