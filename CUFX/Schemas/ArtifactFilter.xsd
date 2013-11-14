@@ -27,25 +27,13 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="artifactId" type="artifact:ArtifactId" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            A unique number used to identify one and only one artifact within the Repository.
-            Some artifact systems do not have a concept of a unique key but a concept of a combined key to access
-            values in the back end system.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="artifactIdList" type="artifact:ArtifactIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Definition of list of Artifact ID's that can be used by other objects to
-            point to the each artifact in a list.
+            A list of artifact Id's to be be returned or affected by a read, update or delete artifact request?
           </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence >
   </xs:complexType >
-  
 </xs:schema>
