@@ -13629,19 +13629,7 @@ namespace cufxstandards.com {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/ArtifactFilter.xsd")]
     public partial class ArtifactFilter {
         
-        private ArtifactId artifactIdField;
-        
         private ArtifactId[] artifactIdListField;
-        
-        /// <remarks/>
-        public ArtifactId artifactId {
-            get {
-                return this.artifactIdField;
-            }
-            set {
-                this.artifactIdField = value;
-            }
-        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("artifactId", Namespace="http://cufxstandards.com/v2/Artifact.xsd")]
@@ -25117,6 +25105,36 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostRequestMessage.xsd")]
+    public partial class RemoteDepositPostRequestMessage {
+        
+        private MessageContext messageContextField;
+        
+        private RemoteDepositPostRequest[] remoteDepositPostRequestListField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("remoteDepositPostRequest", Namespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd", IsNullable=false)]
+        public RemoteDepositPostRequest[] remoteDepositPostRequestList {
+            get {
+                return this.remoteDepositPostRequestListField;
+            }
+            set {
+                this.remoteDepositPostRequestListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositPostResponse.xsd")]
     public partial class RemoteDepositPostResponseList {
         
@@ -25319,6 +25337,36 @@ namespace cufxstandards.com {
             }
             set {
                 this.modeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/RemoteDepositRequestMessage.xsd")]
+    public partial class RemoteDepositRequestMessage {
+        
+        private MessageContext messageContextField;
+        
+        private RemoteDepositRequest[] remoteDepositRequestListField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("remoteDepositRequest", Namespace="http://cufxstandards.com/v2/RemoteDepositRequest.xsd", IsNullable=false)]
+        public RemoteDepositRequest[] remoteDepositRequestList {
+            get {
+                return this.remoteDepositRequestListField;
+            }
+            set {
+                this.remoteDepositRequestListField = value;
             }
         }
     }
@@ -25780,6 +25828,24 @@ namespace cufxstandards.com {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/SimpleValidationRequest.xsd")]
+    public partial class SimpleValidationRequestList {
+        
+        private SimpleValidationRequest[] simpleValidationRequestField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("simpleValidationRequest")]
+        public SimpleValidationRequest[] simpleValidationRequest {
+            get {
+                return this.simpleValidationRequestField;
+            }
+            set {
+                this.simpleValidationRequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/SimpleValidationRequest.xsd")]
     public partial class SimpleValidationRequest {
         
         private string validationTypeField;
@@ -25816,6 +25882,36 @@ namespace cufxstandards.com {
             }
             set {
                 this.customDataField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/SimpleValidationRequestMessage.xsd")]
+    public partial class SimpleValidationRequestMessage {
+        
+        private MessageContext messageContextField;
+        
+        private SimpleValidationRequest[] simpleValidationRequestListField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("simpleValidationRequest", Namespace="http://cufxstandards.com/v2/SimpleValidationRequest.xsd", IsNullable=false)]
+        public SimpleValidationRequest[] simpleValidationRequestList {
+            get {
+                return this.simpleValidationRequestListField;
+            }
+            set {
+                this.simpleValidationRequestListField = value;
             }
         }
     }
