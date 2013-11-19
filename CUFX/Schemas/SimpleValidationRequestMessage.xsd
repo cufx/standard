@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/SimpleValidationRequestMessage.xsd"
+	version="2.0.$Revision: 236 $"
+	xmlns="http://cufxstandards.com/v2/SimpleValidationRequestMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
+  xmlns:simpleValidationRequest="http://cufxstandards.com/v2/SimpleValidationRequest.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/SimpleValidationRequest.xsd" schemaLocation="SimpleValidationRequest.xsd" />
+
+  <xs:element name="simpleValidationRequestMessage" type="SimpleValidationRequestMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a SimpleValidationRequestMessage.  Contains messageContext, SimpleValidationRequestList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="SimpleValidationRequestMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a simpleValidationRequestMessage.  Contains messageContext, simpleValidationRequestList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The MessageContext contains information that is passed as part of each CUFX message call.
+            Identifies who is sending the request in and enables some level of security or processing to be executed by the
+            service provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="simpleValidationRequestList" type="simpleValidationRequest:SimpleValidationRequestList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the SimpleValidationRequest data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
