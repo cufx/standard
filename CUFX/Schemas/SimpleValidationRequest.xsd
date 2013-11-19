@@ -12,13 +12,30 @@
   <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v2/Application.xsd" />
 
-  <xs:element name="simpleValidationRequest" type="SimpleValidationRequest">
+  <xs:element name="simpleValidationRequestList" type="SimpleValidationRequestList">
     <xs:annotation>
       <xs:documentation>
-        Top level element for simple validation request.
+        Top level SimpleValidationRequest list collection element
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  
+  <xs:complexType name="SimpleValidationRequestList">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          Collection of SimpleValidationRequests to support serialization of requests.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="simpleValidationRequest" type="SimpleValidationRequest" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Top level element for simple validation request
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
   
 	<xs:complexType name="SimpleValidationRequest">
     <xs:sequence>
