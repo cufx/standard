@@ -25,14 +25,16 @@
   <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
   <xs:import namespace="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
 
-  <xs:element name="permissionList">
+  <xs:element name="permissionList" type ="PermissionList">
     <xs:annotation>
       <xs:documentation>
         This is a list of actions the user is permitted to perform.
         Any permissions not explicitly in the list should be assumed as not permitted.
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="PermissionList">
       <xs:sequence>
         <xs:element name="permission" type="Permission" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
@@ -43,7 +45,7 @@
         </xs:element>
       </xs:sequence>
     </xs:complexType>
-  </xs:element>
+ 
 
   <xs:complexType name="Permission">
     <xs:sequence>
@@ -396,6 +398,4 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
-
 </xs:schema>
