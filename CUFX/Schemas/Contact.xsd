@@ -42,11 +42,12 @@
 
 	<xs:complexType name="Contact">
 		<xs:sequence>
-			<xs:element name="contactId" type="ContactId" minOccurs="1" maxOccurs="1">
+			<xs:element name="contactId" type="ContactId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier either within system to uniquely
-						identify this contact point.
+						identify this contact point.  On create, this may be provided by the system that is submitting the request
+            or may be blank if the repository calculates the contactId and returns in the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -134,94 +135,28 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="instantMessage" minOccurs="0" maxOccurs="1">
+			<xs:element name="instantMessage" type="InstantMessage" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Fields related to instant message contact points when instant message type selected.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="messagingService" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Instant Messaging Service.  Examples would be Google IM,
-									Jabber, AOL, Yahoo, Facebook, Skype, etc.  Not a restricted value
-									as these services change a lot.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-
-						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Contact user name within the instant messaging platform.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="social" minOccurs="0" maxOccurs="1">
+			<xs:element name="social" type="SocialContactPoint" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Fields related to social contact points when social type selected.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="socialService" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Social Service.  Examples would be Facebook, Twitter,
-									Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
-									as these services change a lot.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-
-						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Contact user name within the social platform.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="website" minOccurs="0" maxOccurs="1">
+			<xs:element name="website" type="Website" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Fields related to website contact points when website type selected.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="sitename" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									The URL of the web site.  Examples would be Facebook, Twitter,
-									Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
-									as these services change a lot.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-
-						<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-							<xs:annotation>
-								<xs:documentation>
-									Contact user name within the social platform.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:choice>
 	</xs:group>
@@ -460,7 +395,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="planFormat" minOccurs="0" maxOccurs="1">
+			<xs:element name="planFormat" type="PlanFormat" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The format of the phone number.   Note: The NANP
@@ -469,48 +404,7 @@
 						possible length of a fully qualified phone number.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Nanp">
-							<xs:annotation>
-								<xs:documentation>
-									(North American Number Plan Administration):
-									+1-NPA-NXX-xxxx  : Example: 1-847-555-1212
-								</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-
-						<xs:enumeration value="NanpLessCountryCode">
-							<xs:annotation>
-								<xs:documentation>
-									(North American Number Plan
-									without the Country Code):  NPA-NXX-xxxx
-									: Example 847-555-1212
-								</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-
-						<xs:enumeration value="OtherInternational">
-							<xs:annotation>
-								<xs:documentation>
-									Non-North American Number Plan phone numbers.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-
-						<xs:enumeration value="NationalNumber">
-							<xs:annotation>
-								<xs:documentation>
-									This is an exception to the E.164 standard
-									such as 411, 911, etc. to support shortened
-									numbers within national boarders.  This
-									value was provided to ensure 100% coverage of all
-									types.
-								</xs:documentation>
-							</xs:annotation>
-						</xs:enumeration>
-					</xs:restriction >
-				</xs:simpleType>
+		
 			</xs:element>
 
 			<xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
@@ -558,6 +452,72 @@
 			</xs:element >
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:complexType name="InstantMessage">
+    <xs:sequence>
+      <xs:element name="messagingService" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Instant Messaging Service.  Examples would be Google IM,
+            Jabber, AOL, Yahoo, Facebook, Skype, etc.  Not a restricted value
+            as these services change a lot.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Contact user name within the instant messaging platform.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SocialContactPoint">
+    <xs:sequence>
+      <xs:element name="socialService" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Social Service.  Examples would be Facebook, Twitter,
+            Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+            as these services change a lot.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Contact user name within the social platform.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Website">
+    <xs:sequence>
+      <xs:element name="sitename" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The URL of the web site.  Examples would be Facebook, Twitter,
+            Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+            as these services change a lot.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Contact user name within the website platform.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 	<xs:simpleType name="TimeOfDayType">
 		<xs:annotation>
@@ -616,6 +576,50 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:simpleType name="PlanFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Nanp">
+        <xs:annotation>
+          <xs:documentation>
+            (North American Number Plan Administration):
+            +1-NPA-NXX-xxxx  : Example: 1-847-555-1212
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="NanpLessCountryCode">
+        <xs:annotation>
+          <xs:documentation>
+            (North American Number Plan
+            without the Country Code):  NPA-NXX-xxxx
+            : Example 847-555-1212
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="OtherInternational">
+        <xs:annotation>
+          <xs:documentation>
+            Non-North American Number Plan phone numbers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+      <xs:enumeration value="NationalNumber">
+        <xs:annotation>
+          <xs:documentation>
+            This is an exception to the E.164 standard
+            such as 411, 911, etc. to support shortened
+            numbers within national boarders.  This
+            value was provided to ensure 100% coverage of all
+            types.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction >
+  </xs:simpleType>
+  
 
 	<xs:simpleType name ="ContactId">
 		<xs:annotation>
