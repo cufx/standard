@@ -48,6 +48,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="toAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account the transfer or payment made to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

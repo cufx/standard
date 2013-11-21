@@ -247,5 +247,26 @@
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
-  </xs:simpleType>  
+  </xs:simpleType>
+
+  <xs:complexType name="OccurrenceIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of transfer or payment occurerence id's that should have their associated occurence Id either returned or affected
+        by a read, update or delete a request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A occurence Id that should have its associated documents either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
 </xs:schema>

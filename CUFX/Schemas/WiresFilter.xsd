@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WiresFilter"
+    targetNamespace="http://cufxstandards.com/v2/WiresFilter.xsd"
+    version="2.1.$Revision:  $"
+    xmlns="http://cufxstandards.com/v2/WiresFilter.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:wires="http://cufxstandards.com/v2/Wires.xsd"
+    xmlns:fundsTransferFilter="http://cufxstandards.com/v2/FundsTransferFilter.xsd"
+           
+    elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/Wires.xsd" schemaLocation="Wires.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferFilter.xsd" schemaLocation="FundsTransferFilter.xsd" />
+
+  <xs:element name="wiresFilter" type="WiresFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services using deposit account data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="WiresFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options to filter Wire Transfers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="fundsTransferFilter:FundsTransferFilter">
+        <xs:sequence>
+
+          <xs:element name="wireStatusType" type="wires:WireTransferType" minOccurs ="0" maxOccurs ="1">
+            <xs:annotation>
+              <xs:documentation>
+                Additional filter along with the filter options specified in FundsTransferFilter, the wires can be filtered by Wire Status Type
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+</xs:schema>

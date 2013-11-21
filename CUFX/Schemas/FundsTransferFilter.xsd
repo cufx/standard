@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FundsTransferFilter"
+    targetNamespace="http://cufxstandards.com/v2/FundsTransferFilter.xsd"
+    version="2.1.$Revision: 298 $"
+    xmlns="http://cufxstandards.com/v2/FundsTransferFilter.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
+    xmlns:account="http://cufxstandards.com/v2/Account.xsd"           
+    elementFormDefault="qualified">
+  
+  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+
+  <xs:element name="fundsTransferFilter" type="FundsTransferFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for filtering trasnfers.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="FundsTransferFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of options for filters for services requesting transfer history.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+
+      <xs:element name="occurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of transfer occurrenceId's that should have their associated transfers returned or affected by a read, update or delete transfer request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fromDate" type="xs:date" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to start searching the transfer dates.
+            Start and End date filter work together.
+            Must be less than or equal to end date if an end date is supplied.
+            Should be less to or equal to today's date.
+            If neither fromDate or toDate is provided,
+            no transfers will be returned.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-dd
+            (2011-03-28) format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="toDate" type="xs:date" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to end searching the transfer dates.
+            Start and End date filter work together.
+            Must be less than or equal to end date if an end date is supplied.
+            Should be less to or equal to today's date.
+            If neither fromDate or toDate is provided,
+            no transfers will be returned.
+            The date/time should be ISO 8601 UTC format.  yyyy-mm-dd
+            (2011-03-28) format.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountIDList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account id list that can be supplied as a part of filter. If present, the transfers are returned only for that account id. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="occurrenceStatus" type="fundsTransferOccurrenceBase:OccurrenceStatus" minOccurs="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to search transfer by the status of the transfer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
