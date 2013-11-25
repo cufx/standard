@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v2/CreditReportMessage.xsd"
+	version="2.0.$Revision: 236 $"
+	xmlns="http://cufxstandards.com/v2/CreditReportMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
+  xmlns:creditReport="http://cufxstandards.com/v2/CreditReport.xsd"
+	xmlns:creditReportFilter="http://cufxstandards.com/v2/CreditReportFilter.xsd"
+  xmlns:creditReportRequest="http://cufxstandards.com/v2/CreditReportRequest.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CreditReportFilter.xsd" schemaLocation="CreditReportFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v2/CreditReportRequest.xsd" schemaLocation="CreditReportRequest.xsd" />
+
+  <xs:element name="creditReportMessage" type="CreditReportMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a CreditReportMessage.  Contains messageContext, CreditReportRequest, CreditReportFilter and CreditReportList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="CreditReportMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a CreditReportMessage.  Contains messageContext, creditReportRequest, creditReportFilter and creditReportList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The MessageContext contains information that is passed as part of each CUFX message call.
+            Identifies who is sending the request in and enables some level of security or processing to be executed by the
+            service provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="creditReportFilter" type="creditReportFilter:CreditReportFilter" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Any filters applied to the a read, update or delete CreditReport request.
+            Does not apply to a create message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="creditReportList" type="creditReport:CreditReportList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the CreditReport data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="creditReportRequest" type="creditReportRequest:CreditReportRequest" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the credit report request data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
