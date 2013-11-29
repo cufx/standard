@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v2/ValidateRegisteredDeviceResponse.xsd"
+	version="2.0.$Revision: 305 $"
+	xmlns="http://cufxstandards.com/v2/ValidateRegisteredDeviceResponse.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+
+  <xs:element name= "validateRegisteredDeviceResponseList" type ="ValidateRegisteredDeviceResponseList">
+    <xs:annotation>
+      <xs:documentation>
+        The collection/array list contains all the Devices to be validated.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ValidateRegisteredDeviceResponseList">
+    <xs:annotation>
+      <xs:documentation>
+        The collection/array contains all the Devices to be validated.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="validateRegisteredDeviceResponse" type="ValidateRegisteredDeviceResponse" minOccurs="0" maxOccurs="unbounded">
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ValidateRegisteredDeviceResponse">
+    <xs:annotation>
+      <xs:documentation>
+        The device to be validated and encryption indicator.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+
+      <xs:element name="deviceID" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The device/ip identification string being validated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="encryptedFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True, indicates that the deviceID was encrypted.
+            Encryption method is agreed upon by application end point
+            providers.  Assume it’s NOT encrypted if this flag is not provided.
+            The messageContext will be used by the service to understand which client is calling the service
+            to know which encryption algorithm to apply.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="isRegisteredFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If True, indicates that the deviceID is registered with the institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
