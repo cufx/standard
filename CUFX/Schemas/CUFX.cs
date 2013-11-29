@@ -11732,7 +11732,7 @@ namespace cufxstandards.com {
         
         private string extensionField;
         
-        private PhonePlanFormat planFormatField;
+        private PlanFormat planFormatField;
         
         private bool planFormatFieldSpecified;
         
@@ -11784,7 +11784,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public PhonePlanFormat planFormat {
+        public PlanFormat planFormat {
             get {
                 return this.planFormatField;
             }
@@ -11860,8 +11860,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public enum PhonePlanFormat {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public enum PlanFormat {
         
         /// <remarks/>
         Nanp,
@@ -12810,11 +12810,11 @@ namespace cufxstandards.com {
         
         private Email emailField;
         
-        private ContactInstantMessage instantMessageField;
+        private InstantMessage instantMessageField;
         
-        private ContactSocial socialField;
+        private SocialContactPoint socialField;
         
-        private ContactWebsite websiteField;
+        private Website websiteField;
         
         private TimeOfDayType timeOfDayField;
         
@@ -12879,7 +12879,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public ContactInstantMessage instantMessage {
+        public InstantMessage instantMessage {
             get {
                 return this.instantMessageField;
             }
@@ -12889,7 +12889,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public ContactSocial social {
+        public SocialContactPoint social {
             get {
                 return this.socialField;
             }
@@ -12899,7 +12899,7 @@ namespace cufxstandards.com {
         }
         
         /// <remarks/>
-        public ContactWebsite website {
+        public Website website {
             get {
                 return this.websiteField;
             }
@@ -13055,8 +13055,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public partial class ContactInstantMessage {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public partial class InstantMessage {
         
         private string messagingServiceField;
         
@@ -13084,8 +13084,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public partial class ContactSocial {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public partial class SocialContactPoint {
         
         private string socialServiceField;
         
@@ -13113,8 +13113,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/Contact.xsd")]
-    public partial class ContactWebsite {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Contact.xsd")]
+    public partial class Website {
         
         private string sitenameField;
         
@@ -14839,6 +14839,8 @@ namespace cufxstandards.com {
         
         private string fromAccountIdField;
         
+        private string toAccountIdField;
+        
         private RequestStatus requestStatusField;
         
         private bool requestStatusFieldSpecified;
@@ -14905,6 +14907,16 @@ namespace cufxstandards.com {
             }
             set {
                 this.fromAccountIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string toAccountId {
+            get {
+                return this.toAccountIdField;
+            }
+            set {
+                this.toAccountIdField = value;
             }
         }
         
@@ -15422,8 +15434,6 @@ namespace cufxstandards.com {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Wires.xsd")]
     public partial class Wire : FundsTransferOccurrenceBase {
         
-        private string toAccountIdField;
-        
         private WireTransferType wireTransferTypeField;
         
         private bool wireTransferTypeFieldSpecified;
@@ -15433,16 +15443,6 @@ namespace cufxstandards.com {
         private string escrowNumberField;
         
         private string escrowOfficerNameField;
-        
-        /// <remarks/>
-        public string toAccountId {
-            get {
-                return this.toAccountIdField;
-            }
-            set {
-                this.toAccountIdField = value;
-            }
-        }
         
         /// <remarks/>
         public WireTransferType wireTransferType {
@@ -17358,6 +17358,60 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/CreditReportMessage.xsd")]
+    public partial class CreditReportMessage {
+        
+        private MessageContext messageContextField;
+        
+        private CreditReportFilter creditReportFilterField;
+        
+        private CreditReport[] creditReportListField;
+        
+        private CreditReportRequest creditReportRequestField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CreditReportFilter creditReportFilter {
+            get {
+                return this.creditReportFilterField;
+            }
+            set {
+                this.creditReportFilterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("creditReport", Namespace="http://cufxstandards.com/v2/CreditReport.xsd", IsNullable=false)]
+        public CreditReport[] creditReportList {
+            get {
+                return this.creditReportListField;
+            }
+            set {
+                this.creditReportListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CreditReportRequest creditReportRequest {
+            get {
+                return this.creditReportRequestField;
+            }
+            set {
+                this.creditReportRequestField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/CreditReportRequest.xsd")]
     public partial class CreditReportRequest {
         
@@ -19264,6 +19318,236 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/FeeScheduleMessage.xsd")]
+    public partial class FeeScheduleMessage {
+        
+        private MessageContext messageContextField;
+        
+        private FeeScheduleFilter feeScheduleFilterField;
+        
+        private Fee[] feeListField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FeeScheduleFilter feeScheduleFilter {
+            get {
+                return this.feeScheduleFilterField;
+            }
+            set {
+                this.feeScheduleFilterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("fee", Namespace="http://cufxstandards.com/v2/FeeSchedule.xsd", IsNullable=false)]
+        public Fee[] feeList {
+            get {
+                return this.feeListField;
+            }
+            set {
+                this.feeListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/FundsTransferFilter.xsd")]
+    public partial class FundsTransferFilter {
+        
+        private string[] occurrenceIdListField;
+        
+        private System.DateTime fromDateField;
+        
+        private bool fromDateFieldSpecified;
+        
+        private System.DateTime toDateField;
+        
+        private bool toDateFieldSpecified;
+        
+        private string[] accountIDListField;
+        
+        private OccurrenceStatus occurrenceStatusField;
+        
+        private bool occurrenceStatusFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("occurrenceId", Namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd", IsNullable=false)]
+        public string[] occurrenceIdList {
+            get {
+                return this.occurrenceIdListField;
+            }
+            set {
+                this.occurrenceIdListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime fromDate {
+            get {
+                return this.fromDateField;
+            }
+            set {
+                this.fromDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fromDateSpecified {
+            get {
+                return this.fromDateFieldSpecified;
+            }
+            set {
+                this.fromDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime toDate {
+            get {
+                return this.toDateField;
+            }
+            set {
+                this.toDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool toDateSpecified {
+            get {
+                return this.toDateFieldSpecified;
+            }
+            set {
+                this.toDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("accountId", Namespace="http://cufxstandards.com/v2/Account.xsd", IsNullable=false)]
+        public string[] accountIDList {
+            get {
+                return this.accountIDListField;
+            }
+            set {
+                this.accountIDListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public OccurrenceStatus occurrenceStatus {
+            get {
+                return this.occurrenceStatusField;
+            }
+            set {
+                this.occurrenceStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool occurrenceStatusSpecified {
+            get {
+                return this.occurrenceStatusFieldSpecified;
+            }
+            set {
+                this.occurrenceStatusFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd")]
+    public enum OccurrenceStatus {
+        
+        /// <remarks/>
+        Scheduled,
+        
+        /// <remarks/>
+        InProcess,
+        
+        /// <remarks/>
+        CancelRequestedByParty,
+        
+        /// <remarks/>
+        CancelRequestedByFinancialInstitution,
+        
+        /// <remarks/>
+        CancelRequestedByPaymentProvider,
+        
+        /// <remarks/>
+        Cancelled,
+        
+        /// <remarks/>
+        Completed,
+        
+        /// <remarks/>
+        Declined,
+        
+        /// <remarks/>
+        FundsOutbound,
+        
+        /// <remarks/>
+        FundsCleared,
+        
+        /// <remarks/>
+        Held,
+        
+        /// <remarks/>
+        InsufficientFunds,
+        
+        /// <remarks/>
+        Sent,
+        
+        /// <remarks/>
+        Returned,
+        
+        /// <remarks/>
+        Suspended,
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/WiresFilter.xsd")]
+    public partial class WiresFilter : FundsTransferFilter {
+        
+        private WireTransferType wireStatusTypeField;
+        
+        private bool wireStatusTypeFieldSpecified;
+        
+        /// <remarks/>
+        public WireTransferType wireStatusType {
+            get {
+                return this.wireStatusTypeField;
+            }
+            set {
+                this.wireStatusTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool wireStatusTypeSpecified {
+            get {
+                return this.wireStatusTypeFieldSpecified;
+            }
+            set {
+                this.wireStatusTypeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/Loan.xsd")]
     public partial class LoanList {
         
@@ -21052,8 +21336,8 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
-    public partial class permissionList {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionList.xsd")]
+    public partial class PermissionList {
         
         private Permission[] permissionField;
         
@@ -21479,6 +21763,48 @@ namespace cufxstandards.com {
             }
             set {
                 this.relationshipIdListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v2/PermissionListMessage.xsd")]
+    public partial class PermissionListMessage {
+        
+        private MessageContext messageContextField;
+        
+        private PermissionListFilter permissionListFilterField;
+        
+        private Permission[] permissionListField;
+        
+        /// <remarks/>
+        public MessageContext messageContext {
+            get {
+                return this.messageContextField;
+            }
+            set {
+                this.messageContextField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PermissionListFilter permissionListFilter {
+            get {
+                return this.permissionListFilterField;
+            }
+            set {
+                this.permissionListFilterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("permission", Namespace="http://cufxstandards.com/v2/PermissionList.xsd", IsNullable=false)]
+        public Permission[] permissionList {
+            get {
+                return this.permissionListField;
+            }
+            set {
+                this.permissionListField = value;
             }
         }
     }
