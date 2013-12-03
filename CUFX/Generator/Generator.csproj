@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CUFX.Generator</RootNamespace>
     <AssemblyName>CUFX.Generator</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -32,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>CUFX.Generator.Program</StartupObject>
@@ -54,7 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="ClassObject.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="EnumObject.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="XMLGen\Facets.cs" />
     <Compile Include="XMLGen\Generator.cs" />
     <Compile Include="XMLGen\InstanceAttribute.cs" />
@@ -67,12 +75,573 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\CUFX.Generator.exe" />
+    <Content Include="bin\Debug\CUFX.Generator.pdb" />
+    <Content Include="bin\Debug\CUFX.Generator.vshost.exe" />
+    <Content Include="bin\Debug\FizzWare.NBuilder.dll" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\AccessProfile.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\AccessProfileFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Account.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\AccountFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\AccountMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Answer.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Application.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ApplicationFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ApplicationMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Artifact.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ArtifactFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ArtifactMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\BillPayee.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\BillPayeeDetails.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\BillPayeeRelationship.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\BillPaymentOccurence.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\BillPaymentRecurring.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Card.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CardFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CardMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Collateral.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CollateralFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CollateralMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Configuration.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Contact.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ContactFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ContactMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CredentialGroup.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CredentialGroupFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CredentialGroupMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CreditLimitIncreaseRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CreditReport.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CreditReportFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CreditReportMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\CreditReportRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Deposit.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DepositFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DepositFunding.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DepositFundingMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DepositMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Document.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DocumentFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\DocumentMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\EligibilityRequirement.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\EligibilityRequirementFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\EligibilityRequirementMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Error.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FeeSchedule.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FeeScheduleFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FeeScheduleMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FundsTransferFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FundsTransferOccurrenceBase.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\FundsTransferRecurringBase.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Hold.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Loan.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LoanDisbursement.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LoanDisbursementMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LoanFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LoanMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Location.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LocationFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\LocationMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\MicroDepositFunding.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\OverdraftPriorityList.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\OverdraftPriorityListFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\OverdraftPriorityMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Party.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PartyAssociation.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PartyAssociationFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PartyAssociationMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PartyFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PartyMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PermissionList.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PermissionListFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PermissionListMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Preference.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PreferenceFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\PreferenceMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductOffering.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductOfferingFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductOfferingMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductServiceRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductServiceRequestFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ProductServiceRequestMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\QuestionList.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Ratings.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Relationship.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RelationshipFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositPostRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositPostRequestMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositPostResponse.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositRequestMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\RemoteDepositResponse.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SecureMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SecureMessageFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SecureMessageMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SimpleValidationRequest.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SimpleValidationRequestMessage.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\SystemStatus.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Transaction.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Transfer.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\TransferFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\ValidationStatus.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\Wires.html" />
+    <Content Include="bin\Debug\GeneratedFiles\HTML\WiresFilter.html" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\AccessProfile.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\AccessProfileFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Account.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\AccountFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\AccountMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Answer.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Application.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ApplicationFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ApplicationMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Artifact.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ArtifactFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ArtifactMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\BillPayee.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\BillPayeeDetails.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\BillPayeeRelationship.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\BillPaymentOccurence.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\BillPaymentRecurring.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Card.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CardFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CardMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Collateral.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CollateralFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CollateralMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Configuration.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Contact.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ContactFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ContactMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CredentialGroup.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CredentialGroupFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CredentialGroupMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CreditLimitIncreaseRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CreditReport.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CreditReportFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CreditReportMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\CreditReportRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Deposit.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DepositFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DepositFunding.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DepositFundingMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DepositMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Document.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DocumentFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\DocumentMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\EligibilityRequirement.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\EligibilityRequirementFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\EligibilityRequirementMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Error.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FeeSchedule.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FeeScheduleFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FeeScheduleMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FundsTransferFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FundsTransferOccurrenceBase.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\FundsTransferRecurringBase.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Hold.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Loan.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LoanDisbursement.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LoanDisbursementMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LoanFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LoanMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Location.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LocationFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\LocationMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\MicroDepositFunding.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\OverdraftPriorityList.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\OverdraftPriorityListFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\OverdraftPriorityMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Party.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PartyAssociation.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PartyAssociationFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PartyAssociationMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PartyFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PartyMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PermissionList.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PermissionListFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PermissionListMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Preference.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PreferenceFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\PreferenceMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductOffering.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductOfferingFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductOfferingMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductServiceRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductServiceRequestFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ProductServiceRequestMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\QuestionList.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Ratings.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Relationship.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RelationshipFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositPostRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositPostRequestMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositPostResponse.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositRequestMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\RemoteDepositResponse.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SecureMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SecureMessageFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SecureMessageMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SimpleValidationRequest.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SimpleValidationRequestMessage.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\SystemStatus.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Transaction.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Transfer.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\TransferFilter.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\ValidationStatus.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\Wires.xml" />
+    <Content Include="bin\Debug\GeneratedFiles\XML\WiresFilter.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\xs3p.xsl" />
+    <Content Include="bin\Debug\XSD\Schemas.csproj" />
     <Content Include="Refs\FizzWare.NBuilder.dll" />
     <Content Include="Refs\Newtonsoft.Json.dll" />
+    <None Include="app.config" />
+    <None Include="bin\Debug\CUFX.Generator.exe.config" />
+    <None Include="bin\Debug\CUFX.Generator.vshost.exe.config" />
+    <None Include="bin\Debug\CUFX.Generator.vshost.exe.manifest" />
+    <None Include="bin\Debug\XSD\AccessProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\AccessProfileFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Account.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\AccountFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\AccountMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Answer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Application.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ApplicationFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ApplicationMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Artifact.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ArtifactFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ArtifactMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\BillPayee.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\BillPayeeDetails.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\BillPayeeRelationship.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\BillPaymentOccurence.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\BillPaymentRecurring.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Card.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CardFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CardMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Collateral.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CollateralFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CollateralMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Contact.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ContactFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ContactMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CredentialGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CredentialGroupFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CredentialGroupMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CreditLimitIncreaseRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CreditReport.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CreditReportFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CreditReportMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\CreditReportRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Deposit.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DepositFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DepositFunding.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DepositFundingMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DepositMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Document.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DocumentFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\DocumentMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\EligibilityRequirement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\EligibilityRequirementFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\EligibilityRequirementMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Error.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FeeSchedule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FeeScheduleFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FeeScheduleMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FundsTransferFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FundsTransferOccurrenceBase.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\FundsTransferRecurringBase.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Hold.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ISOCountryCodeType-V2006.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ISOCurrencyCodeType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Loan.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LoanDisbursement.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LoanDisbursementMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LoanFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LoanMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Location.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LocationFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\LocationMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\MessageContext.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Meta.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\MicroDepositFunding.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\OverdraftPriorityList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\OverdraftPriorityListFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\OverdraftPriorityMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Party.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PartyAssociation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PartyAssociationFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PartyAssociationMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PartyFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PartyMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PermissionList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PermissionListFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PermissionListMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Preference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PreferenceFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\PreferenceMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductOffering.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductOfferingFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductOfferingMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductServiceRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductServiceRequestFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ProductServiceRequestMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\QuestionList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Ratings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Relationship.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RelationshipFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositPostRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositPostRequestMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositPostResponse.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositRequestMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\RemoteDepositResponse.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SecureMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SecureMessageFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SecureMessageMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SimpleValidationRequest.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SimpleValidationRequestMessage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\SystemStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Transaction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Transfer.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\TransferFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\ValidationStatus.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\Wires.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\XSD\WiresFilter.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="xs3p.xsl">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\GeneratedFiles\JSON\" />
+    <Folder Include="bin\Debug\GeneratedFiles\WCF\" />
+    <Folder Include="XSD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

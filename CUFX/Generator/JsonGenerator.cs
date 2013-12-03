@@ -32,7 +32,7 @@ namespace CUFX.Generator
 			// Generate an executable instead of 
 			// a class library.
 			cp.GenerateExecutable = false;
-
+            
 			// Set the assembly file name to generate.
 			//cp.OutputAssembly = dllFile;
 
@@ -41,7 +41,7 @@ namespace CUFX.Generator
 
 			// Invoke compilation.
 			CompilerResults cr = provider.CompileAssemblyFromFile(cp, sourceCsFile);
-
+             
 			Assembly assembly = cr.CompiledAssembly;
 
 			JsonSerializer serializer = new JsonSerializer();
