@@ -28,12 +28,13 @@ namespace CUFX.Generator
 			// Add an assembly reference.
 			cp.ReferencedAssemblies.Add("System.dll");
 			cp.ReferencedAssemblies.Add("System.Xml.dll");
+            cp.ReferencedAssemblies.Add("System.Runtime.Serialization.dll");
 
 			// Generate an executable instead of 
 			// a class library.
 			cp.GenerateExecutable = false;
             
-			// Set the assembly file name to generate.
+			// Set the assembly file name to generate. (TODO: Delete?)
             //cp.OutputAssembly = dllFile;
 
 			// Save the assembly as a physical file.
