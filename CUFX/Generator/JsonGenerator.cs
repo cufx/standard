@@ -34,16 +34,26 @@ namespace CUFX.Generator
 			cp.GenerateExecutable = false;
             
 			// Set the assembly file name to generate.
-			//cp.OutputAssembly = dllFile;
+            //cp.OutputAssembly = dllFile;
 
 			// Save the assembly as a physical file.
 			cp.GenerateInMemory = false;
 
 			// Invoke compilation.
 			CompilerResults cr = provider.CompileAssemblyFromFile(cp, sourceCsFile);
-             
-			Assembly assembly = cr.CompiledAssembly;
 
+            if (cr.Errors.HasErrors)
+            {
+                Console.WriteLine("Error compiling the generated CUFX file:");
+                IEnumerator e = cr.Errors.GetEnumerator();
+                while (e.MoveNext())
+                {
+                    Console.WriteLine(e.Current);
+                }
+                throw new FileNotFoundException(@"Error compiling the generated CUFX file.");
+            }
+            Assembly assembly = cr.CompiledAssembly;
+         
 			JsonSerializer serializer = new JsonSerializer();
 			using (StreamWriter outJsonFile = new StreamWriter(jsonFile))
 			{
