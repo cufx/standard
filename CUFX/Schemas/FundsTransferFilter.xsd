@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="FundsTransferFilter"
-    targetNamespace="http://cufxstandards.com/v2/FundsTransferFilter.xsd"
-    version="2.1.$Revision$"
-    xmlns="http://cufxstandards.com/v2/FundsTransferFilter.xsd"
+    targetNamespace="http://cufxstandards.com/v3/FundsTransferFilter.xsd"
+    version="3.0.$Revision$"
+    xmlns="http://cufxstandards.com/v3/FundsTransferFilter.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
-    xmlns:account="http://cufxstandards.com/v2/Account.xsd"           
+    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+    xmlns:account="http://cufxstandards.com/v3/Account.xsd"           
     elementFormDefault="qualified">
   
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 
   <xs:element name="fundsTransferFilter" type="FundsTransferFilter">
     <xs:annotation>
