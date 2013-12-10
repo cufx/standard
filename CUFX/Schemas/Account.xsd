@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v2/Account.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/Account.xsd"
+  targetNamespace="http://cufxstandards.com/v3/Account.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:meta="http://cufxstandards.com/v2/Meta.xsd"
-   xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-   xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-   xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-   xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-   xmlns:feeSchedule="http://cufxstandards.com/v2/FeeSchedule.xsd"
-	xmlns:transaction="http://cufxstandards.com/v2/Transaction.xsd"
-	xmlns:hold="http://cufxstandards.com/v2/Hold.xsd"	
-	elementFormDefault="qualified"
+	xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+  xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
+	xmlns:transaction="http://cufxstandards.com/v3/Transaction.xsd"
+	xmlns:hold="http://cufxstandards.com/v3/Hold.xsd"	
+	
+  elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Meta.xsd" schemaLocation="Meta.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Transaction.xsd" schemaLocation="Transaction.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Hold.xsd" schemaLocation="Hold.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Meta.xsd" schemaLocation="Meta.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Transaction.xsd" schemaLocation="Transaction.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Hold.xsd" schemaLocation="Hold.xsd" />
 
 	<xs:element name= "accountList" type ="AccountList">
 		<xs:annotation>
