@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd"
-	xmlns="http://cufxstandards.com/v2/RemoteDepositPostRequest.xsd"
-	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd"
+	xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
            
-	version="2.0.$Revision$"
+	version="3.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
  	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
 	
 	<xs:element name="remoteDepositPostRequestList" type="RemoteDepositPostRequestList">
 		<xs:annotation>

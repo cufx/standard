@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/RemoteDepositRequestMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/RemoteDepositRequestMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/RemoteDepositRequestMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/RemoteDepositRequestMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:remoteDepositRequest="http://cufxstandards.com/v2/RemoteDepositRequest.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:remoteDepositRequest="http://cufxstandards.com/v3/RemoteDepositRequest.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/RemoteDepositRequest.xsd" schemaLocation="RemoteDepositRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/RemoteDepositRequest.xsd" schemaLocation="RemoteDepositRequest.xsd" />
 
   <xs:element name="remoteDepositRequestMessage" type="RemoteDepositRequestMessage">
     <xs:annotation>

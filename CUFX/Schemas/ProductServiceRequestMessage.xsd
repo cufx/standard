@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/ProductServiceRequestMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/ProductServiceRequestMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/ProductServiceRequestMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/ProductServiceRequestMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:productServiceRequest="http://cufxstandards.com/v2/ProductServiceRequest.xsd"
-	xmlns:productServiceRequestFilter="http://cufxstandards.com/v2/ProductServiceRequestFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:productServiceRequest="http://cufxstandards.com/v3/ProductServiceRequest.xsd"
+	xmlns:productServiceRequestFilter="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/ProductServiceRequestFilter.xsd" schemaLocation="ProductServiceRequestFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd" schemaLocation="ProductServiceRequestFilter.xsd" />
 
   <xs:element name="productServiceRequestMessage" type="ProductServiceRequestMessage">
     <xs:annotation>

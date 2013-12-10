@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v2/Wires.xsd"
-  version="2.1.$Revision$"
-  xmlns="http://cufxstandards.com/v2/Wires.xsd"
+  targetNamespace="http://cufxstandards.com/v3/Wires.xsd"
+  version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/Wires.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
   
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />  
-  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />  
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 
   <xs:complexType name="wireList">
     <xs:sequence>
