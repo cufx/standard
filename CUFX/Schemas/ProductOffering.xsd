@@ -225,7 +225,9 @@
       <xs:element name="interestRateCriteria" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Criteria as to when the interest rate applies.
+            This is free form descsription of the Criteria as to when the interest rate applies.
+            This is not used for processing but additionial documentation beyond the interest
+            rate dscription field.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
