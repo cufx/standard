@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-targetNamespace="http://cufxstandards.com/v2/BillPaymentRecurring.xsd"
-version="2.1.$Revision$"
-xmlns="http://cufxstandards.com/v2/BillPaymentRecurring.xsd"
+targetNamespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
+version="3.0.$Revision$"
+xmlns="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-xmlns:billpayee="http://cufxstandards.com/v2/BillPayee.xsd"
-xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v2/FundsTransferRecurringBase.xsd"
+xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
+xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
 	 
 elementFormDefault="qualified"
 attributeFormDefault="unqualified">
 
 
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 
   <xs:complexType name="BillPaymentRecurringList">
       <xs:sequence>
