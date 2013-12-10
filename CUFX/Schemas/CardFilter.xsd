@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/CardFilter.xsd"
-  version="2.0.$Revision$"
-  xmlns="http://cufxstandards.com/v2/CardFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/CardFilter.xsd"
+  version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-  xmlns:card="http://cufxstandards.com/v2/Card.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:card="http://cufxstandards.com/v3/Card.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
 
   <xs:element name="cardFilter" type="CardFilter">
     <xs:annotation>
