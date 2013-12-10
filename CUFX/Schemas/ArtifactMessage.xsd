@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/ArtifactMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/ArtifactMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/ArtifactMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/ArtifactMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
-	xmlns:artifactFilter="http://cufxstandards.com/v2/ArtifactFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
+	xmlns:artifactFilter="http://cufxstandards.com/v3/ArtifactFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation="Artifact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/ArtifactFilter.xsd" schemaLocation="ArtifactFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/ArtifactFilter.xsd" schemaLocation="ArtifactFilter.xsd" />
 
   <xs:element name="artifactMessage" type="ArtifactMessage">
     <xs:annotation>
