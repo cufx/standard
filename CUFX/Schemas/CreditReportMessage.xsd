@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/CreditReportMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/CreditReportMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/CreditReportMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/CreditReportMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:creditReport="http://cufxstandards.com/v2/CreditReport.xsd"
-	xmlns:creditReportFilter="http://cufxstandards.com/v2/CreditReportFilter.xsd"
-  xmlns:creditReportRequest="http://cufxstandards.com/v2/CreditReportRequest.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:creditReport="http://cufxstandards.com/v3/CreditReport.xsd"
+	xmlns:creditReportFilter="http://cufxstandards.com/v3/CreditReportFilter.xsd"
+  xmlns:creditReportRequest="http://cufxstandards.com/v3/CreditReportRequest.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CreditReportFilter.xsd" schemaLocation="CreditReportFilter.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CreditReportRequest.xsd" schemaLocation="CreditReportRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CreditReportFilter.xsd" schemaLocation="CreditReportFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CreditReportRequest.xsd" schemaLocation="CreditReportRequest.xsd" />
 
   <xs:element name="creditReportMessage" type="CreditReportMessage">
     <xs:annotation>
