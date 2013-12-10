@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v2/Application.xsd"
-  version="2.0.$Revision$"
-  xmlns="http://cufxstandards.com/v2/Application.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/Application.xsd"
+  version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:credit="http://cufxstandards.com/v2/CreditReport.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
-  xmlns:loan="http://cufxstandards.com/v2/Loan.xsd"
-  xmlns:deposit="http://cufxstandards.com/v2/Deposit.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
+  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:credit="http://cufxstandards.com/v3/CreditReport.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:productOffering="http://cufxstandards.com/v3/ProductOffering.xsd"
+  xmlns:loan="http://cufxstandards.com/v3/Loan.xsd"
+  xmlns:deposit="http://cufxstandards.com/v3/Deposit.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   elementFormDefault="qualified" >
 
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Loan.xsd" schemaLocation ="Loan.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Deposit.xsd" schemaLocation ="Deposit.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation ="Relationship.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Account.xsd" schemaLocation ="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Loan.xsd" schemaLocation ="Loan.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Deposit.xsd" schemaLocation ="Deposit.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation ="Relationship.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Account.xsd" schemaLocation ="Account.xsd" />
 
   <xs:element name="applicationList" type="ApplicationList">
     <xs:annotation>
