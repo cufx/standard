@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v2/CreditReportRequest.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/CreditReportRequest.xsd"
+	targetNamespace="http://cufxstandards.com/v3/CreditReportRequest.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/CreditReportRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
 
   <xs:element name="creditReportRequest" type="CreditReportRequest">
