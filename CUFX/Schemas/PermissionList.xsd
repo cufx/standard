@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v2/PermissionList.xsd"
-	version="2.1.$Revision$"
-	xmlns="http://cufxstandards.com/v2/PermissionList.xsd"
+	targetNamespace="http://cufxstandards.com/v3/PermissionList.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/PermissionList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-	xmlns:accessProfile="http://cufxstandards.com/v2/AccessProfile.xsd"
-	xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-	xmlns:card="http://cufxstandards.com/v2/Card.xsd"
-	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:credentialGroup="http://cufxstandards.com/v2/CredentialGroup.xsd"
-  xmlns:productoffering="http://cufxstandards.com/v2/ProductOffering.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:accessProfile="http://cufxstandards.com/v3/AccessProfile.xsd"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:card="http://cufxstandards.com/v3/Card.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:credentialGroup="http://cufxstandards.com/v3/CredentialGroup.xsd"
+  xmlns:productoffering="http://cufxstandards.com/v3/ProductOffering.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Card.xsd" schemaLocation="Card.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
 
   <xs:element name="permissionList" type ="PermissionList">
     <xs:annotation>
