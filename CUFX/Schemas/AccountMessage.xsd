@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/AccountMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/AccountMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/AccountMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/AccountMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-	xmlns:accountFilter="http://cufxstandards.com/v2/AccountFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:accountFilter="http://cufxstandards.com/v3/AccountFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
 
   <xs:element name="accountMessage" type="AccountMessage">
     <xs:annotation>
