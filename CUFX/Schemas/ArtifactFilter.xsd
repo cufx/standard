@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 
-  targetNamespace="http://cufxstandards.com/v2/ArtifactFilter.xsd"
-  version="2.0.$Revision$"
-  xmlns="http://cufxstandards.com/v2/ArtifactFilter.xsd"
+  targetNamespace="http://cufxstandards.com/v3/ArtifactFilter.xsd"
+  version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:artifact="http://cufxstandards.com/v2/Artifact.xsd"
+  xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
 
   elementFormDefault="qualified" >
 
-  <xs:import namespace ="http://cufxstandards.com/v2/Artifact.xsd" schemaLocation ="Artifact.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation ="Artifact.xsd" />
 
   <xs:element name="artifactFilter" type="ArtifactFilter">
     <xs:annotation>
