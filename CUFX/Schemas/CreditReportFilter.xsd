@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v2/CreditReportFilter.xsd"
-	xmlns="http://cufxstandards.com/v2/CreditReportFilter.xsd"
-	version="2.0.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/CreditReportFilter.xsd"
+	xmlns="http://cufxstandards.com/v3/CreditReportFilter.xsd"
+	version="3.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:creditReport="http://cufxstandards.com/v2/CreditReport.xsd"
+  xmlns:creditReport="http://cufxstandards.com/v3/CreditReport.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
 
   <xs:element name="creditReportFilter" type="CreditReportFilter">
     <xs:annotation>
