@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/DepositMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/DepositMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/DepositMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/DepositMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:deposit="http://cufxstandards.com/v2/Deposit.xsd"
-	xmlns:depositFilter="http://cufxstandards.com/v2/DepositFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:deposit="http://cufxstandards.com/v3/Deposit.xsd"
+	xmlns:depositFilter="http://cufxstandards.com/v3/DepositFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Deposit.xsd" schemaLocation="Deposit.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/DepositFilter.xsd" schemaLocation="DepositFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Deposit.xsd" schemaLocation="Deposit.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/DepositFilter.xsd" schemaLocation="DepositFilter.xsd" />
 
   <xs:element name="depositMessage" type="DepositMessage">
     <xs:annotation>
