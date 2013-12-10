@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/AccountFilter.xsd"
-   version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/AccountFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/AccountFilter.xsd"
+   version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/AccountFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v2/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:element name="accountFilter" type="AccountFilter">
 		<xs:annotation>
