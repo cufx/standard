@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v2/ApplicationFilter.xsd"
-  version="2.0.$Revision$"
-  xmlns="http://cufxstandards.com/v2/ApplicationFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/ApplicationFilter.xsd"
+  version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/ApplicationFilter.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-  xmlns:productOffering="http://cufxstandards.com/v2/ProductOffering.xsd"
-  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:application="http://cufxstandards.com/v2/Application.xsd"       
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:productOffering="http://cufxstandards.com/v3/ProductOffering.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:application="http://cufxstandards.com/v3/Application.xsd"       
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
 
   elementFormDefault="qualified" >
 
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation ="Relationship.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Application.xsd" schemaLocation ="Application.xsd" />
-  <xs:import namespace ="http://cufxstandards.com/v2/Account.xsd" schemaLocation ="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation ="Relationship.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Application.xsd" schemaLocation ="Application.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Account.xsd" schemaLocation ="Account.xsd" />
   
   <xs:element name="applicationFilter" type="ApplicationFilter">
     <xs:annotation>
