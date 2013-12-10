@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v2/PartyAssociationMessage.xsd"
-	version="2.0.$Revision$"
-	xmlns="http://cufxstandards.com/v2/PartyAssociationMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/PartyAssociationMessage.xsd"
+	version="3.0.$Revision$"
+	xmlns="http://cufxstandards.com/v3/PartyAssociationMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v2/MessageContext.xsd"
-  xmlns:partyAssociation="http://cufxstandards.com/v2/PartyAssociation.xsd"
-	xmlns:partyAssociationFilter="http://cufxstandards.com/v2/PartyAssociationFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:partyAssociation="http://cufxstandards.com/v3/PartyAssociation.xsd"
+	xmlns:partyAssociationFilter="http://cufxstandards.com/v3/PartyAssociationFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/PartyAssociation.xsd" schemaLocation="PartyAssociation.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/PartyAssociationFilter.xsd" schemaLocation="PartyAssociationFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/PartyAssociation.xsd" schemaLocation="PartyAssociation.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/PartyAssociationFilter.xsd" schemaLocation="PartyAssociationFilter.xsd" />
 
   <xs:element name="partyAssociationMessage" type="PartyAssociationMessage">
     <xs:annotation>
