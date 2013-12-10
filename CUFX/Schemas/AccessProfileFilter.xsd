@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v2/AccessProfileFilter.xsd"
-	xmlns="http://cufxstandards.com/v2/AccessProfileFilter.xsd"
-	version="2.0.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/AccessProfileFilter.xsd"
+	xmlns="http://cufxstandards.com/v3/AccessProfileFilter.xsd"
+	version="3.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:AccessProfile="http://cufxstandards.com/v2/AccessProfile.xsd"
+  xmlns:AccessProfile="http://cufxstandards.com/v3/AccessProfile.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
 
   <xs:element name="AccessProfileFilter" type="AccessProfileFilter">
     <xs:annotation>
