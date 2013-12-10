@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v2/BillPayee.xsd"
-	version="2.1.$Revision$"
-  xmlns="http://cufxstandards.com/v2/BillPayee.xsd"
+   targetNamespace="http://cufxstandards.com/v3/BillPayee.xsd"
+	version="3.0.$Revision$"
+  xmlns="http://cufxstandards.com/v3/BillPayee.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v2/Common.xsd"
-  xmlns:relationship="http://cufxstandards.com/v2/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v2/Contact.xsd"
-  xmlns:account="http://cufxstandards.com/v2/Account.xsd"
-  xmlns:party="http://cufxstandards.com/v2/Party.xsd"
-   xmlns:billpayeedetails="http://cufxstandards.com/v2/BillPayeeDetails.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+   xmlns:billpayeedetails="http://cufxstandards.com/v3/BillPayeeDetails.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v2/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v2/BillPayeeDetails.xsd" schemaLocation="BillPayeeDetails.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/BillPayeeDetails.xsd" schemaLocation="BillPayeeDetails.xsd" />
 
   <xs:element name= "billPayeeList" type ="BillPayeeList">
     <xs:annotation>
