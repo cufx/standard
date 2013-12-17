@@ -445,7 +445,7 @@
 
 	<xs:complexType name="TotalToDateList">
 		<xs:sequence>
-			<xs:element name="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
+			<xs:element name="totalToDate" type="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
 				<xs:annotation>
 					<xs:documentation>
 						A list of aggregate totals of type TotalsToDate, i.e. YTD Dividend, MTD Interest
