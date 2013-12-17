@@ -158,7 +158,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      <xs:element name="artifactUniqueId" minOccurs="0" maxOccurs="1">
+      <xs:element name="artifactUniqueId" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A unique value (or values) used to identify one and only one artifact within the Repository.
