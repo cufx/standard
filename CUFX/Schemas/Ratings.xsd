@@ -12,25 +12,31 @@
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 
-  <xs:element name="ratingsList">
+  <xs:element name="ratingsList" type="RatingsList">
     <xs:annotation>
       <xs:documentation>
-        This is a list of product or service ratings..
+        Top level element rating array contains all the product or service ratings
       </xs:documentation>
     </xs:annotation>
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="rating" type="Rating" minOccurs="0" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation>
-              This is an individual rating.
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
   </xs:element>
 
+  <xs:complexType name="RatingsList">
+    <xs:annotation>
+      <xs:documentation>
+        This is a list of product or service ratings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rating" type="Rating" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This is an individual rating.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="Rating">
     <xs:sequence>
       <xs:element name="reviewId" type="RatingId" minOccurs="0" maxOccurs="1">
@@ -159,9 +165,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-
-
     </xs:sequence>
   </xs:complexType>
 
