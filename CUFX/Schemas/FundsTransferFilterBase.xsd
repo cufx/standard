@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="FundsTransferFilter"
-    targetNamespace="http://cufxstandards.com/v3/FundsTransferFilter.xsd"
+<xs:schema id="FundsTransferFilterBase"
+    targetNamespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
     version="3.0.$Revision$"
-    xmlns="http://cufxstandards.com/v3/FundsTransferFilter.xsd"
+    xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
     xmlns:account="http://cufxstandards.com/v3/Account.xsd"           
@@ -11,7 +11,7 @@
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 
-  <xs:element name="fundsTransferFilter" type="FundsTransferFilter">
+  <xs:element name="fundsTransferFilter" type="FundsTransferFilterBase">
     <xs:annotation>
       <xs:documentation>
         The list of options for filters for filtering trasnfers.
@@ -19,7 +19,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="FundsTransferFilter">
+  <xs:complexType name="FundsTransferFilterBase">
     <xs:annotation>
       <xs:documentation>
         The list of options for filters for services requesting transfer history.

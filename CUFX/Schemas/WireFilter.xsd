@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="WiresFilter"
-    targetNamespace="http://cufxstandards.com/v3/WiresFilter.xsd"
+<xs:schema id="WireFilter"
+    targetNamespace="http://cufxstandards.com/v3/WireFilter.xsd"
     version="3.0.$Revision$"
-    xmlns="http://cufxstandards.com/v3/WiresFilter.xsd"
+    xmlns="http://cufxstandards.com/v3/WireFilter.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:wires="http://cufxstandards.com/v3/Wires.xsd"
+    xmlns:wire="http://cufxstandards.com/v3/Wire.xsd"
     xmlns:fundsTransferFilter="http://cufxstandards.com/v3/FundsTransferFilter.xsd"
            
     elementFormDefault="qualified"
-  attributeFormDefault="unqualified">
+    attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Wires.xsd" schemaLocation="Wires.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilter.xsd" schemaLocation="FundsTransferFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Wire.xsd" schemaLocation="Wire.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 
-  <xs:element name="wiresFilter" type="WiresFilter">
+  <xs:element name="wireFilter" type="WireFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services using deposit account data.
+        The list of options for filters for services using wire account data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="WiresFilter">
+  <xs:complexType name="WireFilter">
     <xs:annotation>
       <xs:documentation>
         The list of options to filter Wire Transfers.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="fundsTransferFilter:FundsTransferFilter">
+      <xs:extension base="fundsTransferFilter:FundsTransferFilterBase">
         <xs:sequence>
 
-          <xs:element name="wireStatusType" type="wires:WireTransferType" minOccurs ="0" maxOccurs ="1">
+          <xs:element name="wireStatusType" type="wire:WireTransferType" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
                 Additional filter along with the filter options specified in FundsTransferFilter, the wires can be filtered by Wire Status Type
