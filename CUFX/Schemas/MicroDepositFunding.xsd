@@ -14,8 +14,33 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	
-	<xs:complexType name="MicroDepositFunding">
+
+  <xs:element name="microDepositFundingList" type="MicroDepositFundingList">
+    <xs:annotation>
+      <xs:documentation>
+        Top level micro deposit list collection element
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="MicroDepositFundingList">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          Collection of micro deposits data definition
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="microDepositFunding" type="MicroDepositFunding" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details relating to micro deposit account
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="MicroDepositFunding">
 		<xs:sequence>
 			<xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
