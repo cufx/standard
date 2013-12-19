@@ -135,22 +135,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element >
-      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for product.
-            Fees are typically assessed if the balance drops below the minimum balance.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="maximumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for product.
-            Fees are typically assessed if the maximum balance is exceeded.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
     </xs:sequence>
   </xs:complexType>
 
@@ -231,17 +215,26 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="termDays" type="xs:int" minOccurs="0" maxOccurs="1">
+      <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The term needed to qualify for rate.  The value is stored in days.
+            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for product.
+            Fees are typically assessed if the balance drops below the minimum balance.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="termMonths" type="xs:int" minOccurs="0" maxOccurs="1">
+      <xs:element name="maximumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The term needed to qualify for rate.  The value is stored in month(s).
+            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for product.
+            Fees are typically assessed if the maximum balance is exceeded.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="term" type="xs:duration" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The term needed to qualify for rate, using ISO 8601 duration format: P3M is three months, P90D is ninety days.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
