@@ -5,22 +5,38 @@
 	xmlns="http://cufxstandards.com/v3/MicroDepositFunding.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	
 	<xs:complexType name="MicroDepositFunding">
 		<xs:sequence>
-			
 			<xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>ID to track micro-deposits.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The relationshipId that the microdeposit belongs belongs to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The ID of the linked account for this Microdeposit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
 <!-- status expiration date and make amount list , casing -->
 			<xs:element name="MicroDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
