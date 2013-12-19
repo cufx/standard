@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd"
+	xmlns="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd"
+	version="3.0.$Revision: 654 $"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+ 
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+
+  <xs:element name="microDepositFundingFilter" type="MicroDepositFundingFilter">
+    <xs:annotation>
+      <xs:documentation>
+        Instance of a micro deposit funding filter.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="MicroDepositFundingFilter">
+    <xs:sequence>
+      <xs:annotation>
+        <xs:documentation>
+          A Micro Deposit filter is used to query by MicroDepositId, RelationshipId, AccountId or Funding Account.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>ID to track micro-deposits.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The relationshipId that the microdeposit belongs belongs to.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The ID of the linked account for this Microdeposit.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>External Account that needs to be verified</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
