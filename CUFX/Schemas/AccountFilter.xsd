@@ -71,7 +71,16 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="transactionStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            If not provided returns all accounts regardless if they are internal or exteranl. 
+            If provided and it's True, returns only external accounts, If False only returns internal accounts.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="transactionStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to start searching the transactions.
