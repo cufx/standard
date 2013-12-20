@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TransferOccurrence"
+    targetNamespace="http://tempuri.org/TransferOccurrence.xsd"
+    version="3.0.$Revision: 643 $"
+    xmlns="http://tempuri.org/TransferOccurrence.xsd"
+    xmlns:mstns="http://tempuri.org/TransferOccurrence.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+           
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="fundsTransferOccurrenceBase.xsd" />
+
+  <xs:complexType name="TransferOccurrence" >
+    <xs:complexContent>
+      <xs:annotation>
+        <xs:documentation>
+          
+        </xs:documentation>
+      </xs:annotation>
+      <xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
