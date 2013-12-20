@@ -7,12 +7,16 @@
 	xmlns:mstns="http://cufxstandards.com/v3/TransferMessage.xsd"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
 	xmlns:transferFilter="http://cufxstandards.com/v3/TransferFilter.xsd"
-
+  xmlns:transferOccurrence="http://cufxstandards.com/v3/TransferOccurrence.xsd"
+  xmlns:transferRecurring="http://cufxstandards.com/v3/TransferRecurring.xsd"         
+           
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" /> 
 	<xs:import namespace="http://cufxstandards.com/v3/TransferFilter.xsd" schemaLocation="TransferFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/TransferRecurring.xsd" schemaLocation="TransferRecurring.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/TransferOccurrence.xsd" schemaLocation="TransferOccurrence.xsd" />
 
 	<xs:element name="transferMessage" type="TransferMessage">
 		<xs:annotation>
@@ -49,6 +53,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence >
-	</xs:complexType >
+      <xs:element name="transferList" type="transferOccurrence:TransferList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All of the transfers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
