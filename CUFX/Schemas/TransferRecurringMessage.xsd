@@ -53,13 +53,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="transferRecurringList" type="transferRecurring:TransferRecurringList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            All of the scheduled transfers.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

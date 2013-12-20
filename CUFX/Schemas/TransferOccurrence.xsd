@@ -13,7 +13,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="fundsTransferOccurrenceBase.xsd" />
 
 
-	<xs:element name="transferList" type="TransferList">
+	<xs:element name="transferOccurrenceLiset" type="TransferOccurrenceList">
 		<xs:annotation>
 			<xs:documentation>
 				List of transfers returned from a data pull that based on filters that were applied.
@@ -21,7 +21,7 @@
 		</xs:annotation>
 	</xs:element>
 
-	<xs:complexType name="TransferList">
+	<xs:complexType name="TransferOccurrenceList">
 		<xs:annotation>
 			<xs:documentation>
 				List of transfers returned from a data pull that based on filters that were applied.
