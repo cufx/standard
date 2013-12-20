@@ -369,9 +369,9 @@
       <xs:element name="DailyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="common:Money" name="MaxAmount"/>
             <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="common:Money" name="RollingAmount"/>
             <xs:element type="xs:integer" name="RollingNumber"/>
           </xs:sequence>
         </xs:complexType>
@@ -379,9 +379,9 @@
       <xs:element name="WeeklyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="common:Money" name="MaxAmount"/>
             <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="common:Money" name="RollingAmount"/>
             <xs:element type="xs:integer" name="RollingNumber"/>
           </xs:sequence>
         </xs:complexType>
@@ -389,9 +389,9 @@
       <xs:element name="MonthlyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="xs:decimal" name="MaxAmount"/>
+            <xs:element type="common:Money" name="MaxAmount"/>
             <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="xs:decimal" name="RollingAmount"/>
+            <xs:element type="common:Money" name="RollingAmount"/>
             <xs:element type="xs:integer" name="RollingNumber"/>
           </xs:sequence>
         </xs:complexType>
