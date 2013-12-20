@@ -1,26 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="TransferOccurrence"
-    targetNamespace="http://tempuri.org/TransferRecurring.xsd"
+<xs:schema id="TransferRecurring"
+    targetNamespace="http://cufxstandards.com/v3/TransferRecurring.xsd"
     version="3.0.$Revision: 643 $"
-    xmlns="http://tempuri.org/TransferRecurring.xsd"
-    xmlns:mstns="http://tempuri.org/TransferRecurring.xsd"
+    xmlns="http://cufxstandards.com/v3/TransferRecurring.xsd"
+    xmlns:mstns="http://cufxstandards.com/v3/TransferRecurring.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="fundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="fundsTransferRecurringBase.xsd" />
 
-  <xs:complexType name="TransferOccurrence" >
-    <xs:complexContent>
-      <xs:annotation>
-        <xs:documentation>
+	<xs:element name="transferRecurringList" type="TransferRecurringList">
+		<xs:annotation>
+			<xs:documentation>
+				List of transfers returned from a data pull that based on filters that were applied.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-        </xs:documentation>
-      </xs:annotation>
-      <xs:extension base="fundsTransferRecurringBase:FundsTransferRecurringBase">
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="TransferRecurringList">
+		<xs:annotation>
+			<xs:documentation>
+				List of recurring transfers returned from a data pull that based on filters that were applied.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transferRecurring" type="TransferRecurring" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details related to specific recurring transfer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="transferRecurring" type="TransferRecurring">
+		<xs:annotation>
+			<xs:documentation>
+				Single recurring transfer.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="TransferRecurring" >
+		<xs:complexContent>
+			<xs:annotation>
+				<xs:documentation>
+					Single recurring transfer.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:extension base="fundsTransferRecurringBase:FundsTransferRecurringBase">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>

@@ -5,21 +5,16 @@
     xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
     xmlns:account="http://cufxstandards.com/v3/Account.xsd"           
     elementFormDefault="qualified">
   
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 
-  <xs:element name="fundsTransferFilter" type="FundsTransferFilterBase">
-    <xs:annotation>
-      <xs:documentation>
-        The list of options for filters for filtering trasnfers.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
 
-  <xs:complexType name="FundsTransferFilterBase">
+  <xs:complexType name="FundsTransferFilterBase" abstract="true">
     <xs:annotation>
       <xs:documentation>
         The list of options for filters for services requesting transfer history.
@@ -34,6 +29,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+		<xs:element name="recurringTransactionIdList" type="fundsTransferRecurringBase:RecurringTransactionIdList" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					The list of recurring transfer Id's that should have their associated transfers returned or affected by a read, update or delete transfer request.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
 
       <xs:element name="fromDate" type="xs:date" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
