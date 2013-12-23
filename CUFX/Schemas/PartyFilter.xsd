@@ -22,7 +22,7 @@
   <xs:element name="partyFilter" type="PartyFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting party data.
+        The list of filter options for services requesting party data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -30,8 +30,8 @@
   <xs:complexType name="PartyFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting party data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting party data.  The options can be used
+        in combination or by themselves. It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -39,7 +39,7 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should be returned or affected by a read, update or delete party request.
+            The list of party ID's that should be returned or affected by a read, update or delete party request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -47,7 +47,7 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated parties either returned or affected
+            The list of relationship ID's that should have their associated parties either returned or affected
             by a read, update or delete party request.
           </xs:documentation>
         </xs:annotation>
@@ -56,7 +56,7 @@
       <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of contact Id's that should have their associated parties either returned or affected
+            The list of contact ID's that should have their associated parties either returned or affected
             by a read, update or delete party request.
           </xs:documentation>
         </xs:annotation>
@@ -65,7 +65,7 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that should have their associated parties either returned or affected
+            The list of account ID's that should have their associated parties either returned or affected
             by a read, update or delete party request.
           </xs:documentation>
         </xs:annotation>
@@ -82,7 +82,7 @@
       <xs:element name="partyTypeList" type="party:PartyTypeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Party Types that should have their associated parties either returned or affected
+            The list of party types that should have their associated parties either returned or affected
             by a read, update or delete party request.
           </xs:documentation>
         </xs:annotation>
