@@ -6,12 +6,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:fundsTransferFilterBase="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 
   <xs:element name="microDepositFundingFilter" type="MicroDepositFundingFilter">
     <xs:annotation>
@@ -22,34 +24,38 @@
   </xs:element>
 
   <xs:complexType name="MicroDepositFundingFilter">
-    <xs:sequence>
+    <xs:complexContent>
       <xs:annotation>
         <xs:documentation>
-          A Micro Deposit filter is used to query by MicroDepositId, RelationshipId, AccountId or Funding Account.
+          The list of options to filter Micro Deposits.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>ID to track micro-deposits.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The relationshipId that the microdeposit belongs belongs to.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>The ID of the linked account for this Microdeposit.</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="FundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>External Account that needs to be verified</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+      <xs:extension base="fundsTransferFilterBase:FundsTransferFilterBase">
+        <xs:sequence>
+          <xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+            <xs:annotation>
+              <xs:documentation>ID to track micro-deposits.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The relationshipId that the microdeposit belongs belongs to.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>The ID of the linked account for this Microdeposit.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="FundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+            <xs:annotation>
+              <xs:documentation>External Account that needs to be verified</xs:documentation>
+            </xs:annotation>
+          </xs:element>        
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 </xs:schema>
