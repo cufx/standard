@@ -13,8 +13,8 @@
   <xs:element name="AccessProfileFilter" type="AccessProfileFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting access profile data.
-        The options can be used in combination or by themselves and it is up to the data source
+        The list of filter options for services requesting access profile data.
+        The options can be used in combination or by themselves. It is up to the data source
         to either return or affect the data requested or return a standard error identifying
         why the request was rejected.
       </xs:documentation>
@@ -24,7 +24,7 @@
   <xs:complexType name="AccessProfileFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of access profle id's that should have their associated access profiles either returned or affected
+        The list of access profile ID's that should have their associated access profiles either returned or affected
         by a read, update or delete account request.
       </xs:documentation>
     </xs:annotation>
@@ -32,7 +32,7 @@
       <xs:element name="AccessProfileIdList" type="AccessProfile:AccessProfileIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of access profile id's that should be returned or affected by a read, or update request.
+            The list of access profile ID's that should be returned or affected by a read, update or delete account request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
