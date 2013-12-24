@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v3/BillPaymentMessage.xsd"
+	version="3.0.$Revision: 687 $"
+	xmlns="http://cufxstandards.com/v3/BillPaymentMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:billPaymentOccurence="http://cufxstandards.com/v3/BillPaymentOccurence.xsd"
+	xmlns:billPaymentFilter="http://cufxstandards.com/v3/BillPaymentFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurence.xsd" schemaLocation="BillPaymentOccurence.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentFilter.xsd" schemaLocation="BillPaymentFilter.xsd" />
+
+  <xs:element name="billPaymentMessage" type="BillPaymentMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a BillPaymentMessage.  Contains messageContext, billPaymentFilter and billPaymentList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="BillPaymentMessage">
+    <xs:annotation>
+      <xs:documentation>
+        All values that can be sent in a bill payment message.  ontains messageContext, billPaymentFilter and billPaymentList.
+        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        example specifications for usage.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The MessageContext contains information that is passed as part of each CUFX message call.
+            Identifies who is sending the request in and enables some level of security or processing to be executed by the
+            service provider.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="billPaymentFilter" type="billPaymentFilter:BillPaymentFilter" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Any filters applied to the a read, update or delete a bill payment message request.
+            Does not apply to a create message.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="billPaymentList" type="billPaymentOccurence:BillPaymentList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            All the bill payment data.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+</xs:schema>
