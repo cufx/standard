@@ -19,8 +19,8 @@
   <xs:element name= "accessProfileList" type ="AccessProfileList">
     <xs:annotation>
       <xs:documentation>F
-        The access profile collection/array contains all the access profiles for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The access profile collection/array contains all the access profiles, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,8 +28,8 @@
   <xs:complexType name="AccessProfileList">
     <xs:annotation>
       <xs:documentation>
-        The access profile collection/array contains all the access profiles for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The access profile collection/array contains all the access profiles, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -49,7 +49,7 @@
       <xs:element name="accessProfileId" type="AccessProfileId"  >
         <xs:annotation>
           <xs:documentation>
-            An identificaiton descriptor that identifies the access profile.
+            An identification descriptor that identifies the access profile.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -57,7 +57,7 @@
       <xs:element name="actor" type="Actor"  >
         <xs:annotation>
           <xs:documentation>
-            The person, place, or thing that is accessing the application.
+            The person, place or thing that is accessing the application.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -65,7 +65,7 @@
       <xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The language that client application is presenting.
+            The language that the client application is presenting.
             Don't restrict to ISO language standard collected from remote system.
           </xs:documentation>
         </xs:annotation>
@@ -74,7 +74,7 @@
       <xs:element name="locale" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The originating country of client application.
+            The country where the client application originates.
             Don't restrict to ISO country code standard collected from remote system.
           </xs:documentation>
         </xs:annotation>
@@ -83,7 +83,7 @@
       <xs:element name="characterEncoding" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The browsers character encoding.  Some examples are UTF-8, UTF-16, and Unicode.
+            The browser's character encoding.  Some examples are UTF-8, UTF-16, and Unicode.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -94,7 +94,7 @@
             The date and time this profile was created.
             The date/time should be ISO 8601 UTC format.
             yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-            formats are supported.  The time is assume to be 00:00Z if omitted.
+            formats are supported.  The time is assumed to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -102,7 +102,7 @@
       <xs:element name="savedAccessProfile" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            This attribute indicates a profile the user wants to remembers as safe.
+            This attribute indicates a profile that the user wants to remember as safe.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -129,7 +129,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The unique id associated with a message or group of messages.
+          The unique ID associated with a message or group of messages.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
@@ -138,15 +138,15 @@
   <xs:complexType name="AccessProfileIdList">
     <xs:annotation>
       <xs:documentation>
-        The access profile collection/array contains all the access profiles for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The access profile collection/array contains all the access profiles, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="accessProfileId" type="AccessProfileId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The access profile id list is a collection of attributes that describe the device used to access an application.
+            The access profile ID list is a collection of attributes that describe the device used to access an application.
             This profile may describe a mobile phone, laptop, personal computer, IVR system, or other.
           </xs:documentation>
         </xs:annotation>
@@ -198,7 +198,7 @@
       <xs:element name="rawSoftwareClientDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            This is collection of data from client system that is accessing host application.
+            This is a collection of data from the client system that is accessing the host application.
             If the user string is present, this can hold the full/unedited user agent string or other identifying text.
             Some of the information in this field may be parsed to populate fields below.
           </xs:documentation>
@@ -208,7 +208,7 @@
       <xs:element name="browserName" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The name of browser, if a browser is used to run client application.
+            The name of the browser, if a browser is used to run client application.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -216,7 +216,7 @@
       <xs:element name="browserVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The version of browser, if a browser is used to run client application.
+            The version of the browser, if a browser is used to run client application.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -224,7 +224,7 @@
       <xs:element name="operatingSystemName" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The name of operating system.
+            The name of the operating system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -232,7 +232,7 @@
       <xs:element name="operatingSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The version of operating system.
+            The version of the operating system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -267,7 +267,8 @@
       <xs:element name="deviceType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A text description of device or channel used to access application.  This may be mobile, personal computer, or other.
+            A text description of the device or channel used to access application.  
+            This may be mobile, personal computer, or other.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -275,7 +276,8 @@
       <xs:element name="deviceName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
+            The name associated with the device accessing the application.  
+            This may be a device name assigned by the operating system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -283,7 +285,7 @@
       <xs:element name="rawDeviceDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            This is collection of data about the device from client system that is accessing host application.
+            This is a collection of data about the device from the client system that is accessing the host application.
             The device might be a tablet, mobile phone, computer, or phone number in the case of IVR system.
             Some of the information in this field may be parsed to populate fields below.
           </xs:documentation>
@@ -293,7 +295,7 @@
       <xs:element name="ipAddress" type="xs:string" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
-            The originating IP.
+            The originating IP address.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -301,7 +303,8 @@
       <xs:element name="manufacturer" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name associated with the device accessing the application.  This may be a device name assigned by operating system.
+            The name associated with the device accessing the application.  
+            This may be a device name assigned by the operating system.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
