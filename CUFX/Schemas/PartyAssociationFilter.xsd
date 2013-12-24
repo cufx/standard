@@ -15,7 +15,7 @@
   <xs:element name="partyAssociationFilter" type="PartyAssociationFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting party data.
+        The list of filter options for services requesting party data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -23,8 +23,8 @@
   <xs:complexType name="PartyAssociationFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting Party Association data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting party association data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -32,7 +32,8 @@
       <xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyAssociationId's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
+            The list of party association ID's that should have their party association returned or affected 
+            by a read, update or delete party association request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -40,7 +41,8 @@
       <xs:element name="parentPartyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of parent Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
+            The list of parent party ID's that should have their party association returned or affected by 
+            a read, update or delete party association request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -48,7 +50,8 @@
       <xs:element name="childPartyIdList" type="party:PartyIdList"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of child Party Id's that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request.
+            The list of child party ID's that should have their party association returned or affected by a
+            read, update or delete party association request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -56,7 +59,8 @@
       <xs:element name="partyAssociationTypeList" type="partyAssociation:PartyAssociationTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The party Association Type List that should have their partyAssociation returned or affected by a read, update or delete partyAssociation request
+            The list of party association types that should have their party association returned or affected
+            by a read, update or delete party association request.
           </xs:documentation>
         </xs:annotation>
        </xs:element>
