@@ -18,9 +18,9 @@
   <xs:element name="artifactMessage" type="ArtifactMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a ArtifactMessage.  Contains messageContext, ArtifactFilter and ArtifactList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in an artifact message.  Contains message context, artifact filter and
+        an artifact list.  This is a wrapper used to more easily serialize the complete message.  All values
+        are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,25 +28,25 @@
   <xs:complexType name="ArtifactMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a artifactMessage.  Contains messageContext, artifactFilter and artifactList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in an artifact message.  Contains message context, artifact filter and 
+        an artifact list.  This is a wrapper used to more easily serialize the complete message.  All values
+        are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call. It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="artifactFilter" type="artifactFilter:ArtifactFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Any filters applied to the a read, update or delete Artifact request.
+            Any filters applied to a read, update or delete artifact request.
             Does not apply to a create message.
           </xs:documentation>
         </xs:annotation>
@@ -54,7 +54,7 @@
       <xs:element name="artifactList" type="artifact:ArtifactList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All the Artifact data.
+            All the artifact data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
