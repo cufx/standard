@@ -16,7 +16,7 @@
     <xs:annotation>
       <xs:documentation>
         Top level element for answers to the identification resource.
-        List is provided in case there was more than one quesiton asked.
+        List is provided in case there is more than one question asked.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -31,9 +31,9 @@
       <xs:element name="party" type="party:Party">
         <xs:annotation>
           <xs:documentation>
-            The original party data that was made in the original identificiton request.
+            The original party data that was made in the original identification request.
             This is submitted so that the service does not have to maintain state between
-            time questions were generated and the time that answers was submitted.
+            the time the questions were generated and the time that the answers were submitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -42,7 +42,7 @@
           <xs:documentation>
             An identifier for the out-of-wallet question.
             Must be unique within the list of questions.
-            May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+            May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
