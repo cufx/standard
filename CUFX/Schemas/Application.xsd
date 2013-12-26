@@ -25,7 +25,7 @@
   <xs:element name="applicationList" type="ApplicationList">
     <xs:annotation>
       <xs:documentation>
-        Top level application list collection element
+        Top level application list collection element.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -34,14 +34,14 @@
     <xs:sequence>
       <xs:annotation>
         <xs:documentation>
-          Collection of applications data definition
+          Collection of applications data definition.
         </xs:documentation>
       </xs:annotation>
       <xs:element name="application" type="Application" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            An application contains the details of a consumer becoming a customer of a financial institution 
-				(if they are not already) along with the details of the products requested.
+            An application contains the details of a consumer who is becoming a customer of a financial
+            institution (if they are not already). It also includes the details of the products requested.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -51,8 +51,8 @@
   <xs:complexType name="Application">
     <xs:annotation>
       <xs:documentation>
-			An application contains the details of a consumer becoming a customer of a financial institution 
-			(if they are not already) along with the details of the products requested.
+			  An application contains the details of a consumer who is becoming a customer of a financial 
+        institution (if they are not already). It also includes the details of the products requested.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -88,8 +88,8 @@
         <xs:annotation>
           <xs:documentation>
             Credit score that was used to approve the application.  This is typically calculated
-            using a variety of methods at each financial institution based on the credit report data for
-            either primary or joint or combination for primary and joint credit statistics.
+            using a variety of methods at each financial institution based on the credit report data
+            for the primary, the joint or a combination of both for primary and joint credit statistics.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -123,7 +123,7 @@
       <xs:element name="applicantId" type="xs:string" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the applicant...
+            Unique identifier for the applicant.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -139,22 +139,22 @@
       <xs:element name="creditReportList" type="credit:CreditReportList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Details relating credit scores used in determining loan approval
+            Details relating credit scores used in determining loan approval.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="relationshipId" type="relationship:RelationshipId">
         <xs:annotation>
           <xs:documentation>
-            Key fields to point to an existing relationship that product(s) should
-            be added to in the event they are to be booked.
+            Key fields that point to an existing relationship that product(s) should
+            be added to in the event that they are booked.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Key fields to point to an existing party applying for a product.
+            Key fields that point to an existing party applying for a product.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -198,14 +198,14 @@
       <xs:element name="productAppliedForId" type="xs:string" minOccurs ="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Product Applied for Id is a unique identifer for the product request.
+            Unique identifier for the product request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="productType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The product type is the textual representation the kind of account.
+            The product type is the textual representation of the kind of account.
             This value is visible to the user and must be human-readable.
             Note: CD's and MONEY MARKETS can be denoted as INVESTMENT.
           </xs:documentation>
@@ -214,7 +214,7 @@
       <xs:element name="productSubType" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The product sub type that identifies the specific product type
+            The product sub type identifies the specific product type
             that the back end system will recognize.
           </xs:documentation>
         </xs:annotation>
@@ -246,7 +246,7 @@
       <xs:element name="loan" type="loan:Loan">
         <xs:annotation>
           <xs:documentation>
-            Loan product (credit card, mortgage, auto, etc.) applied for details.
+            Details of the loan product (credit card, mortgage, auto, etc.) applied for.
             Many of the fields won't apply since this is an application.
           </xs:documentation>
         </xs:annotation>
@@ -254,7 +254,7 @@
       <xs:element name="deposit" type="deposit:Deposit">
         <xs:annotation>
           <xs:documentation>
-            Deposit product applied for details.  Many of the fields won't apply
+            Details of the deposit product applied for.  Many of the fields won't apply
             since this is an application.
           </xs:documentation>
         </xs:annotation>
@@ -279,8 +279,8 @@
       <xs:enumeration value ="PreApproved">
         <xs:annotation>
           <xs:documentation>
-            Similar to New but the financial institution has proactively pre=approved the products for potential applicants but
-            the applicants have not yet responded to the offer.
+            Similar to New, but the financial institution has proactively pre-approved the products for potential
+            applicants; the applicants have not yet responded to the offer.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -294,14 +294,14 @@
       <xs:enumeration value ="InDiscussion">
         <xs:annotation>
           <xs:documentation>
-            The internal resource has contacted the applicants and negotiating with the party.
+            The internal resource has contacted the applicants and is negotiating with the party.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value ="Approved">
         <xs:annotation>
           <xs:documentation>
-            The financial institution has approved the application and waiting for commitment from the applicants.
+            The financial institution has approved the application and is waiting for commitment from the applicants.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -316,8 +316,8 @@
       <xs:enumeration value ="Converting">
         <xs:annotation>
           <xs:documentation>
-            The applicants have accepted the conditions of the application and committed to the offer
-            and the associated products are being booked into the back end systems.
+            The applicants have accepted the conditions of the application and committed to the offer.
+            The associated products are being booked into the back end systems.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -343,7 +343,7 @@
   <xs:complexType name="ApplicationIdList">
     <xs:annotation>
       <xs:documentation>
-        Collection of applicaton Id's used for filtering on read, update or delete application service
+        Collection of applicaton ID's used for filtering on read, update or delete application service
         requests.
       </xs:documentation>
     </xs:annotation>
