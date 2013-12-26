@@ -24,7 +24,7 @@
 	<xs:element name="collateralList" type="CollateralList">
 		<xs:annotation>
 			<xs:documentation>
-				List of collateral returned from a data pull that based on filters that were applied.
+				List of collateral returned from a data pull that was based on filters that were applied.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -32,14 +32,14 @@
 	<xs:complexType name="CollateralList">
 		<xs:annotation>
 			<xs:documentation>
-				List of collateral returned from a data pull that based on filters that were applied.
+				List of collateral returned from a data pull that was based on filters that were applied.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to specific collateral for a loan
+						Details related to specific collateral for a loan.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -50,13 +50,13 @@
 		<xs:choice>
 			<xs:annotation>
 				<xs:documentation>
-					Details related to specific collateral for a loan
+					Details related to specific collateral for a loan.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="motorVehicleCollateral" type="MotorVehicleCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to vehicle collateral
+						Details related to vehicle collateral.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -91,7 +91,7 @@
 			<xs:element name="otherTitledCollateral" type="OtherTitledCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to trailer collateral.
+						Details related to "other titled" collateral. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -105,7 +105,7 @@
 			<xs:element name="realEstateCollateral" type="RealEstateCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Contains Details about Real Estate collateral types.  Examples are: 1-4 Family;
+						Contains details about Real Estate collateral types.  Examples are: 1-4 Family;
 						Multi-Family; Commerical; Land.
 					</xs:documentation>
 				</xs:annotation>
@@ -113,7 +113,7 @@
 			<xs:element name="uccCollateral" type="UccCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Contains Details about UCC  collateral types (ownership evidence by UCC filings).  Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas
+						Contains details about UCC collateral types (ownership evidence by UCC filings).  Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
