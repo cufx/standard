@@ -16,7 +16,7 @@
     <xs:annotation>
       <xs:documentation>
         The list of configurations available in the CUFX instance.
-        There will be one Configuration for one or more financial instutitions.
+        There will be one configuration for one or more financial institutions.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -25,14 +25,14 @@
     <xs:annotation>
       <xs:documentation>
         The list of configurations available in the CUFX instance. 
-        There will be one Configuration for one or more financial instutitions.
+        There will be one configuration for one or more financial institutions.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The list of supported services, methods, limitations and options within the CUFX instance
+            The list of supported services, methods, limitations and options within the CUFX instance.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -45,9 +45,9 @@
         <xs:annotation>
           <xs:documentation>
             The valid financial institution ID list for this instance.
-            Identifies that these configuration parameters are related to a these financial institutions.
-            The fi ID is the "key" in the CUFX data model for identifying the FI for all services.
-            The fi ID will be passed in the messageContext to filter the request.
+            Identifies that these configuration parameters are related to these financial institutions.
+            The FI ID is the "key" in the CUFX data model for identifying the FI for all services.
+            The FI ID will be passed in the message context to filter the request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -55,21 +55,21 @@
         <xs:annotation>
           <xs:documentation>
             The offset of the time zone from Universal Time where this service resides.  If the service
-            provides a serviceTimeZoneUTOffset, it overrides this value for that services.
+            provides a serviceTimeZoneUTOffset, it overrides this value for that service.
             For example,
             Atlantic Standard Time (AST) =  UT - 4 hours  (serviceTimeZoneUTOffset would be -4)
             Eastern Standard Time (EST)  =  UT - 5 hours
             Central Standard Time (CST)  =  UT - 6 hours
             Mountain Standard Time (MST) =  UT - 7 hours
             Pacific Standard Time (PST)  =  UT - 8 hours
-            If the location observes daily savings time, this value may need to be updated.
+            If the location observes daylight savings time, this value may need to be updated.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of supported services and methods within the CUFX instance
+            The list of supported services and methods within the CUFX instance.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -81,7 +81,7 @@
     <xs:annotation>
       <xs:documentation>
         The valid financial institution list for this instance.
-        Identifies that these configuration parameters are related to a these financial institutions.
+        Identifies that these configuration parameters are related to these financial institutions.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -101,7 +101,7 @@
       <xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A service and list of methods within the CUFX instance that are supported by this endpoint.
+            A service and list of methods within the CUFX instance that are supported by this end point.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -153,9 +153,9 @@
       <xs:element name="acceptLanguageList" type="AcceptLanguageList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Specifies which language(s) can be received by the end point which instructs it
-            when generating its response data in which language to return its data and errors.
-            If none are specified then the default is en-us.
+            Specifies which language(s) can be received by the end point. This instructs it to
+            generate its response data and return its data and errors in the accepted language(s).
+            If none are specified then the default is US English (en-us).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -163,7 +163,7 @@
       <xs:element name="fieldNotSupportedList" type="FieldNotSupportedList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of fields not supported in the service.  Do not include customData fields which are assumed
+            List of fields not supported in the service.  Do not include customData fields, which are assumed
             to be unused unless listed in the customDataUseList in the Configuration.
           </xs:documentation>
         </xs:annotation>
@@ -172,15 +172,15 @@
       <xs:element name="serviceTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            If provides, serviceTimeZoneUTOffset overrides the endpointTimeZoneUTOffset.
+            If provided, serviceTimeZoneUTOffset overrides the endpointTimeZoneUTOffset.
             The offset of the time zone from Universal Time where this service resides.
-            For example,
+            For example:
             Atlantic Standard Time (AST) =  UT - 4 hours  (serviceTimeZoneUTOffset would be -4)
             Eastern Standard Time (EST)  =  UT - 5 hours
             Central Standard Time (CST)  =  UT - 6 hours
             Mountain Standard Time (MST) =  UT - 7 hours
             Pacific Standard Time (PST)  =  UT - 8 hours
-            If the location observes daily savings time, this value may need to be updated.
+            If the location observes daylight savings time, this value may need to be updated.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -226,7 +226,7 @@
       <xs:element name="method" type="Method" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Method such as create, read, update and delete available in the service.
+            Method such as create, read, update or delete available in the service.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -254,7 +254,7 @@
           <xs:documentation>
             The methods that must be executed first before this method can be executed.
             This allows for orchestration differences amongst different implementations of back end endpoints.
-            For example: Does the party need to be created first or after the account is created.
+            For example: Does the party need to be created first or after the account is created?
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -266,7 +266,7 @@
       <xs:documentation>
         The methods that must be executed first before this method can be executed.
         This allows for orchestration differences amongst different implementations of back end endpoints.
-        For example: Does the party need to be created first or after the account is created.
+        For example: Does the party need to be created first or after the account is created?
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -275,7 +275,7 @@
           <xs:documentation>
             The method that must be executed before another method.
             This allows for orchestration differences amongst different implementations of back end endpoints.
-            For example: Does the party need to be created first or after the account is created.
+            For example: Does the party need to be created first or after the account is created?
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -301,7 +301,7 @@
       <xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The cufxVersion of the method that must be executed first.  The CUFX version is part of the key
+            The CUFX version of the method that must be executed first.  The CUFX version is part of the key
             value since there may be implementation differences between different versions of the same 
             service/method.
           </xs:documentation>
@@ -324,7 +324,7 @@
       <xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Currency supported by the service.  If none were supplied then USD is only valid currency.
+            Currency supported by the service.  If none were supplied, then USD is the only valid currency.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -334,17 +334,17 @@
   <xs:complexType name="AcceptLanguageList">
     <xs:annotation>
       <xs:documentation>
-        Specifies which language(s) can be received by the end point which instructs it
-        when generating its response data in which language to return its data and errors.
-        If none are specified then the default is en-us.
+        Specifies which language(s) can be received by the end point. This instructs it
+        to generate its response data and return its data and errors in the accepted language(s).
+        If none are specified then the default is US English (en-us).
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Specifies a valid language-region which can be received by the end point which instructs it
-            when generating its response data in which language to return its data and errors.
+            Specifies a valid language-region which can be received by the end point, which instructs it
+            to generate its response data and return its data and errors in the accepted language(s).
             Combination of a language and a region.  For example en-us.
             http://www.iana.org/assignments/language-subtag-registry
           </xs:documentation>
@@ -363,7 +363,7 @@
       <xs:element name="fieldNotSupported" type="FieldNotSupported" minOccurs ="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Describe which fields are not supported by specifying the XSD path and any comments why it isn't supported.
+            Describe which fields are not supported by specifying the XSD path and any comments as to why it isn't supported.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -373,15 +373,15 @@
   <xs:complexType name="FieldNotSupported">
     <xs:annotation>
       <xs:documentation>
-       Field not supported by the end point.  Specify the XSD path and any comments why it isn't supported.
+       Field not supported by the end point.  Specify the XSD path and any comments as to why it isn't supported.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="xsdFile" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An XSD filename in the CUFX library that is the parent of the field that is not supported.
-            For example...Party.xsd
+            An XSD file name in the CUFX library that is the parent of the field that is not supported.
+            For example: Party.xsd
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -389,7 +389,7 @@
         <xs:annotation>
           <xs:documentation>
             An XPath statement that identifies the XSD elements related of the field that is not supported. 
-            For example...
+            For example:
             /partyList/party/characteristics/individual/citizenshipList/*
           </xs:documentation>
         </xs:annotation>
@@ -435,15 +435,15 @@
       <xs:element name="xsdFile" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An XSD filename in the CUFX library that is the parent of the node that holds the customData.
-            For example...Party.xsd
+            An XSD filename in the CUFX library that is the parent of the node that holds the custom data.
+            For example: Party.xsd
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="xsdXPath" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An XPath statement that identifies XSD node of the customData.  For example...
+            An XPath statement that identifies the XSD node of the custom data.  For example:
             /partyList/party/customData/*
           </xs:documentation>
         </xs:annotation>
@@ -451,16 +451,16 @@
       <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The name that will show up in the valuePair within the customData.  For instance
-            eyecolor
+            The name that will show up in the value pair within the custom data.  For instance,
+            eye color.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Comment as to what is stored in the customData.
-            For example: Will hold the party's eyecolor in a ValuePair.
+            Comment as to what is stored in the custom data.
+            For example: Will hold the party's eye color in a value pair.
             name=eyecolor and value=blue
           </xs:documentation>
         </xs:annotation>

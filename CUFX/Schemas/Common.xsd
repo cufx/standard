@@ -14,7 +14,7 @@
 	<xs:complexType name="Money">
     <xs:annotation>
       <xs:documentation>
-        Standard definition for Money values to include both the value and the currency.
+        Standard definition for money values to include both the value and the currency.
         Currency defaults to USD (United States $) if not specified.
       </xs:documentation>
     </xs:annotation>
@@ -22,7 +22,7 @@
       <xs:element name="value" minOccurs ="1" maxOccurs="1" type="xs:decimal">
 			<xs:annotation>
           <xs:documentation>
-            The amount of the money as defined by the currencyCode.
+            The amount of the money as defined by the currency code.
           </xs:documentation >
         </xs:annotation>
 		</xs:element>
@@ -30,8 +30,8 @@
       <xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
         <xs:annotation>
           <xs:documentation>
-            Currency Code in ISO 4217 3 character format.
-            If currency code isn't provided it should be defaulted to USD.
+            Currency code in ISO 4217 3 character format.
+            If currency code isn't provided, it should be defaulted to USD.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -41,7 +41,7 @@
   <xs:simpleType name="CoreRecordType">
     <xs:annotation>
       <xs:documentation>
-        Enumeration of the different types of top-level records
+        Enumeration of the different types of top-level records.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
@@ -85,15 +85,16 @@
           <xs:documentation>
             Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
             However, there may be times that it is not so obvious - i.e. in Loan which can be used when creating either
-            a Loan Application Record and/or a Loan Record.  This would be required to determine which record type (Loan App or Loan)
-            to create the Note Record for.
+            a Loan Application Record and/or a Loan Record.  This would be required to determine for which record type (Loan App or Loan)
+            to create the note.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="noteCode" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The code associated to this Note.  It could determine the type of Note or reference predefined Notes configured on the core.
+            The code associated to this note.  It could determine the type of note or
+            reference predefined notes configured on the core.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -101,7 +102,7 @@
       <xs:element name="noteText" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The text(s) of the Note.
+            The text(s) of the note.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -109,7 +110,7 @@
       <xs:element name="noteCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            UTC Date time when note was created.
+            UTC date and time when the note was created.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -125,7 +126,7 @@
       <xs:element name="noteCreator" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Either name or id of person, system or end user that created the note.
+            Either the name or ID of person, system or end user that created the note.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -135,8 +136,8 @@
   <xs:complexType name="CustomData">
     <xs:annotation>
       <xs:documentation>
-        The customData section allows the flexibility to add additional information to the message.
-        This should be utilized as a last resort and any use should result in requested modifications
+        The custom data section allows the flexibility to add additional information to the message.
+        This should be utilized as a last resort. Any use should result in requested modifications
         to the message.
       </xs:documentation>
     </xs:annotation>
