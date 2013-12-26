@@ -21,8 +21,8 @@
   <xs:element name="cardList" type="CardList">
     <xs:annotation>
       <xs:documentation>
-        Top level element cards collection/array contains all the cards for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        Top level element cards collection/array contains all the cards, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -30,8 +30,8 @@
   <xs:complexType name="CardList">
     <xs:annotation>
       <xs:documentation>
-        The cards collection/array contains all the cards for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The cards collection/array contains all the cards, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -54,9 +54,9 @@
       <xs:element name="cardNumber" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The card number is the visible numbers that appear on the card.
+            The card number is the visible sequence of numbers that appear on the card.
             It is up to the end points to determine if the card number can/should be transmitted.
-            It is up to the end points to determine encryption methodology if required.
+            It is up to the end points to determine the encryption methodology, if required.
             It must be unique for all users across the institution and remain the same over the life of the card.
           </xs:documentation>
         </xs:annotation>
@@ -64,14 +64,14 @@
       <xs:element name="cardType" type="CardType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Specfies what type of card to create.
+            Specifies what type of card to create.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="cardSubType" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Specifies the "flavor" of the card (ie: platinum, sports team branded, etc.)
+            Specifies the "flavor" of the card (ie: platinum, sports team branded, etc.).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -80,18 +80,17 @@
           <xs:documentation>
             Expiration date is either the expiration date that is calculated by the 
             card data provider or the expiration date that is provided in the creation of the card.
-            It is up to the end points to determine if the exprration date can/should be transmitted.
-            It must be unique for all users across the institution and remain the same over the life of the card.
+            It is up to the end points to determine if the expiration date can/should be transmitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
         <xs:element name="pin" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
                 <xs:documentation>
-                    PIN is the 4 digit security code that used to authenticate user and allow access to 
-                    the associated accounts of the card.
+                    PIN is the 4 digit security code that is used to authenticate the user and 
+                    allow them access to the associated accounts of the card.
                     It is up to the end points to determine if the PIN can/should be transmitted.
-                    It is up to the end points to determine encryption methodology if required.
+                    It is up to the end points to determine the encryption methodology, if required.
                     The PIN is provided as a string in case encryption has been utilized.
                 </xs:documentation>
             </xs:annotation>
@@ -100,12 +99,11 @@
         <xs:annotation>
           <xs:documentation>
             cvv2 is the 3 or 4 digit security code that is printed on the back of the card.
-            This field is typically read only because it is generated 2-3 days after the card is
+            This field is typically read-only because it is generated 2-3 days after the card is
             requested to be printed.
             It is up to the end points to determine if the CVV2 date can/should be transmitted.
-            It is up to the end points to determine encryption methodology if required.
+            It is up to the end points to determine the encryption methodology, if required.
             The CVV2 is provided as a string in case encryption has been utilized.
-            It must be unique for all users across the institution and remain the same over the life of the card.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -133,7 +131,7 @@
       <xs:element name="nameOnCard" type="xs:string" minOccurs="0" maxOccurs="2">
         <xs:annotation>
           <xs:documentation>
-            Specifies the name on card if overriding the name from the party.
+            Specifies the name on the card if overriding the name from the party.
             0 instances - means use the party formatted name.
             1st instance - use as line one.
             2nd instance - use as line two.
@@ -171,21 +169,21 @@
       <xs:element name="virtualNumber" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The virtual number associated with the card
+            The virtual number associated with the card.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="merchantCountryCodes" type="MerchantCountryCodeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A list of permissible country codes where this card can be used
+            A list of permissible country codes where this card can be used.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="cardDesignImage " type="artifact:ArtifactId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A image template for the card
+            An image template for the card.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -210,7 +208,7 @@
   <xs:simpleType name="CardStatus">
     <xs:annotation>
       <xs:documentation>
-        Enumeration of the different types of status for a card.
+        Enumeration of the different types of statuses for a card.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
@@ -229,7 +227,9 @@
     <xs:sequence>
       <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>The ID of the linked account.</xs:documentation>
+          <xs:documentation>
+            The ID of the linked account.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="priority" type="xs:positiveInteger" minOccurs="1" maxOccurs="1">
@@ -270,7 +270,7 @@
       <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Collection of unique card ID's to point to a list of cards.
+            Collection of unique card ID's that point to a list of cards.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
