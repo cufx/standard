@@ -13,7 +13,7 @@
   <xs:element name="artifactFilter" type="ArtifactFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting artifact data.
+        The list of filter options for services requesting artifact data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -21,8 +21,8 @@
   <xs:complexType name="ArtifactFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting Artifact data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return the
+        The list of filter options for services requesting artifact data.  The options can be
+        used in combination or by themselves. It is up to the data source to either return the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -30,7 +30,7 @@
       <xs:element name="artifactIdList" type="artifact:ArtifactIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            A list of artifact Id's to be be returned or affected by a read, update or delete artifact request?
+            A list of artifact ID's to be returned or affected by a read, update or delete artifact request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
