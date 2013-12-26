@@ -24,8 +24,8 @@
   <xs:element name= "billPayeeList" type ="BillPayeeList">
     <xs:annotation>
       <xs:documentation>
-        The bill payee collection/array contains all the payees for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The bill payee collection/array contains all the payees, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -33,8 +33,8 @@
   <xs:complexType name="BillPayeeList">
     <xs:annotation>
       <xs:documentation>
-        The accounts collection/array contains all the fees for instance that the credential set is
-        authorized to access at the Institution based on applied filters
+        The bill payee collection/array contains all the payees, for instance, that the credential set is
+        authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -48,7 +48,7 @@
       <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill payee for the consumer.
+            An ID that uniquely identifies the bill payee for the consumer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -56,7 +56,7 @@
       <xs:element name="billPayeeDetailsId" type="billpayeedetails:BillPayeeDetailsId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            An id that uniquely identifies the bill payee for the Billpayment system.            
+            An ID that uniquely identifies the bill payee for the bill payment system.          
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -72,7 +72,7 @@
       <xs:element name="userDefinedName" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The user defined name for payee.  Could be a nickname.
+            The user-defined name for payee.  Could be a nickname.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -80,7 +80,8 @@
       <xs:element name="payeeAccountNumber" type="xs:string"   minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The payee assigned account number associated with member.  The number could be printed on check or included in memo.
+            The payee assigned account number associated with a member.  The number could be printed 
+            on a check or included in a memo.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -88,7 +89,7 @@
       <xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            True for members that are signed up for ebills, False for sending a paper check.
+            True for members that are signed up for ebills. False for those sending a paper check.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -96,7 +97,7 @@
       <xs:element name="accountHolderName" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name of the person the bill is being paid for.
+            The name of the person for which the bill is being paid.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -104,7 +105,7 @@
       <xs:element name="currentEBillDueAmount" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The amount of the current E Bill.
+            The amount of the current ebill.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -112,7 +113,7 @@
       <xs:element name="currentEBillDueDate" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The date the current E bill is due.
+            The date on which the current ebill is due.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -136,7 +137,7 @@
       <xs:element name="status" type="Status"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The status of the Bill Payee.
+            The status of the bill payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -144,20 +145,20 @@
       <xs:element name="addDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The Date Added is the date the Bill Payee was added to system by member.
-            The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
+            The Date Added is the date that the bill payee was added to the
+            system by the member. The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported. The time is assumed to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="updatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The Date Updated is the date the Bill Payee was last updated by member.
+            The Date Updated is the date the bill payee was last updated by the member.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-            supported.  The time is assume to be 00:00Z if omitted.
+            (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are supported. The
+            time is assumed to be 00:00Z if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -165,7 +166,7 @@
       <xs:element name="defaultPaymentFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The default account the payment for this payee should be taken from.
+            The default account from which the payment for this payee should be taken.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -182,7 +183,7 @@
       <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Id of party related to Payee.
+            ID of party related to payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -190,7 +191,7 @@
       <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Id of relationship related to Payee
+            ID of relationship related to payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -198,7 +199,7 @@
       <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Id of account related to Payee
+            ID of account related to payee.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -208,29 +209,29 @@
   <xs:simpleType name="Status">
     <xs:annotation>
       <xs:documentation>
-        This is enumeration of statuses for Bill Payee.
+        This is enumeration of statuses for the bill payee.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Active">
         <xs:annotation>
           <xs:documentation>
-            This value indicates the payee is active and visible to member.
+            This value indicates that the payee is active and visible to the member.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Inactive">
         <xs:annotation>
           <xs:documentation>
-            This value indicates the payee is inactive and visible to member.
+            This value indicates that the payee is inactive and visible to the member.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Deleted">
         <xs:annotation>
           <xs:documentation>
-            This value indicates the payee is inactive and invisible to member.
-            This value indicates the payee can not be re-activated.
+            This value indicates that the payee is inactive and invisible to the
+            member; the payee cannot be re-activated.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -240,7 +241,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The Bill Payee ID is a persistent and unique identifier for the BIll Payee for the consumer.
+          The bill payee ID is a persistent and unique identifier for the bill payee of the consumer.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
