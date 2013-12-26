@@ -20,7 +20,7 @@
   <xs:element name="applicationFilter" type="ApplicationFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting application data.
+        The list of filter options for services requesting application data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,8 +28,8 @@
   <xs:complexType name="ApplicationFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting application data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return the
+        The list of filter options for services requesting application data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -37,7 +37,7 @@
       <xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of application Ids that should have their associated applications be returned
+            The list of application ID's that should have their associated applications returned
             or affected by a read, update or delete application request.
           </xs:documentation>
         </xs:annotation>
@@ -46,7 +46,7 @@
       <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of product Types that should have their associated applications be returned
+            The list of product types that should have their associated applications returned
             or affected by a read, update or delete application service request.
           </xs:documentation>
         </xs:annotation>
@@ -55,8 +55,8 @@
       <xs:element name="productSubTypeList" type="productOffering:ProductSubType" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of product sub Types that should have their associated applications
-            be returned or affected by a read, update or delete application service request.
+            The list of product sub types that should have their associated applications
+            returned or affected by a read, update or delete application service request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -64,7 +64,7 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated applications
+            The list of relationship ID's that should have their associated applications
             either returned or affected by a read, update or delete associated application request.
           </xs:documentation>
         </xs:annotation>
@@ -73,9 +73,8 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should have their associated applications 
-            be returned or affected by a read, update or delete 
-            associated application request.
+            The list of party ID's that should have their associated applications returned
+            or affected by a read, update or delete associated application request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
