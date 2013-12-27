@@ -26,95 +26,99 @@
 			<xs:extension base="fundsTransferRecurringBase:FundsTransferRecurringBase" >
 				<xs:annotation>
 					<xs:documentation>
-						This complex type is used for abstrating the tranasctional transfer, bill payment, ACH payment, wire, etc.
-						The request is that a payment or transfer was requested.  This is the actual occurrence of the payment or transfer which
-						will then result in a transaction (history) that is stored on a back end core system.
+						This complex type is used for abstracting the transactional transfer, bill payment, ACH payment, wire, etc.
+						The request is that a payment or transfer was requested.  This is the actual occurrence of the payment or
+            transfer which will then result in a transaction (history) that is stored on a back end core system.
 					</xs:documentation>
 				</xs:annotation>
 				<xs:sequence>
 					<xs:element name="occurrenceId" type="xs:long" minOccurs="0"  >
 						<xs:annotation>
-							<xs:documentation>Id to uniquely identify the occurrence of a the payment or transfer.</xs:documentation>
+							<xs:documentation>
+                ID to uniquely identify the occurrence of a payment or transfer.
+              </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="estimatedProcessDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1" >
 						<xs:annotation>
 							<xs:documentation>
-								The date to process the payment or transfer.  This date can be in the future.
-								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								The date on which to process the payment or transfer.  This date can be in the future.
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or
+                yyyy-mm-dd (2011-03-28) formats are supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="processedDateTime" type="xs:dateTime" minOccurs="0"  maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								The date the payment or transfer will actually get processed by the system. 
-								The date/time should be ISO 8601 UTC format,  yyyy-mm-ddThh:mmZ
-								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								The date on which the payment or transfer was actually processed by the system. 
+								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z)
+                or yyyy-mm-dd (2011-03-28) formats are supported.  The time is assumed to be
+                00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="createdDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
-								Date user submitted the payment or transfer.
+								The date that the user submitted the payment or transfer.
 								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The date payment or transfer processing started.
+								The date on which the payment or transfer processing started.
 								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 						<xs:annotation>
 							<xs:documentation>
-								Date core completed the payment or transfer.
+								Date on which the core completed the payment or transfer.
 								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="lastUpdatedDateTime" type="xs:dateTime" minOccurs="0" >
 						<xs:annotation>
 							<xs:documentation>
-								Date of last know status of the payment or transfer.
+								Date of the last known status of the payment or transfer.
 								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assume to be 00:00Z if omitted.
+								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="memoPosted" type="xs:boolean" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>Indicates whether the payment or transfer has been memo posted or not.</xs:documentation>
+							<xs:documentation>
+                Indicates whether the payment or transfer has been memo-posted or not.
+              </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="note" type="xs:string" minOccurs="0">
 						<xs:annotation>
-							<xs:documentation>A user's "note to self" This note is not submitted to the core. (Optional).</xs:documentation>
+							<xs:documentation>
+                A user's "note to self." This note is not submitted to the core. (Optional)
+              </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Transfer level name/data pairs list of fields that are not yet available in the general specification.
-								This should be used as LAST RESORT as any customizations will not be supported by all data providers
-								and able to be processed by client applications. ANY use of this field must be reported to the
-								architecture or working group committee to ensure that fields are somehow handled in the future
-								release of specifications.
+								This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+								or processed by all client applications. ANY use of this field must be reported to the architecture or
+								working group committee to ensure that fields are somehow handled in the future	release of specifications.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -127,28 +131,29 @@
 	<xs:simpleType name="OccurrenceStatus">
 		<xs:annotation>
 			<xs:documentation>
-				This is enumeration of statuses for bill payment.
+				This is the enumeration of statuses for bill payment.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Scheduled">
 				<xs:annotation>
 					<xs:documentation>
-						The payment is in process for immediate or future payment and is cancellable by the party since it's not InProcess yet.
+						The payment is in the process for immediate or future payment and is cancellable by the party since
+            it's not InProcess yet.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="InProcess">
 				<xs:annotation>
 					<xs:documentation>
-						The bill payment is in process and is no longer cancellable but has not been sent.
+						The bill payment is in process and is no longer cancellable, but it has not been sent.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByParty">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment was requested to be cancelled by the party but not yet cancelled.
+						A bill payment was requested to be cancelled by the party but has not yet been cancelled.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -162,7 +167,7 @@
 			<xs:enumeration value="CancelRequestedByPaymentProvider">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment has been cancelled at the request of the party's financial institution.
+						A bill payment has been cancelled at the request of the party's payment provider.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -176,21 +181,21 @@
 			<xs:enumeration value="Completed">
 				<xs:annotation>
 					<xs:documentation>
-						The transfer or payment transaction has been cleared/Completed by the financial institution.
+						The transfer or payment transaction has been cleared/completed by the financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Declined">
 				<xs:annotation>
 					<xs:documentation>
-						The payment was declined (for instance in the case that a debit or card was used as the funding source).
+						The payment was declined (for instance, in the case that a debit or card was used as the funding source).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="FundsOutbound">
 				<xs:annotation>
 					<xs:documentation>
-						The funds have been transferred to the payment provider but have not arrived at the payment provider yet.
+						The funds have been transferred to the payment provider but have not yet arrived at the payment provider.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -205,14 +210,14 @@
 			<xs:enumeration value="Held">
 				<xs:annotation>
 					<xs:documentation>
-						The payment has been held by the payment provider and not sent to the payee.
+						The payment has been held by the payment provider and has not been sent to the payee.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="InsufficientFunds">
 				<xs:annotation>
 					<xs:documentation>
-						The payment has attempted to clear the financial institution account but there was not enought funds available.
+						The payment has attempted to clear the financial institution account but there was not enough funds available.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -233,7 +238,7 @@
 			<xs:enumeration value="Suspended">
 				<xs:annotation>
 					<xs:documentation>
-						Payment was scheduled for recurring payment but has been has been suspended until taken out of suspend status.
+						Payment was scheduled for recurring payment but has been suspended until taken out of suspended status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -243,7 +248,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The OccurrenceId to uniquely identify the occurrence of a the payment or transfer.
+          The occurrence ID to uniquely identify the occurrence of a payment or transfer.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
@@ -252,15 +257,15 @@
   <xs:complexType name="OccurrenceIdList">
     <xs:annotation>
       <xs:documentation>
-        The list of transfer or payment occurerence id's that should have their associated occurence Id either returned or affected
-        by a read, update or delete a request.
+        The list of transfer or payment occurrence ID's that should have their associated occurrence ID either returned
+        or affected by a read, update or delete request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            A occurence Id that should have its associated documents either returned or affected
+            An occurrence ID that should have its associated documents either returned or affected
             by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>

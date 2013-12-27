@@ -18,9 +18,9 @@
   <xs:element name="eligibilityRequirementMessage" type="EligibilityRequirementMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a EligibilityRequirementMessage.  Contains messageContext, EligibilityRequirementFilter and EligibilityRequirementList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in an eligibility requirement message.  Contains message context, eligibility requirement
+        filter and an eligibility requirement list.  This is a wrapper used to more easily serialize the complete message. 
+        All values are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,18 +28,18 @@
   <xs:complexType name="EligibilityRequirementMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a EligibilityRequirementMessage.  Contains messageContext, eligibilityRequirementFilter and eligibilityRequirementList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in an eligibility requirement message.  Contains message context, eligibility requirement
+        filter and an eligibility requirement list.  This is a wrapper used to more easily serialize the complete message.
+        All values are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call.  It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -54,7 +54,7 @@
       <xs:element name="eligibilityRequirementList" type="eligibilityRequirement:EligibilityRequirementList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All the EligibilityRequirement data.
+            All the eligibility requirement data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
