@@ -20,7 +20,7 @@
   <xs:element name="documentFilter" type="DocumentFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting relationship data.
+        The list of filter options for services requesting relationship data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,8 +28,8 @@
   <xs:complexType name="DocumentFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting document data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting document data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -37,7 +37,8 @@
       <xs:element name="documentIdList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of documentId's that should have their associated documents returned or affected by a read, update or delete document request.
+            The list of document ID's that should have their associated documents returned or affected by a read,
+            update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -45,7 +46,8 @@
       <xs:element name="documentTitleList" type="document:DocumentTitleList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of documentTitles's that should have their associated documents returned or affected by a read, update or delete document request.
+            The list of document titles that should have their associated documents returned or affected by a read,
+            update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -53,8 +55,8 @@
       <xs:element name="documentTypeList" type="document:DocumentTypeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of document type that should have their associated documents either returned or affected
-            by a read, update or delete a request.
+            The list of document types that should have their associated documents either returned or affected
+            by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -62,7 +64,8 @@
       <xs:element name="documentSubTypeList" type="document:DocumentSubTypeList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            A further drill down into the type of document that it is.  These are defined by the financial institution based on the institution's needs
+            A further drill-down into the type of the document, i.e. a category within a Type.  These are defined 
+            by the financial institution based on the institution's needs.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -71,10 +74,11 @@
         <xs:annotation>
           <xs:documentation>
             The list of appliesTo values that should have their associated documents either returned or affected
-            by a read, update or delete a request.
-            A further drill down into what the document can be used for.  This is a list of name value pairs that are able to
-            delineate when the product can be used.  For instance it might be a list of States, SEGs, products, rates or other scenarios.
-            where the document can be used.  For example: State TX, State OH, State MN.  These are up to the institution to define.
+            by a read, update or delete request.
+            A further drill-down into what the document can be used for.  This is a list of name-value pairs that 
+            are able to delineate when the product can be used.  For instance, it might be a list of States, SEGs,
+            products, rates or other scenarios where the document can be used.  For example: State TX, State OH, 
+            State MN.  These are up to the institution to define.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -82,9 +86,9 @@
       <xs:element name="filterDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The date and time that should be used when filtering for documents within the effective and expiration date times.
-            The time is assumed to be 00:00Z if omitted.
-            If left unsupplied then all documents are returned based on other filters applied.
+            The date and time that should be used when filtering for documents within the
+            effective and expiration date times. The time is assumed to be 00:00Z if omitted.
+            If left unsupplied, then all documents are returned based on other filters applied.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -92,7 +96,8 @@
       <xs:element name="documentVersion" type="document:DocumentVersion" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Filter for a specific version of a document.  If left unsupplied then all document versions are returned based on other filters applied.
+            Filter for a specific version of a document.  If left unsupplied, then all document
+            versions are returned based on other filters applied.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -100,7 +105,8 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should have their associated documents returned or affected by a read, update or delete document request.
+            The list of party ID's that should have their associated documents returned or affected by a
+            read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -108,7 +114,7 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated documents either returned or affected
+            The list of relationship ID's that should have their associated documents either returned or affected
             by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
@@ -117,7 +123,7 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that should have their associated documents either returned or affected
+            The list of account ID's that should have their associated documents either returned or affected
             by a read, update or delete document request.
           </xs:documentation>
         </xs:annotation>
