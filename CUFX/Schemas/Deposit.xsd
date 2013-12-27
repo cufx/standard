@@ -22,7 +22,7 @@
   <xs:element name="depositList" type="DepositList">
     <xs:annotation>
       <xs:documentation>
-        Top level deposit list collection element
+        Top level deposit list collection element.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -31,13 +31,13 @@
     <xs:sequence>
       <xs:annotation>
         <xs:documentation>
-          Collection of deposits data definition
+          Data definition of a collection of deposits.
         </xs:documentation>
       </xs:annotation>
       <xs:element name="deposit" type="Deposit" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Details relating to deposit account
+            Details relating to a deposit account.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -47,7 +47,7 @@
   <xs:element name="deposit" type="Deposit">
     <xs:annotation>
       <xs:documentation>
-        Top level element for Details relating to deposit account
+        Top level element for the details relating to a deposit account.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -55,7 +55,7 @@
   <xs:complexType name="Deposit">
     <xs:annotation>
       <xs:documentation>
-        Details relating to deposit account
+        Details relating to a deposit account.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -64,8 +64,8 @@
           <xs:element name="depositPartyList" type="DepositPartyList" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                A collection of parties that associate each party associated to this deposit.
-                Note that this is a specialized subset of fields for party which identify how the party is related.
+                A collection of parties that includes each party associated to this deposit.
+                Note that this is a specialized subset of fields for party which identifies how the party is related.
                 The details of the party can be pulled from the party object using the party ID.
               </xs:documentation>
             </xs:annotation>
@@ -74,14 +74,14 @@
           <xs:element name="bumpEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                Date on which the BumpRate becomes effective.
+                Date on which the bump rate becomes effective.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="bumpExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                Date on which the BumpRate expires.
+                Date on which the bump rate expires.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -103,14 +103,14 @@
             <xs:annotation>
               <xs:documentation>
                 The percentage rate used to calculate dividends for this account. 
-                The dividendType must be set to allow for a custom rate.
+                The dividend type must be set to allow for a custom rate.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="dividendTransferAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                Unique identifier of the account to post dividends to when the "Transfer" DividendPostCode is selected.
+                Unique identifier of the account to post dividends to when the "Transfer" dividend post code is selected.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -138,7 +138,7 @@
           <xs:element name="maturityTransferAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                Unique identifier of the account to transfer the balance to when the "Transfer" MaturityPostCode is selected.
+                Unique identifier of the account to transfer the balance to when the "Transfer" maturity post code is selected.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -159,7 +159,7 @@
           <xs:element name="overdraftTolerance" type="common:Money" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                Maximum amount amount for overdrafts before the overdraft priority list is used to pull from from other accounts.
+                Maximum amount for overdrafts before the overdraft priority list is used to pull from other accounts.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -248,9 +248,9 @@
   <xs:complexType name="DepositPartyList">
     <xs:annotation>
       <xs:documentation>
-        A collection of party id’s that uniquely identify each party associated to this deposit
-        and additional field on how the party relates to the deposit.
-        This list is in additional to the relationship parties if available.
+        A collection of party ID’s that uniquely identify each party associated to this deposit
+        and additional fields on how the party relates to the deposit.
+        This list is in addition to the relationship parties if available.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -267,14 +267,14 @@
   <xs:complexType name="DepositParty">
     <xs:annotation>
       <xs:documentation>
-        This object is points to the party and how it relates to the deposit.
+        This object points to the party and how it relates to the deposit.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="depositPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the party.  Must be a valid party id.
+            Unique identifier for the party.  Must be a valid party ID.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -282,7 +282,7 @@
       <xs:element name="depositPartyRelationshipType" type="DepositPartyRelationshipType">
         <xs:annotation>
           <xs:documentation>
-            Level of ownership the party has over the account.
+            Level of ownership that the party has over the account.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -290,8 +290,8 @@
       <xs:element name="ssnOverride" type="xs:boolean" minOccurs="0" maxOccurs="1" default ="false">
         <xs:annotation>
           <xs:documentation>
-            The party’s SSN should be used rather the PRIMARY’s SSN when reporting to the IRS.
-            Only used if partyRelationshipType is NOT PRIMARY.  Only one of these can appear
+            The party’s SSN should be used rather the primary’s SSN when reporting to the IRS.
+            Only used if party relationship type is NOT PRIMARY.  Only one of these can appear
             on an account if applicable.
           </xs:documentation>
         </xs:annotation>
@@ -301,7 +301,7 @@
         <xs:annotation>
           <xs:documentation>
             Collection of contacts for the party within this account.  Only contains the
-            contactId for each contact.
+            contact ID for each contact.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -312,10 +312,10 @@
     <xs:annotation>
       <xs:documentation>
         The party relationship type is the textual representation of what the
-        party record represents to this loan such as primary or coborrower,
+        party record represents to this loan, such as primary, co-borrower,
         beneficiary or some other type of relationship. This value
         may be visible to the user and must be human-readable.  If the same
-        party exists at the relationshiop level, the account level
+        party exists at the relationship level, the account level
         relationship type overrides the relationship.
       </xs:documentation>
     </xs:annotation>
