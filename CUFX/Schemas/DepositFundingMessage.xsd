@@ -18,9 +18,9 @@
   <xs:element name="depositFundingMessage" type="DepositFundingMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a depositFundingMessage.  Contains messageContext, depositFilter and depositFundingList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in a deposit funding message.  Contains message context, deposit filter and a
+        deposit funding list.  This is a wrapper used to more easily serialize the complete message.  All values
+        are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,25 +28,25 @@
   <xs:complexType name="DepositFundingMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a depositFundingMessage.  Contains messageContext, depositFilter and depositFundingList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in a deposit funding message.  Contains message context, deposit filter and a
+        deposit funding list.  This is a wrapper used to more easily serialize the complete message.  All values
+        are optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call. It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="depositFilter" type="depositFilter:DepositFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Any filters applied to the a read, update or delete depositFunding request.
+            Any filters applied to a read, update or delete deposit funding request.
             Does not apply to a create message.
           </xs:documentation>
         </xs:annotation>
@@ -54,7 +54,7 @@
       <xs:element name="depositFundingList" type="depositFunding:DepositFundingList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All the depositFunding data.
+            All the deposit funding data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

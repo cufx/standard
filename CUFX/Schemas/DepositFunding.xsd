@@ -16,7 +16,7 @@
   <xs:element name="depositFundingList" type="DepositFundingList"> 
     <xs:annotation>
       <xs:documentation>
-        List of accounts with accounts that they transfer to.  This is used for filtering
+        List of accounts with the accounts to which they transfer.  This is used for filtering
         when reading data.
       </xs:documentation>
     </xs:annotation>
@@ -39,14 +39,15 @@
       <xs:element name="targetAccountId" type="account:AccountId">
         <xs:annotation>
           <xs:documentation>
-            The Account ID is a persistent and unique identifier for the account. It must be unique for all users across the institution and remain the same over the life of the account.
+            The account ID is a persistent and unique identifier for the account. It must be unique
+            for all users across the institution and remain the same over the life of the account.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="fundingSourceId" type="account:AccountId">
         <xs:annotation>
           <xs:documentation>
-            Identifies an accountId or a GL number/code to use as the source for funding.
+            Identifies an account ID or a GL number/code to use as the source for funding.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

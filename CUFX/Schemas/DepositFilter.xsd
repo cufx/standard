@@ -21,7 +21,7 @@
   <xs:element name="depositFilter" type="DepositFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services using deposit account data.
+        The list of filter options for services using deposit account data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -29,10 +29,9 @@
   <xs:complexType name="DepositFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting deposit account or deposit account detail data.
-        The options can be used in combination or by themselves and it is up to the data source
-        to either return or affect the data requested or return a standard error identifying
-        why the request was rejected.
+        The list of filter options for services requesting deposit account or deposit account detail data.
+        The options can be used in combination or by themselves.  It is up to the data source to either
+        return or affect the data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -44,13 +43,12 @@
               <xs:documentation>
                 Filter that is used to start searching the maturity dates.
                 Indicates the UTC posted date of the earliest transaction to be sent back
-                in the response.  Start and End date filter work together.
+                in the response.  Start and end date filters work together.
                 Must be less than or equal to end date if an end date is supplied.
-                Should be less to or equal to today's date.
+                Should be less than or equal to today's date.
                 If neither maturityStartDate or maturityEndDate is provided,
                 no accounts will be searched by maturity date.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-dd
-                (2011-03-28) format.
+                The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -60,12 +58,13 @@
               <xs:documentation>
                 Filter that is used to end searching the transactions.
                 Indicates the UTC posted date of the latest transaction to be sent back in the response.
-                Start and End date filter work together.
+                Start and end date filters work together.
                 Must be greater than or equal to start transaction start date.
-                If not supplied response returns all of the transactions on or after the transactionStartDate.
+                If not supplied, the response returns all of the transactions on or after the
+                transaction start date.
                 If neither maturityStartDate or maturityEndDate is provided,
                 no accounts will be searched by maturity date.
-                The date/time should be ISO 8601 UTC format.  yyyy-mm-dd (2011-03-28) format.
+                The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
               </xs:documentation>
             </xs:annotation>
           </xs:element>
