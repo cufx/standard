@@ -15,7 +15,7 @@
   <xs:element name="ratingsList" type="RatingsList">
     <xs:annotation>
       <xs:documentation>
-        Top level element rating array contains all the product or service ratings
+        Top level element rating array contains all the product or service ratings.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -49,21 +49,21 @@
       <xs:element name="reviewDateTime" type="xs:date" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The datetime that review was submitted.
+            The date and time that the review was submitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="reviewerName" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name of reviewer.
+            The name of the reviewer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="productCode" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The product code that was being review.
+            The product code that was being reviewed.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -119,7 +119,7 @@
       <xs:element name="reviewerUserId" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The user id of the reviewer.
+            The user ID of the reviewer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -154,14 +154,14 @@
       <xs:element name="productType" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The type or category of product being rated.
+            The type or category of the product being rated.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="productURL" type="xs:string"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The URL associated with product getting rated.
+            The URL associated with the product getting rated.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

@@ -13,7 +13,7 @@
   <xs:element name="questionList" type="QuestionList" >
     <xs:annotation>
       <xs:documentation>
-        Top level element for list of multiple-choise questions to ask a potential party to verify that the know the answer
+        Top level element for list of multiple-choice questions to ask a potential party to verify that they know the answers
         to validate their identity.
       </xs:documentation>
     </xs:annotation>
@@ -23,7 +23,7 @@
       <xs:element name="question" type="Question" minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            List of multiple-choise questions to ask a potential party to verify that the know the answer
+            List of multiple-choice questions to ask a potential party to verify that they know the answers
             to validate their identity.
           </xs:documentation>
         </xs:annotation>
@@ -36,7 +36,7 @@
       <xs:element name="choiceList" type="ChoiceList" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            List of possible answers for each multiple choice question. 
+            List of possible answers for each multiple-choice question. 
           </xs:documentation>
         </xs:annotation>
       </xs:element >
@@ -45,7 +45,7 @@
           <xs:documentation>
             An identifier for the out-of-wallet question.
             Must be unique within the list of questions.
-            May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+            May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -62,10 +62,9 @@
         <xs:annotation>
           <xs:documentation>
             Question level name/data pairs list of fields that are not yet available in the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future
-            release of specifications.
+            This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+            or processed by all client applications. ANY use of this field must be reported to the architecture or
+            working group committee to ensure that fields are somehow handled in the future release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -77,7 +76,7 @@
       <xs:documentation>
         An identifier for the out-of-wallet question.
         Must be unique within the list of questions.
-        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" />
@@ -101,8 +100,8 @@
 			  <xs:annotation>
 				  <xs:documentation>
 					  An identifier for a multiple-choice answer to the out-of-wallet question.
-					  Must be unique within the list of choices. 
-					  May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+					  Must be unique within the list of choices.
+					  May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier.
 				  </xs:documentation>
 			  </xs:annotation>
 		  </xs:element>
@@ -119,10 +118,9 @@
         <xs:annotation>
           <xs:documentation>
             Choice level name/data pairs list of fields that are not yet available in the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future
-            release of specifications.
+            This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+            or processed by all client applications. ANY use of this field must be reported to the architecture or
+            working group committee to ensure that fields are somehow handled in the future release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -134,7 +132,7 @@
       <xs:documentation>
         An identifier for a multiple-choice answer to the out-of-wallet question.
         Must be unique within the list of choices.
-        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier
+        May be a serial number or letter (1, 2, 3  or A, B, C), a GUID, or other identifier.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string" />
