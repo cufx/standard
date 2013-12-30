@@ -37,7 +37,7 @@
 			<xs:element name="type" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The type of location (e.g. ATM, Branch).
+						The type of location (e.g. ATM, branch).
 					</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
@@ -61,7 +61,7 @@
 			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Whether or not to include only deposit taking locations in the results.
+						Whether or not to include only deposit-taking locations in the results.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

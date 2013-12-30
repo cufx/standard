@@ -18,8 +18,8 @@
   <xs:element name="loanMessage" type="LoanMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a LoanMessage.  Contains messageContext, loanFilter and loanList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        All values that can be sent in a loan message.  Contains message context, loan filter and a loan list.
+        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
         example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -28,8 +28,8 @@
   <xs:complexType name="LoanMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a LoanMessage.  Contains messageContext, loanFilter and loanList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        All values that can be sent in a loan message.  Contains message context, loan filter and a loan list.
+        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
         example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -37,16 +37,16 @@
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call.  It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="loanFilter" type="loanFilter:LoanFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Any filters applied to the a read, update or delete loan request.
+            Any filters applied to a read, update or delete loan request.
             Does not apply to a create message.
           </xs:documentation>
         </xs:annotation>
