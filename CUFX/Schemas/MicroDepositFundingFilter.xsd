@@ -18,7 +18,7 @@
   <xs:element name="microDepositFundingFilter" type="MicroDepositFundingFilter">
     <xs:annotation>
       <xs:documentation>
-        Instance of a micro deposit funding filter.
+        Instance of a micro-deposit funding filter.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -27,31 +27,37 @@
     <xs:complexContent>
       <xs:annotation>
         <xs:documentation>
-          The list of options to filter Micro Deposits.
+          The list of options to filter micro-deposits.
         </xs:documentation>
       </xs:annotation>
       <xs:extension base="fundsTransferFilterBase:FundsTransferFilterBase">
         <xs:sequence>
           <xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>ID to track micro-deposits.</xs:documentation>
+              <xs:documentation>
+                ID to track micro-deposits.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                The relationshipId that the microdeposit belongs belongs to.
+                The relationship ID that the micro-deposit belongs to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation>The ID of the linked account for this Microdeposit.</xs:documentation>
+              <xs:documentation>
+                The ID of the linked account for this micro-deposit.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="FundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>External Account that needs to be verified</xs:documentation>
+              <xs:documentation>
+                External account that needs to be verified.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>        
         </xs:sequence>

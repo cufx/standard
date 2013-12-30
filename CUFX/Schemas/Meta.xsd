@@ -15,8 +15,8 @@
 		<xs:annotation>
 			<xs:documentation>
 				For each account type, optional meta information MAY be
-				provided with these tags depending upon accountType
-				returned
+				provided with these tags depending upon account type
+				returned.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
@@ -75,33 +75,33 @@
 			<xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Interest Rate Percent of the loan.
-						Determines the amount charged each time period
-						based on the loan period.
-						999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+						Interest rate percent of the loan.
+						Determines the amount charged each time period based on the loan period.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="creditLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Credit limit… institutions may not allow a person to charge more than this limit on the card.
-						In cases where the limit is exceeded typically over-the-limit charges occur.
+						Credit limit: institutions may not allow a person to charge more than this limit on the card.
+						In cases where the limit is exceeded, then typically over-the-limit charges occur.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Calculated Annual Percentage Rate (APR)
+						Calculated annual percentage rate (APR).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="rate" type="xs:decimal" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Interest rate that is used for calculations;
-						Most of the time you would only use rate AND APR when there is a split or variable rate
+						Interest rate that is used for calculations.
+						Most of the time you would only use rate AND APR when there is a split or variable rate.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -123,7 +123,7 @@
 			<xs:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Original balance of the loan.  i.e. How much was borrowed.
+						Original balance of the loan, i.e. how much was borrowed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -140,7 +140,7 @@
 			<xs:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The Current Payoff Balance represents the amount required to pay off the loan
+						The current payoff balance represents the amount required to pay off the loan
 						at the date/time the request was made.
 					</xs:documentation>
 				</xs:annotation>
@@ -153,15 +153,16 @@
 			<xs:element name="apy" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Annual Percentage Yield.
-						999.999   (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+						Annual percentage yield.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="minimumBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Minimum required balance
+						Minimum required balance.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -173,15 +174,15 @@
 			<xs:element name="brand" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.)
+						The company that sponsors the card (i.e. Visa, MasterCard, American Express, etc.).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="creditLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Credit limit… institutions may not allow a person to charge more than this limit on the card.
-						In cases where the limit is exceeded typically over-the-limit charges occur.
+						Credit limit: institutions may not allow a person to charge more than this limit on the card.
+						In cases where the limit is exceeded, then typically over-the-limit charges occur.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -227,15 +228,16 @@
 				<xs:annotation>
 					<xs:documentation>
 						Interest Rate earned by the investment.
-						Determines The amount earned each time period based on the period.
-						999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+						Determines the amount earned each time period based on the period.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="compoundingFrequency" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						How often the interest is paid.  This field is open text but some examples might be Daily, Monthly,etc.
+						How often the interest is paid.  This field is open text but some examples might be daily, monthly, etc.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -247,24 +249,25 @@
 			<xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Interest Rate charged to the the line of credit.
-						Determines The amount charged each time period based on the period.
-						999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+						Interest rate charged to the line of credit.
+						Determines the amount charged each time period based on the period.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Original balance of the line of credit.  i.e. How much was borrowed.
+						Original balance of the line of credit, i.e. how much was borrowed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="creditLimit" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Credit limit… institutions may not allow a person to charge more than this limit on the card.
-						In cases where the limit is exceeded typically over-the-limit charges occur.
+						Credit limit: institutions may not allow a person to charge more than this limit on the card.
+						In cases where the limit is exceeded, then typically over-the-limit charges occur.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -288,8 +291,8 @@
 			<xs:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The Current Payoff Balance represents the amount required to pay off the line of credit
-						at the date/time the request was made.
+						The current payoff balance represents the amount required to pay off the line of credit
+						at the date/time that the request was made.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -301,16 +304,17 @@
 			<xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Interest Rate charged to the the mortgage.
-						Determines The amount charged each time period based on the period.
-						999.999 (4.500 may be displayed as 4.500% or 4.5% depending on the user interface).
+						Interest rate charged to the mortgage.
+						Determines the amount charged each time period based on the period.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="originalBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Original balance of the mortgage.  i.e. How much was borrowed.
+						Original balance of the mortgage, i.e. how much was borrowed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -340,17 +344,16 @@
 				<xs:annotation>
 					<xs:documentation>
 						The date that payment is due for the mortgage to keep in good standing and avoid penalties.
-						Many times institutions will institute a grace period beyond this date,
-						but this is the published due date.
-						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+						Many times institutions will institute a grace period beyond this date, but this is the 
+            published due date.  The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="currentPayoffBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The Current Payoff Balance represents the amount required to pay off the mortgage
-						at the date/time the request was made.
+						The current payoff balance represents the amount required to pay off the mortgage
+						at the date/time that the request was made.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

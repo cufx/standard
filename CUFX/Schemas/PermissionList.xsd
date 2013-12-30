@@ -28,7 +28,7 @@
   <xs:element name="permissionList" type ="PermissionList">
     <xs:annotation>
       <xs:documentation>
-        This is a list of actions the user is permitted to perform.
+        This is a list of actions that the user is permitted to perform.
         Any permissions not explicitly in the list should be assumed as not permitted.
       </xs:documentation>
     </xs:annotation>
@@ -76,35 +76,35 @@
             <xs:element name="accountId" type="account:AccountId">
               <xs:annotation>
                 <xs:documentation>
-                  The account the permitted action applies to.
+                  The account to which the permitted action applies.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="fiUserId" type="credentialGroup:FiUserId">
               <xs:annotation>
                 <xs:documentation>
-                  The user the permitted action applies to.
+                  The user to which the permitted action applies.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="cardId" type="card:CardId">
               <xs:annotation>
                 <xs:documentation>
-                  The card the permitted action applies to.
+                  The card to which the permitted action applies.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="relationshipId" type="relationship:RelationshipId">
               <xs:annotation>
                 <xs:documentation>
-                  The relationship the permitted action applies to.
+                  The relationship to which the permitted action applies.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="productId" type="productoffering:ProductId">
               <xs:annotation>
                 <xs:documentation>
-                  The product id associated with the permission.
+                  The product ID associated with the permission.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>            
@@ -223,10 +223,10 @@
       <xs:enumeration value="ManagePreference">
         <xs:annotation>
           <xs:documentation>
-            Allowed to modify user preferences details for a business.
+            Allowed to modify user preferences and details for a business.
             Requires user or relationship resource.
             Also includes ability to create, alter, or delete notifications relating to account activity, account balance,
-            suspicious logon behavior, or other automated signalling supported by the system.
+            suspicious log-on behavior, or other automated signalling supported by the system.
             Requires resources as supported by the alert system.
           </xs:documentation>
         </xs:annotation>
@@ -265,7 +265,7 @@
       <xs:enumeration value="ProcessPayroll">
         <xs:annotation>
           <xs:documentation>
-            Processed a configured payroll.
+            Allowed to process a configured payroll.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -295,7 +295,7 @@
       <xs:enumeration value="StopPayment">
         <xs:annotation>
           <xs:documentation>
-            Allowed to request a stop payment on a account's transactions.
+            Allowed to request a stop payment on an account's transactions.
             Requires account resource.
           </xs:documentation>
         </xs:annotation>
