@@ -14,7 +14,7 @@
   <xs:element name="productOfferingFilter" type="ProductOfferingFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting product offering data.
+        The list of filter options for services requesting data about product offerings.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -22,16 +22,16 @@
   <xs:complexType name="ProductOfferingFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting product offering data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return the
-        data requested or return a standard error identifying why the request was rejected.
+        The list of filter options for services requesting data about product offerings.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return the data requested or return
+        a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="productIdList" type="productOffering:ProductIdList" minOccurs="0" maxOccurs="1" nillable="true">
         <xs:annotation>
           <xs:documentation>
-            The list of product Ids that should be returned or affected by a read, update or delete request.
+            The list of product ID's that should be returned or affected by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -52,7 +52,7 @@
       <xs:element name="introductoryRate" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Filters to include rates with this introductory/promotional boolean value.
+            This filters to include rates with this introductory/promotional boolean value.
             Does not filter based on introductory rate if omitted.
           </xs:documentation>
         </xs:annotation>
@@ -60,7 +60,7 @@
       <xs:element name="balanceConsolidationRate" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Filters to include rates with this balance consolidation boolean value.
+            This filters to include rates with this balance consolidation boolean value.
             Does not filter based on introductory rate if omitted.
           </xs:documentation>
         </xs:annotation>
@@ -68,7 +68,7 @@
       <xs:element name="riskRate" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Filters to include rates with this risk-based boolean value.
+            This filters to include rates with this risk-based boolean value.
             Does not filter based on introductory rate if omitted.
           </xs:documentation>
         </xs:annotation>
@@ -84,23 +84,23 @@
       <xs:element name="minTerm" type="xs:duration" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The minimum term that sholud be used when filtering for a term, using ISO 8601 duration format: P3M is three months, P90D is ninety days.
-            The value is assumed to be P0D (zero days) if omitted.
+            The minimum term that should be used when filtering for a term, using ISO 8601 duration format: P3M is three months,
+            P90D is ninety days.  The value is assumed to be P0D (zero days) if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="maxTerm" type="xs:duration" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The maximum term that sholud be used when filtering for a term, using ISO 8601 duration format: P3M is three months, P90D is ninety days.
-            The value is assumed to be P0D (zero days) if omitted.
+            The maximum term that should be used when filtering for a term, using ISO 8601 duration format: P3M is three months,
+            P90D is ninety days.  The value is assumed to be P0D (zero days) if omitted.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="pointsRewardsProgram" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If provided and true, only product offering that part of a points rewards program will
+            If provided and true, only product offerings that are part of a points rewards program will
             be returned.  If provided and false, only product offerings that are NOT part of a points
             rewards program will be returned.  If not provided, then no filtering will
             occur based on the pointsRewardsProgram.
@@ -110,17 +110,17 @@
       <xs:element name="brand" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If provided only the product offerings that match the company that sponsors the card
-            (i.e. Visa, MasterCard, American Express, etc.) will be returned.  If not provided
+            If provided, only the product offerings that match the company that sponsors the card
+            (i.e. Visa, MasterCard, American Express, etc.) will be returned.  If not provided,
             then no filtering by brand will occur.
-            Only applies to CreditCard and Debit Cards product offerings.
+            Only applies to credit and debit card product offerings.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="riskRateClassification" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If provided will only return risk interest rates where riskRateClassificationMinimum
+            If provided, it will only return risk interest rates where riskRateClassificationMinimum
             is below or equal to this provided value and the riskRateClassificationMaximum is
             above or equal to this value.
           </xs:documentation>

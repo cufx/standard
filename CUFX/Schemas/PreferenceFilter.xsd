@@ -24,7 +24,7 @@
   <xs:element name="preferenceFilter" type="PreferenceFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting preference data.
+        The list of filter options for services requesting preference data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -32,8 +32,8 @@
   <xs:complexType name="PreferenceFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting preference data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting preference data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -41,7 +41,7 @@
       <xs:element name="preferenceIdList" type="preference:PreferenceIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of preferenceId's that should be returned or affected by a read, update or delete preference request.
+            The list of preference ID's that should be returned or affected by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -49,7 +49,7 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should be returned or affected by a read, update or delete preference request.
+            The list of party ID's that should be returned or affected by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -57,7 +57,7 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated preferences either returned or affected
+            The list of relationship ID's that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -66,7 +66,7 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that should have their associated preferences either returned or affected
+            The list of Account ID's that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -83,7 +83,7 @@
       <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of contact Id's that should have their associated preferences either returned or affected
+            The list of contact ID's that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -92,7 +92,7 @@
       <xs:element name="preferenceTypeList" type="preference:PreferenceTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Preference Types that should have their associated preferences either returned or affected
+            The list of preference types that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -101,7 +101,7 @@
       <xs:element name="preferenceSubTypeList" type="preference:PreferenceSubTypeList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Preference Sub Types that should have their associated preferences either returned or affected
+            The list of preference sub types that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -110,7 +110,7 @@
       <xs:element name="preferenceStatusList" type="preference:PreferenceStatusList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Preference Statuses that should have their associated preferences either returned or affected
+            The list of preference statuses that should have their associated preferences either returned or affected
             by a read, update or delete preference request.
           </xs:documentation>
         </xs:annotation>
@@ -119,8 +119,8 @@
       <xs:element name="widgetNameList" type="preference:WidgetNameList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of widget names  that should have their preference accounts either returned or affected
-            by a read, update or delete a request.
+            The list of widget names that should have their associated preferences either returned or affected
+            by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

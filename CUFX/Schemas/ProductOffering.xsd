@@ -15,7 +15,7 @@
     <xs:annotation>
       <xs:documentation>
         The product offering collection/array contains all the possible product types for an instance that the credential set is
-        authorized to access at the institution based on applied filters
+        authorized to access at the institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -24,7 +24,7 @@
     <xs:annotation>
       <xs:documentation>
         The product offering collection/array contains all the possible product types for an instance that the credential set is
-        authorized to access at the institution based on applied filters
+        authorized to access at the institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -65,12 +65,12 @@
         <xs:annotation>
           <xs:documentation>
             Product level name/data pairs that identify the product type in the back end system when
-            something beyond productId, productType and productSubType are required to identify the
+            something beyond product ID, product type and product sub type is required to identify the
             product to the product creation process.
-            This typically would only apply for card based products, but concept may work well for other products.
-            For example, for one card processor the systemBankIdentifier, principalBankIdentifier and agentBankIdentifier
+            This typically would only apply for card based products, but the concept may work well for other products.
+            For example, for one card processor, the systemBankIdentifier, principalBankIdentifier and agentBankIdentifier
             are each four digit values that define a card program on the card platform. They are
-            hierarchical - System down to Agent. Setting are defined at each level that determine the behavior of a
+            hierarchical - System down to Agent. Settings are defined at each level that determine the behavior of a
             card program. Another card processor, uses bin, another processor uses bin + planId. The bin
             is six digits and the planId is three. In-house processors typically just use the six digit bin.
           </xs:documentation>
@@ -109,11 +109,10 @@
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Product Offering level name/data pairs list of fields that are not yet available in the general specification.
-            This should be used as LAST RESORT as any customizations will not be supported by all data providers
-            and able to be processed by client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future
-            release of specifications.
+            Product offering level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+            or processed by all client applications. ANY use of this field must be reported to the architecture or
+            working group committee to ensure that fields are somehow handled in the future release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -170,7 +169,7 @@
         <xs:annotation>
           <xs:documentation>
             Indicates whether this is a balance consolidation rate for the product offering.
-            Applicable to loans and line of credits.
+            Applicable to loans and lines of credit.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -202,32 +201,32 @@
       <xs:element name="interestRateDescription" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Description for the interest rate .
+            Description for the interest rate.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="interestRateCriteria" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            This is free form descsription of the Criteria as to when the interest rate applies.
-            This is not used for processing but additionial documentation beyond the interest
-            rate dscription field.
+            This is free form description of the criteria as to when the interest rate applies.
+            This is not used for processing, but as additional documentation beyond the interest
+            rate description field.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for product.
-            Fees are typically assessed if the balance drops below the minimum balance.
+            If specified, the product has a minimum balance requirement. This would be the minimum balance acceptable for the
+            product.  Fees are typically assessed if the balance drops below the minimum balance.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="maximumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for product.
-            Fees are typically assessed if the maximum balance is exceeded.
+            If specified, the product has a maximum balance requirement. This would be the maximum balance acceptable for the
+            product.  Fees are typically assessed if the maximum balance is exceeded.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -244,7 +243,8 @@
             <xs:annotation>
               <xs:documentation>
                 The date/time that the interest rate becomes effective.
-                If this value is not specified or is in the past, then the interest rate is currently effective, unless the expiration date/time has also passed.
+                If this value is not specified or is in the past, then the interest rate is currently effective,
+                unless the expiration date/time has also passed.
                 If this value is in the future, then the interest rate is not effective.
               </xs:documentation>
             </xs:annotation>
@@ -257,7 +257,8 @@
             <xs:annotation>
               <xs:documentation>
                 The date/time that the interest rate becomes ineffective.
-                If this value is not specified or is in the future, then the interest rate is currently effective, unless the effective date/time is also in the future.
+                If this value is not specified or is in the future, then the interest rate is currently effective,
+                unless the effective date/time is also in the future.
                 If this value is in the past, then the interest rate is not effective.
               </xs:documentation>
             </xs:annotation>
@@ -286,7 +287,7 @@
       <xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="unbounded" >
         <xs:annotation>
           <xs:documentation>
-            Defines a general category for the product type to filter on.  If none are provided then
+            Defines a general category for the product type to filter on.  If none are provided, then
             all should be returned.
           </xs:documentation>
         </xs:annotation>
@@ -297,7 +298,7 @@
   <xs:complexType name="ProductSubTypeList">
     <xs:annotation>
       <xs:documentation>
-        Product Sub type filter for making a request. If the list is nil then that indicates
+        Product sub type filter used for making a request. If the list is nil then that indicates
         that no filters should be applied for product sub type.
       </xs:documentation>
     </xs:annotation>
@@ -306,7 +307,7 @@
         <xs:annotation>
           <xs:documentation>
             Product sub type identifies how the product will be identified in the back end system.
-            If none are provided then all should be returned.
+            If none are provided, then all should be returned.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -316,7 +317,7 @@
   <xs:complexType name="ProductIdList">
     <xs:annotation>
       <xs:documentation>
-        Product Sub type filter for making a request.  If the list is Nil then that indicates
+        Product sub type filter for making a request.  If the list is nil then that indicates
         that no filters should be applied for product sub type.
       </xs:documentation>
     </xs:annotation>
@@ -324,8 +325,8 @@
       <xs:element name="productId" type="ProductId" minOccurs="0" maxOccurs="unbounded" nillable="true">
         <xs:annotation>
           <xs:documentation>
-            Product Id is a unique identifer for the product.  
-            If none are provided then no filters should be applied by Product Id.
+            Product ID is a unique identifier for the product.  
+            If none are provided, then no filters should be applied by product ID.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -335,7 +336,7 @@
   <xs:simpleType name="ProductId">
     <xs:annotation>
       <xs:documentation>
-        Product Id is a unique identifer for the product.
+        Product ID is a unique identifier for the product.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base ="xs:string" />
