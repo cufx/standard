@@ -23,7 +23,7 @@
 	<xs:element name="productServiceRequestFilter" type="ProductServiceRequestFilter">
 		<xs:annotation>
 			<xs:documentation>
-        The list of options for filters for services requesting productServiceRequest data.
+        The list of filter options for services requesting product service request data.
       </xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -31,8 +31,8 @@
 	<xs:complexType name="ProductServiceRequestFilter">
 		<xs:annotation>
 			<xs:documentation>
-        The list of options for filters for services requesting productServiceRequest data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting product service request data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
 		</xs:annotation>
@@ -40,7 +40,8 @@
 			<xs:element name="productServiceRequestIdList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            The list of productServiceRequestId's that should be returned or affected by a read, update or delete productServiceRequest request.
+            The list of product service request ID's that should be returned or affected by a read, update or delete
+            product service request request.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -48,8 +49,8 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            The list of relationshipId's that should have their associated productServiceRequests either returned or affected
-            by a read, update or delete productServiceRequest request.
+            The list of relationship ID's that should have their associated product service requests either returned or affected
+            by a read, update or delete product service request request.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -57,8 +58,8 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Collection of key fields to point to a list of
-            existing acounts for which the productServiceRequest applies.
+            Collection of key fields that point to a list of
+            existing accounts for which the product service request applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -66,8 +67,8 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-            The list of party Id's that should have their associated productServiceRequests either returned or affected
-            by a read, update or delete productServiceRequest request.
+            The list of party ID's that should have their associated product service requests either returned or affected
+            by a read, update or delete product service request request.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -75,8 +76,8 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            The list of contact Id's that should have their associated productServiceRequests either returned or affected
-            by a read, update or delete productServiceRequest request.
+            The list of contact ID's that should have their associated product service requests either returned or affected
+            by a read, update or delete product service request request.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -84,8 +85,8 @@
       <xs:element name="secureMessageIdList" type="secureMessage:SecureMessageIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of secure message Id's that should have their associated productServiceRequests either returned or affected
-            by a read, update or delete productServiceRequest request.
+            The list of secure message ID's that should have their associated product service requests either returned or affected
+            by a read, update or delete product service request request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -93,8 +94,8 @@
 			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:StatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            The list of contact Id's that should have their associated productServiceRequests either returned or affected
-            by a read, update or delete productServiceRequest request.
+            The list of contact ID's that should have their associated product service requests either returned or affected
+            by a read, update or delete product service request request.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
