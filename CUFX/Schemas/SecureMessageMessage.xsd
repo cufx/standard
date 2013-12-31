@@ -18,9 +18,9 @@
   <xs:element name="secureMessageMessage" type="SecureMessageMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a secureMessageMessage.  Contains messageContext, secureMessageFilter and secureMessageList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in a secure message message.  Contains message context, secure message filter and a
+        secure message list.  This is a wrapper used to more easily serialize the complete message.  All values are 
+        optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -28,25 +28,25 @@
   <xs:complexType name="SecureMessageMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a secureMessageMessage.  Contains messageContext, secureMessageFilter and secureMessageList.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
+        All values that can be sent in a secure message message.  Contains message context, secure message filter and a
+        secure message list.  This is a wrapper used to more easily serialize the complete message.  All values are
+        optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call.  It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="secureMessageFilter" type="secureMessageFilter:SecureMessageFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Any filters applied to the a read, update or delete SecureMessage request.
+            Any filters applied to a read, update or delete secure message request.
             Does not apply to a create message.
           </xs:documentation>
         </xs:annotation>
@@ -54,7 +54,7 @@
       <xs:element name="secureMessageList" type="secureMessage:SecureMessageList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All the SecureMessage data.
+            All the secure message data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
