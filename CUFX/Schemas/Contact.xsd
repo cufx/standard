@@ -32,7 +32,7 @@
 			<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The contact list collection/array contains all the contacts for instance that the credential set is
+						The contact list collection/array contains all the contacts, for instance, that the credential set is
 						authorized to access at the Institution based on applied filters.
 					</xs:documentation>
 				</xs:annotation>
@@ -46,8 +46,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier within system to uniquely identify this contact point.  On creation,
-            this may be provided by the system that is submitting the request
-            or may be blank if the repository calculates the contact ID and returns in the response.
+            this may be provided by the system that is submitting the request or may be blank if
+            the repository calculates the contact ID and returns it in the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -71,7 +71,7 @@
 			<xs:element name="timeOfDay" type="TimeOfDayType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The best time of day to use contact point.
+						The best time of day to use the contact point.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -79,7 +79,7 @@
 			<xs:element name="demonstratedAccess" type="DemonstratedAccess" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Is a collection of fields that identifies that appropriate access has been
+						A collection of fields that identifies that appropriate access has been
 						demonstrated to receive information electronically for this contact point.
 					</xs:documentation>
 				</xs:annotation>

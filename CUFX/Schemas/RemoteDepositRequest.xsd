@@ -18,7 +18,7 @@
 	<xs:element name="remoteDepositRequestList" type="RemoteDepositRequestList">
 		<xs:annotation>
 			<xs:documentation>
-				Top level remote deposit request list collection element
+				Top level remote deposit request list collection element.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -33,7 +33,7 @@
 			<xs:element name="remoteDepositRequest" type="RemoteDepositRequest" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to remote deposit request item.
+						Details related to a remote deposit request item.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -44,13 +44,15 @@
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
-					The RemoteDepositRequest data element contains all the attributes to submit a remote deposit to a CUFX remote deposit provider (such as Vertifi, BluePoint, etc) for a decision on whether the deposit will be approved and eventually the deposit made into the members account.
+					The remote deposit request data element contains all the attributes to submit a remote deposit to a CUFX remote deposit
+          provider (such as Vertifi, BluePoint, etc.) for a decision on whether the deposit will be approved and eventually
+          made into the member's account.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="routingTransitNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Routing/Transit number of the financial institution; 9-digits;
+						Routing/transit number of the financial institution.  It has 9 digits.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -64,7 +66,8 @@
 			<xs:element name="cropped" type="xs:boolean" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						If set to true, indicates that the image has already been cropped, if false indicates that the image is not already cropped.
+						If set to true, it indicates that the image has already been cropped. If it's false, it indicates that the image
+            is not already cropped.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -78,20 +81,22 @@
 			<xs:element name="backImage" type="xs:base64Binary" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The front image of the check. Image must be in JPG or PNG format.
+						The back image of the check.  Image must be in JPG or PNG format.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>The ID of the linked account.</xs:documentation>
+					<xs:documentation>
+            The ID of the linked account.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="contact" type="contact:Contact" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						The contactList collection/array contains all the contacts for instance that the credential set is
-						authorized to access at the Institution based on applied filters
+						The contact list collection/array contains all the contacts, for instance, that the credential set is
+						authorized to access at the Institution based on applied filters.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element >

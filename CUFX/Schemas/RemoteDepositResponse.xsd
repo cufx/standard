@@ -34,7 +34,7 @@
 			<xs:element name="remoteDepositResponse" type="RemoteDepositResponse" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to remote deposit response item.
+						Details related to a remote deposit response item.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -45,20 +45,22 @@
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
-					The RemoteDepositResponse data element contains attributes pertaining to a request to remotely deposit an item. This includes information such as the status of the remotely deposited item (such as Approved, Under Review, Denied), as well as information on why an item was reject, such as poor image quality, over deposit limit, etc.
+					The remote deposit response data element contains attributes pertaining to a request to remotely deposit an item.
+          This includes information on the status of the remotely deposited item (such as approved, under review, denied),
+          as well as information on why an item was rejected (such as poor image quality, over deposit limit, etc.).
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Routing/Transit number of the financial institution; 9-digits;
+						Routing/transit number of the financial institution.  It has 9 digits.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="imageValidationIssueList" type="ImageValidationIssueList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						If there were any image validation issues
+						If there were any image validation issues, they would be in this list.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -68,14 +70,14 @@
 	<xs:simpleType name ="Status">
 		<xs:annotation>
 			<xs:documentation>
-				A enumeration of possible status for a remote deposit capture request.
+				An enumeration of possible statuses for a remote deposit capture request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
 			<xs:enumeration value ="ExceedsDepositLimit">
 				<xs:annotation>
 					<xs:documentation>
-						The user exceeded their deposit limit;
+						The user exceeded their deposit limit.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -89,7 +91,7 @@
 			<xs:enumeration value ="UnderReview">
 				<xs:annotation>
 					<xs:documentation>
-						The remote deposit request is currently under review, and is not currently approved
+						The remote deposit request is currently under review, and is not currently approved.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -103,7 +105,8 @@
 			<xs:enumeration value ="DeclinedImageValidationIssues">
 				<xs:annotation>
 					<xs:documentation>
-						The remote deposit image request was declined because of image validation issues.  See the imageValidationIssuesList attribute for a list of the specific issues.
+						The remote deposit image request was declined because of image validation issues.  See the image validation
+            issues list attribute for a list of the specific issues.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -127,7 +130,7 @@
 			<xs:element name="imageValidationIssue" type="ImageValidationIssue" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to an image validation issue.
+						Details related to an image validation issue.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -137,7 +140,7 @@
 	<xs:simpleType name ="ImageValidationIssue">
 		<xs:annotation>
 			<xs:documentation>
-				A enumeration of possible image validation issues.
+				An enumeration of possible image validation issues.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
@@ -165,21 +168,21 @@
 			<xs:enumeration value ="TooDark">
 				<xs:annotation>
 					<xs:documentation>
-						Check image was too dark
+						Check image was too dark.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="TooLight">
 				<xs:annotation>
 					<xs:documentation>
-						Check image was too dark
+						Check image was too light.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="BelowMinSize">
 				<xs:annotation>
 					<xs:documentation>
-						The check image file size was below minimize required size.
+						The check image file size was below the minimize required size.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>

@@ -18,7 +18,7 @@
 	<xs:element name="remoteDepositPostRequestList" type="RemoteDepositPostRequestList">
 		<xs:annotation>
 			<xs:documentation>
-				Top level remote deposit post request list collection element
+				Top level remote deposit post request list collection element.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -33,7 +33,7 @@
 			<xs:element name="remoteDepositPostRequest" type="RemoteDepositPostRequest" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to remote deposit post request item.
+						Details related to a remote deposit post request item.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -44,13 +44,14 @@
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
-					The RemoteDepositPost data element contains all the attributes for posting the funds to an account for a previously remotely deposited item that was approved.  This includes attributes such as the posting amount.
+					The remote deposit post data element contains all the attributes for posting the funds to an account for
+          an approved, previously remotely deposited item.  This includes attributes such as the posting amount.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="routingTransitNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Routing/Transit number of the financial institution; 9-digits;
+						Routing/transit number of the financial institution. It has 9 digits.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -68,7 +69,9 @@
 			</xs:element>
 			<xs:element name="reference" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>A unique identifier of the deposited item for reference purposes.  Assigned by the remote deposit vendor.</xs:documentation>
+					<xs:documentation>
+            A unique identifier of the deposited item for reference purposes.  Assigned by the remote deposit vendor.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="mode" type="common:Mode" minOccurs="0" maxOccurs="1">

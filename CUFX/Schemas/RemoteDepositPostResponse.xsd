@@ -18,7 +18,7 @@
 	<xs:element name="remoteDepositPostResponseList" type="RemoteDepositPostResponseList">
 		<xs:annotation>
 			<xs:documentation>
-				Top level remote deposit post response list collection element
+				Top level remote deposit post response list collection element.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -33,7 +33,7 @@
 			<xs:element name="remoteDepositPostResponse" type="RemoteDepositPostResponse" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to remote deposit post response item.
+						Details related to a remote deposit post response item.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -44,13 +44,14 @@
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
-					The RemoteDepositPost data element contains all the attributes for posting the funds to an account for a previously remotely deposited item that was approved.  This includes attributes such as the posting amount.
+					The remote deposit post response data element contains all the attributes for posting the funds to an account
+          for an approved, previously remotely deposited item.  This includes attributes such as the posting amount.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:element name="postingStatus" type="PostingStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Routing/Transit number of the financial institution; 9-digits;
+						Routing/transit number of the financial institution. It has 9 digits.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>			
@@ -60,21 +61,21 @@
 	<xs:simpleType name ="PostingStatus">
 		<xs:annotation>
 			<xs:documentation>
-				A enumeration of possible status for a remote deposit post request.
+				An enumeration of possible statuses for a remote deposit post response.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
 			<xs:enumeration value ="Success">
 				<xs:annotation>
 					<xs:documentation>
-						TODO
+						TODO Remote deposit post response was successful.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="Failure">
 				<xs:annotation>
 					<xs:documentation>
-						TODO
+						TODO Remote deposit post response failed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
