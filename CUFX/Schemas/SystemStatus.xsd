@@ -14,7 +14,8 @@ attributeFormDefault="unqualified">
   <xs:element name= "systemStatusList" type ="SystemStatusList">
     <xs:annotation>
       <xs:documentation>
-        The System status collection/array list contains all the systems statuses that is authorized for access at the Institution based on applied filters.
+        The system status collection/array list contains all the system statuses that are authorized for access at
+        the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -22,7 +23,8 @@ attributeFormDefault="unqualified">
   <xs:complexType name="SystemStatusList">
     <xs:annotation>
       <xs:documentation>
-        The System status collection/array list contains all the systems states that is authorized for access at the Institution based on applied filters.
+        The system status collection/array list contains all the system statuses that are authorized for access at
+        the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -34,7 +36,7 @@ attributeFormDefault="unqualified">
   <xs:complexType name="SystemState">
     <xs:annotation>
       <xs:documentation>
-        This returns the status of the system, commonly used for on-line systems attempting to
+        This returns the status of the system, commonly used for online systems attempting to
         determine if the system is available for real-time transactions.
       </xs:documentation>
     </xs:annotation>
@@ -42,7 +44,7 @@ attributeFormDefault="unqualified">
       <xs:element name="systemName" type="SystemName" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The name of the system within the financial institution providing status.
+            The name of the system within the financial institution that is providing the status.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -50,7 +52,7 @@ attributeFormDefault="unqualified">
       <xs:element name="systemId" type="SystemId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The identification value of the system within the financial institution providing status.
+            The identification value of the system within the financial institution that is providing the status.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -68,7 +70,7 @@ attributeFormDefault="unqualified">
   <xs:simpleType name="SystemName">
     <xs:annotation>
       <xs:documentation>
-        The name of the system within the financial institution providing status.
+        The name of the system within the financial institution that is providing the status.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
@@ -77,7 +79,7 @@ attributeFormDefault="unqualified">
   <xs:simpleType name="SystemId">
     <xs:annotation>
       <xs:documentation>
-        The identification value of the system within the financial institution providing status.
+        The identification value of the system within the financial institution that is providing the status.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
@@ -86,8 +88,7 @@ attributeFormDefault="unqualified">
   <xs:simpleType name="SystemStatus">
     <xs:annotation>
       <xs:documentation>
-        Current Status of the document in the process of being sent, viewed, returned (see signature
-        type to determine if it was returned signed or not.)
+        Current status of the system, i.e. online, offline, etc.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
@@ -112,7 +113,7 @@ attributeFormDefault="unqualified">
             may be in MemoPost mode and accept transactions that are processed at a later time. Examples
             of such features are: intra-CU transfers and stop pay. Examples of features that may not be
             available during MemoPost are: loan application and change security settings. These examples
-            are provided for demonstration purposes only, the exact feature list will vary depending on
+            are provided for demonstration purposes only; the exact feature list will vary depending on
             each implementation.
           </xs:documentation>
         </xs:annotation>

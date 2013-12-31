@@ -14,7 +14,7 @@
 	<xs:element name="transferFilter" type="TransferFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of options for filters for services requesting transfer history.
+				The list of filter options for services requesting transfer history.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -23,7 +23,7 @@
 		<xs:complexContent>
 			<xs:annotation>
 				<xs:documentation>
-					The list of options for filters for services requesting transfer history.
+					The list of filter options for services requesting transfer history.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="fundsTransferFilterBase:FundsTransferFilterBase">
