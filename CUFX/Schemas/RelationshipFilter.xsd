@@ -19,7 +19,7 @@
   <xs:element name="relationshipFilter" type="RelationshipFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting relationship data.
+        The list of filter options for services requesting relationship data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -27,8 +27,8 @@
   <xs:complexType name="RelationshipFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services requesting relationship data.  The options can be used
-        in combination or by themselves and it is up to the data source to either return or affect the
+        The list of filter options for services requesting relationship data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return or affect the
         data requested or return a standard error identifying why the request was rejected.
       </xs:documentation>
     </xs:annotation>
@@ -36,7 +36,8 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of partyId's that should be returned or affected by a read, update or delete relationship request.
+            The list of party ID's that should be returned or affected by a read, update or delete
+            relationship request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -44,8 +45,8 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of relationshipId's that should have their associated relationships either returned or affected
-            by a read, update or delete relationship request.
+            The list of relationship ID's that should have their associated relationships either returned
+            or affected by a read, update or delete relationship request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -53,7 +54,7 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of Account Id's that should have their associated relationships either returned or affected
+            The list of cccount ID's that should have their associated relationships either returned or affected
             by a read, update or delete relationship request.
           </xs:documentation>
         </xs:annotation>
@@ -62,7 +63,7 @@
       <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The list of contact Id's that should have their associated relationships either returned or affected
+            The list of contact ID's that should have their associated relationships either returned or affected
             by a read, update or delete relationship request.
           </xs:documentation>
         </xs:annotation>

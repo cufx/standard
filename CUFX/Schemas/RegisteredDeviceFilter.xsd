@@ -22,7 +22,7 @@
   <xs:element name= "registeredDeviceFilter" type ="RegisteredDeviceFilter">
     <xs:annotation>
       <xs:documentation>
-        The collection/array list contains all the Devices to be created, read, updated or deleted with this
+        The collection/array list contains all the devices to be created, read, updated or deleted with this
         request.
       </xs:documentation>
     </xs:annotation>
@@ -31,7 +31,7 @@
   <xs:complexType name="RegisteredDeviceFilter">
     <xs:annotation>
       <xs:documentation>
-        The collection/array contains all the Devices to be created, read, updated or deleted with
+        The collection/array contains all the devices to be created, read, updated or deleted with
         this request.
       </xs:documentation>
     </xs:annotation>
@@ -40,7 +40,7 @@
   <xs:complexType name="RegisteredDevice">
     <xs:annotation>
       <xs:documentation>
-        The registered device to be created, read, updated or deleted and encryption indicator. 
+        The registered device to be created, read, updated or deleted and the encryption indicator. 
       </xs:documentation>
     </xs:annotation>
 
@@ -48,7 +48,7 @@
       <xs:element name="deviceIDList" type="registeredDevice:RegisteredDeviceIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-           The registered device/ip identification string.  The application should ensure that 
+           The registered device identification string.  The application should ensure that 
            this is unique across all accounts. 
           </xs:documentation>
         </xs:annotation>
@@ -57,7 +57,7 @@
       <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Collection of key fields to point to a list of existing parties for
+            Collection of key fields that point to a list of existing parties for
             which should be contacted.
           </xs:documentation>
         </xs:annotation>
@@ -66,8 +66,8 @@
       <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Collection of key fields to point to a list of
-            existing relationships for which the productServiceRequest applies.
+            Collection of key fields that point to a list of
+            existing relationships for which the product service request applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -75,8 +75,8 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Collection of key fields to point to a list of
-            existing acounts for which the productServiceRequest applies.
+            Collection of key fields that point to a list of
+            existing acounts for which the product service request applies.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -84,10 +84,10 @@
       <xs:element name="encryptedFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            If True, indicates that the deviceID was encrypted.
+            If True, indicates that the device ID was encrypted.
             Encryption method is agreed upon by application end point
             providers.  Assume it’s NOT encrypted if this flag is not provided.
-            The messageContext will be used by the service to understand which client is calling the service
+            The message context will be used by the service to understand which client is calling the service
             to know which encryption algorithm to apply.
           </xs:documentation>
         </xs:annotation>
