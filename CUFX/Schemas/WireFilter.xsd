@@ -16,7 +16,7 @@
   <xs:element name="wireFilter" type="WireFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options for filters for services using wire account data.
+        The list of filter options for services using wire account data.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -24,7 +24,7 @@
   <xs:complexType name="WireFilter">
     <xs:annotation>
       <xs:documentation>
-        The list of options to filter Wire Transfers.
+        The list of options to filter wire transfers.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -34,7 +34,8 @@
           <xs:element name="wireStatusType" type="wire:WireTransferType" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
-                Additional filter along with the filter options specified in FundsTransferFilter, the wires can be filtered by Wire Status Type
+                Additional filter along with the filter options specified in FundsTransferFilter.
+                The wires can be filtered by wire status type.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
