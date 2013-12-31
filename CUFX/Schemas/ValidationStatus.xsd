@@ -8,13 +8,17 @@
 
   <xsd:element name="validationStatus" type="ValidationStatus">
     <xsd:annotation>
-      <xsd:documentation>Top level element for ValidaitonStatus</xsd:documentation>
+      <xsd:documentation>
+        Top level element for validation status.
+      </xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   
 	<xsd:simpleType name = "ValidationStatus">
     <xsd:annotation>
-      <xsd:documentation>Enumeration defining possible results of a simple validation.</xsd:documentation>
+      <xsd:documentation>
+        An enumeration defining possible results of a simple validation.
+      </xsd:documentation>
     </xsd:annotation>
     <xsd:restriction base = "xsd:string">
     	<xsd:enumeration value = "Pass">

@@ -21,8 +21,8 @@
   <xs:element name="transferRecurringMessage" type="TransferRecurringMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a transferRecurringMessage.  Contains messageContext and transferFilter.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        All values that can be sent in a transfer recurring message.  Contains message context and transfer filter.
+        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
         example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -31,8 +31,8 @@
   <xs:complexType name="TransferRecurringMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a transferMessage.  Contains messageContext and transferFilter.
-        This is a wrapper to more easily serialize the complete message.  All values are optional.  See
+        All values that can be sent in a transfer recurring message.  Contains message context and transfer filter.
+        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
         example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -40,23 +40,23 @@
       <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The MessageContext contains information that is passed as part of each CUFX message call.
-            Identifies who is sending the request in and enables some level of security or processing to be executed by the
-            service provider.
+            The message context contains information that is passed as part of each CUFX message call.  It
+            identifies who is sending the request in and enables the service provider to execute some level
+            of security or processing.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="transferFilter" type="transferFilter:TransferFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Any filters applied to the a read, update or delete transfers.
+            Any filters applied to a read, update or delete transfer request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="transferRecurringList" type="transferRecurring:TransferRecurringList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All of the scheduled transfers.
+            All of the recurring transfer data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

@@ -15,7 +15,7 @@
 	<xs:element name="transferRecurringList" type="TransferRecurringList">
 		<xs:annotation>
 			<xs:documentation>
-				List of transfers returned from a data pull that based on filters that were applied.
+				List of recurring transfers returned from a data pull that was based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -23,14 +23,14 @@
 	<xs:complexType name="TransferRecurringList">
 		<xs:annotation>
 			<xs:documentation>
-				List of recurring transfers returned from a data pull that based on filters that were applied.
+				List of recurring transfers returned from a data pull that was based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="transferRecurring" type="TransferRecurring" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to specific recurring transfer.
+						Details related to a specific recurring transfer.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

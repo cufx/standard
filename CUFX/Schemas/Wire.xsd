@@ -15,7 +15,9 @@
 
   <xs:element name="wireList" type="WireList">
     <xs:annotation>
-      <xs:documentation>List of wires that are associated to this message.</xs:documentation>
+      <xs:documentation>
+        List of wires that are associated to this message.
+      </xs:documentation>
     </xs:annotation>
   </xs:element>
 
@@ -31,22 +33,30 @@
         <xs:sequence>
           <xs:element name="wireTransferType" type="WireTransferType" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>Wire Transfer type.</xs:documentation>
+              <xs:documentation>
+                Wire transfer type.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="wireTransferSpecialInstructions" type="xs:string" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>Special Instructions for Wire Transfer.</xs:documentation>
+              <xs:documentation>
+                Special instructions for wire transfer.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="escrowNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>EscrowNumber for WireTransferType Escrow.</xs:documentation>
+              <xs:documentation>
+                Escrow number for wire transfer type escrow.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="escrowOfficerName" type="xs:string" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
-              <xs:documentation>EscrowOfficer name for WireTransferType Escrow.</xs:documentation>
+              <xs:documentation>
+                Escrow officer name for wire transfer type escrow.
+              </xs:documentation>
             </xs:annotation>
           </xs:element>
         </xs:sequence>
