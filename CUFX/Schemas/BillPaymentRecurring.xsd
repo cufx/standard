@@ -23,7 +23,7 @@ attributeFormDefault="unqualified">
 
 	<xs:complexType name="BillPaymentRecurringList">
 		<xs:sequence>
-			<xs:element name="BillPaymentRecurring" type="BillPaymentRecurring" minOccurs="0" maxOccurs="unbounded"  />
+			<xs:element name="billPaymentRecurring" type="BillPaymentRecurring" minOccurs="0" maxOccurs="unbounded"  />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -175,6 +175,25 @@ attributeFormDefault="unqualified">
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:complexType name="BillPaymentRecurringIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of billpayment ID's that should have their associated bill payment either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPaymentRecurringId" type="BillPaymentRecurringId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A bill payment ID that should have its associated bill payment either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 
 </xs:schema>

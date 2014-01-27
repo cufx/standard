@@ -28,7 +28,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="billPayeeList" type="billPayee:BillPayeeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPayeeGlobalIdList" type="billPayee:BillPayeeGlobalIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of BillPayee ID's that should have their associated billPayees either returned or affected

@@ -9,7 +9,7 @@
   xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
-   xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
+  xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -205,6 +205,25 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:complexType name="BillPaymentOccurenceIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of billpayment ID's that should have their associated bill payment either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPaymentOccurenceId" type="BillPaymentId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A bill payment ID that should have its associated bill payment either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 
 	<xs:simpleType name="BillPaymentOccurrenceStatus">
 		<xs:annotation>

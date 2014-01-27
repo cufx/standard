@@ -334,4 +334,23 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:complexType name="BillPayeeGlobalIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of contact ID's that should have their associated contacts either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPayeeGlobalId" type="BillPayeeGlobalId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A contact ID that should have its associated contacts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
