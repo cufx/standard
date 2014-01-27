@@ -139,7 +139,7 @@ namespace CUFX.Generator
 				}
 				#endregion
 
-				#region Generate the XML examples
+				#region Generate the XML/JSON examples
                 string outXmlFileName = Path.Combine(sGeneratedPath + "\\XML\\", Path.GetFileNameWithoutExtension(xsdFilePath)) + ".xml";
 				using (XmlTextWriter outXmlFile = new XmlTextWriter(outXmlFileName, null))
 				{
@@ -150,6 +150,9 @@ namespace CUFX.Generator
 					generator.WriteXml(outXmlFile);
                     //Console.WriteLine("XML Files Created");
 				}
+
+                string outJSONFileName = Path.Combine(sGeneratedPath + "\\JSON\\", Path.GetFileNameWithoutExtension(xsdFilePath)) + ".json";
+                JsonGenerator.GenerateJsonFromXml(outXmlFileName, outJSONFileName);
 				#endregion
 
                 // Generate one .cs for all the types and place it in the Schemas project
@@ -188,7 +191,7 @@ namespace CUFX.Generator
             }
             #endregion
 
-            JsonGenerator.GenerateJsonFromCs(sGeneratedPath + "\\WCF\\CUFX.cs", Path.Combine(sGeneratedPath, Path.GetFileNameWithoutExtension(cufxCsFile)) + ".json");
+            
 
             Console.WriteLine("JSON File Created");
 			Console.WriteLine("Press any key to close");

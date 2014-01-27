@@ -13,11 +13,33 @@ using Newtonsoft.Json;
 using FizzWare.NBuilder;
 using System.Collections;
 using Newtonsoft.Json.Converters;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace CUFX.Generator
 {
 	public class JsonGenerator
 	{
+        public static bool GenerateJsonFromXml(string sourceXMLFile, string jsonFile)
+        {
+            // To convert an XML node contained in string xml into a JSON string   
+            XmlDocument doc = new XmlDocument();
+            using (System.IO.StreamReader inFile = new System.IO.StreamReader(sourceXMLFile))
+            {
+                string data = inFile.ReadToEnd();
+                data = Regex.Replace(data, "xmlns=\"[0-9a-zA-Z:/.]+\"", "");
+                //data = data.Replace("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
+                doc.LoadXml(data);
+            }
+            //doc.Load(sourceXMLFile);
+            string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(jsonFile))
+            {
+                file.Write(jsonText);
+            }
+
+            return true;
+        }
 		public static bool GenerateJsonFromCs(string sourceCsFile, string jsonFile)
 		{
 			CSharpCodeProvider provider = new CSharpCodeProvider();
