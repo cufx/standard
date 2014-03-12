@@ -408,6 +408,41 @@
     <xs:restriction base="xs:string" ></xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="StatusList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of remote deposit statuses that should be returned or affected by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of remote deposit statuses that should be returned or affected by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ActionList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="action" type="Action" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
+            Any single remote deposit will only have one valid action in progress at a given time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="RemoteDepositIdList">
     <xs:annotation>
       <xs:documentation>
