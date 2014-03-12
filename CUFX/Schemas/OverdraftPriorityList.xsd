@@ -63,7 +63,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="overdraftPriorityId" type="OverdraftPriorityId">
+      <xs:element name="overdraftPriorityId" type="OverdraftPriorityId" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The overdraft priority ID is a persistent and unique identifier for each entry in an account's overdraft priority list.

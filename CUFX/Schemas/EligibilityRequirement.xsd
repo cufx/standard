@@ -39,7 +39,7 @@
   
   <xs:complexType name="EligibilityRequirement">
     <xs:sequence>
-      <xs:element name="requirementID" type="RequirementId" minOccurs="0" maxOccurs="1">
+      <xs:element name="requirementId" type="RequirementId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Identifier for the type of the eligibility requirement.
@@ -134,7 +134,7 @@
 
   <xs:complexType name="EligibilityRequirementIdList">
     <xs:sequence>
-      <xs:element name="requirementID" type="RequirementId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="requirementId" type="RequirementId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Identifier for the type of the eligibility requirement.
