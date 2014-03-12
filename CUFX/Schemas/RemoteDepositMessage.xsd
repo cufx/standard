@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/RemoteDepositRequestMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/RemoteDepositPostRequestMessage.xsd"
 	version="3.0.$Revision$"
-	xmlns="http://cufxstandards.com/v3/RemoteDepositRequestMessage.xsd"
+	xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequestMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:remoteDepositRequest="http://cufxstandards.com/v3/RemoteDepositRequest.xsd"
+  xmlns:remoteDeposit="http://cufxstandards.com/v3/RemoteDeposit.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/RemoteDepositRequest.xsd" schemaLocation="RemoteDepositRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
 
-  <xs:element name="remoteDepositRequestMessage" type="RemoteDepositRequestMessage">
+  <xs:element name="remoteDepositMessage" type="RemoteDepositMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a remote deposit request message.  Contains message context and a remote deposit
-        request list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
+        All values that can be sent in a remote deposit message.  Contains message context and a remote deposit
+        list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
         See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="RemoteDepositRequestMessage">
+  <xs:complexType name="RemoteDepositMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a remote deposit request message.  Contains message context and a remote deposit
-        request list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
+        All values that can be sent in a remote deposit message.  Contains message context and a remote deposit
+        list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
         See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -41,10 +41,10 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="remoteDepositRequestList" type="remoteDepositRequest:RemoteDepositRequestList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="remoteDepositList" type="remoteDeposit:RemoteDepositList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            All the remote deposit request data.
+            All the remote deposit data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
