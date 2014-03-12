@@ -386,6 +386,14 @@
         </xs:annotation>
       </xs:enumeration>
 
+      <xs:enumeration value ="476">
+        <xs:annotation>
+          <xs:documentation>
+            Invalid encironment.  The environment specified in MessageContext is disallowed by the system as configured.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
 
       <xs:enumeration value ="497">
         <xs:annotation>
@@ -488,6 +496,7 @@
         </xs:annotation>
       </xs:enumeration>
 
+      
     </xs:restriction>
   </xs:simpleType>
 

@@ -23,7 +23,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="requestID" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="requestId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The request ID is a unique identifier which identifies the request from the source system. The client application
@@ -31,7 +31,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="vendorID" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="vendorId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
@@ -44,7 +44,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="appID" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="appId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The app id is an "agreed upon" unique identifier that identifies the application that is creating a message.
@@ -56,7 +56,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="fiID" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="fiId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The FIID  is used by systems to uniquely identify each financial institution.
@@ -68,7 +68,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="dataSourceID" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="dataSourceId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The data source ID  is used by the systems to uniquely identify a registered data source within the financial
@@ -81,6 +81,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="environment" type="Environment" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates the environment in which the message is to be executed. If not specified, "Production" is assumed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1" default="All">
         <xs:annotation>
           <xs:documentation>
@@ -235,6 +242,55 @@
       <xs:enumeration value="All" />
       <xs:enumeration value="OnlyCreatedOrChangedData" />
       <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Environment">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates the environment in which the message should be executed.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Development">
+        <xs:annotation>
+          <xs:documentation>
+            The message is to be executed in a development environment.
+            Test data stores are to be used and various functionality may be disabled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UAT">
+        <xs:annotation>
+          <xs:documentation>
+            The message is to be executed in a UAT environment.
+            Test data stores are to be used and various functionality may be disabled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Training">
+        <xs:annotation>
+          <xs:documentation>
+            The message is to be executed in a training environment.
+            Data stores containing training data are to be used and various functionality may be disabled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QA">
+        <xs:annotation>
+          <xs:documentation>
+            The message is to be executed in a QA environment.
+            Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Production">
+        <xs:annotation>
+          <xs:documentation>
+            The message is to be executed in a production environment.
+            Production data stores are to be used and all features and functionality are enabled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

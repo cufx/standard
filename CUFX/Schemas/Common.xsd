@@ -199,7 +199,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-
   <xs:complexType name="Distance">
 		<xs:sequence>
 			<xs:sequence>
@@ -208,17 +207,5 @@
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="Mode">
-		<xs:annotation>
-			<xs:documentation>
-				Indicates whether this is in a production or test mode.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Test"/>
-			<xs:enumeration value="Production"/>
-		</xs:restriction>
-	</xs:simpleType>
 
 </xs:schema>
