@@ -127,15 +127,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="minimumDaysToPay" type="xs:int" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						This is the minimum number of business days a payment must be scheduled in advance
-						for the payee to receive payment in time.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="sentDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
