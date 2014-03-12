@@ -124,7 +124,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="micrAccountNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
+			<xs:element name="micrAccountNumber" type="MicrAccountNumber"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account number portion of a draft or line of credit MICR line.
@@ -525,5 +525,17 @@
 			<xs:enumeration value="Other"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
+  <xs:simpleType name="MicrAccountNumber">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The account ID is a persistent and unique identifier for the account.
+          It must be unique for all users across the institution and remain the same over the life of the account.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
 
 </xs:schema>
