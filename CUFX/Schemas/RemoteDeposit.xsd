@@ -61,14 +61,21 @@
 			<xs:element name="vendorReferenceId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						A unique identifier created by the vendor providing the deposit service for this remote deposit request instance
+						A unique identifier created by the vendor for this remote deposit request instance
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="checkNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number on the front of the item to be deposited
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>			
 			<xs:element name="routingTransitNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Routing/transit number of the financial institution.  It has 9 digits.
+						Routing/transit number of the financial institution of the deposit item.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -90,14 +97,14 @@
 			<xs:element name="frontImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The front image of the check.
+						The front image of the check, on retrieval, the artifact may contain only the id depending on the filter.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="backImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The back image of the check.
+						The back image of the check, on retrieval, the artifact may contain only the id depending on the filter.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -171,15 +178,9 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value ="Inquire">
-				<xs:annotation>
-					<xs:documentation>
-						Return the current status of the remote deposit session
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name ="Status">
 		<xs:annotation>
 			<xs:documentation>
@@ -208,14 +209,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value ="DeclinedRestricted">
+			<xs:enumeration value ="DeclinedEligibility">
 				<xs:annotation>
 					<xs:documentation>
 						The remote deposit request was declined because the user is currently restricted from using this service.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value ="DeclinedImageValidationIssues">
+			<xs:enumeration value ="DeclinedImageValidationIssue">
 				<xs:annotation>
 					<xs:documentation>
 						The remote deposit image request was declined because of image validation issues.  See the image validation
@@ -223,17 +224,17 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value ="ImageValidation">
-				<xs:annotation>
-					<xs:documentation>
-						The check image has folded corners.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value ="DuplicateItem">
 				<xs:annotation>
 					<xs:documentation>
 						This item has already been sumbitted to the target system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidReferenceId">
+				<xs:annotation>
+					<xs:documentation>
+						An unknown reference id was provided
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -366,6 +367,20 @@
 				<xs:annotation>
 					<xs:documentation>
 						The check image MICR was not usable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ImageFormat">
+				<xs:annotation>
+					<xs:documentation>
+						An unknown or unsupported image type was provided
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="EndorsementUsability">
+				<xs:annotation>
+					<xs:documentation>
+						The endorsement on the back of the item is not detected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
