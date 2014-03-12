@@ -10,6 +10,7 @@
     xmlns:account="http://cufxstandards.com/v3/Account.xsd"
     xmlns:party="http://cufxstandards.com/v3/Party.xsd"
     xmlns:billPayee="http://cufxstandards.com/v3/BillPayee.xsd"
+    xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -20,9 +21,10 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
 
 
-	<xs:element name= "billList" type ="BillList">
+  <xs:element name= "billList" type ="BillList">
 		<xs:annotation>
 			<xs:documentation>
 				The bill list is the collection of bills from different payess for a party/relation/member.
@@ -52,10 +54,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="billImage" type="xs:base64Binary" minOccurs="0" maxOccurs ="1">
+			<xs:element name="billImageArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The image of the bill.  Image must be in JPG or PNG format.
+						The image of the bill.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
