@@ -4,7 +4,9 @@
 	xmlns="http://cufxstandards.com/v3/RemoteDeposit.xsd"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
+	xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"  
+	xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+
            
 	version="3.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -16,6 +18,8 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+
 
 	<xs:element name="remoteDepositList" type="RemoteDepositList">
 		<xs:annotation>
@@ -72,7 +76,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="checkNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="checkNumber" type="fundsTransferOccurrenceBase:CheckNumber" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The number on the front of the item to be deposited
