@@ -90,6 +90,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="micrCheckAccountNumber" type="account:MicrAccountNumber" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						MICR account number of the financial institution of the deposit item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
