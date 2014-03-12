@@ -42,7 +42,7 @@
   
   <xs:complexType name="MicroDepositFunding">
 		<xs:sequence>
-			<xs:element name="MicroDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             ID to track micro-deposits.
@@ -67,7 +67,7 @@
       </xs:element>
       
 <!-- status expiration date and make amount list , casing -->
-			<xs:element name="MicroDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             Confirmation code for micro-deposits.
@@ -75,7 +75,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="FundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             External account that needs to be verified.
@@ -83,13 +83,13 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="MicroAmount1" type="common:Money" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microAmount1" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>Micro deposit 1</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="MicroAmount2" type="common:Money" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microAmount2" type="common:Money" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             Micro-deposit 2.

@@ -398,7 +398,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="StatementDate" type="xs:date" minOccurs="0" maxOccurs="1">
+					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Date for statement cut-off (billing date).
@@ -1723,14 +1723,14 @@
 
   <xs:complexType name="CreditLimitIncreaseRequestList">
     <xs:sequence>
-      <xs:element name="RequestDate" type="xs:dateTime" minOccurs="0" >
+      <xs:element name="requestDate" type="xs:dateTime" minOccurs="0" >
         <xs:annotation>
           <xs:documentation>
             The date on which the credit limit increase request was made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="LimitIncreaseDate" type="xs:dateTime" minOccurs="0" >
+      <xs:element name="limitIncreaseDate" type="xs:dateTime" minOccurs="0" >
         <xs:annotation>
           <xs:documentation>
             The date on which the credit limit was increased.

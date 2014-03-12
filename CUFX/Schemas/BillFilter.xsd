@@ -19,7 +19,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
 
-	<xs:element name="BillFilter" type="BillFilter">
+	<xs:element name="billFilter" type="BillFilter">
 		<xs:annotation>
 			<xs:documentation>
 				The list of filter options for services requesting Bill data.
@@ -37,7 +37,7 @@
 		</xs:annotation>
 
 		<xs:sequence>
-			<xs:element name="BillList" type="bill:BillList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="billList" type="bill:BillList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						All the bill data.

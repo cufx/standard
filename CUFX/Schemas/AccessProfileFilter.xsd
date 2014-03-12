@@ -10,7 +10,7 @@
 
   <xs:import namespace="http://cufxstandards.com/v3/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
 
-  <xs:element name="AccessProfileFilter" type="AccessProfileFilter">
+  <xs:element name="accessProfileFilter" type="AccessProfileFilter">
     <xs:annotation>
       <xs:documentation>
         The list of filter options for services requesting access profile data.
@@ -29,7 +29,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="AccessProfileIdList" type="AccessProfile:AccessProfileIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="accessProfileIdList" type="AccessProfile:AccessProfileIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of access profile ID's that should be returned or affected by a read, update or delete account request.

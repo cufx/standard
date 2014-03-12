@@ -366,7 +366,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="DailyMax" minOccurs="1" maxOccurs="1" nillable="false">
+      <xs:element name="dailyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="common:Money" name="MaxAmount"/>
@@ -376,7 +376,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="WeeklyMax" minOccurs="1" maxOccurs="1" nillable="false">
+      <xs:element name="weeklyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="common:Money" name="MaxAmount"/>
@@ -386,7 +386,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="MonthlyMax" minOccurs="1" maxOccurs="1" nillable="false">
+      <xs:element name="monthlyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="common:Money" name="MaxAmount"/>

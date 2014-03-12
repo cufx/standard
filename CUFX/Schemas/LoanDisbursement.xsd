@@ -241,7 +241,7 @@
 			</xs:annotation>
 			<xs:extension base="LoanDisbursementBase">
 				<xs:sequence>
-					<xs:element name="GLAccount" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:element name="glAccount" type="xs:string" minOccurs="1" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the dealer that this disbursement should go to.
