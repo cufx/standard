@@ -5,11 +5,13 @@
   xmlns="http://cufxstandards.com/v3/RemoteDepositFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:remoteDeposit="http://cufxstandards.com/v3/RemoteDeposit.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
            
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name="remoteDepositFilter" type="RemoteDepositFilter">
     <xs:annotation>
@@ -35,11 +37,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            An account IDs that should have its associated accounts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
       <xs:element name="statusList" type="remoteDeposit:StatusList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of remote deposit statuses that uniquely identify each remote deposit to be affected by the request.
+            The list of remote deposit statuses that identify each remote deposit to be affected by the request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -47,7 +58,7 @@
       <xs:element name="actionList" type="remoteDeposit:ActionList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The list of remote deposits actions that uniquely identify each remote deposit to be affected by the request.
+            The list of remote deposits actions that identify each remote deposit to be affected by the request.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -92,7 +103,53 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="includeImageOnRead" type="IncludeImageOnRead" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Used to define if images should be returned as part of the request and allows for differentiation for front, back images or both.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
+  
+  <xs:simpleType name ="IncludeImageOnRead">
+    <xs:annotation>
+      <xs:documentation>
+        An enumeration of possible image types
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base ="xs:string">
+      <xs:enumeration value ="ArtifactIdOnly">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates to not return an image as part of the request.
+        </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="FrontImage">
+        <xs:annotation>
+          <xs:documentation>
+            Return front images as part of the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="BackImage">
+        <xs:annotation>
+          <xs:documentation>
+            Return back images as part of the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="BothFrontBackImage">
+        <xs:annotation>
+          <xs:documentation>
+            Return front and back images as part of the request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
 </xs:schema>
 
