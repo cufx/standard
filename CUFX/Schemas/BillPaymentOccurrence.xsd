@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v3/BillPaymentOccurence.xsd"
+   targetNamespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
 	version="3.0.$Revision$"
-  xmlns="http://cufxstandards.com/v3/BillPaymentOccurence.xsd"
+  xmlns="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
   xmlns:party="http://cufxstandards.com/v3/Party.xsd"
@@ -47,7 +47,7 @@
 		<xs:complexContent>
 			<xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase" >
 				<xs:sequence>
-					<xs:element name="billPaymentOccurenceId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
+					<xs:element name="billPaymentOccurrenceId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								An ID that uniquely identifies the bill payment.
@@ -71,7 +71,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="fundsTransferOccurenceId" type="fundsTransferOccurrenceBase:OccurrenceId" minOccurs="0" maxOccurs="1">
+					<xs:element name="fundsTransferOccurrenceId" type="fundsTransferOccurrenceBase:OccurrenceId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								An ID that uniquely identifies the bill payment.
@@ -206,7 +206,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="BillPaymentOccurenceIdList">
+  <xs:complexType name="BillPaymentOccurrenceIdList">
     <xs:annotation>
       <xs:documentation>
         The list of billpayment ID's that should have their associated bill payment either returned or affected
@@ -214,7 +214,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="billPaymentOccurenceId" type="BillPaymentId" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="billPaymentOccurrenceId" type="BillPaymentId" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             A bill payment ID that should have its associated bill payment either returned or affected

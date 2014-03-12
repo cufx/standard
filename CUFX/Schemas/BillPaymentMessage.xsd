@@ -5,7 +5,7 @@
 	xmlns="http://cufxstandards.com/v3/BillPaymentMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:billPaymentOccurence="http://cufxstandards.com/v3/BillPaymentOccurence.xsd"
+  xmlns:billPaymentOccurence="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
   xmlns:BillPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
 	xmlns:billPaymentFilter="http://cufxstandards.com/v3/BillPaymentFilter.xsd"
 
@@ -13,7 +13,7 @@
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurence.xsd" schemaLocation="BillPaymentOccurence.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd" schemaLocation="BillPaymentOccurrence.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd" schemaLocation="BillPaymentRecurring.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentFilter.xsd" schemaLocation="BillPaymentFilter.xsd" />
 
@@ -53,7 +53,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="billPaymentList" type="billPaymentOccurence:BillPaymentList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPaymentList" type="billPaymentOccurrence:BillPaymentList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             All the bill payment data.
