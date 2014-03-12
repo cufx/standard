@@ -369,30 +369,30 @@
       <xs:element name="dailyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="common:Money" name="MaxAmount"/>
-            <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="common:Money" name="RollingAmount"/>
-            <xs:element type="xs:integer" name="RollingNumber"/>
+            <xs:element type="common:Money" name="maxAmount"/>
+            <xs:element type="xs:integer" name="maxNumber"/>
+            <xs:element type="common:Money" name="rollingAmount"/>
+            <xs:element type="xs:integer" name="rollingNumber"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="weeklyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="common:Money" name="MaxAmount"/>
-            <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="common:Money" name="RollingAmount"/>
-            <xs:element type="xs:integer" name="RollingNumber"/>
+            <xs:element type="common:Money" name="maxAmount"/>
+            <xs:element type="xs:integer" name="maxNumber"/>
+            <xs:element type="common:Money" name="rollingAmount"/>
+            <xs:element type="xs:integer" name="rollingNumber"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="monthlyMax" minOccurs="1" maxOccurs="1" nillable="false">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="common:Money" name="MaxAmount"/>
-            <xs:element type="xs:integer" name="MaxNumber"/>
-            <xs:element type="common:Money" name="RollingAmount"/>
-            <xs:element type="xs:integer" name="RollingNumber"/>
+            <xs:element type="common:Money" name="maxAmount"/>
+            <xs:element type="xs:integer" name="maxNumber"/>
+            <xs:element type="common:Money" name="rollingAmount"/>
+            <xs:element type="xs:integer" name="rollingNumber"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
