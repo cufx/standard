@@ -41,7 +41,7 @@
     </xs:annotation>
 
     <xs:sequence>
-      <xs:element name="artifactId" type="ArtifactId" minOccurs="1" maxOccurs="1" nillable="false">
+      <xs:element name="artifactId" type="ArtifactId" minOccurs="0" maxOccurs="1" nillable="false">
         <xs:annotation>
           <xs:documentation>
             A unique number used to identify a specific artifact within the repository.
