@@ -273,13 +273,4 @@
     </xs:sequence>
   </xs:complexType>
 
-	<xs:simpleType name="CheckNumber">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The number on the face of the check indicating the id of that check in a series.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>

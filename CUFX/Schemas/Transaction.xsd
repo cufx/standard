@@ -5,11 +5,11 @@
 	xmlns="http://cufxstandards.com/v3/Transaction.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
-   xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-   xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-   xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+	xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -91,6 +91,13 @@
 								<xs:documentation>
 									The description represents the memo of the transaction and should be no longer
 									than 5000 characters.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="checkNumber" type="CheckNumber" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									The number of the check.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
@@ -215,4 +222,13 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="CheckNumber">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The number on the face of the check indicating the id of that check in a series.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
