@@ -163,7 +163,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="checkNumber" type="xs:integer" minOccurs="0" maxOccurs ="1">
+					<xs:element name="checkNumber" type="fundsTransferOccurrenceBase:CheckNumber" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								The number of the bill payment check.
