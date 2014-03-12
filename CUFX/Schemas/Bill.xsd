@@ -10,7 +10,7 @@
     xmlns:account="http://cufxstandards.com/v3/Account.xsd"
     xmlns:party="http://cufxstandards.com/v3/Party.xsd"
     xmlns:billPayee="http://cufxstandards.com/v3/BillPayee.xsd"
-    xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
+		xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
    
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -21,7 +21,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
 
 
   <xs:element name= "billList" type ="BillList">
