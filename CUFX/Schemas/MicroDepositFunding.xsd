@@ -7,6 +7,8 @@
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -14,8 +16,9 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
-  <xs:element name="microDepositFundingList" type="MicroDepositFundingList">
+	<xs:element name="microDepositFundingList" type="MicroDepositFundingList">
     <xs:annotation>
       <xs:documentation>
         Top level micro-deposit list collection element.
@@ -42,6 +45,12 @@
   
   <xs:complexType name="MicroDepositFunding">
 		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					A small deposit used to verify the validity of the account owner.  Typically during the ACH setup process.
+				</xs:documentation>
+			</xs:annotation>
+			
 			<xs:element name="microDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -57,16 +66,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      <xs:element name="accountId" type="account:AccountId" minOccurs="1" maxOccurs="1">
+			
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the party.  Typically either the relationship or the party is used
+						not both.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+      <xs:element name="sourceAccount" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The ID of the linked account for this micro-deposit.
+            The ID of the account or general ledger that is the source of the deposit for this micro-deposit.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       
-<!-- status expiration date and make amount list , casing -->
 			<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -75,29 +92,36 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="fundingAccount" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="externalAccount" type="account:Account" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            External account that needs to be verified.
+            External account that needs to be verified.  This is used to contain all of the information
+						about the account and may not be persisted to a store.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="microAmount1" type="common:Money" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>Micro deposit 1</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="microAmount2" type="common:Money" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microAmountList" type="common:MoneyList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            Micro-deposit 2.
-          </xs:documentation>
+						Microdeposit 0 - n.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications.  ANY use of this field must be
+						reported to the architecture or working group committee to ensure that fields are somehow
+						handled in the future release of specifications.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
 		</xs:sequence>
 	</xs:complexType>
-
-	</xs:schema>
+	
+</xs:schema>
