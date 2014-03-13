@@ -21,7 +21,7 @@
 	<xs:element name="microDepositFundingList" type="MicroDepositFundingList">
     <xs:annotation>
       <xs:documentation>
-        Top level micro-deposit list collection element.
+        Top level microdeposit list collection element.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -30,13 +30,13 @@
     <xs:sequence>
       <xs:annotation>
         <xs:documentation>
-          Collection of micro-deposits data definition.
+          Collection of microdeposits data definition.
         </xs:documentation>
       </xs:annotation>
       <xs:element name="microDepositFunding" type="MicroDepositFunding" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            Details related to micro-deposit account.
+            Details related to microdeposit account.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -54,7 +54,7 @@
 			<xs:element name="microDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            ID to track micro-deposits.
+            ID to track microdeposits.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -62,7 +62,7 @@
       <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The relationship ID to which the micro-deposit belongs.
+            The relationship ID to which the microdeposit belongs.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -79,7 +79,7 @@
       <xs:element name="sourceAccount" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The ID of the account or general ledger that is the source of the deposit for this micro-deposit.
+            The ID of the account or general ledger that is the source of the deposit for this microdeposit.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -87,7 +87,7 @@
 			<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            Confirmation code for micro-deposits.
+            Confirmation code for microdeposits.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>

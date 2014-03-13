@@ -20,7 +20,7 @@
 	<xs:element name="microDepositFundingFilter" type="MicroDepositFundingFilter">
     <xs:annotation>
       <xs:documentation>
-        Instance of a micro-deposit funding filter.
+        Instance of a microdeposit funding filter.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -29,7 +29,7 @@
     <xs:complexContent>
       <xs:annotation>
         <xs:documentation>
-          The list of options to filter micro-deposits.
+          The list of options to filter microdeposits.
         </xs:documentation>
       </xs:annotation>
       <xs:extension base="fundsTransferFilterBase:FundsTransferFilterBase">
@@ -38,7 +38,7 @@
           <xs:element name="microDepositId" type="xs:string" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
-                ID to track micro-deposits.
+                ID to track microdeposits.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -46,7 +46,7 @@
           <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                The relationship ID that the micro-deposit belongs to.
+                The relationship ID that the microdeposit belongs to.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -63,7 +63,7 @@
           <xs:element name="sourceAccount" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
               <xs:documentation>
-                The ID of the linked account for this micro-deposit.
+                The ID of the linked account for this microdeposit.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -71,7 +71,7 @@
 					<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								Confirmation code for micro-deposits.
+								Confirmation code for microdeposits.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>					
