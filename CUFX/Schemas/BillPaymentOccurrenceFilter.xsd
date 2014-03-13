@@ -15,7 +15,6 @@ xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.x
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd" schemaLocation="BillPaymentOccurrence.xsd" />
  
-	
 	<xs:element name="billPaymentOccurrenceFilter" type="BillPaymentOccurrenceFilter">
     <xs:annotation>
       <xs:documentation>
@@ -24,7 +23,7 @@ xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.x
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="BillPaymentOccurrenceFilter" >
+  <xs:complexType name="BillPaymentOccurrenceFilter">
     <xs:complexContent>
       <xs:annotation>
         <xs:documentation>

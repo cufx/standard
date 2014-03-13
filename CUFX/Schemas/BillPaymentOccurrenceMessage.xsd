@@ -6,14 +6,15 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
   xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
-  xmlns:billPaymentFilter="http://cufxstandards.com/v3/BillPaymentOccurrenceFilter.xsd"
+  xmlns:billPaymentOccurrenceFilter="http://cufxstandards.com/v3/BillPaymentOccurrenceFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd" schemaLocation="BillPaymentOccurrence.xsd" />
-  
+  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrenceFilter.xsd" schemaLocation="BillPaymentOccurrenceFilter.xsd" />
+
   <xs:element name="billPaymentOccurrenceMessage" type="BillPaymentOccurrenceMessage">
     <xs:annotation>
       <xs:documentation>
@@ -42,7 +43,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="billPaymentOccurrenceFilter" type="BillPaymentOccurrenceFilter:BillPaymentOccurrenceFilter" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPaymentOccurrenceFilter" type="billPaymentOccurrenceFilter:BillPaymentOccurrenceFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Any filters applied to a read, update or delete bill payment message request.
@@ -54,13 +55,6 @@
         <xs:annotation>
           <xs:documentation>
             All the bill payment data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="billPaymentRecurringList" type="BillPaymentRecurring:BillPaymentRecurringList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            All the recurring bill payment data.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
