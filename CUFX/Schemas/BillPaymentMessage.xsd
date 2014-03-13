@@ -53,7 +53,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="billPaymentList" type="billPaymentOccurrence:BillPaymentList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPaymentList" type="billPaymentOccurrence:BillPaymentOccurrenceList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             All the bill payment data.
