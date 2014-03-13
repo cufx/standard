@@ -38,18 +38,51 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="creditReportDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			<xs:element name="creditReportStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The date on which the credit report was acquired.
+						Filter that is used to search credit reports retrieved from this date.
+						Start and end date filters work together.
+						Must be less than or equal to the end date if an end date is supplied.
+						If neither creditReportStartDate nor creditReportEndDate is provided, all applicable credit reports will be returned
+						based on other criteria.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="creditReportEndDate" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						E.g. Experian, Equifax, TransUnion, FastStart, FICA, etc.
+						Filter that is used to search credit reports retrieved to this date.
+						Start and end date filters work together.
+						Must be less than or equal to the end date if an end date is supplied.
+						If neither creditReportStartDate nor creditReportEndDate is provided, all applicable credit reports will be returned
+						based on other criteria.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="minCreditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used searching the credit reports based on minimum credit score.
+						min and max amount filters work together.
+						Must be less than or equal to the maxAmount if a max amount is supplied.
+						If neither minCreditScore nor maxCreditScore is provided, all applicable credit reports will be returned
+						based on other criteria.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="maxCreditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used searching the credit reports based on maximum credit score.
+						min and max amount filters work together.
+						Must be less than or equal to the maxAmount if a max amount is supplied.
+						If neither minCreditScore nor maxCreditScore is provided, all applicable credit reports will be returned
+						based on other criteria.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
