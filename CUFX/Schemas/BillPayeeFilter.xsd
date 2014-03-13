@@ -9,33 +9,75 @@
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-  
-  <xs:element name="billPayeeFilter" type="BillPayeeFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting billPayee data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
 
-  <xs:complexType name="BillPayeeFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting billPayee data. The options can be used in
-        combination or by themselves. It is up to the data source to either return or affect the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="billPayeeGlobalIdList" type="billPayee:BillPayeeGlobalIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPayee ID's that should have their associated billPayees either returned or affected
-            by a read, update or delete billPayee request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:element name="billPayeeFilter" type="BillPayeeFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting billPayee data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="BillPayeeFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting billPayee data. The options can be used in
+				combination or by themselves. It is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="billPayeeGlobalIdList" type="billPayee:BillPayeeGlobalIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of BillPayee ID's that should have their associated billPayees either returned or affected
+						by a read, update or delete billPayee request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="payeeName" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If a person, the first and last name of the person. If a business or trust, will include the business or trust name.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True for electronic processing. False for sending a paper check.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="userDefinedName" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The user-defined name for payee.  Could be a nickname.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="payeeCategory" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A member defined category that can be used for reporting purposes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="Status" type="billPayee:Status" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is enumeration of statuses for the bill payee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
