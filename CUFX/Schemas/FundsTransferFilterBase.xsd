@@ -83,6 +83,14 @@
         </xs:annotation>
       </xs:element>
 
-    </xs:sequence>
+		<xs:element name="isReccurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					True if the payment has recurring payments associated with it; false if the payment is a single payment.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+
+	</xs:sequence>
   </xs:complexType>
 </xs:schema>
