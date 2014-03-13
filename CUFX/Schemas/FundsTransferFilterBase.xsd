@@ -46,7 +46,7 @@
 			</xs:annotation>
 		</xs:element>
 
-      <xs:element name="startCompletedDateTime" type="xs:date" minOccurs="0" maxOccurs ="1">
+      <xs:element name="startCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Filter that is used to start searching the transfer dates.
@@ -59,7 +59,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="endCompletedDateTime" type="xs:date" minOccurs="0" maxOccurs ="1">
+      <xs:element name="endCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
 						Filter that is used to end searching the transfer dates.
