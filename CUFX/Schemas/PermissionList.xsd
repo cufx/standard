@@ -359,6 +359,20 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType name="PermissionMaximums">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum limits for actions and resources. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element type="common:Money" name="maxAmount"/>
+      <xs:element type="xs:integer" name="maxNumber"/>
+      <xs:element type="common:Money" name="rollingAmount"/>
+      <xs:element type="xs:integer" name="rollingNumber"/>
+    </xs:sequence>
+  </xs:complexType>
+  
   <xs:complexType name="MaxLimits">
     <xs:annotation>
       <xs:documentation>
@@ -366,36 +380,9 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="dailyMax" minOccurs="1" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="common:Money" name="maxAmount"/>
-            <xs:element type="xs:integer" name="maxNumber"/>
-            <xs:element type="common:Money" name="rollingAmount"/>
-            <xs:element type="xs:integer" name="rollingNumber"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="weeklyMax" minOccurs="1" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="common:Money" name="maxAmount"/>
-            <xs:element type="xs:integer" name="maxNumber"/>
-            <xs:element type="common:Money" name="rollingAmount"/>
-            <xs:element type="xs:integer" name="rollingNumber"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="monthlyMax" minOccurs="1" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="common:Money" name="maxAmount"/>
-            <xs:element type="xs:integer" name="maxNumber"/>
-            <xs:element type="common:Money" name="rollingAmount"/>
-            <xs:element type="xs:integer" name="rollingNumber"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element name="dailyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="weeklyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="monthlyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
