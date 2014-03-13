@@ -6,15 +6,21 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
 		xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
-    xmlns:account="http://cufxstandards.com/v3/Account.xsd"           
+    xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+		xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+		xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+		xmlns:common="http://cufxstandards.com/v3/Common.xsd"
     elementFormDefault="qualified">
   
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 
-  <xs:complexType name="FundsTransferFilterBase" abstract="true">
+	<xs:complexType name="FundsTransferFilterBase" abstract="true">
     <xs:annotation>
       <xs:documentation>
         The list of filter options for services requesting transfer history.
@@ -46,8 +52,8 @@
             Filter that is used to start searching the transfer dates.
             Start and end date filters work together.
             Must be less than or equal to the end date if an end date is supplied.
-            Should be less than or equal to today's date.
-            If neither fromDate nor toDate is provided, no transfers will be returned.
+            If neither fromDate nor toDate is provided, all applicable transfers will be returned
+						based on other criteria.
             The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
           </xs:documentation>
         </xs:annotation>
@@ -56,13 +62,13 @@
       <xs:element name="toDate" type="xs:date" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Filter that is used to end searching the transfer dates.
-            Start and end date filters work together.
-            Must be less than or equal to the end date if an end date is supplied.
-            Should be less than or equal to today's date.
-            If neither fromDate nor toDate is provided, no transfers will be returned.
-            The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
+						Filter that is used to end searching the transfer dates.
+						Start and end date filters work together.
+						Must be less than or equal to the end date if an end date is supplied.
+						If neither fromDate nor toDate is provided, all applicable transfers will be returned
+						based on other criteria.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
         </xs:annotation>
       </xs:element>
 
@@ -74,23 +80,65 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="occurrenceStatus" type="fundsTransferOccurrenceBase:OccurrenceStatus" minOccurs="0" maxOccurs ="1">
+			<xs:element name="relationshipIdList" type ="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationship ID's that should have their associated accounts either returned or affected
+						by a read, update or delete account or account detail request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="occurrenceStatus" type="fundsTransferOccurrenceBase:OccurrenceStatus" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Filter that is used to search a transfer by the status of the transfer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			
+			<xs:element name="minAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used searching the transfer amounts.
+						min and max amount filters work together.
+						Must be less than or equal to the maxAmount if a max amount is supplied.
+						If neither minAmount nor maxAmount is provided, all applicable transfers will be returned
+						based on other criteria.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-		<xs:element name="isReccurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
-			<xs:annotation>
-				<xs:documentation>
-					True if the payment has recurring payments associated with it; false if the payment is a single payment.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:element>
+			<xs:element name="maxAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used searching the transfer amounts.
+						min and max amount filters work together.
+						Must be greater than or equal to the minAmount if a min amount is supplied.
+						If neither minAmount nor maxAmount is provided, all applicable transfers will be returned
+						based on other criteria.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-	</xs:sequence>
+			<xs:element name="isReccurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True if the payment has recurring payments associated with it; false if the payment is a single payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
   </xs:complexType>
 </xs:schema>
