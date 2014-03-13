@@ -220,4 +220,22 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-</xs:schema>
+
+    <xs:complexType name="RequestStatusList">
+      <xs:annotation>
+        <xs:documentation>
+          The list of recurring status for payments or transfer requests for filtering.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              Request status for transfer or payment.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:schema>

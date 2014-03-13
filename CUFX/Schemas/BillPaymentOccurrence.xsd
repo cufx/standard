@@ -23,7 +23,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Bill.xsd" schemaLocation="Bill.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Transaction.xsd" schemaLocation="Transaction.xsd" />
 
-	<xs:element name= "billPaymentOccurrenceList" type ="BillPaymentOccurrenceList">
+	<xs:element name="billPaymentOccurrenceList" type ="BillPaymentOccurrenceList">
 		<xs:annotation>
 			<xs:documentation>
 				The bill payment collection/array contains all the bills, for instance, that the credential set is
@@ -88,18 +88,19 @@
 								This extends the TransactionOccurrenceBase's OccurrenceStatus.
 							</xs:documentation>
 						</xs:annotation>
-
 					</xs:element >
-					<xs:element name="expectedDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The expected debit date of bill payment.
-								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assumed to be 00:00Z if omitted.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+
+          <xs:element name="expectedDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+            <xs:annotation>
+              <xs:documentation>
+                The expected debit date of bill payment.
+                The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+                (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+                supported.  The time is assumed to be 00:00Z if omitted.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          
 					<xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -110,6 +111,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="paymentDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -120,6 +122,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -130,6 +133,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="checkClearedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -148,6 +152,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="checkStoppedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -158,6 +163,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="nsfCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -165,6 +171,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="checkNumber" type="transaction:CheckNumber" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -172,6 +179,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="updatedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -248,4 +256,24 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:complexType name="BillPaymentOccurrenceStatusList">
+    <xs:annotation>
+      <xs:documentation>
+        This is the enumeration of statuses for bill payment occurrence.
+        This extends the TransactionOccurrenceBase's OccurrenceStatus.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This is the enumeration of statuses for bill payment occurrence.
+            This extends the TransactionOccurrenceBase's OccurrenceStatus.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+ 
 </xs:schema>

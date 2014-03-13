@@ -38,6 +38,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="billPayeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -85,6 +86,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="isCompleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -93,6 +95,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="isUserDeleted" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -100,6 +103,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="frequency" type="common:IntervalFrequencyType"  minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -107,6 +111,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="firstScheduledDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -117,6 +122,7 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          
 					<xs:element name="nextDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>

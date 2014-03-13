@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/BillPaymentMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/BillPaymentOccurrenceMessage.xsd"
 	version="3.0.$Revision$"
-	xmlns="http://cufxstandards.com/v3/BillPaymentMessage.xsd"
+	xmlns="http://cufxstandards.com/v3/BillPaymentOccurrenceMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
   xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
@@ -17,7 +17,7 @@
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd" schemaLocation="BillPaymentRecurring.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentFilter.xsd" schemaLocation="BillPaymentFilter.xsd" />
 
-  <xs:element name="billPaymentMessage" type="BillPaymentMessage">
+  <xs:element name="billPaymentOccurrenceMessage" type="BillPaymentOccurrenceMessage">
     <xs:annotation>
       <xs:documentation>
         All values that can be sent in a bill payment message.  Contains message context, bill payment filter and a
@@ -27,7 +27,7 @@
     </xs:annotation>
   </xs:element>
 
-  <xs:complexType name="BillPaymentMessage">
+  <xs:complexType name="BillPaymentOccurrenceMessage">
     <xs:annotation>
       <xs:documentation>
         All values that can be sent in a bill payment message.  Contains message context, bill payment filter and a
