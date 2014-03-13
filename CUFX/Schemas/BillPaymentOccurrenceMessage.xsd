@@ -6,22 +6,19 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
   xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
-  xmlns:BillPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
-	xmlns:billPaymentFilter="http://cufxstandards.com/v3/BillPaymentFilter.xsd"
+  xmlns:billPaymentFilter="http://cufxstandards.com/v3/BillPaymentOccurrenceFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd" schemaLocation="BillPaymentOccurrence.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd" schemaLocation="BillPaymentRecurring.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentFilter.xsd" schemaLocation="BillPaymentFilter.xsd" />
-
+  
   <xs:element name="billPaymentOccurrenceMessage" type="BillPaymentOccurrenceMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a bill payment message.  Contains message context, bill payment filter and a
-        bill payment list. This is a wrapper used to more easily serialize the complete message.  All values are 
+        All values that can be sent in a bill payment occurrenc emessage.  Contains message context, bill payment occurrence filter and a
+        bill payment occurrence list. This is a wrapper used to more easily serialize the complete message.  All values are 
         optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -30,8 +27,8 @@
   <xs:complexType name="BillPaymentOccurrenceMessage">
     <xs:annotation>
       <xs:documentation>
-        All values that can be sent in a bill payment message.  Contains message context, bill payment filter and a
-        bill payment list.  This is a wrapper used to more easily serialize the complete message.  All values are 
+        All values that can be sent in a bill payment occurrence message.  Contains message context, bill payment occurrence filter and a
+        bill payment occurrence list.  This is a wrapper used to more easily serialize the complete message.  All values are 
         optional.  See example specifications for usage.
       </xs:documentation>
     </xs:annotation>
@@ -45,7 +42,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="billPaymentFilter" type="billPaymentFilter:BillPaymentFilter" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="billPaymentOccurrenceFilter" type="BillPaymentOccurrenceFilter:BillPaymentOccurrenceFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Any filters applied to a read, update or delete bill payment message request.
