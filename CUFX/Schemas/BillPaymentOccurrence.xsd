@@ -52,7 +52,7 @@
 					<xs:element name="billPaymentOccurrenceId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								An ID that uniquely identifies the bill payment.
+								An ID that uniquely identifies the bill payment occurrence.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -65,10 +65,10 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="bill" type="bill:BillId"   minOccurs="0" maxOccurs="1">
+					<xs:element name="billId" type="bill:BillId"   minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								The ID of the bill that member is paying.
+								The ID of the bill that party, relationship or account is paying.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
