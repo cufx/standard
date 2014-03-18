@@ -178,17 +178,17 @@ namespace CUFX.Generator
 
             #region Generate the WCF examples
 			// Generate one .cs for all the types and place it in the Schemas project
-            string cufxCsFile = Path.Combine(sGeneratedPath + "\\WCF\\", "CUFXTemp.cs");
+            string cufxCsFile = Path.Combine(sGeneratedPath + "\\WCF\\", "CUFX.cs");
             CodeGenerator.GenerateCodeFromXsds(files, cufxCsFile);
             //Now Generate the WCF File
-            Converter converter = new Converter(sGeneratedPath + "\\WCF\\CUFXTemp.cs");
-            bool wasSuccessful = converter.Convert(sGeneratedPath + "\\WCF\\CUFX.cs");
-            System.IO.File.Delete(sGeneratedPath + "\\WCF\\CUFXTemp.cs");
+            //Converter converter = new Converter(sGeneratedPath + "\\WCF\\CUFXTemp.cs");
+            //bool wasSuccessful = converter.Convert(sGeneratedPath + "\\WCF\\CUFX.cs");
+            //System.IO.File.Delete(sGeneratedPath + "\\WCF\\CUFXTemp.cs");
 
-            if (wasSuccessful)
-            {
+            //if (wasSuccessful)
+            //{
                 Console.WriteLine("WCF File Created");
-            }
+            //}
             #endregion
 
             

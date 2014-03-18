@@ -51,6 +51,7 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
           </xs:annotation>
         </xs:element>
 
+        <!--
         <xs:element name="billPaymentRecurringFilter" type="BillPaymentRecurringFilter">
           <xs:annotation>
             <xs:documentation>
@@ -58,6 +59,7 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
             </xs:documentation>
           </xs:annotation>
         </xs:element>
+        -->
       </xs:sequence>
 		</xs:extension>
 		
@@ -75,6 +77,7 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
         </xs:annotation>
       </xs:element>
 
+      <!--
       <xs:element name="billPaymentRecurringIdList" type="billPaymentRecurring:BillPaymentRecurringIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -83,6 +86,7 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      -->
 
       <xs:element name="billPaymentOccurrenceStatusList" type="billPaymentOccurrence:BillPaymentOccurrenceStatusList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
@@ -95,6 +99,7 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
     </xs:sequence>
   </xs:complexType>
   
+  <!--
   <xs:complexType name="BillPaymentRecurringFilter">
     <xs:sequence >
       <xs:element name="billPaymentRecurringIdList" type="billPaymentRecurring:BillPaymentRecurringIdList" minOccurs ="0" maxOccurs ="1">
@@ -116,5 +121,5 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
+ -->
 </xs:schema>

@@ -6,4 +6,10 @@
     xmlns:mstns="http://tempuri.org/XMLSchema1.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
+  <xs:element type="temp" name ="tempNode"/>
+  <xs:complexType name="temp">
+    <xs:sequence>
+      <xs:element name="field" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
