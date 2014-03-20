@@ -29,7 +29,15 @@ namespace CUFX.Generator
                 string data = inFile.ReadToEnd();
                 data = Regex.Replace(data, "xmlns=\"[0-9a-zA-Z:/.]+\"", "");
                 //data = data.Replace("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "");
-                doc.LoadXml(data);
+                try
+                {
+                    doc.LoadXml(data);
+                }
+                catch (XmlException ex)
+                {
+                    Console.WriteLine("{0} in {1}:{2}", ex.Message, sourceXMLFile, ex.LineNumber);
+                    return false;
+                }
             }
             //doc.Load(sourceXMLFile);
             string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
