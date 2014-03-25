@@ -5,69 +5,68 @@
 	xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+  xmlns:credentialGroup="http://cufxstandards.com/v3/CredentialGroup.xsd"
 	 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+
+  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:complexType name="FundsTransferRecurringBase" abstract="true" >
 		<xs:annotation>
 			<xs:documentation>
-				This complex type is used for abstracting the transactional transfers, bill payments, ACH payments, wires, etc.
-				The request is that a payment or transfer was requested.  This works in tandem with TransactionOccurrenceBase
-        which has the actual occurrence of the payment which will then result in a transaction (history) that is stored
-        on a back end core system.
+				This complex type is used for abstracting the recurring transfers, bill payments, ACH payments, wires, etc.
+				The request is that a payment or transfer was requested.  
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="recurringTransactionId" type="RecurringTransactionId" minOccurs="0"  >
+      <xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="1"  >
+        <xs:annotation>
+          <xs:documentation>
+            ID to uniquely identify a recurring payment or transfer request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element name="recurringAmount" type="common:Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-            ID to uniquely identify a recurring payment or transfer request.
+            Negative, zero, or positive amount,
+            A recurring amount of the payment or transfer requested amount.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="amount" type="common:Money"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Negative, zero, or positive amount,
-						if this is the amount of the bill being paid.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="fromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account from which the transfer or payment was taken.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="toAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+      <xs:element name="recurringToAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account to which the transfer or payment was made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-			<xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Status of the Recurring payment or transfer.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="memo" type="xs:string" minOccurs="0" maxOccurs ="1">
+			<xs:element name="recurringMemo" type="xs:string" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The memo represents a short description that can be applied to the comment of the transaction or printed on a check.
+						The memo represents a short description that can be applied to each comment of the transaction or printed on a check.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -81,17 +80,24 @@
 			<xs:element name="createRequestDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The date on which the transfer or payment request was created.
+						The date on which the recurring transfer or payment request was created.
 						The date/time should be ISO 8601 UTC format:  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
 						supported.  The time is assumed to be 00:00Z if omitted.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="createdByFiUserId" type="credentialGroup:FiUserId" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The Unique identifier used to identify the user that requested the recurring transfer or payment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>
-            Frequency of the transfer or payment.
+            Frequency of the recurring transfer or payment.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -115,18 +121,35 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="recurringTransactionConfirmationCode" type="xs:string" minOccurs="0"  maxOccurs ="1"  >
+			<xs:element name="recurringConfirmationCode" type="xs:string" minOccurs="0"  maxOccurs ="1"  >
 				<xs:annotation>
 					<xs:documentation>
             Unique confirmation code for the scheduled recurring transfer or payment.
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>    
+      <xs:element name="recurringOccurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A list occurrence IDs that are a result of the recurring payment or transfer request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Recurring level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future	release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    </xs:sequence>    
 	</xs:complexType>
 
-    <xs:simpleType name="RecurringTransactionId">
-      <xs:restriction base="xs:long">
+    <xs:simpleType name="RecurringId">
+      <xs:restriction base="xs:string">
         <xs:annotation>
           <xs:documentation>
             ID to uniquely identify a recurring payment or transfer request.
@@ -135,14 +158,14 @@
       </xs:restriction>
     </xs:simpleType>
 
-		<xs:complexType name="RecurringTransactionIdList">
+		<xs:complexType name="RecurringIdList">
 			<xs:annotation>
 				<xs:documentation>
 					The list of recurring payments or transfer requests. 
 				</xs:documentation>
 			</xs:annotation>
 			<xs:sequence>
-				<xs:element name="recurringTransactionId" type="RecurringTransactionId" minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
 					<xs:annotation>
 						<xs:documentation>
 							ID to uniquely identify a recurring payment or transfer request.
@@ -152,11 +175,11 @@
 			</xs:sequence>
 		</xs:complexType>
 
-    <xs:simpleType name="RequestStatus">
+    <xs:simpleType name="RecurringStatus">
 		<xs:annotation>
 			<xs:documentation>
-				This is the enumeration of statuses for bill payment.
-			</xs:documentation>
+        This is the enumeration of statuses for a recurring payment or transfer request .
+      </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Requested">
@@ -167,46 +190,46 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="InProcess">
+			<xs:enumeration value="Active">
 				<xs:annotation>
 					<xs:documentation>
-						The payment or transfer request has initiated an occurrence which is in process and is no longer cancellable.
+						The recurring payment or transfer request has been scheduled.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByParty">
 				<xs:annotation>
 					<xs:documentation>
-						A payment or transfer request was requested to be cancelled by the party, but has not yet been cancelled.
-					</xs:documentation>
+            A recurring payment or transfer request was requested to be cancelled by the party, but has not yet been cancelled.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByFinancialInstitution">
 				<xs:annotation>
 					<xs:documentation>
-						A payment or transfer request was requested to be cancelled by the party's financial institution.
+						A recurring payment or transfer request was requested to be cancelled by the party's financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByPaymentProvider">
 				<xs:annotation>
 					<xs:documentation>
-						A payment or transfer request was requested to be cancelled by the party's payment provider.
-					</xs:documentation>
+            A recurring payment or transfer request was requested to be cancelled by the party's payment provider.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Cancelled">
 				<xs:annotation>
 					<xs:documentation>
-						A payment or transfer request has been cancelled.
-					</xs:documentation>
+            A recurring payment or transfer request has been cancelled.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Completed">
 				<xs:annotation>
 					<xs:documentation>
-						A payment or transfer request has been completed.
-					</xs:documentation>
+            All recurring payments or transfer requests have been completed.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Suspended">
@@ -214,24 +237,24 @@
 					<xs:documentation>
 						Payment or transfer request was scheduled for recurring payment but has been suspended until taken out
             of suspended status.  This status might be used if a party wants to keep the payment/transfer request
-            in the system but temporarily stop payment from occurring.
+            in the system but temporarily stop payment or transfers from occurring.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
-    <xs:complexType name="RequestStatusList">
+    <xs:complexType name="RecurringStatusList">
       <xs:annotation>
         <xs:documentation>
           The list of recurring status for payments or transfer requests for filtering.
         </xs:documentation>
       </xs:annotation>
       <xs:sequence>
-        <xs:element name="requestStatus" type="RequestStatus" minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="unbounded">
           <xs:annotation>
             <xs:documentation>
-              Request status for transfer or payment.
+              Request status for a recurring transfer or payment.
             </xs:documentation>
           </xs:annotation>
         </xs:element>
