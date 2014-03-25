@@ -37,7 +37,7 @@
         </xs:annotation>
       </xs:element>
 
-		<xs:element name="recurringTransactionIdList" type="fundsTransferRecurringBase:RecurringTransactionIdList" minOccurs="0" maxOccurs="1">
+		<xs:element name="recurringIdList" type="fundsTransferRecurringBase:RecurringIdList" minOccurs="0" maxOccurs="1">
 			<xs:annotation>
 				<xs:documentation>
 					The list of recurring transfer ID's that should have their associated transfers returned or affected by a read, 

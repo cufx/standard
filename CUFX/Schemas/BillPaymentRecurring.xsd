@@ -71,7 +71,7 @@ attributeFormDefault="unqualified">
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="paymentRequestId" type="fundsTransferRecurringBase:RecurringTransactionId" minOccurs="0" maxOccurs="1">
+					<xs:element name="paymentRequestId" type="fundsTransferRecurringBase:RecurringId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								A bill payment ID that uniquely identifies the bill payment associated with the recurring payment.
