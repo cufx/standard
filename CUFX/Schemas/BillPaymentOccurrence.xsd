@@ -49,14 +49,6 @@
 		<xs:complexContent>
 			<xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase" >
 				<xs:sequence>
-					<xs:element name="billPaymentOccurrenceId" type="BillPaymentId" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								An ID that uniquely identifies the bill payment occurrence.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
 					<xs:element name="billPayeeId" type="billpayee:BillPayeeId"   minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -68,28 +60,10 @@
 					<xs:element name="billId" type="bill:BillId"   minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								The ID of the bill that party, relationship or account is paying.
+								The ID of the bill that party, relationship or account is paying. Example, the invoice number of a bill.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
-					<xs:element name="fundsTransferOccurrenceId" type="fundsTransferOccurrenceBase:OccurrenceId" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								An ID that uniquely identifies the bill payment.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
-					<xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								This is the enumeration of statuses for bill payment occurrence.
-								This extends the TransactionOccurrenceBase's OccurrenceStatus.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element >
-
           <xs:element name="expectedDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
@@ -99,8 +73,7 @@
                 supported.  The time is assumed to be 00:00Z if omitted.
               </xs:documentation>
             </xs:annotation>
-          </xs:element>
-          
+          </xs:element>  
 					<xs:element name="processingStartedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -110,19 +83,17 @@
 								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>
-          
-					<xs:element name="paymentDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+					</xs:element> 
+					<xs:element name="paymentClearedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The date that the bill payment was funded.
+								The date that the bill payment or check was received and processed.
 								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
 								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-          
 					<xs:element name="completedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -132,19 +103,7 @@
 								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>
-          
-					<xs:element name="checkClearedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The date that the bill payment check cleared.
-								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assumed to be 00:00Z if omitted.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
+					</xs:element>    
 					<xs:element name="isStopRequested" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -152,7 +111,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-          
 					<xs:element name="checkStoppedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -162,34 +120,21 @@
 								supported.  The time is assumed to be 00:00Z if omitted.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>
-          
+					</xs:element>     
 					<xs:element name="nsfCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								The number of times that the bill payment has failed to process due to insufficient funds.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>
-          
+					</xs:element> 
 					<xs:element name="checkNumber" type="transaction:CheckNumber" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								The number of the bill payment check.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>
-          
-					<xs:element name="updatedDate" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The last date that the bill payment was updated.
-								The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-								(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-								supported.  The time is assumed to be 00:00Z if omitted.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
+					</xs:element>     
 					<xs:element name="billPayBatchId" type="xs:string" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -197,83 +142,8 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-
-
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
-	<xs:simpleType name="BillPaymentId">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The bill payee ID is a persistent and unique identifier for the bill payee.
-					It must be unique for all users across the institution and remain the same
-					over the life of the bill payee.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
-  <xs:complexType name="BillPaymentOccurrenceIdList">
-    <xs:annotation>
-      <xs:documentation>
-        The list of billpayment ID's that should have their associated bill payment either returned or affected
-        by a read, update or delete request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="billPaymentOccurrenceId" type="BillPaymentId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            A bill payment ID that should have its associated bill payment either returned or affected
-            by a read, update or delete request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-	<xs:simpleType name="BillPaymentOccurrenceStatus">
-		<xs:annotation>
-			<xs:documentation>
-				This is the enumeration of statuses for bill payment occurrence.
-				This extends the TransactionOccurrenceBase's OccurrenceStatus.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:union memberTypes="fundsTransferOccurrenceBase:OccurrenceStatus OccurrenceStatusExtension"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="OccurrenceStatusExtension">
-		<xs:annotation>
-			<xs:documentation>
-				A string value that must contain a "BillPayment:" prefix.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="BillPayment:\w+"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-  <xs:complexType name="BillPaymentOccurrenceStatusList">
-    <xs:annotation>
-      <xs:documentation>
-        This is the enumeration of statuses for bill payment occurrence.
-        This extends the TransactionOccurrenceBase's OccurrenceStatus.
-      </xs:documentation>
-    </xs:annotation>
-
-    <xs:sequence>
-      <xs:element name="billPaymentOccurrenceStatus" type="BillPaymentOccurrenceStatus" minOccurs ="0" maxOccurs ="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            This is the enumeration of statuses for bill payment occurrence.
-            This extends the TransactionOccurrenceBase's OccurrenceStatus.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
- 
 </xs:schema>
