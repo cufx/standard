@@ -73,6 +73,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="fundsWithdrawalType" type="fundsTransferRecurringBase:FundsWithdrawalType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						When will the funds be withdrawn from the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="occurrenceMemo" type="xs:string" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -139,6 +146,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="occurrenceConfirmationCode" type="xs:string" minOccurs="0"  maxOccurs ="1"  >
+				<xs:annotation>
+					<xs:documentation>
+						Unique confirmation code for the requested payment or transfer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="queuedForPosting" type="xs:boolean" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
@@ -170,14 +184,14 @@
 	<xs:simpleType name="OccurrenceStatus">
 		<xs:annotation>
 			<xs:documentation>
-				This is the enumeration of statuses for bill payment.
+				This is the enumeration of statuses for payments or transfers.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Scheduled">
 				<xs:annotation>
 					<xs:documentation>
-						The payment is in the process for immediate or future payment and is cancellable by the party since
+						The payment or transfer is in the process for immediate or future payment and is cancellable by the party since
 						it's not InProcess yet.
 					</xs:documentation>
 				</xs:annotation>
@@ -185,63 +199,71 @@
 			<xs:enumeration value="InProcess">
 				<xs:annotation>
 					<xs:documentation>
-						The bill payment is in process and is no longer cancellable, but it has not been sent.
+						The payment or transfer is in process and is no longer cancellable, but it has not been sent.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByParty">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment was requested to be cancelled by the party but has not yet been cancelled.
+						A payment or transfer was requested to be cancelled by the party but has not yet been cancelled.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CancelRequestedByFinancialInstitution">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment has been cancelled at the request of the party's financial institution.
+						A payment or transfer has been cancelled at the request of the originating party's financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="CancelRequestedByPaymentProvider">
+			<xs:enumeration value="CancelRequestedByProcessor">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment has been cancelled at the request of the party's payment provider.
+						A payment or transfer has been cancelled at the request of the processor. Example is case of bill pay this would
+						be the bill payment processor.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Cancelled">
 				<xs:annotation>
 					<xs:documentation>
-						A bill payment has been cancelled.
+						A payment or transfer has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sent">
+				<xs:annotation>
+					<xs:documentation>
+						Payment or transfer has been sent to the payee but has not been received yet.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Completed">
 				<xs:annotation>
 					<xs:documentation>
-						The transfer or payment transaction has been cleared/completed by the financial institution.
+						The payment or transfer transaction has been cleared/completed by the financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Declined">
 				<xs:annotation>
 					<xs:documentation>
-						The payment was declined (for instance, in the case that a debit or card was used as the funding source).
+						The payment or transfer was declined (for instance, in the case that a debit or card was used as the funding source).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="FundsOutbound">
 				<xs:annotation>
 					<xs:documentation>
-						The funds have been transferred to the payment provider but have not yet arrived at the payment provider.
+						The funds have been transferred to the payment processor but have not yet arrived at the payment processor.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="FundsCleared">
 				<xs:annotation>
 					<xs:documentation>
-						The funds for the payment have been received by the payment provider but the actual payment hasn't
+						The funds for the payment or transfer have been received by the payment processor but the actual payment hasn't
 						cleared at the payee.
 					</xs:documentation>
 				</xs:annotation>
@@ -249,35 +271,28 @@
 			<xs:enumeration value="Held">
 				<xs:annotation>
 					<xs:documentation>
-						The payment has been held by the payment provider and has not been sent to the payee.
+						The payment or transfer has been held by the payment processor and has not been sent to the payee.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="InsufficientFunds">
 				<xs:annotation>
 					<xs:documentation>
-						The payment has attempted to clear the financial institution account but there was not enough funds available.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Sent">
-				<xs:annotation>
-					<xs:documentation>
-						Payment has been sent to the payee but has not been received yet.
+						The payment or transfer has attempted to clear the financial institution account but there was not enough funds available.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Returned">
 				<xs:annotation>
 					<xs:documentation>
-						Payment was returned by the payee and not cleared.
+						Payment or transfer was returned by the payee and not cleared.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Suspended">
 				<xs:annotation>
 					<xs:documentation>
-						Payment was scheduled for recurring payment but has been suspended until taken out of suspended status.
+						Payment or transfer was scheduled for recurring payment but has been suspended until taken out of suspended status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -296,7 +311,7 @@
 	<xs:complexType name="OccurrenceIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of transfer or payment occurrence ID's that should have their associated occurrence ID either returned
+				The list of payments or transfers occurrence ID's that should have their associated occurrence ID either returned
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -304,7 +319,26 @@
 			<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						An occurrence ID that should have its associated documents either returned or affected
+						An occurrence ID that should have its associated payments or transfers either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OccurrenceStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of payments or transfers occurrence status's that should have their associated occurrence status either returned
+				or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="occurrenceStatus" type="OccurrenceStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An occurrence status that should have its associated payments or transfers either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
