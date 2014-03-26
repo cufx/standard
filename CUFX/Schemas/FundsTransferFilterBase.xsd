@@ -23,7 +23,7 @@
 	<xs:complexType name="FundsTransferFilterBase" abstract="true">
     <xs:annotation>
       <xs:documentation>
-        The list of filter options for services requesting transfer history.
+        The list of filter options for services requesting transfer history. 
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -75,17 +75,17 @@
       <xs:element name="accountIDList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            The account ID list that can be supplied as part of a filter. If present, the transfers are
-            returned only for that account ID. 
-          </xs:documentation>
+						The account ID list that can be supplied as part of a filter. If present, the payments or transfers are
+						returned only for those account IDs.
+					</xs:documentation>
         </xs:annotation>
       </xs:element>
 			
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated accounts either returned or affected
-						by a read, update or delete account request.
+						The list of account ID's that should have their associated payments or transfers either returned or affected
+						by a read, update or delete payments or transfers request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -93,16 +93,16 @@
 			<xs:element name="relationshipIdList" type ="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated accounts either returned or affected
-						by a read, update or delete account or account detail request.
+						The list of relationship ID's that should have their associated payments or transfers either returned or affected
+						by a read, update or delete payments or transfers request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="occurrenceStatus" type="fundsTransferOccurrenceBase:OccurrenceStatus" minOccurs="0" maxOccurs ="1">
+			<xs:element name="occurrenceStatusList" type="fundsTransferOccurrenceBase:OccurrenceStatusList" minOccurs="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Filter that is used to search a transfer by the status of the transfer.
+            Filter that is used to search payments or transfers by the statuses of the payments or transfers.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -110,7 +110,9 @@
 			<xs:element name="minAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used searching the transfer amounts.
+						Filter that is used to search the payment or transfer amounts.
+						Filter is applied on the basis of the type service call. A search against the recurring service will filter for recurring minimum ammounts.
+						Likewise a call for occurrence will search against the amounts of the occurring service.
 						min and max amount filters work together.
 						Must be less than or equal to the maxAmount if a max amount is supplied.
 						If neither minAmount nor maxAmount is provided, all applicable transfers will be returned
@@ -122,7 +124,9 @@
 			<xs:element name="maxAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used searching the transfer amounts.
+						Filter that is used to search the payment or transfer amounts.
+						Filter is applied on the basis of the type service call. A search against the recurring service will filter for recurring maximum ammounts.
+						Likewise a call for occurrence will search against the amounts of the occurring service.
 						min and max amount filters work together.
 						Must be greater than or equal to the minAmount if a min amount is supplied.
 						If neither minAmount nor maxAmount is provided, all applicable transfers will be returned
@@ -130,15 +134,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="isReccurring" type="xs:boolean" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						True if the payment has recurring payments associated with it; false if the payment is a single payment.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 		</xs:sequence>
   </xs:complexType>
 </xs:schema>
