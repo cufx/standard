@@ -297,6 +297,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:complexType name="BillPayeeIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of bill pay ID's that should have their associated bill pay records either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A bill pay ID that should have its associated bill pay id either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
 	<xs:simpleType name="BillPayeeGlobalId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>

@@ -31,95 +31,32 @@ xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd
       <xs:annotation>
         <xs:documentation>
           The list of filter options for services requesting bill payment data.
+          The options can be used in combination or by themselves. It is up to the data source to
+          either return or affect the data requested or return a standard error identifying why the
+          request was rejected.
+          All fields from fundsTransferFilterBase are included.
+          If this filter is applied to a BillPaymentOccurrence service call then it will return back
+          any and all BillPaymentOccurrence data associated to either the occurrences
+          or recurring filters that were applied.
+          If this filter is applied to a BillPaymentRecurring service call then it will return back
+          any and all BillPaymentRecurring data associated to either the occurrences
+          or recurring filters that were applied.
         </xs:documentation>
       </xs:annotation>
 		<xs:extension base="fundsTransferFilterBase:FundsTransferFilterBase">
 			<xs:sequence>
-				<xs:element name="billFromPayeeId" type="billPayee:BillPayeeId" minOccurs="0" maxOccurs ="1">
+				<xs:element name="billPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 					<xs:annotation>
 						<xs:documentation>
-							An ID that uniquely identifies the bill payee for the consumer.
+            The list of BillPayee ID's that should have their associated billPayments either returned or affected
+						by a read, update or delete billPayment request.
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-
-        <xs:element name="billPaymentOccurrenceFilter" type="BillPaymentOccurrenceFilter">
-          <xs:annotation>
-            <xs:documentation>
-              List of Bill Payment Occurrence specific filters
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-
-        <!--
-        <xs:element name="billPaymentRecurringFilter" type="BillPaymentRecurringFilter">
-          <xs:annotation>
-            <xs:documentation>
-              List of Bill Payment Recurring specific filters
-            </xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        -->
-      </xs:sequence>
+       </xs:sequence>
 		</xs:extension>
 		
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="BillPaymentOccurrenceFilter">
-    <xs:sequence >
-      <xs:element name="billPaymentOccurrenceIdList" type="billPaymentOccurrence:BillPaymentOccurrenceIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPaymentOccurrence ID's that should have their associated billPayments either returned or affected
-            by a read, update or delete billPayment request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <!--
-      <xs:element name="billPaymentRecurringIdList" type="billPaymentRecurring:BillPaymentRecurringIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPayee ID's that should have their associated billPayees either returned or affected
-            by a read, update or delete billPayee request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      -->
-
-      <xs:element name="billPaymentOccurrenceStatusList" type="billPaymentOccurrence:BillPaymentOccurrenceStatusList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPaymentOccurrenceStatus's that should have their associated
-            billPaymentOccurences either returned or Affected by a read, update or delete BillPayment Request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  
-  <!--
-  <xs:complexType name="BillPaymentRecurringFilter">
-    <xs:sequence >
-      <xs:element name="billPaymentRecurringIdList" type="billPaymentRecurring:BillPaymentRecurringIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPayee ID's that should have their associated billPaymentRecurring either returned or affected
-            by a read, update or delete billPayment request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="billPaymentRecurringStatusList" type="billPaymentRecurring:BillPaymentRecurringStatusList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of BillPaymentRecurringStatus's that should have their associated
-            billPaymentRecurring either returned or Affected by a read, update or delete BillPayment Request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
- -->
 </xs:schema>
