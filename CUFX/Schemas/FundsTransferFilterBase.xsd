@@ -11,57 +11,57 @@
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
   elementFormDefault="qualified">
-  
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 
 	<xs:complexType name="FundsTransferFilterBase" abstract="true">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting transfer history. 
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting transfer history.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
 
-      <xs:element name="occurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of transfer occurrence ID's that should have their associated transfers returned or affected by a read,
-            update or delete transfer request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="occurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of transfer occurrence ID's that should have their associated transfers returned or affected by a read,
+						update or delete transfer request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-		<xs:element name="recurringIdList" type="fundsTransferRecurringBase:RecurringIdList" minOccurs="0" maxOccurs="1">
-			<xs:annotation>
-				<xs:documentation>
-					The list of recurring transfer ID's that should have their associated transfers returned or affected by a read, 
-          update or delete transfer request.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:element>
+			<xs:element name="recurringIdList" type="fundsTransferRecurringBase:RecurringIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of recurring transfer ID's that should have their associated transfers returned or affected by a read,
+						update or delete transfer request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="startCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Filter that is used to start searching the transfer dates.
-            Start and end date filters work together.
-            Must be less than or equal to the end date if an end date is supplied.
-            If neither fromDate nor toDate is provided, all applicable transfers will be returned
+			<xs:element name="startCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to start searching the transfer dates.
+						Start and end date filters work together.
+						Must be less than or equal to the end date if an end date is supplied.
+						If neither fromDate nor toDate is provided, all applicable transfers will be returned
 						based on other criteria.
-            The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+						The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="endCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
+			<xs:element name="endCompletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
 						Filter that is used to end searching the transfer dates.
 						Start and end date filters work together.
 						Must be less than or equal to the end date if an end date is supplied.
@@ -69,18 +69,18 @@
 						based on other criteria.
 						The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
-        </xs:annotation>
-      </xs:element>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountIDList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
+			<xs:element name="accountIDList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
 						The account ID list that can be supplied as part of a filter. If present, the payments or transfers are
 						returned only for those account IDs.
 					</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-			
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -100,13 +100,13 @@
 			</xs:element>
 
 			<xs:element name="occurrenceStatusList" type="fundsTransferOccurrenceBase:OccurrenceStatusList" minOccurs="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Filter that is used to search payments or transfers by the statuses of the payments or transfers.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-			
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search payments or transfers by the statuses of the payments or transfers.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="minAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -134,6 +134,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="batchIdList" type="fundsTransferOccurrenceBase:BatchIdList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of batch ids that should have their associated payments or transfers either returned
+						or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 		</xs:sequence>
-  </xs:complexType>
+	</xs:complexType>
 </xs:schema>

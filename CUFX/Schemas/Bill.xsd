@@ -213,4 +213,23 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="BillIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of bill Id's that should have their associated bills either returned
+				or affected by a read, update or delete request. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="billId" type="BillId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A bill id that should have its associated bill data either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>

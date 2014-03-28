@@ -37,10 +37,11 @@
 		</xs:annotation>
 
 		<xs:sequence>
-			<xs:element name="billList" type="bill:BillList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="billIdList" type="bill:BillIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						All the bill data.
+						The list of bill Id's that should have their associated bills either returned
+						or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -167,6 +167,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="batchId" type="BatchId" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						An identifier used to group a set of bills together to process them at the same time.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -179,7 +186,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 
 	<xs:simpleType name="OccurrenceStatus">
 		<xs:annotation>
@@ -345,5 +351,33 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
+	
+	<xs:simpleType name="BatchId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The BatchId is a persistent and unique identifier for a group of payments or transfers processed at the same time.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="BatchIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of batch ids that should have their associated payments or transfers either returned
+				or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="batchId" type="BatchId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A batch id that should have its associated payments or transfers either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
