@@ -43,8 +43,8 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!--
-      <xs:element name="billPaymentRecurringFilter" type="billPaymentFilter:BillPaymentRecurringFilter" minOccurs ="0" maxOccurs ="1">
+ 
+      <xs:element name="billPaymentFilter" type="billPaymentFilter:BillPaymentFilter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Any filters applied to a read, update or delete bill payment message request.
@@ -52,7 +52,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      -->
+
       <xs:element name="billPaymentRecurringList" type="billPaymentRecurring:BillPaymentRecurringList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

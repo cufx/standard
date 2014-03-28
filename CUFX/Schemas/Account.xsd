@@ -11,7 +11,6 @@
   xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
   xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
 	xmlns:transaction="http://cufxstandards.com/v3/Transaction.xsd"
-	xmlns:hold="http://cufxstandards.com/v3/Hold.xsd"	
 	
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -24,7 +23,6 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Transaction.xsd" schemaLocation="Transaction.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Hold.xsd" schemaLocation="Hold.xsd" />
 
 	<xs:element name= "accountList" type ="AccountList">
 		<xs:annotation>
@@ -273,14 +271,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The relationship ID that the account belongs to.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="holdList" type="hold:Hold" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						The account holds collection/array contains all the stop/holds associated to a particular account.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
