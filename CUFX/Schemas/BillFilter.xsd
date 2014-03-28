@@ -46,37 +46,49 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						ID of party related to payee.
+						The list of party ID's that should be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						ID of relationship related to payee.
+						The list of relationship ID's that should have their associated bill payees either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						ID of account related to payee.
+						The list of account ID's that should have their associated payees either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="billFromPayeeId" type="billPayee:BillPayeeId" minOccurs="0" maxOccurs ="1">
+			
+			<xs:element name="billFromPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						An ID that uniquely identifies the bill payee for the consumer.
+						The list of bill pay ID's that should have their associated bill pay records either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="isEBill" type="xs:boolean" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search for eBills.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="billSentStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>

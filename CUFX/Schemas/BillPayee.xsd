@@ -118,7 +118,7 @@
 			<xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						True for electronic processing. False for sending a paper check.
+						True for electronic processing of payments. False for sending a paper check.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -126,12 +126,20 @@
 			<xs:element name="isEBillProvider" type="xs:boolean" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						True for payees that are providing ebills. False for payees that send a paper check.
+						True for payees that are providing ebills. False for payees that send a paper bill.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="addDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
+			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="addedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The Date Added is the date that the Bill Payee was added to the system by the member.
@@ -141,7 +149,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="updatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -203,14 +211,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						True for members that are signed up for ebills for this payee. False for those sending a paper check.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="accountHolderName" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -229,7 +229,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="status" type="Status"  minOccurs="0" maxOccurs="1">
+			<xs:element name="payeeStatus" type="PayeeStatus"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The status of the bill payee.
@@ -244,10 +244,21 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bill payee level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future	release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:simpleType name="Status">
+	<xs:simpleType name="PayeeStatus">
 		<xs:annotation>
 			<xs:documentation>
 				This is enumeration of statuses for the bill payee.
@@ -287,6 +298,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:complexType name="PayeeStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of bill payee statuses that should have their associated bill payee records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="payeeStatus" type="PayeeStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A bill payee status that should have its associated bill payee records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:simpleType name="BillPayeeId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -297,52 +327,52 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="BillPayeeIdList">
-    <xs:annotation>
-      <xs:documentation>
-        The list of bill pay ID's that should have their associated bill pay records either returned or affected
-        by a read, update or delete request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            A bill pay ID that should have its associated bill pay id either returned or affected
-            by a read, update or delete request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="BillPayeeIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of bill pay ID's that should have their associated bill pay records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A bill pay ID that should have its associated bill pay id either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:simpleType name="BillPayeeGlobalId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
 				<xs:documentation>
 					The bill payee global ID is a persistent and unique identifier for the bill payee in the bill pay system.
-					This bill payee global ID does not change from consumer to consumer. 
+					This bill payee global ID does not change from consumer to consumer.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="BillPayeeGlobalIdList">
-    <xs:annotation>
-      <xs:documentation>
-        The list of bill pay global ID's that should have their associated bill pay records that are global either returned or affected
-        by a read, update or delete request.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="billPayeeGlobalId" type="BillPayeeGlobalId" minOccurs="0" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            A bill pay global ID that should have its associated bill pay global id either returned or affected
-            by a read, update or delete request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="BillPayeeGlobalIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of bill pay global ID's that should have their associated bill pay records that are global either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="billPayeeGlobalId" type="BillPayeeGlobalId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A bill pay global ID that should have its associated bill pay global id either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

@@ -77,5 +77,23 @@
       <xs:enumeration value="Escrow"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
+	<xs:complexType name="WireTransferTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Wire transfer types either returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="wireTransferType" type="WireTransferType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Wire transfer type to be returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
 </xs:schema>

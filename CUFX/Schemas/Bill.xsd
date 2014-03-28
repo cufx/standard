@@ -27,7 +27,7 @@
   <xs:element name= "billList" type ="BillList">
 		<xs:annotation>
 			<xs:documentation>
-				The bill list is the collection of bills from different payess for a party/relation/member.
+				The bill list is the collection of bills from different payees for a party/relation/member.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -35,7 +35,7 @@
 	<xs:complexType name="BillList">
 		<xs:annotation>
 			<xs:documentation>
-				The bill list is the collection of bills from different payess for a party/relation/member.
+				The bill list is the collection of bills from different payees for a party/relation/member.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -57,7 +57,15 @@
 			<xs:element name="billImageArtifactId" type="artifact:ArtifactId" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The image of the bill.
+						The artifact id of the bill image. If it should be retreived from the artifact respository.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="eBillUri" type="xs:anyURI" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The eBill location of the bill image. If it is stored by a third party location.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
