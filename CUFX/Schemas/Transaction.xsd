@@ -43,7 +43,7 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="transactionId" type="xs:string" minOccurs="0" maxOccurs ="1">
+						<xs:element name="transactionId" type="TransactionId" minOccurs="0" maxOccurs ="1">
 							<xs:annotation>
 								<xs:documentation>
 									The transaction ID is a persistent and unique identifier for each transaction.
@@ -189,6 +189,39 @@
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="TransactionId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The transaction ID is a persistent and unique identifier for each transaction.
+					It must be unique within the account as it is used for matching purposes.
+					Transactions should always be returned with the same ID, even if transactional
+					information has changed (type, amount, description, date, etc.) since the
+					previous account data pull.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="TransactionIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of transaction ID's that should have their associated transaction records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transactionId" type="TransactionId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A transaction ID that should have its associated transaction records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
