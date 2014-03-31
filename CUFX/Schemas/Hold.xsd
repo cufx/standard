@@ -171,6 +171,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="HoldIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of hold ID's that should have their associated hold records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="holdId" type="HoldId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A hold ID that should have its associated hold id either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:simpleType name="HoldType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="GeneralPurpose">
@@ -316,6 +335,25 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="HoldTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of hold types that should have their associated hold records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="holdType" type="HoldType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A hold type that should have its associated hold record either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:simpleType name="HoldReasonType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Unknown">
@@ -380,6 +418,25 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="HoldReasonTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of hold reason types that should have their associated hold records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="holdReasonType" type="HoldReasonType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A hold reason type that should have its associated holds either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	
 	<xs:simpleType name="HoldStatus">
 		<xs:annotation>
