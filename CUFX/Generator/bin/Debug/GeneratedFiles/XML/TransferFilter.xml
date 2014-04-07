@@ -1,0 +1,61 @@
+<transferFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/TransferFilter.xsd">
+  <occurrenceIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <occurrenceId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">occurrenceId1</occurrenceId>
+    <occurrenceId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">occurrenceId2</occurrenceId>
+    <occurrenceId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">occurrenceId3</occurrenceId>
+    <occurrenceId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">occurrenceId4</occurrenceId>
+    <occurrenceId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">occurrenceId5</occurrenceId>
+  </occurrenceIdList>
+  <recurringIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <recurringId xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd">recurringId1</recurringId>
+    <recurringId xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd">recurringId2</recurringId>
+    <recurringId xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd">recurringId3</recurringId>
+    <recurringId xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd">recurringId4</recurringId>
+    <recurringId xmlns="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd">recurringId5</recurringId>
+  </recurringIdList>
+  <startCompletedDateTime xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">1900-01-01T01:01:01Z</startCompletedDateTime>
+  <endCompletedDateTime xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">1900-01-01T01:01:01Z</endCompletedDateTime>
+  <accountIDList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+  </accountIDList>
+  <partyIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+  </partyIdList>
+  <relationshipIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
+  </relationshipIdList>
+  <occurrenceStatusList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">Scheduled</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">InProcess</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByParty</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByFinancialInstitution</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByProcessor</occurrenceStatus>
+  </occurrenceStatusList>
+  <minAmount xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+    <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+  </minAmount>
+  <maxAmount xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+    <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+  </maxAmount>
+  <batchIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId1</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId2</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId3</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId4</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId5</batchId>
+  </batchIdList>
+</transferFilter>

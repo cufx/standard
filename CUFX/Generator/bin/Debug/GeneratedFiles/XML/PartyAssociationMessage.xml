@@ -1,0 +1,262 @@
+<partyAssociationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/PartyAssociationMessage.xsd">
+  <messageContext>
+    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId1</userId>
+      <userType>EmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId2</userId>
+      <userType>VendorEmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId3</userId>
+      <userType>Anonymous</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId4</userId>
+      <userType>FIUserId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId5</userId>
+      <userType>SystemAccountId</userType>
+    </user>
+    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </messageContext>
+  <partyAssociationFilter>
+    <partyAssociationIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
+      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId1</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId2</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId3</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId4</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId5</partyAssociationId>
+    </partyAssociationIdList>
+    <parentPartyIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    </parentPartyIdList>
+    <childPartyIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    </childPartyIdList>
+    <partyAssociationTypeList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
+      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+        <partner>
+          <qualifier>GeneralPartner</qualifier>
+        </partner>
+        <officerManager>
+          <qualifier>BoardOfDirectors</qualifier>
+        </officerManager>
+        <agent>
+          <qualifer>Custodian</qualifer>
+        </agent>
+        <nextOfKin>
+          <qualifier>NotSpecified</qualifier>
+        </nextOfKin>
+        <trustor>
+          <qualifier>ProvidesFunds</qualifier>
+        </trustor>
+      </partyAssociationType>
+      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+        <partner>
+          <qualifier>LimitedPartner</qualifier>
+        </partner>
+        <officerManager>
+          <qualifier>CxO</qualifier>
+        </officerManager>
+        <agent>
+          <qualifer>Trustee</qualifer>
+        </agent>
+        <nextOfKin>
+          <qualifier>Parent</qualifier>
+        </nextOfKin>
+        <trustor>
+          <qualifier>ProvidesFunds</qualifier>
+        </trustor>
+      </partyAssociationType>
+      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+        <partner>
+          <qualifier>GeneralPartner</qualifier>
+        </partner>
+        <officerManager>
+          <qualifier>FinancialOfficer</qualifier>
+        </officerManager>
+        <agent>
+          <qualifer>PowerOfAttorney</qualifer>
+        </agent>
+        <nextOfKin>
+          <qualifier>Spouse</qualifier>
+        </nextOfKin>
+        <trustor>
+          <qualifier>ProvidesFunds</qualifier>
+        </trustor>
+      </partyAssociationType>
+      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+        <partner>
+          <qualifier>LimitedPartner</qualifier>
+        </partner>
+        <officerManager>
+          <qualifier>President</qualifier>
+        </officerManager>
+        <agent>
+          <qualifer>Representative</qualifer>
+        </agent>
+        <nextOfKin>
+          <qualifier>FirstCousin</qualifier>
+        </nextOfKin>
+        <trustor>
+          <qualifier>ProvidesFunds</qualifier>
+        </trustor>
+      </partyAssociationType>
+      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+        <partner>
+          <qualifier>GeneralPartner</qualifier>
+        </partner>
+        <officerManager>
+          <qualifier>SoleProprietor</qualifier>
+        </officerManager>
+        <agent>
+          <qualifer>Guardian</qualifer>
+        </agent>
+        <nextOfKin>
+          <qualifier>Child</qualifier>
+        </nextOfKin>
+        <trustor>
+          <qualifier>ProvidesFunds</qualifier>
+        </trustor>
+      </partyAssociationType>
+    </partyAssociationTypeList>
+  </partyAssociationFilter>
+  <partyAssociationList>
+    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationId>partyAssociationId1</partyAssociationId>
+      <parentPartyId>parentPartyId1</parentPartyId>
+      <childPartyId>childPartyId1</childPartyId>
+      <partyAssociationType>
+        <partner />
+        <officerManager />
+        <agent />
+        <nextOfKin />
+        <trustor />
+      </partyAssociationType>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </partyAssociation>
+    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationId>partyAssociationId2</partyAssociationId>
+      <parentPartyId>parentPartyId2</parentPartyId>
+      <childPartyId>childPartyId2</childPartyId>
+      <partyAssociationType>
+        <partner />
+        <officerManager />
+        <agent />
+        <nextOfKin />
+        <trustor />
+      </partyAssociationType>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </partyAssociation>
+    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationId>partyAssociationId3</partyAssociationId>
+      <parentPartyId>parentPartyId3</parentPartyId>
+      <childPartyId>childPartyId3</childPartyId>
+      <partyAssociationType>
+        <partner />
+        <officerManager />
+        <agent />
+        <nextOfKin />
+        <trustor />
+      </partyAssociationType>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </partyAssociation>
+    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationId>partyAssociationId4</partyAssociationId>
+      <parentPartyId>parentPartyId4</parentPartyId>
+      <childPartyId>childPartyId4</childPartyId>
+      <partyAssociationType>
+        <partner />
+        <officerManager />
+        <agent />
+        <nextOfKin />
+        <trustor />
+      </partyAssociationType>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </partyAssociation>
+    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationId>partyAssociationId5</partyAssociationId>
+      <parentPartyId>parentPartyId5</parentPartyId>
+      <childPartyId>childPartyId5</childPartyId>
+      <partyAssociationType>
+        <partner />
+        <officerManager />
+        <agent />
+        <nextOfKin />
+        <trustor />
+      </partyAssociationType>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </partyAssociation>
+  </partyAssociationList>
+</partyAssociationMessage>

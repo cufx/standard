@@ -1,0 +1,99 @@
+<transactionList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/Transaction.xsd">
+  <transaction xsi:nil="true" />
+  <transaction>
+    <transactionId>transactionId1</transactionId>
+    <accountId>accountId1</accountId>
+    <type>Debit</type>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+    </amount>
+    <description>description1</description>
+    <checkNumber>checkNumber1</checkNumber>
+    <dateTimePosted>1900-01-01T01:01:01Z</dateTimePosted>
+    <dateTimeEffective>1900-01-01T01:01:01Z</dateTimeEffective>
+    <status>Posted</status>
+    <principalAmount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+    </principalAmount>
+    <interestAmount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+    </interestAmount>
+    <merchantCategoryCode>1</merchantCategoryCode>
+    <category>category1</category>
+    <source>Ach</source>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </transaction>
+  <transaction xsi:nil="true" />
+  <transaction>
+    <transactionId>transactionId2</transactionId>
+    <accountId>accountId2</accountId>
+    <type>Credit</type>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+    </amount>
+    <description>description2</description>
+    <checkNumber>checkNumber2</checkNumber>
+    <dateTimePosted>0001-01-01T00:00:00Z</dateTimePosted>
+    <dateTimeEffective>0001-01-01T00:00:00Z</dateTimeEffective>
+    <status>Posted</status>
+    <principalAmount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+    </principalAmount>
+    <interestAmount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+    </interestAmount>
+    <merchantCategoryCode>-79228162514264337593543950335</merchantCategoryCode>
+    <category>category2</category>
+    <source>Atm</source>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name6</name>
+        <value>value6</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name7</name>
+        <value>value7</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name8</name>
+        <value>value8</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name9</name>
+        <value>value9</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name10</name>
+        <value>value10</value>
+      </valuePair>
+    </customData>
+  </transaction>
+  <transaction xsi:nil="true" />
+</transactionList>

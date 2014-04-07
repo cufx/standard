@@ -1,0 +1,177 @@
+<permissionList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/PermissionList.xsd">
+  <permission>
+    <actor>
+      <fiUserId xmlns="http://cufxstandards.com/v3/AccessProfile.xsd">fiUserId1</fiUserId>
+    </actor>
+    <action>AgreeToTerms</action>
+    <resource>
+      <accountId>accountId1</accountId>
+    </resource>
+    <maxLimits>
+      <dailyMax>
+        <maxAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        </maxAmount>
+        <maxNumber>1</maxNumber>
+        <rollingAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        </rollingAmount>
+        <rollingNumber>1</rollingNumber>
+      </dailyMax>
+      <weeklyMax>
+        <maxAmount />
+        <maxNumber>1</maxNumber>
+        <rollingAmount />
+        <rollingNumber>1</rollingNumber>
+      </weeklyMax>
+      <monthlyMax>
+        <maxAmount />
+        <maxNumber>1</maxNumber>
+        <rollingAmount />
+        <rollingNumber>1</rollingNumber>
+      </monthlyMax>
+    </maxLimits>
+  </permission>
+  <permission>
+    <actor>
+      <fiUserId xmlns="http://cufxstandards.com/v3/AccessProfile.xsd">fiUserId2</fiUserId>
+    </actor>
+    <action>action1</action>
+    <resource>
+      <accountId>accountId2</accountId>
+    </resource>
+    <maxLimits>
+      <dailyMax>
+        <maxAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        </maxAmount>
+        <maxNumber>-79228162514264337593543950335</maxNumber>
+        <rollingAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        </rollingAmount>
+        <rollingNumber>-79228162514264337593543950335</rollingNumber>
+      </dailyMax>
+      <weeklyMax>
+        <maxAmount />
+        <maxNumber>-79228162514264337593543950335</maxNumber>
+        <rollingAmount />
+        <rollingNumber>-79228162514264337593543950335</rollingNumber>
+      </weeklyMax>
+      <monthlyMax>
+        <maxAmount />
+        <maxNumber>-79228162514264337593543950335</maxNumber>
+        <rollingAmount />
+        <rollingNumber>-79228162514264337593543950335</rollingNumber>
+      </monthlyMax>
+    </maxLimits>
+  </permission>
+  <permission>
+    <actor>
+      <fiUserId xmlns="http://cufxstandards.com/v3/AccessProfile.xsd">fiUserId3</fiUserId>
+    </actor>
+    <action>CategorizeTransactions</action>
+    <resource>
+      <accountId>accountId3</accountId>
+    </resource>
+    <maxLimits>
+      <dailyMax>
+        <maxAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        </maxAmount>
+        <maxNumber>79228162514264337593543950335</maxNumber>
+        <rollingAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        </rollingAmount>
+        <rollingNumber>79228162514264337593543950335</rollingNumber>
+      </dailyMax>
+      <weeklyMax>
+        <maxAmount />
+        <maxNumber>79228162514264337593543950335</maxNumber>
+        <rollingAmount />
+        <rollingNumber>79228162514264337593543950335</rollingNumber>
+      </weeklyMax>
+      <monthlyMax>
+        <maxAmount />
+        <maxNumber>79228162514264337593543950335</maxNumber>
+        <rollingAmount />
+        <rollingNumber>79228162514264337593543950335</rollingNumber>
+      </monthlyMax>
+    </maxLimits>
+  </permission>
+  <permission>
+    <actor>
+      <fiUserId xmlns="http://cufxstandards.com/v3/AccessProfile.xsd">fiUserId4</fiUserId>
+    </actor>
+    <action>action2</action>
+    <resource>
+      <accountId>accountId4</accountId>
+    </resource>
+    <maxLimits>
+      <dailyMax>
+        <maxAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        </maxAmount>
+        <maxNumber>0</maxNumber>
+        <rollingAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        </rollingAmount>
+        <rollingNumber>0</rollingNumber>
+      </dailyMax>
+      <weeklyMax>
+        <maxAmount />
+        <maxNumber>0</maxNumber>
+        <rollingAmount />
+        <rollingNumber>0</rollingNumber>
+      </weeklyMax>
+      <monthlyMax>
+        <maxAmount />
+        <maxNumber>0</maxNumber>
+        <rollingAmount />
+        <rollingNumber>0</rollingNumber>
+      </monthlyMax>
+    </maxLimits>
+  </permission>
+  <permission>
+    <actor>
+      <fiUserId xmlns="http://cufxstandards.com/v3/AccessProfile.xsd">fiUserId5</fiUserId>
+    </actor>
+    <action>CreateUser</action>
+    <resource>
+      <accountId>accountId5</accountId>
+    </resource>
+    <maxLimits>
+      <dailyMax>
+        <maxAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        </maxAmount>
+        <maxNumber>2</maxNumber>
+        <rollingAmount>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        </rollingAmount>
+        <rollingNumber>2</rollingNumber>
+      </dailyMax>
+      <weeklyMax>
+        <maxAmount />
+        <maxNumber>2</maxNumber>
+        <rollingAmount />
+        <rollingNumber>2</rollingNumber>
+      </weeklyMax>
+      <monthlyMax>
+        <maxAmount />
+        <maxNumber>2</maxNumber>
+        <rollingAmount />
+        <rollingNumber>2</rollingNumber>
+      </monthlyMax>
+    </maxLimits>
+  </permission>
+</permissionList>

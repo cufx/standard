@@ -1,0 +1,24 @@
+<overdraftPriorityListFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd">
+  <accountId>accountId1</accountId>
+  <overdraftPriorityIdList>
+    <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId1</overdraftPriorityId>
+    <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId2</overdraftPriorityId>
+    <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId3</overdraftPriorityId>
+    <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId4</overdraftPriorityId>
+    <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId5</overdraftPriorityId>
+  </overdraftPriorityIdList>
+  <priorityList>
+    <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">1</priority>
+    <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2147483647</priority>
+    <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2</priority>
+    <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2147483646</priority>
+    <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">3</priority>
+  </priorityList>
+  <overdraftFromAccountIdList>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+  </overdraftFromAccountIdList>
+</overdraftPriorityListFilter>

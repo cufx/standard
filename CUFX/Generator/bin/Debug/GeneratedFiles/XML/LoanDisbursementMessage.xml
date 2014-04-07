@@ -1,0 +1,113 @@
+<loanDisbursementMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/LoanDisbursementMessage.xsd">
+  <messageContext>
+    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId1</userId>
+      <userType>EmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId2</userId>
+      <userType>VendorEmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId3</userId>
+      <userType>Anonymous</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId4</userId>
+      <userType>FIUserId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId5</userId>
+      <userType>SystemAccountId</userType>
+    </user>
+    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </messageContext>
+  <loanDisbursementList>
+    <loanDisbursement xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">
+      <loanDisbursementCheck>
+        <loanDisbursementId>loanDisbursementId1</loanDisbursementId>
+        <amount>1</amount>
+        <description>description1</description>
+        <comment>comment1</comment>
+        <payeeLines>payeeLines1</payeeLines>
+        <payeeLines>payeeLines2</payeeLines>
+        <payeeLines>payeeLines3</payeeLines>
+      </loanDisbursementCheck>
+    </loanDisbursement>
+    <loanDisbursement xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">
+      <loanDisbursementCheck>
+        <loanDisbursementId>loanDisbursementId2</loanDisbursementId>
+        <amount>-79228162514264337593543950335</amount>
+        <description>description2</description>
+        <comment>comment2</comment>
+        <payeeLines>payeeLines4</payeeLines>
+        <payeeLines>payeeLines5</payeeLines>
+        <payeeLines>payeeLines6</payeeLines>
+      </loanDisbursementCheck>
+    </loanDisbursement>
+    <loanDisbursement xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">
+      <loanDisbursementCheck>
+        <loanDisbursementId>loanDisbursementId3</loanDisbursementId>
+        <amount>79228162514264337593543950335</amount>
+        <description>description3</description>
+        <comment>comment3</comment>
+        <payeeLines>payeeLines7</payeeLines>
+        <payeeLines>payeeLines8</payeeLines>
+        <payeeLines>payeeLines9</payeeLines>
+      </loanDisbursementCheck>
+    </loanDisbursement>
+    <loanDisbursement xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">
+      <loanDisbursementCheck>
+        <loanDisbursementId>loanDisbursementId4</loanDisbursementId>
+        <amount>0.9</amount>
+        <description>description4</description>
+        <comment>comment4</comment>
+        <payeeLines>payeeLines10</payeeLines>
+        <payeeLines>payeeLines11</payeeLines>
+        <payeeLines>payeeLines12</payeeLines>
+      </loanDisbursementCheck>
+    </loanDisbursement>
+    <loanDisbursement xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">
+      <loanDisbursementCheck>
+        <loanDisbursementId>loanDisbursementId5</loanDisbursementId>
+        <amount>1.1</amount>
+        <description>description5</description>
+        <comment>comment5</comment>
+        <payeeLines>payeeLines13</payeeLines>
+        <payeeLines>payeeLines14</payeeLines>
+        <payeeLines>payeeLines15</payeeLines>
+      </loanDisbursementCheck>
+    </loanDisbursement>
+    <loanId xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd">loanId1</loanId>
+  </loanDisbursementList>
+</loanDisbursementMessage>

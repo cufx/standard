@@ -1,0 +1,35 @@
+<depositFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/DepositFilter.xsd">
+  <accountIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
+    <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+  </accountIdList>
+  <partyIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+  </partyIdList>
+  <relationshipIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
+    <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
+  </relationshipIdList>
+  <accountTypeList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+    <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Checking</accountType>
+    <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Savings</accountType>
+    <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Loan</accountType>
+    <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">CreditCard</accountType>
+    <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">LineOfCredit</accountType>
+  </accountTypeList>
+  <externalAccountFlag xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">true</externalAccountFlag>
+  <transactionStartDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionStartDateTime>
+  <transactionEndDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionEndDateTime>
+  <maturityStartDate>1900-01-01</maturityStartDate>
+  <maturityEndDate>1900-01-01</maturityEndDate>
+</depositFilter>

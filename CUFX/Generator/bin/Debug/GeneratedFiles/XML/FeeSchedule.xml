@@ -1,0 +1,107 @@
+<feeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/FeeSchedule.xsd">
+  <fee>
+    <feeId>feeId1</feeId>
+    <feeId>feeId2</feeId>
+    <feeId>feeId3</feeId>
+    <feeId>feeId4</feeId>
+    <feeId>feeId5</feeId>
+    <type>type1</type>
+    <relatedTo>
+      <partyId>partyId1</partyId>
+    </relatedTo>
+    <frequency>OneTime</frequency>
+    <minimumFrequency>1</minimumFrequency>
+    <maximumFrequency>1</maximumFrequency>
+    <priceList>
+      <description>description1</description>
+      <price>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+      </price>
+    </priceList>
+  </fee>
+  <fee>
+    <feeId>feeId6</feeId>
+    <feeId>feeId7</feeId>
+    <feeId>feeId8</feeId>
+    <feeId>feeId9</feeId>
+    <feeId>feeId10</feeId>
+    <type>type2</type>
+    <relatedTo>
+      <partyId>partyId2</partyId>
+    </relatedTo>
+    <frequency>PerUse</frequency>
+    <minimumFrequency>-79228162514264337593543950335</minimumFrequency>
+    <maximumFrequency>-79228162514264337593543950335</maximumFrequency>
+    <priceList>
+      <description>description2</description>
+      <price>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+      </price>
+    </priceList>
+  </fee>
+  <fee>
+    <feeId>feeId11</feeId>
+    <feeId>feeId12</feeId>
+    <feeId>feeId13</feeId>
+    <feeId>feeId14</feeId>
+    <feeId>feeId15</feeId>
+    <type>type3</type>
+    <relatedTo>
+      <partyId>partyId3</partyId>
+    </relatedTo>
+    <frequency>Hourly</frequency>
+    <minimumFrequency>79228162514264337593543950335</minimumFrequency>
+    <maximumFrequency>79228162514264337593543950335</maximumFrequency>
+    <priceList>
+      <description>description3</description>
+      <price>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+      </price>
+    </priceList>
+  </fee>
+  <fee>
+    <feeId>feeId16</feeId>
+    <feeId>feeId17</feeId>
+    <feeId>feeId18</feeId>
+    <feeId>feeId19</feeId>
+    <feeId>feeId20</feeId>
+    <type>type4</type>
+    <relatedTo>
+      <partyId>partyId4</partyId>
+    </relatedTo>
+    <frequency>Daily</frequency>
+    <minimumFrequency>0</minimumFrequency>
+    <maximumFrequency>0</maximumFrequency>
+    <priceList>
+      <description>description4</description>
+      <price>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+      </price>
+    </priceList>
+  </fee>
+  <fee>
+    <feeId>feeId21</feeId>
+    <feeId>feeId22</feeId>
+    <feeId>feeId23</feeId>
+    <feeId>feeId24</feeId>
+    <feeId>feeId25</feeId>
+    <type>type5</type>
+    <relatedTo>
+      <partyId>partyId5</partyId>
+    </relatedTo>
+    <frequency>Weekly</frequency>
+    <minimumFrequency>2</minimumFrequency>
+    <maximumFrequency>2</maximumFrequency>
+    <priceList>
+      <description>description5</description>
+      <price>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+      </price>
+    </priceList>
+  </fee>
+</feeList>

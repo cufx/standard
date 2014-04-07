@@ -1,0 +1,287 @@
+<contactMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/ContactMessage.xsd">
+  <messageContext>
+    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId1</userId>
+      <userType>EmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId2</userId>
+      <userType>VendorEmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId3</userId>
+      <userType>Anonymous</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId4</userId>
+      <userType>FIUserId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId5</userId>
+      <userType>SystemAccountId</userType>
+    </user>
+    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </messageContext>
+  <contactFilter>
+    <contactIdList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <contactId xmlns="http://cufxstandards.com/v3/Contact.xsd">contactId1</contactId>
+      <contactId xmlns="http://cufxstandards.com/v3/Contact.xsd">contactId2</contactId>
+      <contactId xmlns="http://cufxstandards.com/v3/Contact.xsd">contactId3</contactId>
+      <contactId xmlns="http://cufxstandards.com/v3/Contact.xsd">contactId4</contactId>
+      <contactId xmlns="http://cufxstandards.com/v3/Contact.xsd">contactId5</contactId>
+    </contactIdList>
+    <partyIdList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    </partyIdList>
+    <relationshipIdList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
+    </relationshipIdList>
+    <accountIdList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+    </accountIdList>
+    <taxIdList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <taxId xmlns="http://cufxstandards.com/v3/Party.xsd">Token1</taxId>
+      <taxId xmlns="http://cufxstandards.com/v3/Party.xsd">Token2</taxId>
+      <taxId xmlns="http://cufxstandards.com/v3/Party.xsd">Token3</taxId>
+      <taxId xmlns="http://cufxstandards.com/v3/Party.xsd">Token4</taxId>
+      <taxId xmlns="http://cufxstandards.com/v3/Party.xsd">Token5</taxId>
+    </taxIdList>
+    <contactTypeList xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">
+      <contactType xmlns="http://cufxstandards.com/v3/Contact.xsd">Address</contactType>
+      <contactType xmlns="http://cufxstandards.com/v3/Contact.xsd">Phone</contactType>
+      <contactType xmlns="http://cufxstandards.com/v3/Contact.xsd">Email</contactType>
+      <contactType xmlns="http://cufxstandards.com/v3/Contact.xsd">InstantMessaging</contactType>
+      <contactType xmlns="http://cufxstandards.com/v3/Contact.xsd">Social</contactType>
+    </contactTypeList>
+    <badContactPoint xmlns="http://cufxstandards.com/v3/ContactFilter.xsd">true</badContactPoint>
+  </contactFilter>
+  <contactList>
+    <contact xmlns="http://cufxstandards.com/v3/Contact.xsd">
+      <contactId>contactId1</contactId>
+      <contactType>Address</contactType>
+      <address>
+        <line1>line11</line1>
+        <line2>line21</line2>
+        <line3>line31</line3>
+        <city>city1</city>
+        <stateProvince>stateProvince1</stateProvince>
+        <postalCode>postalCode1</postalCode>
+        <countryCode>AD</countryCode>
+        <country>country1</country>
+        <coordinate>
+          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</latitude>
+          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</longitude>
+        </coordinate>
+        <type>Home</type>
+        <effectiveDateTime>1900-01-01T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
+        <timeAtAddress>P396DT1H1M1S</timeAtAddress>
+        <addressVerifyDateTime>1900-01-01T01:01:01Z</addressVerifyDateTime>
+      </address>
+      <timeOfDay>Afternoon</timeOfDay>
+      <demonstratedAccess>
+        <dateTime>1900-01-01T01:01:01Z</dateTime>
+        <fullName>fullName1</fullName>
+        <userName>userName1</userName>
+      </demonstratedAccess>
+      <badContactPoint>true</badContactPoint>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </contact>
+    <contact xmlns="http://cufxstandards.com/v3/Contact.xsd">
+      <contactId>contactId2</contactId>
+      <contactType>Phone</contactType>
+      <address>
+        <line1>line12</line1>
+        <line2>line22</line2>
+        <line3>line32</line3>
+        <city>city2</city>
+        <stateProvince>stateProvince2</stateProvince>
+        <postalCode>postalCode2</postalCode>
+        <countryCode>AE</countryCode>
+        <country>country2</country>
+        <coordinate>
+          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</latitude>
+          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</longitude>
+        </coordinate>
+        <type>Work</type>
+        <effectiveDateTime>0001-01-01T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-01-01T00:00:00Z</expirationDateTime>
+        <timeAtAddress>-P10675199DT2H48M5.477S</timeAtAddress>
+        <addressVerifyDateTime>0001-01-01T00:00:00Z</addressVerifyDateTime>
+      </address>
+      <timeOfDay>Evening</timeOfDay>
+      <demonstratedAccess>
+        <dateTime>0001-01-01T00:00:00Z</dateTime>
+        <fullName>fullName2</fullName>
+        <userName>userName2</userName>
+      </demonstratedAccess>
+      <badContactPoint>false</badContactPoint>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </contact>
+    <contact xmlns="http://cufxstandards.com/v3/Contact.xsd">
+      <contactId>contactId3</contactId>
+      <contactType>Email</contactType>
+      <address>
+        <line1>line13</line1>
+        <line2>line23</line2>
+        <line3>line33</line3>
+        <city>city3</city>
+        <stateProvince>stateProvince3</stateProvince>
+        <postalCode>postalCode3</postalCode>
+        <countryCode>AF</countryCode>
+        <country>country3</country>
+        <coordinate>
+          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</latitude>
+          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</longitude>
+        </coordinate>
+        <type>Mailing</type>
+        <effectiveDateTime>9999-12-31T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-12-31T23:59:59.9999999Z</expirationDateTime>
+        <timeAtAddress>P10675199DT2H48M5.477S</timeAtAddress>
+        <addressVerifyDateTime>9999-12-31T23:59:59.9999999Z</addressVerifyDateTime>
+      </address>
+      <timeOfDay>Morning</timeOfDay>
+      <demonstratedAccess>
+        <dateTime>9999-12-31T23:59:59.9999999Z</dateTime>
+        <fullName>fullName3</fullName>
+        <userName>userName3</userName>
+      </demonstratedAccess>
+      <badContactPoint>true</badContactPoint>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </contact>
+    <contact xmlns="http://cufxstandards.com/v3/Contact.xsd">
+      <contactId>contactId4</contactId>
+      <contactType>InstantMessaging</contactType>
+      <address>
+        <line1>line14</line1>
+        <line2>line24</line2>
+        <line3>line34</line3>
+        <city>city4</city>
+        <stateProvince>stateProvince4</stateProvince>
+        <postalCode>postalCode4</postalCode>
+        <countryCode>AG</countryCode>
+        <country>country4</country>
+        <coordinate>
+          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</latitude>
+          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</longitude>
+        </coordinate>
+        <type>Previous</type>
+        <effectiveDateTime>1899-11-30T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-11-30T01:01:01Z</expirationDateTime>
+        <timeAtAddress>P31DT1H1M1S</timeAtAddress>
+        <addressVerifyDateTime>1899-11-30T01:01:01Z</addressVerifyDateTime>
+      </address>
+      <timeOfDay>Afternoon</timeOfDay>
+      <demonstratedAccess>
+        <dateTime>1899-11-30T01:01:01Z</dateTime>
+        <fullName>fullName4</fullName>
+        <userName>userName4</userName>
+      </demonstratedAccess>
+      <badContactPoint>false</badContactPoint>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </contact>
+    <contact xmlns="http://cufxstandards.com/v3/Contact.xsd">
+      <contactId>contactId5</contactId>
+      <contactType>Social</contactType>
+      <address>
+        <line1>line15</line1>
+        <line2>line25</line2>
+        <line3>line35</line3>
+        <city>city5</city>
+        <stateProvince>stateProvince5</stateProvince>
+        <postalCode>postalCode5</postalCode>
+        <countryCode>AI</countryCode>
+        <country>country5</country>
+        <coordinate>
+          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</latitude>
+          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</longitude>
+        </coordinate>
+        <type>Temporary</type>
+        <effectiveDateTime>1900-02-02T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-02-02T01:01:01Z</expirationDateTime>
+        <timeAtAddress>P761DT1H1M1S</timeAtAddress>
+        <addressVerifyDateTime>1900-02-02T01:01:01Z</addressVerifyDateTime>
+      </address>
+      <timeOfDay>Evening</timeOfDay>
+      <demonstratedAccess>
+        <dateTime>1900-02-02T01:01:01Z</dateTime>
+        <fullName>fullName5</fullName>
+        <userName>userName5</userName>
+      </demonstratedAccess>
+      <badContactPoint>true</badContactPoint>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </contact>
+  </contactList>
+</contactMessage>

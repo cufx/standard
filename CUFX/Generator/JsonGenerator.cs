@@ -66,7 +66,8 @@ namespace CUFX.Generator
             
 			// Set the assembly file name to generate. (TODO: Delete?)
             //cp.OutputAssembly = dllFile;
-
+            cp.IncludeDebugInformation = true;
+            cp.TempFiles = new TempFileCollection(".", true);
 			// Save the assembly as a physical file.
 			cp.GenerateInMemory = false;
 
@@ -82,7 +83,7 @@ namespace CUFX.Generator
                     Console.WriteLine(e.Current);
                 }
                 throw new FileNotFoundException(@"Error compiling the generated CUFX file.");
-            }
+            }            
             Assembly assembly = cr.CompiledAssembly;
          
 			JsonSerializer serializer = new JsonSerializer();

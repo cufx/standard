@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://cufxstandards.com/v3/ApplicationFilter.xsd"
+  version="3.0.$Revision: 736 $"
+  xmlns="http://cufxstandards.com/v3/ApplicationFilter.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:productOffering="http://cufxstandards.com/v3/ProductOffering.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:application="http://cufxstandards.com/v3/Application.xsd"       
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+
+  elementFormDefault="qualified" >
+
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/ProductOffering.xsd" schemaLocation ="ProductOffering.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation ="Relationship.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Application.xsd" schemaLocation ="Application.xsd" />
+  <xs:import namespace ="http://cufxstandards.com/v3/Account.xsd" schemaLocation ="Account.xsd" />
+  
+  <xs:element name="applicationFilter" type="ApplicationFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of filter options for services requesting application data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="ApplicationFilter">
+    <xs:annotation>
+      <xs:documentation>
+        The list of filter options for services requesting application data.  The options can be used
+        in combination or by themselves.  It is up to the data source to either return the
+        data requested or return a standard error identifying why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of application ID's that should have their associated applications returned
+            or affected by a read, update or delete application request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="productTypeList" type="productOffering:ProductTypeList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product types that should have their associated applications returned
+            or affected by a read, update or delete application service request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="productSubTypeList" type="productOffering:ProductSubType" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of product sub types that should have their associated applications
+            returned or affected by a read, update or delete application service request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of relationship ID's that should have their associated applications
+            either returned or affected by a read, update or delete associated application request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of party ID's that should have their associated applications returned
+            or affected by a read, update or delete associated application request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence >
+  </xs:complexType >
+
+</xs:schema>

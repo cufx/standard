@@ -1,0 +1,627 @@
+<locationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/Location.xsd">
+  <location>
+    <locationId>locationId1</locationId>
+    <name>name1</name>
+    <distance>
+      <unit xmlns="http://cufxstandards.com/v3/Common.xsd">unit1</unit>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+    </distance>
+    <type>ATM</type>
+    <address>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line11</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line21</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line31</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city1</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince1</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode1</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AD</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country1</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</longitude>
+      </coordinate>
+    </address>
+    <phone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Home</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number1</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension1</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">Nanp</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description1</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </phone>
+    <mapUrl>http://uri1</mapUrl>
+    <network>network1</network>
+    <depositTaking>true</depositTaking>
+    <locationHoursList>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description1</description>
+        <dayOfTheWeek>Monday</dayOfTheWeek>
+        <openTime>01:01:01</openTime>
+        <closeTime>01:01:01</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description2</description>
+        <dayOfTheWeek>Tuesday</dayOfTheWeek>
+        <openTime>00:00:00</openTime>
+        <closeTime>00:00:00</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description3</description>
+        <dayOfTheWeek>Wednesday</dayOfTheWeek>
+        <openTime>23:59:59</openTime>
+        <closeTime>23:59:59</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description4</description>
+        <dayOfTheWeek>Thursday</dayOfTheWeek>
+        <openTime>00:59:31</openTime>
+        <closeTime>00:59:31</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description5</description>
+        <dayOfTheWeek>Friday</dayOfTheWeek>
+        <openTime>01:02:31</openTime>
+        <closeTime>01:02:31</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+    </locationHoursList>
+    <servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name1</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value1</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name2</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value2</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name3</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value3</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name4</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value4</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name5</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value5</value>
+      </servicesList>
+    </servicesList>
+    <additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name1</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value1</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name2</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value2</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name3</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value3</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name4</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value4</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name5</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value5</value>
+      </additionalDataList>
+    </additionalDataList>
+  </location>
+  <location>
+    <locationId>locationId2</locationId>
+    <name>name2</name>
+    <distance>
+      <unit xmlns="http://cufxstandards.com/v3/Common.xsd">unit2</unit>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+    </distance>
+    <type>SharedATM</type>
+    <address>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line12</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line22</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line32</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city2</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince2</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode2</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AE</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country2</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</longitude>
+      </coordinate>
+    </address>
+    <phone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Work</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number2</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension2</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">NanpLessCountryCode</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description2</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">false</smsRegistered>
+    </phone>
+    <mapUrl>http://uri2</mapUrl>
+    <network>network2</network>
+    <depositTaking>false</depositTaking>
+    <locationHoursList>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description6</description>
+        <dayOfTheWeek>Saturday</dayOfTheWeek>
+        <openTime>00:01:30</openTime>
+        <closeTime>00:01:30</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description7</description>
+        <dayOfTheWeek>Sunday</dayOfTheWeek>
+        <openTime>23:58:29</openTime>
+        <closeTime>23:58:29</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description8</description>
+        <dayOfTheWeek>Monday</dayOfTheWeek>
+        <openTime>00:58:01</openTime>
+        <closeTime>00:58:01</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description9</description>
+        <dayOfTheWeek>Tuesday</dayOfTheWeek>
+        <openTime>01:04:01</openTime>
+        <closeTime>01:04:01</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description10</description>
+        <dayOfTheWeek>Wednesday</dayOfTheWeek>
+        <openTime>00:03:00</openTime>
+        <closeTime>00:03:00</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+    </locationHoursList>
+    <servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name6</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value6</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name7</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value7</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name8</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value8</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name9</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value9</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name10</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value10</value>
+      </servicesList>
+    </servicesList>
+    <additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name6</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value6</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name7</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value7</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name8</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value8</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name9</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value9</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name10</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value10</value>
+      </additionalDataList>
+    </additionalDataList>
+  </location>
+  <location>
+    <locationId>locationId3</locationId>
+    <name>name3</name>
+    <distance>
+      <unit xmlns="http://cufxstandards.com/v3/Common.xsd">unit3</unit>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+    </distance>
+    <type>Branch</type>
+    <address>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line13</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line23</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line33</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city3</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince3</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode3</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AF</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country3</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</longitude>
+      </coordinate>
+    </address>
+    <phone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Mobile</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number3</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension3</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">OtherInternational</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description3</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </phone>
+    <mapUrl>http://uri3</mapUrl>
+    <network>network3</network>
+    <depositTaking>true</depositTaking>
+    <locationHoursList>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description11</description>
+        <dayOfTheWeek>Thursday</dayOfTheWeek>
+        <openTime>23:56:59</openTime>
+        <closeTime>23:56:59</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description12</description>
+        <dayOfTheWeek>Friday</dayOfTheWeek>
+        <openTime>00:56:31</openTime>
+        <closeTime>00:56:31</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description13</description>
+        <dayOfTheWeek>Saturday</dayOfTheWeek>
+        <openTime>01:05:31</openTime>
+        <closeTime>01:05:31</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description14</description>
+        <dayOfTheWeek>Sunday</dayOfTheWeek>
+        <openTime>00:04:30</openTime>
+        <closeTime>00:04:30</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description15</description>
+        <dayOfTheWeek>Monday</dayOfTheWeek>
+        <openTime>23:55:29</openTime>
+        <closeTime>23:55:29</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+    </locationHoursList>
+    <servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name11</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value11</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name12</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value12</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name13</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value13</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name14</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value14</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name15</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value15</value>
+      </servicesList>
+    </servicesList>
+    <additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name11</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value11</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name12</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value12</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name13</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value13</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name14</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value14</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name15</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value15</value>
+      </additionalDataList>
+    </additionalDataList>
+  </location>
+  <location>
+    <locationId>locationId4</locationId>
+    <name>name4</name>
+    <distance>
+      <unit xmlns="http://cufxstandards.com/v3/Common.xsd">unit4</unit>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+    </distance>
+    <type>SharedBranch</type>
+    <address>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line14</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line24</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line34</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city4</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince4</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode4</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AG</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country4</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</longitude>
+      </coordinate>
+    </address>
+    <phone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Pager</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number4</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension4</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">NationalNumber</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description4</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">false</smsRegistered>
+    </phone>
+    <mapUrl>http://uri4</mapUrl>
+    <network>network4</network>
+    <depositTaking>false</depositTaking>
+    <locationHoursList>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description16</description>
+        <dayOfTheWeek>Tuesday</dayOfTheWeek>
+        <openTime>00:55:01</openTime>
+        <closeTime>00:55:01</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description17</description>
+        <dayOfTheWeek>Wednesday</dayOfTheWeek>
+        <openTime>01:07:01</openTime>
+        <closeTime>01:07:01</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description18</description>
+        <dayOfTheWeek>Thursday</dayOfTheWeek>
+        <openTime>00:06:00</openTime>
+        <closeTime>00:06:00</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description19</description>
+        <dayOfTheWeek>Friday</dayOfTheWeek>
+        <openTime>23:53:59</openTime>
+        <closeTime>23:53:59</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description20</description>
+        <dayOfTheWeek>Saturday</dayOfTheWeek>
+        <openTime>00:53:31</openTime>
+        <closeTime>00:53:31</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+    </locationHoursList>
+    <servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name16</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value16</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name17</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value17</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name18</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value18</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name19</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value19</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name20</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value20</value>
+      </servicesList>
+    </servicesList>
+    <additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name16</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value16</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name17</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value17</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name18</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value18</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name19</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value19</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name20</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value20</value>
+      </additionalDataList>
+    </additionalDataList>
+  </location>
+  <location>
+    <locationId>locationId5</locationId>
+    <name>name5</name>
+    <distance>
+      <unit xmlns="http://cufxstandards.com/v3/Common.xsd">unit5</unit>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+    </distance>
+    <type>Kiosk</type>
+    <address>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line15</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line25</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line35</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city5</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince5</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode5</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AI</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country5</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</longitude>
+      </coordinate>
+    </address>
+    <phone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Fax</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number5</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension5</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">Nanp</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description5</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </phone>
+    <mapUrl>http://uri5</mapUrl>
+    <network>network5</network>
+    <depositTaking>true</depositTaking>
+    <locationHoursList>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description21</description>
+        <dayOfTheWeek>Sunday</dayOfTheWeek>
+        <openTime>01:08:31</openTime>
+        <closeTime>01:08:31</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>DriveUp</locationHoursType>
+        <description>description22</description>
+        <dayOfTheWeek>Monday</dayOfTheWeek>
+        <openTime>00:07:30</openTime>
+        <closeTime>00:07:30</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>ATM</locationHoursType>
+        <description>description23</description>
+        <dayOfTheWeek>Tuesday</dayOfTheWeek>
+        <openTime>23:52:29</openTime>
+        <closeTime>23:52:29</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Other</locationHoursType>
+        <description>description24</description>
+        <dayOfTheWeek>Wednesday</dayOfTheWeek>
+        <openTime>00:52:01</openTime>
+        <closeTime>00:52:01</closeTime>
+        <closedAllDay>false</closedAllDay>
+        <openAllDay>false</openAllDay>
+      </locationHours>
+      <locationHours>
+        <locationHoursType>Lobby</locationHoursType>
+        <description>description25</description>
+        <dayOfTheWeek>Thursday</dayOfTheWeek>
+        <openTime>01:10:01</openTime>
+        <closeTime>01:10:01</closeTime>
+        <closedAllDay>true</closedAllDay>
+        <openAllDay>true</openAllDay>
+      </locationHours>
+    </locationHoursList>
+    <servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name21</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value21</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name22</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value22</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name23</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value23</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name24</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value24</value>
+      </servicesList>
+      <servicesList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name25</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value25</value>
+      </servicesList>
+    </servicesList>
+    <additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name21</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value21</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name22</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value22</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name23</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value23</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name24</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value24</value>
+      </additionalDataList>
+      <additionalDataList>
+        <name xmlns="http://cufxstandards.com/v3/Common.xsd">name25</name>
+        <value xmlns="http://cufxstandards.com/v3/Common.xsd">value25</value>
+      </additionalDataList>
+    </additionalDataList>
+  </location>
+</locationList>

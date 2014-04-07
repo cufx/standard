@@ -1,0 +1,772 @@
+<productOfferingList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">
+  <productOffering>
+    <productId>productId1</productId>
+    <productType>Checking</productType>
+    <productSubType>productSubType1</productSubType>
+    <systemProductKeys>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </systemProductKeys>
+    <description>description1</description>
+    <pointsRewardsProgram>true</pointsRewardsProgram>
+    <interestRateList>
+      <interestRate>
+        <interestRateId>interestRateId1</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum1</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum1</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription1</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria1</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        </maximumBalance>
+        <term>P396DT1H1M1S</term>
+        <effectiveDateTime>1900-01-01T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
+        <interestRate>1</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId2</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum2</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum2</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription2</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria2</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        </maximumBalance>
+        <term>-P10675199DT2H48M5.477S</term>
+        <effectiveDateTime>0001-01-01T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-01-01T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId3</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum3</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum3</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription3</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria3</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        </maximumBalance>
+        <term>P10675199DT2H48M5.477S</term>
+        <effectiveDateTime>9999-12-31T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-12-31T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId4</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum4</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum4</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription4</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria4</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        </maximumBalance>
+        <term>P31DT1H1M1S</term>
+        <effectiveDateTime>1899-11-30T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-11-30T01:01:01Z</expirationDateTime>
+        <interestRate>0.9</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId5</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum5</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum5</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription5</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria5</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        </maximumBalance>
+        <term>P761DT1H1M1S</term>
+        <effectiveDateTime>1900-02-02T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-02-02T01:01:01Z</expirationDateTime>
+        <interestRate>1.1</interestRate>
+      </interestRate>
+    </interestRateList>
+    <brand>brand1</brand>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    </customData>
+  </productOffering>
+  <productOffering>
+    <productId>productId2</productId>
+    <productType>Savings</productType>
+    <productSubType>productSubType2</productSubType>
+    <systemProductKeys>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name6</name>
+        <value>value6</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name7</name>
+        <value>value7</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name8</name>
+        <value>value8</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name9</name>
+        <value>value9</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name10</name>
+        <value>value10</value>
+      </valuePair>
+    </systemProductKeys>
+    <description>description2</description>
+    <pointsRewardsProgram>false</pointsRewardsProgram>
+    <interestRateList>
+      <interestRate>
+        <interestRateId>interestRateId6</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum6</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum6</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription6</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria6</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ANG</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ANG</currencyCode>
+        </maximumBalance>
+        <term>-P10674834DT2H48M5.477S</term>
+        <effectiveDateTime>0001-02-02T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-02-02T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId7</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum7</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum7</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription7</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria7</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AOA</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AOA</currencyCode>
+        </maximumBalance>
+        <term>P10674834DT2H48M5.477S</term>
+        <effectiveDateTime>9999-11-29T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-11-29T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId8</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum8</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum8</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription8</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria8</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ARS</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ARS</currencyCode>
+        </maximumBalance>
+        <term>-P333DT22H58M59S</term>
+        <effectiveDateTime>1899-10-29T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-10-29T01:01:01Z</expirationDateTime>
+        <interestRate>0.8</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId9</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum9</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum9</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription9</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria9</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AUD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AUD</currencyCode>
+        </maximumBalance>
+        <term>P1126DT1H1M1S</term>
+        <effectiveDateTime>1900-03-06T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-03-06T01:01:01Z</expirationDateTime>
+        <interestRate>1.2</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId10</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum10</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum10</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription10</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria10</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AWG</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AWG</currencyCode>
+        </maximumBalance>
+        <term>-P10674469DT2H48M5.477S</term>
+        <effectiveDateTime>0001-03-06T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-03-06T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950335</interestRate>
+      </interestRate>
+    </interestRateList>
+    <brand>brand2</brand>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    </customData>
+  </productOffering>
+  <productOffering>
+    <productId>productId3</productId>
+    <productType>Loan</productType>
+    <productSubType>productSubType3</productSubType>
+    <systemProductKeys>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name11</name>
+        <value>value11</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name12</name>
+        <value>value12</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name13</name>
+        <value>value13</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name14</name>
+        <value>value14</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name15</name>
+        <value>value15</value>
+      </valuePair>
+    </systemProductKeys>
+    <description>description3</description>
+    <pointsRewardsProgram>true</pointsRewardsProgram>
+    <interestRateList>
+      <interestRate>
+        <interestRateId>interestRateId11</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum11</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum11</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription11</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria11</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AZN</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AZN</currencyCode>
+        </maximumBalance>
+        <term>P10674469DT2H48M5.477S</term>
+        <effectiveDateTime>9999-10-28T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-10-28T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId12</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum12</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum12</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription12</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria12</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BAM</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BAM</currencyCode>
+        </maximumBalance>
+        <term>-P698DT22H58M59S</term>
+        <effectiveDateTime>1899-09-27T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-09-27T01:01:01Z</expirationDateTime>
+        <interestRate>0.7</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId13</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum13</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum13</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription13</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria13</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.3</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BBD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.3</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BBD</currencyCode>
+        </maximumBalance>
+        <term>P1491DT1H1M1S</term>
+        <effectiveDateTime>1900-04-07T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-04-07T01:01:01Z</expirationDateTime>
+        <interestRate>1.3</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId14</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum14</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum14</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription14</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria14</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BDT</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BDT</currencyCode>
+        </maximumBalance>
+        <term>-P10674104DT2H48M5.477S</term>
+        <effectiveDateTime>0001-04-07T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-04-07T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId15</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum15</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum15</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription15</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria15</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BGN</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BGN</currencyCode>
+        </maximumBalance>
+        <term>P10674104DT2H48M5.477S</term>
+        <effectiveDateTime>9999-09-26T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-09-26T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950335</interestRate>
+      </interestRate>
+    </interestRateList>
+    <brand>brand3</brand>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    </customData>
+  </productOffering>
+  <productOffering>
+    <productId>productId4</productId>
+    <productType>CreditCard</productType>
+    <productSubType>productSubType4</productSubType>
+    <systemProductKeys>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name16</name>
+        <value>value16</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name17</name>
+        <value>value17</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name18</name>
+        <value>value18</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name19</name>
+        <value>value19</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name20</name>
+        <value>value20</value>
+      </valuePair>
+    </systemProductKeys>
+    <description>description4</description>
+    <pointsRewardsProgram>false</pointsRewardsProgram>
+    <interestRateList>
+      <interestRate>
+        <interestRateId>interestRateId16</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum16</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum16</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription16</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria16</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.6</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BHD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.6</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BHD</currencyCode>
+        </maximumBalance>
+        <term>-P1063DT22H58M59S</term>
+        <effectiveDateTime>1899-08-26T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-08-26T01:01:01Z</expirationDateTime>
+        <interestRate>0.6</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId17</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum17</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum17</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription17</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria17</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.4</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BIF</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.4</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BIF</currencyCode>
+        </maximumBalance>
+        <term>P1856DT1H1M1S</term>
+        <effectiveDateTime>1900-05-09T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-05-09T01:01:01Z</expirationDateTime>
+        <interestRate>1.4</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId18</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum18</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum18</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription18</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria18</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BMD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BMD</currencyCode>
+        </maximumBalance>
+        <term>-P10673739DT2H48M5.477S</term>
+        <effectiveDateTime>0001-05-09T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-05-09T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId19</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum19</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum19</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription19</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria19</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BND</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BND</currencyCode>
+        </maximumBalance>
+        <term>P10673739DT2H48M5.477S</term>
+        <effectiveDateTime>9999-08-25T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-08-25T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950335</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId20</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum20</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum20</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription20</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria20</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.5</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BOB</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.5</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BOB</currencyCode>
+        </maximumBalance>
+        <term>-P1428DT22H58M59S</term>
+        <effectiveDateTime>1899-07-25T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-07-25T01:01:01Z</expirationDateTime>
+        <interestRate>0.5</interestRate>
+      </interestRate>
+    </interestRateList>
+    <brand>brand4</brand>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    </customData>
+  </productOffering>
+  <productOffering>
+    <productId>productId5</productId>
+    <productType>LineOfCredit</productType>
+    <productSubType>productSubType5</productSubType>
+    <systemProductKeys>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name21</name>
+        <value>value21</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name22</name>
+        <value>value22</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name23</name>
+        <value>value23</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name24</name>
+        <value>value24</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name25</name>
+        <value>value25</value>
+      </valuePair>
+    </systemProductKeys>
+    <description>description5</description>
+    <pointsRewardsProgram>true</pointsRewardsProgram>
+    <interestRateList>
+      <interestRate>
+        <interestRateId>interestRateId21</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum21</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum21</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription21</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria21</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.5</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BRL</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.5</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BRL</currencyCode>
+        </maximumBalance>
+        <term>P2221DT1H1M1S</term>
+        <effectiveDateTime>1900-06-10T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-06-10T01:01:01Z</expirationDateTime>
+        <interestRate>1.5</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId22</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum22</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum22</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription22</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria22</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950334</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BSD</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950334</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BSD</currencyCode>
+        </maximumBalance>
+        <term>-P10673374DT2H48M5.477S</term>
+        <effectiveDateTime>0001-06-10T00:00:00Z</effectiveDateTime>
+        <expirationDateTime>0001-06-10T00:00:00Z</expirationDateTime>
+        <interestRate>-79228162514264337593543950334</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId23</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum23</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum23</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription23</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria23</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950334</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BTN</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950334</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BTN</currencyCode>
+        </maximumBalance>
+        <term>P10673374DT2H48M5.477S</term>
+        <effectiveDateTime>9999-07-24T23:59:59.9999999Z</effectiveDateTime>
+        <expirationDateTime>9999-07-24T23:59:59.9999999Z</expirationDateTime>
+        <interestRate>79228162514264337593543950334</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId24</interestRateId>
+        <interestPointsRewardsProgram>false</interestPointsRewardsProgram>
+        <introductoryRate>false</introductoryRate>
+        <balanceConsolidationRate>false</balanceConsolidationRate>
+        <riskRate>false</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum24</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum24</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription24</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria24</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.4</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BWP</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.4</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BWP</currencyCode>
+        </maximumBalance>
+        <term>-P1793DT22H58M59S</term>
+        <effectiveDateTime>1899-06-23T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1899-06-23T01:01:01Z</expirationDateTime>
+        <interestRate>0.4</interestRate>
+      </interestRate>
+      <interestRate>
+        <interestRateId>interestRateId25</interestRateId>
+        <interestPointsRewardsProgram>true</interestPointsRewardsProgram>
+        <introductoryRate>true</introductoryRate>
+        <balanceConsolidationRate>true</balanceConsolidationRate>
+        <riskRate>true</riskRate>
+        <riskRateClassificationMinimum>riskRateClassificationMinimum25</riskRateClassificationMinimum>
+        <riskRateClassificationMaximum>riskRateClassificationMaximum25</riskRateClassificationMaximum>
+        <interestRateDescription>interestRateDescription25</interestRateDescription>
+        <interestRateCriteria>interestRateCriteria25</interestRateCriteria>
+        <minimumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.6</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BYR</currencyCode>
+        </minimumBalance>
+        <maximumBalance>
+          <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.6</value>
+          <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BYR</currencyCode>
+        </maximumBalance>
+        <term>P2586DT1H1M1S</term>
+        <effectiveDateTime>1900-07-12T01:01:01Z</effectiveDateTime>
+        <expirationDateTime>1900-07-12T01:01:01Z</expirationDateTime>
+        <interestRate>1.6</interestRate>
+      </interestRate>
+    </interestRateList>
+    <brand>brand5</brand>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    </customData>
+  </productOffering>
+</productOfferingList>

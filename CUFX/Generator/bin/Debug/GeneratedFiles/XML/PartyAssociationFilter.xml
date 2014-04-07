@@ -1,0 +1,110 @@
+<partyAssociationFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
+  <partyAssociationIdList>
+    <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId1</partyAssociationId>
+    <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId2</partyAssociationId>
+    <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId3</partyAssociationId>
+    <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId4</partyAssociationId>
+    <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId5</partyAssociationId>
+  </partyAssociationIdList>
+  <parentPartyIdList>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+  </parentPartyIdList>
+  <childPartyIdList>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+    <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+  </childPartyIdList>
+  <partyAssociationTypeList>
+    <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partner>
+        <qualifier>GeneralPartner</qualifier>
+      </partner>
+      <officerManager>
+        <qualifier>BoardOfDirectors</qualifier>
+      </officerManager>
+      <agent>
+        <qualifer>Custodian</qualifer>
+      </agent>
+      <nextOfKin>
+        <qualifier>NotSpecified</qualifier>
+      </nextOfKin>
+      <trustor>
+        <qualifier>ProvidesFunds</qualifier>
+      </trustor>
+    </partyAssociationType>
+    <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partner>
+        <qualifier>LimitedPartner</qualifier>
+      </partner>
+      <officerManager>
+        <qualifier>CxO</qualifier>
+      </officerManager>
+      <agent>
+        <qualifer>Trustee</qualifer>
+      </agent>
+      <nextOfKin>
+        <qualifier>Parent</qualifier>
+      </nextOfKin>
+      <trustor>
+        <qualifier>ProvidesFunds</qualifier>
+      </trustor>
+    </partyAssociationType>
+    <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partner>
+        <qualifier>GeneralPartner</qualifier>
+      </partner>
+      <officerManager>
+        <qualifier>FinancialOfficer</qualifier>
+      </officerManager>
+      <agent>
+        <qualifer>PowerOfAttorney</qualifer>
+      </agent>
+      <nextOfKin>
+        <qualifier>Spouse</qualifier>
+      </nextOfKin>
+      <trustor>
+        <qualifier>ProvidesFunds</qualifier>
+      </trustor>
+    </partyAssociationType>
+    <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partner>
+        <qualifier>LimitedPartner</qualifier>
+      </partner>
+      <officerManager>
+        <qualifier>President</qualifier>
+      </officerManager>
+      <agent>
+        <qualifer>Representative</qualifer>
+      </agent>
+      <nextOfKin>
+        <qualifier>FirstCousin</qualifier>
+      </nextOfKin>
+      <trustor>
+        <qualifier>ProvidesFunds</qualifier>
+      </trustor>
+    </partyAssociationType>
+    <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partner>
+        <qualifier>GeneralPartner</qualifier>
+      </partner>
+      <officerManager>
+        <qualifier>SoleProprietor</qualifier>
+      </officerManager>
+      <agent>
+        <qualifer>Guardian</qualifer>
+      </agent>
+      <nextOfKin>
+        <qualifier>Child</qualifier>
+      </nextOfKin>
+      <trustor>
+        <qualifier>ProvidesFunds</qualifier>
+      </trustor>
+    </partyAssociationType>
+  </partyAssociationTypeList>
+</partyAssociationFilter>

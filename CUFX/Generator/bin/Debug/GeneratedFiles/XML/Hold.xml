@@ -1,0 +1,92 @@
+<holdList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/Hold.xsd">
+  <hold>
+    <holdId>holdId1</holdId>
+    <accountId>accountId1</accountId>
+    <transactionId>transactionId1</transactionId>
+    <holdType>GeneralPurpose</holdType>
+    <effectiveDate>1900-01-01T01:01:01Z</effectiveDate>
+    <expirationDate>1900-01-01T01:01:01Z</expirationDate>
+    <actualReleaseDate>1900-01-01T01:01:01Z</actualReleaseDate>
+    <holdStatus>Active</holdStatus>
+    <description>description1</description>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+    </amount>
+    <payee>payee1</payee>
+    <reason>Unknown</reason>
+    <feeId>feeId1</feeId>
+  </hold>
+  <hold>
+    <holdId>holdId2</holdId>
+    <accountId>accountId2</accountId>
+    <transactionId>transactionId2</transactionId>
+    <holdType>CheckHold</holdType>
+    <effectiveDate>0001-01-01T00:00:00Z</effectiveDate>
+    <expirationDate>0001-01-01T00:00:00Z</expirationDate>
+    <actualReleaseDate>0001-01-01T00:00:00Z</actualReleaseDate>
+    <holdStatus>InActive</holdStatus>
+    <description>description2</description>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+    </amount>
+    <payee>payee2</payee>
+    <reason>Lost</reason>
+    <feeId>feeId2</feeId>
+  </hold>
+  <hold>
+    <holdId>holdId3</holdId>
+    <accountId>accountId3</accountId>
+    <transactionId>transactionId3</transactionId>
+    <holdType>CertifiedDraft</holdType>
+    <effectiveDate>9999-12-31T23:59:59.9999999Z</effectiveDate>
+    <expirationDate>9999-12-31T23:59:59.9999999Z</expirationDate>
+    <actualReleaseDate>9999-12-31T23:59:59.9999999Z</actualReleaseDate>
+    <holdStatus>Active</holdStatus>
+    <description>description3</description>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+    </amount>
+    <payee>payee3</payee>
+    <reason>Stolen</reason>
+    <feeId>feeId3</feeId>
+  </hold>
+  <hold>
+    <holdId>holdId4</holdId>
+    <accountId>accountId4</accountId>
+    <transactionId>transactionId4</transactionId>
+    <holdType>StopDraft</holdType>
+    <effectiveDate>1899-11-30T01:01:01Z</effectiveDate>
+    <expirationDate>1899-11-30T01:01:01Z</expirationDate>
+    <actualReleaseDate>1899-11-30T01:01:01Z</actualReleaseDate>
+    <holdStatus>InActive</holdStatus>
+    <description>description4</description>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+    </amount>
+    <payee>payee4</payee>
+    <reason>Destroyed</reason>
+    <feeId>feeId4</feeId>
+  </hold>
+  <hold>
+    <holdId>holdId5</holdId>
+    <accountId>accountId5</accountId>
+    <transactionId>transactionId5</transactionId>
+    <holdType>SignatureAuth</holdType>
+    <effectiveDate>1900-02-02T01:01:01Z</effectiveDate>
+    <expirationDate>1900-02-02T01:01:01Z</expirationDate>
+    <actualReleaseDate>1900-02-02T01:01:01Z</actualReleaseDate>
+    <holdStatus>Active</holdStatus>
+    <description>description5</description>
+    <amount>
+      <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+    </amount>
+    <payee>payee5</payee>
+    <reason>NotEndorsed</reason>
+    <feeId>feeId5</feeId>
+  </hold>
+</holdList>

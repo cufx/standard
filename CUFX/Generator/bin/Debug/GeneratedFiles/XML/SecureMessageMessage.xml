@@ -1,0 +1,460 @@
+<secureMessageMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/SecureMessageMessage.xsd">
+  <messageContext>
+    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId1</userId>
+      <userType>EmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId2</userId>
+      <userType>VendorEmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId3</userId>
+      <userType>Anonymous</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId4</userId>
+      <userType>FIUserId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId5</userId>
+      <userType>SystemAccountId</userType>
+    </user>
+    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </messageContext>
+  <secureMessageFilter>
+    <secureMessageIdList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId1</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId2</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId3</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId4</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId5</secureMessageId>
+    </secureMessageIdList>
+    <threadIdList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId1</threadId>
+      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId2</threadId>
+      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId3</threadId>
+      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId4</threadId>
+      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId5</threadId>
+    </threadIdList>
+    <subjectLineContainsList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine1</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine2</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine3</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine4</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine5</subjectLine>
+    </subjectLineContainsList>
+    <messageFromList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId1</userId>
+        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">EmployeeId</userType>
+        <partyId>partyId1</partyId>
+        <relationshipId>relationshipId1</relationshipId>
+        <accountId>accountId1</accountId>
+        <cardId>cardId1</cardId>
+      </secureMessageUser>
+      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId2</userId>
+        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">VendorEmployeeId</userType>
+        <partyId>partyId2</partyId>
+        <relationshipId>relationshipId2</relationshipId>
+        <accountId>accountId2</accountId>
+        <cardId>cardId2</cardId>
+      </secureMessageUser>
+      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId3</userId>
+        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Anonymous</userType>
+        <partyId>partyId3</partyId>
+        <relationshipId>relationshipId3</relationshipId>
+        <accountId>accountId3</accountId>
+        <cardId>cardId3</cardId>
+      </secureMessageUser>
+      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId4</userId>
+        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">FIUserId</userType>
+        <partyId>partyId4</partyId>
+        <relationshipId>relationshipId4</relationshipId>
+        <accountId>accountId4</accountId>
+        <cardId>cardId4</cardId>
+      </secureMessageUser>
+      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId5</userId>
+        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">SystemAccountId</userType>
+        <partyId>partyId5</partyId>
+        <relationshipId>relationshipId5</relationshipId>
+        <accountId>accountId5</accountId>
+        <cardId>cardId5</cardId>
+      </secureMessageUser>
+    </messageFromList>
+    <messageToList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
+    <carbonCopyList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
+    <blindCarbonCopyList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
+    <replyToList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
+    <secureMessageTypeList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Alert</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">GeneralMessage</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Notice</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">ProductOffering</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">ScheduleMeeting</secureMessageType>
+    </secureMessageTypeList>
+    <currentStatusList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Template</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Draft</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Outbox</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Sent</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Read</secureMessageStatus>
+    </currentStatusList>
+    <statusLogList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Template</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Draft</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Outbox</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Sent</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Read</secureMessageStatus>
+    </statusLogList>
+    <statusLogStartDate xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">1900-01-01T01:01:01Z</statusLogStartDate>
+    <statusLogEndDate xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">1900-01-01T01:01:01Z</statusLogEndDate>
+    <bodyContainsList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">bodyContainsList1</bodyContainsList>
+    <returnConversation xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">true</returnConversation>
+    <documentIDList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId1</documentId>
+      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId2</documentId>
+      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId3</documentId>
+      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId4</documentId>
+      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId5</documentId>
+    </documentIDList>
+    <productServiceRequestIDList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
+      <productServiceRequestId xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd">productServiceRequestId1</productServiceRequestId>
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
+      <productServiceRequestId xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd">productServiceRequestId2</productServiceRequestId>
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
+    </productServiceRequestIDList>
+  </secureMessageFilter>
+  <secureMessageList>
+    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+      <secureMessageId>secureMessageId1</secureMessageId>
+      <previousSecureMessageId>previousSecureMessageId1</previousSecureMessageId>
+      <threadId>threadId1</threadId>
+      <subjectLine>subjectLine1</subjectLine>
+      <messageFromList />
+      <messageToList />
+      <carbonCopyList />
+      <blindCarbonCopyList />
+      <replyToList />
+      <type>Alert</type>
+      <currentStatus>Template</currentStatus>
+      <statusLog>
+        <statusLogEntry>
+          <status>Template</status>
+          <messageAccessProfileId>messageAccessProfileId1</messageAccessProfileId>
+          <statusDateTime>1900-01-01T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Draft</status>
+          <messageAccessProfileId>messageAccessProfileId2</messageAccessProfileId>
+          <statusDateTime>0001-01-01T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Outbox</status>
+          <messageAccessProfileId>messageAccessProfileId3</messageAccessProfileId>
+          <statusDateTime>9999-12-31T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Sent</status>
+          <messageAccessProfileId>messageAccessProfileId4</messageAccessProfileId>
+          <statusDateTime>1899-11-30T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Read</status>
+          <messageAccessProfileId>messageAccessProfileId5</messageAccessProfileId>
+          <statusDateTime>1900-02-02T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+      </statusLog>
+      <body>body1</body>
+      <bodyFormat>Html</bodyFormat>
+      <documentIdList>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId1</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId2</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId3</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId4</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId5</documentId>
+      </documentIdList>
+      <doNotDeliverBeforeDateTime>1900-01-01T01:01:01Z</doNotDeliverBeforeDateTime>
+      <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
+      <requestId>requestId1</requestId>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </secureMessage>
+    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+      <secureMessageId>secureMessageId2</secureMessageId>
+      <previousSecureMessageId>previousSecureMessageId2</previousSecureMessageId>
+      <threadId>threadId2</threadId>
+      <subjectLine>subjectLine2</subjectLine>
+      <messageFromList />
+      <messageToList />
+      <carbonCopyList />
+      <blindCarbonCopyList />
+      <replyToList />
+      <type>GeneralMessage</type>
+      <currentStatus>Draft</currentStatus>
+      <statusLog>
+        <statusLogEntry>
+          <status>Replied</status>
+          <messageAccessProfileId>messageAccessProfileId6</messageAccessProfileId>
+          <statusDateTime>0001-02-02T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Forwarded</status>
+          <messageAccessProfileId>messageAccessProfileId7</messageAccessProfileId>
+          <statusDateTime>9999-11-29T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Archived</status>
+          <messageAccessProfileId>messageAccessProfileId8</messageAccessProfileId>
+          <statusDateTime>1899-10-29T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Unread</status>
+          <messageAccessProfileId>messageAccessProfileId9</messageAccessProfileId>
+          <statusDateTime>1900-03-06T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Failed</status>
+          <messageAccessProfileId>messageAccessProfileId10</messageAccessProfileId>
+          <statusDateTime>0001-03-06T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+      </statusLog>
+      <body>body2</body>
+      <bodyFormat>Text</bodyFormat>
+      <documentIdList>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId6</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId7</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId8</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId9</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId10</documentId>
+      </documentIdList>
+      <doNotDeliverBeforeDateTime>0001-01-01T00:00:00Z</doNotDeliverBeforeDateTime>
+      <expirationDateTime>0001-01-01T00:00:00Z</expirationDateTime>
+      <requestId>requestId2</requestId>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </secureMessage>
+    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+      <secureMessageId>secureMessageId3</secureMessageId>
+      <previousSecureMessageId>previousSecureMessageId3</previousSecureMessageId>
+      <threadId>threadId3</threadId>
+      <subjectLine>subjectLine3</subjectLine>
+      <messageFromList />
+      <messageToList />
+      <carbonCopyList />
+      <blindCarbonCopyList />
+      <replyToList />
+      <type>Notice</type>
+      <currentStatus>Outbox</currentStatus>
+      <statusLog>
+        <statusLogEntry>
+          <status>Expired</status>
+          <messageAccessProfileId>messageAccessProfileId11</messageAccessProfileId>
+          <statusDateTime>9999-10-28T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Template</status>
+          <messageAccessProfileId>messageAccessProfileId12</messageAccessProfileId>
+          <statusDateTime>1899-09-27T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Draft</status>
+          <messageAccessProfileId>messageAccessProfileId13</messageAccessProfileId>
+          <statusDateTime>1900-04-07T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Outbox</status>
+          <messageAccessProfileId>messageAccessProfileId14</messageAccessProfileId>
+          <statusDateTime>0001-04-07T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Sent</status>
+          <messageAccessProfileId>messageAccessProfileId15</messageAccessProfileId>
+          <statusDateTime>9999-09-26T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+      </statusLog>
+      <body>body3</body>
+      <bodyFormat>Html</bodyFormat>
+      <documentIdList>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId11</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId12</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId13</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId14</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId15</documentId>
+      </documentIdList>
+      <doNotDeliverBeforeDateTime>9999-12-31T23:59:59.9999999Z</doNotDeliverBeforeDateTime>
+      <expirationDateTime>9999-12-31T23:59:59.9999999Z</expirationDateTime>
+      <requestId>requestId3</requestId>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </secureMessage>
+    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+      <secureMessageId>secureMessageId4</secureMessageId>
+      <previousSecureMessageId>previousSecureMessageId4</previousSecureMessageId>
+      <threadId>threadId4</threadId>
+      <subjectLine>subjectLine4</subjectLine>
+      <messageFromList />
+      <messageToList />
+      <carbonCopyList />
+      <blindCarbonCopyList />
+      <replyToList />
+      <type>ProductOffering</type>
+      <currentStatus>Sent</currentStatus>
+      <statusLog>
+        <statusLogEntry>
+          <status>Read</status>
+          <messageAccessProfileId>messageAccessProfileId16</messageAccessProfileId>
+          <statusDateTime>1899-08-26T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Replied</status>
+          <messageAccessProfileId>messageAccessProfileId17</messageAccessProfileId>
+          <statusDateTime>1900-05-09T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Forwarded</status>
+          <messageAccessProfileId>messageAccessProfileId18</messageAccessProfileId>
+          <statusDateTime>0001-05-09T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Archived</status>
+          <messageAccessProfileId>messageAccessProfileId19</messageAccessProfileId>
+          <statusDateTime>9999-08-25T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Unread</status>
+          <messageAccessProfileId>messageAccessProfileId20</messageAccessProfileId>
+          <statusDateTime>1899-07-25T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+      </statusLog>
+      <body>body4</body>
+      <bodyFormat>Text</bodyFormat>
+      <documentIdList>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId16</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId17</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId18</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId19</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId20</documentId>
+      </documentIdList>
+      <doNotDeliverBeforeDateTime>1899-11-30T01:01:01Z</doNotDeliverBeforeDateTime>
+      <expirationDateTime>1899-11-30T01:01:01Z</expirationDateTime>
+      <requestId>requestId4</requestId>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </secureMessage>
+    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+      <secureMessageId>secureMessageId5</secureMessageId>
+      <previousSecureMessageId>previousSecureMessageId5</previousSecureMessageId>
+      <threadId>threadId5</threadId>
+      <subjectLine>subjectLine5</subjectLine>
+      <messageFromList />
+      <messageToList />
+      <carbonCopyList />
+      <blindCarbonCopyList />
+      <replyToList />
+      <type>ScheduleMeeting</type>
+      <currentStatus>Read</currentStatus>
+      <statusLog>
+        <statusLogEntry>
+          <status>Failed</status>
+          <messageAccessProfileId>messageAccessProfileId21</messageAccessProfileId>
+          <statusDateTime>1900-06-10T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Expired</status>
+          <messageAccessProfileId>messageAccessProfileId22</messageAccessProfileId>
+          <statusDateTime>0001-06-10T00:00:00Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Template</status>
+          <messageAccessProfileId>messageAccessProfileId23</messageAccessProfileId>
+          <statusDateTime>9999-07-24T23:59:59.9999999Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Draft</status>
+          <messageAccessProfileId>messageAccessProfileId24</messageAccessProfileId>
+          <statusDateTime>1899-06-23T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+        <statusLogEntry>
+          <status>Outbox</status>
+          <messageAccessProfileId>messageAccessProfileId25</messageAccessProfileId>
+          <statusDateTime>1900-07-12T01:01:01Z</statusDateTime>
+        </statusLogEntry>
+      </statusLog>
+      <body>body5</body>
+      <bodyFormat>Html</bodyFormat>
+      <documentIdList>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId21</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId22</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId23</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId24</documentId>
+        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId25</documentId>
+      </documentIdList>
+      <doNotDeliverBeforeDateTime>1900-02-02T01:01:01Z</doNotDeliverBeforeDateTime>
+      <expirationDateTime>1900-02-02T01:01:01Z</expirationDateTime>
+      <requestId>requestId5</requestId>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </secureMessage>
+  </secureMessageList>
+</secureMessageMessage>

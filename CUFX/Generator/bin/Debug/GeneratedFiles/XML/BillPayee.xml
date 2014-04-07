@@ -1,0 +1,382 @@
+<billPayeeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/BillPayee.xsd">
+  <billPayee>
+    <billPayeeId>billPayeeId1</billPayeeId>
+    <billPayeeGlobalId>billPayeeGlobalId1</billPayeeGlobalId>
+    <payeeName>payeeName1</payeeName>
+    <payeeAddress>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line11</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line21</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line31</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city1</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince1</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode1</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AD</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country1</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</longitude>
+      </coordinate>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Home</type>
+      <effectiveDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-01-01T01:01:01Z</effectiveDateTime>
+      <expirationDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-01-01T01:01:01Z</expirationDateTime>
+      <timeAtAddress xmlns="http://cufxstandards.com/v3/Contact.xsd">P396DT1H1M1S</timeAtAddress>
+      <addressVerifyDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-01-01T01:01:01Z</addressVerifyDateTime>
+    </payeeAddress>
+    <payeePhone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Home</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number1</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension1</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">Nanp</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description1</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </payeePhone>
+    <payeeEmail>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Home</type>
+      <address xmlns="http://cufxstandards.com/v3/Contact.xsd">address1</address>
+    </payeeEmail>
+    <processorName>processorName1</processorName>
+    <payeeACHRoutingNumber>payeeACHRoutingNumber1</payeeACHRoutingNumber>
+    <payeeACHAccountNumber>payeeACHAccountNumber1</payeeACHAccountNumber>
+    <isElectronic>true</isElectronic>
+    <isEBillProvider>true</isEBillProvider>
+    <isEBillEnrolled>true</isEBillEnrolled>
+    <addedDateTime>1900-01-01T01:01:01Z</addedDateTime>
+    <updatedDateTime>1900-01-01T01:01:01Z</updatedDateTime>
+    <minimumDaysToPay>1</minimumDaysToPay>
+    <partyId>partyId1</partyId>
+    <relationshipId>relationshipId1</relationshipId>
+    <accountId>accountId1</accountId>
+    <userDefinedName>userDefinedName1</userDefinedName>
+    <payeeAccountNumber>payeeAccountNumber1</payeeAccountNumber>
+    <accountHolderName>accountHolderName1</accountHolderName>
+    <payeeCategory>payeeCategory1</payeeCategory>
+    <payeeStatus>Active</payeeStatus>
+    <defaultPaymentFromAccountId>defaultPaymentFromAccountId1</defaultPaymentFromAccountId>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </billPayee>
+  <billPayee>
+    <billPayeeId>billPayeeId2</billPayeeId>
+    <billPayeeGlobalId>billPayeeGlobalId2</billPayeeGlobalId>
+    <payeeName>payeeName2</payeeName>
+    <payeeAddress>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line12</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line22</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line32</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city2</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince2</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode2</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AE</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country2</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</longitude>
+      </coordinate>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Work</type>
+      <effectiveDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">0001-01-01T00:00:00Z</effectiveDateTime>
+      <expirationDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">0001-01-01T00:00:00Z</expirationDateTime>
+      <timeAtAddress xmlns="http://cufxstandards.com/v3/Contact.xsd">-P10675199DT2H48M5.477S</timeAtAddress>
+      <addressVerifyDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">0001-01-01T00:00:00Z</addressVerifyDateTime>
+    </payeeAddress>
+    <payeePhone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Work</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number2</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension2</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">NanpLessCountryCode</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description2</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">false</smsRegistered>
+    </payeePhone>
+    <payeeEmail>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Work</type>
+      <address xmlns="http://cufxstandards.com/v3/Contact.xsd">address2</address>
+    </payeeEmail>
+    <processorName>processorName2</processorName>
+    <payeeACHRoutingNumber>payeeACHRoutingNumber2</payeeACHRoutingNumber>
+    <payeeACHAccountNumber>payeeACHAccountNumber2</payeeACHAccountNumber>
+    <isElectronic>false</isElectronic>
+    <isEBillProvider>false</isEBillProvider>
+    <isEBillEnrolled>false</isEBillEnrolled>
+    <addedDateTime>0001-01-01T00:00:00Z</addedDateTime>
+    <updatedDateTime>0001-01-01T00:00:00Z</updatedDateTime>
+    <minimumDaysToPay>-2147483647</minimumDaysToPay>
+    <partyId>partyId2</partyId>
+    <relationshipId>relationshipId2</relationshipId>
+    <accountId>accountId2</accountId>
+    <userDefinedName>userDefinedName2</userDefinedName>
+    <payeeAccountNumber>payeeAccountNumber2</payeeAccountNumber>
+    <accountHolderName>accountHolderName2</accountHolderName>
+    <payeeCategory>payeeCategory2</payeeCategory>
+    <payeeStatus>Inactive</payeeStatus>
+    <defaultPaymentFromAccountId>defaultPaymentFromAccountId2</defaultPaymentFromAccountId>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name6</name>
+        <value>value6</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name7</name>
+        <value>value7</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name8</name>
+        <value>value8</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name9</name>
+        <value>value9</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name10</name>
+        <value>value10</value>
+      </valuePair>
+    </customData>
+  </billPayee>
+  <billPayee>
+    <billPayeeId>billPayeeId3</billPayeeId>
+    <billPayeeGlobalId>billPayeeGlobalId3</billPayeeGlobalId>
+    <payeeName>payeeName3</payeeName>
+    <payeeAddress>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line13</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line23</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line33</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city3</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince3</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode3</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AF</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country3</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</longitude>
+      </coordinate>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Mailing</type>
+      <effectiveDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">9999-12-31T23:59:59.9999999Z</effectiveDateTime>
+      <expirationDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">9999-12-31T23:59:59.9999999Z</expirationDateTime>
+      <timeAtAddress xmlns="http://cufxstandards.com/v3/Contact.xsd">P10675199DT2H48M5.477S</timeAtAddress>
+      <addressVerifyDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">9999-12-31T23:59:59.9999999Z</addressVerifyDateTime>
+    </payeeAddress>
+    <payeePhone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Mobile</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number3</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension3</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">OtherInternational</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description3</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </payeePhone>
+    <payeeEmail>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Other</type>
+      <address xmlns="http://cufxstandards.com/v3/Contact.xsd">address3</address>
+    </payeeEmail>
+    <processorName>processorName3</processorName>
+    <payeeACHRoutingNumber>payeeACHRoutingNumber3</payeeACHRoutingNumber>
+    <payeeACHAccountNumber>payeeACHAccountNumber3</payeeACHAccountNumber>
+    <isElectronic>true</isElectronic>
+    <isEBillProvider>true</isEBillProvider>
+    <isEBillEnrolled>true</isEBillEnrolled>
+    <addedDateTime>9999-12-31T23:59:59.9999999Z</addedDateTime>
+    <updatedDateTime>9999-12-31T23:59:59.9999999Z</updatedDateTime>
+    <minimumDaysToPay>2147483647</minimumDaysToPay>
+    <partyId>partyId3</partyId>
+    <relationshipId>relationshipId3</relationshipId>
+    <accountId>accountId3</accountId>
+    <userDefinedName>userDefinedName3</userDefinedName>
+    <payeeAccountNumber>payeeAccountNumber3</payeeAccountNumber>
+    <accountHolderName>accountHolderName3</accountHolderName>
+    <payeeCategory>payeeCategory3</payeeCategory>
+    <payeeStatus>Deleted</payeeStatus>
+    <defaultPaymentFromAccountId>defaultPaymentFromAccountId3</defaultPaymentFromAccountId>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name11</name>
+        <value>value11</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name12</name>
+        <value>value12</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name13</name>
+        <value>value13</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name14</name>
+        <value>value14</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name15</name>
+        <value>value15</value>
+      </valuePair>
+    </customData>
+  </billPayee>
+  <billPayee>
+    <billPayeeId>billPayeeId4</billPayeeId>
+    <billPayeeGlobalId>billPayeeGlobalId4</billPayeeGlobalId>
+    <payeeName>payeeName4</payeeName>
+    <payeeAddress>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line14</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line24</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line34</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city4</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince4</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode4</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AG</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country4</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</longitude>
+      </coordinate>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Previous</type>
+      <effectiveDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1899-11-30T01:01:01Z</effectiveDateTime>
+      <expirationDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1899-11-30T01:01:01Z</expirationDateTime>
+      <timeAtAddress xmlns="http://cufxstandards.com/v3/Contact.xsd">P31DT1H1M1S</timeAtAddress>
+      <addressVerifyDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1899-11-30T01:01:01Z</addressVerifyDateTime>
+    </payeeAddress>
+    <payeePhone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Pager</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number4</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension4</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">NationalNumber</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description4</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">false</smsRegistered>
+    </payeePhone>
+    <payeeEmail>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Home</type>
+      <address xmlns="http://cufxstandards.com/v3/Contact.xsd">address4</address>
+    </payeeEmail>
+    <processorName>processorName4</processorName>
+    <payeeACHRoutingNumber>payeeACHRoutingNumber4</payeeACHRoutingNumber>
+    <payeeACHAccountNumber>payeeACHAccountNumber4</payeeACHAccountNumber>
+    <isElectronic>false</isElectronic>
+    <isEBillProvider>false</isEBillProvider>
+    <isEBillEnrolled>false</isEBillEnrolled>
+    <addedDateTime>1899-11-30T01:01:01Z</addedDateTime>
+    <updatedDateTime>1899-11-30T01:01:01Z</updatedDateTime>
+    <minimumDaysToPay>0</minimumDaysToPay>
+    <partyId>partyId4</partyId>
+    <relationshipId>relationshipId4</relationshipId>
+    <accountId>accountId4</accountId>
+    <userDefinedName>userDefinedName4</userDefinedName>
+    <payeeAccountNumber>payeeAccountNumber4</payeeAccountNumber>
+    <accountHolderName>accountHolderName4</accountHolderName>
+    <payeeCategory>payeeCategory4</payeeCategory>
+    <payeeStatus>Invalid</payeeStatus>
+    <defaultPaymentFromAccountId>defaultPaymentFromAccountId4</defaultPaymentFromAccountId>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name16</name>
+        <value>value16</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name17</name>
+        <value>value17</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name18</name>
+        <value>value18</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name19</name>
+        <value>value19</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name20</name>
+        <value>value20</value>
+      </valuePair>
+    </customData>
+  </billPayee>
+  <billPayee>
+    <billPayeeId>billPayeeId5</billPayeeId>
+    <billPayeeGlobalId>billPayeeGlobalId5</billPayeeGlobalId>
+    <payeeName>payeeName5</payeeName>
+    <payeeAddress>
+      <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line15</line1>
+      <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line25</line2>
+      <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line35</line3>
+      <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city5</city>
+      <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince5</stateProvince>
+      <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode5</postalCode>
+      <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AI</countryCode>
+      <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country5</country>
+      <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
+        <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</latitude>
+        <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</longitude>
+      </coordinate>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Temporary</type>
+      <effectiveDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-02-02T01:01:01Z</effectiveDateTime>
+      <expirationDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-02-02T01:01:01Z</expirationDateTime>
+      <timeAtAddress xmlns="http://cufxstandards.com/v3/Contact.xsd">P761DT1H1M1S</timeAtAddress>
+      <addressVerifyDateTime xmlns="http://cufxstandards.com/v3/Contact.xsd">1900-02-02T01:01:01Z</addressVerifyDateTime>
+    </payeeAddress>
+    <payeePhone>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Fax</type>
+      <number xmlns="http://cufxstandards.com/v3/Contact.xsd">number5</number>
+      <extension xmlns="http://cufxstandards.com/v3/Contact.xsd">extension5</extension>
+      <planFormat xmlns="http://cufxstandards.com/v3/Contact.xsd">Nanp</planFormat>
+      <description xmlns="http://cufxstandards.com/v3/Contact.xsd">description5</description>
+      <smsRegistered xmlns="http://cufxstandards.com/v3/Contact.xsd">true</smsRegistered>
+    </payeePhone>
+    <payeeEmail>
+      <type xmlns="http://cufxstandards.com/v3/Contact.xsd">Work</type>
+      <address xmlns="http://cufxstandards.com/v3/Contact.xsd">address5</address>
+    </payeeEmail>
+    <processorName>processorName5</processorName>
+    <payeeACHRoutingNumber>payeeACHRoutingNumber5</payeeACHRoutingNumber>
+    <payeeACHAccountNumber>payeeACHAccountNumber5</payeeACHAccountNumber>
+    <isElectronic>true</isElectronic>
+    <isEBillProvider>true</isEBillProvider>
+    <isEBillEnrolled>true</isEBillEnrolled>
+    <addedDateTime>1900-02-02T01:01:01Z</addedDateTime>
+    <updatedDateTime>1900-02-02T01:01:01Z</updatedDateTime>
+    <minimumDaysToPay>2</minimumDaysToPay>
+    <partyId>partyId5</partyId>
+    <relationshipId>relationshipId5</relationshipId>
+    <accountId>accountId5</accountId>
+    <userDefinedName>userDefinedName5</userDefinedName>
+    <payeeAccountNumber>payeeAccountNumber5</payeeAccountNumber>
+    <accountHolderName>accountHolderName5</accountHolderName>
+    <payeeCategory>payeeCategory5</payeeCategory>
+    <payeeStatus>Active</payeeStatus>
+    <defaultPaymentFromAccountId>defaultPaymentFromAccountId5</defaultPaymentFromAccountId>
+    <customData>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name21</name>
+        <value>value21</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name22</name>
+        <value>value22</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name23</name>
+        <value>value23</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name24</name>
+        <value>value24</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name25</name>
+        <value>value25</value>
+      </valuePair>
+    </customData>
+  </billPayee>
+</billPayeeList>

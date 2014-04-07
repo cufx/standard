@@ -1,0 +1,193 @@
+<artifactMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/ArtifactMessage.xsd">
+  <messageContext>
+    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId1</userId>
+      <userType>EmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId2</userId>
+      <userType>VendorEmployeeId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId3</userId>
+      <userType>Anonymous</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId4</userId>
+      <userType>FIUserId</userType>
+    </user>
+    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <userId>userId5</userId>
+      <userType>SystemAccountId</userType>
+    </user>
+    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name1</name>
+        <value>value1</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name2</name>
+        <value>value2</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name3</name>
+        <value>value3</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name4</name>
+        <value>value4</value>
+      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+        <name>name5</name>
+        <value>value5</value>
+      </valuePair>
+    </customData>
+  </messageContext>
+  <artifactFilter>
+    <artifactIdList xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd">
+      <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+      <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactUniqueId>artifactUniqueId1</artifactUniqueId>
+      </artifactId>
+      <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+      <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactUniqueId>artifactUniqueId2</artifactUniqueId>
+      </artifactId>
+      <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+    </artifactIdList>
+    <artifactName xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd">artifactName1</artifactName>
+    <artifactDescription xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd">artifactDescription1</artifactDescription>
+    <artifactArchived xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd">true</artifactArchived>
+  </artifactFilter>
+  <artifactList>
+    <artifact xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+      <artifactId>
+        <artifactUniqueId>artifactUniqueId1</artifactUniqueId>
+      </artifactId>
+      <artifactType>artifactType1</artifactType>
+      <externalId>externalId1</externalId>
+      <artifact>base64Binary Content</artifact>
+      <artifactName>artifactName1</artifactName>
+      <artifactDescription>artifactDescription1</artifactDescription>
+      <artifactOwner>artifactOwner1</artifactOwner>
+      <artifactCreationDate>1900-01-01T01:01:01Z</artifactCreationDate>
+      <artifactModifiedDate>1900-01-01T01:01:01Z</artifactModifiedDate>
+      <artifactArchivedDate>1900-01-01T01:01:01Z</artifactArchivedDate>
+      <artifactDeletedDate>1900-01-01T01:01:01Z</artifactDeletedDate>
+      <artifactCompressionType>artifactCompressionType1</artifactCompressionType>
+      <artifactArchived>true</artifactArchived>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </artifact>
+    <artifact xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+      <artifactId>
+        <artifactUniqueId>artifactUniqueId2</artifactUniqueId>
+      </artifactId>
+      <artifactType>artifactType2</artifactType>
+      <externalId>externalId2</externalId>
+      <artifact>base64Binary Content</artifact>
+      <artifactName>artifactName2</artifactName>
+      <artifactDescription>artifactDescription2</artifactDescription>
+      <artifactOwner>artifactOwner2</artifactOwner>
+      <artifactCreationDate>0001-01-01T00:00:00Z</artifactCreationDate>
+      <artifactModifiedDate>0001-01-01T00:00:00Z</artifactModifiedDate>
+      <artifactArchivedDate>0001-01-01T00:00:00Z</artifactArchivedDate>
+      <artifactDeletedDate>0001-01-01T00:00:00Z</artifactDeletedDate>
+      <artifactCompressionType>artifactCompressionType2</artifactCompressionType>
+      <artifactArchived>false</artifactArchived>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </artifact>
+    <artifact xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+      <artifactId>
+        <artifactUniqueId>artifactUniqueId3</artifactUniqueId>
+      </artifactId>
+      <artifactType>artifactType3</artifactType>
+      <externalId>externalId3</externalId>
+      <artifact>base64Binary Content</artifact>
+      <artifactName>artifactName3</artifactName>
+      <artifactDescription>artifactDescription3</artifactDescription>
+      <artifactOwner>artifactOwner3</artifactOwner>
+      <artifactCreationDate>9999-12-31T23:59:59.9999999Z</artifactCreationDate>
+      <artifactModifiedDate>9999-12-31T23:59:59.9999999Z</artifactModifiedDate>
+      <artifactArchivedDate>9999-12-31T23:59:59.9999999Z</artifactArchivedDate>
+      <artifactDeletedDate>9999-12-31T23:59:59.9999999Z</artifactDeletedDate>
+      <artifactCompressionType>artifactCompressionType3</artifactCompressionType>
+      <artifactArchived>true</artifactArchived>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </artifact>
+    <artifact xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+      <artifactId>
+        <artifactUniqueId>artifactUniqueId4</artifactUniqueId>
+      </artifactId>
+      <artifactType>artifactType4</artifactType>
+      <externalId>externalId4</externalId>
+      <artifact>base64Binary Content</artifact>
+      <artifactName>artifactName4</artifactName>
+      <artifactDescription>artifactDescription4</artifactDescription>
+      <artifactOwner>artifactOwner4</artifactOwner>
+      <artifactCreationDate>1899-11-30T01:01:01Z</artifactCreationDate>
+      <artifactModifiedDate>1899-11-30T01:01:01Z</artifactModifiedDate>
+      <artifactArchivedDate>1899-11-30T01:01:01Z</artifactArchivedDate>
+      <artifactDeletedDate>1899-11-30T01:01:01Z</artifactDeletedDate>
+      <artifactCompressionType>artifactCompressionType4</artifactCompressionType>
+      <artifactArchived>false</artifactArchived>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </artifact>
+    <artifact xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+      <artifactId>
+        <artifactUniqueId>artifactUniqueId5</artifactUniqueId>
+      </artifactId>
+      <artifactType>artifactType5</artifactType>
+      <externalId>externalId5</externalId>
+      <artifact>base64Binary Content</artifact>
+      <artifactName>artifactName5</artifactName>
+      <artifactDescription>artifactDescription5</artifactDescription>
+      <artifactOwner>artifactOwner5</artifactOwner>
+      <artifactCreationDate>1900-02-02T01:01:01Z</artifactCreationDate>
+      <artifactModifiedDate>1900-02-02T01:01:01Z</artifactModifiedDate>
+      <artifactArchivedDate>1900-02-02T01:01:01Z</artifactArchivedDate>
+      <artifactDeletedDate>1900-02-02T01:01:01Z</artifactDeletedDate>
+      <artifactCompressionType>artifactCompressionType5</artifactCompressionType>
+      <artifactArchived>true</artifactArchived>
+      <customData>
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+      </customData>
+    </artifact>
+  </artifactList>
+</artifactMessage>

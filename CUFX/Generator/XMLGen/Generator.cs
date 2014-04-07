@@ -1081,7 +1081,7 @@ namespace Microsoft.Xml.XMLGen {
             }
             public override string GenerateValue() { 
                 DateTime result = GenerateDate();
-                return XmlConvert.ToString(result);
+                return XmlConvert.ToString(result,XmlDateTimeSerializationMode.Utc);
            } 
 
            protected DateTime GenerateDate() {

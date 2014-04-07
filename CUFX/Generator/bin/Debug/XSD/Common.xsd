@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v3/Common.xsd"
+	version="3.0.$Revision: 821 $"
+	xmlns="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:isoCurrencyCodeType="http://cufxstandards.com/v3/ISOCurrencyCodeType.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v3/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+
+	<xs:complexType name="Money">
+    <xs:annotation>
+      <xs:documentation>
+        Standard definition for money values to include both the value and the currency.
+        Currency defaults to USD (United States $) if not specified.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" minOccurs ="1" maxOccurs="1" type="xs:decimal">
+			<xs:annotation>
+          <xs:documentation>
+            The amount of the money as defined by the currency code.
+          </xs:documentation >
+        </xs:annotation>
+		</xs:element>
+ 
+      <xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
+        <xs:annotation>
+          <xs:documentation>
+            Currency code in ISO 4217 3 character format.
+            If currency code isn't provided, it should be defaulted to USD.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CoreRecordType">
+    <xs:annotation>
+      <xs:documentation>
+        Enumeration of the different types of top-level records.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Account"/>
+      <xs:enumeration value="Application"/>
+      <xs:enumeration value="Loan"/>
+      <xs:enumeration value="Portfolio"/>
+      <xs:enumeration value="Deposit"/>
+      <xs:enumeration value="ProductServiceRequest"/>
+      <xs:enumeration value="Request"/>
+      <xs:enumeration value="Activity"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="NoteList">
+    <xs:annotation>
+      <xs:documentation>
+        List of notes on account, loan, etc..
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="note" type="Note" minOccurs ="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Details related to a specific note.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Note">
+    <xs:annotation>
+      <xs:documentation>
+        Details related to a specific note.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="recordType" type="CoreRecordType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
+            However, there may be times that it is not so obvious - i.e. in Loan which can be used when creating either
+            a Loan Application Record and/or a Loan Record.  This would be required to determine for which record type (Loan App or Loan)
+            to create the note.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="noteCode" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The code associated to this note.  It could determine the type of note or
+            reference predefined notes configured on the core.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+  
+      <xs:element name="noteText" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The text(s) of the note.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="noteCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            UTC date and time when the note was created.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="noteExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" >
+        <xs:annotation>
+          <xs:documentation>
+            The date this note expires.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="noteCreator" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Either the name or ID of person, system or end user that created the note.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomData">
+    <xs:annotation>
+      <xs:documentation>
+        The custom data section allows the flexibility to add additional information to the message.
+        This should be utilized as a last resort. Any use should result in requested modifications
+        to the message.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            Each combination of name and value.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ValuePair">
+    <xs:sequence>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
+        <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" />
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+	<xs:complexType name="Coordinate">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="latitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+				<xs:element name="longitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="DayOfTheWeek">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Monday" />
+			<xs:enumeration value="Tuesday" />
+			<xs:enumeration value="Wednesday" />
+			<xs:enumeration value="Thursday" />
+			<xs:enumeration value="Friday" />
+			<xs:enumeration value="Saturday" />
+			<xs:enumeration value="Sunday" />
+		</xs:restriction>
+	</xs:simpleType>
+
+  <xs:simpleType name="IntervalFrequencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OneTime" />
+      <xs:enumeration value="PerUse"/>
+      <xs:enumeration value="Hourly"/>
+      <xs:enumeration value="Daily" />
+      <xs:enumeration value="Weekly" />
+      <xs:enumeration value="Biweekly"/>
+      <xs:enumeration value="Monthly" />
+      <xs:enumeration value="SemiMonthly"/>
+      <xs:enumeration value="Quarterly"/>
+      <xs:enumeration value="SemiAnnually" />
+      <xs:enumeration value="Annually" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Distance">
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="value" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MoneyList">
+		<xs:annotation>
+			<xs:documentation>
+				A list of money values
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="amount" type="Money" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
