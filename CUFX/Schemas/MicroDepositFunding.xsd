@@ -48,7 +48,7 @@
 				</xs:documentation>
 			</xs:annotation>
 			
-			<xs:element name="microDepositId" type="MicroDepositId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microDepositFundingId" type="MicroDepositFundingId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             ID to track microdeposits.
@@ -122,6 +122,35 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:simpleType name="MicroDepositFundingId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Unique id of the micro funding deposit. This id will have a relationship to multiple micro deposit ids as presented as part
+					of a single micro deposit transaction.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="MicroDepositFundingIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of micro funding deposit ids to be returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="microDepositFundingId" type="MicroDepositFundingId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A micro funding deposit ID that should have its associated records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:simpleType name="MicroDepositId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -158,6 +187,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="microDepositId" type="MicroDepositId" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique id of the micro deposit
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="microDepositAmount" type="common:Money" minOccurs ="1" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
