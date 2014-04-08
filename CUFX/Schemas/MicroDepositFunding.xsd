@@ -4,20 +4,17 @@
 	version="3.0.$Revision$"
 	xmlns="http://cufxstandards.com/v3/MicroDepositFunding.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-
+	
 	<xs:element name="microDepositFundingList" type="MicroDepositFundingList">
     <xs:annotation>
       <xs:documentation>
@@ -83,25 +80,26 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
-			<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+      		
+			<xs:element name="externalAccountID" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            Confirmation code for microdeposits.
+            External account that needs to be verified. Direct reference to the account structure was avoided in this instance
+						to avoid inclusion of numerous fields not needed for a microdeposit. 
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			<xs:element name="externalAccount" type="account:Account" minOccurs ="0" maxOccurs ="1">
+
+			<xs:element name="externalRoutingNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-            External account that needs to be verified.  This is used to contain all of the information
-						about the account and may not be persisted to a store.
-          </xs:documentation>
+						Routing number for the external account. Direct reference to the account structure was avoided in this instance
+						to avoid inclusion of numerous fields not needed for a microdeposit.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="microAmountList" type="common:MoneyList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microAmountList" type="MicroDepositList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Microdeposit 0 - n.
@@ -151,5 +149,45 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
+	<xs:complexType name="MicroDeposit">
+		<xs:annotation>
+			<xs:documentation>
+				Standard definition for money values to include both the value and the currency.
+				Currency defaults to USD (United States $) if not specified.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="microDepositAmount" type="common:Money" minOccurs ="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the amount and currency of the microdeposit.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="microDepositConfirmationCode" type="xs:string" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Confirmation code for the microdeposit. As each microdeposit is processed independently a seperate response is possible 
+						for each occurence of the value and currency code pair.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MicroDepositList">
+		<xs:annotation>
+			<xs:documentation>
+				A list of micro deposit.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="microDeposit" type="MicroDeposit" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+
+
 </xs:schema>
