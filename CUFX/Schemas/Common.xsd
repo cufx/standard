@@ -208,16 +208,4 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="MoneyList">
-		<xs:annotation>
-			<xs:documentation>
-				A list of money values
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="amount" type="Money" minOccurs="0" maxOccurs="unbounded">
-			</xs:element >
-		</xs:sequence>
-	</xs:complexType>
-
 </xs:schema>
