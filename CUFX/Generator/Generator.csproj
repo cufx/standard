@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
     <Compile Include="BaseObject.cs" />
     <Compile Include="ClassObject.cs" />
     <Compile Include="CodeGenerator.cs" />
+    <Compile Include="CodeGeneratorV1.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="EnumObject.cs" />
     <Compile Include="ExtensionMethods.cs" />

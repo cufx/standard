@@ -60,30 +60,42 @@ namespace CUFX.Generator
 
         private static CodeNamespace CreateCodeNamespaceFromXsd(string xsdFile, string targetNamespace)
         {
-            // Load the XmlSchema and its collection.
-            XmlSchema xsd;
-            using (FileStream fs = new FileStream(xsdFile, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                xsd = XmlSchema.Read(fs, null);
-                xsd.Compile(null);                
-            }
-            XmlSchemas schemas = new XmlSchemas();
-            schemas.Add(xsd);
+            XmlSchemaSet schemas = new XmlSchemaSet();
+            List<XmlQualifiedName> xmlTypes = new List<XmlQualifiedName>();
+
+            // Load the XmlSchema and its collection.            
+                using (FileStream fs = new FileStream(xsdFile, FileMode.Open))
+                {
+                    XmlSchema xsd;
+                    xsd = XmlSchema.Read(fs, null);
+                    schemas.Add(xsd);
+
+                    foreach (XmlSchemaElement element in xsd.Elements.Values)
+                    {
+                        if (!xmlTypes.Contains(element.QualifiedName))
+                            xmlTypes.Add(element.QualifiedName);
+                    }
+                }
+
+            schemas.Compile();
+
             // Create the importer for these schemas.
-            XmlSchemaImporter importer = new XmlSchemaImporter(schemas);
+            XmlSchemaImporter importer = new XmlSchemaImporter(MoveSchemaSetToXmlSchemas(schemas));
+
             // System.CodeDom namespace for the XmlCodeExporter to put classes in.
             CodeNamespace ns = new CodeNamespace(targetNamespace);
             XmlCodeExporter exporter = new XmlCodeExporter(ns);
-            // Iterate schema top-level elements and export code for each.
 
-            foreach (XmlSchemaElement element in xsd.Elements.Values)
+            // Iterate schema top-level elements and export code for each.
+            foreach (XmlQualifiedName xmlType in xmlTypes)
             {
                 // Import the mapping first.
-                XmlTypeMapping mapping = importer.ImportTypeMapping(
-                  element.QualifiedName);
+                XmlTypeMapping mapping = importer.ImportTypeMapping(xmlType);
+
                 // Export the code finally.
                 exporter.ExportTypeMapping(mapping);
             }
+            RemoveAttributes(ns);
             return ns;
         }
 
