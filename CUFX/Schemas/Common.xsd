@@ -25,7 +25,7 @@
             The amount of the money as defined by the currency code.
           </xs:documentation >
         </xs:annotation>
-		</xs:element>
+		  </xs:element>
  
       <xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
         <xs:annotation>
@@ -35,7 +35,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:sequence>
+
+      <xs:element name="exchangeRate" type="xs:decimal" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Exchange rate of the foreign currency to the USD (at the time of the transaction
+            involving this Money object).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+  </xs:sequence>
   </xs:complexType>
 
   <xs:simpleType name="CoreRecordType">
@@ -208,4 +217,74 @@
 		</xs:sequence>
 	</xs:complexType>
 
+  <xs:complexType name="PersonName">
+    <xs:annotation>
+      <xs:documentation>
+        Name of a person.
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person's given first name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person’s middle name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person’s last name or surname.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person’s prefix to their name, as in their title.  Typical examples are Dr., Mr., Mrs., etc..
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The person’s suffix to their name.  Typical examples are Jr., III, etc..
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="formattedName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            All person name fields combined into one.
+            This is typically a read-only field that can be returned by the data source.
+            To remain flexible, this field can be either written to
+            or returned by the data source.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The party’s casual or familiar name reference.
+            Typical examples might be Tim if the party's first name
+            is Timothy, or Jenny if the first name is Jennifer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

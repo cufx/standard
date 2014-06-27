@@ -192,6 +192,25 @@
 				</xs:annotation>
 			</xs:element>
 
+      <xs:element name="externalAccountIBANCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            IBAN of external institution, used for wire transfers.  This replaces the micrAccountNumber
+            for certain financial institutions in foreign nations, and no routing or SWIFT code is
+            necessary when an IBAN (and potentially bank code, below) is provided to identify the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalAccountBankCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bank code, required (in addiiton to other identitiers) for institutions in certain foreign nations,
+            used for wire transfers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
 			<xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
