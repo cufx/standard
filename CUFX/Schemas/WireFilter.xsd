@@ -6,12 +6,14 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:wire="http://cufxstandards.com/v3/Wire.xsd"
     xmlns:fundsTransferFilterBase="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
+		xmlns:account="http://cufxstandards.com/v3/Account.xsd"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Wire.xsd" schemaLocation="Wire.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name="wireFilter" type="WireFilter">
 		<xs:annotation>
@@ -51,6 +53,49 @@
 						<xs:annotation>
 							<xs:documentation>
 								Wire filter for escrow officer name that should be returned or affected by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="micrAccountNumber" type="account:MicrAccountNumber"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The account number portion of a draft or line of credit MICR line.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Routing number for the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					
+					<xs:element name="externalAccountSWIFTCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								SWIFTCode for wire transfer.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="externalAccountIBANCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								IBAN of external institution, used for wire transfers.  This replaces the micrAccountNumber
+								for certain financial institutions in foreign nations, and no routing or SWIFT code is
+								necessary when an IBAN (and potentially bank code, below) is provided to identify the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="externalAccountBankCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Bank code, required (in addiiton to other identitiers) for institutions in certain foreign nations,
+								used for wire transfers.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
