@@ -190,13 +190,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								The minimum balance that an account may have.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="isRevolvingLineOfCredit" type="xs:boolean" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
