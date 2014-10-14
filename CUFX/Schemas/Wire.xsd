@@ -7,7 +7,6 @@
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
   
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
@@ -15,7 +14,6 @@
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />  
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
   
   <xs:element name="wireList" type="WireList">
     <xs:annotation>
@@ -86,7 +84,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-          <xs:element name="beneficiaryAddress" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+          <xs:element name="beneficiaryAddress" type="common:Address" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
                 Address of the beneficiary to receive the wire transfer.
