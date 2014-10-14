@@ -4,10 +4,12 @@
 	xmlns="http://cufxstandards.com/v3/Location.xsd"
 	version="3.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
  	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="locationList" type="LocationList">
