@@ -378,4 +378,117 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
+  
+    <xs:complexType name ="Agent">
+    <xs:sequence>
+      <xs:element	name="qualifier" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies the type of agent that is acting on behalf of the account or relationship holders.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default ="Unauthorized">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies if the agent has access to the funds.
+          </xs:documentation >
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name ="Authority">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Authorized">
+        <xs:annotation>
+          <xs:documentation>
+            Has access to funds and can perform transactions.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value ="Unauthorized">
+        <xs:annotation>
+          <xs:documentation>
+            Does not have access to funds and cannot perform transactions.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="AgentQualifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Custodian">
+        <xs:annotation>
+          <xs:documentation>
+            Party acts on behalf of the account holder or borrower.
+            If this is at the relationship level, they can manage all
+            deposits and loans within the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="Trustee" >
+        <xs:annotation>
+          <xs:documentation>
+            Party acting on behalf of the trust account based on a trust agreement.
+            If this is at the relationship level, the party can manage all deposits
+            and loans within the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="PowerOfAttorney" >
+        <xs:annotation>
+          <xs:documentation>
+            Party acting on behalf of the account holder or borrower based on a power
+            of attorney letter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="Representative" >
+        <xs:annotation>
+          <xs:documentation>
+            Party which can deposit government checks on behalf of the deposit account holder.
+            If this is at the relationship level, they can deposit government checks in any of
+            the deposits within the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="CtrTransactor" >
+        <xs:annotation>
+          <xs:documentation>
+            Party reported to government for CTR transations on behalf of the account holder or borrower.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="AttorneyTrust" >
+        <xs:annotation>
+          <xs:documentation>
+            Party is attorney-in-fact managing an account for a client.
+            If this is at the relationship level, the party can manage
+            all deposits and loans within the relationship.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="ResponsibleIndivfidual" >
+        <xs:annotation>
+          <xs:documentation>
+            Party that is the adult caretaker of a Coverdell ESA deposit account.
+            Typically this is the parent of the beneficiary upon distribution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+      <xs:enumeration value ="Signer" >
+        <xs:annotation>
+          <xs:documentation>
+            Party with signature capability on the deposit or loan.
+            If this is at the relationship level, the party has signature capability on all
+            deposits and loans within the relationship.
+            Depending on the loan arrangement, the authorized signer may be liable for the loan.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration >
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

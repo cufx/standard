@@ -1675,7 +1675,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="relationship:Authority" minOccurs ="1" maxOccurs ="1">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Primary or joint holder has liability for the loan.	Only one primary party can exist on a loan.
