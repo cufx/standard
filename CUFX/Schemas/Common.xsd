@@ -5,11 +5,13 @@
 	xmlns="http://cufxstandards.com/v3/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:isoCurrencyCodeType="http://cufxstandards.com/v3/ISOCurrencyCodeType.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
 	<xs:complexType name="Money">
     <xs:annotation>
@@ -296,7 +298,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="coordinate" type="common:Coordinate" minOccurs="0" maxOccurs="1">
+			<xs:element name="coordinate" type="Coordinate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The optional latitude anad longitude coordinates for the address.
