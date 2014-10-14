@@ -160,95 +160,6 @@
 		</xs:choice>
 	</xs:group>
 
-	<xs:complexType name="Address">
-		<xs:annotation>
-			<xs:documentation>
-				Fields related to address contact points.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-
-			<xs:element name="line1" type="xs:string"  minOccurs="1" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Street address (Physical Address).
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="line2" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Additional Address Information.  Typically contains additional
-						information such as an apartment number, etc.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="line3" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Additional Address Information.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="city" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						City where party resides.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="stateProvince" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						State or province (international) where party resides.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="postalCode" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Postal code or zip code where party resides.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="countryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Country where party resides.  This is the ISO 3166 2 Character
-						Country Code.  Back end systems can translate this into the
-						country description.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Country where party resides.
-						This is typically read-only as it is recommended to be
-						calculated based on the Country Code.
-						Description based on the ISO 3166 2 Character Country Code.
-						Back end systems can translate this to a description from the country code.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="coordinate" type="common:Coordinate" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The optional latitude anad longitude coordinates for the address.
-					</xs:documentation>
-				</xs:annotation>				
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
 	<xs:complexType name="ContactAddress">
 		<xs:complexContent>
 			<xs:annotation>
@@ -256,7 +167,7 @@
 					Fields related to address contact points.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="Address">
+			<xs:extension base="common:Address">
 				<xs:sequence>
 					<xs:element name="type"  minOccurs="0" maxOccurs="1">
 						<xs:annotation>
