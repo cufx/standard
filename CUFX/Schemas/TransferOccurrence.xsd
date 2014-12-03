@@ -4,14 +4,15 @@
     version="3.0.$Revision$"
     xmlns="http://cufxstandards.com/v3/TransferOccurrence.xsd"
     xmlns:mstns="http://cufxstandards.com/v3/TransferOccurrence.xsd"
+	  xmlns:card="http://cufxstandards.com/v3/Card.xsd"		 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="fundsTransferOccurrenceBase.xsd" />
-
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
 
 	<xs:element name="transferOccurrenceList" type="TransferOccurrenceList">
 		<xs:annotation>
@@ -46,6 +47,22 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="fundsTransferOccurrenceBase:FundsTransferOccurrenceBase">
+				<xs:sequence>
+					<xs:element name="fromCard" type="card:Card" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Optional field when advancing funds from a card.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="toCard" type="card:Card" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Optional field when paying or refunding to a card.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
