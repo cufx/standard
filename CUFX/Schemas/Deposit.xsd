@@ -336,7 +336,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="agent" type="relationship:Agent" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="agent" type="common:Agent" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Acts on behalf of the loan holder.
