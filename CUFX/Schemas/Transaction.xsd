@@ -122,21 +122,13 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="status" minOccurs="0" maxOccurs ="1" default ="Posted">
+						<xs:element name="status" type="TransactionStatus" minOccurs="0" maxOccurs="1" default ="Posted">
 							<xs:annotation>
 								<xs:documentation>
-									This attribute shows whether the transaction is pending, posted, denied, or void.
+									The current status of the transaction.  This may be part of a session or after the session has ended.
 								</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Posted"></xs:enumeration>
-									<xs:enumeration value="Pending"></xs:enumeration>
-									<xs:enumeration value="Denied"></xs:enumeration>
-									<xs:enumeration value="Void"></xs:enumeration>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:element>
+						</xs:element>					
 						<xs:element name="principalAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 							<xs:annotation>
 								<xs:documentation>
@@ -264,4 +256,60 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name ="TransactionStatus">
+		<xs:annotation>
+			<xs:documentation>
+				An enumeration of possible statuses for a transaction request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="Posted">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction is posted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Pending">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction is pending.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Denied">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction was denied.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Void">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction was Voided.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="TransactionStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of transaction statuses that should be returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transactionStatus" type="TransactionStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The list of transaction statuses that should be returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 </xs:schema>
