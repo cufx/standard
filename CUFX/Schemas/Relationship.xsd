@@ -165,10 +165,10 @@
         <xs:annotation>
           <xs:documentation>
             Used to provide new party details. The full party element is used for committing new parties
-            to a new relationship in case the relationship can not be saved to the core without
-            providing parties with the relationship. The party object defines all the fields necessary 
+            to a new relationship in case the relationship cannot be saved to the core without
+            providing parties with the relationship. The party object defines all the fields necessary
             to define a person, business or vendor related to a financial institution.
-            Note: The party id above is used to retrieve party details with a a separate party service call.
+            Note: The party id above is used to retrieve party details with a separate party service call.
             The ID uniquely identifies the party within the financial institution.
           </xs:documentation>
         </xs:annotation>
