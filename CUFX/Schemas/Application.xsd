@@ -178,7 +178,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productAppliedFor" type="ProductAppliedFor">
+      <xs:element name="productAppliedFor" type="ProductAppliedFor"  minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Product applied for and its requested amount, quoted rate, etc.
