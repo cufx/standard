@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/SimpleValidationRequest.xsd"
-	version="3.0.$Revision: 766 $"
+	version="3.0.$Revision: 882 $"
 	elementFormDefault="qualified"
 	xmlns="http://cufxstandards.com/v3/SimpleValidationRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -56,7 +56,7 @@
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Simple validaiton request level name/data pairs list of fields that are not yet available in the general
+            Simple validation request level name/data pairs list of fields that are not yet available in the general
             specification. This should be used as a LAST RESORT as any customizations will not be supported by all
             data providers or processed by all client applications. ANY use of this field must be reported to the
             architecture or working group committee to ensure that fields are somehow handled in the future

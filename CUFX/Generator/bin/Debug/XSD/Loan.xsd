@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/Loan.xsd"
-	version="3.0.$Revision: 804 $"
+	version="3.0.$Revision: 880 $"
 	xmlns="http://cufxstandards.com/v3/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -187,13 +187,6 @@
 						<xs:annotation>
 							<xs:documentation>
 								Code used for reporting to the credit bureaus.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								The minimum balance that an account may have.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1638,7 +1631,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="agent" type="relationship:Agent" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="agent" type="common:Agent" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Acts on behalf of the loan holder.
@@ -1682,7 +1675,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="relationship:Authority" minOccurs ="1" maxOccurs ="1">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Primary or joint holder has liability for the loan.	Only one primary party can exist on a loan.

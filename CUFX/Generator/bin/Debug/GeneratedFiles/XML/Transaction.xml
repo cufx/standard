@@ -7,6 +7,7 @@
     <amount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
     </amount>
     <description>description1</description>
     <checkNumber>checkNumber1</checkNumber>
@@ -16,12 +17,14 @@
     <principalAmount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
     </principalAmount>
     <interestAmount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
     </interestAmount>
-    <merchantCategoryCode>1</merchantCategoryCode>
+    <merchantCategoryCode>merchantCategoryCode1</merchantCategoryCode>
     <category>category1</category>
     <source>Ach</source>
     <customData>
@@ -55,6 +58,7 @@
     <amount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
     </amount>
     <description>description2</description>
     <checkNumber>checkNumber2</checkNumber>
@@ -64,12 +68,14 @@
     <principalAmount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
     </principalAmount>
     <interestAmount>
       <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
       <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
     </interestAmount>
-    <merchantCategoryCode>-79228162514264337593543950335</merchantCategoryCode>
+    <merchantCategoryCode>merchantCategoryCode2</merchantCategoryCode>
     <category>category2</category>
     <source>Atm</source>
     <customData>

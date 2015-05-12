@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
   targetNamespace="http://cufxstandards.com/v3/Account.xsd"
-	version="3.0.$Revision: 847 $"
+	version="3.0.$Revision: 878 $"
 	xmlns="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
@@ -176,7 +176,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="externalAccountBankAddress" type="contact:Address" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="externalAccountBankAddress" type="common:Address" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             To Address of the bank used for wire transfer.
@@ -191,6 +191,25 @@
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+      <xs:element name="externalAccountIBANCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            IBAN of external institution, used for wire transfers.  This replaces the micrAccountNumber
+            for certain financial institutions in foreign nations, and no routing or SWIFT code is
+            necessary when an IBAN (and potentially bank code, below) is provided to identify the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="externalAccountBankCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bank code, required (in addition to other identifiers) for institutions in certain foreign nations,
+            used for wire transfers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
 			<xs:element name="externalAccountFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -271,6 +290,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						The relationship ID that the account belongs to.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="noteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of notes on the account.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -100,31 +100,36 @@
       <actualBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
       </actualBalance>
       <availableBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
       </availableBalance>
       <minimumBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
       </minimumBalance>
       <routingNumber>routingNumber1</routingNumber>
       <externalAccountBankAddress>
-        <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line11</line1>
-        <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line21</line2>
-        <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line31</line3>
-        <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city1</city>
-        <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince1</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode1</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AD</countryCode>
-        <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country1</country>
-        <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
-          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</latitude>
-          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1</longitude>
+        <line1 xmlns="http://cufxstandards.com/v3/Common.xsd">line11</line1>
+        <line2 xmlns="http://cufxstandards.com/v3/Common.xsd">line21</line2>
+        <line3 xmlns="http://cufxstandards.com/v3/Common.xsd">line31</line3>
+        <city xmlns="http://cufxstandards.com/v3/Common.xsd">city1</city>
+        <stateProvince xmlns="http://cufxstandards.com/v3/Common.xsd">stateProvince1</stateProvince>
+        <postalCode xmlns="http://cufxstandards.com/v3/Common.xsd">postalCode1</postalCode>
+        <countryCode xmlns="http://cufxstandards.com/v3/Common.xsd">AD</countryCode>
+        <country xmlns="http://cufxstandards.com/v3/Common.xsd">country1</country>
+        <coordinate xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <latitude>1</latitude>
+          <longitude>1</longitude>
         </coordinate>
       </externalAccountBankAddress>
       <externalAccountSWIFTCode>externalAccountSWIFTCode1</externalAccountSWIFTCode>
+      <externalAccountIBANCode>externalAccountIBANCode1</externalAccountIBANCode>
+      <externalAccountBankCode>externalAccountBankCode1</externalAccountBankCode>
       <externalAccountFlag>true</externalAccountFlag>
       <externalAccountVerified>true</externalAccountVerified>
       <externalTransferFrom>true</externalTransferFrom>
@@ -141,6 +146,68 @@
         <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
       </partyIdList>
       <relationshipId>relationshipId1</relationshipId>
+      <noteList>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Account</recordType>
+          <noteCode>noteCode1</noteCode>
+          <noteText>noteText1</noteText>
+          <noteText>noteText2</noteText>
+          <noteText>noteText3</noteText>
+          <noteText>noteText4</noteText>
+          <noteText>noteText5</noteText>
+          <noteCreatedDateTime>1900-01-01T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-01-01</noteExpirationDate>
+          <noteCreator>noteCreator1</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Application</recordType>
+          <noteCode>noteCode2</noteCode>
+          <noteText>noteText6</noteText>
+          <noteText>noteText7</noteText>
+          <noteText>noteText8</noteText>
+          <noteText>noteText9</noteText>
+          <noteText>noteText10</noteText>
+          <noteCreatedDateTime>0001-01-01T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-01-01</noteExpirationDate>
+          <noteCreator>noteCreator2</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Loan</recordType>
+          <noteCode>noteCode3</noteCode>
+          <noteText>noteText11</noteText>
+          <noteText>noteText12</noteText>
+          <noteText>noteText13</noteText>
+          <noteText>noteText14</noteText>
+          <noteText>noteText15</noteText>
+          <noteCreatedDateTime>9999-12-31T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-12-31</noteExpirationDate>
+          <noteCreator>noteCreator3</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Portfolio</recordType>
+          <noteCode>noteCode4</noteCode>
+          <noteText>noteText16</noteText>
+          <noteText>noteText17</noteText>
+          <noteText>noteText18</noteText>
+          <noteText>noteText19</noteText>
+          <noteText>noteText20</noteText>
+          <noteCreatedDateTime>1899-11-30T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-11-30</noteExpirationDate>
+          <noteCreator>noteCreator4</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Deposit</recordType>
+          <noteCode>noteCode5</noteCode>
+          <noteText>noteText21</noteText>
+          <noteText>noteText22</noteText>
+          <noteText>noteText23</noteText>
+          <noteText>noteText24</noteText>
+          <noteText>noteText25</noteText>
+          <noteCreatedDateTime>1900-02-02T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-02-02</noteExpirationDate>
+          <noteCreator>noteCreator5</noteCreator>
+        </note>
+      </noteList>
       <customData>
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
@@ -158,6 +225,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </amount>
           <description>description1</description>
           <checkNumber>checkNumber1</checkNumber>
@@ -167,12 +235,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>1</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode1</merchantCategoryCode>
           <category>category1</category>
           <source>Ach</source>
           <customData>
@@ -191,6 +261,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description2</description>
           <checkNumber>checkNumber2</checkNumber>
@@ -200,12 +271,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>-79228162514264337593543950335</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode2</merchantCategoryCode>
           <category>category2</category>
           <source>Atm</source>
           <customData>
@@ -233,31 +306,36 @@
       <actualBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
       </actualBalance>
       <availableBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
       </availableBalance>
       <minimumBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
       </minimumBalance>
       <routingNumber>routingNumber2</routingNumber>
       <externalAccountBankAddress>
-        <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line12</line1>
-        <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line22</line2>
-        <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line32</line3>
-        <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city2</city>
-        <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince2</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode2</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AE</countryCode>
-        <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country2</country>
-        <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
-          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</latitude>
-          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</longitude>
+        <line1 xmlns="http://cufxstandards.com/v3/Common.xsd">line12</line1>
+        <line2 xmlns="http://cufxstandards.com/v3/Common.xsd">line22</line2>
+        <line3 xmlns="http://cufxstandards.com/v3/Common.xsd">line32</line3>
+        <city xmlns="http://cufxstandards.com/v3/Common.xsd">city2</city>
+        <stateProvince xmlns="http://cufxstandards.com/v3/Common.xsd">stateProvince2</stateProvince>
+        <postalCode xmlns="http://cufxstandards.com/v3/Common.xsd">postalCode2</postalCode>
+        <countryCode xmlns="http://cufxstandards.com/v3/Common.xsd">AE</countryCode>
+        <country xmlns="http://cufxstandards.com/v3/Common.xsd">country2</country>
+        <coordinate xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <latitude>-79228162514264337593543950335</latitude>
+          <longitude>-79228162514264337593543950335</longitude>
         </coordinate>
       </externalAccountBankAddress>
       <externalAccountSWIFTCode>externalAccountSWIFTCode2</externalAccountSWIFTCode>
+      <externalAccountIBANCode>externalAccountIBANCode2</externalAccountIBANCode>
+      <externalAccountBankCode>externalAccountBankCode2</externalAccountBankCode>
       <externalAccountFlag>false</externalAccountFlag>
       <externalAccountVerified>false</externalAccountVerified>
       <externalTransferFrom>false</externalTransferFrom>
@@ -274,6 +352,68 @@
         <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId10</partyId>
       </partyIdList>
       <relationshipId>relationshipId2</relationshipId>
+      <noteList>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>ProductServiceRequest</recordType>
+          <noteCode>noteCode6</noteCode>
+          <noteText>noteText26</noteText>
+          <noteText>noteText27</noteText>
+          <noteText>noteText28</noteText>
+          <noteText>noteText29</noteText>
+          <noteText>noteText30</noteText>
+          <noteCreatedDateTime>0001-02-02T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-02-02</noteExpirationDate>
+          <noteCreator>noteCreator6</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Request</recordType>
+          <noteCode>noteCode7</noteCode>
+          <noteText>noteText31</noteText>
+          <noteText>noteText32</noteText>
+          <noteText>noteText33</noteText>
+          <noteText>noteText34</noteText>
+          <noteText>noteText35</noteText>
+          <noteCreatedDateTime>9999-11-29T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-11-29</noteExpirationDate>
+          <noteCreator>noteCreator7</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Activity</recordType>
+          <noteCode>noteCode8</noteCode>
+          <noteText>noteText36</noteText>
+          <noteText>noteText37</noteText>
+          <noteText>noteText38</noteText>
+          <noteText>noteText39</noteText>
+          <noteText>noteText40</noteText>
+          <noteCreatedDateTime>1899-10-29T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-10-29</noteExpirationDate>
+          <noteCreator>noteCreator8</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Account</recordType>
+          <noteCode>noteCode9</noteCode>
+          <noteText>noteText41</noteText>
+          <noteText>noteText42</noteText>
+          <noteText>noteText43</noteText>
+          <noteText>noteText44</noteText>
+          <noteText>noteText45</noteText>
+          <noteCreatedDateTime>1900-03-06T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-03-06</noteExpirationDate>
+          <noteCreator>noteCreator9</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Application</recordType>
+          <noteCode>noteCode10</noteCode>
+          <noteText>noteText46</noteText>
+          <noteText>noteText47</noteText>
+          <noteText>noteText48</noteText>
+          <noteText>noteText49</noteText>
+          <noteText>noteText50</noteText>
+          <noteCreatedDateTime>0001-03-06T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-03-06</noteExpirationDate>
+          <noteCreator>noteCreator10</noteCreator>
+        </note>
+      </noteList>
       <customData>
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
@@ -287,22 +427,26 @@
           <creditLimit>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </creditLimit>
           <annualPercentageRate>1</annualPercentageRate>
           <rate>1</rate>
           <minimumPayment>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </minimumPayment>
           <maturityDate>1900-01-01</maturityDate>
           <originalBalance>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </originalBalance>
           <currentDueDate>1900-01-01</currentDueDate>
           <currentPayoffBalance>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
           </currentPayoffBalance>
         </loanMeta>
       </meta>
@@ -314,6 +458,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description3</description>
           <checkNumber>checkNumber3</checkNumber>
@@ -323,12 +468,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>79228162514264337593543950335</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode3</merchantCategoryCode>
           <category>category3</category>
           <source>BillPay</source>
           <customData>
@@ -347,6 +494,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
           </amount>
           <description>description4</description>
           <checkNumber>checkNumber4</checkNumber>
@@ -356,12 +504,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>0</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode4</merchantCategoryCode>
           <category>category4</category>
           <source>BulkDeposit</source>
           <customData>
@@ -380,6 +530,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
           </amount>
           <description>description5</description>
           <checkNumber>checkNumber5</checkNumber>
@@ -389,12 +540,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>2</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode5</merchantCategoryCode>
           <category>category5</category>
           <source>Cash</source>
           <customData>
@@ -421,31 +574,36 @@
       <actualBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
       </actualBalance>
       <availableBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
       </availableBalance>
       <minimumBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
       </minimumBalance>
       <routingNumber>routingNumber3</routingNumber>
       <externalAccountBankAddress>
-        <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line13</line1>
-        <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line23</line2>
-        <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line33</line3>
-        <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city3</city>
-        <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince3</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode3</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AF</countryCode>
-        <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country3</country>
-        <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
-          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</latitude>
-          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</longitude>
+        <line1 xmlns="http://cufxstandards.com/v3/Common.xsd">line13</line1>
+        <line2 xmlns="http://cufxstandards.com/v3/Common.xsd">line23</line2>
+        <line3 xmlns="http://cufxstandards.com/v3/Common.xsd">line33</line3>
+        <city xmlns="http://cufxstandards.com/v3/Common.xsd">city3</city>
+        <stateProvince xmlns="http://cufxstandards.com/v3/Common.xsd">stateProvince3</stateProvince>
+        <postalCode xmlns="http://cufxstandards.com/v3/Common.xsd">postalCode3</postalCode>
+        <countryCode xmlns="http://cufxstandards.com/v3/Common.xsd">AF</countryCode>
+        <country xmlns="http://cufxstandards.com/v3/Common.xsd">country3</country>
+        <coordinate xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <latitude>79228162514264337593543950335</latitude>
+          <longitude>79228162514264337593543950335</longitude>
         </coordinate>
       </externalAccountBankAddress>
       <externalAccountSWIFTCode>externalAccountSWIFTCode3</externalAccountSWIFTCode>
+      <externalAccountIBANCode>externalAccountIBANCode3</externalAccountIBANCode>
+      <externalAccountBankCode>externalAccountBankCode3</externalAccountBankCode>
       <externalAccountFlag>true</externalAccountFlag>
       <externalAccountVerified>true</externalAccountVerified>
       <externalTransferFrom>true</externalTransferFrom>
@@ -462,6 +620,68 @@
         <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId15</partyId>
       </partyIdList>
       <relationshipId>relationshipId3</relationshipId>
+      <noteList>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Loan</recordType>
+          <noteCode>noteCode11</noteCode>
+          <noteText>noteText51</noteText>
+          <noteText>noteText52</noteText>
+          <noteText>noteText53</noteText>
+          <noteText>noteText54</noteText>
+          <noteText>noteText55</noteText>
+          <noteCreatedDateTime>9999-10-28T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-10-28</noteExpirationDate>
+          <noteCreator>noteCreator11</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Portfolio</recordType>
+          <noteCode>noteCode12</noteCode>
+          <noteText>noteText56</noteText>
+          <noteText>noteText57</noteText>
+          <noteText>noteText58</noteText>
+          <noteText>noteText59</noteText>
+          <noteText>noteText60</noteText>
+          <noteCreatedDateTime>1899-09-27T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-09-27</noteExpirationDate>
+          <noteCreator>noteCreator12</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Deposit</recordType>
+          <noteCode>noteCode13</noteCode>
+          <noteText>noteText61</noteText>
+          <noteText>noteText62</noteText>
+          <noteText>noteText63</noteText>
+          <noteText>noteText64</noteText>
+          <noteText>noteText65</noteText>
+          <noteCreatedDateTime>1900-04-07T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-04-07</noteExpirationDate>
+          <noteCreator>noteCreator13</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>ProductServiceRequest</recordType>
+          <noteCode>noteCode14</noteCode>
+          <noteText>noteText66</noteText>
+          <noteText>noteText67</noteText>
+          <noteText>noteText68</noteText>
+          <noteText>noteText69</noteText>
+          <noteText>noteText70</noteText>
+          <noteCreatedDateTime>0001-04-07T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-04-07</noteExpirationDate>
+          <noteCreator>noteCreator14</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Request</recordType>
+          <noteCode>noteCode15</noteCode>
+          <noteText>noteText71</noteText>
+          <noteText>noteText72</noteText>
+          <noteText>noteText73</noteText>
+          <noteText>noteText74</noteText>
+          <noteText>noteText75</noteText>
+          <noteCreatedDateTime>9999-09-26T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-09-26</noteExpirationDate>
+          <noteCreator>noteCreator15</noteCreator>
+        </note>
+      </noteList>
       <customData>
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
@@ -479,6 +699,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ANG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description6</description>
           <checkNumber>checkNumber6</checkNumber>
@@ -488,12 +709,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ANG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ANG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>-79228162514264337593543950334</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode6</merchantCategoryCode>
           <category>category6</category>
           <source>Check</source>
           <customData>
@@ -512,6 +735,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AOA</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description7</description>
           <checkNumber>checkNumber7</checkNumber>
@@ -521,12 +745,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AOA</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AOA</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>79228162514264337593543950334</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode7</merchantCategoryCode>
           <category>category7</category>
           <source>Fee</source>
           <customData>
@@ -554,31 +780,36 @@
       <actualBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
       </actualBalance>
       <availableBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
       </availableBalance>
       <minimumBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</exchangeRate>
       </minimumBalance>
       <routingNumber>routingNumber4</routingNumber>
       <externalAccountBankAddress>
-        <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line14</line1>
-        <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line24</line2>
-        <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line34</line3>
-        <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city4</city>
-        <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince4</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode4</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AG</countryCode>
-        <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country4</country>
-        <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
-          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</latitude>
-          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</longitude>
+        <line1 xmlns="http://cufxstandards.com/v3/Common.xsd">line14</line1>
+        <line2 xmlns="http://cufxstandards.com/v3/Common.xsd">line24</line2>
+        <line3 xmlns="http://cufxstandards.com/v3/Common.xsd">line34</line3>
+        <city xmlns="http://cufxstandards.com/v3/Common.xsd">city4</city>
+        <stateProvince xmlns="http://cufxstandards.com/v3/Common.xsd">stateProvince4</stateProvince>
+        <postalCode xmlns="http://cufxstandards.com/v3/Common.xsd">postalCode4</postalCode>
+        <countryCode xmlns="http://cufxstandards.com/v3/Common.xsd">AG</countryCode>
+        <country xmlns="http://cufxstandards.com/v3/Common.xsd">country4</country>
+        <coordinate xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <latitude>0.9</latitude>
+          <longitude>0.9</longitude>
         </coordinate>
       </externalAccountBankAddress>
       <externalAccountSWIFTCode>externalAccountSWIFTCode4</externalAccountSWIFTCode>
+      <externalAccountIBANCode>externalAccountIBANCode4</externalAccountIBANCode>
+      <externalAccountBankCode>externalAccountBankCode4</externalAccountBankCode>
       <externalAccountFlag>false</externalAccountFlag>
       <externalAccountVerified>false</externalAccountVerified>
       <externalTransferFrom>false</externalTransferFrom>
@@ -595,6 +826,68 @@
         <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId20</partyId>
       </partyIdList>
       <relationshipId>relationshipId4</relationshipId>
+      <noteList>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Activity</recordType>
+          <noteCode>noteCode16</noteCode>
+          <noteText>noteText76</noteText>
+          <noteText>noteText77</noteText>
+          <noteText>noteText78</noteText>
+          <noteText>noteText79</noteText>
+          <noteText>noteText80</noteText>
+          <noteCreatedDateTime>1899-08-26T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-08-26</noteExpirationDate>
+          <noteCreator>noteCreator16</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Account</recordType>
+          <noteCode>noteCode17</noteCode>
+          <noteText>noteText81</noteText>
+          <noteText>noteText82</noteText>
+          <noteText>noteText83</noteText>
+          <noteText>noteText84</noteText>
+          <noteText>noteText85</noteText>
+          <noteCreatedDateTime>1900-05-09T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-05-09</noteExpirationDate>
+          <noteCreator>noteCreator17</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Application</recordType>
+          <noteCode>noteCode18</noteCode>
+          <noteText>noteText86</noteText>
+          <noteText>noteText87</noteText>
+          <noteText>noteText88</noteText>
+          <noteText>noteText89</noteText>
+          <noteText>noteText90</noteText>
+          <noteCreatedDateTime>0001-05-09T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-05-09</noteExpirationDate>
+          <noteCreator>noteCreator18</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Loan</recordType>
+          <noteCode>noteCode19</noteCode>
+          <noteText>noteText91</noteText>
+          <noteText>noteText92</noteText>
+          <noteText>noteText93</noteText>
+          <noteText>noteText94</noteText>
+          <noteText>noteText95</noteText>
+          <noteCreatedDateTime>9999-08-25T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-08-25</noteExpirationDate>
+          <noteCreator>noteCreator19</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Portfolio</recordType>
+          <noteCode>noteCode20</noteCode>
+          <noteText>noteText96</noteText>
+          <noteText>noteText97</noteText>
+          <noteText>noteText98</noteText>
+          <noteText>noteText99</noteText>
+          <noteText>noteText100</noteText>
+          <noteCreatedDateTime>1899-07-25T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-07-25</noteExpirationDate>
+          <noteCreator>noteCreator20</noteCreator>
+        </note>
+      </noteList>
       <customData>
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
@@ -608,22 +901,26 @@
           <creditLimit>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </creditLimit>
           <annualPercentageRate>-79228162514264337593543950335</annualPercentageRate>
           <rate>-79228162514264337593543950335</rate>
           <minimumPayment>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </minimumPayment>
           <maturityDate>0001-01-01</maturityDate>
           <originalBalance>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </originalBalance>
           <currentDueDate>0001-01-01</currentDueDate>
           <currentPayoffBalance>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </currentPayoffBalance>
         </loanMeta>
       </meta>
@@ -635,6 +932,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ARS</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</exchangeRate>
           </amount>
           <description>description8</description>
           <checkNumber>checkNumber8</checkNumber>
@@ -644,12 +942,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ARS</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ARS</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.8</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>-1</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode8</merchantCategoryCode>
           <category>category8</category>
           <source>HomeBanking</source>
           <customData>
@@ -668,6 +968,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AUD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</exchangeRate>
           </amount>
           <description>description9</description>
           <checkNumber>checkNumber9</checkNumber>
@@ -677,12 +978,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AUD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AUD</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.2</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>3</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode9</merchantCategoryCode>
           <category>category9</category>
           <source>Insurance</source>
           <customData>
@@ -701,6 +1004,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AWG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description10</description>
           <checkNumber>checkNumber10</checkNumber>
@@ -710,12 +1014,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AWG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AWG</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>-79228162514264337593543950333</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode10</merchantCategoryCode>
           <category>category10</category>
           <source>InterestEarned</source>
           <customData>
@@ -742,31 +1048,36 @@
       <actualBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
       </actualBalance>
       <availableBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
       </availableBalance>
       <minimumBalance>
         <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
         <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</exchangeRate>
       </minimumBalance>
       <routingNumber>routingNumber5</routingNumber>
       <externalAccountBankAddress>
-        <line1 xmlns="http://cufxstandards.com/v3/Contact.xsd">line15</line1>
-        <line2 xmlns="http://cufxstandards.com/v3/Contact.xsd">line25</line2>
-        <line3 xmlns="http://cufxstandards.com/v3/Contact.xsd">line35</line3>
-        <city xmlns="http://cufxstandards.com/v3/Contact.xsd">city5</city>
-        <stateProvince xmlns="http://cufxstandards.com/v3/Contact.xsd">stateProvince5</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v3/Contact.xsd">postalCode5</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v3/Contact.xsd">AI</countryCode>
-        <country xmlns="http://cufxstandards.com/v3/Contact.xsd">country5</country>
-        <coordinate xmlns="http://cufxstandards.com/v3/Contact.xsd">
-          <latitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</latitude>
-          <longitude xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</longitude>
+        <line1 xmlns="http://cufxstandards.com/v3/Common.xsd">line15</line1>
+        <line2 xmlns="http://cufxstandards.com/v3/Common.xsd">line25</line2>
+        <line3 xmlns="http://cufxstandards.com/v3/Common.xsd">line35</line3>
+        <city xmlns="http://cufxstandards.com/v3/Common.xsd">city5</city>
+        <stateProvince xmlns="http://cufxstandards.com/v3/Common.xsd">stateProvince5</stateProvince>
+        <postalCode xmlns="http://cufxstandards.com/v3/Common.xsd">postalCode5</postalCode>
+        <countryCode xmlns="http://cufxstandards.com/v3/Common.xsd">AI</countryCode>
+        <country xmlns="http://cufxstandards.com/v3/Common.xsd">country5</country>
+        <coordinate xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <latitude>1.1</latitude>
+          <longitude>1.1</longitude>
         </coordinate>
       </externalAccountBankAddress>
       <externalAccountSWIFTCode>externalAccountSWIFTCode5</externalAccountSWIFTCode>
+      <externalAccountIBANCode>externalAccountIBANCode5</externalAccountIBANCode>
+      <externalAccountBankCode>externalAccountBankCode5</externalAccountBankCode>
       <externalAccountFlag>true</externalAccountFlag>
       <externalAccountVerified>true</externalAccountVerified>
       <externalTransferFrom>true</externalTransferFrom>
@@ -783,6 +1094,68 @@
         <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId25</partyId>
       </partyIdList>
       <relationshipId>relationshipId5</relationshipId>
+      <noteList>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Deposit</recordType>
+          <noteCode>noteCode21</noteCode>
+          <noteText>noteText101</noteText>
+          <noteText>noteText102</noteText>
+          <noteText>noteText103</noteText>
+          <noteText>noteText104</noteText>
+          <noteText>noteText105</noteText>
+          <noteCreatedDateTime>1900-06-10T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-06-10</noteExpirationDate>
+          <noteCreator>noteCreator21</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>ProductServiceRequest</recordType>
+          <noteCode>noteCode22</noteCode>
+          <noteText>noteText106</noteText>
+          <noteText>noteText107</noteText>
+          <noteText>noteText108</noteText>
+          <noteText>noteText109</noteText>
+          <noteText>noteText110</noteText>
+          <noteCreatedDateTime>0001-06-10T00:00:00Z</noteCreatedDateTime>
+          <noteExpirationDate>0001-06-10</noteExpirationDate>
+          <noteCreator>noteCreator22</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Request</recordType>
+          <noteCode>noteCode23</noteCode>
+          <noteText>noteText111</noteText>
+          <noteText>noteText112</noteText>
+          <noteText>noteText113</noteText>
+          <noteText>noteText114</noteText>
+          <noteText>noteText115</noteText>
+          <noteCreatedDateTime>9999-07-24T23:59:59.9999999Z</noteCreatedDateTime>
+          <noteExpirationDate>9999-07-24</noteExpirationDate>
+          <noteCreator>noteCreator23</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Activity</recordType>
+          <noteCode>noteCode24</noteCode>
+          <noteText>noteText116</noteText>
+          <noteText>noteText117</noteText>
+          <noteText>noteText118</noteText>
+          <noteText>noteText119</noteText>
+          <noteText>noteText120</noteText>
+          <noteCreatedDateTime>1899-06-23T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1899-06-23</noteExpirationDate>
+          <noteCreator>noteCreator24</noteCreator>
+        </note>
+        <note xmlns="http://cufxstandards.com/v3/Common.xsd">
+          <recordType>Account</recordType>
+          <noteCode>noteCode25</noteCode>
+          <noteText>noteText121</noteText>
+          <noteText>noteText122</noteText>
+          <noteText>noteText123</noteText>
+          <noteText>noteText124</noteText>
+          <noteText>noteText125</noteText>
+          <noteCreatedDateTime>1900-07-12T01:01:01Z</noteCreatedDateTime>
+          <noteExpirationDate>1900-07-12</noteExpirationDate>
+          <noteCreator>noteCreator25</noteCreator>
+        </note>
+      </noteList>
       <customData>
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
         <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
@@ -800,6 +1173,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AZN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </amount>
           <description>description11</description>
           <checkNumber>checkNumber11</checkNumber>
@@ -809,12 +1183,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AZN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AZN</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>79228162514264337593543950333</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode11</merchantCategoryCode>
           <category>category11</category>
           <source>InterestPaid</source>
           <customData>
@@ -833,6 +1209,7 @@
           <amount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BAM</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</exchangeRate>
           </amount>
           <description>description12</description>
           <checkNumber>checkNumber12</checkNumber>
@@ -842,12 +1219,14 @@
           <principalAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BAM</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</exchangeRate>
           </principalAmount>
           <interestAmount>
             <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</value>
             <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">BAM</currencyCode>
+            <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">0.7</exchangeRate>
           </interestAmount>
-          <merchantCategoryCode>-2</merchantCategoryCode>
+          <merchantCategoryCode>merchantCategoryCode12</merchantCategoryCode>
           <category>category12</category>
           <source>Ivr</source>
           <customData>

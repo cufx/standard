@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v3/Relationship.xsd"
-	version="3.0.$Revision: 764 $"
+	version="3.0.$Revision: 892 $"
 	xmlns="http://cufxstandards.com/v3/Relationship.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -161,6 +161,19 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="party" type="party:Party" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Used to provide new party details. The full party element is used for committing new parties
+            to a new relationship in case the relationship cannot be saved to the core without
+            providing parties with the relationship. The party object defines all the fields necessary
+            to define a person, business or vendor related to a financial institution.
+            Note: The party id above is used to retrieve party details with a separate party service call.
+            The ID uniquely identifies the party within the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element >
+  
       <xs:element name="partyRelationshipType" type="PartyRelationshipType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -232,7 +245,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="agent" type="Agent" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="agent" type="common:Agent" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Acts on behalf of the account holders.
@@ -286,7 +299,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Primary or joint holder has access to funds.	Only one primary party can exist on a relationship.
@@ -306,7 +319,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default ="Unauthorized">
+      <xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default ="Unauthorized">
         <xs:annotation>
           <xs:documentation>
             Specifies if beneficiary has access to the funds.  Most often this is unauthorized, but for 
@@ -347,27 +360,6 @@
     </xs:restriction>
   </xs:simpleType>
   
-  <xs:complexType name ="Agent">
-    <xs:sequence>
-      <xs:element	name="qualifier" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies the type of agent that is acting on behalf of the account or relationship holders.
-          </xs:documentation >
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default ="Authorized">
-        <xs:annotation>
-          <xs:documentation>
-            Specifies if the agent has access to the funds.
-          </xs:documentation >
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-
-
   <xs:complexType name ="Payee">
     <xs:sequence>
       <xs:element	name="qualifier" type="PayeeQualifier" minOccurs ="1" maxOccurs ="1">
@@ -390,7 +382,7 @@
 
   <xs:complexType name ="Guarantor">
     <xs:sequence>
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1">
+      <xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Specifies whether guarantor has access to the funds on the account.
@@ -402,7 +394,7 @@
 
   <xs:complexType name ="CollateralGrantor">
     <xs:sequence>
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
+      <xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
         <xs:annotation>
           <xs:documentation>
             Specifies whether collateral grantor has access to the funds on the account.
@@ -424,7 +416,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
+      <xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
         <xs:annotation>
           <xs:documentation>
             Specifies whether safe deposit box user has access to the funds on the account.
@@ -455,25 +447,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name ="Authority">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value ="Authorized">
-        <xs:annotation>
-          <xs:documentation>
-            Has access to funds and can perform transactions.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value ="Unauthorized">
-        <xs:annotation>
-          <xs:documentation>
-            Does not have access to funds and cannot perform transactions.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="BeneficiaryQualifier">
     <xs:restriction base="xs:string">
       <xs:enumeration value ="Standard">
@@ -490,80 +463,6 @@
           <xs:documentation>
             Student is the funds beneficiary in the event of a Coverdell
             ESA when funds are distributed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="AgentQualifier">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value ="Custodian">
-        <xs:annotation>
-          <xs:documentation>
-            Party acts on behalf of the account holder or borrower.
-            If this is at the relationship level, they can manage all
-            deposits and loans within the relationship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="Trustee" >
-        <xs:annotation>
-          <xs:documentation>
-            Party acting on behalf of the trust account based on a trust agreement.
-            If this is at the relationship level, the party can manage all deposits
-            and loans within the relationship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="PowerOfAttorney" >
-        <xs:annotation>
-          <xs:documentation>
-            Party acting on behalf of the account holder or borrower based on a power
-            of attorney letter.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="Representative" >
-        <xs:annotation>
-          <xs:documentation>
-            Party which can deposit government checks on behalf of the deposit account holder.
-            If this is at the relationship level, they can deposit government checks in any of
-            the deposits within the relationship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="CtrTransactor" >
-        <xs:annotation>
-          <xs:documentation>
-            Party reported to government for CTR transations on behalf of the account holder or borrower.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="AttorneyTrust" >
-        <xs:annotation>
-          <xs:documentation>
-            Party is attorney-in-fact managing an account for a client.
-            If this is at the relationship level, the party can manage
-            all deposits and loans within the relationship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="ResponsibleIndividual" >
-        <xs:annotation>
-          <xs:documentation>
-            Party that is the adult caretaker of a Coverdell ESA deposit account.
-            Typically this is the parent of the beneficiary upon distribution.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration >
-      <xs:enumeration value ="Signer" >
-        <xs:annotation>
-          <xs:documentation>
-            Party with signature capability on the deposit or loan.
-            If this is at the relationship level, the party has signature capability on all
-            deposits and loans within the relationship.
-            Depending on the loan arrangement, the authorized signer may be liable for the loan.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration >

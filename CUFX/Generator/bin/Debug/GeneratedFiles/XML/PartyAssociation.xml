@@ -11,7 +11,8 @@
         <qualifier>BoardOfDirectors</qualifier>
       </officerManager>
       <agent>
-        <qualifer>Custodian</qualifer>
+        <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Custodian</qualifier>
+        <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
       </agent>
       <nextOfKin>
         <qualifier>NotSpecified</qualifier>
@@ -55,7 +56,8 @@
         <qualifier>CxO</qualifier>
       </officerManager>
       <agent>
-        <qualifer>Trustee</qualifer>
+        <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Trustee</qualifier>
+        <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Authorized</authority>
       </agent>
       <nextOfKin>
         <qualifier>Parent</qualifier>
@@ -99,7 +101,8 @@
         <qualifier>FinancialOfficer</qualifier>
       </officerManager>
       <agent>
-        <qualifer>PowerOfAttorney</qualifer>
+        <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">PowerOfAttorney</qualifier>
+        <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
       </agent>
       <nextOfKin>
         <qualifier>Spouse</qualifier>
@@ -143,7 +146,8 @@
         <qualifier>President</qualifier>
       </officerManager>
       <agent>
-        <qualifer>Representative</qualifer>
+        <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Representative</qualifier>
+        <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Authorized</authority>
       </agent>
       <nextOfKin>
         <qualifier>FirstCousin</qualifier>
@@ -187,7 +191,8 @@
         <qualifier>SoleProprietor</qualifier>
       </officerManager>
       <agent>
-        <qualifer>Guardian</qualifer>
+        <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">CtrTransactor</qualifier>
+        <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
       </agent>
       <nextOfKin>
         <qualifier>Child</qualifier>

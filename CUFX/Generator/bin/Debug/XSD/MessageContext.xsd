@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/MessageContext.xsd"
-	version="3.0.$Revision: 786 $"
+	version="3.0.$Revision: 881 $"
 	xmlns="http://cufxstandards.com/v3/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -141,9 +141,6 @@
 				The message context contains information that is passed as part of each CUFX message call.
 				All the fields are optional, and whether or not they contain information is determined by the specific implementation
         requirements.
-				For example, in a multi-tenant environment where multiple financial institutions are hosted, the Financial Institution
-        ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.  For a single tenant
-        environment with only one financial institution, the Financial Institution ID may not be necessary.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
