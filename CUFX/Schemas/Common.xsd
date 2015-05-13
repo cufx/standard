@@ -67,6 +67,23 @@
     </xs:restriction>
   </xs:simpleType>
 
+	<xs:complexType name="RecordTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				List of record types
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="recordType" type="CoreRecordType" minOccurs ="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Type of top level record.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
   <xs:complexType name="NoteList">
     <xs:annotation>
       <xs:documentation>
