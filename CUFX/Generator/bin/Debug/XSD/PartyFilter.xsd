@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v3/PartyFilter.xsd"
-	version="3.0.$Revision: 716 $"			  
+	version="3.0.$Revision: 905 $"			  
 	xmlns="http://cufxstandards.com/v3/PartyFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
@@ -87,6 +87,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If this is not provided, it will not return notes.
+						If it is provided and it's true, it will return all active non-expired notes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
     </xs:sequence>
   </xs:complexType>
 

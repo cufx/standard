@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v3/Application.xsd"
-  version="3.0.$Revision: 735 $"
+  version="3.0.$Revision: 897 $"
   xmlns="http://cufxstandards.com/v3/Application.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -178,7 +178,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="productAppliedFor" type="ProductAppliedFor">
+      <xs:element name="productAppliedFor" type="ProductAppliedFor"  minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             Product applied for and its requested amount, quoted rate, etc.
@@ -247,15 +247,15 @@
         <xs:annotation>
           <xs:documentation>
             Details of the loan product (credit card, mortgage, auto, etc.) applied for.
-            Many of the fields won't apply since this is an application.
+            Will contain the ids of the products created in the response. 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="deposit" type="deposit:Deposit">
         <xs:annotation>
           <xs:documentation>
-            Details of the deposit product applied for.  Many of the fields won't apply
-            since this is an application.
+            Details of the deposit product applied for.  
+						Will contain the ids of the products created in the response. 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
