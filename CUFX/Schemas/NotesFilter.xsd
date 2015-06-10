@@ -6,12 +6,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="notesFilter" type="NotesFilter">
@@ -31,15 +33,6 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-
-			<xs:element name="recordTypeList" type="common:RecordTypeList" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of record types that should have their associated notes either returned or affected
-						by a read, update or delete party request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -54,6 +47,15 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of account ID's that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Relationship ID's that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
