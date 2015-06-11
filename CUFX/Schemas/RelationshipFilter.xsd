@@ -68,6 +68,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			
+			<xs:element name="relationshipStatusList" type="relationship:RelationshipStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationship statuses that should have their accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If this is not provided, it will not return notes.
+						If it is provided and it's true, it will return all active non-expired notes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
     </xs:sequence>
   </xs:complexType>
 
