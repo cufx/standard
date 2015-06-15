@@ -340,6 +340,9 @@
     </xs:choice>
   </xs:complexType>
 
+  <xs:complexType name="CharacteristicsBase" abstract="true">
+    
+  </xs:complexType>
 
   <xs:complexType name="Organization">
     <xs:annotation>
@@ -347,34 +350,38 @@
         Fields related to when the party is an organization.
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Organization type is the textual representation
-            of what kind of organization it is.
-            Completed if party type is Organization.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CharacteristicsBase">
+        <xs:sequence>
+          <xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Organization type is the textual representation
+                of what kind of organization it is.
+                Completed if party type is Organization.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="organizationName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Standard/legal name of the organization.
-            Used if type is NOT INDIVIDUAL.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="organizationName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Standard/legal name of the organization.
+                Used if type is NOT INDIVIDUAL.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="doingBusinessAsList" type="DoingBusinessAsList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The organization that the record represents.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+          <xs:element name="doingBusinessAsList" type="DoingBusinessAsList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The organization that the record represents.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:simpleType name="TaxIdType">
@@ -474,158 +481,162 @@
       </xs:documentation>
     </xs:annotation>
 
-    <xs:sequence>
-      <xs:element name="firstName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s first name is the person's given name.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CharacteristicsBase">
+        <xs:sequence>
+          <xs:element name="firstName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s first name is the person's given name.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s middle name.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s middle name.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="lastName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s last name or surname.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="lastName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s last name or surname.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s prefix to their name, as in their title.  Typical examples are Dr., Mr., Mrs., etc..
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s prefix to their name, as in their title.  Typical examples are Dr., Mr., Mrs., etc..
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s suffix to their name.  Typical examples are Jr., III, etc..
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s suffix to their name.  Typical examples are Jr., III, etc..
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="formattedName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            All party name fields combined into one.
-            This is typically a read-only field that can be returned by the data source.
-            To remain flexible, this field can be either written to
-            or returned by the data source.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="formattedName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                All party name fields combined into one.
+                This is typically a read-only field that can be returned by the data source.
+                To remain flexible, this field can be either written to
+                or returned by the data source.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="mothersMaidenName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party's mother's maiden name.  This has recently been falling out of favor
-            for an account code word.  See the credential's collection.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="mothersMaidenName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party's mother's maiden name.  This has recently been falling out of favor
+                for an account code word.  See the credential's collection.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The party’s casual or familiar name reference.
-            Typical examples might be Tim if the party's first name
-            is Timothy, or Jenny if the first name is Jennifer.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The party’s casual or familiar name reference.
+                Typical examples might be Tim if the party's first name
+                is Timothy, or Jenny if the first name is Jennifer.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="birthdate" type="xs:date" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Birth date of the individual.
-            The date/time should be ISO 8601 UTC format.
-            yyyy-mm-dd (2011-03-28) format is supported.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="birthdate" type="xs:date" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Birth date of the individual.
+                The date/time should be ISO 8601 UTC format.
+                yyyy-mm-dd (2011-03-28) format is supported.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="gender" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Gender of the party.
-          </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="Male" />
-            <xs:enumeration value="Female" />
-            <xs:enumeration value="Other" />
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+          <xs:element name="gender" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Gender of the party.
+              </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Male" />
+                <xs:enumeration value="Female" />
+                <xs:enumeration value="Other" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
 
-      <xs:element name="cityOfBirth" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Birth place of individual (city only).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="cityOfBirth" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Birth place of individual (city only).
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="citizenshipList" type="CitizenshipList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of countries where the member has citizenship.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="citizenshipList" type="CitizenshipList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                List of countries where the member has citizenship.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="employmentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's employment status.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="employmentStatus" type="EmploymentStatusType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The individual's employment status.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="employmentList" type="EmploymentList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Employer of the individual, start date, status, etc.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="employmentList" type="EmploymentList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Employer of the individual, start date, status, etc.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="additionalIncomeList" type="AdditionalIncomeList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's additional income data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+          <xs:element name="additionalIncomeList" type="AdditionalIncomeList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The individual's additional income data.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 
-      <xs:element name="liabilityList" type="LiabilityList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The individual's additional liability data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
- 
-    <xs:element name="residence" type="Residence" minOccurs="0" maxOccurs="1">
-      <xs:annotation>
-        <xs:documentation>
-          Current living quarters status.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    </xs:sequence>
+          <xs:element name="liabilityList" type="LiabilityList" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The individual's additional liability data.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+
+          <xs:element name="residence" type="Residence" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Current living quarters status.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="EmploymentList">
@@ -1022,15 +1033,19 @@
         Fields related to when the party is a trust.
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Legal name of the trust.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CharacteristicsBase">
+        <xs:sequence>
+          <xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Legal name of the trust.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="Estate">
@@ -1039,15 +1054,19 @@
         Fields related to when the party is an estate.
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Legal name of the estate.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="CharacteristicsBase">
+        <xs:sequence>
+          <xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                Legal name of the estate.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="CitizenshipList">
@@ -1092,7 +1111,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:sequence>
+    </xs:sequence>    
   </xs:complexType>
 
   <xs:simpleType name="PartyType">
