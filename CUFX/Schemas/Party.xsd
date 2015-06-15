@@ -304,43 +304,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Characteristics">
-    <xs:choice>
-      <xs:element name="organization" type="Organization" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of fields specific to organization party type.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="individual" type="Individual"  minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of fields specific to individual party type.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="trust" type="Trust" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of fields specific to trust party type.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="estate" type="Estate" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of fields specific to estate party type.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:choice>
-  </xs:complexType>
-
-  <xs:complexType name="CharacteristicsBase" abstract="true">
+  <xs:complexType name="Characteristics" abstract="true">
     
   </xs:complexType>
 
@@ -351,7 +315,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent mixed="false">
-      <xs:extension base="CharacteristicsBase">
+      <xs:extension base="Characteristics">
         <xs:sequence>
           <xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="1">
             <xs:annotation>
@@ -482,7 +446,7 @@
     </xs:annotation>
 
     <xs:complexContent mixed="false">
-      <xs:extension base="CharacteristicsBase">
+      <xs:extension base="Characteristics">
         <xs:sequence>
           <xs:element name="firstName" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
@@ -1034,7 +998,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent mixed="false">
-      <xs:extension base="CharacteristicsBase">
+      <xs:extension base="Characteristics">
         <xs:sequence>
           <xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
@@ -1055,7 +1019,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent mixed="false">
-      <xs:extension base="CharacteristicsBase">
+      <xs:extension base="Characteristics">
         <xs:sequence>
           <xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
             <xs:annotation>
