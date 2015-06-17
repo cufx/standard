@@ -4,8 +4,6 @@
   version="3.0.$Revision$"
   xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
-  xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
 	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:party="http://cufxstandards.com/v3/Party.xsd"
@@ -14,8 +12,6 @@
   elementFormDefault="qualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
@@ -101,7 +97,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="occurrenceStatusList" type="fundsTransferOccurrenceBase:OccurrenceStatusList" minOccurs="0" maxOccurs ="1">
+			<xs:element name="occurrenceStatusList" type="fundsTransferCommonBase:OccurrenceStatusList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to search payments or transfers by the statuses of the payments or transfers.
@@ -137,7 +133,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="batchIdList" type="fundsTransferOccurrenceBase:BatchIdList" minOccurs="0" maxOccurs ="1">
+			<xs:element name="batchIdList" type="fundsTransferCommonBase:BatchIdList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of batch ids that should have their associated payments or transfers either returned
