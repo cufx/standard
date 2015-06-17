@@ -6,7 +6,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+  xmlns:fundsTransferCommonBase="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
   xmlns:credentialGroup="http://cufxstandards.com/v3/CredentialGroup.xsd"
 	 
 	elementFormDefault="qualified"
@@ -14,7 +14,7 @@
 
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:complexType name="FundsTransferRecurringBase" abstract="true" >
@@ -25,7 +25,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-      <xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="1"  >
+      <xs:element name="recurringId" type="fundsTransferCommonBase:RecurringId" minOccurs="0" maxOccurs="1"  >
         <xs:annotation>
           <xs:documentation>
             ID to uniquely identify a recurring payment or transfer request.
@@ -125,7 +125,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fundsWithdrawalType" type="FundsWithdrawalType" minOccurs="0" maxOccurs ="1">
+			<xs:element name="fundsWithdrawalType" type="fundsTransferCommonBase:FundsWithdrawalType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						When will the funds be withdrawn from the account.
@@ -179,7 +179,7 @@
           </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="recurringOccurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+      <xs:element name="recurringOccurrenceIdList" type="fundsTransferCommonBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A list occurrence IDs that are a result of the recurring payment or transfer request.
@@ -198,33 +198,6 @@
 			</xs:element>
     </xs:sequence>    
 	</xs:complexType>
-
-    <xs:simpleType name="RecurringId">
-      <xs:restriction base="xs:string">
-        <xs:annotation>
-          <xs:documentation>
-            ID to uniquely identify a recurring payment or transfer request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:restriction>
-    </xs:simpleType>
-
-		<xs:complexType name="RecurringIdList">
-			<xs:annotation>
-				<xs:documentation>
-					The list of recurring payments or transfer requests. 
-				</xs:documentation>
-			</xs:annotation>
-			<xs:sequence>
-				<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>
-							ID to uniquely identify a recurring payment or transfer request.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
 
     <xs:simpleType name="RecurringStatus">
 		<xs:annotation>
@@ -312,31 +285,4 @@
       </xs:sequence>
     </xs:complexType>
 
-
-
-		<xs:simpleType name="FundsWithdrawalType">
-			<xs:annotation>
-				<xs:documentation>
-					This is the enumeration of statuses for a recurring payment or transfer request .
-				</xs:documentation>
-			</xs:annotation>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="WhenRequested">
-					<xs:annotation>
-						<xs:documentation>
-							The funds will be pulled out of the account at the time that the payment or transfer request is made
-							each time that the occurrence happens.  For example in a good funds model in bill payment.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="WhenCleared">
-					<xs:annotation>
-						<xs:documentation>
-							The funds will be pulled out of the account at the time that the payment or transfer clears the account
-							each time that the occurrence happens.  For example a check.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-			</xs:restriction>
-		</xs:simpleType>
 	</xs:schema>
