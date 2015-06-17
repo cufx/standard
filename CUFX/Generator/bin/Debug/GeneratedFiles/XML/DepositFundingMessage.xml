@@ -82,8 +82,16 @@
       <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">LineOfCredit</accountType>
     </accountTypeList>
     <externalAccountFlag xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">true</externalAccountFlag>
+    <includeNotesFlag xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">true</includeNotesFlag>
     <transactionStartDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionStartDateTime>
     <transactionEndDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionEndDateTime>
+    <depositAccountStatusList xmlns="http://cufxstandards.com/v3/DepositFilter.xsd">
+      <depositAccountStatus xmlns="http://cufxstandards.com/v3/Deposit.xsd">Active</depositAccountStatus>
+      <depositAccountStatus xmlns="http://cufxstandards.com/v3/Deposit.xsd">Closed</depositAccountStatus>
+      <depositAccountStatus xmlns="http://cufxstandards.com/v3/Deposit.xsd">Dormant</depositAccountStatus>
+      <depositAccountStatus xmlns="http://cufxstandards.com/v3/Deposit.xsd">Escheated</depositAccountStatus>
+      <depositAccountStatus xmlns="http://cufxstandards.com/v3/Deposit.xsd">Incomplete</depositAccountStatus>
+    </depositAccountStatusList>
     <maturityStartDate xmlns="http://cufxstandards.com/v3/DepositFilter.xsd">1900-01-01</maturityStartDate>
     <maturityEndDate xmlns="http://cufxstandards.com/v3/DepositFilter.xsd">1900-01-01</maturityEndDate>
   </depositFilter>

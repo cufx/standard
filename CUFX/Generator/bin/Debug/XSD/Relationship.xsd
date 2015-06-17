@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v3/Relationship.xsd"
-	version="3.0.$Revision: 892 $"
+	version="3.0.$Revision: 916 $"
 	xmlns="http://cufxstandards.com/v3/Relationship.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -90,10 +90,46 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
+			
+			<xs:element name="relationshipStatus" type="RelationshipStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Status of the Relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
     </xs:sequence>
   </xs:complexType>
 
+	<xs:simpleType name="RelationshipStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="Deceased" />
+			<xs:enumeration value="Inactive" />
+			<xs:enumeration value="Prospect" />
+			<xs:enumeration value="Restricted" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RelationshipStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of relationship statuses that should have their accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="relationshipStatus" type="RelationshipStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Status of the Relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
   <xs:simpleType name ="RelationshipId">
     <xs:annotation>
       <xs:documentation>

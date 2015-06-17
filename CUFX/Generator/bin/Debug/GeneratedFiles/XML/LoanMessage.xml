@@ -53,6 +53,38 @@
     </customData>
   </messageContext>
   <loanFilter>
+    <accountIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
+      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+    </accountIdList>
+    <partyIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    </partyIdList>
+    <relationshipIdList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
+    </relationshipIdList>
+    <accountTypeList xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">
+      <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Checking</accountType>
+      <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Savings</accountType>
+      <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">Loan</accountType>
+      <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">CreditCard</accountType>
+      <accountType xmlns="http://cufxstandards.com/v3/Account.xsd">LineOfCredit</accountType>
+    </accountTypeList>
+    <externalAccountFlag xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">true</externalAccountFlag>
+    <includeNotesFlag xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">true</includeNotesFlag>
+    <transactionStartDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionStartDateTime>
+    <transactionEndDateTime xmlns="http://cufxstandards.com/v3/AccountFilter.xsd">1900-01-01T01:01:01Z</transactionEndDateTime>
     <loanCategoryList xmlns="http://cufxstandards.com/v3/LoanFilter.xsd">
       <loanCategory xmlns="http://cufxstandards.com/v3/Loan.xsd">AverageDailyBalanceLineOfCredit</loanCategory>
       <loanCategory xmlns="http://cufxstandards.com/v3/Loan.xsd">ClosedEnd</loanCategory>
@@ -60,27 +92,13 @@
       <loanCategory xmlns="http://cufxstandards.com/v3/Loan.xsd">Lease</loanCategory>
       <loanCategory xmlns="http://cufxstandards.com/v3/Loan.xsd">LineOfCredit</loanCategory>
     </loanCategoryList>
-    <accountIdList xmlns="http://cufxstandards.com/v3/LoanFilter.xsd">
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
-    </accountIdList>
-    <relationshipIdList xmlns="http://cufxstandards.com/v3/LoanFilter.xsd">
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
-    </relationshipIdList>
-    <partyIdList xmlns="http://cufxstandards.com/v3/LoanFilter.xsd">
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
-    </partyIdList>
+    <loanAccountStatusList xmlns="http://cufxstandards.com/v3/LoanFilter.xsd">
+      <loanAccountStatus xmlns="http://cufxstandards.com/v3/Loan.xsd">Active</loanAccountStatus>
+      <loanAccountStatus xmlns="http://cufxstandards.com/v3/Loan.xsd">Closed</loanAccountStatus>
+      <loanAccountStatus xmlns="http://cufxstandards.com/v3/Loan.xsd">Dormant</loanAccountStatus>
+      <loanAccountStatus xmlns="http://cufxstandards.com/v3/Loan.xsd">Escheated</loanAccountStatus>
+      <loanAccountStatus xmlns="http://cufxstandards.com/v3/Loan.xsd">Incomplete</loanAccountStatus>
+    </loanAccountStatusList>
   </loanFilter>
   <loanList>
     <loan xmlns="http://cufxstandards.com/v3/Loan.xsd">
@@ -375,6 +393,8 @@
       <loanDecisionDate>1900-01-01</loanDecisionDate>
       <applicationOriginationDate>1900-01-01</applicationOriginationDate>
       <applicationDecisionStatus>Approve</applicationDecisionStatus>
+      <loanAccountStatus>Active</loanAccountStatus>
+      <loanAccountSubStatus>loanAccountSubStatus1</loanAccountSubStatus>
       <noteNumber>noteNumber1</noteNumber>
       <category>AverageDailyBalanceLineOfCredit</category>
       <purposeCode>purposeCode1</purposeCode>
@@ -1576,6 +1596,8 @@
       <loanDecisionDate>0001-01-01</loanDecisionDate>
       <applicationOriginationDate>0001-01-01</applicationOriginationDate>
       <applicationDecisionStatus>CounterOffer</applicationDecisionStatus>
+      <loanAccountStatus>Closed</loanAccountStatus>
+      <loanAccountSubStatus>loanAccountSubStatus2</loanAccountSubStatus>
       <noteNumber>noteNumber2</noteNumber>
       <category>ClosedEnd</category>
       <purposeCode>purposeCode2</purposeCode>
@@ -2715,6 +2737,8 @@
       <loanDecisionDate>9999-12-31</loanDecisionDate>
       <applicationOriginationDate>9999-12-31</applicationOriginationDate>
       <applicationDecisionStatus>Denied</applicationDecisionStatus>
+      <loanAccountStatus>Dormant</loanAccountStatus>
+      <loanAccountSubStatus>loanAccountSubStatus3</loanAccountSubStatus>
       <noteNumber>noteNumber3</noteNumber>
       <category>CreditCard</category>
       <purposeCode>purposeCode3</purposeCode>
@@ -3916,6 +3940,8 @@
       <loanDecisionDate>1899-11-30</loanDecisionDate>
       <applicationOriginationDate>1899-11-30</applicationOriginationDate>
       <applicationDecisionStatus>Review</applicationDecisionStatus>
+      <loanAccountStatus>Escheated</loanAccountStatus>
+      <loanAccountSubStatus>loanAccountSubStatus4</loanAccountSubStatus>
       <noteNumber>noteNumber4</noteNumber>
       <category>Lease</category>
       <purposeCode>purposeCode4</purposeCode>
@@ -5055,6 +5081,8 @@
       <loanDecisionDate>1900-02-02</loanDecisionDate>
       <applicationOriginationDate>1900-02-02</applicationOriginationDate>
       <applicationDecisionStatus>Withdrawn</applicationDecisionStatus>
+      <loanAccountStatus>Incomplete</loanAccountStatus>
+      <loanAccountSubStatus>loanAccountSubStatus5</loanAccountSubStatus>
       <noteNumber>noteNumber5</noteNumber>
       <category>LineOfCredit</category>
       <purposeCode>purposeCode5</purposeCode>

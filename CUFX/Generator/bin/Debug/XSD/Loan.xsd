@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/Loan.xsd"
-	version="3.0.$Revision: 880 $"
+	version="3.0.$Revision: 918 $"
 	xmlns="http://cufxstandards.com/v3/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -100,6 +100,20 @@
 						<xs:annotation>
 							<xs:documentation>
 								Decision status.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="loanAccountStatus" type="LoanAccountStatus" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Status of the Loan Account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="loanAccountSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								For use to support additional Loan acount statuses and sub status not present in enumerations.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -772,6 +786,38 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:simpleType name="LoanAccountStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="Dormant" />
+			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Incomplete" />
+			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Matured" />
+			<xs:enumeration value="RenewPending" />
+			<xs:enumeration value="Restricted" />
+			<xs:enumeration value="Unfunded" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="LoanAccountStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan account statuses that should have their associated loan accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="loanAccountStatus" type="LoanAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Loan account status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:complexType name="LoanFeeList" >
 		<xs:annotation>
