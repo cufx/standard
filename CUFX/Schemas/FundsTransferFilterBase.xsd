@@ -6,6 +6,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
   xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
+	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   xmlns:party="http://cufxstandards.com/v3/Party.xsd"
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
@@ -15,6 +16,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
@@ -28,7 +30,7 @@
 		</xs:annotation>
 		<xs:sequence>
 
-			<xs:element name="occurrenceIdList" type="fundsTransferOccurrenceBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="occurrenceIdList" type="fundsTransferCommonBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of transfer occurrence ID's that should have their associated transfers returned or affected by a read,
@@ -37,7 +39,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="recurringIdList" type="fundsTransferRecurringBase:RecurringIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringIdList" type="fundsTransferCommonBase:RecurringIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of recurring transfer ID's that should have their associated transfers returned or affected by a read,
