@@ -5,8 +5,9 @@
     xmlns="http://cufxstandards.com/v3/TransactionFilter.xsd"
     xmlns:account="http://cufxstandards.com/v3/Account.xsd"
     xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+    xmlns:common="http://cufxstandards.com/v3/Party.xsd"	
     xmlns:transaction="http://cufxstandards.com/v3/Transaction.xsd"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
@@ -14,6 +15,7 @@
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Transaction.xsd" schemaLocation="Transaction.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
   <xs:element name="transactionFilter" type="TransactionFilter">
     <xs:annotation>
