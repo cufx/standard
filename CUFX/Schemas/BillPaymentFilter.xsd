@@ -6,8 +6,6 @@ version="3.0.$Revision$"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:fundsTransferFilterBase="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
 xmlns:billPayee="http://cufxstandards.com/v3/BillPayee.xsd"
-xmlns:billPaymentOccurrence="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd"
-xmlns:billPaymentRecurring="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
 xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
            
   elementFormDefault="qualified"
@@ -15,8 +13,6 @@ xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
 
   <xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentOccurrence.xsd" schemaLocation="BillPaymentOccurrence.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd" schemaLocation="BillPaymentRecurring.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Bill.xsd" schemaLocation="Bill.xsd" />
 	
 	<xs:element name="billPaymentFilter" type="BillPaymentFilter">
