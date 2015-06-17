@@ -37,11 +37,11 @@
     <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
   </relationshipIdList>
   <occurrenceStatusList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
-    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">Scheduled</occurrenceStatus>
-    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">InProcess</occurrenceStatus>
-    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByParty</occurrenceStatus>
-    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByFinancialInstitution</occurrenceStatus>
-    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">CancelRequestedByProcessor</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">Scheduled</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">InProcess</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">CancelRequestedByParty</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">CancelRequestedByFinancialInstitution</occurrenceStatus>
+    <occurrenceStatus xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">CancelRequestedByProcessor</occurrenceStatus>
   </occurrenceStatusList>
   <minAmount xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
     <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
@@ -54,10 +54,10 @@
     <exchangeRate xmlns="http://cufxstandards.com/v3/Common.xsd">1</exchangeRate>
   </maxAmount>
   <batchIdList xmlns="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd">
-    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId1</batchId>
-    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId2</batchId>
-    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId3</batchId>
-    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId4</batchId>
-    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd">batchId5</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">batchId1</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">batchId2</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">batchId3</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">batchId4</batchId>
+    <batchId xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd">batchId5</batchId>
   </batchIdList>
 </transferFilter>
