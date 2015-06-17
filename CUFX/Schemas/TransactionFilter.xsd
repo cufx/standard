@@ -39,7 +39,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+	  
+	  <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+		<xs:annotation>
+		  <xs:documentation>
+			The list of party ID's that should have their associated account transactions either returned or affected
+			by a read, update or delete request.
+		  </xs:documentation>
+		</xs:annotation>
+	  </xs:element>
+	  
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
