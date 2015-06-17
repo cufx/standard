@@ -8,7 +8,7 @@
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
 	xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
+	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -18,7 +18,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
 
 
 	<xs:complexType name="FundsTransferOccurrenceBase" abstract ="true">
@@ -30,14 +30,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="1" >
+			<xs:element name="occurrenceId" type="fundsTransferCommonBase:OccurrenceId" minOccurs="0" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
 						ID to uniquely identify the occurrence of a payment or transfer.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="recurringId" type="fundsTransferRecurringBase:RecurringId" minOccurs="0" maxOccurs="1"  >
+			<xs:element name="recurringId" type="fundsTransferCommonBase:RecurringId" minOccurs="0" maxOccurs="1"  >
 				<xs:annotation>
 					<xs:documentation>
 						ID to uniquely identify a recurring payment or transfer request that created this occurrence.
@@ -73,7 +73,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fundsWithdrawalType" type="fundsTransferRecurringBase:FundsWithdrawalType" minOccurs="0" maxOccurs ="1">
+			<xs:element name="fundsWithdrawalType" type="fundsTransferCommonBase:FundsWithdrawalType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						When will the funds be withdrawn from the account.
@@ -304,34 +304,6 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="OccurrenceId">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The occurrence ID to uniquely identify the occurrence of a payment or transfer.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="OccurrenceIdList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of payments or transfers occurrence ID's that should have their associated occurrence ID either returned
-				or affected by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An occurrence ID that should have its associated payments or transfers either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 
 	<xs:complexType name="OccurrenceStatusList">
 		<xs:annotation>
