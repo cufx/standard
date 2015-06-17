@@ -64,7 +64,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-<xs:simpleType name="OccurrenceStatus">
+	<xs:simpleType name="OccurrenceStatus">
 		<xs:annotation>
 			<xs:documentation>
 				This is the enumeration of statuses for payments or transfers.
@@ -200,7 +200,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="BatchId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -210,7 +210,7 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:complexType name="BatchIdList">
 		<xs:annotation>
 			<xs:documentation>
@@ -229,33 +229,33 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="FundsWithdrawalType">
-			<xs:annotation>
-				<xs:documentation>
-					This is the enumeration of statuses for a recurring payment or transfer request .
-				</xs:documentation>
-			</xs:annotation>
-			<xs:restriction base="xs:string">
-				<xs:enumeration value="WhenRequested">
-					<xs:annotation>
-						<xs:documentation>
-							The funds will be pulled out of the account at the time that the payment or transfer request is made
-							each time that the occurrence happens.  For example in a good funds model in bill payment.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-				<xs:enumeration value="WhenCleared">
-					<xs:annotation>
-						<xs:documentation>
-							The funds will be pulled out of the account at the time that the payment or transfer clears the account
-							each time that the occurrence happens.  For example a check.
-						</xs:documentation>
-					</xs:annotation>
-				</xs:enumeration>
-			</xs:restriction>
-		</xs:simpleType>
-	
+		<xs:annotation>
+			<xs:documentation>
+				This is the enumeration of statuses for a recurring payment or transfer request .
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WhenRequested">
+				<xs:annotation>
+					<xs:documentation>
+						The funds will be pulled out of the account at the time that the payment or transfer request is made
+						each time that the occurrence happens.  For example in a good funds model in bill payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="WhenCleared">
+				<xs:annotation>
+					<xs:documentation>
+						The funds will be pulled out of the account at the time that the payment or transfer clears the account
+						each time that the occurrence happens.  For example a check.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="RecurringStatus">
 		<xs:annotation>
 			<xs:documentation>
