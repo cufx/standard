@@ -90,5 +90,91 @@
 				</xs:enumeration>
 			</xs:restriction>
 		</xs:simpleType>
+	
+	<xs:simpleType name="RecurringStatus">
+		<xs:annotation>
+			<xs:documentation>
+				This is the enumeration of statuses for a recurring payment or transfer request .
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Requested">
+				<xs:annotation>
+					<xs:documentation>
+						The payment or transfer request is in process for immediate or future payment and is still cancellable by the party
+						since it's not InProcess yet.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Active">
+				<xs:annotation>
+					<xs:documentation>
+						The recurring payment or transfer request has been scheduled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByParty">
+				<xs:annotation>
+					<xs:documentation>
+						A recurring payment or transfer request was requested to be cancelled by the party, but has not yet been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByFinancialInstitution">
+				<xs:annotation>
+					<xs:documentation>
+						A recurring payment or transfer request was requested to be cancelled by the party's financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CancelRequestedByPaymentProvider">
+				<xs:annotation>
+					<xs:documentation>
+						A recurring payment or transfer request was requested to be cancelled by the party's payment provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Cancelled">
+				<xs:annotation>
+					<xs:documentation>
+						A recurring payment or transfer request has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Completed">
+				<xs:annotation>
+					<xs:documentation>
+						All recurring payments or transfer requests have been completed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Suspended">
+				<xs:annotation>
+					<xs:documentation>
+						Payment or transfer request was scheduled for recurring payment but has been suspended until taken out
+						of suspended status.  This status might be used if a party wants to keep the payment/transfer request
+						in the system but temporarily stop payment or transfers from occurring.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RecurringStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of recurring status for payments or transfer requests for filtering.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Request status for a recurring transfer or payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
 
