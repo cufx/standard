@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
+	version="3.0.$Revision: 913 $"
+	xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ 
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:simpleType name="RecurringId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					ID to uniquely identify a recurring payment or transfer request.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RecurringIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of recurring payments or transfer requests.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						ID to uniquely identify a recurring payment or transfer request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="OccurrenceId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The occurrence ID to uniquely identify the occurrence of a payment or transfer.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="OccurrenceIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of payments or transfers occurrence ID's that should have their associated occurrence ID either returned
+				or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An occurrence ID that should have its associated payments or transfers either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="FundsWithdrawalType">
+			<xs:annotation>
+				<xs:documentation>
+					This is the enumeration of statuses for a recurring payment or transfer request .
+				</xs:documentation>
+			</xs:annotation>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="WhenRequested">
+					<xs:annotation>
+						<xs:documentation>
+							The funds will be pulled out of the account at the time that the payment or transfer request is made
+							each time that the occurrence happens.  For example in a good funds model in bill payment.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+				<xs:enumeration value="WhenCleared">
+					<xs:annotation>
+						<xs:documentation>
+							The funds will be pulled out of the account at the time that the payment or transfer clears the account
+							each time that the occurrence happens.  For example a check.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleType>
+</xs:schema>
+
