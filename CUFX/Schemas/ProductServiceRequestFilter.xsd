@@ -91,7 +91,7 @@
         </xs:annotation>
       </xs:element>
       
-			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:StatusList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:ProductServiceStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             The list of contact ID's that should have their associated product service requests either returned or affected

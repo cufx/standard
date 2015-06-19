@@ -47,7 +47,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="statusList" type="remoteDeposit:StatusList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="statusList" type="remoteDeposit:RemoteDepositStatusList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of remote deposit statuses that identify each remote deposit to be affected by the request.

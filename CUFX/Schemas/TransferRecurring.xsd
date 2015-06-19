@@ -10,8 +10,7 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="fundsTransferRecurringBase.xsd" />
-
+	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 	<xs:element name="transferRecurringList" type="TransferRecurringList">
 		<xs:annotation>
 			<xs:documentation>

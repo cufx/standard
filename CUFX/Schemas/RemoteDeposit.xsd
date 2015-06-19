@@ -133,7 +133,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="status" type="Status" minOccurs="0" maxOccurs="1">
+			<xs:element name="status" type="RemoteDepositStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The current status of the remote deposit.  This may be part of a session or after the session has ended.
@@ -191,7 +191,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
-	<xs:simpleType name ="Status">
+	<xs:simpleType name ="RemoteDepositStatus">
 		<xs:annotation>
 			<xs:documentation>
 				An enumeration of possible statuses for a remote deposit capture request.
@@ -408,14 +408,14 @@
     <xs:restriction base="xs:string" ></xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="StatusList">
+  <xs:complexType name="RemoteDepositStatusList">
     <xs:annotation>
       <xs:documentation>
         The list of remote deposit statuses that should be returned or affected by a read, update or delete request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="status" type="RemoteDepositStatus" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of remote deposit statuses that should be returned or affected by a read, update or delete request.
