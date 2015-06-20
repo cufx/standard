@@ -55,7 +55,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="actionList" type="remoteDeposit:ActionList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="actionList" type="remoteDeposit:RemoteDepositActionList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of remote deposits actions that identify each remote deposit to be affected by the request.

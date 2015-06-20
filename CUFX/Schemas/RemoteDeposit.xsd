@@ -160,7 +160,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:simpleType name ="Action">
+	<xs:simpleType name ="RemoteDepositAction">
 		<xs:annotation>
 			<xs:documentation>
 				An enumeration of possible actions
@@ -425,14 +425,14 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="ActionList">
+  <xs:complexType name="RemoteDepositActionList">
     <xs:annotation>
       <xs:documentation>
         The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="action" type="Action" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="action" type="RemoteDepositAction" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
             The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
