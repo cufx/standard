@@ -14,7 +14,7 @@
 	<xs:element name="systemStatusFilter" type="SystemStatusFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of filter options for services using transaction account data.
+				The list of filter options for services requesting system status data.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -22,7 +22,7 @@
 	<xs:complexType name="SystemStatusFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of filter options for services requesting transaction data. The options can be used in
+				The list of filter options for services requesting system status data. The options can be used in
 				combination or by themselves. It is up to the data source to either return or affect the
 				data requested or return a standard error identifying why the request was rejected.
 			</xs:documentation>
@@ -31,7 +31,7 @@
 			<xs:element name="systemStatusList" type="systemStatus:SystemStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of transaction Ids that uniquely identify each transaction to be affected by the request.
+						The list of system Status states that uniquely identify each system status to be affected by the request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
