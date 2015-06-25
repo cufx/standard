@@ -2,7 +2,7 @@
 
 <xs:schema targetNamespace="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd"
 	xmlns="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd"
-	version="3.0.$Revision: 762 $"
+	version="3.0.$Revision: 953 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
@@ -91,7 +91,7 @@
         </xs:annotation>
       </xs:element>
       
-			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:StatusList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="productServiceRequestStatusList" type="productServiceRequest:ProductServiceStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
             The list of contact ID's that should have their associated product service requests either returned or affected
