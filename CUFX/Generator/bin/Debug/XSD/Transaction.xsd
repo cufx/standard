@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
    targetNamespace="http://cufxstandards.com/v3/Transaction.xsd"
-  version="3.1.$Revision: 894 $"
+  version="3.1.$Revision: 965 $"
   xmlns="http://cufxstandards.com/v3/Transaction.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-  xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
   xmlns:account="http://cufxstandards.com/v3/Account.xsd"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Meta.xsd" schemaLocation="Meta.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name= "transactionList" type ="TransactionList">
@@ -183,9 +172,11 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The transaction type simply reflects whether the account was debited or credited.
-          For comment-only transactions, the value can be either Debit or Credit and the
-          transaction amount can be null, not return or 0.00.
+          The transaction ID is a persistent and unique identifier for each transaction.
+          It must be unique within the account as it is used for matching purposes.
+          Transactions should always be returned with the same ID, even if transactional
+          information has changed (type, amount, description, date, etc.) since the
+          previous account data pull.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
@@ -195,11 +186,9 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The transaction ID is a persistent and unique identifier for each transaction.
-          It must be unique within the account as it is used for matching purposes.
-          Transactions should always be returned with the same ID, even if transactional
-          information has changed (type, amount, description, date, etc.) since the
-          previous account data pull.
+          The transaction type simply reflects whether the account was debited or credited.
+          For comment-only transactions, the value can be either Debit or Credit and the
+          transaction amount can be null, not return or 0.00.
         </xs:documentation>
       </xs:annotation>
       <xs:enumeration value="Debit"></xs:enumeration>
