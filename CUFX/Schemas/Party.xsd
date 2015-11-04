@@ -555,6 +555,16 @@
         </xs:annotation>
       </xs:element>
 
+			<xs:element name="deathdate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Deceased date of the individual.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) format is supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			
       <xs:element name="gender" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
