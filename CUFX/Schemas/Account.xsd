@@ -114,6 +114,14 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="chargeOffDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account was charged off.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
