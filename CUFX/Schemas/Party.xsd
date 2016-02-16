@@ -635,7 +635,23 @@
         </xs:documentation>
       </xs:annotation>
     </xs:element>
-    </xs:sequence>
+			
+		<xs:element name="ethnicity" type="Ethnicity" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					Ethnicity as defined by US Dept of Labor.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+			
+		<xs:element name="race" type="Race" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					Race as defined by US Dept of Labor.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+	</xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="EmploymentList">
@@ -1113,6 +1129,23 @@
       <xs:enumeration value="Estate" />
     </xs:restriction>
   </xs:simpleType>
+
+	<xs:simpleType name="Ethnicity">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Hispanic or Latino" />
+			<xs:enumeration value="Not Hispanic or Latino" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Race">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="American Indian or Alaska Native" />
+			<xs:enumeration value="Asian" />
+			<xs:enumeration value="Black or African American" />
+			<xs:enumeration value="Native Hawaiian or Other Pacific Islander" />
+			<xs:enumeration value="White" />
+		</xs:restriction>
+	</xs:simpleType>
 
   <xs:complexType name="Residence">
     <xs:annotation>
