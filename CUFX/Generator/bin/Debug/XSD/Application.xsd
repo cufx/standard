@@ -63,6 +63,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			<xs:element name="applicationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The creation date of the application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
       <xs:element name="applicationStatus" type="ApplicationStatus" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
