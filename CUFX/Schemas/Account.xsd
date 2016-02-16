@@ -122,6 +122,14 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="accountEscheatAmount" type="common:Money"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount that was transfered as a result of Escheatment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="chargeOffDate" type="xs:date"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
