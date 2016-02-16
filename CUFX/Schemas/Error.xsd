@@ -24,7 +24,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="error" type="Error" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="errorMessage" type="ErrorMessage" minOccurs="0" maxOccurs="unbounded"
 				nillable="true">
         <xs:annotation>
           <xs:documentation>
@@ -37,7 +37,7 @@
   </xs:complexType>
 
 
-  <xs:complexType name="Error" >
+  <xs:complexType name="ErrorMessage" >
     <xs:annotation>
       <xs:documentation>
         A collection of fields that represents an individual error that occurred when a
