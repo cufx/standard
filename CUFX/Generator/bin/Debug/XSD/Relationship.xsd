@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v3/Relationship.xsd"
-	version="3.1.$Revision: 963 $"
+	version="3.1.$Revision: 971 $"
 	xmlns="http://cufxstandards.com/v3/Relationship.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -64,6 +64,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+			<xs:element name="dateRelationshipEnded" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						End date of the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
       
       <xs:element name="rewardsCode" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/Party.xsd"
-	version="3.1.$Revision: 963 $"
+	version="3.1.$Revision: 982 $"
 	xmlns="http://cufxstandards.com/v3/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -555,6 +555,16 @@
         </xs:annotation>
       </xs:element>
 
+			<xs:element name="deathdate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Deceased date of the individual.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-dd (2011-03-28) format is supported.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+			
       <xs:element name="gender" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -625,7 +635,23 @@
         </xs:documentation>
       </xs:annotation>
     </xs:element>
-    </xs:sequence>
+			
+		<xs:element name="ethnicity" type="Ethnicity" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					Ethnicity as defined by US Dept of Labor.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+			
+		<xs:element name="race" type="Race" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					Race as defined by US Dept of Labor.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+	</xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="EmploymentList">
@@ -1103,6 +1129,23 @@
       <xs:enumeration value="Estate" />
     </xs:restriction>
   </xs:simpleType>
+
+	<xs:simpleType name="Ethnicity">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Hispanic or Latino" />
+			<xs:enumeration value="Not Hispanic or Latino" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Race">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="American Indian or Alaska Native" />
+			<xs:enumeration value="Asian" />
+			<xs:enumeration value="Black or African American" />
+			<xs:enumeration value="Native Hawaiian or Other Pacific Islander" />
+			<xs:enumeration value="White" />
+		</xs:restriction>
+	</xs:simpleType>
 
   <xs:complexType name="Residence">
     <xs:annotation>

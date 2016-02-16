@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
   targetNamespace="http://cufxstandards.com/v3/Account.xsd"
-	version="3.1.$Revision: 963 $"
+	version="3.1.$Revision: 980 $"
 	xmlns="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
@@ -114,6 +114,38 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="accountEscheatDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that Escheatment was applied to the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountEscheatAmount" type="common:Money"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount that was transfered as a result of Escheatment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="chargeOffDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account was charged off.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="chargeOffAmount" type="common:Money"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount that was charged off.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="accountNickName" type="xs:string"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -294,7 +326,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="noteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
+			<xs:element name="accountNoteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of notes on the account.

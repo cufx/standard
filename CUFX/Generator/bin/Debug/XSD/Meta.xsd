@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/Meta.xsd"
-	version="3.1.$Revision: 963 $"
+	version="3.1.$Revision: 965 $"
 	xmlns="http://cufxstandards.com/v3/Meta.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
@@ -156,13 +156,6 @@
 						Annual percentage yield.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
             Decimals available: 999.999
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="minimumBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Minimum required balance.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
