@@ -114,6 +114,14 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="accountEscheatDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that Escheatment was applied to the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="chargeOffDate" type="xs:date"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
