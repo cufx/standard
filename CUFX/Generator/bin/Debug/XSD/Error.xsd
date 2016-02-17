@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v3/Error.xsd"
-	version="3.1.$Revision: 963 $"
+	version="3.1.$Revision: 988 $"
 	xmlns="http://cufxstandards.com/v3/Error.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
@@ -24,7 +24,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="error" type="Error" minOccurs="0" maxOccurs="unbounded"
+      <xs:element name="errorReturn" type="ErrorReturn" minOccurs="0" maxOccurs="unbounded"
 				nillable="true">
         <xs:annotation>
           <xs:documentation>
@@ -37,7 +37,7 @@
   </xs:complexType>
 
 
-  <xs:complexType name="Error" >
+  <xs:complexType name="ErrorReturn" >
     <xs:annotation>
       <xs:documentation>
         A collection of fields that represents an individual error that occurred when a
