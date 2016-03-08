@@ -262,6 +262,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="lastPaymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Amount of the last loan payment.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="term" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
