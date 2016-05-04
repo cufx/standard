@@ -636,18 +636,27 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="ethnicity" type="ExtendedEthnicity" minOccurs="0" maxOccurs="1">
+			<xs:element name="ethnicity" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Ethnicity as defined by US Dept of Labor with extensible definition.
+						Recommended population per Ethnicity definitions of the US Dept of Labor. Enumerations were not applied as alternate populations
+						may exist that predate the current definitions and does not account for international definitions that may also be applicable.
+						"Hispanic or Latino"
+						"Not Hispanic or Latino"
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="race" type="ExtendedRace" minOccurs="0" maxOccurs="1">
+			<xs:element name="race" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Race as defined by US Dept of Labor with extensible definition.
+						Recommended population per race definitions of the US Dept of Labor. Enumerations were not applied as alternate populations
+						may exist that predate the current definitions and does not account for international definitions that may also be applicable.
+						"American Indian or Alaska Native"
+						"Asian"
+						"Black or African American"
+						"Native Hawaiian or Other Pacific Islander"
+						"White"
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1127,67 +1136,6 @@
 			<xs:enumeration value="Organization" />
 			<xs:enumeration value="Trust" />
 			<xs:enumeration value="Estate" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="ExtendedEthnicity">
-		<xs:annotation>
-			<xs:documentation>
-				The feature that the user is permitted to use, or prevented from using, and is extensible using the "ethnicity:" prefix.
-				CUFX-compatible client may ignore unrecognized extended Ethnicity definitions.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:union memberTypes="Ethnicity EthnicityExtension"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="Ethnicity">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Hispanic or Latino" />
-			<xs:enumeration value="Not Hispanic or Latino" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="EthnicityExtension">
-		<xs:annotation>
-			<xs:documentation>
-				A string value that must contain a "ethnicity:" prefix.
-				Allows extension of the Ethnicity enumerations.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="ethnicity:\w+"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="ExtendedRace">
-		<xs:annotation>
-			<xs:documentation>
-				The feature that the user is permitted to use, or prevented from using, and is extensible using the "race:" prefix.
-				CUFX-compatible client may ignore unrecognized extended Race definitions.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:union memberTypes="Race RaceExtension"/>
-	</xs:simpleType>
-
-	<xs:simpleType name="Race">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="American Indian or Alaska Native" />
-			<xs:enumeration value="Asian" />
-			<xs:enumeration value="Black or African American" />
-			<xs:enumeration value="Native Hawaiian or Other Pacific Islander" />
-			<xs:enumeration value="White" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="RaceExtension">
-		<xs:annotation>
-			<xs:documentation>
-				A string value that must contain a "race:" prefix.
-				Allows extension of the Race enumerations.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="race:\w+"/>
 		</xs:restriction>
 	</xs:simpleType>
 
