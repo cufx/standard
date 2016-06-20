@@ -172,6 +172,14 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The preference frequency rate. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="alertCustomText" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -534,10 +542,10 @@
         </xs:annotation>
       </xs:enumeration>
         
-			<xs:enumeration value ="BalanceFellBelow" >
+			<xs:enumeration value ="BalanceBelow" >
         <xs:annotation>
           <xs:documentation>
-            A balance on a related account (either through party, relationship, card or account) fell below the amount in the
+            A balance on a related account (either through party, relationship, card or account) is below the amount in the
             value field.
           </xs:documentation>
         </xs:annotation>
@@ -551,7 +559,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
+			<xs:enumeration value ="BalanceScheduled" >
+				<xs:annotation>
+					<xs:documentation>
+						A balance on a related account (either through party, relationship, card or account) is on a regualr schedule for notification.
+						As defined by preferenceFrequency.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			
+			<xs:enumeration value ="BalanceUpdated" >
+				<xs:annotation>
+					<xs:documentation>
+						A balance on a related account (either through party, relationship, card or account) had its value modified. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<xs:enumeration value ="BillPayExceeds" >
         <xs:annotation>
           <xs:documentation>
@@ -607,6 +632,15 @@
         </xs:annotation>
       </xs:enumeration>
 
+			<xs:enumeration value ="CounterWithdrawalExceeds" >
+				<xs:annotation>
+					<xs:documentation>
+						A counter withdrawal on a related account (either through party, relationship, card or account) exceeded the amount
+						in the value field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
       <xs:enumeration value ="CourtesyPayExceeds" >
         <xs:annotation>
           <xs:documentation>
@@ -617,10 +651,10 @@
         </xs:annotation>
       </xs:enumeration>
       
-      <xs:enumeration value ="CourtesyPayFallsBelow" >
+      <xs:enumeration value ="CourtesyPayBelow" >
         <xs:annotation>
           <xs:documentation>
-            A courtesy payment occurring on a related account (either through party, relationship, card or account) fell below
+            A courtesy payment occurring on a related account (either through party, relationship, card or account) is below
             the amount in the value field.  This is useful for parties that are trying to manage smaller payments that are
             causing courtesy payments.
           </xs:documentation>
@@ -765,6 +799,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
+			<xs:enumeration value ="DepositExceeds" >
+				<xs:annotation>
+					<xs:documentation>
+						A deposit on a related account (either through party, relationship, card or account) exceeded the amount
+						in the value field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
       
 			<xs:enumeration value ="DirectDepositExceeds" >
         <xs:annotation>
@@ -775,10 +818,10 @@
         </xs:annotation>
       </xs:enumeration>
 
-      <xs:enumeration value ="DirectDepositFellBelow" >
+      <xs:enumeration value ="DirectDepositBelow" >
         <xs:annotation>
           <xs:documentation>
-            A direct deposit on a related account (either through party, relationship, card or account) fell below the amount
+            A direct deposit on a related account (either through party, relationship, card or account) is below the amount
             in the value field.
           </xs:documentation>
         </xs:annotation>
@@ -856,7 +899,24 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
+			<xs:enumeration value ="LoanPaymentDue" >
+				<xs:annotation>
+					<xs:documentation>
+						A loan payment is currently due on a related account (either through party, relationship, card or account).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="LoanPaymentOverDue" >
+				<xs:annotation>
+					<xs:documentation>
+						A loan payment is overdue on a related account (either through party, relationship, card or account).
+						by the number of days in the value field. Optionally with frequency of notification.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<xs:enumeration value ="LoginOccurred" >
         <xs:annotation>
           <xs:documentation>
@@ -894,6 +954,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
+			<xs:enumeration value ="NotifySecureMessage" >
+				<xs:annotation>
+					<xs:documentation>
+						A notification that the CU has sent a secure message to the party. The value field is ignored.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
       
 			<xs:enumeration value ="OutgoingWireExceeds" >
         <xs:annotation>
@@ -923,7 +991,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+			
+			<xs:enumeration value ="PaymentDue" >
+				<xs:annotation>
+					<xs:documentation>
+						A payment is currently due on a related account (either through party, relationship, card or account).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>   
+			
       <xs:enumeration value ="PaymentDueInXDays" >
         <xs:annotation>
           <xs:documentation>
@@ -1017,6 +1093,24 @@
         </xs:annotation>
       </xs:enumeration>
 
+			<xs:enumeration value ="TransactionBelow" >
+				<xs:annotation>
+					<xs:documentation>
+						A transaction on a related account (either through party, relationship, card or account) is below the amount
+						in the value field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+	
+			<xs:enumeration value ="TransactionExceeds" >
+				<xs:annotation>
+					<xs:documentation>
+						A transaction on a related account (either through party, relationship, card or account) exceeded the amount
+						in the value field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
       <xs:enumeration value ="TaxFormAvailable"  >
         <xs:annotation>
           <xs:documentation>
@@ -1025,6 +1119,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+
     </xs:restriction>
   </xs:simpleType>
   
