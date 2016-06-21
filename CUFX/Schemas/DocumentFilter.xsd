@@ -93,14 +93,14 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="documentArtifactCreationStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="documentCreationStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to start searching the UTC artifact creation date of the document.
 						Start and End Date filters work together.
 						Must be less than or equal to end date if an end date is supplied.
 						Should be less to or equal to today’s date.
-						If neither documentArtifactCreationStartDateTime or documentArtifactCreationEndDateTime is provided,
+						If neither documentCreationStartDateTime or documentCreationEndDateTime is provided,
 						all documents are returned based on other filters applied.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -109,14 +109,14 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="documentArtifactCreationEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="documentCreationEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to end searching the UTC artifact creation date of the document.
 						Start and End date filter work together.
-						Must be greater than or equal to documentArtifactCreationStartDateTime.
+						Must be greater than or equal to documentCreationStartDateTime.
 						If it's not supplied, response returns all of the artifacts on or after the artifactcreationStartDate.
-						If neither documentArtifactCreationStartDateTime or documentArtifactCreationEndDateTime is provided,
+						If neither documentCreationStartDateTime or documentCreationEndDateTime is provided,
 						all documents are returned based on other filters applied.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
