@@ -157,7 +157,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
+	  
+     <xs:enumeration value ="404">
+        <xs:annotation>
+          <xs:documentation>
+            Requested resource was not found.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+	  
       <xs:enumeration value ="409">
         <xs:annotation>
           <xs:documentation>
@@ -483,7 +491,7 @@
       <xs:enumeration value ="400">
         <xs:annotation>
           <xs:documentation>
-            SystemNonFatalError – temporary system error occured such as a temporary system outage, etc.
+            SystemNonFatalError – temporary system error occurred such as a temporary system outage, etc.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
