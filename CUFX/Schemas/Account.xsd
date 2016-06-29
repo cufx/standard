@@ -192,6 +192,35 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="cashAdvanceAvailableBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The current amount available that may be withdrawn as a cash advance. Limited to the lesser of availableBalance or cashAdvanceBalance.
+						Zero or positive amount.
+						Positive is assumed if the sign does not appear in the data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="cashAdvanceBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The current dollar amount that has been withdrawn as cash advances.
+						Zero or positive amount.
+						Positive is assumed if the sign does not appear in the data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="cashAdvanceLimit " type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The total dollar amount that may be withdrawn as a cash advance from the account.
+						Zero or positive amount.
+						Positive is assumed if the sign does not appear in the data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="minimumBalance" type="common:Money" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
