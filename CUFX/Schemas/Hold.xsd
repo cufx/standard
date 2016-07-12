@@ -158,6 +158,25 @@
 				</xs:annotation>
 			</xs:element>
 			
+			<xs:element name="startCheckNumber" type="xs:int"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+				  <xs:documentation>
+					For a stop draft hold type, this is the check number to place the stop payment against. If the hold request
+					is for a range of check numbers this is the first check number in the range. 
+				  </xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			
+			<xs:element name="endCheckNumber" type="xs:int"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+				  <xs:documentation>
+					To place a stop draft hold type for a range of checks, this is the last check number 
+					in the range. This field can be omitted for a single check stop payment request. 
+					Optionally, for a single check stop payment request, set this field to the same value as the 'startCheckNumber'.
+				  </xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+			
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 				  <xs:documentation>
@@ -169,7 +188,6 @@
 				  </xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
 		</xs:sequence>
 	</xs:complexType>
 
