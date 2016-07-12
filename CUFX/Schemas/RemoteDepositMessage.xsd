@@ -6,12 +6,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
   xmlns:remoteDeposit="http://cufxstandards.com/v3/RemoteDeposit.xsd"
+	xmlns:remoteDepositFilter="http://cufxstandards.com/v3/RemoteDepositFilter.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/RemoteDepositFilter.xsd" schemaLocation="RemoteDepositFilter.xsd" />
 
   <xs:element name="remoteDepositMessage" type="RemoteDepositMessage">
     <xs:annotation>
@@ -41,6 +43,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			<xs:element name="remoteDepositFilter" type="remoteDepositFilter:RemoteDepositFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete a remote deposit request.
+						Does not apply to a create message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
       <xs:element name="remoteDepositList" type="remoteDeposit:RemoteDepositList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
