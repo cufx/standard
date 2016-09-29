@@ -55,13 +55,20 @@
 					made into the member's account.
 				</xs:documentation>
 			</xs:annotation>
-      <xs:element name="remoteDepositId" type="RemoteDepositId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A unique identifier identifying this remote deposit.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+		<xs:element name="action" type="RemoteDepositAction" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					The remote deposit action
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
+		<xs:element name="remoteDepositId" type="RemoteDepositId" minOccurs="0" maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>
+					A unique identifier identifying this remote deposit.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:element>
 			<xs:element name="clientReferenceId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -435,7 +442,7 @@
       <xs:element name="action" type="RemoteDepositAction" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>
-            The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
+            The list of actions that may be filtered to identify remote deposits to be affected by a read, update or delete request.
             Any single remote deposit will only have one valid action in progress at a given time.
           </xs:documentation>
         </xs:annotation>
