@@ -12,7 +12,7 @@
 
   <xs:import namespace="http://cufxstandards.com/v3/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
   <xs:element name="remoteDepositFilter" type="RemoteDepositFilter">
     <xs:annotation>
@@ -48,8 +48,7 @@
         </xs:annotation>
       </xs:element>
 	  
-      </xs:element>
-		<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+   	  <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 			<xs:annotation>
 				<xs:documentation>
 					The list of party ID's that should be returned or affected by a read, update or delete request.
