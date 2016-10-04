@@ -41,12 +41,20 @@
       <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            An account IDs that should have its associated accounts either returned or affected
-            by a read, update or delete request.
+				The list of account ID's that should have their associated remote deposit items either returned or affected
+				by a read, update or delete request.
           </xs:documentation>
         </xs:annotation>
+		
       </xs:element>
-
+		<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:annotation>
+				<xs:documentation>
+					The list of party ID's that should be returned or affected by a read, update or delete request.
+				</xs:documentation>
+			</xs:annotation>
+	  </xs:element>
+	  
       <xs:element name="statusList" type="remoteDeposit:RemoteDepositStatusList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
