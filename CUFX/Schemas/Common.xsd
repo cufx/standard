@@ -91,13 +91,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="noteId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="noteId" type="NoteId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The unique identifier for the note in the processor system.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
 			<xs:element name="recordType" type="CoreRecordType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -108,7 +109,8 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="noteCode" type="xs:string" minOccurs="0" maxOccurs="1">
+
+			<xs:element name="noteCode" type="NoteCode" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The code associated to this note.  It could determine the type of note or
@@ -141,7 +143,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="noteCreator" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="noteCreator" type="NoteCreator" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Either the name or ID of person, system or end user that created the note.
@@ -151,6 +153,94 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:simpleType name="NoteId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The note ID is a persistent and unique identifier for the note.
+					It must be unique within the account.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note ID's that should have their associated accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="noteID" type="NoteId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An Note ID that should have its associated records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="NoteCode">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The code associated to this note.  It could determine the type of note or
+					reference predefined notes configured on the core.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteCodeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note codes's that should have their associated records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="noteCode" type="NoteCode" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						A Note Code that should have its associated records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="NoteCreator">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Either the name or ID of person, system or end user that created the note.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteCreatorList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note creators that should have their associated records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="noteCode" type="NoteCreator" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An Note Creator that should have its associated records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="CustomData">
 		<xs:annotation>
 			<xs:documentation>

@@ -4,15 +4,20 @@
   version="3.2.$Revision$"
   xmlns="http://cufxstandards.com/v3/NotesFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:application="http://cufxstandards.com/v3/Application.xsd"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v3/ProductServiceRequest.xsd"
 	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+					 
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Application.xsd" schemaLocation="Application.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
@@ -33,12 +38,41 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="noteIdList" type="common:NoteIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or
-						delete note request.
+						The list of Note ID's that should have their associated records either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="recordType" type="common:CoreRecordType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
+						However, there may be times that it is not so obvious - i.e. in Loan which can be used when creating either
+						a Loan Application Record and/or a Loan Record.  This would be required to determine for which record type (Loan App or Loan)
+						to create the note.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteCodelist" type="common:NoteCodeList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Note Codes that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+						It could determine the type of note or reference predefined notes configured on the core.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteCreatorList" type="common:NoteCreatorList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Creators that should have their associated notes either returned or affected
+						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -52,11 +86,44 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of application ID's that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should be returned or affected by a read, update or
+						delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Relationship ID's that should have their associated notes either returned or affected
 						by a read, update or delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="productServiceRequestIdList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of productServiceRequestId's  that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+
+						The product service request ID is a persistent and unique identifier for the product
+						service request.  It should be unique for all product service requests across the
+						institution and remain the same over the life of the product service request within
+						the financial institution.
+
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
