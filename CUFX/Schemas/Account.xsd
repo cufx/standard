@@ -362,6 +362,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="annualPercentageYield" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Annual percentage yield - the percentage rate reflecting the total amount of interest paid on an account, 
+						based on the interest rate and the frequency of compounding for a 365-day period.
+					</xs:documentation >
+				</xs:annotation >
+			</xs:element >
 
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
