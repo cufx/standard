@@ -154,6 +154,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="remoteDepositNoteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of notes on the remote deposit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
