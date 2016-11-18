@@ -293,7 +293,14 @@
 						The remote deposit request is in a suspended state, and is not currently approved.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>			
+			</xs:enumeration>	
+			<xs:enumeration value ="Unknown">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit request is in an undefined state.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>	
 		</xs:restriction>
 	</xs:simpleType>
 
