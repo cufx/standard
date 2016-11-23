@@ -444,10 +444,19 @@
     <xs:annotation>
       <xs:documentation>
         Standard CUFX error type returned by the service point which indicates the
-        level/category of the error.
+        level/category of the error. Value 0 indicates success.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:integer">
+			
+			<xs:enumeration value ="0">
+				<xs:annotation>
+					<xs:documentation>
+						Informational – Success.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			
       <xs:enumeration value ="100">
         <xs:annotation>
           <xs:documentation>
