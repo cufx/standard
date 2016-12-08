@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+  version="3.2.$Revision: 1000 $"
+  xmlns="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+ 
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+
+	<xs:element name="investmentAccountList" type="InvestmentAccountList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level investment account list collection element.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentAccountList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Data definition of a collection of investment accounts.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="investmentAccount" type="InvestmentAccount" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to a investment account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentAccount">
+		<xs:annotation>
+			<xs:documentation>
+				Details relating to an investment account.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="account:Account">
+				<xs:sequence>
+					<xs:element name="investmentAccountPartyList" type="InvestmentAccountPartyList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								A collection of parties that includes each party associated to this investment Account.
+								Note that this is a specialized subset of fields for party which identifies how the party is related.
+								The details of the party can be pulled from the party object using the party ID.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="investmentholdingList" type="InvestmentholdingList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The collection of holdings associated to this investment Account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="InvestmentAccountStatus" type="InvestmentAccountStatus" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Status of the investment account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="investmentAccountSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								For use to support additional investment account acount statuses and sub status not present in enumerations.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentholdingList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Data definition of a collection of holdings by account.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="investmentHolding" type="InvestmentHolding" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Details relating to a investment holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentHolding">
+		<xs:sequence>
+			<xs:element name="holdingID" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique ID of the holding from the source system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingCusipNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Committee on Uniform Securites Identification Procedures (CUSIP) number of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingAsOfDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date/time stamp of the evaluation of the investment or security.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingType" type="HoldingType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The holding type of the account or Security.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingDescription" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the holding detail
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingQuantity" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The quantity of shares held.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingPrice" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The price of the holding at a specific time as noted by holdingPriceDateTime
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingPriceDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date/time of holding price capture.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingStockSymbol" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The stock symbol of the the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingTotalValue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The total value of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingYield" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Holding Yield.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingYieldAsOfDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Holding Yield as of date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingAssetClass" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Asset class of the holding. Examples : Equities, Fixed Income, Cash.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingFiAssetClass" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Financial institution asset class of the holding. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingBondClass" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bond class of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingBondType" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bond type of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingMoodyRating" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Moody rating of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingStandardAndPoorsRating" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Standard and Poors rating of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingParValue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Par value of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingCouponRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Coupon rate of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingCouponFrequency" type="common:IntervalFrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Coupon frequency of the holding.
+						OneTime: one time usage at any other point than at maturity.
+			      AtMaturity: one time usage at maturity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingCallPrice" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Call price of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingYieldToCall" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Yield to call of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingCallType" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Call type of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingYieldToMaturity" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Yield to maturity of the holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingMaturityDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Holding maturity date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingNextCouponDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Holding next coupon date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingNextCallDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Holding next call date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="InvestmentAccountStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="Dormant" />
+			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Incomplete" />
+			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Restricted" />
+			<xs:enumeration value="Unfunded" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="HoldingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Asset" />
+			<xs:enumeration value="Bond" />		
+			<xs:enumeration value="Certificate of Deposit" />
+			<xs:enumeration value="Exchange-Traded Fund" />
+			<xs:enumeration value="Insurance" />
+			<xs:enumeration value="IRA Traditional" />
+			<xs:enumeration value="IRA Roth" />
+			<xs:enumeration value="IRA SEP" />
+			<xs:enumeration value="Money market account" />
+			<xs:enumeration value="Mutual fund" />
+			<xs:enumeration value="Real Estate" />
+			<xs:enumeration value="REIT" />
+			<xs:enumeration value="Stock" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="InvestmentAccountStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of InvestmentAccount account statuses that should have their associated InvestmentAccount accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="investmentAccountStatus" type="InvestmentAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Investment account account status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentAccountPartyList">
+		<xs:annotation>
+			<xs:documentation>
+				A collection of party ID’s that uniquely identify each party associated to this investment account
+				and additional fields on how the party relates to the InvestmentAccount.
+				This list is in addition to the relationship parties if available.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="investmentAccountParty" type="InvestmentAccountParty" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						This object is subset with additional fields of the party data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentAccountParty">
+		<xs:annotation>
+			<xs:documentation>
+				This object points to the party and how it relates to the InvestmentAccount.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="investmentAccountPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the party.  Must be a valid party ID.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="investmentAccountPartyType" type="InvestmentAccountPartyType">
+				<xs:annotation>
+					<xs:documentation>
+						Level of ownership that the party has over the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investmentContactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of investment contacts for the party within this account.  Only contains the
+						contact ID for each contact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="InvestmentAccountPartyType">
+		<xs:annotation>
+			<xs:documentation>
+				The investment party type is the textual representation of what the
+				party record represents to this investment, such as primary, co-borrower,
+				beneficiary or some other type of relationship. This value
+				may be visible to the user and must be human-readable.  If the same
+				party exists at the relationship level, the account level
+				relationship type overrides the relationship.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="holder" type="relationship:Holder" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Owner of the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="agent" type="common:Agent" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Acts on behalf of the Investment Account holder. May be a company or an individual.
+						May be multiple party entries for companies and individuals associated with the investment.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>
+
