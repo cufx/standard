@@ -116,7 +116,7 @@
 
 	<xs:complexType name="InvestmentHolding">
 		<xs:sequence>
-			<xs:element name="holdingID" type="xs:string" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="holdingID" type="HoldingId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique ID of the holding from the source system.
@@ -328,7 +328,16 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
+	<xs:simpleType name="HoldingId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The holding ID is a persistent and unique identifier for the investment holding.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:simpleType name="InvestmentAccountStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
@@ -458,6 +467,25 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="HoldingIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of holding ID's that should have their associated accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="holdingId" type="HoldingId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						An holding Id that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
 
