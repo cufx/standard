@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd"
+	version="3.2.$Revision: 1000 $"
+	xmlns="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:investmentAccount="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentAccount.xsd" schemaLocation="InvestmentAccount.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+
+
+	<xs:element name= "investmentAccountFilter" type ="InvestmentAccountFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array list contains all the investment accounts to be read, updated or deleted with this
+				request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentAccountFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array contains all the Investment accounts to be read, updated or deleted with
+				this request.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="holdingIdList" type="investmentAccount:HoldingIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated parties either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="holdingAsOfStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to start searching the date/time stamp of the evaluation of the investment or security.
+						Indicates the UTC posted date of the earliest transaction to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an end date is supplied.
+						Should be less to or equal to today’s date.
+						If neither transactionStartDate or transactionEndDate is provided,
+						NO transaction history data will be returned.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="holdingAsOfEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the date/time stamp of the evaluation of the investment or security.
+						Indicates the UTC posted date of the latest transaction to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to start date/time.
+						If it's not supplied, response returns all of the transactions on or after the transactionStartDate.
+						If neither transactionStartDate or transactionEndDate is provided,
+						no transaction history data will be returned.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
