@@ -71,6 +71,14 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="internationalTaxIdType" type="InternationalTaxIdType" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						List of fields related to international tax reporting for the party.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="type" type="PartyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -298,6 +306,54 @@
 						The date the tax ID has submitted their backup withholding information.
 						The date/time should be ISO 8601 UTC format.
 						yyyy-mm-dd (2011-03-28) format is supported.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="InternationalTaxIdType">
+		<xs:sequence>
+			<xs:element name="internationalTaxId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The international tax id 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="internationalTaxIdDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of the international tax id.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="internationalTaxIdCountryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Tax ID ISO country code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="InternationalTaxIdEncrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If true, indicates that the international tax ID was encrypted.
+						Encryption method is agreed upon by application end point
+						providers.  Assume it’s NOT encrypted if this flag is not provided.
+						The message context will be used by the service to understand which client
+						is calling the service and know which encryption algorithm to apply.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="internationalTaxIdType" type="TaxIdType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Identifies what type of international tax ID is in the taxId field.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
