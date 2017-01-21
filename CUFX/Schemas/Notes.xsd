@@ -54,7 +54,7 @@
 		</xs:annotation>
 		<xs:sequence>
 
-			<xs:element name="referenceIDChoice" type="ReferenceIDChoice" minOccurs="0" maxOccurs="1">
+			<xs:element name="referenceIdChoice" type="ReferenceIdChoice" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The unique identifier for the note in the processor system.
@@ -72,7 +72,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ReferenceIDChoice">
+	<xs:complexType name="ReferenceIdChoice">
 		<xs:choice>
 			<xs:element name="accountId" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>

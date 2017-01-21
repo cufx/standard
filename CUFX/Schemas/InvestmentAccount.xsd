@@ -70,7 +70,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="investmentholdingList" type="InvestmentholdingList" minOccurs="0" maxOccurs="1">
+					<xs:element name="investmentHoldingList" type="InvestmentHoldingList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								The collection of holdings associated to this investment Account.
@@ -97,7 +97,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="InvestmentholdingList">
+	<xs:complexType name="InvestmentHoldingList">
 		<xs:sequence>
 			<xs:annotation>
 				<xs:documentation>
