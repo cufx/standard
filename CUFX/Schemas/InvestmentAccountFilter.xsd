@@ -17,7 +17,7 @@
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
 
-	<xs:element name= "investmentAccountFilter" type ="InvestmentAccountFilter">
+	<xs:element name= "investmentAccountFilter" type="InvestmentAccountFilter">
 		<xs:annotation>
 			<xs:documentation>
 				The collection/array list contains all the investment accounts to be read, updated or deleted with this
@@ -79,7 +79,7 @@
 						in the response.  Start and End Date filters work together.
 						Must be less than or equal to end date if an end date is supplied.
 						Should be less to or equal to today’s date.
-						If neither transactionStartDate or transactionEndDate is provided,
+						If neither holdingAsOfStartDateTime or holdingAsOfEndDateTime is provided,
 						NO transaction history data will be returned.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -95,8 +95,8 @@
 						Indicates the UTC posted date of the latest transaction to be sent back in the response.
 						Start and End date filter work together.
 						Must be greater than or equal to start date/time.
-						If it's not supplied, response returns all of the transactions on or after the transactionStartDate.
-						If neither transactionStartDate or transactionEndDate is provided,
+						If it's not supplied, response returns all of the transactions on or after the holdingAsOfStartDateTime.
+						If neither holdingAsOfStartDateTime or holdingAsOfEndDateTime is provided,
 						no transaction history data will be returned.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are

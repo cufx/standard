@@ -53,7 +53,7 @@
 		<xs:complexContent>
 			<xs:extension base="account:Account">
 				<xs:sequence>
-					<xs:element name="inventmentWhereHeld" type="xs:string" minOccurs ="0" maxOccurs ="1">
+					<xs:element name="investmentWhereHeld" type="xs:string" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								Name of the institution where the account is held. 
@@ -116,7 +116,7 @@
 
 	<xs:complexType name="InvestmentHolding">
 		<xs:sequence>
-			<xs:element name="holdingID" type="HoldingId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="holdingId" type="HoldingId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique ID of the holding from the source system.
@@ -416,12 +416,12 @@
 			<xs:element name="investmentAccountPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Unique identifier for the party.  Must be a valid party ID.
+						Unique identifier for the party. Must be a valid party ID.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="investmentAccountPartyType" type="InvestmentAccountPartyType">
+			<xs:element name="investmentAccountPartyRelationshipType" type="InvestmentAccountPartyRelationshipType"> 
 				<xs:annotation>
 					<xs:documentation>
 						Level of ownership that the party has over the account.
@@ -438,13 +438,13 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="InvestmentAccountPartyType">
+	<xs:complexType name="InvestmentAccountPartyRelationshipType">
 		<xs:annotation>
 			<xs:documentation>
 				The investment party type is the textual representation of what the
 				party record represents to this investment, such as primary, co-borrower,
 				beneficiary or some other type of relationship. This value
-				may be visible to the user and must be human-readable.  If the same
+				may be visible to the user and must be human-readable. If the same
 				party exists at the relationship level, the account level
 				relationship type overrides the relationship.
 			</xs:documentation>

@@ -119,7 +119,7 @@
             in the response.  Start and End Date filters work together.
             Must be less than or equal to end date if an end date is supplied.
             Should be less to or equal to today’s date.
-            If neither transactionStartDateTime or transactionEndDateTime is provided,
+            If neither transactionEffectiveStartDateTime or transactionEffectiveEndDateTime is provided,
             NO transaction history data will be returned.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -135,8 +135,8 @@
             Indicates the UTC effective date of the latest transaction to be sent back in the response.
             Start and End date filter work together.
             Must be greater than or equal to start date/time.
-            If it's not supplied, response returns all of the transactions on or after the transactionStartDateTime.
-            If neither transactionStartDateTime or transactionEndDateTime is provided,
+            If it's not supplied, response returns all of the transactions on or after the transactionEffectiveStartDateTime.
+            If neither transactionEffectiveStartDateTime or transactionEffectiveEndDateTime is provided,
             no transaction history data will be returned.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -154,7 +154,7 @@
             in the response.  Start and End Date filters work together.
             Must be less than or equal to end date if an end date is supplied.
             Should be less to or equal to today’s date.
-            If neither transactionStartDateTime or transactionEndDateTime is provided,
+            If neither transactionPostedStartDateTime or transactionPostedEndDateTime is provided,
             NO transaction history data will be returned.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -170,8 +170,8 @@
             Indicates the UTC posted date of the latest transaction to be sent back in the response.
             Start and End date filter work together.
             Must be greater than or equal to start date/time.
-            If it's not supplied, response returns all of the transactions on or after the transactionStartDateTime.
-            If neither transactionStartDateTime or transactionEndDateTime is provided,
+            If it's not supplied, response returns all of the transactions on or after the transactionPostedStartDateTime.
+            If neither transactionPostedStartDateTime or transactionPostedEndDateTime is provided,
             no transaction history data will be returned.
             The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
             (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
