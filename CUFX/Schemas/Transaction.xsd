@@ -241,7 +241,7 @@
 	<xs:simpleType name ="TransactionSource">
 		<xs:annotation>
 			<xs:documentation>
-				System or delivery channel that originated the transaction.
+				System or delivery channel that was the origination source for the transaction.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
