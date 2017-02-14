@@ -1,101 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+  targetNamespace="http://cufxstandards.com/v3/InvestmentHolding.xsd"
   version="3.2.$Revision$"
-  xmlns="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+  xmlns="http://cufxstandards.com/v3/InvestmentHolding.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+
  
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
-	<xs:element name="investmentAccountList" type="InvestmentAccountList">
+
+	<xs:element name="investmentHoldingList" type="InvestmentHoldingList">
 		<xs:annotation>
 			<xs:documentation>
 				Top level investment account list collection element.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-
-	<xs:complexType name="InvestmentAccountList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Data definition of a collection of investment accounts.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="investmentAccount" type="InvestmentAccount" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating to a investment account.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="InvestmentAccount">
-		<xs:annotation>
-			<xs:documentation>
-				Details relating to an investment account.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="account:Account">
-				<xs:sequence>
-					<xs:element name="investmentWhereHeld" type="xs:string" minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								Name of the institution where the account is held. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="investmentAccountPartyList" type="InvestmentAccountPartyList" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								A collection of parties that includes each party associated to this investment Account.
-								Note that this is a specialized subset of fields for party which identifies how the party is related.
-								The details of the party can be pulled from the party object using the party ID.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
-					<xs:element name="investmentHoldingList" type="InvestmentHoldingList" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								The collection of holdings associated to this investment Account.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-
-					<xs:element name="investmentAccountStatus" type="InvestmentAccountStatus" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Status of the investment account.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="investmentAccountSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								For use to support additional investment account acount statuses and sub status not present in enumerations.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 
 	<xs:complexType name="InvestmentHoldingList">
 		<xs:sequence>
@@ -116,10 +42,19 @@
 
 	<xs:complexType name="InvestmentHolding">
 		<xs:sequence>
-			<xs:element name="holdingId" type="HoldingId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Unique ID of the holding from the source system.
+						The account ID is a persistent and unique identifier for the account.
+						It must be unique for all users across the institution and remain the
+						same over the life of the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="holdingID" type="HoldingId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique ID of the holding within account from the source system.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -263,7 +198,7 @@
 					<xs:documentation>
 						Coupon frequency of the holding.
 						OneTime: one time usage at any other point than at maturity.
-			      AtMaturity: one time usage at maturity.
+						AtMaturity: one time usage at maturity.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -337,24 +272,11 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-	
-	<xs:simpleType name="InvestmentAccountStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:simpleType name="HoldingType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Asset" />
-			<xs:enumeration value="Bond" />		
+			<xs:enumeration value="Bond" />
 			<xs:enumeration value="Certificate of Deposit" />
 			<xs:enumeration value="Exchange-Traded Fund" />
 			<xs:enumeration value="Insurance" />
@@ -368,106 +290,6 @@
 			<xs:enumeration value="Stock" />
 		</xs:restriction>
 	</xs:simpleType>
-
-	<xs:complexType name="InvestmentAccountStatusList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of InvestmentAccount account statuses that should have their associated InvestmentAccount accounts either returned or affected
-				by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="investmentAccountStatus" type="InvestmentAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Investment account account status.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="InvestmentAccountPartyList">
-		<xs:annotation>
-			<xs:documentation>
-				A collection of party ID’s that uniquely identify each party associated to this investment account
-				and additional fields on how the party relates to the InvestmentAccount.
-				This list is in addition to the relationship parties if available.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="investmentAccountParty" type="InvestmentAccountParty" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						This object is subset with additional fields of the party data.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="InvestmentAccountParty">
-		<xs:annotation>
-			<xs:documentation>
-				This object points to the party and how it relates to the InvestmentAccount.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="investmentAccountPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifier for the party. Must be a valid party ID.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="investmentAccountPartyRelationshipType" type="InvestmentAccountPartyRelationshipType"> 
-				<xs:annotation>
-					<xs:documentation>
-						Level of ownership that the party has over the account.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="investmentContactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of investment contacts for the party within this account.  
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="InvestmentAccountPartyRelationshipType">
-		<xs:annotation>
-			<xs:documentation>
-				The investment party type is the textual representation of what the
-				party record represents to this investment, such as primary, co-borrower,
-				beneficiary or some other type of relationship. This value
-				may be visible to the user and must be human-readable. If the same
-				party exists at the relationship level, the account level
-				relationship type overrides the relationship.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:choice>
-			<xs:element name="holder" type="relationship:Holder" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Owner of the account.
-					</xs:documentation >
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="agent" type="common:Agent" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Acts on behalf of the Investment Account holder. May be a company or an individual.
-						May be multiple party entries for companies and individuals associated with the investment.
-					</xs:documentation >
-				</xs:annotation>
-			</xs:element>
-		</xs:choice>
-	</xs:complexType>
 
 	<xs:complexType name="HoldingIdList">
 		<xs:annotation>
@@ -488,4 +310,5 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
+
 

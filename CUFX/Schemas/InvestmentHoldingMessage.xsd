@@ -1,34 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/InvestmentAccountMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v3/InvestmentHoldingMessage.xsd"
 	version="3.2.$Revision$"
-	xmlns="http://cufxstandards.com/v3/InvestmentAccountMessage.xsd"
+	xmlns="http://cufxstandards.com/v3/InvestmentHoldingMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:investmentAccount="http://cufxstandards.com/v3/InvestmentAccount.xsd"
-	xmlns:investmentAccountFilter="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd"
+  xmlns:investmentHolding="http://cufxstandards.com/v3/InvestmentHolding.xsd"
+	xmlns:investmentHoldingFilter="http://cufxstandards.com/v3/InvestmentHoldingFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/InvestmentAccount.xsd" schemaLocation="InvestmentAccount.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd" schemaLocation="InvestmentAccountFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentHoldingFilter.xsd" schemaLocation="InvestmentHoldingFilter.xsd" />
 
-	<xs:element name="investmentAccountMessage" type="InvestmentAccountMessage">
+	<xs:element name="investmentHoldingMessage" type="InvestmentHoldingMessage">
 		<xs:annotation>
 			<xs:documentation>
-				All values that can be sent in a investment account message.  Contains message context, investment account filter and a investment account list.
+				All values that can be sent in a investment holding message.  Contains message context, investmentHolding filter 
+				and a investment holding list.
 				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
 				example specifications for usage.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
-	<xs:complexType name="InvestmentAccountMessage">
+	<xs:complexType name="InvestmentHoldingMessage">
 		<xs:annotation>
 			<xs:documentation>
-				All values that can be sent in a investment account message.  Contains message context, investment account filter and a investment account list.
+				All values that can be sent in a investment holding message.  Contains message context, investment holding filter 
+				and a investment holdinglist.
 				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
 				example specifications for usage.
 			</xs:documentation>
@@ -43,21 +45,22 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentAccountFilter" type="investmentAccountFilter:InvestmentAccountFilter" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentFilter" type="investmentHoldingFilter:InvestmentHoldingFilter" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Any filters applied to a read, update or delete investment account message request.
-						Does not apply to a create investment account.
+						Any filters applied to a read, update or delete investment holding message request.
+						Does not apply to a create investment holding.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentAccountList" type="investmentAccount:InvestmentAccountList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentHoldingList" type="investmentHolding:InvestmentHoldingList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						All of the investment account data.
+						All of the investment holding data.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence >
 	</xs:complexType >
 </xs:schema>
+

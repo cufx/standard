@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v3/InvestmentMessage.xsd"
+	version="3.2.$Revision$"
+	xmlns="http://cufxstandards.com/v3/InvestmentMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
+  xmlns:investment="http://cufxstandards.com/v3/Investment.xsd"
+	xmlns:investmentFilter="http://cufxstandards.com/v3/InvestmentFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Investment.xsd" schemaLocation="Investment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentFilter.xsd" schemaLocation="InvestmentFilter.xsd" />
+
+	<xs:element name="investmentMessage" type="InvestmentMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a investment message.  Contains message context, investment filter and a investment list.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a investment message.  Contains message context, investment filter and a investment list.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call.  It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investmentFilter" type="investmentFilter:InvestmentFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete investment message request.
+						Does not apply to a create investment account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investmentList" type="investment:InvestmentList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All of the investment data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>

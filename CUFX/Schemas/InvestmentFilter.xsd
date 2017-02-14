@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd"
+	targetNamespace="http://cufxstandards.com/v3/InvestmentFilter.xsd"
 	version="3.2.$Revision$"
-	xmlns="http://cufxstandards.com/v3/InvestmentAccountFilter.xsd"
+	xmlns="http://cufxstandards.com/v3/InvestmentFilter.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:investmentAccount="http://cufxstandards.com/v3/InvestmentAccount.xsd"
+  xmlns:investment="http://cufxstandards.com/v3/Investment.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v3/InvestmentHolding.xsd"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
 
 
@@ -13,11 +14,12 @@
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/InvestmentAccount.xsd" schemaLocation="InvestmentAccount.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Investment.xsd" schemaLocation="Investment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
 
-	<xs:element name= "investmentAccountFilter" type="InvestmentAccountFilter">
+	<xs:element name= "investmentFilter" type="InvestmentFilter">
 		<xs:annotation>
 			<xs:documentation>
 				The collection/array list contains all the investment accounts to be read, updated or deleted with this
@@ -26,7 +28,7 @@
 		</xs:annotation>
 	</xs:element>
 
-	<xs:complexType name="InvestmentAccountFilter">
+	<xs:complexType name="InvestmentFilter">
 		<xs:annotation>
 			<xs:documentation>
 				The collection/array contains all the Investment accounts to be read, updated or deleted with
@@ -44,7 +46,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="holdingIdList" type="investmentAccount:HoldingIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of account ID's that should have their associated accounts either returned or affected
