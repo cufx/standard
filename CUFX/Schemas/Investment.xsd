@@ -36,7 +36,7 @@
 					Data definition of a collection of investments.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="Investment" type="Investment" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="investment" type="Investment" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Details relating to a investment.
@@ -62,7 +62,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="InvestmentPartyList" type="InvestmentPartyList" minOccurs="0" maxOccurs="1">
+					<xs:element name="investmentPartyList" type="InvestmentPartyList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								A collection of parties that includes each party associated to this investment Account.
@@ -80,14 +80,14 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="InvestmentStatus" type="InvestmentStatus" minOccurs="0" maxOccurs="1">
+					<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Status of the investment.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="InvestmentSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="investmentSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								For use to support additional investment statuses and sub status not present in enumerations.
@@ -121,7 +121,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InvestmentStatus" type="InvestmentStatus" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The investment status.
@@ -140,7 +140,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InvestmentParty" type="InvestmentParty" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="investmentParty" type="InvestmentParty" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						This object is subset with additional fields of the party data.
@@ -157,7 +157,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="InvestmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the party. Must be a valid party ID.
@@ -165,7 +165,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="InvestmentPartyRelationshipType" type="InvestmentPartyRelationshipType"> 
+			<xs:element name="investmentPartyRelationshipType" type="InvestmentPartyRelationshipType"> 
 				<xs:annotation>
 					<xs:documentation>
 						Level of ownership that the party has over the account.
