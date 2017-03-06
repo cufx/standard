@@ -54,7 +54,7 @@
 							Indicates the UTC posted date of the earliest transaction to be sent back
 							in the response.  Start and End Date filters work together.
 							Must be less than or equal to end date if an end date is supplied.
-							Should be less to or equal to today’s date.
+							Should be less than or equal to today’s date.
 							If neither holdingAsOfStartDateTime or holdingAsOfEndDateTime is provided,
 							NO transaction history data will be returned.
 							The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ

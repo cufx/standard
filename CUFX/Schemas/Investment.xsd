@@ -39,7 +39,7 @@
 			<xs:element name="investment" type="Investment" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
-						Details relating to a investment.
+						Details relating to an investment.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -190,7 +190,7 @@
 				beneficiary or some other type of relationship. This value
 				may be visible to the user and must be human-readable. If the same
 				party exists at the relationship level, the account level
-				relationship type overrides the relationship.
+				relationship type overrides this relationship.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:choice>
