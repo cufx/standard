@@ -111,20 +111,20 @@
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="actualTransactionBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+						<xs:element name="postedActualBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
 									Negative, zero or positive amount.
-									Actual balance of the account relative to the time the transaction processsed against the account. 
+									The actual balance of the account after the transaction is posted to the account. 
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
 
-						<xs:element name="availableTransactionBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
+						<xs:element name="postedAvailableBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
 									Negative, zero or positive amount.
-									Available balance of the account relative to the time the transaction processsed against the account.
+									The available balance of the account after the transaction is posted to the account.
 								</xs:documentation>
 							</xs:annotation>
 						</xs:element>
