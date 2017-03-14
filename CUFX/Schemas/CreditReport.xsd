@@ -4,10 +4,12 @@
 	version="3.3.$Revision$"
 	xmlns="http://cufxstandards.com/v3/CreditReport.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
   xmlns:party="http://cufxstandards.com/v3/Party.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="creditReportList" type="CreditReportList">
@@ -109,7 +111,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
 			<xs:element name="creditTier" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -121,6 +122,19 @@
 				<xs:annotation>
 					<xs:documentation>
 						Contains the entire credit report in text format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Name/data pairs list of fields that are not yet available in
+						the general specification.  This should be used as a LAST RESORT
+						as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field
+						must be reported to the architecture or working group committee
+						to ensure that fields are somehow handled in the future release of
+						specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
