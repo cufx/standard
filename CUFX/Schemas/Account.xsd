@@ -92,7 +92,7 @@
 			<xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The account sub type identifies the specific account type
+						The account subtype identifies the specific account type
 						that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
@@ -454,7 +454,7 @@
 			<xs:enumeration value="Checking">
 				<xs:annotation>
 					<xs:documentation>
-						Checking account, i.e. checks can be written against the account.
+						Checking account, i.e., checks can be written against the account.
 						Money market accounts can be included here or in money markets.  It's up to the institution.
 					</xs:documentation>
 				</xs:annotation>
