@@ -25,19 +25,19 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-      <xs:element name="recurringId" type="fundsTransferCommonBase:RecurringId" minOccurs="0" maxOccurs="1"  >
-        <xs:annotation>
-          <xs:documentation>
-            ID to uniquely identify a recurring payment or transfer request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="recurringId" type="fundsTransferCommonBase:RecurringId" minOccurs="0" maxOccurs="1"  >
+				<xs:annotation>
+				  <xs:documentation>
+					ID to uniquely identify a recurring payment or transfer request.
+				  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="recurringAmount" type="common:Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-            Negative, zero, or positive amount,
-            A recurring amount of the payment or transfer requested amount.
-          </xs:documentation>
+						Negative, zero, or positive amount,
+						A recurring amount of the payment or transfer requested amount.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="recurringFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
@@ -47,14 +47,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="recurringToAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account to which the transfer or payment was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-			<xs:element name="recurringStatus" type="fundsTransferCommonBase:RecurringStatus" minOccurs="0" maxOccurs="1">
+ 			<xs:element name="recurringStatus" type="fundsTransferCommonBase:RecurringStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Status of the Recurring payment or transfer.
@@ -97,18 +90,18 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="createdByFiUserId" type="credentialGroup:FiUserId" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The Unique identifier used to identify the user that requested the recurring transfer or payment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="createdByFiUserId" type="credentialGroup:FiUserId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+				  <xs:documentation>
+					The Unique identifier used to identify the user that requested the recurring transfer or payment.
+				  </xs:documentation>
+				</xs:annotation>
+			  </xs:element>
 			<xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>
-            Frequency of the recurring transfer or payment.
-          </xs:documentation>
+						Frequency of the recurring transfer or payment.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="totalPaymentCount" type="xs:integer" minOccurs="0" maxOccurs ="1">
@@ -195,17 +188,46 @@
 			<xs:element name="recurringConfirmationCode" type="xs:string" minOccurs="0"  maxOccurs ="1"  >
 				<xs:annotation>
 					<xs:documentation>
-            Unique confirmation code for the scheduled recurring transfer or payment.
-          </xs:documentation>
+						Unique confirmation code for the scheduled recurring transfer or payment.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="recurringOccurrenceIdList" type="fundsTransferCommonBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A list occurrence IDs that are a result of the recurring payment or transfer request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="recurringOccurrenceIdList" type="fundsTransferCommonBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list occurrence IDs that are a result of the recurring payment or transfer request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="recurringFromMicrAccountNumber" type="account:MicrAccountNumber" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account from which the transfer or payment was taken.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="recurringFromRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account routing number from which the transfer or payment was taken.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="recurringFromAccountType" type="account:AccountType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type from which the transfer or payment was taken.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="initialAmount" type="common:Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Negative, zero, or positive amount.  The initial payment amount for a recurring payment or transfer. Used only if the first payment
+						amount is different from subsequent amounts.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
