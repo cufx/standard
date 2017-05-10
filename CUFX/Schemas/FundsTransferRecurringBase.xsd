@@ -206,27 +206,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="recurringFromMicrAccountNumber" type="account:MicrAccountNumber" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="recurringFromRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account routing number from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="recurringFromAccountType" type="account:AccountType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account type from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="initialAmount" type="common:Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
