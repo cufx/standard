@@ -5,14 +5,14 @@
 	xmlns="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v3/Meta.xsd"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-  xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+	xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
 	xmlns:transaction="http://cufxstandards.com/v3/Transaction.xsd"
     
-  elementFormDefault="qualified"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
   <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
@@ -42,7 +42,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
-      </xs:element >
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -315,7 +315,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
 
 	<xs:simpleType name="IdType">
 		<xs:annotation>
