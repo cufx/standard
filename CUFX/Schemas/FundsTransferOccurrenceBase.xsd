@@ -52,20 +52,23 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="occurrenceFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="occurrenceToAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account to which the transfer or payment was made.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+
+      <xs:element name="occurrenceFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account from which the transfer or payment was taken.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="occurrenceToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account from which the transfer or payment was taken.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
 			<xs:element name="occurrenceStatus" type="fundsTransferCommonBase:OccurrenceStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -181,28 +184,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>	
-			<xs:element name="occurrenceFromMicrAccountNumber" type="account:MicrAccountNumber" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="occurrenceFromRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account routing number from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="occurrenceFromAccountType" type="account:AccountType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account type from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+	  	<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Transfer level name/data pairs list of fields that are not yet available in the general specification.

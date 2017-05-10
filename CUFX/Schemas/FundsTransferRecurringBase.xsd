@@ -40,14 +40,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="recurringFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account from which the transfer or payment was taken.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		    <xs:element name="recurringToAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+		    <xs:element name="recurringToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account to which the transfer or payment was made.
