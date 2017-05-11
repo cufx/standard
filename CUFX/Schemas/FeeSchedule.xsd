@@ -63,7 +63,7 @@
         </xs:annotation>
       </xs:element>      
 
-      <xs:element name="frequency" type="common:IntervalFrequencyType" minOccurs="1" maxOccurs="1">
+      <xs:element name="frequency" type="common:FrequencyType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             A value that indicates how this price is applied.  For instance, this price may be per stop payment, for a stop payment action, 
