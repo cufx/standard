@@ -919,7 +919,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="frequency" type="FrequencyType" minOccurs="0" maxOccurs="1">
+			<xs:element name="frequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The frequency of the income.
@@ -953,29 +953,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="FrequencyType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Biweekly">
-				<xs:annotation>
-					<xs:documentation>
-						Paid every other week.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration >
-			<xs:enumeration value="Monthly" />
-			<xs:enumeration value="SemiMonthly">
-				<xs:annotation>
-					<xs:documentation>
-						Paid twice a month.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="Weekly" />
-			<xs:enumeration value="Yearly" />
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:complexType name="LiabilityList">
 		<xs:annotation>
