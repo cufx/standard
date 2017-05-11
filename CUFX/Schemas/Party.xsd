@@ -992,7 +992,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="paymentFrequency" type="FrequencyType"  minOccurs="0" maxOccurs="1">
+			<xs:element name="paymentFrequency" type="common:FrequencyType"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The liability payment frequency, i.e. monthly, weekly, etc.
