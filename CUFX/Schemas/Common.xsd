@@ -593,7 +593,6 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AmortizedSchedule"/>
 			<xs:enumeration value="Annual" />
-			<xs:enumeration value="Annually" />
 			<xs:enumeration value="AtMaturity" />
 			<xs:enumeration value="Bimonthly" />
 			<xs:enumeration value="Biweekly" />
@@ -610,14 +609,11 @@
 			<xs:enumeration value="PerUse"/>
 			<xs:enumeration value="Quarterly" />
 			<xs:enumeration value="SemiAnnual" />
-			<xs:enumeration value="SemiAnnually" />
 			<xs:enumeration value="SemiMonthly" />
-			<xs:enumeration value="SinglePayment" />
 			<xs:enumeration value="Triannual "/>
 			<xs:enumeration value="Weekly" />
 			<xs:enumeration value="WeeklySkipFirst" />
 			<xs:enumeration value="WeeklySkipLast" />
-			<xs:enumeration value="Yearly" />	
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
