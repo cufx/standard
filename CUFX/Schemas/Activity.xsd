@@ -68,16 +68,15 @@
 			<xs:element name="externalActivityId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						An identifier or reference value typically used by the repository consumer.
+						An external identifier or reference value used by a 3rd party repository.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+			<xs:element name="activityRelatedTo" type="RelatedToGroups">
 				<xs:annotation>
 					<xs:documentation>
-						The account ID is a persistent and unique identifier for the account.
-						It must be unique for all users across the institution and remain the same over the life of the account.
-						It may contain a prefix to define the Account Type for consumption, such as SV-1234 or IL-1234.
+						List of contacts, parties, relationships and accounts related to this activity.
+						These override any contacts, etc. at the product service request or request level.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -113,6 +112,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						A human-readable long text describing the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityFieldImpactedList" type="ActivityFieldImpactedList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						list of fields affected by the activity.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -182,7 +188,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="requestedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="activityRequestedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						UTC date and time when activity was requested.  In most cases this will be the same as the
@@ -193,7 +199,7 @@
 					</xs:documentation>
 				</xs:annotation >
 			</xs:element>
-			<xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="activityDueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						UTC date and time when activity is due.
@@ -203,7 +209,7 @@
 					</xs:documentation>
 				</xs:annotation >
 			</xs:element>
-			<xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="activityStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						UTC date and time when activity was started.
@@ -213,7 +219,7 @@
 					</xs:documentation>
 				</xs:annotation >
 			</xs:element>
-			<xs:element name="completedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="activityCompletedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						UTC date and time when activity completed.
@@ -254,14 +260,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						A flag used to determine if the activity is scheduled or not.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="activityRelatedTo" type="RelatedToGroups">
-				<xs:annotation>
-					<xs:documentation>
-						List of contacts, parties, relationships and accounts related to this activity.
-						These override any contacts, etc. at the product service request or request level.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -317,6 +315,64 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="ActivityFieldImpactedList">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array of Fields impacted by an activity.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityFieldImpacted" type="ActivityFieldImpacted" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name ="ActivityFieldImpacted">
+		<xs:annotation>
+			<xs:documentation>
+			  Elements detailing the nature of change to a given field.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityFieldId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Field identifier for the field being changed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityFieldName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						System field name being modified
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityFieldDataType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Data type of the field being modified
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityFieldPreviousValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Previous value of the field being modified
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityFieldNewValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						New value of the field being modified.
+					</xs:documentation>
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
