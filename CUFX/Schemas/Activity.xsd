@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v3/Activity.xsd"
+  version="3.3.$Revision: 1062 $"
+  xmlns="http://cufxstandards.com/v3/Activity.xsd"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
+	xmlns:credential="http://cufxstandards.com/v3/CredentialGroup.xsd" 
+	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  
+  elementFormDefault="qualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+
+	<xs:element name= "activityList" type ="ActivityList">
+		<xs:annotation>
+			<xs:documentation>
+				The activities collection/array contains all the activities,
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="ActivityList">
+		<xs:annotation>
+			<xs:documentation>
+				The activities collection/array contains all the activity for a specified request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activity" type="Activity" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Activity" >
+		<xs:annotation>
+			<xs:documentation>
+				General purpose definition describing physical or electronic activity.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique number used to identify a specific activity within the repository.
+						Some activity systems do not have a concept of a unique key but a concept of a combined key to access
+						values in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousActivityId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Previous activities that indicate what order the activities should be performed in.
+						These activities should be completed prior to executing this activity.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="externalActivityId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An identifier or reference value typically used by the repository consumer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account ID is a persistent and unique identifier for the account.
+						It must be unique for all users across the institution and remain the same over the life of the account.
+						It may contain a prefix to define the Account Type for consumption, such as SV-1234 or IL-1234.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityStatus" type="ActivityStatus" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Current status of activity.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="activityType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The MIME type of the activity.  See RFC 2046 for valid MIME type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable name of the activity, for example 'Order checks,' 'Ship checks,' etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityShortDescription" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable short text describing the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable long text describing the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="creator" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable string describing the owner of the activity. Name or ID of person, system, etc. that created the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityNoteList" type="common:NoteList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						List of notes that were entered by the fulfillment processor or member related
+						to this activity.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="credentialTypesRequiredList" type="credential:CredentialTypeList" minOccurs ="0" maxOccurs ="1" >
+				<xs:annotation>
+					<xs:documentation>
+						This attribute indicates whether credentials are required to complete this request.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="credentialsProvidedList" type="credential:CredentialGroupList" minOccurs ="0" maxOccurs ="1" >
+				<xs:annotation>
+					<xs:documentation>
+						If credentials are required, this is the list of credentials provided.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="activityDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity occurred.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount associated with the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityCreationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity was created.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityModifiedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when the activity was modified.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requestedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity was requested.  In most cases this will be the same as the
+						create date unless this activity was subsequently added.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="dueDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity is due.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity was started.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="completedDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when activity completed.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation >
+			</xs:element>
+			<xs:element name="activityArchivedDatetime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when the activity was archived.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityDeletedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when the activity was deleted.
+						The date/time should be ISO 8601 UTC format: yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityIpAddress" type="common:IpAddress" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The IP address associated with the activity. For example, a Login activity might have the IP address of the login.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityScheduled" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A flag used to determine if the activity is scheduled or not.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityRelatedTo" type="RelatedToGroups">
+				<xs:annotation>
+					<xs:documentation>
+						List of contacts, parties, relationships and accounts related to this activity.
+						These override any contacts, etc. at the product service request or request level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityCustomData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Activity level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name ="ActivityId">
+		<xs:annotation>
+			<xs:documentation>
+				A unique value (or values) used to identify one and only one activity within the repository.
+				Some activity systems do not have a concept of a unique key but a concept of a combined key to access
+				values in the back end system.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="activityUniqueId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique value (or values) used to identify one and only one activity within the repository.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityIdKeyValueList" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Some activity systems do not have a concept of a unique key but a concept of a combined key to access
+						values in the back end system.  Instead of having to combine and then strip the key apart in the back end,
+						this defines a list of name value pairs to uniquely identify an activity in the repository.
+						For example: type CheckImage, accountNumber 1234, checkNumber 123, datetime 12/1/2014 12:10 PM, amount 35.00
+						If this key value is used, it should be documented in customData area of configuration services for full definition.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name ="ActivityIdList">
+		<xs:annotation>
+			<xs:documentation>
+				List of activity ID's that can be used by other objects to point to each activity in a list.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ActivityStatus">
+		<xs:annotation>
+			<xs:documentation>
+				Status of the activity within request to indicate how
+				the activity is progressing from a workflow standpoint.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="New">
+				<xs:annotation>
+					<xs:documentation>
+						The activity is new and has not been handled by internal teams.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Assigned">
+				<xs:annotation>
+					<xs:documentation>
+						The activity  has been allocated to a resource but no time has been spent on the activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InProgressActive">
+				<xs:annotation>
+					<xs:documentation>
+						The activity is being actively being worked on.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InProgressInactive">
+				<xs:annotation>
+					<xs:documentation>
+						The activity is in progress but has stalled due to some issue.
+						The details of why it's being held up will be in the notes related to the request/activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Completed">
+				<xs:annotation>
+					<xs:documentation>
+						The activity has been completed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Cancelled">
+				<xs:annotation>
+					<xs:documentation>
+						The activity has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="RelatedToGroups">
+		<xs:annotation>
+			<xs:documentation>
+				List of contacts, parties, relationships and accounts related to this request.
+				The lowest level will "override" the high levels.  The highest level items are used as defaults
+				if the lower level items are not provided.
+				Additionally, if contacts, parties, relationships or accounts are created as a result of the
+				request, they can be included in the "RelatedTo" fields.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name ="contactIdList" type ="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Use if this is for an existing contact.  Contains a list of existing unique contact ID's
+						for how the party(ies) wishes to be contacted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields that point to a list of existing parties
+						which should be contacted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name ="unknownPartyList" type ="party:PartyList"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Use if this is for new or unknown parties that do not yet exist on the back end systems.
+						Contains a list of parties for how the party(ies) would like to be contacted.
+						There may be a very limited subset of party data available since amount of new party
+						information provided may be very minimal, i.e. first and last name, contact points may be
+						email address or a phone number.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields that point to a list of
+						existing relationships for which the request applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of key fields that point to a list of
+						existing accounts for which the request applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+
