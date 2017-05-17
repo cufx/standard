@@ -8,6 +8,7 @@
   xmlns:isoCountryCodeType="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd"
   xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:credentialGroup="http://cufxstandards.com/v3/CredentialGroup.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
@@ -15,6 +16,7 @@
   <xs:import namespace="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
   <xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
   <xs:element name= "accessProfileList" type ="AccessProfileList">
     <xs:annotation>
@@ -292,7 +294,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="ipAddress" type="xs:string" minOccurs="0" maxOccurs="1" >
+      <xs:element name="ipAddress" type="common:IpAddress" minOccurs="0" maxOccurs="1" >
         <xs:annotation>
           <xs:documentation>
             The originating IP address.
