@@ -159,6 +159,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="overDraftProtectionEnabled" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            True if the account is enrolled in overdraft protection
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
