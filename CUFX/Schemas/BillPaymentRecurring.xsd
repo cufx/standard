@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-targetNamespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
-version="3.3.$Revision$"
-xmlns="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
-xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
-xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
-xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  targetNamespace="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
+  version="3.3.$Revision$"
+  xmlns="http://cufxstandards.com/v3/BillPaymentRecurring.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
+  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd"
+  xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
+  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
 	 
-elementFormDefault="qualified"
-attributeFormDefault="unqualified">
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
@@ -20,6 +21,7 @@ attributeFormDefault="unqualified">
 	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Bill.xsd" schemaLocation="Bill.xsd" />
 
 	<xs:element name="billPaymentRecurringList" type ="BillPaymentRecurringList">
 		<xs:annotation>
@@ -58,7 +60,7 @@ attributeFormDefault="unqualified">
 								The ID of the payee.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>                  
+					</xs:element>  
 					<xs:element name="nextDebitDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -69,6 +71,13 @@ attributeFormDefault="unqualified">
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+          <xs:element name="billId" type="bill:BillId"   minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>
+                The ID of the bill that party, relationship or account is paying. Example, the invoice number of a bill.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
