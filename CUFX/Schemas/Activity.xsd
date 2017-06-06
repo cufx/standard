@@ -6,9 +6,9 @@
 	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:credential="http://cufxstandards.com/v3/CredentialGroup.xsd" 
+	xmlns:credential="http://cufxstandards.com/v3/CredentialGroup.xsd"
 	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd" 
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   
   elementFormDefault="qualified">
@@ -87,7 +87,7 @@
 					</xs:documentation>
 				</xs:annotation >
 			</xs:element>
-			<xs:element name="activityType" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The MIME type of the activity.  See RFC 2046 for valid MIME type.
@@ -256,7 +256,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="activityScheduled" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:element name="activityScheduled" type="ActivityScheduled" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A flag used to determine if the activity is scheduled or not.
@@ -310,7 +310,7 @@
 	<xs:complexType name ="ActivityIdList">
 		<xs:annotation>
 			<xs:documentation>
-				List of activity ID's that can be used by other objects to point to each activity in a list.
+				Collection of activity ids to return in a filter request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -318,7 +318,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
 
 	<xs:complexType name="ActivityFieldImpactedList">
 		<xs:annotation>
@@ -331,11 +330,11 @@
 			</xs:element >
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name ="ActivityFieldImpacted">
 		<xs:annotation>
 			<xs:documentation>
-			  Elements detailing the nature of change to a given field.
+				Elements detailing the nature of change to a given field.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -430,7 +429,51 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
+	<xs:complexType name ="ActivityStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of activity statuses to return in a filter request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityStatus" type="ActivityStatus" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ActivityType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The MIME type of the activity.  See RFC 2046 for valid MIME type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name ="ActivityTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of activity types to return in a filter request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ActivityScheduled">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					A flag used to determine if the activity is scheduled or not. May be used as part of the filter request.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="RelatedToGroups">
 		<xs:annotation>
 			<xs:documentation>
