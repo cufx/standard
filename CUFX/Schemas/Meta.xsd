@@ -254,7 +254,56 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-		</xs:sequence>
+      <xs:element name="overDraftFeesYtd" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of overdraft charges year-to-date at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ytdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of charges for insufficient funds year-to-date at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mtdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of charges for insufficient funds month-to-date at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of interest/dividends earned on the account in ythe previous year.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the date of the last interest/dividends posted to the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of the last interest/dividends posted to the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CreditCardMeta">
