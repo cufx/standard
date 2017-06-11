@@ -189,14 +189,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="nextScheduledPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that of the next scheduled payment.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -204,17 +196,40 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="currentYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The amount of interest paid year-to-date
+            The amount of interest paid year-to-date at the date/time that the request was made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The amount of interest paidin the previous year
+            The amount of interest paid in the previous year
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of late payment charges due at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent statement
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -281,6 +296,21 @@
           <xs:documentation>
             The date of the most recent statement
             The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of late payment charges due at the date/time of the inquiry.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -438,6 +468,50 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
+      <xs:element name="ytdTaxesPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The toatal in taxes paid year-to-date at the date/time that the request was made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid year-to-date at the date/time that the request was made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid in the previous year
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of late payment charges due at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent statement
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
 	</xs:complexType>
 </xs:schema>
