@@ -145,14 +145,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="interestCalculationType" type="xs:string" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current payoff balance represents the amount required to pay off the loan
-            at the date/time the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
