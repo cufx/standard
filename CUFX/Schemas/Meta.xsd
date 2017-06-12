@@ -148,7 +148,7 @@
       <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The amount of interest due.  Generally the amount due as date of inquiry.
+            The amount of interest due.  Generally the amount of interest due as date of inquiry.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -206,6 +206,13 @@
         <xs:annotation>
           <xs:documentation>
             This is the amount of late payment charges due at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -356,6 +363,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 		
 	</xs:complexType>
@@ -456,6 +470,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
@@ -542,6 +563,13 @@
         <xs:annotation>
           <xs:documentation>
             This is the amount of late payment charges due at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
