@@ -156,7 +156,7 @@
       <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The amunt of interest due.  Generally the amount due as date of inquiry.
+            The amount of interest due.  Generally the amount due as date of inquiry.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -285,15 +285,16 @@
       <xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            This is the amount of interest/dividends earned on the account in ythe previous year.
+            This is the amount of interest/dividends earned on the account in the previous year.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            This is the date of the last interest/dividends posted to the account.
-          </xs:documentation>
+						This is the date of the last interest/dividends posted to the account.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
@@ -527,7 +528,7 @@
       <xs:element name="ytdTaxesPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The toatal in taxes paid year-to-date at the date/time that the request was made.
+            The total in taxes paid year-to-date at the date/time that the request was made.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
