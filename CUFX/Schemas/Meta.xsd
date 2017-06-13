@@ -579,7 +579,14 @@
             The amount of the last payment made.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="paymentFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The loan payment frequency
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
