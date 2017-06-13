@@ -385,6 +385,30 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Interest rate percent of the loan.
+            Determines the amount charged each time period based on the loan period.
+            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid year-to-date at the date/time that the request was made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid in the previous year
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
@@ -422,7 +446,36 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
+      <xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of interest/dividends earned on the account in the previous year.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the date of the last interest/dividends posted to the account.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of the last interest/dividends posted to the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="LineOfCreditMeta">
@@ -498,6 +551,35 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid year-to-date at the date/time that the request was made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest paid in the previous year
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the last payment was made.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the last payment made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
