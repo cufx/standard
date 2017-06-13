@@ -355,7 +355,14 @@
             The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the last payment made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 		
 	</xs:complexType>
