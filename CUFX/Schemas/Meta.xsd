@@ -218,6 +218,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="lastStatemntBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of the loan balance and interest due at the end of the last statement, i.e,, the just completed statement period.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
@@ -356,6 +363,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the last payment was made.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -363,8 +378,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="lastStatemntBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            This is the amount of the card balance and interest due at the end of the last statement, i.e,, the just completed statement period.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
-		
 	</xs:complexType>
 
 	<xs:complexType name="InvestmentMeta">
