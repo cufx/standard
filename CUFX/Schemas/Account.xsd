@@ -439,6 +439,25 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="AccountMicrList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of account MICR's that should have their associated accounts either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="micrAccountNumber" type="MicrAccountNumber" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            An account MICR that should have its associated accounts either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="AccountBase">
     <xs:sequence>
       <xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
@@ -577,8 +596,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-          The account ID is a persistent and unique identifier for the account.
-          It must be unique for all users across the institution and remain the same over the life of the account.
+          The account number portion of a draft or line of credit MICR line.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>

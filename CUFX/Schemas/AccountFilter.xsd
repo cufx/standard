@@ -123,7 +123,17 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:sequence>
+      
+      <xs:element name="accountMicrList" type="account:AccountMicrList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of account MICR's that should have their associated accounts either returned or affected
+            by a read, update or delete account request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:sequence>
 	</xs:complexType>
 
 </xs:schema>
