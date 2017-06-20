@@ -296,6 +296,29 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent statement
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
@@ -408,7 +431,14 @@
             The amount of interest paid in the previous year
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
@@ -472,6 +502,29 @@
         <xs:annotation>
           <xs:documentation>
             This is the amount of the last interest/dividends posted to the account.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent statement
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -584,6 +637,29 @@
         <xs:annotation>
           <xs:documentation>
             The loan payment frequency
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent statement
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the previous statment
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
