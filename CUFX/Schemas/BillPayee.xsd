@@ -245,14 +245,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs="1" maxOccurs="1">
+      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The amount for the next payment amount for the Payee in a recurring payment scenario.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="isRecurringPaymentEnabled" type="xs:boolean" minOccurs="1" maxOccurs="1">
+      <xs:element name="isRecurringPaymentEnabled" type="xs:boolean" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             True if Payee is setup for recurring payments.
