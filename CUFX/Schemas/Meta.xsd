@@ -528,6 +528,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="apy" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Annual percentage yield.
+            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
@@ -663,6 +672,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Calculated annual percentage rate (APR).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
