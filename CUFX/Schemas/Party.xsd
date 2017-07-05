@@ -63,10 +63,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="irs" type="Irs" minOccurs ="0" maxOccurs ="1">
+			<xs:element name= "taxInformationList" type ="TaxInformationList">
 				<xs:annotation>
 					<xs:documentation>
-						List of fields related to IRS reporting for the party.
+						The tax information collection/array contains all the tax identifiers for a party.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -233,19 +233,18 @@
 
 	</xs:complexType>
 
-	<xs:complexType name ="Irs">
+	<xs:complexType name ="TaxInformation">
 		<xs:sequence>
 			<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
 						or the organizational Employer Identification Number (EIN).
-						Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits.
-						i.e. 9-digit string with no dashes and zero-filled.
+						Data validation is the responsibility of the receiving application.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
+			
 			<xs:element name="taxIdEncrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -262,6 +261,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						Identifies what type of tax ID is in the taxId field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="otherTaxIdType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of other tax id when taxIdType is equal to 'Other'.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -425,6 +432,7 @@
 			<xs:enumeration value="PreparerTaxpayerIdentificationNumber" />
 			<xs:enumeration value="ForeignNational" />
 			<xs:enumeration value="ForeignNumberNoTIN" />
+			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -696,6 +704,18 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="TaxInformationList">
+		<xs:annotation>
+			<xs:documentation>
+				The tax information collection/array contains all the tax identifiers for a party.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="taxInformation" type="TaxInformation" minOccurs="0" maxOccurs="unbounded">
+			</xs:element >
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="EmploymentList">
 		<xs:annotation>
 			<xs:documentation>
@@ -1529,14 +1549,11 @@
 	<xs:simpleType name="TaxId">
 		<xs:annotation>
 			<xs:documentation>
-				Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-				or the organizational Employer Identification Number (EIN).
-				Does NOT include dashes.  Typically stored in back end systems as 9 consecutive digits,
-				i.e. 9-digit string with no dashes and zero-filled.
+				Individual Social Security Number (SSN), Individual Tax Payer Number (TIN),
+				the organizational Employer Identification Number (EIN), or other international Tax ID.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:token">
-			<xs:pattern value="[0-9]{9}"/>
+		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
 
