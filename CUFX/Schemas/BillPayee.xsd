@@ -110,21 +110,21 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						True for electronic processing of payments. False for sending a paper check.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="isEBillProvider" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element name="isEBillProvider" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						True for payees that are providing ebills. False for payees that send a paper bill.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-  		<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="1" maxOccurs="1">
+  		<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
