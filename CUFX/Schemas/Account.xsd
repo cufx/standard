@@ -492,6 +492,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			<xs:element name="accountStatus" type="AccountStatus"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status of the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
       <xs:element name="micrAccountNumber" type="MicrAccountNumber"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -612,4 +619,132 @@
       </xs:annotation>
     </xs:restriction>
   </xs:simpleType>
+
+	<xs:simpleType name="AccountStatus">
+		<xs:annotation>
+			<xs:documentation>
+				This is enumeration of statuses for an Account.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active">
+				<xs:annotation>
+					<xs:documentation>
+						The account is active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Archived">
+				<xs:annotation>
+					<xs:documentation>
+						The account is archived.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed">
+				<xs:annotation>
+					<xs:documentation>
+						The account is closed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClosedReopenDeposit">
+				<xs:annotation>
+					<xs:documentation>
+						The account is closed reopened for deposit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClosedToday">
+				<xs:annotation>
+					<xs:documentation>
+						The account is ClosedToday.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClosedToPosting">
+				<xs:annotation>
+					<xs:documentation>
+						The account is closed to posting.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dormant">
+				<xs:annotation>
+					<xs:documentation>
+						The account is dormant.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Escheat">
+				<xs:annotation>
+					<xs:documentation>
+						The account is in Escheat.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Inactive">
+				<xs:annotation>
+					<xs:documentation>
+						The account is inactive.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Matured">
+				<xs:annotation>
+					<xs:documentation>
+						The account has matured.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NewThisMonth">
+				<xs:annotation>
+					<xs:documentation>
+						The account is new this month.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NoDebitPost">
+				<xs:annotation>
+					<xs:documentation>
+						The account is no debit post.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open">
+				<xs:annotation>
+					<xs:documentation>
+						The account is open.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pending">
+				<xs:annotation>
+					<xs:documentation>
+						The account is pending.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Purge">
+				<xs:annotation>
+					<xs:documentation>
+						The account is pending purge.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AccountStatusList">
+		<xs:sequence>
+			<xs:element name="accountStatus" type="AccountStatus" minOccurs="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account Statuses to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 </xs:schema>
