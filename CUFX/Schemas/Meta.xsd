@@ -318,6 +318,16 @@
             The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
           </xs:documentation>
         </xs:annotation>
+      </xs:element>
+      <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Interest Rate earned by the investment.
+            Determines the amount earned each time period based on the period.
+            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+            Decimals available: 999.999
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>      
     </xs:sequence>
 	</xs:complexType>
