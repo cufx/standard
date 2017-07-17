@@ -627,232 +627,151 @@
     </xs:restriction>
   </xs:simpleType>
 
-	<xs:simpleType name="AccountStatus">
-		<xs:annotation>
-			<xs:documentation>
-				This is enumeration of statuses for an Account.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active">
+	<xs:complexType name="AccountStatus">
+		<xs:choice>
+			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
 				<xs:annotation>
 					<xs:documentation>
-						The account is active.
+						Current status if account is a deposit
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Approved">
+			</xs:element>
+			<xs:element name="investmentStatus" type="InvestmentStatus">
 				<xs:annotation>
 					<xs:documentation>
-						The account has been approved.
+						Current status if account is an investment
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Archived">
+			</xs:element>
+			<xs:element name="loanAccountStatus" type ="LoanAccountStatus">
 				<xs:annotation>
 					<xs:documentation>
-						The account is archived.
+						Current status if account is a loan
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Assumed">
-				<xs:annotation>
-					<xs:documentation>
-						The account is assumed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Chargeoff">
-				<xs:annotation>
-					<xs:documentation>
-						The account is in chargeoff.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Closed">
-				<xs:annotation>
-					<xs:documentation>
-						The account is closed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ClosedBalancesRemaining">
-				<xs:annotation>
-					<xs:documentation>
-						The account is closed with balances remaining.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ClosedReadyToPurge">
-				<xs:annotation>
-					<xs:documentation>
-						The account is closed ready for purge.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ClosedReopenDeposit">
-				<xs:annotation>
-					<xs:documentation>
-						The account is closed reopened for deposit.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ClosedToday">
-				<xs:annotation>
-					<xs:documentation>
-						The account is ClosedToday.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ClosedToPosting">
-				<xs:annotation>
-					<xs:documentation>
-						The account is closed to posting.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Dormant">
-				<xs:annotation>
-					<xs:documentation>
-						The account is dormant.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Escheat">
-				<xs:annotation>
-					<xs:documentation>
-						The account is in Escheat.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Inactive">
-				<xs:annotation>
-					<xs:documentation>
-						The account is inactive.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="LoanDenied">
-				<xs:annotation>
-					<xs:documentation>
-						The account is loan denied.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Matured">
-				<xs:annotation>
-					<xs:documentation>
-						The account has matured.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="NewThisMonth">
-				<xs:annotation>
-					<xs:documentation>
-						The account is new this month.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="NoDebitPost">
-				<xs:annotation>
-					<xs:documentation>
-						The account is no debit post.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="NonAccrual">
-				<xs:annotation>
-					<xs:documentation>
-						The account is non-accrual.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Open">
-				<xs:annotation>
-					<xs:documentation>
-						The account is open.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Orginating">
-				<xs:annotation>
-					<xs:documentation>
-						The account is originating.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>
-						Other status not defined by enueration
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Pending">
-				<xs:annotation>
-					<xs:documentation>
-						The account is pending.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Preallocated">
-				<xs:annotation>
-					<xs:documentation>
-						The account has a preallocated account number and is unopened.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Purge">
-				<xs:annotation>
-					<xs:documentation>
-						The account is pending purge.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Repossession">
-				<xs:annotation>
-					<xs:documentation>
-						The account is in repossession.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Reserved">
-				<xs:annotation>
-					<xs:documentation>
-						The account is reserved, not available for use.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SetupInProgress">
-				<xs:annotation>
-					<xs:documentation>
-						The account is setup in progress.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SpecialProcessing">
-				<xs:annotation>
-					<xs:documentation>
-						The account is in special processing.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Unopened">
-				<xs:annotation>
-					<xs:documentation>
-						The account is unopened.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	
 	<xs:complexType name="AccountStatusList">
 		<xs:sequence>
 			<xs:element name="accountStatus" type="AccountStatus" minOccurs="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of account Statuses to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="DepositAccountStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="ClosedReadyToPurge" />
+			<xs:enumeration value="Dormant" />
+			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Incomplete" />
+			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Matured" />
+			<xs:enumeration value="Open" />
+			<xs:enumeration value="Opening" />
+			<xs:enumeration value="Other" />		
+			<xs:enumeration value="RenewPending" />
+			<xs:enumeration value="Reserved" />
+			<xs:enumeration value="Restricted" />
+			<xs:enumeration value="Unfunded" />
+			<xs:enumeration value="UnOpened" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="DepositAccountStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of deposit account statuses that should have their associated deposit accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="depositAccountStatus" type="DepositAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Deposit account status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="InvestmentStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="Dormant" />
+			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Incomplete" />
+			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Other" />
+			<xs:enumeration value="Restricted" />
+			<xs:enumeration value="Unfunded" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="InvestmentStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Investment statuses that should have their associated Investments either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The investment status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="LoanAccountStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Active" />
+			<xs:enumeration value="Approved" />
+			<xs:enumeration value="ChargeOff" />
+			<xs:enumeration value="Closed" />
+			<xs:enumeration value="ClosedRemainin	gBalances" />
+			<xs:enumeration value="Dormant" />
+			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Incomplete" />
+			<xs:enumeration value="InRepossession" />
+			<xs:enumeration value="LoanDenied" />
+			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Matured" />
+			<xs:enumeration value="Other" />
+			<xs:enumeration value="Preallocated" />
+			<xs:enumeration value="RenewPending" />
+			<xs:enumeration value="SetupInProcess" />
+			<xs:enumeration value="SpecialProcessing" />
+			<xs:enumeration value="Restricted" />
+			<xs:enumeration value="Unfunded" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="LoanAccountStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan account statuses that should have their associated loan accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="loanAccountStatus" type="LoanAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Loan account status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

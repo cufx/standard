@@ -80,7 +80,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs="0" maxOccurs="1">
+					<xs:element name="investmentStatus" type="account:InvestmentStatus" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Status of the investment.
@@ -97,38 +97,6 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>
-
-	
-	<xs:simpleType name="InvestmentStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="InvestmentStatusList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of Investment statuses that should have their associated Investments either returned or affected
-				by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						The investment status.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="InvestmentPartyList">

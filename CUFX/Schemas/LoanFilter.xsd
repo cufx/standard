@@ -47,7 +47,7 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="loanAccountStatusList" type="loan:LoanAccountStatusList" minOccurs ="0" maxOccurs ="1">
+					<xs:element name="loanAccountStatusList" type="account:LoanAccountStatusList" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								The list of loan account statuses that should have their associated loan accounts either returned or affected

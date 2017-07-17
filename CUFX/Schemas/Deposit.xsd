@@ -172,7 +172,7 @@
               </xs:documentation>
             </xs:annotation>
           </xs:element>
-					<xs:element name="depositAccountStatus" type="DepositAccountStatus" minOccurs="0" maxOccurs="1">
+					<xs:element name="depositAccountStatus" type="account:DepositAccountStatus" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Status of the Deposit Account.
@@ -228,39 +228,6 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-
-	<xs:simpleType name="DepositAccountStatus">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Matured" />
-			<xs:enumeration value="RenewPending" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="DepositAccountStatusList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of deposit account statuses that should have their associated deposit accounts either returned or affected
-				by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="depositAccountStatus" type="DepositAccountStatus" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Deposit account status.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
   
   <xs:simpleType name="MaturityPostCodeType">
     <xs:annotation>
