@@ -80,20 +80,6 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="investmentStatus" type="account:InvestmentStatus" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Status of the investment.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="investmentSubStatus" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								For use to support additional investment statuses and sub status not present in enumerations.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
