@@ -40,15 +40,6 @@
       <xs:extension base="accountfilter:AccountFilter">
         <xs:sequence>
 					
-					<xs:element name="depositAccountStatusList" type="account:DepositAccountStatusList" minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The list of deposit account statuses that should have their associated deposit accounts either returned or affected
-								by a read, update or delete request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					
           <xs:element name="maturityStartDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
             <xs:annotation>
               <xs:documentation>
