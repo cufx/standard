@@ -62,6 +62,15 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="accountSubStatusList" type="account:AccountSubStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account sub statuses that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>

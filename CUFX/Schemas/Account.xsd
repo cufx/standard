@@ -506,7 +506,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="micrAccountNumber" type="MicrAccountNumber"  minOccurs="0" maxOccurs="1">
+			<xs:element name="accountSubStatus" type="AccountSubStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For use to support additional acount statuses and sub status not present in enumerations.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="micrAccountNumber" type="MicrAccountNumber"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The account number portion of a draft or line of credit MICR line.
@@ -668,15 +675,18 @@
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
+			<xs:enumeration value="Approved" />
 			<xs:enumeration value="Closed" />
 			<xs:enumeration value="ClosedReadyToPurge" />
 			<xs:enumeration value="Dormant" />
 			<xs:enumeration value="Escheated" />
+			<xs:enumeration value="Inactive" />
 			<xs:enumeration value="Incomplete" />
 			<xs:enumeration value="Locked" />
 			<xs:enumeration value="Matured" />
 			<xs:enumeration value="Open" />
 			<xs:enumeration value="Opening" />
+			<xs:enumeration value="Originating" />
 			<xs:enumeration value="Other" />		
 			<xs:enumeration value="RenewPending" />
 			<xs:enumeration value="Reserved" />
@@ -712,6 +722,7 @@
 			<xs:enumeration value="Escheated" />
 			<xs:enumeration value="Incomplete" />
 			<xs:enumeration value="Locked" />
+			<xs:enumeration value="Originating" />
 			<xs:enumeration value="Other" />
 			<xs:enumeration value="Restricted" />
 			<xs:enumeration value="Unfunded" />
@@ -742,7 +753,7 @@
 			<xs:enumeration value="Approved" />
 			<xs:enumeration value="ChargeOff" />
 			<xs:enumeration value="Closed" />
-			<xs:enumeration value="ClosedRemainin	gBalances" />
+			<xs:enumeration value="ClosedRemainingBalances" />
 			<xs:enumeration value="Dormant" />
 			<xs:enumeration value="Escheated" />
 			<xs:enumeration value="Incomplete" />
@@ -750,6 +761,8 @@
 			<xs:enumeration value="LoanDenied" />
 			<xs:enumeration value="Locked" />
 			<xs:enumeration value="Matured" />
+			<xs:enumeration value="NonAccrual" />
+			<xs:enumeration value="Originating" />		
 			<xs:enumeration value="Other" />
 			<xs:enumeration value="Preallocated" />
 			<xs:enumeration value="RenewPending" />
@@ -782,7 +795,7 @@
     <xs:restriction base="xs:string">
       <xs:annotation>
         <xs:documentation>
-         This is an implemention defined status for an account when AccountStatus is set to other.
+         This is an implemention defined status for an account when AccountStatus is set to 'Other'.
         </xs:documentation>
       </xs:annotation>
     </xs:restriction>
@@ -799,5 +812,27 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
+	<xs:simpleType name="AccountSubStatus">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					For use to support additional acount sub statuses not present in enumerations.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AccountSubStatusList">
+		<xs:sequence>
+			<xs:element name="accountSubStatus" type="AccountSubStatus" minOccurs="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account sub statuses to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>
