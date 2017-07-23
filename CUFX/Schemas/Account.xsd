@@ -684,11 +684,14 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<!--
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
 	</xs:simpleType>
+-->
 
-	<xs:simpleType name="DepositAccountStatusBase">
+<!--	<xs:simpleType name="DepositAccountStatusBase"> -->
+		<xs:simpleType name="DepositAccountStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
 			<xs:enumeration value="Approved" />
