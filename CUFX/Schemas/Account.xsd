@@ -629,27 +629,34 @@
 
 	<xs:complexType name="AccountStatus">
 		<xs:choice>
-			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
+			<xs:element name="depositAccountStatus" type="DepositAccountStatusBase">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a deposit
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentStatus" type="InvestmentStatus">
+			<xs:element name="investmentStatus" type="InvestmentStatusBase">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is an investment
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="loanAccountStatus" type ="LoanAccountStatus">
+			<xs:element name="loanAccountStatus" type ="LoanAccountStatusBase">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a loan
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="customAccountStatus" type ="CustomAccountStatus">
+				<xs:annotation>
+					<xs:documentation>
+						Current status if account is a loan
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>			
 		</xs:choice>
 	</xs:complexType>
 
@@ -683,11 +690,11 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
+<!--
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
 	</xs:simpleType>
-
+-->
 	<xs:simpleType name="DepositAccountStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
@@ -711,11 +718,11 @@
 			<xs:enumeration value="UnOpened" />
 		</xs:restriction>
 	</xs:simpleType>
-
+<!--
 	<xs:simpleType name="InvestmentStatus">
 		<xs:union memberTypes="InvestmentStatusBase CustomAccountStatus" />
 	</xs:simpleType>
-	
+-->	
 	<xs:simpleType name="InvestmentStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
@@ -730,11 +737,11 @@
 			<xs:enumeration value="Unfunded" />
 		</xs:restriction>
 	</xs:simpleType>
-
+<!--
 	<xs:simpleType name="LoanAccountStatus">
 		<xs:union memberTypes="LoanAccountStatusBase CustomAccountStatus" />
   </xs:simpleType>
-
+-->
 	<xs:simpleType name="LoanAccountStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
