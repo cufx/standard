@@ -502,7 +502,7 @@
 			<xs:element name="accountSubStatus" type="AccountSubStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The sub status of the account by account status. 
+						The sub status of the account by account status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -670,14 +670,14 @@
 			<xs:element name="accountStatus" type="AccountStatus" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						 Account Status to return in a filter request.
+						Account Status to return in a filter request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="accountSubStatus" type="AccountSubStatus" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						 Account Sub Status to return in a filter request.
+						Account Sub Status to return in a filter request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -685,90 +685,87 @@
 	</xs:complexType>
 
 	<xs:simpleType name="DepositAccountStatus">
-		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
-	</xs:simpleType>
-
-	<xs:simpleType name="DepositAccountStatusBase">
+		<xs:annotation>
+			<xs:documentation>
+				Account status related to deposit account.
+				custom:\w+ A string value that must contain a "custom:" prefix
+			</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Approved" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="ClosedReadyToPurge" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Inactive" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Matured" />
-			<xs:enumeration value="Open" />
-			<xs:enumeration value="Opening" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="RenewPending" />
-			<xs:enumeration value="Reserved" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-			<xs:enumeration value="UnOpened" />
+			<xs:pattern value="Active" />
+			<xs:pattern value="Approved" />
+			<xs:pattern value="Closed" />
+			<xs:pattern value="ClosedReadyToPurge" />
+			<xs:pattern value="Dormant" />
+			<xs:pattern value="Escheated" />
+			<xs:pattern value="Inactive" />
+			<xs:pattern value="Incomplete" />
+			<xs:pattern value="Locked" />
+			<xs:pattern value="Matured" />
+			<xs:pattern value="Open" />
+			<xs:pattern value="Opening" />
+			<xs:pattern value="Originating" />
+			<xs:pattern value="Other" />
+			<xs:pattern value="RenewPending" />
+			<xs:pattern value="Reserved" />
+			<xs:pattern value="Restricted" />
+			<xs:pattern value="Unfunded" />
+			<xs:pattern value="UnOpened" />
+			<xs:pattern value="custom:\w+"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="InvestmentStatus">
-		<xs:union memberTypes="InvestmentStatusBase CustomAccountStatus" />
-	</xs:simpleType>
-	
-	<xs:simpleType name="InvestmentStatusBase">
+		<xs:annotation>
+			<xs:documentation>
+				Account status related to investment account.
+				custom:\w+ A string value that must contain a "custom:" prefix
+			</xs:documentation>
+		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
+			<xs:pattern value="Active" />
+			<xs:pattern value="Closed" />
+			<xs:pattern value="Dormant" />
+			<xs:pattern value="Escheated" />
+			<xs:pattern value="Incomplete" />
+			<xs:pattern value="Locked" />
+			<xs:pattern value="Originating" />
+			<xs:pattern value="Other" />
+			<xs:pattern value="Restricted" />
+			<xs:pattern value="Unfunded" />
+			<xs:pattern value="custom:\w+"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="LoanAccountStatus">
-		<xs:union memberTypes="LoanAccountStatusBase CustomAccountStatus" />
-  </xs:simpleType>
-
-	<xs:simpleType name="LoanAccountStatusBase">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Approved" />
-			<xs:enumeration value="ChargeOff" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="ClosedRemainingBalances" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="InRepossession" />
-			<xs:enumeration value="LoanDenied" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Matured" />
-			<xs:enumeration value="NonAccrual" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="Preallocated" />
-			<xs:enumeration value="RenewPending" />
-			<xs:enumeration value="SetupInProcess" />
-			<xs:enumeration value="SpecialProcessing" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="CustomAccountStatus">
 		<xs:annotation>
 			<xs:documentation>
-				A Generic account status unique to the institution or product.
-				A string value that must contain a "custom:" prefix.
+				Account status related to loan account.
+				custom:\w+ A string value that must contain a "custom:" prefix
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+			<xs:pattern value="Active" />
+			<xs:pattern value="Approved" />
+			<xs:pattern value="ChargeOff" />
+			<xs:pattern value="Closed" />
+			<xs:pattern value="ClosedRemainingBalances" />
+			<xs:pattern value="Dormant" />
+			<xs:pattern value="Escheated" />
+			<xs:pattern value="Incomplete" />
+			<xs:pattern value="InRepossession" />
+			<xs:pattern value="LoanDenied" />
+			<xs:pattern value="Locked" />
+			<xs:pattern value="Matured" />
+			<xs:pattern value="NonAccrual" />
+			<xs:pattern value="Originating" />
+			<xs:pattern value="Other" />
+			<xs:pattern value="Preallocated" />
+			<xs:pattern value="RenewPending" />
+			<xs:pattern value="SetupInProcess" />
+			<xs:pattern value="SpecialProcessing" />
+			<xs:pattern value="Restricted" />
+			<xs:pattern value="Unfunded" />
 			<xs:pattern value="custom:\w+"/>
 		</xs:restriction>
 	</xs:simpleType>
