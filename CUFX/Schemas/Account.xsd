@@ -650,13 +650,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="customAccountStatus" type ="CustomAccountStatus">
-				<xs:annotation>
-					<xs:documentation>
-						Custom account status 
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>	
 		</xs:choice>
 	</xs:complexType>
 
@@ -691,14 +684,11 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<!--
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
 	</xs:simpleType>
--->
 
-<!--	<xs:simpleType name="DepositAccountStatusBase"> -->
-		<xs:simpleType name="DepositAccountStatus">
+	<xs:simpleType name="DepositAccountStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
 			<xs:enumeration value="Approved" />
@@ -722,13 +712,11 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-<!--
 	<xs:simpleType name="InvestmentStatus">
 		<xs:union memberTypes="InvestmentStatusBase CustomAccountStatus" />
 	</xs:simpleType>
--->
 	
-	<xs:simpleType name="InvestmentStatus">
+	<xs:simpleType name="InvestmentStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
 			<xs:enumeration value="Closed" />
@@ -742,14 +730,12 @@
 			<xs:enumeration value="Unfunded" />
 		</xs:restriction>
 	</xs:simpleType>
-	
-<!--
+
 	<xs:simpleType name="LoanAccountStatus">
 		<xs:union memberTypes="LoanAccountStatusBase CustomAccountStatus" />
   </xs:simpleType>
--->
 
-	<xs:simpleType name="LoanAccountStatus">
+	<xs:simpleType name="LoanAccountStatusBase">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active" />
 			<xs:enumeration value="Approved" />
