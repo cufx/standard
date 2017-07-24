@@ -629,7 +629,7 @@
 
 	<xs:complexType name="AccountStatus">
 		<xs:choice>
-			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
+			<xs:element name="depositAccountStatus" type="DepositAccountStatus2">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a deposit
@@ -687,6 +687,14 @@
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
 	</xs:simpleType>
+
+	<xs:complexType name="DepositAccountStatus2">
+	    <xsd:simpleContent>
+        <xsd:extension base="DepositAccountStatusBase">
+            <xsd:attribute name="customAccountStatus" type="CustomAccountStatus"/>
+        </xsd:extension>
+		</xsd:simpleContent>
+	</xs:complexType>
 
 	<xs:simpleType name="DepositAccountStatusBase">
 		<xs:restriction base="xs:string">
