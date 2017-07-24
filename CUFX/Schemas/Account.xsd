@@ -683,11 +683,11 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
+<!--
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:union memberTypes="DepositAccountStatusBase CustomAccountStatus" />
 	</xs:simpleType>
-
+-->
 	<xs:complexType name="DepositAccountStatus2">
 	    <xsd:simpleContent>
         <xsd:extension base="DepositAccountStatusBase">
