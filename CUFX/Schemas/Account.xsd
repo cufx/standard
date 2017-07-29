@@ -691,25 +691,139 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Approved" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="ClosedReadyToPurge" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Inactive" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Matured" />
-			<xs:enumeration value="Open" />
-			<xs:enumeration value="Opening" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="RenewPending" />
-			<xs:enumeration value="Reserved" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
-			<xs:enumeration value="UnOpened" />
+			<xs:enumeration value="Active" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open and active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been approved, not yet active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been closed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClosedReadyToPurge" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is closed and ready to be purged.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dormant" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open, but is dormant due to inactivity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Escheated" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is escheated.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Inactive" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open and Inactive.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Incomplete" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is not open or active, and is incomplete.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is locked.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Matured" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has matured due to conditions being reached. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Open" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open and active.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Opening" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is opening, not yet active.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Originating" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is originating, not yet active.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in a status not defined by enumerations. See AccountSubStatus.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RenewPending" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is pending renewal.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Reserved" >
+				<xs:annotation>
+					<xs:documentation>
+						Account and or account number is reserved from use. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Restricted" >
+				<xs:annotation>
+					<xs:documentation>
+						Account and or account number is restricted from use.   
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unfunded" >
+				<xs:annotation>
+					<xs:documentation>
+						Account unfunded or underfunded.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UnOpened" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is active, but has not been opened. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -720,17 +834,76 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="Matured" />			
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
+			<xs:enumeration value="Active" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open and active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been closed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dormant" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open, but is dormant due to inactivity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Escheated" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is escheated.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Incomplete" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is not open or active, and is incomplete.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is locked.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Originating" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is originating, not yet active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in a status not defined by enumerations. See AccountSubStatus.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Restricted" >
+				<xs:annotation>
+					<xs:documentation>
+						Account and or account number is restricted from use.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unfunded" >
+				<xs:annotation>
+					<xs:documentation>
+						Account unfunded or underfunded.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -741,27 +914,153 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Active" />
-			<xs:enumeration value="Approved" />
-			<xs:enumeration value="ChargeOff" />
-			<xs:enumeration value="Closed" />
-			<xs:enumeration value="ClosedRemainingBalances" />
-			<xs:enumeration value="Dormant" />
-			<xs:enumeration value="Escheated" />
-			<xs:enumeration value="Incomplete" />
-			<xs:enumeration value="InRepossession" />
-			<xs:enumeration value="LoanDenied" />
-			<xs:enumeration value="Locked" />
-			<xs:enumeration value="Matured" />
-			<xs:enumeration value="NonAccrual" />
-			<xs:enumeration value="Originating" />
-			<xs:enumeration value="Other" />
-			<xs:enumeration value="Preallocated" />
-			<xs:enumeration value="RenewPending" />
-			<xs:enumeration value="SetupInProcess" />
-			<xs:enumeration value="SpecialProcessing" />
-			<xs:enumeration value="Restricted" />
-			<xs:enumeration value="Unfunded" />
+			<xs:enumeration value="Active" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open and active. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been approved, not yet active. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ChargeOff" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in charge off.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Closed" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been closed.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ClosedRemainingBalances" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has been closed with remaining balances, open to accepting payments.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Dormant" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is open, but is dormant due to inactivity.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Escheated" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is escheated.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Incomplete" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is not open or active, and is Incomplete.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="InRepossession" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in repossession. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LoanDenied" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is not active, or open. Loan denied.   
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Locked" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is locked.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Matured" >
+				<xs:annotation>
+					<xs:documentation>
+						Account has matured due to conditions being reached. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NonAccrual" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is non accrual.   
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Originating" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is originating, not yet active.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in a status not defined by enumerations. See AccountSubStatus.    
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Preallocated" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is has been preallocated, not open or active.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RenewPending" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is pending renewal.   
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SetupInProcess" >
+				<xs:annotation>
+					<xs:documentation>
+						Account set up in process, not open or active.   
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SpecialProcessing" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is in special processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Restricted" >
+				<xs:annotation>
+					<xs:documentation>
+						Account and or account number is restricted from use.     
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Unfunded" >
+				<xs:annotation>
+					<xs:documentation>
+						Account unfunded or underfunded.    
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
