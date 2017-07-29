@@ -73,6 +73,15 @@
         </xs:annotation>
       </xs:element>
 
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account and account type pairs that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
       <xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -115,16 +124,6 @@
             The list of contact types that should have their associated parties either returned or affected
             by a read, update or delete party request. Supplemental list to contactIdList broaden the search criteria 
             for search by contact.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="accountList" type="account:AccountList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of accounts that should have their associated parties either returned or affected
-            by a read, update or delete party request. Supplemental list to accountIdList broaden the search criteria
-            for search by account.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
