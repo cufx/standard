@@ -251,7 +251,27 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="CustomData">
+  
+  <xs:complexType name="PersonNameList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of persons that should have their associated records either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="personName" type="PersonName" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            A Person that should have its associated records either returned or affected
+            by a read, update or delete request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="CustomData">
 		<xs:annotation>
 			<xs:documentation>
 				The custom data section allows the flexibility to add additional information to the message.
