@@ -470,7 +470,14 @@
             Calculated annual percentage rate (APR).
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of interest due.  Generally the amount of interest due as date of inquiry.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
