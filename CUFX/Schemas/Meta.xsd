@@ -224,6 +224,21 @@
             This is the amount of the loan balance and interest due at the end of the last statement, i.e,, the just completed statement period.
           </xs:documentation>
         </xs:annotation>
+      </xs:element>
+      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the next payment is due.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the next payment due.
+          </xs:documentation>
+        </xs:annotation>
       </xs:element>      
     </xs:sequence>
 	</xs:complexType>
@@ -695,7 +710,22 @@
             Calculated annual percentage rate (APR).
           </xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
+      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the next payment is due.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the next payment due.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
@@ -805,6 +835,21 @@
           <xs:documentation>
             The date of the previous statment
             The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date that the next payment is due.
+            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The amount of the next payment due.
           </xs:documentation>
         </xs:annotation>
       </xs:element>

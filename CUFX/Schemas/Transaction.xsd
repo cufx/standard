@@ -181,8 +181,15 @@
 									How much of a loan payment was applied toward escrow
 								</xs:documentation>
 							</xs:annotation>
-						</xs:element>						
-						<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+						</xs:element>
+            <xs:element name="memoPosted" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+              <xs:annotation>
+                <xs:documentation>
+                  Set to 'true' if transaction was posted during memo mode. 
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 							<xs:annotation>
 								<xs:documentation>
 									Transaction level name/data pairs list of fields that are not yet available in the general specification.
@@ -255,7 +262,8 @@
 			<xs:enumeration value ="Ach" />
 			<xs:enumeration value ="Atm" />
 			<xs:enumeration value ="BillPay" />
-			<xs:enumeration value ="BulkDeposit" />
+      <xs:enumeration value ="Branch" />
+      <xs:enumeration value ="BulkDeposit" />
 			<xs:enumeration value ="Cash" />
 			<xs:enumeration value ="Check" />
 			<xs:enumeration value ="Fee" />
