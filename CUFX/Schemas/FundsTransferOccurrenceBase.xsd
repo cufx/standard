@@ -213,10 +213,18 @@
 			<xs:enumeration value="CheckWithdrawal">
 				<xs:annotation>
 					<xs:documentation>
-						Tranfer funds to a check. For example, member requests a check payable to the member to be mailed to the member's home address.    
+						Transfer funds to a check. For example, member requests a check payable to the member to be mailed to the member's home address.    
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-		</xs:restriction>
+      <xs:enumeration value="AccountValidation">
+        <xs:annotation>
+          <xs:documentation>
+            Transfer funds to an account at another financial institution for purposes of validating the external account.
+            For example, use with account micro deposits via ACH.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
 	</xs:simpleType>
 </xs:schema>
