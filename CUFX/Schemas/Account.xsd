@@ -807,13 +807,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Originating" >
-				<xs:annotation>
-					<xs:documentation>
-						Account is originating, not yet active.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value="Other" >
 				<xs:annotation>
 					<xs:documentation>
@@ -846,13 +839,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						Account unfunded or underfunded.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="UnOpened" >
-				<xs:annotation>
-					<xs:documentation>
-						Account is active, but has not been opened.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1096,7 +1082,7 @@
 			<xs:enumeration value="Unfunded" >
 				<xs:annotation>
 					<xs:documentation>
-						Account unfunded or underfunded.
+						Account is not yet funded.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
