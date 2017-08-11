@@ -240,14 +240,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="currentDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current due amount as a sum of the minimum payment plus any associated fees, and/or intyerest calcualtions.
-            Typically at the time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
     </xs:sequence>
 	</xs:complexType>
 
@@ -483,14 +475,6 @@
         <xs:annotation>
           <xs:documentation>
             The amount of interest due.  Generally the amount of interest due as date of inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="currentDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current due amount as a sum of the minimum payment plus any associated fees, and/or intyerest calcualtions.
-            Typically at the time of the inquiry.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -749,14 +733,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="currentDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current due amount as a sum of the minimum payment plus any associated fees, and/or intyerest calcualtions.
-            Typically at the time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
     </xs:sequence>
 	</xs:complexType>
 
@@ -884,14 +860,5 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="currentDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current due amount as a sum of the minimum payment plus any associated fees, and/or intyerest calcualtions.
-            Typically at the time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
 	</xs:complexType>
 </xs:schema>
