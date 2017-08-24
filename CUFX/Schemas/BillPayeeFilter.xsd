@@ -78,7 +78,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="isElectronic" type="xs:boolean" minOccurs="1" maxOccurs="1">
+			<xs:element name="isElectronic" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						True for electronic processing. False for sending a paper check.
