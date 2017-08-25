@@ -73,6 +73,15 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account statuses and sub statuses that should have their associated device records either returned or affected
+						by a read, update or request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="encryptedFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

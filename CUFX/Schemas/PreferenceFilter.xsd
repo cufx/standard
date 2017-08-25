@@ -71,7 +71,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
+			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account statuses and sub statuses that should have their associated preferences either returned or affected
+						by a read, update or delete preference request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
       <xs:element name="cardIdList" type="card:CardIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
