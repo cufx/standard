@@ -137,7 +137,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="reviewerGender" type="xs:string"  minOccurs="0" maxOccurs="1">
+      <xs:element name="reviewerGender" type="common:Gender"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             The gender of the reviewer.

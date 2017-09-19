@@ -606,19 +606,12 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="gender" minOccurs="0" maxOccurs="1">
+			<xs:element name="gender" type="common:Gender" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Gender of the party.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Male" />
-						<xs:enumeration value="Female" />
-						<xs:enumeration value="Other" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
 			<xs:element name="cityOfBirth" type="xs:string" minOccurs="0" maxOccurs="1">

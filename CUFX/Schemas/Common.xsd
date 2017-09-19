@@ -692,4 +692,12 @@
 			<xs:enumeration value="WeeklySkipLast" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="Gender">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Male" />
+			<xs:enumeration value="Female" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
