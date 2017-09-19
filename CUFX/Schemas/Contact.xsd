@@ -175,38 +175,12 @@
 			</xs:annotation>
 			<xs:extension base="common:Address">
 				<xs:sequence>
-					<xs:element name="type"  minOccurs="0" maxOccurs="1">
+					<xs:element name="type"  type="AddressType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Address Type.
 							</xs:documentation>
 						</xs:annotation>
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="Home" />
-								<xs:enumeration value="Work" />
-								<xs:enumeration value="Mailing" />
-								<xs:enumeration value="Previous" />
-								<xs:enumeration value="Temporary">
-									<xs:annotation>
-										<xs:documentation>
-											The temporary address overrides the home address when
-											effective/expiration dates signal that temporary address
-											is effective.
-										</xs:documentation>
-									</xs:annotation>
-								</xs:enumeration>
-								<xs:enumeration value="CTR">
-									<xs:annotation>
-										<xs:documentation>
-											CTR (Cash Transaction Report) address is used if the
-											CTR address is different than the primary address.
-										</xs:documentation>
-									</xs:annotation>
-								</xs:enumeration >
-								<xs:enumeration value="Other" />
-							</xs:restriction>
-						</xs:simpleType>
 					</xs:element>
 
 					<xs:element name="effectiveDateTime" type="xs:dateTime"  minOccurs="0" maxOccurs="1">
@@ -446,6 +420,38 @@
 			<xs:enumeration value="Afternoon"/>
 			<xs:enumeration value="Evening"/>
 			<xs:enumeration value="Morning"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AddressType">
+		<xs:annotation>
+			<xs:documentation>
+				Address Type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Home" />
+			<xs:enumeration value="Work" />
+			<xs:enumeration value="Mailing" />
+			<xs:enumeration value="Previous" />
+			<xs:enumeration value="Temporary">
+				<xs:annotation>
+					<xs:documentation>
+						The temporary address overrides the home address when
+						effective/expiration dates signal that temporary address
+						is effective.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CTR">
+				<xs:annotation>
+					<xs:documentation>
+						CTR (Cash Transaction Report) address is used if the
+						CTR address is different than the primary address.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
 
