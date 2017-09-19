@@ -250,22 +250,12 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="type"  minOccurs="0" maxOccurs="1">
+			<xs:element name="type"  type="PhoneType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Phone Type.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Home" />
-						<xs:enumeration value="Work" />
-						<xs:enumeration value="Mobile" />
-						<xs:enumeration value="Pager" />
-						<xs:enumeration value="Fax" />
-						<xs:enumeration value="Other"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
 			<xs:element name="number" type="xs:string"  minOccurs="0" maxOccurs="1">
@@ -319,19 +309,12 @@
 
 	<xs:complexType name="Email">
 		<xs:sequence>
-			<xs:element name="type"  minOccurs="0" maxOccurs="1">
+			<xs:element name="type" type="EmailType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Email Type.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Home" />
-						<xs:enumeration value="Work" />
-						<xs:enumeration value="Other" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
 			<xs:element name="address" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -420,6 +403,35 @@
 			<xs:enumeration value="Afternoon"/>
 			<xs:enumeration value="Evening"/>
 			<xs:enumeration value="Morning"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PhoneType">
+		<xs:annotation>
+			<xs:documentation>
+				Phone Type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Home" />
+			<xs:enumeration value="Work" />
+			<xs:enumeration value="Mobile" />
+			<xs:enumeration value="Pager" />
+			<xs:enumeration value="Fax" />
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="EmailType">
+		<xs:annotation>
+			<xs:documentation>
+				Email Type
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Home" />
+			<xs:enumeration value="Work" />
+			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
 
