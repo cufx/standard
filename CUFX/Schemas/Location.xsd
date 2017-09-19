@@ -44,7 +44,7 @@
 					A location such as an ATM or a branch.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="locationId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="locationId" type="LocationId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier for the location.
@@ -66,22 +66,12 @@
 					</xs:documentation>
 				</xs:annotation>				
 			</xs:element>
-			<xs:element name="type" minOccurs="0" maxOccurs ="1">
+			<xs:element name="type" type="LocationType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The type of location (e.g. ATM, branch).
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="ATM"></xs:enumeration>
-						<xs:enumeration value="SharedATM"></xs:enumeration>
-						<xs:enumeration value="Branch"></xs:enumeration>
-						<xs:enumeration value="SharedBranch"></xs:enumeration>
-						<xs:enumeration value="Kiosk"></xs:enumeration>
-						<xs:enumeration value="Other"></xs:enumeration>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="address" type="common:Address" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -111,7 +101,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:element name="depositTaking" type="DepositTaking" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Whether or not this location supports taking deposits.
@@ -142,6 +132,40 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:simpleType name ="LocationId">
+		<xs:annotation>
+			<xs:documentation>
+				A unique identifier for the location.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" ></xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="LocationType">
+		<xs:annotation>
+			<xs:documentation>
+				The type of location (e.g. ATM, branch).
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ATM"></xs:enumeration>
+			<xs:enumeration value="SharedATM"></xs:enumeration>
+			<xs:enumeration value="Branch"></xs:enumeration>
+			<xs:enumeration value="SharedBranch"></xs:enumeration>
+			<xs:enumeration value="Kiosk"></xs:enumeration>
+			<xs:enumeration value="Other"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name ="DepositTaking">
+		<xs:annotation>
+			<xs:documentation>
+				Whether or not this location supports taking deposits.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:boolean" ></xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="ServicesList">
 		<xs:sequence>
@@ -184,20 +208,12 @@
 					The location hours of an ATM or branch.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="locationHoursType" minOccurs="0" maxOccurs ="1">
+			<xs:element name="locationHoursType" type="LocationHoursType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						An optional indicator of the type of hours being described, i.e. lobby hours, drive-up hours, etc.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Lobby"></xs:enumeration>
-						<xs:enumeration value="DriveUp"></xs:enumeration>
-						<xs:enumeration value="ATM"></xs:enumeration>
-						<xs:enumeration value="Other"></xs:enumeration>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1"/>
 			<xs:element name="dayOfTheWeek" type="common:DayOfTheWeek" minOccurs="0" maxOccurs ="1"/>
@@ -207,4 +223,18 @@
 			<xs:element name="openAllDay" type="xs:boolean" minOccurs="0" maxOccurs ="1"/>
 		</xs:sequence>
 	</xs:complexType>
+
+	<xs:simpleType name="LocationHoursType">
+		<xs:annotation>
+			<xs:documentation>
+				An optional indicator of the type of hours being described, i.e. lobby hours, drive-up hours, etc.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Lobby"></xs:enumeration>
+			<xs:enumeration value="DriveUp"></xs:enumeration>
+			<xs:enumeration value="ATM"></xs:enumeration>
+			<xs:enumeration value="Other"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

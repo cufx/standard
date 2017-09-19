@@ -5,10 +5,12 @@
 	version="3.3.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:location="http://cufxstandards.com/v3/Location.xsd"
  	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Location.xsd" schemaLocation="Location.xsd" />
 
 	<xs:element name="locationFilter" type="LocationFilter">
 		<xs:annotation>
@@ -25,29 +27,19 @@
 					A location filter is used to query for locations near an address, for a given type, etc.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="locationId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="locationId" type="location:LocationId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier for the location.  Use this for trying to retrieve a single location.
 					</xs:documentation>
 				</xs:annotation>	
 			</xs:element>
-			<xs:element name="type" minOccurs="0" maxOccurs ="1">
+			<xs:element name="type" type="location:LocationType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The type of location (e.g. ATM, branch).
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="ATM"></xs:enumeration>
-						<xs:enumeration value="SharedATM"></xs:enumeration>
-						<xs:enumeration value="Branch"></xs:enumeration>
-						<xs:enumeration value="SharedBranch"></xs:enumeration>
-						<xs:enumeration value="Kiosk"></xs:enumeration>
-						<xs:enumeration value="Other"></xs:enumeration>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="searchFromAddress" type="common:Address" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -56,7 +48,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="depositTaking" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:element name="depositTaking" type="location:DepositTaking" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Whether or not to include only deposit-taking locations in the results.
