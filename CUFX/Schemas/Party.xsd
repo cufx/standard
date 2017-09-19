@@ -1397,99 +1397,119 @@
 
 	<xs:complexType name="IdDocumentType">
 		<xs:choice>
-			<xs:element name="individualDocument" minOccurs="0" maxOccurs="1">
+			<xs:element name="individualDocument" type="IndividualDocument" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Documentation type for individuals.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="DriversLicense" />
-						<xs:enumeration value="USPassport" />
-						<xs:enumeration value="MilitaryId" />
-						<xs:enumeration value="StateIssuedId" />
-						<xs:enumeration value="BirthCertficate" />
-						<xs:enumeration value="ForeignPassport" />
-						<xs:enumeration value="KnownExistingParty" />
-						<xs:enumeration value="ForeignGovernmentId" />
-						<xs:enumeration value="ResidentAlienCard" />
-						<xs:enumeration value="NonResidentAlienCard" />
-						<xs:enumeration value="DisabledElderlyWithNoId" />
-						<xs:enumeration value="ForeignEntityWithNoId" />
-						<xs:enumeration value="LawEnforcementId" />
-						<xs:enumeration value="AmishPartyWithNoId" />
-						<xs:enumeration value="ForeignDriversLicense" />
-						<xs:enumeration value="InsuranceCard" />
-						<xs:enumeration value="OrganizationalMembershipCard" />
-						<xs:enumeration value="PropertyTaxBill" />
-						<xs:enumeration value="SocialSecurityCard" />
-						<xs:enumeration value="StudentId" />
-						<xs:enumeration value="UtilityBill" />
-						<xs:enumeration value="Visa" />
-						<xs:enumeration value="DepartmentHomelandSecurityEmploymentAuthorization" />
-						<xs:enumeration value="VoterRegistrationCard" />
-						<xs:enumeration value="Photo" />
-						<xs:enumeration value="Other" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
-			<xs:element name="organizationDocument" minOccurs="0" maxOccurs="1">
+			<xs:element name="organizationDocument" type="OrganizationDocument" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Documentation types for Organizations.
 						Used only when Type equals Organization.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="StateCorporateId" />
-						<xs:enumeration value="StateDba" />
-						<xs:enumeration value="ArticlesOfIncorporation" />
-						<xs:enumeration value="BusinessLicense" />
-						<xs:enumeration value="CorporateResolution" />
-						<xs:enumeration value="SecretaryOfStateFilingReceipt" />
-						<xs:enumeration value="AssociationMinutes" />
-						<xs:enumeration value="PartnershipAgreement" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
-			<xs:element name="trustDocument" minOccurs="0" maxOccurs="1">
+			<xs:element name="trustDocument" type="TrustDocument" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Documentation types for trusts.
 						Used only when Type equals Trust.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="TrustDocument" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
-			<xs:element name="estateDocument" minOccurs="0" maxOccurs="1">
+			<xs:element name="estateDocument" type="EstateDocument" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Documentation types for trusts.
+						Documentation types for estates.
 						Used only when Type equals Estate.
 					</xs:documentation>
 				</xs:annotation>
-
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="Will" />
-						<xs:enumeration value="EstateInstrument" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
+
+	<xs:simpleType name="IndividualDocument">
+		<xs:annotation>			
+			<xs:documentation>
+				Documentation type for individuals.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DriversLicense" />
+			<xs:enumeration value="USPassport" />
+			<xs:enumeration value="MilitaryId" />
+			<xs:enumeration value="StateIssuedId" />
+			<xs:enumeration value="BirthCertficate" />
+			<xs:enumeration value="ForeignPassport" />
+			<xs:enumeration value="KnownExistingParty" />
+			<xs:enumeration value="ForeignGovernmentId" />
+			<xs:enumeration value="ResidentAlienCard" />
+			<xs:enumeration value="NonResidentAlienCard" />
+			<xs:enumeration value="DisabledElderlyWithNoId" />
+			<xs:enumeration value="ForeignEntityWithNoId" />
+			<xs:enumeration value="LawEnforcementId" />
+			<xs:enumeration value="AmishPartyWithNoId" />
+			<xs:enumeration value="ForeignDriversLicense" />
+			<xs:enumeration value="InsuranceCard" />
+			<xs:enumeration value="OrganizationalMembershipCard" />
+			<xs:enumeration value="PropertyTaxBill" />
+			<xs:enumeration value="SocialSecurityCard" />
+			<xs:enumeration value="StudentId" />
+			<xs:enumeration value="UtilityBill" />
+			<xs:enumeration value="Visa" />
+			<xs:enumeration value="DepartmentHomelandSecurityEmploymentAuthorization" />
+			<xs:enumeration value="VoterRegistrationCard" />
+			<xs:enumeration value="Photo" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="OrganizationDocument">
+		<xs:annotation>
+			<xs:documentation>
+					Documentation types for Organizations.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+					<xs:enumeration value="StateCorporateId" />
+					<xs:enumeration value="StateDba" />
+					<xs:enumeration value="ArticlesOfIncorporation" />
+					<xs:enumeration value="BusinessLicense" />
+					<xs:enumeration value="CorporateResolution" />
+					<xs:enumeration value="SecretaryOfStateFilingReceipt" />
+					<xs:enumeration value="AssociationMinutes" />
+					<xs:enumeration value="PartnershipAgreement" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TrustDocument">
+		<xs:annotation>
+			<xs:documentation>
+				Documentation types for trusts.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TrustDocument" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="EstateDocument">
+		<xs:annotation>
+			<xs:documentation>
+				Documentation types for estates.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Will" />
+			<xs:enumeration value="EstateInstrument" />
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="EligibilityRequirementMetList">
 		<xs:annotation>
