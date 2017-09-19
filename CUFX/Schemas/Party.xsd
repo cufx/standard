@@ -317,19 +317,12 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="backupWithholdingExemptionReason"  minOccurs="0" maxOccurs="1">
+			<xs:element name="backupWithholdingExemptionReason" type="BackupWithholdingExemptionReason" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The reason that the tax ID is NOT subject to backup withholding.
 					</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="ExceptFromWithholding" />
-						<xs:enumeration value="NotNotifiedByIrs" />
-						<xs:enumeration value="IrsNotifiedNoLongSubject" />
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 
 			<xs:element name="backupWithholdingEffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
@@ -433,6 +426,19 @@
 			<xs:enumeration value="ForeignNational" />
 			<xs:enumeration value="ForeignNumberNoTIN" />
 			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="BackupWithholdingExemptionReason">
+		<xs:annotation>
+			<xs:documentation>
+				The reason that the tax ID is NOT subject to backup withholding.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ExceptFromWithholding" />
+			<xs:enumeration value="NotNotifiedByIrs" />
+			<xs:enumeration value="IrsNotifiedNoLongSubject" />
 		</xs:restriction>
 	</xs:simpleType>
 
