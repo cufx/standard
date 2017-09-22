@@ -49,7 +49,7 @@
 
 	<xs:complexType name="Permission">
 		<xs:sequence>
-			<xs:element name="actor" minOccurs="0" maxOccurs="1" type="accessProfile:Actor">
+			<xs:element name="actor" type="accessProfile:Actor" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The user, party, or other authenticated entity that will be permitted to perform the action.
