@@ -9,6 +9,8 @@ using System.IO;
 using Microsoft.CSharp;
 using Microsoft.VisualBasic;
 using System.Xml;
+using System.Text.RegularExpressions;
+
 
 namespace CUFX.Generator
 {
@@ -16,6 +18,8 @@ namespace CUFX.Generator
     {
         public static void GenerateCodeFromXsd(string xsdFilePath, string outCsFileName, string outVbFileName)
         {
+            List<string> toBePatched = new List<string>();
+            List<string> correctValues = new List<string>();
             using (StreamWriter outCsFile = new StreamWriter(outCsFileName, false))
             using (StreamWriter outVbFile = new StreamWriter(outVbFileName, false))
             {
@@ -23,7 +27,7 @@ namespace CUFX.Generator
                 {
                     CSharpCodeProvider csProvider = new CSharpCodeProvider();
                     VBCodeProvider vbProvider = new VBCodeProvider();
-                    CodeNamespace ns = CreateCodeNamespaceFromXsd(xsdFilePath, "cufxstandards.com");
+                    CodeNamespace ns = CreateCodeNamespaceFromXsd(xsdFilePath, "cufxstandards.com", toBePatched, correctValues);
 
                     csProvider.GenerateCodeFromNamespace(ns, outCsFile, new System.CodeDom.Compiler.CodeGeneratorOptions());
                     vbProvider.GenerateCodeFromNamespace(ns, outVbFile, new System.CodeDom.Compiler.CodeGeneratorOptions());
@@ -35,17 +39,35 @@ namespace CUFX.Generator
                 }
                 outCsFile.Close();
             }
+
+            var csCode = File.ReadAllText(outCsFileName);
+            var toBePatchedArray = toBePatched.ToArray();
+            var correctValuesArray = correctValues.ToArray();
+            var x = csCode.IndexOf(toBePatchedArray[0]);
+            var y = csCode.IndexOf(toBePatchedArray[1]);
+            
+            for (int i = 0; i < toBePatchedArray.Length; ++i)
+            {
+                //csCode = csCode.Replace(toBePatchedArray[i], correctValuesArray[i]);
+                string pattern = toBePatchedArray[i];
+                string replacement = correctValuesArray[i];
+                Regex regex = new Regex(pattern);
+                csCode = regex.Replace(csCode, replacement);
+            }
+            File.WriteAllText(outCsFileName, csCode);
         }
 
         public static void GenerateCodeFromXsds(string[] xsdFiles, string outCsFileName)
         {
+            List<string> toBePatched = new List<string>();
+            List<string> correctValues = new List<string>();
             using (StreamWriter outCsFile = new StreamWriter(outCsFileName, false))
             {
                 try
                 {
                     CSharpCodeProvider csProvider = new CSharpCodeProvider();
                     VBCodeProvider vbProvider = new VBCodeProvider();
-                    CodeNamespace ns = CreateCodeNamespaceFromXsds(xsdFiles, "cufxstandards.com");
+                    CodeNamespace ns = CreateCodeNamespaceFromXsds(xsdFiles, "cufxstandards.com", toBePatched, correctValues);
 
                     csProvider.GenerateCodeFromNamespace(ns, outCsFile, new System.CodeDom.Compiler.CodeGeneratorOptions());
                 }
@@ -56,26 +78,41 @@ namespace CUFX.Generator
                 }
                 outCsFile.Close();
             }
+
+            var csCode = File.ReadAllText(outCsFileName);
+            var toBePatchedArray = toBePatched.ToArray();
+            var correctValuesArray = correctValues.ToArray();
+            var x = csCode.IndexOf(toBePatchedArray[0]);
+            var y = csCode.IndexOf(toBePatchedArray[1]);
+            for (int i = 0; i < toBePatchedArray.Length; ++i)
+            {
+                //csCode = csCode.Replace(toBePatchedArray[i], correctValuesArray[i]);
+                string pattern = toBePatchedArray[i];
+                string replacement = correctValuesArray[i];
+                Regex regex = new Regex(pattern);
+                csCode = regex.Replace(csCode, replacement);
+            }
+            File.WriteAllText(outCsFileName, csCode);
         }
 
-        private static CodeNamespace CreateCodeNamespaceFromXsd(string xsdFile, string targetNamespace)
+        private static CodeNamespace CreateCodeNamespaceFromXsd(string xsdFile, string targetNamespace, List<string> toBePatched, List<string> correctValues)
         {
             XmlSchemaSet schemas = new XmlSchemaSet();
             List<XmlQualifiedName> xmlTypes = new List<XmlQualifiedName>();
 
             // Load the XmlSchema and its collection.            
-                using (FileStream fs = new FileStream(xsdFile, FileMode.Open))
-                {
-                    XmlSchema xsd;
-                    xsd = XmlSchema.Read(fs, null);
-                    schemas.Add(xsd);
+            using (FileStream fs = new FileStream(xsdFile, FileMode.Open))
+            {
+                XmlSchema xsd;
+                xsd = XmlSchema.Read(fs, null);
+                schemas.Add(xsd);
 
-                    foreach (XmlSchemaElement element in xsd.Elements.Values)
-                    {
-                        if (!xmlTypes.Contains(element.QualifiedName))
-                            xmlTypes.Add(element.QualifiedName);
-                    }
+                foreach (XmlSchemaElement element in xsd.Elements.Values)
+                {
+                    if (!xmlTypes.Contains(element.QualifiedName))
+                        xmlTypes.Add(element.QualifiedName);
                 }
+            }
 
             schemas.Compile();
 
@@ -91,16 +128,32 @@ namespace CUFX.Generator
             {
                 // Import the mapping first.
                 XmlTypeMapping mapping = importer.ImportTypeMapping(xmlType);
+                if (xmlType.Name.Contains("List") && mapping.TypeFullName.Contains("[]"))
+                {
+                    string typeFullNameEscaped = mapping.TypeFullName.Replace("[]", "\\[\\]");
+
+                    toBePatched.Add($"private {typeFullNameEscaped} {xmlType.Name}Field;");
+                    var XmlTypeName = char.ToUpper(xmlType.Name[0]) + xmlType.Name.Substring(1, xmlType.Name.Length - 1);
+                    correctValues.Add($"private {XmlTypeName} {xmlType.Name}Field;");
+
+                    var xmlTypeUnit = xmlType.Name.Substring(0, xmlType.Name.Length - 4);
+                    var XmlTypeUnit = char.ToUpper(xmlTypeUnit[0]) + xmlTypeUnit.Substring(1, xmlTypeUnit.Length - 1);
+
+                    string pattern = $@"(\[.+\])[\r\n]+\s+public\s{typeFullNameEscaped} {xmlType.Name}";
+                    toBePatched.Add(pattern);
+                    correctValues.Add($"public {XmlTypeName} {xmlType.Name}");
+                }
 
                 // Export the code finally.
-                exporter.ExportTypeMapping(mapping);
+               exporter.ExportTypeMapping(mapping);
             }
             RemoveAttributes(ns);
             return ns;
         }
 
-        private static CodeNamespace CreateCodeNamespaceFromXsds(string[] xsdFiles, string targetNamespace)
+        private static CodeNamespace CreateCodeNamespaceFromXsds(string[] xsdFiles, string targetNamespace, List<string> toBePatched, List<string> correctValues)
         {
+
             XmlSchemaSet schemas = new XmlSchemaSet();
             List<XmlQualifiedName> xmlTypes = new List<XmlQualifiedName>();
 
@@ -135,6 +188,20 @@ namespace CUFX.Generator
             {
                 // Import the mapping first.
                 XmlTypeMapping mapping = importer.ImportTypeMapping(xmlType);
+                if (xmlType.Name.Contains("List") && mapping.TypeFullName.Contains("[]"))
+                {
+                    string typeFullNameEscaped = mapping.TypeFullName.Replace("[]", "\\[\\]");
+
+                    toBePatched.Add($"private {typeFullNameEscaped} {xmlType.Name}Field;");
+                    var XmlTypeName = char.ToUpper(xmlType.Name[0]) + xmlType.Name.Substring(1, xmlType.Name.Length - 1);
+                    correctValues.Add($"private {XmlTypeName} {xmlType.Name}Field;");
+                    var xmlTypeUnit = xmlType.Name.Substring(0, xmlType.Name.Length - 4);
+                    var XmlTypeUnit = char.ToUpper(xmlTypeUnit[0]) + xmlTypeUnit.Substring(1, xmlTypeUnit.Length - 1);
+                    //toBePatched.Add($"[System.Xml.Serialization.XmlArrayItemAttribute(\"{xmlTypeUnit}\", Namespace=\"http://cufxstandards.com/v3/{XmlTypeUnit}.xsd\", IsNullable=false)]\r\n        public {mapping.TypeFullName} {xmlType.Name}");
+                    string pattern = $@"(\[.+\])[\r\n]+\s+public\s{typeFullNameEscaped} {xmlType.Name}";
+                    toBePatched.Add(pattern);
+                    correctValues.Add($"public {XmlTypeName} {xmlType.Name}");
+                }
 
                 // Export the code finally.
                 exporter.ExportTypeMapping(mapping);
