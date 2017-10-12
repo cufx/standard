@@ -148,7 +148,7 @@ namespace CUFX.Generator
                                          toBePatched.Add($"private {typeFullNameEscaped} billPaymentListField;");
                                          correctValues.Add($"private {XmlTypeName} billPaymentListField;");
                                          toBePatched.Add($@"(\[.+\])[\r\n]+\s+public\s{typeFullNameEscaped} billPaymentList");
-                                         correctValues.Add($"public {XmlTypeName} BillPaymentList");
+                                         correctValues.Add($"public {XmlTypeName} billPaymentList");
                                   }
                            }
 
@@ -204,7 +204,7 @@ namespace CUFX.Generator
                                   var XmlTypeName = char.ToUpper(xmlType.Name[0]) + xmlType.Name.Substring(1, xmlType.Name.Length - 1);
                                   correctValues.Add($"private {XmlTypeName} {xmlType.Name}Field;");
                                   var xmlTypeUnit = xmlType.Name.Substring(0, xmlType.Name.Length - 4);
-                                   var XmlTypeUnit = char.ToUpper(xmlTypeUnit[0]) + xmlTypeUnit.Substring(1, xmlTypeUnit.Length - 1);
+                                  var XmlTypeUnit = char.ToUpper(xmlTypeUnit[0]) + xmlTypeUnit.Substring(1, xmlTypeUnit.Length - 1);
                                   //toBePatched.Add($"[System.Xml.Serialization.XmlArrayItemAttribute(\"{xmlTypeUnit}\", Namespace=\"http://cufxstandards.com/v3/{XmlTypeUnit}.xsd\", IsNullable=false)]\r\n        public {mapping.TypeFullName} {xmlType.Name}");
                                   string pattern = $@"(\[.+\])[\r\n]+\s+public\s{typeFullNameEscaped} {xmlType.Name}";
                                   toBePatched.Add(pattern);
@@ -215,7 +215,7 @@ namespace CUFX.Generator
                                          toBePatched.Add($"private {typeFullNameEscaped} billPaymentListField;");
                                          correctValues.Add($"private {XmlTypeName} billPaymentListField;");
                                          toBePatched.Add($@"(\[.+\])[\r\n]+\s+public\s{typeFullNameEscaped} billPaymentList");
-                                         correctValues.Add($"public {XmlTypeName} BillPaymentList");
+                                         correctValues.Add($"public {XmlTypeName} billPaymentList");
                                   }
                            }
 
@@ -232,7 +232,7 @@ namespace CUFX.Generator
                      XmlSchema[] schemaArray = new XmlSchema[set.Count];
                      set.CopyTo(schemaArray, 0); foreach (XmlSchema xsd in schemaArray)
                      {
-                            schemas.Add(xsd);
+                           schemas.Add(xsd);
                      }
                      return schemas;
               }
