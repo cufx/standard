@@ -436,6 +436,24 @@
         </xs:annotation>
       </xs:enumeration>
 
+      <xs:enumeration value ="M2MTransfersEnabled" >
+        <xs:annotation>
+          <xs:documentation>
+			      Determines if party(ies) wishes to be enrolled in member-to-member transfers within the same financial institution.
+            If value is True then they are enrolled.  If value is False or record does not exist, they are not enrolled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+	  
+      <xs:enumeration value ="P2PTransfersEnabled" >
+        <xs:annotation>
+          <xs:documentation>
+			      Determines if party(ies) wishes to be enrolled in person-to-person transfers/payments across financial institutions.
+            If value is True then they are enrolled.  If value is False or record does not exist, they are not enrolled.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+	  
       <xs:enumeration value ="Other">
         <xs:annotation>
           <xs:documentation>
