@@ -143,38 +143,23 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="holdEffectiveStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="holdEffectiveDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to start searching the holds.
-						Indicates the UTC posted date of the earliest hold to be sent back in the response.
-						Start and end date filter work together.
-						Must be less than or equal to the end date if an end date is supplied.
-						Should be less than or equal to today’s date.
-						If neither holdEffectiveStartDateTime nor holdEffectiveEndDateTime is provided, NO hold history
+						Filter that is used to search the hold dates.
+						Indicates the UTC posted date of the earliest hold to be sent back
+						in the response.  StartdateTime and EndDateTime filters work together.
+						startDateTime must be less than or equal to endDateTime if an endDateTime is supplied.
+						startDateTime should be less to or equal to today’s date.
+						If neither holdEffective StartDateTime nor holdEffective EndDateTime is provided, NO hold history
 						data will be returned.
-						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or
-						yyyy-mm-dd (2011-03-28) formats are supported. The time is assumed to be 00:00Z if omitted.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="holdEffectiveEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Filter that is used to end searching the holds.
-						Indicates the UTC posted date of the latest hold to be sent back in the response.
-						Start and end date filter work together.
-						Must be greater than or equal to the hold effective start date/time.
-						If it's not supplied, the response returns all of the holds on or after the
-						transaction start date.
-						If neither holdEffectiveStartDateTime nor holdEffectiveEndDateTime is provided, NO hold
-						history data will be returned.
-						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or
-						yyyy-mm-dd (2011-03-28) formats are supported.  The time is assumed to be 00:00Z if omitted.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			</xs:element>			
+	
 		</xs:sequence>
 	</xs:complexType>
 

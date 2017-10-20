@@ -568,19 +568,19 @@
 	<xs:complexType name="DateRange">
 		<xs:annotation>
 			<xs:documentation>
-				The DateRange object allows for filtering dates based on the provided startDate and endDate.
+				The DateRange object allows for filtering dates based on the provided startDateTime and endDateTime.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="startDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Date filter that is used to search using startDate and endDate pairs.
+						Date filter that is used to search using startDateTime and endDateTime pairs.
 						Indicates the UTC posted date of the earliest transaction to be sent back
-						in the response.  startDate and endDate filters work together.
-						Must be less than or equal to endDate if an endDate is supplied.
+						in the response.  startDateTime and endDateTime filters work together.
+						Must be less than or equal to endDateTIme if an endDate is supplied.
 						Should be less to or equal to today’s date.
-						If neither startDate or endDate is provided,
+						If neither startDateTime or endDateTime is provided,
 						no records may be returned if no other criteria applies.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
@@ -588,15 +588,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="endDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="endDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Date filter that is used to search using startDate and endDate pairs.
+						Date filter that is used to search using startDateTime and endDateTime pairs.
 						Indicates the UTC posted date of the latest transaction to be sent back in the response.
-						startDate and Enddate filter work together.
-						Must be greater than or equal to startDate date/time.
-						If it's not supplied, response returns all records on or after the StartDate.
-						If neither startDate or endDate is provided,
+						startDateTime and EnddateTime filter work together.
+						Must be greater than or equal to startDateTime date/time.
+						If it's not supplied, response returns all records on or after the StartDateTime.
+						If neither startDateTime or endDateTime is provided,
 						no records may be returned if no other criteria applies.
 						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
 						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
