@@ -34,7 +34,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="MicroDepositFundingIdList" type="microDepositFunding:MicroDepositFundingIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microDepositFundingIdList" type="microDepositFunding:MicroDepositFundingIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of micro funding deposit ids to be returned or affected by a read, update or delete request.
@@ -42,7 +42,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MicroDepositIdList" type="microDepositFunding:MicroDepositIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="microDepositIdList" type="microDepositFunding:MicroDepositIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of micro deposit ids to be returned or affected by a read, update or delete request.
