@@ -44,8 +44,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier within system to uniquely identify this contact point.  On creation,
-            this may be provided by the system that is submitting the request or may be blank if
-            the repository calculates the contact ID and returns it in the response.
+						this may be provided by the system that is submitting the request or may be blank if
+						the repository calculates the contact ID and returns it in the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -66,13 +66,13 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:group ref="point" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="point" type="Point" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details on the contact point based on the contact type.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:group>
+			</xs:element>
 
 			<xs:element name="timeOfDay" type="TimeOfDayType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -91,16 +91,16 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="badContactPoint" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Has the contact point been attempted and for some reason come back as invalid.
-            For instance, a bounced email, returned mail, disconnected phone, etc.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="badContactPoint" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Has the contact point been attempted and for some reason come back as invalid.
+						For instance, a bounced email, returned mail, disconnected phone, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Contact level name/data pairs list of fields that are not yet available in the general specification.
@@ -113,8 +113,12 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
-	<xs:group name="point" >
+	<xs:complexType name="Point">
+		<xs:annotation>
+			<xs:documentation>
+				Choice of contact point types
+			</xs:documentation>
+		</xs:annotation>
 		<xs:choice>
 			<xs:element name="address" type="ContactAddress" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -164,7 +168,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:choice>
-	</xs:group>
+	</xs:complexType>
 
 	<xs:complexType name="ContactAddress">
 		<xs:complexContent>
@@ -285,7 +289,7 @@
 						possible length of a fully qualified phone number.
 					</xs:documentation>
 				</xs:annotation>
-		
+
 			</xs:element>
 
 			<xs:element name="description" type="xs:string"  minOccurs="0" maxOccurs="1">
@@ -327,71 +331,71 @@
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:complexType name="InstantMessage">
-    <xs:sequence>
-      <xs:element name="messagingService" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Instant Messaging Service.  Examples would be Google IM,
-            Jabber, AOL, Yahoo, Facebook, Skype, etc.  Not a restricted value
-            as these services often change.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="InstantMessage">
+		<xs:sequence>
+			<xs:element name="messagingService" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Instant Messaging Service.  Examples would be Google IM,
+						Jabber, AOL, Yahoo, Facebook, Skype, etc.  Not a restricted value
+						as these services often change.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Contact user name within the instant messaging platform.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Contact user name within the instant messaging platform.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:complexType name="SocialContactPoint">
-    <xs:sequence>
-      <xs:element name="socialService" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Social Service.  Examples would be Facebook, Twitter,
-            Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
-            as these services often change.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="SocialContactPoint">
+		<xs:sequence>
+			<xs:element name="socialService" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Social Service.  Examples would be Facebook, Twitter,
+						Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+						as these services often change.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Contact user name within the social platform.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Contact user name within the social platform.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:complexType name="Website">
-    <xs:sequence>
-      <xs:element name="sitename" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The URL of the web site.  Examples would be Facebook, Twitter,
-            Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
-            as these services often change.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="Website">
+		<xs:sequence>
+			<xs:element name="sitename" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The URL of the web site.  Examples would be Facebook, Twitter,
+						Google Plus, LinkedIn, Pinterest, etc.  This is not a restricted value
+						as these services often change.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Contact user name within the website platform.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="user" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Contact user name within the website platform.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:simpleType name="TimeOfDayType">
 		<xs:annotation>
@@ -512,49 +516,49 @@
 		</xs:sequence>
 	</xs:complexType>
 
-  <xs:simpleType name="PlanFormat">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Nanp">
-        <xs:annotation>
-          <xs:documentation>
-            (North American Number Plan Administration):
-            +1-NPA-NXX-xxxx  : Example: 1-847-555-1212
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+	<xs:simpleType name="PlanFormat">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Nanp">
+				<xs:annotation>
+					<xs:documentation>
+						(North American Number Plan Administration):
+						+1-NPA-NXX-xxxx  : Example: 1-847-555-1212
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 
-      <xs:enumeration value="NanpLessCountryCode">
-        <xs:annotation>
-          <xs:documentation>
-            (North American Number Plan
-            without the Country Code):  NPA-NXX-xxxx
-            : Example 847-555-1212
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+			<xs:enumeration value="NanpLessCountryCode">
+				<xs:annotation>
+					<xs:documentation>
+						(North American Number Plan
+						without the Country Code):  NPA-NXX-xxxx
+						: Example 847-555-1212
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 
-      <xs:enumeration value="OtherInternational">
-        <xs:annotation>
-          <xs:documentation>
-            Non-North American Number Plan phone numbers.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+			<xs:enumeration value="OtherInternational">
+				<xs:annotation>
+					<xs:documentation>
+						Non-North American Number Plan phone numbers.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 
-      <xs:enumeration value="NationalNumber">
-        <xs:annotation>
-          <xs:documentation>
-            This is an exception to the E.164 standard
-            such as 411, 911, etc. to support shortened
-            numbers within national boarders.  This
-            value was provided to ensure 100% coverage of all
-            types.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction >
-  </xs:simpleType>
-  
+			<xs:enumeration value="NationalNumber">
+				<xs:annotation>
+					<xs:documentation>
+						This is an exception to the E.164 standard
+						such as 411, 911, etc. to support shortened
+						numbers within national boarders.  This
+						value was provided to ensure 100% coverage of all
+						types.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction >
+	</xs:simpleType>
+
 
 	<xs:simpleType name ="ContactId">
 		<xs:annotation>
