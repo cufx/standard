@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cufxstandards.com/v3/Notes.xsd"
+  version="3.3.$Revision$"
+  xmlns="http://cufxstandards.com/v3/Notes.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	xmlns:application="http://cufxstandards.com/v3/Application.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
+  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v3/ProductServiceRequest.xsd"
+  elementFormDefault="qualified" >
+
+
+	<xs:import namespace ="http://cufxstandards.com/v3/Account.xsd" schemaLocation ="Account.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v3/Application.xsd" schemaLocation ="Application.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation ="Relationship.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v3/ProductServiceRequest.xsd" schemaLocation ="ProductServiceRequest.xsd" />
+
+
+	<xs:element name="detailedNoteList" type="DetailedNoteList">
+		<xs:annotation>
+			<xs:documentation>
+				Top level detailed notes list collection element.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="DetailedNoteList">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					Collection of detailed note data definition.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="detailedNote" type="DetailedNote" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of detailed note data definition.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DetailedNote">
+		<xs:annotation>
+			<xs:documentation>
+				An application contains the details of a consumer who is becoming a customer of a financial
+				institution (if they are not already). It also includes the details of the products requested.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+
+			<xs:element name="referenceIdChoice" type="ReferenceIdChoice" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique identifier for the note in the processor system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="commonNoteData" type="common:Note" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The common note elements.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ReferenceIdChoice">
+		<xs:choice>
+			<xs:element name="accountId" type="account:AccountId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the acount in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="applicationId" type="application:ApplicationId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the application in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="partyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the party in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the relationship in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="productServiceRequestId" type="productServiceRequest:ProductServiceRequestId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the product Service request in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+</xs:schema>

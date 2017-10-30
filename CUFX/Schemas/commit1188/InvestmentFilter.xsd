@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v3/InvestmentFilter.xsd"
+	version="3.3.$Revision$"
+	xmlns="http://cufxstandards.com/v3/InvestmentFilter.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:accountFilter="http://cufxstandards.com/v3/AccountFilter.xsd"
+  xmlns:investment="http://cufxstandards.com/v3/Investment.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v3/InvestmentHolding.xsd"
+
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Investment.xsd" schemaLocation="Investment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+
+
+	<xs:element name= "investmentFilter" type="InvestmentFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array list contains all the investment accounts to be read, updated or deleted with this
+				request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array contains all the Investment accounts to be read, updated or deleted with
+				this request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+		<xs:extension base="accountFilter:AccountFilter">
+			<xs:sequence>
+				<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
+					<xs:annotation>
+						<xs:documentation>
+							The list of account ID's that should have their associated accounts either returned or affected
+							by a read, update or delete account request.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="holdingAsOfStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+					<xs:annotation>
+						<xs:documentation>
+							Filter that is used to start searching the date/time stamp of the evaluation of the investment or security.
+							Indicates the UTC posted date of the earliest transaction to be sent back
+							in the response.  Start and End Date filters work together.
+							Must be less than or equal to end date if an end date is supplied.
+							Should be less than or equal to today’s date.
+							If neither holdingAsOfStartDateTime or holdingAsOfEndDateTime is provided,
+							NO transaction history data will be returned.
+							The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+							(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+							supported.  The time is assumed to be 00:00Z if omitted.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="holdingAsOfEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+					<xs:annotation>
+						<xs:documentation>
+							Filter that is used to end searching the date/time stamp of the evaluation of the investment or security.
+							Indicates the UTC posted date of the latest transaction to be sent back in the response.
+							Start and End date filter work together.
+							Must be greater than or equal to start date/time.
+							If it's not supplied, response returns all of the transactions on or after the holdingAsOfStartDateTime.
+							If neither holdingAsOfStartDateTime or holdingAsOfEndDateTime is provided,
+							no transaction history data will be returned.
+							The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+							(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+							supported.  The time is assumed to be 00:00Z if omitted.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

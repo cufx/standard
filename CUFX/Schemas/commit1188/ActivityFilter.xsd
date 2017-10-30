@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v3/ActivityFilter.xsd"
+  version="3.3.$Revision: 1062 $"
+  xmlns="http://cufxstandards.com/v3/ActivityFilter.xsd"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:activity="http://cufxstandards.com/v3/Activity.xsd"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+
+  elementFormDefault="qualified" >
+
+	<xs:import namespace ="http://cufxstandards.com/v3/Activity.xsd" schemaLocation ="Activity.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v3/Common.xsd" schemaLocation ="Common.xsd" />
+
+	<xs:element name="activityFilter" type="ActivityFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting activity data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="ActivityFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting activity data.  The options can be
+				used in combination or by themselves. It is up to the data source to either return the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityIdList" type="activity:ActivityIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of activity ID's to be returned or affected by a read, update or delete activity request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityStatusList" type="activity:ActivityStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of activity statuses to be returned or affected by a read, update or delete activity request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityTypeList" type="activity:ActivityTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of activity types to be returned or affected by a read, update or delete activity request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="creatorList" type="activity:CreatorList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of Creators to be returned or affected by a read, update or delete activity request.
+						A human-readable string describing the owner of the activity. Name or ID of person, system, etc. that created the activity
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="activityRelatedTo" type="activity:RelatedToGroups">
+				<xs:annotation>
+					<xs:documentation>
+						List of contacts, parties, relationships and accounts related to this activities to be returned or 
+						affected by a read, update or delete activity request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityScheduled" type="activity:ActivityScheduled" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If present and set true, return activities that are scheduled.
+						If present and set false, then return activities that are not scheduled.
+						If not set, no effect on the returned activites. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDateTimeStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to start searching the activities.
+						Indicates the UTC posted date of the earliest activity start date time to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityDateTimeEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDateTimeEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity start date time to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityStartDateStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityDateTimeStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityStartDateStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to start searching the activities.
+						Indicates the UTC posted date of the earliest activity start date time to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityStartDateEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityStartDateEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity start date time to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityStartDateStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityStartDateStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityCreationStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity creation date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityCreationEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityCreationEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity creation date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityCreationStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityCreationStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityModifiedStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity modified date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityModifiedEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityModifiedEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity modified date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityModifiedStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityModifiedStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityRequestedStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity requested date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityRequestedEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityRequestedEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity requested date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityRequestedStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityRequestedStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDueStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity due date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityDueEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDueEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity due date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityDueStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityDueStartDateTim.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="activityArchivedStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity archived date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityArchivedEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityArchivedEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity archived date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityArchivedStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityArchivedStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDeletedStartDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used for searching the activities.
+						Indicates the UTC posted date of the earliest activity deleted date to be sent back
+						in the response.  Start and End Date filters work together.
+						Must be less than or equal to end date if an activityDeletedEndDateTime is supplied.
+						Should be less or equal to today’s date.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityDeletedEndDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to end searching the activities.
+						Indicates the UTC posted date of the latest activity deleted date to be sent back in the response.
+						Start and End date filter work together.
+						Must be greater than or equal to activityDeletedStartDateTime.
+						If it's not supplied, response returns all of the activities on or after the activityDeletedStartDateTime.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityMinAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Apply filter to activity with this amount or higher.
+						Min and max amount filters work together to specify a range.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="activityMaxAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Apply filter to activity with this amount or lower.
+						Min and max amount filters work together to specify a range.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType>
+</xs:schema>
+
