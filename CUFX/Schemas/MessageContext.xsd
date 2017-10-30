@@ -5,11 +5,13 @@
 	xmlns="http://cufxstandards.com/v3/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:error="http://cufxstandards.com/v3/Error.xsd"
 	elementFormDefault="qualified"
 
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v3/Error.xsd" schemaLocation="Error.xsd" />
 
 	<xs:complexType name="MessageContext">
 		<xs:annotation>
@@ -125,6 +127,20 @@
 						Collection of user(s) associated to a message.
 						Typically, there will be only one user associated to a message request, but this provides the flexibility
 						in the event that future use cases have two user ID’s associated to one message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="errorList" type="error:ErrorList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The error collection/array contains all the errors returned when a service point was called.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="messageList" type="MessageList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The messge collection/array contains all the messages returned when a service point was called.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -306,5 +322,41 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="MessageList">
+		<xs:annotation>
+			<xs:documentation>
+				The messge collection/array contains all the messages returned when a service point was called.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="subcode" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The sub code of the message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Message" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message text.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substitutionList" type="error:SubstitutionList"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Optional list to send data to the end point about which fields may be in
+            error and/or which values may be out-of-range.  The error message can be
+            scanned for potential substitution ID's (for example '%1', '%2') and replaced
+            with the value from the substitution list.  This is useful for when an end
+            point wants to support multiple languages or wants all of the message to be
+            reconfigured for better consumption.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 </xs:schema>
 
