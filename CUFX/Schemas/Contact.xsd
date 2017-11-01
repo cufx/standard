@@ -66,7 +66,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="point" type="Point" minOccurs="0" maxOccurs="1">
+			<xs:element name="contactPoint" type="ContactPoint" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details on the contact point based on the contact type.
@@ -113,7 +113,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="Point">
+	<xs:complexType name="ContactPoint">
 		<xs:annotation>
 			<xs:documentation>
 				Choice of contact point types
@@ -179,7 +179,7 @@
 			</xs:annotation>
 			<xs:extension base="common:Address">
 				<xs:sequence>
-					<xs:element name="type"  type="AddressType" minOccurs="0" maxOccurs="1">
+					<xs:element name="addressType"  type="AddressType" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Address Type.
@@ -254,7 +254,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="type"  type="PhoneType" minOccurs="0" maxOccurs="1">
+			<xs:element name="phoneType"  type="PhoneType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Phone Type.
@@ -313,7 +313,7 @@
 
 	<xs:complexType name="Email">
 		<xs:sequence>
-			<xs:element name="type" type="EmailType" minOccurs="0" maxOccurs="1">
+			<xs:element name="emailType" type="EmailType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Email Type.
