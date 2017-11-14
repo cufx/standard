@@ -45,7 +45,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentFilter" type="investmentHoldingFilter:InvestmentHoldingFilter" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentHoldingFilter" type="investmentHoldingFilter:InvestmentHoldingFilter" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Any filters applied to a read, update or delete investment holding message request.
