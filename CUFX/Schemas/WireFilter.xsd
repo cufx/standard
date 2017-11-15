@@ -57,18 +57,34 @@
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="micrAccountNumber" type="account:MicrAccountNumber"  minOccurs="0" maxOccurs="1">
+					<xs:element name="toAccountMicrAccountNumber" type="account:MicrAccountNumber"  minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								The account number portion of a draft or line of credit MICR line.
+								The account number portion of a draft or line of credit MICR line of the destination account. See occurrenceToAccount.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 
-					<xs:element name="routingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:element name="toAccountRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Routing number for the account.
+								Routing number for the destination account. See occurrenceToAccount.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="fromAccountMicrAccountNumber" type="account:MicrAccountNumber"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The account number portion of a draft or line of credit MICR line of the orgination account. See occurrenceFromAccount.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+
+					<xs:element name="fromAccountRoutingNumber" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Routing number of the orgination account. See occurrenceFromAccount.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
