@@ -461,16 +461,20 @@
 				a service point was called.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded" nillable="true">
-				<xs:annotation>
-					<xs:documentation>
-						A collection of fields that represents an individual response message that occurred when a
-						service point was called.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded" nillable="true">
+						<xs:annotation>
+							<xs:documentation>
+								A collection of fields that represents an individual response message that occurred when a
+								service point was called.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="StatusCode">
@@ -554,7 +558,7 @@
 			<xs:enumeration value ="IncompleteRequest">
 				<xs:annotation>
 					<xs:documentation>
-						Incomplete request.  The request omitted the following required fields: '%s'. Fomerly value 411. 
+						Incomplete request.  The request omitted the following required fields: '%s'. Fomerly value 411.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -562,7 +566,7 @@
 			<xs:enumeration value ="PreviousRequestRequired">
 				<xs:annotation>
 					<xs:documentation>
-						Previous request required.  A '%s' request must be made before this one, and was not. Fomerly value 412. 
+						Previous request required.  A '%s' request must be made before this one, and was not. Fomerly value 412.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -605,7 +609,7 @@
 			<xs:enumeration value ="MFALoginFailed">
 				<xs:annotation>
 					<xs:documentation>
-						MFA login failed.  The MFA login information provided was incorrect. Fomerly value 424. 
+						MFA login failed.  The MFA login information provided was incorrect. Fomerly value 424.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -613,7 +617,7 @@
 			<xs:enumeration value ="MACInvalid">
 				<xs:annotation>
 					<xs:documentation>
-						MAC invalid.  The MAC was invalid or missing. Fomerly value 425. 
+						MAC invalid.  The MAC was invalid or missing. Fomerly value 425.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -621,7 +625,7 @@
 			<xs:enumeration value ="EncryptionError">
 				<xs:annotation>
 					<xs:documentation>
-						Encryption error.  The provided encrypted data could not be decrypted. Fomerly value 426. 
+						Encryption error.  The provided encrypted data could not be decrypted. Fomerly value 426.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -629,7 +633,7 @@
 			<xs:enumeration value ="TooManyRequests">
 				<xs:annotation>
 					<xs:documentation>
-						Too many requests.  The user has sent too many requests in a given amount of time. Fomerly value 429. 
+						Too many requests.  The user has sent too many requests in a given amount of time. Fomerly value 429.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -637,7 +641,7 @@
 			<xs:enumeration value ="InvalidLanguage">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid language.  The requested language '%s' is not supported. Fomerly value 430. 
+						Invalid language.  The requested language '%s' is not supported. Fomerly value 430.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -645,7 +649,7 @@
 			<xs:enumeration value ="InvalidEmailFormat">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid email format.  The format of the email was invalid. Fomerly value 431. 
+						Invalid email format.  The format of the email was invalid. Fomerly value 431.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -653,7 +657,7 @@
 			<xs:enumeration value ="InvalidPhoneFormat">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid phone format.  The format of the phone was invalid. Fomerly value 432. 
+						Invalid phone format.  The format of the phone was invalid. Fomerly value 432.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -661,7 +665,7 @@
 			<xs:enumeration value ="InvalidDataSourceId">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid data source ID.  The data source ID was not recognized. Fomerly value 433. 
+						Invalid data source ID.  The data source ID was not recognized. Fomerly value 433.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -669,7 +673,7 @@
 			<xs:enumeration value ="InvalidFiId">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid FI ID.  The financial institution ID was not recognized. Fomerly value 434. 
+						Invalid FI ID.  The financial institution ID was not recognized. Fomerly value 434.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -677,7 +681,7 @@
 			<xs:enumeration value ="UnableToParseRequest">
 				<xs:annotation>
 					<xs:documentation>
-						Unable to parse request. Invalid JSON/XML. Fomerly value 435. 
+						Unable to parse request. Invalid JSON/XML. Fomerly value 435.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -693,7 +697,7 @@
 			<xs:enumeration value ="ArtifactNotFound">
 				<xs:annotation>
 					<xs:documentation>
-						Artifact not found.	The artifact ID could not be found in the repository. Fomerly value 437. 
+						Artifact not found.	The artifact ID could not be found in the repository. Fomerly value 437.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -701,7 +705,7 @@
 			<xs:enumeration value ="UpdateToFieldNotAllowed">
 				<xs:annotation>
 					<xs:documentation>
-						Update to field not allowed.	The repository does not allow updates to '%s'. Fomerly value 438. 
+						Update to field not allowed.	The repository does not allow updates to '%s'. Fomerly value 438.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -710,7 +714,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Artifact could not be decompressed.	 artifactCompressionType did not result in a successful
-						decompression of the artifact. Fomerly value 439. 
+						decompression of the artifact. Fomerly value 439.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -719,7 +723,7 @@
 			<xs:enumeration value ="MIMETypeNotSupported">
 				<xs:annotation>
 					<xs:documentation>
-						MIME type not supported. 	Repository rejected the MIME type. Fomerly value 440. 
+						MIME type not supported. 	Repository rejected the MIME type. Fomerly value 440.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -727,7 +731,7 @@
 			<xs:enumeration value ="ArtifactHasBeenArchived">
 				<xs:annotation>
 					<xs:documentation>
-						Artifact has been archived.	The artifact with the given artifact ID has been archived out of the repository. Fomerly value 441. 
+						Artifact has been archived.	The artifact with the given artifact ID has been archived out of the repository. Fomerly value 441.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -735,7 +739,7 @@
 			<xs:enumeration value ="ArtifactTooLarge">
 				<xs:annotation>
 					<xs:documentation>
-						Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit. Fomerly value 442. 
+						Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit. Fomerly value 442.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -751,7 +755,7 @@
 			<xs:enumeration value ="ArtifactRejected">
 				<xs:annotation>
 					<xs:documentation>
-						Artifact rejected. 	The repository has rejected the artifact. See the sub error codes for the specific reason. 
+						Artifact rejected. 	The repository has rejected the artifact. See the sub error codes for the specific reason.
 						Fomerly value 444.
 					</xs:documentation>
 				</xs:annotation>
@@ -760,7 +764,7 @@
 			<xs:enumeration value ="InvalidDataLengthInField">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid data length in field '%s'. Fomerly value 445. 
+						Invalid data length in field '%s'. Fomerly value 445.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -768,7 +772,7 @@
 			<xs:enumeration value ="InvalidFormat">
 				<xs:annotation>
 					<xs:documentation>
-						Invalid format.  The format of the request is not supported. Fomerly value 475. 
+						Invalid format.  The format of the request is not supported. Fomerly value 475.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -817,20 +821,24 @@
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="SubstitutionList">
-		<xs:sequence>
-			<xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Optional substitution to send data to the end point about which fields may be in
-						error and/or which values may be out-of-range.  The error message can be
-						scanned for potential substitution ID's (for example '%1', '%2') and replaced
-						with the value from the substitution list.  This is useful for when an end
-						point wants to support multiple languages or wants all of the message to be
-						reconfigured for better consumption.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Optional substitution to send data to the end point about which fields may be in
+								error and/or which values may be out-of-range.  The error message can be
+								scanned for potential substitution ID's (for example '%1', '%2') and replaced
+								with the value from the substitution list.  This is useful for when an end
+								point wants to support multiple languages or wants all of the message to be
+								reconfigured for better consumption.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Substitution">
