@@ -54,7 +54,7 @@
 			<xs:element name="endPointTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						This element is in containment. Use serviceTimeZoneUTCOffset for all new use.
+						This element is depricated. Use serviceTimeZoneUTCOffset for all new use.
 						The offset of the time zone from Universal Time where this service resides.  If the service
 						provides a serviceTimeZoneUTOffset, it overrides this value for that service.
 						For example,

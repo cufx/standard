@@ -73,16 +73,9 @@
 			<xs:element name="transactionDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to search the transaction dates.
-						Indicates the UTC posted date of the earliest transaction to be sent back
-						in the response.  StartdateTime and EndDateTime filters work together.
-						startDateTime must be less than or equal to endDateTime if an endDateTime is supplied.
-						startDateTime should be less to or equal to today’s date.
-						If neither transaction startDateTime nor transaction endDateTime is provided, NO transaction history
-						data will be returned.
-						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
-						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
-						supported.  The time is assumed to be 00:00Z if omitted.
+						The date range filter that is used to search the transactions, the range will reduce the returned
+						transaction list to those contained within the provided range if the range is supplied.
+						Indicates the UTC posted date range for the transactions to be returned in the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

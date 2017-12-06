@@ -61,7 +61,7 @@
 			<xs:element name="contactPersonName" type="common:PersonName" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Name of the contact, Optional use only. Intend primary usage inconjunction with Party.
+						Name of the contact, optional. The primary usage is in conjunction with Party.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -413,7 +413,7 @@
 	<xs:simpleType name="PhoneType">
 		<xs:annotation>
 			<xs:documentation>
-				Phone Type
+				The type of phone the number represents.  Also considered a classification of the phone.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -429,7 +429,7 @@
 	<xs:simpleType name="EmailType">
 		<xs:annotation>
 			<xs:documentation>
-				Email Type
+				The members classification of the email.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
@@ -442,7 +442,7 @@
 	<xs:simpleType name="AddressType">
 		<xs:annotation>
 			<xs:documentation>
-				Address Type
+				Classification of an address
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
