@@ -41,7 +41,7 @@
     <xs:complexContent>
       <xs:extension base="accountfilter:AccountFilter">
         <xs:sequence>
-					<xs:element name="maturityDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+					<xs:element name="maturityDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Filter that is used to search the account maturity dates.
