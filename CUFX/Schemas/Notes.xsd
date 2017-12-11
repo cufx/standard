@@ -29,20 +29,24 @@
 	</xs:element>
 
 	<xs:complexType name="DetailedNoteList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Collection of detailed note data definition.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="detailedNote" type="DetailedNote" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of detailed note data definition.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Collection of detailed note data definition.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="detailedNote" type="DetailedNote" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of detailed note data definition.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="DetailedNote">

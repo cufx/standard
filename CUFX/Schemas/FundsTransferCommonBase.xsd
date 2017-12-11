@@ -4,9 +4,12 @@
 	version="3.3.$Revision$"
 	xmlns="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:simpleType name="RecurringId">
 		<xs:restriction base="xs:string">
@@ -24,15 +27,19 @@
 				The list of recurring payments or transfer requests.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						ID to uniquely identify a recurring payment or transfer request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								ID to uniquely identify a recurring payment or transfer request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="OccurrenceId">
@@ -52,16 +59,20 @@
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An occurrence ID that should have its associated payments or transfers either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An occurrence ID that should have its associated payments or transfers either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="OccurrenceStatus">
@@ -189,16 +200,20 @@
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="occurrenceStatus" type="OccurrenceStatus" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An occurrence status that should have its associated payments or transfers either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="occurrenceStatus" type="OccurrenceStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An occurrence status that should have its associated payments or transfers either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="BatchId">
@@ -218,16 +233,20 @@
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="batchId" type="BatchId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A batch id that should have its associated payments or transfers either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="batchId" type="BatchId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A batch id that should have its associated payments or transfers either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="FundsWithdrawalType">
@@ -331,14 +350,18 @@
 				The list of recurring status for payments or transfer requests for filtering.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Request status for a recurring transfer or payment.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Request status for a recurring transfer or payment.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>

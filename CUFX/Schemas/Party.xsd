@@ -37,16 +37,20 @@
 				authorized to access at the Institution based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="party" type="Party" minOccurs="0" maxOccurs="unbounded">
-			</xs:element >
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="party" type="Party" minOccurs="0" maxOccurs="unbounded">
+					</xs:element >
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Party">
 		<xs:annotation>
 			<xs:documentation>
-				The party object defines all the fields necessary to define a person, credit union member, 
+				The party object defines all the fields necessary to define a person, credit union member,
 				business or vendor related to a financial institution.
 				The ID uniquely identifies the party within the financial institution.
 			</xs:documentation>
@@ -220,17 +224,20 @@
 				The list of party ID's that should be returned or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A party ID that should have its associated parties either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A party ID that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name ="TaxInformation">
@@ -244,7 +251,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="taxIdEncrypted" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -709,27 +716,35 @@
 				The tax information collection/array contains all the tax identifiers for a party.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="taxInformation" type="TaxInformation" minOccurs="0" maxOccurs="unbounded">
-			</xs:element >
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="taxInformation" type="TaxInformation" minOccurs="0" maxOccurs="unbounded">
+					</xs:element >
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="EmploymentList">
 		<xs:annotation>
 			<xs:documentation>
 				Collection of employer details related to an individual.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="employment" type="Employment" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of employer details related to an individual.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="employment" type="Employment" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of employer details related to an individual.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Employment">
@@ -925,15 +940,19 @@
 				List of additional non-standard sources of income (child support, investments, e-bay, etc.).
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="additionalIncome" type="AdditionalIncome" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Describes additional non-standard sources of income (child support, investments, e-bay, etc.).
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="additionalIncome" type="AdditionalIncome" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Describes additional non-standard sources of income (child support, investments, e-bay, etc.).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AdditionalIncome">
@@ -1012,15 +1031,19 @@
 				List of liabilities.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="liability" type="Liability" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details related to liability.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="liability" type="Liability" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to liability.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Liability">
@@ -1086,15 +1109,19 @@
 				Fields related to when the party is a trust.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Legal name of the trust.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Legal name of the trust.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Estate">
@@ -1103,15 +1130,19 @@
 				Fields related to when the party is an estate.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Legal name of the estate.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Legal name of the estate.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="CitizenshipList">
@@ -1121,10 +1152,14 @@
 				to be ISO 3166-1 2 character codes.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="citizenship" type="Citizenship" minOccurs="0" maxOccurs="unbounded"	nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="citizenship" type="Citizenship" minOccurs="0" maxOccurs="unbounded"	nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Citizenship">
@@ -1264,11 +1299,15 @@
 	</xs:simpleType>
 
 	<xs:complexType name="DoingBusinessAsList">
-		<xs:sequence>
-			<xs:element name="doingBusinessAs" type="DoingBusinessAs" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="doingBusinessAs" type="DoingBusinessAs" minOccurs="0" maxOccurs="unbounded"
+						nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="DoingBusinessAs">
@@ -1303,16 +1342,19 @@
 	</xs:complexType>
 
 	<xs:complexType name="IdentificationDocumentList">
-		<xs:sequence>
-			<xs:element name="identificationDocument" type="IdentificationDocument" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of identification documents.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="identificationDocument" type="IdentificationDocument" minOccurs="0" maxOccurs="unbounded" nillable="true">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of identification documents.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="IdentificationDocument">
@@ -1434,7 +1476,7 @@
 	</xs:complexType>
 
 	<xs:simpleType name="IndividualDocument">
-		<xs:annotation>			
+		<xs:annotation>
 			<xs:documentation>
 				Documentation type for individuals.
 			</xs:documentation>
@@ -1472,18 +1514,18 @@
 	<xs:simpleType name="OrganizationDocument">
 		<xs:annotation>
 			<xs:documentation>
-					Documentation types for Organizations.
+				Documentation types for Organizations.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-					<xs:enumeration value="StateCorporateId" />
-					<xs:enumeration value="StateDba" />
-					<xs:enumeration value="ArticlesOfIncorporation" />
-					<xs:enumeration value="BusinessLicense" />
-					<xs:enumeration value="CorporateResolution" />
-					<xs:enumeration value="SecretaryOfStateFilingReceipt" />
-					<xs:enumeration value="AssociationMinutes" />
-					<xs:enumeration value="PartnershipAgreement" />
+			<xs:enumeration value="StateCorporateId" />
+			<xs:enumeration value="StateDba" />
+			<xs:enumeration value="ArticlesOfIncorporation" />
+			<xs:enumeration value="BusinessLicense" />
+			<xs:enumeration value="CorporateResolution" />
+			<xs:enumeration value="SecretaryOfStateFilingReceipt" />
+			<xs:enumeration value="AssociationMinutes" />
+			<xs:enumeration value="PartnershipAgreement" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -1517,16 +1559,20 @@
 				financial institution.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="eligibilityRequirementMet" type="EligibilityRequirementMet" minOccurs="0" maxOccurs="unbounded"
-				nillable="true">
-				<xs:annotation>
-					<xs:documentation>
-						How the party was eligible.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="eligibilityRequirementMet" type="EligibilityRequirementMet" minOccurs="0" maxOccurs="unbounded"
+						nillable="true">
+						<xs:annotation>
+							<xs:documentation>
+								How the party was eligible.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="EligibilityRequirementMet">
@@ -1583,16 +1629,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A tax ID that should have its associated parties either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A tax ID that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="PartyTypeList">
@@ -1602,15 +1652,19 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="partyType" type="PartyType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A party type that should have its associated parties either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="partyType" type="PartyType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A party type that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>

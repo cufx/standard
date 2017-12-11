@@ -40,10 +40,14 @@
 				authorized to access at the Institution based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Account">
@@ -341,15 +345,19 @@
 	</xs:simpleType>
 
 	<xs:complexType name="TotalToDateList">
-		<xs:sequence>
-			<xs:element name="totalToDate" type="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
-				<xs:annotation>
-					<xs:documentation>
-						A list of aggregate totals of type TotalsToDate, i.e. YTD Dividend, MTD Interest.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="totalToDate" type="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
+						<xs:annotation>
+							<xs:documentation>
+								A list of aggregate totals of type TotalsToDate, i.e. YTD Dividend, MTD Interest.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="TotalToDate">
@@ -427,16 +435,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An account ID that should have its associated accounts either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An account ID that should have its associated accounts either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AccountMicrList">
@@ -446,16 +458,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="micrAccountNumber" type="MicrAccountNumber" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An account MICR that should have its associated accounts either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="micrAccountNumber" type="MicrAccountNumber" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An account MICR that should have its associated accounts either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AccountBase">
@@ -595,15 +611,19 @@
 	</xs:simpleType>
 
 	<xs:complexType name="AccountTypeList">
-		<xs:sequence>
-			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account types to return in a filter request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of account types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="MicrAccountNumber">
@@ -654,15 +674,19 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountStatusList">
-		<xs:sequence>
-			<xs:element name="accountStatusPair" type="AccountStatusPair" minOccurs="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account status and sub status pairs to return in a filter request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="accountStatusPair" type="AccountStatusPair" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of account status and sub status pairs to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AccountStatusPair">
@@ -683,17 +707,21 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	
+
 	<xs:complexType name="AccountAccountTypeList">
-		<xs:sequence>
-			<xs:element name="accountAccountTypePair" type="AccountAccountTypePair" minOccurs="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account and account type pairs to return in a filter request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="accountAccountTypePair" type="AccountAccountTypePair" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of account and account type pairs to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AccountAccountTypePair">
@@ -709,7 +737,7 @@
 			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-					Account type to return in a filter request.
+						Account type to return in a filter request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -928,7 +956,7 @@
 						Account has matured due to conditions being reached.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration>	
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 

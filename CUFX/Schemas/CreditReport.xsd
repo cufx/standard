@@ -26,15 +26,19 @@
 				Collection of credit reports.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="creditReport" type="CreditReport" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating credit scores used in determining loan decisions, risk-based pricing, or membership eligibility.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="creditReport" type="CreditReport" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating credit scores used in determining loan decisions, risk-based pricing, or membership eligibility.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="CreditReport">
@@ -69,7 +73,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						For example, “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and supported by individual
-            service providers. Can request more than one report type to be returned for each applicant, if available.
+						service providers. Can request more than one report type to be returned for each applicant, if available.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -98,9 +102,9 @@
 						Tax ID of the requested credit bureau report.  This is to enable processes to easily
 						make the connection between the requested report and the resulting credit bureau report.
 						The tax ID can be an Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-            or the organizational Employer Identification Number (EIN).	Does NOT include dashes.
-            Typically stored in back end systems as 9 consecutive digits, i.e. 9-digit string with
-            no dashes and zero-filled.
+						or the organizational Employer Identification Number (EIN).	Does NOT include dashes.
+						Typically stored in back end systems as 9 consecutive digits, i.e. 9-digit string with
+						no dashes and zero-filled.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -156,15 +160,19 @@
 				List of unique identifiers typically used for pulling a list of credit reports from the data repository.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="creditReportId" type="CreditReportId" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifier for the credit report in the data repository.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="creditReportId" type="CreditReportId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the credit report in the data repository.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
+	
 </xs:schema>

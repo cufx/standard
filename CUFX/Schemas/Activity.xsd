@@ -34,10 +34,14 @@
 				The activities collection/array contains all the activity for a specified request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activity" type="Activity" minOccurs="0" maxOccurs="unbounded">
-			</xs:element >
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activity" type="Activity" minOccurs="0" maxOccurs="unbounded">
+					</xs:element >
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Activity" >
@@ -313,10 +317,14 @@
 				Collection of activity ids to return in a filter request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="unbounded" nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ActivityFieldImpactedList">
@@ -325,10 +333,14 @@
 				The collection/array of Fields impacted by an activity.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activityFieldImpacted" type="ActivityFieldImpacted" minOccurs="0" maxOccurs="unbounded">
-			</xs:element >
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activityFieldImpacted" type="ActivityFieldImpacted" minOccurs="0" maxOccurs="unbounded">
+					</xs:element >
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name ="ActivityFieldImpacted">
@@ -436,10 +448,14 @@
 				Collection of activity statuses to return in a filter request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activityStatus" type="ActivityStatus" minOccurs="0" maxOccurs="unbounded" nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activityStatus" type="ActivityStatus" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="ActivityType">
@@ -451,40 +467,48 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-		
+
 	<xs:complexType name ="ActivityTypeList">
 		<xs:annotation>
 			<xs:documentation>
 				Collection of activity types to return in a filter request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-	
-		
+
+
 	<xs:simpleType name="Creator">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
 				<xs:documentation>
-						A human-readable string describing the owner of the activity. Name or ID of person, system, etc. that created the activity.
+					A human-readable string describing the owner of the activity. Name or ID of person, system, etc. that created the activity.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-	
-		<xs:complexType name ="CreatorList">
+
+	<xs:complexType name ="CreatorList">
 		<xs:annotation>
 			<xs:documentation>
 				Collection of creators to return in a filter request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="ActivityScheduled">

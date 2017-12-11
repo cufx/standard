@@ -12,147 +12,151 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name= "feeList" type ="FeeList">
-    <xs:annotation>
-      <xs:documentation>
-        The accounts collection/array contains all the fees, for instance, that the credential set is
-        authorized to access at the Institution based on applied filters.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name= "feeList" type ="FeeList">
+		<xs:annotation>
+			<xs:documentation>
+				The accounts collection/array contains all the fees, for instance, that the credential set is
+				authorized to access at the Institution based on applied filters.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="FeeList">
-    <xs:annotation>
-      <xs:documentation>
-        The accounts collection/array contains all the fees, for instance, that the credential set is
-        authorized to access at the Institution based on applied filters.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="fee" type="Fee" minOccurs="0" maxOccurs="unbounded">
-      </xs:element >
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="FeeList">
+		<xs:annotation>
+			<xs:documentation>
+				The accounts collection/array contains all the fees, for instance, that the credential set is
+				authorized to access at the Institution based on applied filters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="fee" type="Fee" minOccurs="0" maxOccurs="unbounded">
+					</xs:element >
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:complexType name="Fee">
-    <xs:sequence>
-      <xs:element name="feeId" type="FeeId"  minOccurs="1" maxOccurs="unbounded">
-        <xs:annotation>
-          <xs:documentation>
-            The ID for the fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="type" type="ExtendedFeeType"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The fee type is the textual representation the kind of fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="relatedTo" type="RelatedTo"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Party, relationship, or account related to this Fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
+	<xs:complexType name="Fee">
+		<xs:sequence>
+			<xs:element name="feeId" type="FeeId"  minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The ID for the fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="type" type="ExtendedFeeType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The fee type is the textual representation the kind of fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="relatedTo" type="RelatedTo"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Party, relationship, or account related to this Fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="frequency" type="common:FrequencyType" minOccurs="1" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A value that indicates how this price is applied.  For instance, this price may be per stop payment, for a stop payment action, 
-            which would equate to PerUse. This value may be a recurring monthly charge, regardless of usage, which would be the Monthly frequency.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="minimumFrequency" type="xs:integer" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A value that indicates to what frequency this price applies.  This element shall only exist for the PerUse frequency.  
-            It can be used to denote tiered pricing. For instance, one party-action coupling may return four Price elements, 
-            one for when the function is used between 1 and 10 times, between 11-99 times, 100-999 times, and 1000 times to 10000000 times.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="maximumFrequency" type="xs:integer"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The upper bound of a tiered pricing amount.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="priceList" minOccurs="1" maxOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
-              <xs:annotation>
-                <xs:documentation>
-                  A description for the tier of pricing.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="price" type="common:Money" minOccurs="1" maxOccurs="1">
-              <xs:annotation>
-                <xs:documentation>
-                  The fee for the given tier.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
+			<xs:element name="frequency" type="common:FrequencyType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A value that indicates how this price is applied.  For instance, this price may be per stop payment, for a stop payment action,
+						which would equate to PerUse. This value may be a recurring monthly charge, regardless of usage, which would be the Monthly frequency.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="minimumFrequency" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A value that indicates to what frequency this price applies.  This element shall only exist for the PerUse frequency.
+						It can be used to denote tiered pricing. For instance, one party-action coupling may return four Price elements,
+						one for when the function is used between 1 and 10 times, between 11-99 times, 100-999 times, and 1000 times to 10000000 times.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maximumFrequency" type="xs:integer"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The upper bound of a tiered pricing amount.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="priceList" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs ="1">
+							<xs:annotation>
+								<xs:documentation>
+									A description for the tier of pricing.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="price" type="common:Money" minOccurs="1" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>
+									The fee for the given tier.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
 
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="CustomFeeType">
-    <xs:annotation>
-      <xs:documentation>
-        A fee unique to the institution or product. A string value that must contain a "custom:" prefix.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:pattern value="custom:\w+"/>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="CustomFeeType">
+		<xs:annotation>
+			<xs:documentation>
+				A fee unique to the institution or product. A string value that must contain a "custom:" prefix.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="custom:\w+"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 
-  <xs:complexType name="FeeType">
-    <xs:sequence>
-      <xs:element name="feeCategory" type="FeeCategory" minOccurs="0" maxOccurs ="1" >
-        <xs:annotation>
-          <xs:documentation>
-            The fee category shows the family or category of a fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="isRegDApplicable" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            This element indicates if the fee is Regulation D applicable.
-            Default is false.  If element is missing; false is assumed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="FeeType">
+		<xs:sequence>
+			<xs:element name="feeCategory" type="FeeCategory" minOccurs="0" maxOccurs ="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The fee category shows the family or category of a fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isRegDApplicable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						This element indicates if the fee is Regulation D applicable.
+						Default is false.  If element is missing; false is assumed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="FeeId">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          The fee ID is a persistent and unique identifier for the fee.
-          It must be unique for all users across the institution and remain the same over the life of the fee.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="FeeId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The fee ID is a persistent and unique identifier for the fee.
+					It must be unique for all users across the institution and remain the same over the life of the fee.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="FeeCategory">
 		<xs:annotation>
@@ -335,46 +339,46 @@
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
-  
-  <xs:complexType name="RelatedTo">
-    <xs:annotation>
-      <xs:documentation>
-        Party, relationship, or account related to the Fee.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            ID of the party related to the fee, such as a person or a business.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
 
-      <xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            ID of the relationship related to the fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="RelatedTo">
+		<xs:annotation>
+			<xs:documentation>
+				Party, relationship, or account related to the Fee.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the party related to the fee, such as a person or a business.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            ID of the account related to the fee.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:choice>
-  </xs:complexType>
-  <xs:simpleType name="ExtendedFeeType">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          The fee type is the textual representation of the kind of fee.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>  
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the relationship related to the fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the account related to the fee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="ExtendedFeeType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The fee type is the textual representation of the kind of fee.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

@@ -35,15 +35,19 @@
 				List of collateral returned from a data pull that was based on filters that were applied.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details related to specific collateral for a loan.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to specific collateral for a loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Collateral">
@@ -91,7 +95,7 @@
 			<xs:element name="otherTitledCollateral" type="OtherTitledCollateral" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to "other titled" collateral. 
+						Details related to "other titled" collateral.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -114,7 +118,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Contains details about UCC collateral types (ownership evidence by UCC filings).
-            Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas.
+						Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -159,16 +163,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="collateralId" type="CollateralId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A collateral ID that should have its associated collateral either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="collateralId" type="CollateralId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A collateral ID that should have its associated collateral either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="CollateralBase">
@@ -190,7 +198,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						This is FI-defined and is used to describe the collateral for a secured loan, i.e.
-            vehicle, boat, shares	(will be conditional for Secured Loans).
+						vehicle, boat, shares	(will be conditional for Secured Loans).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -220,7 +228,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Total amount pledged.
-            Systems will usually default this based on the secured code.
+						Systems will usually default this based on the secured code.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -265,7 +273,6 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<!-- Titled Collateral Types (i.e. ownership is evidenced by a Title. -->
 	<xs:complexType name="TitledCollateralBase" >
 		<xs:complexContent>
 			<xs:annotation>
@@ -328,8 +335,8 @@
 						<xs:annotation>
 							<xs:documentation>
 								Code used to register boats, RVs etc.
-								Vehicles that don't have a title value because some states use UCC 
-                instead of titles altogether.
+								Vehicles that don't have a title value because some states use UCC
+								instead of titles altogether.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -797,7 +804,7 @@
 			<xs:annotation>
 				<xs:documentation>
 					Contains details about UCC collateral types (ownership evidence by UCC filings).
-          Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas
+					Examples are: Inventory; Equipment; Fixtures; Livestock; Crops; Standing Timber; Minerals, Oil and Gas
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="CollateralBase">

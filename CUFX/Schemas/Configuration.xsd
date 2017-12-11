@@ -28,15 +28,19 @@
 				There will be one configuration for one or more financial institutions.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						The list of supported services, methods, limitations and options within the CUFX instance.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The list of supported services, methods, limitations and options within the CUFX instance.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Configuration">
@@ -77,7 +81,7 @@
 						If the location observes daylight savings time, this value may need to be updated.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
+			</xs:element>
 			<xs:element name="serviceList" type="ServiceList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -111,28 +115,36 @@
 				Identifies that these configuration parameters are related to these financial institutions.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="fiId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A valid financial institution for this instance.
-						Identifies that these configuration parameters are related to this financial institution.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="fiId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid financial institution for this instance.
+								Identifies that these configuration parameters are related to this financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ServiceList">
-		<xs:sequence>
-			<xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A service and list of methods within the CUFX instance that are supported by this end point.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A service and list of methods within the CUFX instance that are supported by this end point.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Service">
@@ -249,15 +261,19 @@
 	</xs:complexType>
 
 	<xs:complexType name="MethodList">
-		<xs:sequence>
-			<xs:element name="method" type="Method" minOccurs ="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Method such as create, read, update or delete available in the service.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="method" type="Method" minOccurs ="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Method such as create, read, update or delete available in the service.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Method">
@@ -296,17 +312,21 @@
 				For example: Does the party need to be created first or after the account is created?
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="methodDependency" type="MethodDependency" minOccurs ="0" maxOccurs="1" >
-				<xs:annotation>
-					<xs:documentation>
-						The method that must be executed before another method.
-						This allows for orchestration differences amongst different implementations of back end endpoints.
-						For example: Does the party need to be created first or after the account is created?
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="methodDependency" type="MethodDependency" minOccurs ="0" maxOccurs="1" >
+						<xs:annotation>
+							<xs:documentation>
+								The method that must be executed before another method.
+								This allows for orchestration differences amongst different implementations of back end endpoints.
+								For example: Does the party need to be created first or after the account is created?
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="MethodDependency">
@@ -347,15 +367,19 @@
 	</xs:simpleType>
 
 	<xs:complexType name="CurrencySupportList">
-		<xs:sequence>
-			<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Currency supported by the service.  If none were supplied, then USD is the only valid currency.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Currency supported by the service.  If none were supplied, then USD is the only valid currency.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="AcceptLanguageList">
@@ -366,18 +390,22 @@
 				If none are specified then the default is US English (en-us).
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Specifies a valid language-region which can be received by the end point, which instructs it
-						to generate its response data and return its data and errors in the accepted language(s).
-						Combination of a language and a region.  For example en-us.
-						http://www.iana.org/assignments/language-subtag-registry
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Specifies a valid language-region which can be received by the end point, which instructs it
+								to generate its response data and return its data and errors in the accepted language(s).
+								Combination of a language and a region.  For example en-us.
+								http://www.iana.org/assignments/language-subtag-registry
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="FieldNotSupportedList">
@@ -386,15 +414,19 @@
 				List of fields not supported in the service.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="fieldNotSupported" type="FieldNotSupported" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Describe which fields are not supported by specifying the XSD path and any comments as to why it isn't supported.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="fieldNotSupported" type="FieldNotSupported" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Describe which fields are not supported by specifying the XSD path and any comments as to why it isn't supported.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="FieldNotSupported">
@@ -439,16 +471,20 @@
 				This is information only and not processed by the system.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="customDataUse" type="CustomDataUse" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						List of comments related to how the custom data sections are being used.
-						This is informational only and not processed by the system.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="customDataUse" type="CustomDataUse" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								List of comments related to how the custom data sections are being used.
+								This is informational only and not processed by the system.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="CustomDataUse" >

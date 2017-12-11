@@ -31,21 +31,25 @@
 	</xs:element>
 
 	<xs:complexType name="ApplicationList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Collection of applications data definition.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="application" type="Application" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An application contains the details of a consumer who is becoming a customer of a financial
-						institution (if they are not already). It also includes the details of the products requested.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Collection of applications data definition.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="application" type="Application" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An application contains the details of a consumer who is becoming a customer of a financial
+								institution (if they are not already). It also includes the details of the products requested.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Application">
@@ -116,15 +120,19 @@
 				List of applicants for the product.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="applicant" type="Applicant" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of fields to describe an applicant for the product.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="applicant" type="Applicant" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of fields to describe an applicant for the product.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Applicant">
@@ -202,15 +210,19 @@
 				Products applied for and their requested amounts, quoted rates, etc.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="productAppliedFor" type="ProductAppliedFor"  minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Product applied for and its requested amount, quoted rate, etc.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="productAppliedFor" type="ProductAppliedFor"  minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Product applied for and its requested amount, quoted rate, etc.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ProductAppliedFor">
@@ -372,15 +384,19 @@
 				requests.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="applicationId" type="ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Filter for the unique identifier for the application in the back end system.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence >
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="applicationId" type="ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Filter for the unique identifier for the application in the back end system.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType >
 
 

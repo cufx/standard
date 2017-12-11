@@ -24,20 +24,24 @@
 	</xs:element>
 
 	<xs:complexType name="InvestmentHoldingList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Data definition of a collection of holdings by account.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="investmentHolding" type="InvestmentHolding" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating to a investment holding.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Data definition of a collection of holdings by account.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="investmentHolding" type="InvestmentHolding" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating to a investment holding.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="InvestmentHolding">
@@ -295,16 +299,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="holdingId" type="HoldingId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						An holding Id that should have its associated accounts either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="holdingId" type="HoldingId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An holding Id that should have its associated accounts either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 </xs:schema>
 

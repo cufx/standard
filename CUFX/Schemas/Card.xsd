@@ -36,10 +36,14 @@
         authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
     <xs:sequence>
       <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
       </xs:element >
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="Card">
@@ -259,9 +263,13 @@
         A collection of accounts linked to a card that are accessible from an ATM.
       </xs:documentation>
     </xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
     <xs:sequence>
       <xs:element name="linkedAccount" type="LinkedAccount" minOccurs="1" maxOccurs="unbounded" />
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:simpleType name="CardId">
@@ -276,6 +284,8 @@
   </xs:simpleType>
 
   <xs:complexType name="CardIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
     <xs:sequence>
       <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
@@ -285,9 +295,13 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="MerchantCountryCodeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
     <xs:sequence>
       <xs:element name="countryCode" type="xs:string" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
@@ -297,6 +311,8 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
 

@@ -32,20 +32,24 @@
 	</xs:element>
 
 	<xs:complexType name="LoanList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Collection of loans data definition.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="loan" type="Loan" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating to a loan account.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Collection of loans data definition.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="loan" type="Loan" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating to a loan account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Loan">
@@ -565,16 +569,20 @@
 				when the loan is in a delinquent state.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="delinquencyNotice" type="DelinquencyNotice" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details related to each delinquency notice. It describes/details the actions taken
-						when the loan is in a delinquent state.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="delinquencyNotice" type="DelinquencyNotice" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to each delinquency notice. It describes/details the actions taken
+								when the loan is in a delinquent state.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="DelinquencyNotice">
@@ -631,16 +639,20 @@
 				It is insurance directly related to the loan.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="insuranceAddOn" type="InsuranceAddOn" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating to each insurance add on placed on the loan.
-						It is insurance directly related to the loan.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="insuranceAddOn" type="InsuranceAddOn" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating to each insurance add on placed on the loan.
+								It is insurance directly related to the loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="InsuranceAddOn">
@@ -786,15 +798,19 @@
 				Details related to loan fees.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="loanFee" type="LoanFee" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details related to loan fees.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element name="loanFee" type="LoanFee" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to loan fees.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="LoanFee">
@@ -1565,15 +1581,19 @@
 				This list is in addition to the relationship parties, if available.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						This includes each party ID and how it relates to the loan.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListValuePair">
+				<xs:sequence>
+					<xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								This includes each party ID and how it relates to the loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="LoanParty">
