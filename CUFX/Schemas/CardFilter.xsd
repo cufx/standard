@@ -70,12 +70,29 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="transactionDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="activationDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The date range filter that is used to search the transactions, the range will reduce the returned
-						transaction list to those contained within the provided range if the range is supplied.
-						Indicates the UTC posted date range for the transactions to be returned in the response.
+						The date range filter that is used to search by card activationDateTime.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="expirationDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date range filter that is used to search by card expirationDate.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="blockedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date range filter that is used to search by card blockedDateTime.
+						Usage see common.xsd DateRange.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
