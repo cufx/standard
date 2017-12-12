@@ -41,7 +41,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="account" type="Account" minOccurs="0" maxOccurs="unbounded">
 					</xs:element>
@@ -346,7 +346,7 @@
 
 	<xs:complexType name="TotalToDateList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="totalToDate" type="TotalToDate" minOccurs="0" maxOccurs="unbounded" nillable="true" >
 						<xs:annotation>
@@ -436,7 +436,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -459,7 +459,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="micrAccountNumber" type="MicrAccountNumber" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -612,7 +612,7 @@
 
 	<xs:complexType name="AccountTypeList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -675,7 +675,7 @@
 
 	<xs:complexType name="AccountStatusList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accountStatusPair" type="AccountStatusPair" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -710,7 +710,7 @@
 
 	<xs:complexType name="AccountAccountTypeList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accountAccountTypePair" type="AccountAccountTypePair" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>

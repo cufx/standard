@@ -37,7 +37,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="billPayee" type="BillPayee" minOccurs="0" maxOccurs="unbounded">
 					</xs:element>
@@ -317,7 +317,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="payeeStatus" type="PayeeStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -350,7 +350,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="billPayeeId" type="BillPayeeId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -384,7 +384,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="billPayeeGlobalId" type="BillPayeeGlobalId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

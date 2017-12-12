@@ -33,7 +33,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="registeredDevice" type="RegisteredDevice" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -134,7 +134,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="deviceId" type="DeviceId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>

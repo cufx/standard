@@ -33,7 +33,7 @@
 
 	<xs:complexType name="LoanList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -570,7 +570,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="delinquencyNotice" type="DelinquencyNotice" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -640,7 +640,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="insuranceAddOn" type="InsuranceAddOn" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -799,7 +799,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="loanFee" type="LoanFee" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -1582,7 +1582,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element  name="loanParty" type="LoanParty" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

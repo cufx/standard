@@ -36,7 +36,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="document" type="Document" minOccurs="0" maxOccurs="unbounded">
 					</xs:element>
@@ -247,7 +247,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentId" type="DocumentId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -281,7 +281,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentTitle" type="DocumentTitle" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -351,7 +351,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentStatus" type="DocumentStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -485,7 +485,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentSignature" type="DocumentSignature" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -655,7 +655,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentSignatureType" type="DocumentSignatureType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -690,7 +690,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentType" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -713,7 +713,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="documentSubType" type="DocumentSubType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -741,7 +741,7 @@ attributeFormDefault="unqualified">
 
 	<xs:complexType name="WitnessList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>

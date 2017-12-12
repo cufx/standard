@@ -22,7 +22,7 @@
 
 	<xs:complexType name="LocationList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -173,7 +173,7 @@
 
 	<xs:complexType name="ServicesList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -189,7 +189,7 @@
 
 	<xs:complexType name="AdditionalDataList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -204,7 +204,7 @@
 
 	<xs:complexType name="LocationHoursList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>

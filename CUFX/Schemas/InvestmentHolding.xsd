@@ -25,7 +25,7 @@
 
 	<xs:complexType name="InvestmentHoldingList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -300,7 +300,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="holdingId" type="HoldingId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

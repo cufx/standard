@@ -29,7 +29,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -116,7 +116,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="fiId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -133,7 +133,7 @@
 
 	<xs:complexType name="ServiceList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -262,7 +262,7 @@
 
 	<xs:complexType name="MethodList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="method" type="Method" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
@@ -313,7 +313,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="methodDependency" type="MethodDependency" minOccurs ="0" maxOccurs="1" >
 						<xs:annotation>
@@ -368,7 +368,7 @@
 
 	<xs:complexType name="CurrencySupportList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -391,7 +391,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -415,7 +415,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="fieldNotSupported" type="FieldNotSupported" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -472,7 +472,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="customDataUse" type="CustomDataUse" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

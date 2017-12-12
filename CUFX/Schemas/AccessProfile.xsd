@@ -35,7 +35,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accessProfile" type="AccessProfile" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -149,7 +149,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="accessProfileId" type="AccessProfileId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

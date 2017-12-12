@@ -25,7 +25,7 @@
 
 	<xs:complexType name="OverdraftPriorityList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="overdraftPriority" type="OverdraftPriority" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -110,7 +110,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="overdraftPriorityId" type="OverdraftPriorityId" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
@@ -144,7 +144,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="priority" type="Priority" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>

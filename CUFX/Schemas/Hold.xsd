@@ -24,7 +24,7 @@
 
 	<xs:complexType name="HoldList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -213,7 +213,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="holdId" type="HoldId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -381,7 +381,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="holdType" type="HoldType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -469,7 +469,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="holdReasonType" type="HoldReasonType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

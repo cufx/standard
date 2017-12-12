@@ -32,7 +32,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="systemStatusList" type="systemStatus:SystemStatusList" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>

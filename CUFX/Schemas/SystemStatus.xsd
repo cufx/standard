@@ -28,7 +28,7 @@ attributeFormDefault="unqualified">
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="systemState" type="SystemState" minOccurs="0" maxOccurs="unbounded">
 					</xs:element>

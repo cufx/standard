@@ -32,7 +32,7 @@
 
 	<xs:complexType name="ApplicationList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -121,7 +121,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="applicant" type="Applicant" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -211,7 +211,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productAppliedFor" type="ProductAppliedFor"  minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -385,7 +385,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="applicationId" type="ApplicationId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>

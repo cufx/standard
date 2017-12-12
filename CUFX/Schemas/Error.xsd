@@ -27,7 +27,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="error" type="Error" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>

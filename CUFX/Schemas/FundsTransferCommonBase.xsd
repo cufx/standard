@@ -28,7 +28,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="recurringId" type="RecurringId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -60,7 +60,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="occurrenceId" type="OccurrenceId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -201,7 +201,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="occurrenceStatus" type="OccurrenceStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -234,7 +234,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="batchId" type="BatchId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -351,7 +351,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="recurringStatus" type="RecurringStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

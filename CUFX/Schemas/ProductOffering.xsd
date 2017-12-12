@@ -27,7 +27,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productOffering" type="ProductOffering" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -130,7 +130,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="interestRate" type="InterestRate" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -291,7 +291,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="unbounded" >
 						<xs:annotation>
@@ -314,7 +314,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productSubType" type="ProductSubType" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -337,7 +337,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productId" type="ProductId" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>

@@ -36,7 +36,7 @@
 
 	<xs:complexType name="PermissionList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="permission" type="Permission" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

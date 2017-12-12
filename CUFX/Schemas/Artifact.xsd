@@ -27,7 +27,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="artifact" type="Artifact" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -191,7 +191,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="artifactId" type="ArtifactId" minOccurs="0" maxOccurs="unbounded"
 						nillable="true">

@@ -39,7 +39,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="bill" type="Bill" minOccurs="0" maxOccurs="unbounded">
 					</xs:element>
@@ -252,7 +252,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="billId" type="BillId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -341,7 +341,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="billStatus" type="BillStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

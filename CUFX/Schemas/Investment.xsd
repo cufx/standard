@@ -31,7 +31,7 @@
 
 	<xs:complexType name="InvestmentList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -98,7 +98,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="investmentParty" type="InvestmentParty" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>

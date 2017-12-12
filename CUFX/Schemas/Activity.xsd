@@ -35,7 +35,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activity" type="Activity" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -318,7 +318,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activityId" type="ActivityId" minOccurs="0" maxOccurs="unbounded" nillable="true">
 					</xs:element>
@@ -334,7 +334,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activityFieldImpacted" type="ActivityFieldImpacted" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -449,7 +449,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activityStatus" type="ActivityStatus" minOccurs="0" maxOccurs="unbounded" nillable="true">
 					</xs:element>
@@ -475,7 +475,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
 					</xs:element>
@@ -502,7 +502,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="activityType" type="ActivityType" minOccurs="0" maxOccurs="unbounded" nillable="true">
 					</xs:element>

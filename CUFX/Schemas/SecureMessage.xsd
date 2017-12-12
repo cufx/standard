@@ -47,7 +47,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="secureMessage" type="SecureMessage" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -268,7 +268,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="secureMessageId" type="SecureMessageId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -291,7 +291,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="threadId" type="ThreadId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -322,7 +322,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="subjectLine" type="SubjectLine" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -436,7 +436,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="secureMessageStatus" type="SecureMessageStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -537,7 +537,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="secureMessageType" type="SecureMessageType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -611,7 +611,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="secureMessageUser" type="SecureMessageUser" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -659,7 +659,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="statusLogEntry" type="StatusLogEntry" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

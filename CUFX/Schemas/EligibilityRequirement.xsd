@@ -26,7 +26,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="eligibilityRequirement" type="EligibilityRequirement" minOccurs="0" maxOccurs="unbounded"
 						nillable="true">
@@ -115,7 +115,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="affinityBrand" type="AffinityBrand" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -140,7 +140,7 @@
 
 	<xs:complexType name="EligibilityRequirementIdList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="requirementId" type="RequirementId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

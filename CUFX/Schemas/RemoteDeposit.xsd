@@ -31,7 +31,7 @@
 
 	<xs:complexType name="RemoteDepositList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -310,7 +310,7 @@
 
 	<xs:complexType name="ImageValidationIssueList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -476,7 +476,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="status" type="RemoteDepositStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -497,7 +497,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="action" type="RemoteDepositAction" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -519,7 +519,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="remoteDepositId" type="RemoteDepositId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

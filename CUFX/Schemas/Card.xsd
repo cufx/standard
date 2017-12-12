@@ -37,7 +37,7 @@
       </xs:documentation>
     </xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
       </xs:element >
@@ -264,7 +264,7 @@
       </xs:documentation>
     </xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="linkedAccount" type="LinkedAccount" minOccurs="1" maxOccurs="unbounded" />
     </xs:sequence>
@@ -285,7 +285,7 @@
 
   <xs:complexType name="CardIdList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
@@ -301,7 +301,7 @@
 
   <xs:complexType name="MerchantCountryCodeList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="countryCode" type="xs:string" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>

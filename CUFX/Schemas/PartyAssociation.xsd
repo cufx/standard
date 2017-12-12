@@ -30,7 +30,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="partyAssociation" type="PartyAssociation" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -155,7 +155,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="qualifier" type="PartnerQualifer" minOccurs ="1" maxOccurs ="1">
 						<xs:annotation>
@@ -197,7 +197,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="qualifier" type="OfficerManagerQualifer" minOccurs ="1" maxOccurs ="1">
 						<xs:annotation>
@@ -326,7 +326,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="qualifier" type="NextOfKinQualifer" minOccurs ="1" maxOccurs ="1">
 						<xs:annotation>
@@ -506,7 +506,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="qualifier" type="TrustorQualifer" minOccurs ="1" maxOccurs ="1">
 						<xs:annotation>
@@ -551,7 +551,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="partyAssociationId" type="PartyAssociationId" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -572,7 +572,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="partyAssociationType" type="PartyAssociationType" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>

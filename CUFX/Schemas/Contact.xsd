@@ -27,7 +27,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -582,7 +582,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="contactId" type="ContactId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -617,7 +617,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="contactType" type="ContactType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

@@ -31,7 +31,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="transferOccurrence" type="TransferOccurrence" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

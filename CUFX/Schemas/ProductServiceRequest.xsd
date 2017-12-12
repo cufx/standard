@@ -46,7 +46,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productServiceRequest" type="ProductServiceRequest" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -155,7 +155,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="request" type="Request" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -373,7 +373,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="productServiceRequestId" type="ProductServiceRequestId" minOccurs="0" maxOccurs="unbounded" nillable="true">
 					</xs:element>
@@ -458,7 +458,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="status" type="ProductServiceStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

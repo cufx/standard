@@ -29,7 +29,7 @@
 
 	<xs:complexType name="DepositList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
@@ -267,7 +267,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="depositParty" type="DepositParty" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>

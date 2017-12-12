@@ -22,7 +22,7 @@
 
 	<xs:complexType name="SimpleValidationRequestList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>

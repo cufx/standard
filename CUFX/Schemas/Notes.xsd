@@ -30,7 +30,7 @@
 
 	<xs:complexType name="DetailedNoteList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>

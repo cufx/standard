@@ -24,7 +24,7 @@
 	</xs:element>
 	<xs:complexType name="AnswerList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="answer" type="Answer" minOccurs="1" maxOccurs="unbounded"/>
 				</xs:sequence>

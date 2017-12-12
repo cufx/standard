@@ -27,7 +27,7 @@
 
 	<xs:complexType name="RelationshipList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="relationship" type="Relationship" minOccurs="0" maxOccurs="unbounded" >
 						<xs:annotation>
@@ -132,7 +132,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="relationshipStatus" type="RelationshipStatus" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -164,7 +164,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="relationshipId" type="RelationshipId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -187,7 +187,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="relationshipParty" type="RelationshipParty" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -441,7 +441,7 @@
 
 	<xs:complexType name ="Guarantor">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 						<xs:annotation>
@@ -457,7 +457,7 @@
 
 	<xs:complexType name ="CollateralGrantor">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
 						<xs:annotation>

@@ -462,7 +462,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -822,7 +822,7 @@
 	</xs:simpleType>
 	<xs:complexType name="SubstitutionList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>

@@ -36,7 +36,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="collateral" type="Collateral" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -164,7 +164,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="collateralId" type="CollateralId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

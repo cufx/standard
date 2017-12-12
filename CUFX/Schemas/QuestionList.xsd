@@ -84,7 +84,7 @@
 
 	<xs:complexType name="ChoiceList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="choice" type="Choice" minOccurs="2" maxOccurs="unbounded">
 						<xs:annotation>

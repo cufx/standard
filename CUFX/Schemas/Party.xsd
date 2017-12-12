@@ -38,7 +38,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="party" type="Party" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -225,7 +225,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -717,7 +717,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="taxInformation" type="TaxInformation" minOccurs="0" maxOccurs="unbounded">
 					</xs:element >
@@ -733,7 +733,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="employment" type="Employment" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -941,7 +941,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="additionalIncome" type="AdditionalIncome" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -1032,7 +1032,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="liability" type="Liability" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
@@ -1110,7 +1110,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
@@ -1131,7 +1131,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
@@ -1153,7 +1153,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="citizenship" type="Citizenship" minOccurs="0" maxOccurs="unbounded"	nillable="true">
 					</xs:element>
@@ -1300,7 +1300,7 @@
 
 	<xs:complexType name="DoingBusinessAsList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="doingBusinessAs" type="DoingBusinessAs" minOccurs="0" maxOccurs="unbounded"
 						nillable="true">
@@ -1343,7 +1343,7 @@
 
 	<xs:complexType name="IdentificationDocumentList">
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="identificationDocument" type="IdentificationDocument" minOccurs="0" maxOccurs="unbounded" nillable="true">
 						<xs:annotation>
@@ -1560,7 +1560,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="eligibilityRequirementMet" type="EligibilityRequirementMet" minOccurs="0" maxOccurs="unbounded"
 						nillable="true">
@@ -1630,7 +1630,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -1653,7 +1653,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="common:ListValuePair">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="partyType" type="PartyType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>

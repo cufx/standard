@@ -84,7 +84,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListValuePair">
+			<xs:extension base="ListBase">
 				<xs:sequence>
 					<xs:element name="note" type="Note" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -186,7 +186,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListValuePair">
+			<xs:extension base="ListBase">
 				<xs:sequence>
 					<xs:element name="noteID" type="NoteId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -220,7 +220,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListValuePair">
+			<xs:extension base="ListBase">
 				<xs:sequence>
 					<xs:element name="noteCode" type="NoteCode" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -253,7 +253,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListValuePair">
+			<xs:extension base="ListBase">
 				<xs:sequence>
 					<xs:element name="noteCode" type="NoteCreator" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -276,7 +276,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListValuePair">
+			<xs:extension base="ListBase">
 				<xs:sequence>
 					<xs:element name="personName" type="PersonName" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -319,18 +319,59 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ListValuePair">
+	<xs:complexType name="ListBase">
 		<xs:annotation>
 			<xs:documentation>
-				The ListValuePair custom data section allows the flexibility to add additional information to the list object.
-				This should be utilized as a last resort. Any use should result in requested modifications to the message.
-				The addition of ListValuePair to all CUFX lists corrects a known Microsoft serialization error.
+			  Defintion to provide general list support features. 
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:sequence>
-				<xs:element name="customName" type="xs:string" minOccurs="1" maxOccurs="1" />
-				<xs:element name="customValue" type="xs:string" minOccurs="1" maxOccurs="1" />
+				<xs:element name="currentPage" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. Current page of information presented in the message response.
+							Typically used in combination with totalPages and pageSize.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalPages" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. Total pages of information available as a result of the query.
+							Typically used in combination with currentPage and pageSize.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pageSize" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The total number of records that may be returned as part of 1 page.
+							Typically used in combination with currentPage and totalPages.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="positionIndex" type="xs:string"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The record position index of the current message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="returnPage" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The requested page value to be returned in the message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="returnPositionIndex" type="xs:string"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The requested record position to be returned in the message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
