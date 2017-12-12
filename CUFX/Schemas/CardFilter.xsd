@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/CardFilter.xsd"
-  version="3.3.$Revision$"
-  xmlns="http://cufxstandards.com/v3/CardFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/CardFilter.xsd"
+  version="4.0.$Revision$"
+  xmlns="http://cufxstandards.com/v4/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:card="http://cufxstandards.com/v3/Card.xsd"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 					 
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
   <xs:element name="cardFilter" type="CardFilter">
     <xs:annotation>

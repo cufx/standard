@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="TransactionFilter"
-    targetNamespace="http://cufxstandards.com/v3/TransactionFilter.xsd"
-    version="3.3.$Revision$"
-    xmlns="http://cufxstandards.com/v3/TransactionFilter.xsd"
-    xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-    xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-    xmlns:party="http://cufxstandards.com/v3/Party.xsd"	
-    xmlns:transaction="http://cufxstandards.com/v3/Transaction.xsd"
+    targetNamespace="http://cufxstandards.com/v4/TransactionFilter.xsd"
+    version="4.0.$Revision$"
+    xmlns="http://cufxstandards.com/v4/TransactionFilter.xsd"
+    xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+    xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+    xmlns:party="http://cufxstandards.com/v4/Party.xsd"	
+    xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Transaction.xsd" schemaLocation="Transaction.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
   <xs:element name="transactionFilter" type="TransactionFilter">
     <xs:annotation>

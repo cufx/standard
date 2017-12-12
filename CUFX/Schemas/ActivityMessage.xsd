@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v3/ActivityMessage.xsd"
-	version="3.3.$Revision: 1062 $"
-	xmlns="http://cufxstandards.com/v3/ActivityMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/ActivityMessage.xsd"
+	version="4.0.$Revision: 1062 $"
+	xmlns="http://cufxstandards.com/v4/ActivityMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:activity="http://cufxstandards.com/v3/Activity.xsd"
-	xmlns:activityFilter="http://cufxstandards.com/v3/ActivityFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
+	xmlns:activityFilter="http://cufxstandards.com/v4/ActivityFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Activity.xsd" schemaLocation="Activity.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/ActivityFilter.xsd" schemaLocation="ActivityFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Activity.xsd" schemaLocation="Activity.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ActivityFilter.xsd" schemaLocation="ActivityFilter.xsd" />
 
 	<xs:element name="activityMessage" type="ActivityMessage">
 		<xs:annotation>

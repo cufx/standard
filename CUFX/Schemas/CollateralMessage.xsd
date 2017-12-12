@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/CollateralMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/CollateralMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/CollateralMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/CollateralMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:collateral="http://cufxstandards.com/v3/Collateral.xsd"
-	xmlns:collateralFilter="http://cufxstandards.com/v3/CollateralFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:collateral="http://cufxstandards.com/v4/Collateral.xsd"
+	xmlns:collateralFilter="http://cufxstandards.com/v4/CollateralFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Collateral.xsd" schemaLocation="Collateral.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/CollateralFilter.xsd" schemaLocation="CollateralFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Collateral.xsd" schemaLocation="Collateral.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/CollateralFilter.xsd" schemaLocation="CollateralFilter.xsd" />
 
   <xs:element name="collateralMessage" type="CollateralMessage">
     <xs:annotation>

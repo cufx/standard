@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v3/AccessProfile.xsd"
-  version="3.3.$Revision$"
-  xmlns="http://cufxstandards.com/v3/AccessProfile.xsd"
+  targetNamespace="http://cufxstandards.com/v4/AccessProfile.xsd"
+  version="4.0.$Revision$"
+  xmlns="http://cufxstandards.com/v4/AccessProfile.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-  xmlns:isoCountryCodeType="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd"
-  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:credentialGroup="http://cufxstandards.com/v3/CredentialGroup.xsd"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+  xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+  xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+  xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name= "accessProfileList" type ="AccessProfileList">
 		<xs:annotation>

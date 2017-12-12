@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd"
-	xmlns="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd"
-	version="3.3.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/MicroDepositFundingFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/MicroDepositFundingFilter.xsd"
+	version="4.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:fundsTransferFilterBase="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:microDepositFunding="http://cufxstandards.com/v3/MicroDepositFunding.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+  xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:microDepositFunding="http://cufxstandards.com/v4/MicroDepositFunding.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/MicroDepositFunding.xsd" schemaLocation="MicroDepositFunding.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/MicroDepositFunding.xsd" schemaLocation="MicroDepositFunding.xsd" />
 
 	<xs:element name="microDepositFundingFilter" type="MicroDepositFundingFilter">
 		<xs:annotation>

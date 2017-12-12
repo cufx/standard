@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema 	targetNamespace="http://cufxstandards.com/v3/Preference.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/Preference.xsd"
+<xs:schema 	targetNamespace="http://cufxstandards.com/v4/Preference.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/Preference.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-	xmlns:card="http://cufxstandards.com/v3/Card.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:credential="http://cufxstandards.com/v3/CredentialGroup.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:credential="http://cufxstandards.com/v4/CredentialGroup.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:element name="preferenceList" type="PreferenceList">
 		<xs:annotation>

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/PreferenceMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/PreferenceMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/PreferenceMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/PreferenceMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:preference="http://cufxstandards.com/v3/Preference.xsd"
-	xmlns:preferenceFilter="http://cufxstandards.com/v3/PreferenceFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:preference="http://cufxstandards.com/v4/Preference.xsd"
+	xmlns:preferenceFilter="http://cufxstandards.com/v4/PreferenceFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Preference.xsd" schemaLocation="Preference.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/PreferenceFilter.xsd" schemaLocation="PreferenceFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Preference.xsd" schemaLocation="Preference.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/PreferenceFilter.xsd" schemaLocation="PreferenceFilter.xsd" />
 
   <xs:element name="preferenceMessage" type="PreferenceMessage">
     <xs:annotation>

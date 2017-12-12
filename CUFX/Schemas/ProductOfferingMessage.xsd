@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/ProductOfferingMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/ProductOfferingMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/ProductOfferingMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/ProductOfferingMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:productOffering="http://cufxstandards.com/v3/ProductOffering.xsd"
-	xmlns:productOfferingFilter="http://cufxstandards.com/v3/ProductOfferingFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:productOffering="http://cufxstandards.com/v4/ProductOffering.xsd"
+	xmlns:productOfferingFilter="http://cufxstandards.com/v4/ProductOfferingFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/ProductOfferingFilter.xsd" schemaLocation="ProductOfferingFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/ProductOfferingFilter.xsd" schemaLocation="ProductOfferingFilter.xsd" />
 
   <xs:element name="productOfferingMessage" type="ProductOfferingMessage">
     <xs:annotation>

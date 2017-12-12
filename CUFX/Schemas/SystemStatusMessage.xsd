@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema id="SystemStatusMessage" 
-	targetNamespace="http://cufxstandards.com/v3/SystemStatusMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/SystemStatusMessage.xsd"
+	targetNamespace="http://cufxstandards.com/v4/SystemStatusMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/SystemStatusMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:systemStatus="http://cufxstandards.com/v3/SystemStatus.xsd"
-	xmlns:systemStatusFilter="http://cufxstandards.com/v3/SystemStatusFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:systemStatus="http://cufxstandards.com/v4/SystemStatus.xsd"
+	xmlns:systemStatusFilter="http://cufxstandards.com/v4/SystemStatusFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/SystemStatus.xsd" schemaLocation="SystemStatus.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/SystemStatusFilter.xsd" schemaLocation="SystemStatusFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/SystemStatus.xsd" schemaLocation="SystemStatus.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/SystemStatusFilter.xsd" schemaLocation="SystemStatusFilter.xsd" />
 
 	<xs:element name="systemStatusMessage" type="SystemStatusMessage">
 		<xs:annotation>

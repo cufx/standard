@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/BillPaymentFilter.xsd"
-xmlns="http://cufxstandards.com/v3/BillPaymentFilter.xsd"
-version="3.3.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
+xmlns="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
+version="4.0.$Revision$"
 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:fundsTransferFilterBase="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd"
-xmlns:billPayee="http://cufxstandards.com/v3/BillPayee.xsd"
-xmlns:bill="http://cufxstandards.com/v3/Bill.xsd"
+xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
+xmlns:bill="http://cufxstandards.com/v4/Bill.xsd"
            
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Bill.xsd" schemaLocation="Bill.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Bill.xsd" schemaLocation="Bill.xsd" />
 	
 	<xs:element name="billPaymentFilter" type="BillPaymentFilter">
     <xs:annotation>

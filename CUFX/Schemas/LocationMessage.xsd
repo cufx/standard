@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/LocationMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/LocationMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/LocationMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/LocationMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:location="http://cufxstandards.com/v3/Location.xsd"
-	xmlns:locationFilter="http://cufxstandards.com/v3/LocationFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:location="http://cufxstandards.com/v4/Location.xsd"
+	xmlns:locationFilter="http://cufxstandards.com/v4/LocationFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Location.xsd" schemaLocation="Location.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/LocationFilter.xsd" schemaLocation="LocationFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Location.xsd" schemaLocation="Location.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/LocationFilter.xsd" schemaLocation="LocationFilter.xsd" />
 
   <xs:element name="locationMessage" type="LocationMessage">
     <xs:annotation>

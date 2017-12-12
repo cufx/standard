@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="TransferOccurrence"
-    targetNamespace="http://cufxstandards.com/v3/TransferOccurrence.xsd"
-    version="3.3.$Revision$"
-    xmlns="http://cufxstandards.com/v3/TransferOccurrence.xsd"
-    xmlns:mstns="http://cufxstandards.com/v3/TransferOccurrence.xsd"
-	  xmlns:card="http://cufxstandards.com/v3/Card.xsd"
-		xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+    targetNamespace="http://cufxstandards.com/v4/TransferOccurrence.xsd"
+    version="4.0.$Revision$"
+    xmlns="http://cufxstandards.com/v4/TransferOccurrence.xsd"
+    xmlns:mstns="http://cufxstandards.com/v4/TransferOccurrence.xsd"
+	  xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+		xmlns:common="http://cufxstandards.com/v4/Common.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+    xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd"
            
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Card.xsd" schemaLocation="Card.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="transferOccurrenceList" type="TransferOccurrenceList">
 		<xs:annotation>

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/MicroDepositFundingMessage.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/MicroDepositFundingMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/MicroDepositFundingMessage.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/MicroDepositFundingMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:microDepositFunding="http://cufxstandards.com/v3/MicroDepositFunding.xsd"
-	xmlns:microDepositFundingFilter="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:microDepositFunding="http://cufxstandards.com/v4/MicroDepositFunding.xsd"
+	xmlns:microDepositFundingFilter="http://cufxstandards.com/v4/MicroDepositFundingFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/MicroDepositFunding.xsd" schemaLocation="MicroDepositFunding.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/MicroDepositFundingFilter.xsd" schemaLocation="MicroDepositFundingFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MicroDepositFunding.xsd" schemaLocation="MicroDepositFunding.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MicroDepositFundingFilter.xsd" schemaLocation="MicroDepositFundingFilter.xsd" />
 
   <xs:element name="microDepositFundingMessage" type="MicroDepositFundingMessage">
     <xs:annotation>

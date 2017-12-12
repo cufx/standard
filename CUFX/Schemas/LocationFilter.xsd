@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/LocationFilter.xsd"
-	xmlns="http://cufxstandards.com/v3/LocationFilter.xsd"
-	version="3.3.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/LocationFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/LocationFilter.xsd"
+	version="4.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	xmlns:location="http://cufxstandards.com/v3/Location.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:location="http://cufxstandards.com/v4/Location.xsd"
  	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Location.xsd" schemaLocation="Location.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Location.xsd" schemaLocation="Location.xsd" />
 
 	<xs:element name="locationFilter" type="LocationFilter">
 		<xs:annotation>

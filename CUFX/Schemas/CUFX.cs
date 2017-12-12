@@ -26243,7 +26243,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v3/SystemStatus.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/SystemStatus.xsd")]
     public partial class SystemStatusList {
         
         private SystemState[] systemStateField;
@@ -26261,7 +26261,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v3/SystemStatus.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/SystemStatus.xsd")]
     public partial class SystemState {
         
         private string systemNameField;
@@ -26315,7 +26315,7 @@ namespace cufxstandards.com {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="SystemStatus", Namespace="http://cufxstandards.com/v3/SystemStatus.xsd")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="SystemStatus", Namespace="http://cufxstandards.com/v4/SystemStatus.xsd")]
     public enum SystemStatus1 {
         
         /// <remarks/>

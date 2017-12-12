@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/Collateral.xsd"
-	version="3.3.$Revision$"
-	xmlns="http://cufxstandards.com/v3/Collateral.xsd"
+	targetNamespace="http://cufxstandards.com/v4/Collateral.xsd"
+	version="4.0.$Revision$"
+	xmlns="http://cufxstandards.com/v4/Collateral.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-	xmlns:credit="http://cufxstandards.com/v3/CreditReport.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:credit="http://cufxstandards.com/v4/CreditReport.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="collateralList" type="CollateralList">
 		<xs:annotation>
