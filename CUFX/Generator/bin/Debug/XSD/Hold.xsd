@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v3/Hold.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/Hold.xsd"
+   targetNamespace="http://cufxstandards.com/v4/Hold.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/Hold.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-  xmlns:feeSchedule="http://cufxstandards.com/v3/FeeSchedule.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+  xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+  xmlns:feeSchedule="http://cufxstandards.com/v4/FeeSchedule.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name="holdList" type="HoldList">
 		<xs:annotation>
@@ -23,20 +23,24 @@
 	</xs:element>
 
 	<xs:complexType name="HoldList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Collection of holds data definition.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="hold" type="Hold" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating to a hold.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Collection of holds data definition.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="hold" type="Hold" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating to a hold.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="Hold">
@@ -56,7 +60,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="transactionId" type="xs:string" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -106,7 +110,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="holdStatus" type="HoldStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -158,6 +162,36 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="startCheckNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For a stop draft hold type, this is the check number to place the stop payment against. If the hold request
+						is for a range of check numbers this is the first check number in the range.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="endCheckNumber" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						To place a stop draft hold type for a range of checks, this is the last check number
+						in the range. This field can be omitted for a single check stop payment request.
+						Optionally, for a single check stop payment request, set this field to the same value as the 'startCheckNumber'.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Document name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data
+						providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future
+						release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -178,16 +212,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="holdId" type="HoldId" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A hold ID that should have its associated hold id either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="holdId" type="HoldId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A hold ID that should have its associated hold id either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="HoldType">
@@ -276,7 +314,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="holdDraft">
+			<xs:enumeration value="HoldDraft">
 				<xs:annotation>
 					<xs:documentation>
 						Hold on a preapproved hold draft for a zero-balance preapproved hold.
@@ -342,16 +380,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="holdType" type="HoldType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A hold type that should have its associated hold record either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="holdType" type="HoldType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A hold type that should have its associated hold record either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="HoldReasonType">
@@ -426,18 +468,22 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="holdReasonType" type="HoldReasonType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A hold reason type that should have its associated holds either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="holdReasonType" type="HoldReasonType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A hold reason type that should have its associated holds either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="HoldStatus">
 		<xs:annotation>
 			<xs:documentation>

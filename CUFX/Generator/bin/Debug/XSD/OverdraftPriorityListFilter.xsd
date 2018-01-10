@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd"
-   version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd"
+   version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:overdraft="http://cufxstandards.com/v3/OverdraftPriorityList.xsd"
+  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:overdraft="http://cufxstandards.com/v4/OverdraftPriorityList.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/OverdraftPriorityList.xsd" schemaLocation="OverdraftPriorityList.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/OverdraftPriorityList.xsd" schemaLocation="OverdraftPriorityList.xsd" />
 
   <xs:element name="overdraftPriorityListFilter" type="OverdraftPriorityListFilter">
     <xs:annotation>
@@ -37,6 +37,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account statuses and sub statuses that should have their associated overdraft priority list either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
       <xs:element name="overdraftPriorityIdList" type="overdraft:OverdraftPriorityIdList" minOccurs="0" maxOccurs="1">
         <xs:annotation>

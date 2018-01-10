@@ -1,182 +1,362 @@
-<documentMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/DocumentMessage.xsd">
+<documentMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/DocumentMessage.xsd">
   <messageContext>
-    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
-    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
-    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
-    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
-    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
+      <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
+      <processorSessionId>processorSessionId2</processorSessionId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
+      <processorSessionId>processorSessionId3</processorSessionId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
+      <processorSessionId>processorSessionId4</processorSessionId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
+      <processorSessionId>processorSessionId5</processorSessionId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Success</statusType>
+        <statusCode>NoDataInRequest</statusCode>
+        <statusSubCode>statusSubCode1</statusSubCode>
+        <statusMessage>statusMessage1</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <substitution>
+            <id>id1</id>
+            <value>value1</value>
+          </substitution>
+          <substitution>
+            <id>id2</id>
+            <value>value2</value>
+          </substitution>
+          <substitution>
+            <id>id3</id>
+            <value>value3</value>
+          </substitution>
+          <substitution>
+            <id>id4</id>
+            <value>value4</value>
+          </substitution>
+          <substitution>
+            <id>id5</id>
+            <value>value5</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Warning</statusType>
+        <statusCode>NoMatchingRecords</statusCode>
+        <statusSubCode>statusSubCode2</statusSubCode>
+        <statusMessage>statusMessage2</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+          <substitution>
+            <id>id6</id>
+            <value>value6</value>
+          </substitution>
+          <substitution>
+            <id>id7</id>
+            <value>value7</value>
+          </substitution>
+          <substitution>
+            <id>id8</id>
+            <value>value8</value>
+          </substitution>
+          <substitution>
+            <id>id9</id>
+            <value>value9</value>
+          </substitution>
+          <substitution>
+            <id>id10</id>
+            <value>value10</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <documentFilter>
-    <documentIdList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId1</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId2</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId3</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId4</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId5</documentId>
+    <documentIdList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId1</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId2</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId3</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId4</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId5</documentId>
     </documentIdList>
-    <documentTitleList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentTitle xmlns="http://cufxstandards.com/v3/Document.xsd">documentTitle1</documentTitle>
-      <documentTitle xmlns="http://cufxstandards.com/v3/Document.xsd">documentTitle2</documentTitle>
-      <documentTitle xmlns="http://cufxstandards.com/v3/Document.xsd">documentTitle3</documentTitle>
-      <documentTitle xmlns="http://cufxstandards.com/v3/Document.xsd">documentTitle4</documentTitle>
-      <documentTitle xmlns="http://cufxstandards.com/v3/Document.xsd">documentTitle5</documentTitle>
+    <documentTitleList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentTitle xmlns="http://cufxstandards.com/v4/Document.xsd">documentTitle1</documentTitle>
+      <documentTitle xmlns="http://cufxstandards.com/v4/Document.xsd">documentTitle2</documentTitle>
+      <documentTitle xmlns="http://cufxstandards.com/v4/Document.xsd">documentTitle3</documentTitle>
+      <documentTitle xmlns="http://cufxstandards.com/v4/Document.xsd">documentTitle4</documentTitle>
+      <documentTitle xmlns="http://cufxstandards.com/v4/Document.xsd">documentTitle5</documentTitle>
     </documentTitleList>
-    <documentTypeList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentType xmlns="http://cufxstandards.com/v3/Document.xsd">CheckImage</documentType>
-      <documentType xmlns="http://cufxstandards.com/v3/Document.xsd">Disclosure</documentType>
-      <documentType xmlns="http://cufxstandards.com/v3/Document.xsd">IdentificationDocument</documentType>
-      <documentType xmlns="http://cufxstandards.com/v3/Document.xsd">LoanDocument</documentType>
-      <documentType xmlns="http://cufxstandards.com/v3/Document.xsd">MembershipDocument</documentType>
+    <documentTypeList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentType xmlns="http://cufxstandards.com/v4/Document.xsd">CheckImage</documentType>
+      <documentType xmlns="http://cufxstandards.com/v4/Document.xsd">Disclosure</documentType>
+      <documentType xmlns="http://cufxstandards.com/v4/Document.xsd">IdentificationDocument</documentType>
+      <documentType xmlns="http://cufxstandards.com/v4/Document.xsd">LoanDocument</documentType>
+      <documentType xmlns="http://cufxstandards.com/v4/Document.xsd">MembershipDocument</documentType>
     </documentTypeList>
-    <documentSubTypeList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentSubType xmlns="http://cufxstandards.com/v3/Document.xsd">documentSubType1</documentSubType>
-      <documentSubType xmlns="http://cufxstandards.com/v3/Document.xsd">documentSubType2</documentSubType>
-      <documentSubType xmlns="http://cufxstandards.com/v3/Document.xsd">documentSubType3</documentSubType>
-      <documentSubType xmlns="http://cufxstandards.com/v3/Document.xsd">documentSubType4</documentSubType>
-      <documentSubType xmlns="http://cufxstandards.com/v3/Document.xsd">documentSubType5</documentSubType>
+    <documentSubTypeList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentSubType xmlns="http://cufxstandards.com/v4/Document.xsd">documentSubType1</documentSubType>
+      <documentSubType xmlns="http://cufxstandards.com/v4/Document.xsd">documentSubType2</documentSubType>
+      <documentSubType xmlns="http://cufxstandards.com/v4/Document.xsd">documentSubType3</documentSubType>
+      <documentSubType xmlns="http://cufxstandards.com/v4/Document.xsd">documentSubType4</documentSubType>
+      <documentSubType xmlns="http://cufxstandards.com/v4/Document.xsd">documentSubType5</documentSubType>
     </documentSubTypeList>
-    <appliesTo xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+    <appliesTo xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
     </appliesTo>
-    <filterDateTime xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">1900-01-01T01:01:01Z</filterDateTime>
-    <documentVersion xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">documentVersion1</documentVersion>
-    <partyIdList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    <documentCreationDateRange xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </documentCreationDateRange>
+    <documentEffectiveDateRange xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </documentEffectiveDateRange>
+    <documentExpirationDateRange xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </documentExpirationDateRange>
+    <documentVersion xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">documentVersion1</documentVersion>
+    <partyIdList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
     </partyIdList>
-    <relationshipIdList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId1</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId2</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId3</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId4</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v3/Relationship.xsd">relationshipId5</relationshipId>
+    <relationshipIdList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId1</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId2</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId3</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId4</relationshipId>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId5</relationshipId>
     </relationshipIdList>
-    <accountIdList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+    <accountIdList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId2</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId3</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId4</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId5</accountId>
     </accountIdList>
-    <documentStatusList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentStatus xmlns="http://cufxstandards.com/v3/Document.xsd">Template</documentStatus>
-      <documentStatus xmlns="http://cufxstandards.com/v3/Document.xsd">Sent</documentStatus>
-      <documentStatus xmlns="http://cufxstandards.com/v3/Document.xsd">Viewed</documentStatus>
-      <documentStatus xmlns="http://cufxstandards.com/v3/Document.xsd">Returned</documentStatus>
-      <documentStatus xmlns="http://cufxstandards.com/v3/Document.xsd">Template</documentStatus>
+    <documentStatusList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentStatus xmlns="http://cufxstandards.com/v4/Document.xsd">Template</documentStatus>
+      <documentStatus xmlns="http://cufxstandards.com/v4/Document.xsd">Sent</documentStatus>
+      <documentStatus xmlns="http://cufxstandards.com/v4/Document.xsd">Viewed</documentStatus>
+      <documentStatus xmlns="http://cufxstandards.com/v4/Document.xsd">Returned</documentStatus>
+      <documentStatus xmlns="http://cufxstandards.com/v4/Document.xsd">Recent</documentStatus>
     </documentStatusList>
-    <documentSignatureTypeList xmlns="http://cufxstandards.com/v3/DocumentFilter.xsd">
-      <documentSignatureType xmlns="http://cufxstandards.com/v3/Document.xsd">Unsigned</documentSignatureType>
-      <documentSignatureType xmlns="http://cufxstandards.com/v3/Document.xsd">ElectronicSignature</documentSignatureType>
-      <documentSignatureType xmlns="http://cufxstandards.com/v3/Document.xsd">SingleClickAcceptance</documentSignatureType>
-      <documentSignatureType xmlns="http://cufxstandards.com/v3/Document.xsd">WetSignature</documentSignatureType>
-      <documentSignatureType xmlns="http://cufxstandards.com/v3/Document.xsd">Unsigned</documentSignatureType>
+    <documentSignatureTypeList xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentSignatureType xmlns="http://cufxstandards.com/v4/Document.xsd">Unsigned</documentSignatureType>
+      <documentSignatureType xmlns="http://cufxstandards.com/v4/Document.xsd">ElectronicSignature</documentSignatureType>
+      <documentSignatureType xmlns="http://cufxstandards.com/v4/Document.xsd">SingleClickAcceptance</documentSignatureType>
+      <documentSignatureType xmlns="http://cufxstandards.com/v4/Document.xsd">WetSignature</documentSignatureType>
+      <documentSignatureType xmlns="http://cufxstandards.com/v4/Document.xsd">Unsigned</documentSignatureType>
     </documentSignatureTypeList>
   </documentFilter>
   <documentList>
-    <document xmlns="http://cufxstandards.com/v3/Document.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <document xmlns="http://cufxstandards.com/v4/Document.xsd">
       <documentId>documentId1</documentId>
       <documentTitle>documentTitle1</documentTitle>
       <documentType>CheckImage</documentType>
       <documentSubType>documentSubType1</documentSubType>
       <appliesTo>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </appliesTo>
       <documentStatus>Template</documentStatus>
       <documentVersion>documentVersion1</documentVersion>
       <effectiveDateTime>1900-01-01T01:01:01Z</effectiveDateTime>
       <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
       <documentArtifactIdList>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId1</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId2</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
       </documentArtifactIdList>
       <partyIdList>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
       </partyIdList>
       <relationshipId>relationshipId1</relationshipId>
       <accountIdList>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId2</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId3</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId4</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId5</accountId>
       </accountIdList>
       <prefillable>true</prefillable>
       <prefilled>true</prefilled>
       <documentSignatureList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <documentSignature>
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose1</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId1</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId1</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-01-01T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId1</signaturePartyId>
@@ -192,7 +372,7 @@
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose2</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId2</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId2</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-01-01T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId2</signaturePartyId>
@@ -208,7 +388,7 @@
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose3</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId3</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId3</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-12-31T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId3</signaturePartyId>
@@ -224,7 +404,7 @@
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose4</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId4</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId4</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-11-30T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId4</signaturePartyId>
@@ -240,7 +420,7 @@
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose5</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId5</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId5</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-02-02T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId5</signaturePartyId>
@@ -254,6 +434,12 @@
         </documentSignature>
       </documentSignatureList>
       <witnessList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <witness>
           <witnessId>witnessId1</witnessId>
           <witnessIdType>WitnessId</witnessIdType>
@@ -276,65 +462,89 @@
         </witness>
       </witnessList>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </document>
-    <document xmlns="http://cufxstandards.com/v3/Document.xsd">
+    <document xmlns="http://cufxstandards.com/v4/Document.xsd">
       <documentId>documentId2</documentId>
       <documentTitle>documentTitle2</documentTitle>
       <documentType>Disclosure</documentType>
       <documentSubType>documentSubType2</documentSubType>
       <appliesTo>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </appliesTo>
       <documentStatus>Sent</documentStatus>
       <documentVersion>documentVersion2</documentVersion>
       <effectiveDateTime>0001-01-01T00:00:00Z</effectiveDateTime>
       <expirationDateTime>0001-01-01T00:00:00Z</expirationDateTime>
       <documentArtifactIdList>
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId3</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId4</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId5</artifactUniqueId>
         </artifactId>
       </documentArtifactIdList>
       <partyIdList>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId6</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId7</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId8</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId9</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId10</partyId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId6</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId7</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId8</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId9</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId10</partyId>
       </partyIdList>
       <relationshipId>relationshipId2</relationshipId>
       <accountIdList>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId6</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId7</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId8</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId9</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId10</accountId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId6</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId7</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId8</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId9</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId10</accountId>
       </accountIdList>
       <prefillable>false</prefillable>
       <prefilled>false</prefilled>
       <documentSignatureList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
         <documentSignature>
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose6</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId6</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId6</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-02-02T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId6</signaturePartyId>
@@ -350,7 +560,7 @@
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose7</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId7</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId7</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-11-29T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId7</signaturePartyId>
@@ -366,7 +576,7 @@
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose8</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId8</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId8</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-10-29T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId8</signaturePartyId>
@@ -382,7 +592,7 @@
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose9</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId9</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId9</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-03-06T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId9</signaturePartyId>
@@ -398,7 +608,7 @@
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose10</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId10</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId10</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-03-06T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId10</signaturePartyId>
@@ -412,6 +622,12 @@
         </documentSignature>
       </documentSignatureList>
       <witnessList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
         <witness>
           <witnessId>witnessId6</witnessId>
           <witnessIdType>WitnessId</witnessIdType>
@@ -434,63 +650,87 @@
         </witness>
       </witnessList>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </document>
-    <document xmlns="http://cufxstandards.com/v3/Document.xsd">
+    <document xmlns="http://cufxstandards.com/v4/Document.xsd">
       <documentId>documentId3</documentId>
       <documentTitle>documentTitle3</documentTitle>
       <documentType>IdentificationDocument</documentType>
       <documentSubType>documentSubType3</documentSubType>
       <appliesTo>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </appliesTo>
       <documentStatus>Viewed</documentStatus>
       <documentVersion>documentVersion3</documentVersion>
       <effectiveDateTime>9999-12-31T23:59:59.9999999Z</effectiveDateTime>
       <expirationDateTime>9999-12-31T23:59:59.9999999Z</expirationDateTime>
       <documentArtifactIdList>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId6</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId7</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
       </documentArtifactIdList>
       <partyIdList>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId11</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId12</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId13</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId14</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId15</partyId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId11</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId12</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId13</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId14</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId15</partyId>
       </partyIdList>
       <relationshipId>relationshipId3</relationshipId>
       <accountIdList>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId11</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId12</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId13</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId14</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId15</accountId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId11</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId12</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId13</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId14</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId15</accountId>
       </accountIdList>
       <prefillable>true</prefillable>
       <prefilled>true</prefilled>
       <documentSignatureList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
         <documentSignature>
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose11</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId11</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId11</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-10-28T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId11</signaturePartyId>
@@ -506,7 +746,7 @@
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose12</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId12</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId12</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-09-27T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId12</signaturePartyId>
@@ -522,7 +762,7 @@
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose13</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId13</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId13</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-04-07T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId13</signaturePartyId>
@@ -538,7 +778,7 @@
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose14</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId14</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId14</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-04-07T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId14</signaturePartyId>
@@ -554,7 +794,7 @@
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose15</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId15</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId15</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-09-26T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId15</signaturePartyId>
@@ -568,6 +808,12 @@
         </documentSignature>
       </documentSignatureList>
       <witnessList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
         <witness>
           <witnessId>witnessId11</witnessId>
           <witnessIdType>WitnessId</witnessIdType>
@@ -590,65 +836,89 @@
         </witness>
       </witnessList>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </document>
-    <document xmlns="http://cufxstandards.com/v3/Document.xsd">
+    <document xmlns="http://cufxstandards.com/v4/Document.xsd">
       <documentId>documentId4</documentId>
       <documentTitle>documentTitle4</documentTitle>
       <documentType>LoanDocument</documentType>
       <documentSubType>documentSubType4</documentSubType>
       <appliesTo>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </appliesTo>
       <documentStatus>Returned</documentStatus>
       <documentVersion>documentVersion4</documentVersion>
       <effectiveDateTime>1899-11-30T01:01:01Z</effectiveDateTime>
       <expirationDateTime>1899-11-30T01:01:01Z</expirationDateTime>
       <documentArtifactIdList>
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId8</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId9</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId10</artifactUniqueId>
         </artifactId>
       </documentArtifactIdList>
       <partyIdList>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId16</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId17</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId18</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId19</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId20</partyId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId16</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId17</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId18</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId19</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId20</partyId>
       </partyIdList>
       <relationshipId>relationshipId4</relationshipId>
       <accountIdList>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId16</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId17</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId18</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId19</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId20</accountId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId16</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId17</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId18</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId19</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId20</accountId>
       </accountIdList>
       <prefillable>false</prefillable>
       <prefilled>false</prefilled>
       <documentSignatureList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
         <documentSignature>
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose16</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId16</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId16</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-08-26T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId16</signaturePartyId>
@@ -664,7 +934,7 @@
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose17</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId17</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId17</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-05-09T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId17</signaturePartyId>
@@ -680,7 +950,7 @@
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose18</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId18</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId18</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-05-09T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId18</signaturePartyId>
@@ -696,7 +966,7 @@
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose19</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId19</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId19</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-08-25T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId19</signaturePartyId>
@@ -712,7 +982,7 @@
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose20</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId20</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId20</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-07-25T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId20</signaturePartyId>
@@ -726,6 +996,12 @@
         </documentSignature>
       </documentSignatureList>
       <witnessList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
         <witness>
           <witnessId>witnessId16</witnessId>
           <witnessIdType>WitnessId</witnessIdType>
@@ -748,63 +1024,87 @@
         </witness>
       </witnessList>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </document>
-    <document xmlns="http://cufxstandards.com/v3/Document.xsd">
+    <document xmlns="http://cufxstandards.com/v4/Document.xsd">
       <documentId>documentId5</documentId>
       <documentTitle>documentTitle5</documentTitle>
       <documentType>MembershipDocument</documentType>
       <documentSubType>documentSubType5</documentSubType>
       <appliesTo>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </appliesTo>
-      <documentStatus>Template</documentStatus>
+      <documentStatus>Recent</documentStatus>
       <documentVersion>documentVersion5</documentVersion>
       <effectiveDateTime>1900-02-02T01:01:01Z</effectiveDateTime>
       <expirationDateTime>1900-02-02T01:01:01Z</expirationDateTime>
       <documentArtifactIdList>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId11</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
-        <artifactId xmlns="http://cufxstandards.com/v3/Artifact.xsd">
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
+        <artifactId xmlns="http://cufxstandards.com/v4/Artifact.xsd">
           <artifactUniqueId>artifactUniqueId12</artifactUniqueId>
         </artifactId>
-        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v3/Artifact.xsd" />
+        <artifactId xsi:nil="true" xmlns="http://cufxstandards.com/v4/Artifact.xsd" />
       </documentArtifactIdList>
       <partyIdList>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId21</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId22</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId23</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId24</partyId>
-        <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId25</partyId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId21</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId22</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId23</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId24</partyId>
+        <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId25</partyId>
       </partyIdList>
       <relationshipId>relationshipId5</relationshipId>
       <accountIdList>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId21</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId22</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId23</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId24</accountId>
-        <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId25</accountId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId21</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId22</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId23</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId24</accountId>
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId25</accountId>
       </accountIdList>
       <prefillable>true</prefillable>
       <prefilled>true</prefilled>
       <documentSignatureList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
         <documentSignature>
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose21</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId21</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId21</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-06-10T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId21</signaturePartyId>
@@ -820,7 +1120,7 @@
           <documentSignatureType>ElectronicSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose22</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId22</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId22</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>0001-06-10T00:00:00Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId22</signaturePartyId>
@@ -836,7 +1136,7 @@
           <documentSignatureType>SingleClickAcceptance</documentSignatureType>
           <signaturePurpose>signaturePurpose23</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId23</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId23</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>9999-07-24T23:59:59.9999999Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId23</signaturePartyId>
@@ -852,7 +1152,7 @@
           <documentSignatureType>WetSignature</documentSignatureType>
           <signaturePurpose>signaturePurpose24</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId24</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId24</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1899-06-23T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId24</signaturePartyId>
@@ -868,7 +1168,7 @@
           <documentSignatureType>Unsigned</documentSignatureType>
           <signaturePurpose>signaturePurpose25</signaturePurpose>
           <signatureArtifactId>
-            <artifactUniqueId xmlns="http://cufxstandards.com/v3/Artifact.xsd">artifactUniqueId25</artifactUniqueId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId25</artifactUniqueId>
           </signatureArtifactId>
           <documentSignedDateTime>1900-07-12T01:01:01Z</documentSignedDateTime>
           <signaturePartyId>signaturePartyId25</signaturePartyId>
@@ -882,6 +1182,12 @@
         </documentSignature>
       </documentSignatureList>
       <witnessList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
         <witness>
           <witnessId>witnessId21</witnessId>
           <witnessIdType>WitnessId</witnessIdType>
@@ -904,11 +1210,11 @@
         </witness>
       </witnessList>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </document>
   </documentList>

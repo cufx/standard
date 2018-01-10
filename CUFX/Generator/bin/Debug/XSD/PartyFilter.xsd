@@ -1,92 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/PartyFilter.xsd"
-	version="3.1.$Revision: 963 $"			  
-	xmlns="http://cufxstandards.com/v3/PartyFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/PartyFilter.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/PartyFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v3/ProductServiceRequest.xsd"
+	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
   
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
-  <xs:element name="partyFilter" type="PartyFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting party data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="partyFilter" type="PartyFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting party data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="PartyFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting party data.  The options can be used
-        in combination or by themselves. It is up to the data source to either return or affect the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of party ID's that should be returned or affected by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="PartyFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting party data.  The options can be used
+				in combination or by themselves. It is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should be returned or affected by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of relationship ID's that should have their associated parties either returned or affected
-            by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationship ID's that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of contact ID's that should have their associated parties either returned or affected
-            by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of contact ID's that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of account ID's that should have their associated parties either returned or affected
-            by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of taxId's that should be returned or affected by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-      <xs:element name="partyTypeList" type="party:PartyTypeList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of party types that should have their associated parties either returned or affected
-            by a read, update or delete party request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account statuses and sub statuses that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account and account type pairs that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of taxId's that should be returned or affected by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyTypeList" type="party:PartyTypeList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party types that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -96,8 +116,54 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-    </xs:sequence>
-  </xs:complexType>
+
+			<xs:element name="personNameList" type="common:PersonNameList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of persons that should have their associated parties either returned or affected
+						by a read, update or delete party request.  Supplemental list to contactList broaden the
+						search criteria for search by person.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="contactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of contact types that should have their associated parties either returned or affected
+						by a read, update or delete party request. Supplemental list to contactIdList broaden the search criteria
+						for search by contact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyDateCreatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search by partyDateCreated date/time.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyDateModifiedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search by partyDateModified date/time.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyDateDeletedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search partyDateDeleted date/time.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>

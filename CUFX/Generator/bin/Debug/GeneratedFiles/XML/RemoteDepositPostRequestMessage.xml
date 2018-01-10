@@ -1,102 +1,102 @@
-<remoteDepositPostRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequestMessage.xsd">
+<remoteDepositPostRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequestMessage.xsd">
   <messageContext>
-    <requestID xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestID1</requestID>
-    <vendorID xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorID1</vendorID>
-    <appID xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appID1</appID>
-    <fiID xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiID1</fiID>
-    <dataSourceID xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceID1</dataSourceID>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <requestID xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestID1</requestID>
+    <vendorID xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorID1</vendorID>
+    <appID xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appID1</appID>
+    <fiID xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiID1</fiID>
+    <dataSourceID xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceID1</dataSourceID>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <remoteDepositPostRequestList>
-    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd">
+    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequest.xsd">
       <routingTransitNumber>routingTransitNumber1</routingTransitNumber>
       <amount>
-        <value xmlns="http://cufxstandards.com/v3/Common.xsd">1</value>
-        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">USD</currencyCode>
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
       </amount>
       <accountId>accountId1</accountId>
       <reference>reference1</reference>
       <mode>Test</mode>
     </remoteDepositPostRequest>
-    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd">
+    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequest.xsd">
       <routingTransitNumber>routingTransitNumber2</routingTransitNumber>
       <amount>
-        <value xmlns="http://cufxstandards.com/v3/Common.xsd">-79228162514264337593543950335</value>
-        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AED</currencyCode>
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AED</currencyCode>
       </amount>
       <accountId>accountId2</accountId>
       <reference>reference2</reference>
       <mode>Production</mode>
     </remoteDepositPostRequest>
-    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd">
+    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequest.xsd">
       <routingTransitNumber>routingTransitNumber3</routingTransitNumber>
       <amount>
-        <value xmlns="http://cufxstandards.com/v3/Common.xsd">79228162514264337593543950335</value>
-        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AFN</currencyCode>
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AFN</currencyCode>
       </amount>
       <accountId>accountId3</accountId>
       <reference>reference3</reference>
       <mode>Test</mode>
     </remoteDepositPostRequest>
-    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd">
+    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequest.xsd">
       <routingTransitNumber>routingTransitNumber4</routingTransitNumber>
       <amount>
-        <value xmlns="http://cufxstandards.com/v3/Common.xsd">0.9</value>
-        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">ALL</currencyCode>
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">0.9</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">ALL</currencyCode>
       </amount>
       <accountId>accountId4</accountId>
       <reference>reference4</reference>
       <mode>Production</mode>
     </remoteDepositPostRequest>
-    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v3/RemoteDepositPostRequest.xsd">
+    <remoteDepositPostRequest xmlns="http://cufxstandards.com/v4/RemoteDepositPostRequest.xsd">
       <routingTransitNumber>routingTransitNumber5</routingTransitNumber>
       <amount>
-        <value xmlns="http://cufxstandards.com/v3/Common.xsd">1.1</value>
-        <currencyCode xmlns="http://cufxstandards.com/v3/Common.xsd">AMD</currencyCode>
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">1.1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AMD</currencyCode>
       </amount>
       <accountId>accountId5</accountId>
       <reference>reference5</reference>

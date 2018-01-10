@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v3/CreditReportFilter.xsd"
-	xmlns="http://cufxstandards.com/v3/CreditReportFilter.xsd"
-	version="3.1.$Revision: 963 $"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/CreditReportFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/CreditReportFilter.xsd"
+	version="4.0.$Revision: 1220 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:creditReport="http://cufxstandards.com/v3/CreditReport.xsd"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:creditReport="http://cufxstandards.com/v4/CreditReport.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"				 
+  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="creditReportFilter" type="CreditReportFilter">
 		<xs:annotation>
@@ -38,31 +40,15 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="creditReportStartDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			<xs:element name="creditReportDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to search credit reports retrieved from this date.
-						Start and end date filters work together.
-						Must be less than or equal to the end date if an end date is supplied.
-						If neither creditReportStartDate nor creditReportEndDate is provided, all applicable credit reports will be returned
-						based on other criteria.
-						The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
+						Filter that is used to search the credit report dates.
+						Usage see common.xsd DateRange.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="creditReportEndDate" type="xs:date" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Filter that is used to search credit reports retrieved to this date.
-						Start and end date filters work together.
-						Must be less than or equal to the end date if an end date is supplied.
-						If neither creditReportStartDate nor creditReportEndDate is provided, all applicable credit reports will be returned
-						based on other criteria.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
+			
 			<xs:element name="minCreditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v3/Card.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/Card.xsd"
+   targetNamespace="http://cufxstandards.com/v4/Card.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/Card.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-  xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+  xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation="Artifact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
   
   
   <xs:element name="cardList" type="CardList">
@@ -34,10 +36,14 @@
         authorized to access at the Institution based on applied filters.
       </xs:documentation>
     </xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="card" type="Card" minOccurs="0" maxOccurs="unbounded">
       </xs:element >
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="Card">
@@ -128,6 +134,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+			<xs:element name="cardAddress" type="common:Address" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Address to be used optionally if Party reference or overrideAddressContactId reference is not available.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
       <xs:element name="nameOnCard" type="xs:string" minOccurs="0" maxOccurs="2">
         <xs:annotation>
           <xs:documentation>
@@ -201,6 +214,7 @@
       <xs:enumeration value="Atm"/>
       <xs:enumeration value="Credit"/>
       <xs:enumeration value="Debit"/>
+      <xs:enumeration value="HomeEquity"/>			
       <xs:enumeration value="Prepaid"/>
     </xs:restriction>
   </xs:simpleType>
@@ -249,9 +263,13 @@
         A collection of accounts linked to a card that are accessible from an ATM.
       </xs:documentation>
     </xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="linkedAccount" type="LinkedAccount" minOccurs="1" maxOccurs="unbounded" />
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:simpleType name="CardId">
@@ -266,6 +284,8 @@
   </xs:simpleType>
 
   <xs:complexType name="CardIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="cardId" type="CardId" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
@@ -275,9 +295,13 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="MerchantCountryCodeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
     <xs:sequence>
       <xs:element name="countryCode" type="xs:string" minOccurs="0" maxOccurs ="unbounded">
         <xs:annotation>
@@ -287,6 +311,8 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
   </xs:complexType>
 
 

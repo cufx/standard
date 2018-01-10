@@ -1,64 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema 
-  targetNamespace="http://cufxstandards.com/v3/ArtifactFilter.xsd"
-  version="3.1.$Revision: 963 $"
-  xmlns="http://cufxstandards.com/v3/ArtifactFilter.xsd"
+<xs:schema
+  targetNamespace="http://cufxstandards.com/v4/ArtifactFilter.xsd"
+  version="4.0.$Revision: 1220 $"
+  xmlns="http://cufxstandards.com/v4/ArtifactFilter.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:artifact="http://cufxstandards.com/v3/Artifact.xsd"
+  xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 
   elementFormDefault="qualified" >
 
-  <xs:import namespace ="http://cufxstandards.com/v3/Artifact.xsd" schemaLocation ="Artifact.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation ="Artifact.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v4/Common.xsd" schemaLocation ="Common.xsd" />
 
-  <xs:element name="artifactFilter" type="ArtifactFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting artifact data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="artifactFilter" type="ArtifactFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting artifact data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="ArtifactFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting artifact data.  The options can be
-        used in combination or by themselves. It is up to the data source to either return the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="artifactIdList" type="artifact:ArtifactIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            A list of artifact ID's to be returned or affected by a read, update or delete artifact request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="ArtifactFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting artifact data.  The options can be
+				used in combination or by themselves. It is up to the data source to either return the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="artifactIdList" type="artifact:ArtifactIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of artifact ID's to be returned or affected by a read, update or delete artifact request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-		<xs:element name="artifactName" type="xs:string" minOccurs="0" maxOccurs="1">
-			<xs:annotation>
-				<xs:documentation>
-					A human-readable name of the artifact.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:element>
+			<xs:element name="artifactName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable name of the artifact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-		<xs:element name="artifactDescription" type="xs:string" minOccurs="0" maxOccurs="1">
-			<xs:annotation>
-				<xs:documentation>
-					A human-readable text describing the contents of the artifact.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:element>
-		
-		<xs:element name="artifactArchived" type="xs:boolean" minOccurs="0" maxOccurs="1">
-			<xs:annotation>
-				<xs:documentation>
-					A flag used to determine if the artifact has been archived or not.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:element>
-		
-    </xs:sequence >
-  </xs:complexType>
+			<xs:element name="artifactDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable text describing the contents of the artifact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="artifactArchived" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A flag used to determine if the artifact has been archived or not.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="artifactCreationDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the artifact creation dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="artifactModifiedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the artifact modified dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="artifactArchivedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the artifact archived dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="artifactDeletedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the artifact deleted dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence >
+	</xs:complexType>
 </xs:schema>

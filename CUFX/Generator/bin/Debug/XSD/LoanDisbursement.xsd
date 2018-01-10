@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="LoanDisbursement"
-	 targetNamespace="http://cufxstandards.com/v3/LoanDisbursement.xsd"
-	 version="3.1.$Revision: 963 $"
-    xmlns="http://cufxstandards.com/v3/LoanDisbursement.xsd"
+	 targetNamespace="http://cufxstandards.com/v4/LoanDisbursement.xsd"
+	 version="4.0.$Revision: 1220 $"
+    xmlns="http://cufxstandards.com/v4/LoanDisbursement.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	 xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	 xmlns:loan="http://cufxstandards.com/v3/Loan.xsd"
-	 xmlns:account="http://cufxstandards.com/v3/Account.xsd"
+	 xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	 xmlns:loan="http://cufxstandards.com/v4/Loan.xsd"
+	 xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 			  
 	 elementFormDefault="qualified"
 	 attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Loan.xsd" schemaLocation="Loan.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Loan.xsd" schemaLocation="Loan.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 
   <xs:element name ="loanDisbursementList" type ="LoanDisbursementList">
     <xs:annotation>

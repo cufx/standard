@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/CreditReport.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/CreditReport.xsd"
+	targetNamespace="http://cufxstandards.com/v4/CreditReport.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/CreditReport.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="creditReportList" type="CreditReportList">
 		<xs:annotation>
@@ -24,15 +26,19 @@
 				Collection of credit reports.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="creditReport" type="CreditReport" minOccurs ="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details relating credit scores used in determining loan decisions, risk-based pricing, or membership eligibility.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="creditReport" type="CreditReport" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details relating credit scores used in determining loan decisions, risk-based pricing, or membership eligibility.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="CreditReport">
@@ -67,7 +73,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						For example, “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and supported by individual
-            service providers. Can request more than one report type to be returned for each applicant, if available.
+						service providers. Can request more than one report type to be returned for each applicant, if available.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -96,9 +102,9 @@
 						Tax ID of the requested credit bureau report.  This is to enable processes to easily
 						make the connection between the requested report and the resulting credit bureau report.
 						The tax ID can be an Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-            or the organizational Employer Identification Number (EIN).	Does NOT include dashes.
-            Typically stored in back end systems as 9 consecutive digits, i.e. 9-digit string with
-            no dashes and zero-filled.
+						or the organizational Employer Identification Number (EIN).	Does NOT include dashes.
+						Typically stored in back end systems as 9 consecutive digits, i.e. 9-digit string with
+						no dashes and zero-filled.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -109,7 +115,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
 			<xs:element name="creditTier" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -121,6 +126,19 @@
 				<xs:annotation>
 					<xs:documentation>
 						Contains the entire credit report in text format.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Name/data pairs list of fields that are not yet available in
+						the general specification.  This should be used as a LAST RESORT
+						as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field
+						must be reported to the architecture or working group committee
+						to ensure that fields are somehow handled in the future release of
+						specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -142,15 +160,19 @@
 				List of unique identifiers typically used for pulling a list of credit reports from the data repository.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="creditReportId" type="CreditReportId" minOccurs ="0" maxOccurs ="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifier for the credit report in the data repository.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="creditReportId" type="CreditReportId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the credit report in the data repository.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
+	
 </xs:schema>

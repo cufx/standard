@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/CreditReportRequest.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/CreditReportRequest.xsd"
+	targetNamespace="http://cufxstandards.com/v4/CreditReportRequest.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/CreditReportRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v3/Party.xsd"
+  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
   
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 
   <xs:element name="creditReportRequest" type="CreditReportRequest">
@@ -57,7 +57,7 @@
             <xs:element name="reportType" type="xs:string" minOccurs ="1" maxOccurs="unbounded">
               <xs:annotation>
                 <xs:documentation>
-                  For example, “Experian CreditProfile”, “TransUnion EmploymentReport”, as defined and 
+                  For example, Experian CreditProfile, TransUnion EmploymentReport, as defined and 
                   supported by individual service providers. Can request more than one report type to
                   be returned for each applicant if available.
                 </xs:documentation>

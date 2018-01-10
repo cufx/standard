@@ -1,179 +1,400 @@
-<secureMessageMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/SecureMessageMessage.xsd">
+<secureMessageMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/SecureMessageMessage.xsd">
   <messageContext>
-    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
-    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
-    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
-    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
-    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
+      <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
+      <processorSessionId>processorSessionId2</processorSessionId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
+      <processorSessionId>processorSessionId3</processorSessionId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
+      <processorSessionId>processorSessionId4</processorSessionId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
+      <processorSessionId>processorSessionId5</processorSessionId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Success</statusType>
+        <statusCode>NoDataInRequest</statusCode>
+        <statusSubCode>statusSubCode1</statusSubCode>
+        <statusMessage>statusMessage1</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <substitution>
+            <id>id1</id>
+            <value>value1</value>
+          </substitution>
+          <substitution>
+            <id>id2</id>
+            <value>value2</value>
+          </substitution>
+          <substitution>
+            <id>id3</id>
+            <value>value3</value>
+          </substitution>
+          <substitution>
+            <id>id4</id>
+            <value>value4</value>
+          </substitution>
+          <substitution>
+            <id>id5</id>
+            <value>value5</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Warning</statusType>
+        <statusCode>NoMatchingRecords</statusCode>
+        <statusSubCode>statusSubCode2</statusSubCode>
+        <statusMessage>statusMessage2</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+          <substitution>
+            <id>id6</id>
+            <value>value6</value>
+          </substitution>
+          <substitution>
+            <id>id7</id>
+            <value>value7</value>
+          </substitution>
+          <substitution>
+            <id>id8</id>
+            <value>value8</value>
+          </substitution>
+          <substitution>
+            <id>id9</id>
+            <value>value9</value>
+          </substitution>
+          <substitution>
+            <id>id10</id>
+            <value>value10</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <secureMessageFilter>
-    <secureMessageIdList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId1</secureMessageId>
-      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId2</secureMessageId>
-      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId3</secureMessageId>
-      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId4</secureMessageId>
-      <secureMessageId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">secureMessageId5</secureMessageId>
+    <secureMessageIdList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <secureMessageId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">secureMessageId1</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">secureMessageId2</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">secureMessageId3</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">secureMessageId4</secureMessageId>
+      <secureMessageId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">secureMessageId5</secureMessageId>
     </secureMessageIdList>
-    <threadIdList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId1</threadId>
-      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId2</threadId>
-      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId3</threadId>
-      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId4</threadId>
-      <threadId xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">threadId5</threadId>
+    <threadIdList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <threadId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">threadId1</threadId>
+      <threadId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">threadId2</threadId>
+      <threadId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">threadId3</threadId>
+      <threadId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">threadId4</threadId>
+      <threadId xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">threadId5</threadId>
     </threadIdList>
-    <subjectLineContainsList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine1</subjectLine>
-      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine2</subjectLine>
-      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine3</subjectLine>
-      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine4</subjectLine>
-      <subjectLine xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">subjectLine5</subjectLine>
+    <subjectLineContainsList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <subjectLine xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">subjectLine1</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">subjectLine2</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">subjectLine3</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">subjectLine4</subjectLine>
+      <subjectLine xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">subjectLine5</subjectLine>
     </subjectLineContainsList>
-    <messageFromList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
-        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId1</userId>
-        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">EmployeeId</userType>
+    <messageFromList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <secureMessageUser xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">userId1</userId>
+        <processorSessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">processorSessionId1</processorSessionId>
+        <userType xmlns="http://cufxstandards.com/v4/MessageContext.xsd">EmployeeId</userType>
         <partyId>partyId1</partyId>
         <relationshipId>relationshipId1</relationshipId>
         <accountId>accountId1</accountId>
         <cardId>cardId1</cardId>
       </secureMessageUser>
-      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
-        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId2</userId>
-        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">VendorEmployeeId</userType>
+      <secureMessageUser xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">userId2</userId>
+        <processorSessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">processorSessionId2</processorSessionId>
+        <userType xmlns="http://cufxstandards.com/v4/MessageContext.xsd">VendorEmployeeId</userType>
         <partyId>partyId2</partyId>
         <relationshipId>relationshipId2</relationshipId>
         <accountId>accountId2</accountId>
         <cardId>cardId2</cardId>
       </secureMessageUser>
-      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
-        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId3</userId>
-        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Anonymous</userType>
+      <secureMessageUser xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">userId3</userId>
+        <processorSessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">processorSessionId3</processorSessionId>
+        <userType xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Anonymous</userType>
         <partyId>partyId3</partyId>
         <relationshipId>relationshipId3</relationshipId>
         <accountId>accountId3</accountId>
         <cardId>cardId3</cardId>
       </secureMessageUser>
-      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
-        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId4</userId>
-        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">FIUserId</userType>
+      <secureMessageUser xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">userId4</userId>
+        <processorSessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">processorSessionId4</processorSessionId>
+        <userType xmlns="http://cufxstandards.com/v4/MessageContext.xsd">FIUserId</userType>
         <partyId>partyId4</partyId>
         <relationshipId>relationshipId4</relationshipId>
         <accountId>accountId4</accountId>
         <cardId>cardId4</cardId>
       </secureMessageUser>
-      <secureMessageUser xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
-        <userId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">userId5</userId>
-        <userType xmlns="http://cufxstandards.com/v3/MessageContext.xsd">SystemAccountId</userType>
+      <secureMessageUser xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
+        <userId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">userId5</userId>
+        <processorSessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">processorSessionId5</processorSessionId>
+        <userType xmlns="http://cufxstandards.com/v4/MessageContext.xsd">SystemAccountId</userType>
         <partyId>partyId5</partyId>
         <relationshipId>relationshipId5</relationshipId>
         <accountId>accountId5</accountId>
         <cardId>cardId5</cardId>
       </secureMessageUser>
     </messageFromList>
-    <messageToList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
-    <carbonCopyList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
-    <blindCarbonCopyList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
-    <replyToList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd" />
-    <secureMessageTypeList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Alert</secureMessageType>
-      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">GeneralMessage</secureMessageType>
-      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Notice</secureMessageType>
-      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">ProductOffering</secureMessageType>
-      <secureMessageType xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">ScheduleMeeting</secureMessageType>
+    <messageToList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    </messageToList>
+    <carbonCopyList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    </carbonCopyList>
+    <blindCarbonCopyList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    </blindCarbonCopyList>
+    <replyToList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    </replyToList>
+    <secureMessageTypeList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <secureMessageType xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Alert</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">GeneralMessage</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Notice</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">ProductOffering</secureMessageType>
+      <secureMessageType xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">ScheduleMeeting</secureMessageType>
     </secureMessageTypeList>
-    <currentStatusList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Template</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Draft</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Outbox</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Sent</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Read</secureMessageStatus>
+    <currentStatusList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Template</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Draft</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Outbox</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Sent</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Read</secureMessageStatus>
     </currentStatusList>
-    <statusLogList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Template</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Draft</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Outbox</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Sent</secureMessageStatus>
-      <secureMessageStatus xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">Read</secureMessageStatus>
+    <statusLogList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Template</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Draft</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Outbox</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Sent</secureMessageStatus>
+      <secureMessageStatus xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">Read</secureMessageStatus>
     </statusLogList>
-    <statusLogStartDate xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">1900-01-01T01:01:01Z</statusLogStartDate>
-    <statusLogEndDate xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">1900-01-01T01:01:01Z</statusLogEndDate>
-    <bodyContainsList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">bodyContainsList1</bodyContainsList>
-    <returnConversation xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">true</returnConversation>
-    <documentIDList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId1</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId2</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId3</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId4</documentId>
-      <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId5</documentId>
+    <statusLogDateRange xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </statusLogDateRange>
+    <bodyContainsList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">bodyContainsList1</bodyContainsList>
+    <returnConversation xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">true</returnConversation>
+    <documentIDList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId1</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId2</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId3</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId4</documentId>
+      <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId5</documentId>
     </documentIDList>
-    <productServiceRequestIDList xmlns="http://cufxstandards.com/v3/SecureMessageFilter.xsd">
-      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
-      <productServiceRequestId xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd">productServiceRequestId1</productServiceRequestId>
-      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
-      <productServiceRequestId xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd">productServiceRequestId2</productServiceRequestId>
-      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductServiceRequest.xsd" />
+    <productServiceRequestIDList xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd" />
+      <productServiceRequestId xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd">productServiceRequestId1</productServiceRequestId>
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd" />
+      <productServiceRequestId xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd">productServiceRequestId2</productServiceRequestId>
+      <productServiceRequestId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd" />
     </productServiceRequestIDList>
   </secureMessageFilter>
   <secureMessageList>
-    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <secureMessage xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
       <secureMessageId>secureMessageId1</secureMessageId>
       <previousSecureMessageId>previousSecureMessageId1</previousSecureMessageId>
       <threadId>threadId1</threadId>
       <subjectLine>subjectLine1</subjectLine>
-      <messageFromList />
-      <messageToList />
-      <carbonCopyList />
-      <blindCarbonCopyList />
-      <replyToList />
+      <messageFromList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </messageFromList>
+      <messageToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </messageToList>
+      <carbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </carbonCopyList>
+      <blindCarbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </blindCarbonCopyList>
+      <replyToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </replyToList>
       <type>Alert</type>
       <currentStatus>Template</currentStatus>
       <statusLog>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <statusLogEntry>
           <status>Template</status>
           <messageAccessProfileId>messageAccessProfileId1</messageAccessProfileId>
@@ -203,36 +424,83 @@
       <body>body1</body>
       <bodyFormat>Html</bodyFormat>
       <documentIdList>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId1</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId2</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId3</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId4</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId5</documentId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId1</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId2</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId3</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId4</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId5</documentId>
       </documentIdList>
       <doNotDeliverBeforeDateTime>1900-01-01T01:01:01Z</doNotDeliverBeforeDateTime>
       <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
       <requestId>requestId1</requestId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </secureMessage>
-    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+    <secureMessage xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
       <secureMessageId>secureMessageId2</secureMessageId>
       <previousSecureMessageId>previousSecureMessageId2</previousSecureMessageId>
       <threadId>threadId2</threadId>
       <subjectLine>subjectLine2</subjectLine>
-      <messageFromList />
-      <messageToList />
-      <carbonCopyList />
-      <blindCarbonCopyList />
-      <replyToList />
+      <messageFromList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+      </messageFromList>
+      <messageToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+      </messageToList>
+      <carbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+      </carbonCopyList>
+      <blindCarbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+      </blindCarbonCopyList>
+      <replyToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+      </replyToList>
       <type>GeneralMessage</type>
       <currentStatus>Draft</currentStatus>
       <statusLog>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
         <statusLogEntry>
           <status>Replied</status>
           <messageAccessProfileId>messageAccessProfileId6</messageAccessProfileId>
@@ -262,36 +530,83 @@
       <body>body2</body>
       <bodyFormat>Text</bodyFormat>
       <documentIdList>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId6</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId7</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId8</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId9</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId10</documentId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId6</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId7</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId8</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId9</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId10</documentId>
       </documentIdList>
       <doNotDeliverBeforeDateTime>0001-01-01T00:00:00Z</doNotDeliverBeforeDateTime>
       <expirationDateTime>0001-01-01T00:00:00Z</expirationDateTime>
       <requestId>requestId2</requestId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </secureMessage>
-    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+    <secureMessage xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
       <secureMessageId>secureMessageId3</secureMessageId>
       <previousSecureMessageId>previousSecureMessageId3</previousSecureMessageId>
       <threadId>threadId3</threadId>
       <subjectLine>subjectLine3</subjectLine>
-      <messageFromList />
-      <messageToList />
-      <carbonCopyList />
-      <blindCarbonCopyList />
-      <replyToList />
+      <messageFromList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+      </messageFromList>
+      <messageToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+      </messageToList>
+      <carbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+      </carbonCopyList>
+      <blindCarbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+      </blindCarbonCopyList>
+      <replyToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+      </replyToList>
       <type>Notice</type>
       <currentStatus>Outbox</currentStatus>
       <statusLog>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
         <statusLogEntry>
           <status>Expired</status>
           <messageAccessProfileId>messageAccessProfileId11</messageAccessProfileId>
@@ -321,36 +636,83 @@
       <body>body3</body>
       <bodyFormat>Html</bodyFormat>
       <documentIdList>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId11</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId12</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId13</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId14</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId15</documentId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId11</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId12</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId13</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId14</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId15</documentId>
       </documentIdList>
       <doNotDeliverBeforeDateTime>9999-12-31T23:59:59.9999999Z</doNotDeliverBeforeDateTime>
       <expirationDateTime>9999-12-31T23:59:59.9999999Z</expirationDateTime>
       <requestId>requestId3</requestId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </secureMessage>
-    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+    <secureMessage xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
       <secureMessageId>secureMessageId4</secureMessageId>
       <previousSecureMessageId>previousSecureMessageId4</previousSecureMessageId>
       <threadId>threadId4</threadId>
       <subjectLine>subjectLine4</subjectLine>
-      <messageFromList />
-      <messageToList />
-      <carbonCopyList />
-      <blindCarbonCopyList />
-      <replyToList />
+      <messageFromList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+      </messageFromList>
+      <messageToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+      </messageToList>
+      <carbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+      </carbonCopyList>
+      <blindCarbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+      </blindCarbonCopyList>
+      <replyToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+      </replyToList>
       <type>ProductOffering</type>
       <currentStatus>Sent</currentStatus>
       <statusLog>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
         <statusLogEntry>
           <status>Read</status>
           <messageAccessProfileId>messageAccessProfileId16</messageAccessProfileId>
@@ -380,36 +742,83 @@
       <body>body4</body>
       <bodyFormat>Text</bodyFormat>
       <documentIdList>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId16</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId17</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId18</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId19</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId20</documentId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId16</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId17</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId18</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId19</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId20</documentId>
       </documentIdList>
       <doNotDeliverBeforeDateTime>1899-11-30T01:01:01Z</doNotDeliverBeforeDateTime>
       <expirationDateTime>1899-11-30T01:01:01Z</expirationDateTime>
       <requestId>requestId4</requestId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </secureMessage>
-    <secureMessage xmlns="http://cufxstandards.com/v3/SecureMessage.xsd">
+    <secureMessage xmlns="http://cufxstandards.com/v4/SecureMessage.xsd">
       <secureMessageId>secureMessageId5</secureMessageId>
       <previousSecureMessageId>previousSecureMessageId5</previousSecureMessageId>
       <threadId>threadId5</threadId>
       <subjectLine>subjectLine5</subjectLine>
-      <messageFromList />
-      <messageToList />
-      <carbonCopyList />
-      <blindCarbonCopyList />
-      <replyToList />
+      <messageFromList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+      </messageFromList>
+      <messageToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+      </messageToList>
+      <carbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+      </carbonCopyList>
+      <blindCarbonCopyList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+      </blindCarbonCopyList>
+      <replyToList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+      </replyToList>
       <type>ScheduleMeeting</type>
       <currentStatus>Read</currentStatus>
       <statusLog>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
         <statusLogEntry>
           <status>Failed</status>
           <messageAccessProfileId>messageAccessProfileId21</messageAccessProfileId>
@@ -439,21 +848,27 @@
       <body>body5</body>
       <bodyFormat>Html</bodyFormat>
       <documentIdList>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId21</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId22</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId23</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId24</documentId>
-        <documentId xmlns="http://cufxstandards.com/v3/Document.xsd">documentId25</documentId>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId21</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId22</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId23</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId24</documentId>
+        <documentId xmlns="http://cufxstandards.com/v4/Document.xsd">documentId25</documentId>
       </documentIdList>
       <doNotDeliverBeforeDateTime>1900-02-02T01:01:01Z</doNotDeliverBeforeDateTime>
       <expirationDateTime>1900-02-02T01:01:01Z</expirationDateTime>
       <requestId>requestId5</requestId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </secureMessage>
   </secureMessageList>

@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/DepositFilter.xsd"
-  version="3.1.$Revision: 963 $"
-  xmlns="http://cufxstandards.com/v3/DepositFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/DepositFilter.xsd"
+  version="4.0.$Revision: 1220 $"
+  xmlns="http://cufxstandards.com/v4/DepositFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-  xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-  xmlns:accountfilter="http://cufxstandards.com/v3/AccountFilter.xsd"
-	xmlns:deposit="http://cufxstandards.com/v3/Deposit.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+  xmlns:accountfilter="http://cufxstandards.com/v4/AccountFilter.xsd"
+	xmlns:deposit="http://cufxstandards.com/v4/Deposit.xsd"
   elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Deposit.xsd" schemaLocation="Deposit.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Deposit.xsd" schemaLocation="Deposit.xsd" />
 
   <xs:element name="depositFilter" type="DepositFilter">
     <xs:annotation>
@@ -39,47 +41,14 @@
     <xs:complexContent>
       <xs:extension base="accountfilter:AccountFilter">
         <xs:sequence>
-					
-					<xs:element name="depositAccountStatusList" type="deposit:DepositAccountStatusList" minOccurs ="0" maxOccurs ="1">
+					<xs:element name="maturityDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The list of deposit account statuses that should have their associated deposit accounts either returned or affected
-								by a read, update or delete request.
+								Filter that is used to search the account maturity dates.
+								Usage see common.xsd DateRange.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					
-          <xs:element name="maturityStartDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-            <xs:annotation>
-              <xs:documentation>
-                Filter that is used to start searching the maturity dates.
-                Indicates the UTC posted date of the earliest transaction to be sent back
-                in the response.  Start and end date filters work together.
-                Must be less than or equal to end date if an end date is supplied.
-                Should be less than or equal to today's date.
-                If neither maturityStartDate or maturityEndDate is provided,
-                no accounts will be searched by maturity date.
-                The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-
-					<xs:element name="maturityEndDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-            <xs:annotation>
-              <xs:documentation>
-                Filter that is used to end searching the transactions.
-                Indicates the UTC posted date of the latest transaction to be sent back in the response.
-                Start and end date filters work together.
-                Must be greater than or equal to start transaction start date.
-                If not supplied, the response returns all of the transactions on or after the
-                transaction start date.
-                If neither maturityStartDate or maturityEndDate is provided,
-                no accounts will be searched by maturity date.
-                The date/time should be ISO 8601 UTC format: yyyy-mm-dd (2011-03-28).
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

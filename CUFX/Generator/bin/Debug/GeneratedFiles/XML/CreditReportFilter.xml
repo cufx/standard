@@ -1,16 +1,24 @@
-<creditReportFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/CreditReportFilter.xsd">
+<creditReportFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/CreditReportFilter.xsd">
   <creditReportIdList>
-    <creditReportId xmlns="http://cufxstandards.com/v3/CreditReport.xsd">creditReportId1</creditReportId>
-    <creditReportId xmlns="http://cufxstandards.com/v3/CreditReport.xsd">creditReportId2</creditReportId>
-    <creditReportId xmlns="http://cufxstandards.com/v3/CreditReport.xsd">creditReportId3</creditReportId>
-    <creditReportId xmlns="http://cufxstandards.com/v3/CreditReport.xsd">creditReportId4</creditReportId>
-    <creditReportId xmlns="http://cufxstandards.com/v3/CreditReport.xsd">creditReportId5</creditReportId>
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <creditReportId xmlns="http://cufxstandards.com/v4/CreditReport.xsd">creditReportId1</creditReportId>
+    <creditReportId xmlns="http://cufxstandards.com/v4/CreditReport.xsd">creditReportId2</creditReportId>
+    <creditReportId xmlns="http://cufxstandards.com/v4/CreditReport.xsd">creditReportId3</creditReportId>
+    <creditReportId xmlns="http://cufxstandards.com/v4/CreditReport.xsd">creditReportId4</creditReportId>
+    <creditReportId xmlns="http://cufxstandards.com/v4/CreditReport.xsd">creditReportId5</creditReportId>
   </creditReportIdList>
-  <creditReportStartDate>1900-01-01</creditReportStartDate>
-  <creditReportEndDate>1900-01-01</creditReportEndDate>
+  <creditReportDateRange>
+    <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+    <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+  </creditReportDateRange>
   <minCreditScore>1</minCreditScore>
   <maxCreditScore>1</maxCreditScore>
   <reportType>reportType1</reportType>
   <partyId>partyId1</partyId>
-  <taxId>Token1</taxId>
+  <taxId>taxId1</taxId>
 </creditReportFilter>

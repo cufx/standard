@@ -1,174 +1,409 @@
-<partyAssociationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/PartyAssociationMessage.xsd">
+<partyAssociationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/PartyAssociationMessage.xsd">
   <messageContext>
-    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
-    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
-    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
-    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
-    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
+      <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
+      <processorSessionId>processorSessionId2</processorSessionId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
+      <processorSessionId>processorSessionId3</processorSessionId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
+      <processorSessionId>processorSessionId4</processorSessionId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
+      <processorSessionId>processorSessionId5</processorSessionId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Success</statusType>
+        <statusCode>NoDataInRequest</statusCode>
+        <statusSubCode>statusSubCode1</statusSubCode>
+        <statusMessage>statusMessage1</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <substitution>
+            <id>id1</id>
+            <value>value1</value>
+          </substitution>
+          <substitution>
+            <id>id2</id>
+            <value>value2</value>
+          </substitution>
+          <substitution>
+            <id>id3</id>
+            <value>value3</value>
+          </substitution>
+          <substitution>
+            <id>id4</id>
+            <value>value4</value>
+          </substitution>
+          <substitution>
+            <id>id5</id>
+            <value>value5</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Warning</statusType>
+        <statusCode>NoMatchingRecords</statusCode>
+        <statusSubCode>statusSubCode2</statusSubCode>
+        <statusMessage>statusMessage2</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+          <substitution>
+            <id>id6</id>
+            <value>value6</value>
+          </substitution>
+          <substitution>
+            <id>id7</id>
+            <value>value7</value>
+          </substitution>
+          <substitution>
+            <id>id8</id>
+            <value>value8</value>
+          </substitution>
+          <substitution>
+            <id>id9</id>
+            <value>value9</value>
+          </substitution>
+          <substitution>
+            <id>id10</id>
+            <value>value10</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <partyAssociationFilter>
-    <partyAssociationIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
-      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId1</partyAssociationId>
-      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId2</partyAssociationId>
-      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId3</partyAssociationId>
-      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId4</partyAssociationId>
-      <partyAssociationId xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">partyAssociationId5</partyAssociationId>
+    <partyAssociationIdList xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyAssociationId xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">partyAssociationId1</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">partyAssociationId2</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">partyAssociationId3</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">partyAssociationId4</partyAssociationId>
+      <partyAssociationId xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">partyAssociationId5</partyAssociationId>
     </partyAssociationIdList>
-    <parentPartyIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    <parentPartyIdList xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
     </parentPartyIdList>
-    <childPartyIdList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v3/Party.xsd">partyId5</partyId>
+    <childPartyIdList xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
     </childPartyIdList>
-    <partyAssociationTypeList xmlns="http://cufxstandards.com/v3/PartyAssociationFilter.xsd">
-      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <partyAssociationTypeList xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyAssociationType xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
         <partner>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
           <qualifier>GeneralPartner</qualifier>
         </partner>
         <officerManager>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
           <qualifier>BoardOfDirectors</qualifier>
         </officerManager>
         <agent>
-          <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Custodian</qualifier>
-          <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
+          <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">Custodian</qualifier>
+          <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Unauthorized</authority>
         </agent>
         <nextOfKin>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
           <qualifier>NotSpecified</qualifier>
         </nextOfKin>
         <trustor>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
           <qualifier>ProvidesFunds</qualifier>
         </trustor>
       </partyAssociationType>
-      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationType xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
         <partner>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
           <qualifier>LimitedPartner</qualifier>
         </partner>
         <officerManager>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
           <qualifier>CxO</qualifier>
         </officerManager>
         <agent>
-          <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Trustee</qualifier>
-          <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Authorized</authority>
+          <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">Trustee</qualifier>
+          <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Authorized</authority>
         </agent>
         <nextOfKin>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
           <qualifier>Parent</qualifier>
         </nextOfKin>
         <trustor>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
           <qualifier>ProvidesFunds</qualifier>
         </trustor>
       </partyAssociationType>
-      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationType xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
         <partner>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
           <qualifier>GeneralPartner</qualifier>
         </partner>
         <officerManager>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
           <qualifier>FinancialOfficer</qualifier>
         </officerManager>
         <agent>
-          <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">PowerOfAttorney</qualifier>
-          <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
+          <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">PowerOfAttorney</qualifier>
+          <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Unauthorized</authority>
         </agent>
         <nextOfKin>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
           <qualifier>Spouse</qualifier>
         </nextOfKin>
         <trustor>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
           <qualifier>ProvidesFunds</qualifier>
         </trustor>
       </partyAssociationType>
-      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationType xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
         <partner>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
           <qualifier>LimitedPartner</qualifier>
         </partner>
         <officerManager>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
           <qualifier>President</qualifier>
         </officerManager>
         <agent>
-          <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">Representative</qualifier>
-          <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Authorized</authority>
+          <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">Representative</qualifier>
+          <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Authorized</authority>
         </agent>
         <nextOfKin>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
           <qualifier>FirstCousin</qualifier>
         </nextOfKin>
         <trustor>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
           <qualifier>ProvidesFunds</qualifier>
         </trustor>
       </partyAssociationType>
-      <partyAssociationType xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+      <partyAssociationType xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
         <partner>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
           <qualifier>GeneralPartner</qualifier>
         </partner>
         <officerManager>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
           <qualifier>SoleProprietor</qualifier>
         </officerManager>
         <agent>
-          <qualifier xmlns="http://cufxstandards.com/v3/Common.xsd">CtrTransactor</qualifier>
-          <authority xmlns="http://cufxstandards.com/v3/Common.xsd">Unauthorized</authority>
+          <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">CtrTransactor</qualifier>
+          <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Unauthorized</authority>
         </agent>
         <nextOfKin>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
           <qualifier>Child</qualifier>
         </nextOfKin>
         <trustor>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
           <qualifier>ProvidesFunds</qualifier>
         </trustor>
       </partyAssociationType>
     </partyAssociationTypeList>
   </partyAssociationFilter>
   <partyAssociationList>
-    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <partyAssociation xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
       <partyAssociationId>partyAssociationId1</partyAssociationId>
       <parentPartyId>parentPartyId1</parentPartyId>
       <childPartyId>childPartyId1</childPartyId>
@@ -180,14 +415,14 @@
         <trustor />
       </partyAssociationType>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </partyAssociation>
-    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <partyAssociation xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
       <partyAssociationId>partyAssociationId2</partyAssociationId>
       <parentPartyId>parentPartyId2</parentPartyId>
       <childPartyId>childPartyId2</childPartyId>
@@ -199,14 +434,14 @@
         <trustor />
       </partyAssociationType>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </partyAssociation>
-    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <partyAssociation xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
       <partyAssociationId>partyAssociationId3</partyAssociationId>
       <parentPartyId>parentPartyId3</parentPartyId>
       <childPartyId>childPartyId3</childPartyId>
@@ -218,14 +453,14 @@
         <trustor />
       </partyAssociationType>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </partyAssociation>
-    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <partyAssociation xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
       <partyAssociationId>partyAssociationId4</partyAssociationId>
       <parentPartyId>parentPartyId4</parentPartyId>
       <childPartyId>childPartyId4</childPartyId>
@@ -237,14 +472,14 @@
         <trustor />
       </partyAssociationType>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </partyAssociation>
-    <partyAssociation xmlns="http://cufxstandards.com/v3/PartyAssociation.xsd">
+    <partyAssociation xmlns="http://cufxstandards.com/v4/PartyAssociation.xsd">
       <partyAssociationId>partyAssociationId5</partyAssociationId>
       <parentPartyId>parentPartyId5</parentPartyId>
       <childPartyId>childPartyId5</childPartyId>
@@ -256,11 +491,11 @@
         <trustor />
       </partyAssociationType>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </partyAssociation>
   </partyAssociationList>

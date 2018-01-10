@@ -1,83 +1,230 @@
-<overdraftPriorityMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/OverdraftPriorityMessage.xsd">
+<overdraftPriorityMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/OverdraftPriorityMessage.xsd">
   <messageContext>
-    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
-    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
-    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
-    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
-    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
+      <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
+      <processorSessionId>processorSessionId2</processorSessionId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
+      <processorSessionId>processorSessionId3</processorSessionId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
+      <processorSessionId>processorSessionId4</processorSessionId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
+      <processorSessionId>processorSessionId5</processorSessionId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Success</statusType>
+        <statusCode>NoDataInRequest</statusCode>
+        <statusSubCode>statusSubCode1</statusSubCode>
+        <statusMessage>statusMessage1</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <substitution>
+            <id>id1</id>
+            <value>value1</value>
+          </substitution>
+          <substitution>
+            <id>id2</id>
+            <value>value2</value>
+          </substitution>
+          <substitution>
+            <id>id3</id>
+            <value>value3</value>
+          </substitution>
+          <substitution>
+            <id>id4</id>
+            <value>value4</value>
+          </substitution>
+          <substitution>
+            <id>id5</id>
+            <value>value5</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Warning</statusType>
+        <statusCode>NoMatchingRecords</statusCode>
+        <statusSubCode>statusSubCode2</statusSubCode>
+        <statusMessage>statusMessage2</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+          <substitution>
+            <id>id6</id>
+            <value>value6</value>
+          </substitution>
+          <substitution>
+            <id>id7</id>
+            <value>value7</value>
+          </substitution>
+          <substitution>
+            <id>id8</id>
+            <value>value8</value>
+          </substitution>
+          <substitution>
+            <id>id9</id>
+            <value>value9</value>
+          </substitution>
+          <substitution>
+            <id>id10</id>
+            <value>value10</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <overdraftPriorityFilter>
-    <accountId xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd">accountId1</accountId>
-    <overdraftPriorityIdList xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd">
-      <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId1</overdraftPriorityId>
-      <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId2</overdraftPriorityId>
-      <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId3</overdraftPriorityId>
-      <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId4</overdraftPriorityId>
-      <overdraftPriorityId xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">overdraftPriorityId5</overdraftPriorityId>
+    <accountId xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd">accountId1</accountId>
+    <accountStatusList xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>Active</depositAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus1</accountSubStatus>
+      </accountStatusPair>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>Approved</depositAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus2</accountSubStatus>
+      </accountStatusPair>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>Closed</depositAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus3</accountSubStatus>
+      </accountStatusPair>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>ClosedReadyToPurge</depositAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus4</accountSubStatus>
+      </accountStatusPair>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>Dormant</depositAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus5</accountSubStatus>
+      </accountStatusPair>
+    </accountStatusList>
+    <overdraftPriorityIdList xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <overdraftPriorityId xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">overdraftPriorityId1</overdraftPriorityId>
+      <overdraftPriorityId xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">overdraftPriorityId2</overdraftPriorityId>
+      <overdraftPriorityId xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">overdraftPriorityId3</overdraftPriorityId>
+      <overdraftPriorityId xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">overdraftPriorityId4</overdraftPriorityId>
+      <overdraftPriorityId xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">overdraftPriorityId5</overdraftPriorityId>
     </overdraftPriorityIdList>
-    <priorityList xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd">
-      <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">1</priority>
-      <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2147483647</priority>
-      <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2</priority>
-      <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">2147483646</priority>
-      <priority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">3</priority>
+    <priorityList xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <priority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">1</priority>
+      <priority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">2147483647</priority>
+      <priority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">2</priority>
+      <priority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">2147483646</priority>
+      <priority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">3</priority>
     </priorityList>
-    <overdraftFromAccountIdList xmlns="http://cufxstandards.com/v3/OverdraftPriorityListFilter.xsd">
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId1</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId2</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId3</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId4</accountId>
-      <accountId xmlns="http://cufxstandards.com/v3/Account.xsd">accountId5</accountId>
+    <overdraftFromAccountIdList xmlns="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId2</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId3</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId4</accountId>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId5</accountId>
     </overdraftFromAccountIdList>
   </overdraftPriorityFilter>
   <overdraftPriorityList>
-    <overdraftPriority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <overdraftPriority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">
       <accountId>accountId1</accountId>
       <overdraftPriorityAccount>
         <overdraftPriorityId>overdraftPriorityId1</overdraftPriorityId>
@@ -105,7 +252,7 @@
         <accountId>accountId5</accountId>
       </overdraftPriorityAccount>
     </overdraftPriority>
-    <overdraftPriority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">
+    <overdraftPriority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">
       <accountId>accountId2</accountId>
       <overdraftPriorityAccount>
         <overdraftPriorityId>overdraftPriorityId6</overdraftPriorityId>
@@ -133,7 +280,7 @@
         <accountId>accountId10</accountId>
       </overdraftPriorityAccount>
     </overdraftPriority>
-    <overdraftPriority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">
+    <overdraftPriority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">
       <accountId>accountId3</accountId>
       <overdraftPriorityAccount>
         <overdraftPriorityId>overdraftPriorityId11</overdraftPriorityId>
@@ -161,7 +308,7 @@
         <accountId>accountId15</accountId>
       </overdraftPriorityAccount>
     </overdraftPriority>
-    <overdraftPriority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">
+    <overdraftPriority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">
       <accountId>accountId4</accountId>
       <overdraftPriorityAccount>
         <overdraftPriorityId>overdraftPriorityId16</overdraftPriorityId>
@@ -189,7 +336,7 @@
         <accountId>accountId20</accountId>
       </overdraftPriorityAccount>
     </overdraftPriority>
-    <overdraftPriority xmlns="http://cufxstandards.com/v3/OverdraftPriorityList.xsd">
+    <overdraftPriority xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd">
       <accountId>accountId5</accountId>
       <overdraftPriorityAccount>
         <overdraftPriorityId>overdraftPriorityId21</overdraftPriorityId>

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/EligibilityRequirementMessage.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/EligibilityRequirementMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:eligibilityRequirement="http://cufxstandards.com/v3/EligibilityRequirement.xsd"
-	xmlns:eligibilityRequirementFilter="http://cufxstandards.com/v3/EligibilityRequirementFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:eligibilityRequirement="http://cufxstandards.com/v4/EligibilityRequirement.xsd"
+	xmlns:eligibilityRequirementFilter="http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/EligibilityRequirement.xsd" schemaLocation="EligibilityRequirement.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/EligibilityRequirementFilter.xsd" schemaLocation="EligibilityRequirementFilter.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/EligibilityRequirement.xsd" schemaLocation="EligibilityRequirement.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd" schemaLocation="EligibilityRequirementFilter.xsd" />
 
   <xs:element name="eligibilityRequirementMessage" type="EligibilityRequirementMessage">
     <xs:annotation>

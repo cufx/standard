@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/LoanDisbursementMessage.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/LoanDisbursementMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/LoanDisbursementMessage.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/LoanDisbursementMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v3/MessageContext.xsd"
-  xmlns:loanDisbursement="http://cufxstandards.com/v3/LoanDisbursement.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:loanDisbursement="http://cufxstandards.com/v4/LoanDisbursement.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v3/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/LoanDisbursement.xsd" schemaLocation="LoanDisbursement.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/LoanDisbursement.xsd" schemaLocation="LoanDisbursement.xsd" />
   
   <xs:element name="loanDisbursementMessage" type="LoanDisbursementMessage">
     <xs:annotation>

@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/FundsTransferOccurrenceBase.xsd"
+	targetNamespace="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:billpayee="http://cufxstandards.com/v3/BillPayee.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:billpayee="http://cufxstandards.com/v4/BillPayee.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
 
 
 	<xs:complexType name="FundsTransferOccurrenceBase" abstract ="true">
@@ -52,20 +52,23 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="occurrenceFromAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account from which the transfer or payment was taken.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="occurrenceToAccountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account to which the transfer or payment was made.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+
+      <xs:element name="occurrenceFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account from which the transfer or payment was taken.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="occurrenceToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The account to which the transfer or payment was made.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
 			<xs:element name="occurrenceStatus" type="fundsTransferCommonBase:OccurrenceStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -174,7 +177,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+			<xs:element name="occurrenceType" type="OccurrenceType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The occurrence type for the transfer or payment. This element is optional and if not present assumes account to account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+	  	<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Transfer level name/data pairs list of fields that are not yet available in the general specification.
@@ -183,8 +193,38 @@
 						working group committee to ensure that fields are somehow handled in the future	release of specifications.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
+			</xs:element>			
 		</xs:sequence>
 	</xs:complexType>
-
+	<xs:simpleType name="OccurrenceType">
+		<xs:annotation>
+			<xs:documentation>
+				This is the enumeration of transfer occurrence types for a payment or transfer request .
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AccountToAccount">
+				<xs:annotation>
+					<xs:documentation>
+						Transfer funds between accounts generally an intra-instiution transfer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CheckWithdrawal">
+				<xs:annotation>
+					<xs:documentation>
+						Transfer funds to a check. For example, member requests a check payable to the member to be mailed to the member's home address.    
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      <xs:enumeration value="AccountValidation">
+        <xs:annotation>
+          <xs:documentation>
+            Transfer funds to an account at another financial institution for purposes of validating the external account.
+            For example, use with account micro deposits via ACH.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+	</xs:simpleType>
 </xs:schema>

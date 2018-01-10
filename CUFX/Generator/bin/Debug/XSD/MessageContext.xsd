@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v3/MessageContext.xsd"
-	version="3.1.$Revision: 963 $"
-	xmlns="http://cufxstandards.com/v3/MessageContext.xsd"
+	targetNamespace="http://cufxstandards.com/v4/MessageContext.xsd"
+	version="4.0.$Revision: 1220 $"
+	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v3/Common.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	elementFormDefault="qualified"
 
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:complexType name="MessageContext">
 		<xs:annotation>
 			<xs:documentation>
 				The message context contains information that is passed as part of each CUFX message call.
 				All the fields are optional, and whether or not they contain information is determined by the specific
-        implementation requirements.
+				implementation requirements.
 				For example, in a multi-tenant environment where multiple financial institutions are hosted, the Financial
-        Institution ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.
-        For a single tenant environment with only one financial institution, the Financial Institution ID may not be necessary.
+				Institution ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.
+				For a single tenant environment with only one financial institution, the Financial Institution ID may not be necessary.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="cufxVersion" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The CUFX release version for this request or some implementation specific defined version string.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="requestId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The request ID is a unique identifier which identifies the request from the source system. The client application
-            sends this along with the messages so that it can be logged as a reference for troubleshooting purposes.
+						sends this along with the messages so that it can be logged as a reference for troubleshooting purposes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -35,11 +42,11 @@
 				<xs:annotation>
 					<xs:documentation>
 						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
-            assigned by the FI or established in concert by the vendor and FI.
+						assigned by the FI or established in concert by the vendor and FI.
 						The client application sends this along with the messages so that logging or other business may take place based
-            on the vendor utilizing the service.
+						on the vendor utilizing the service.
 						This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by
-            some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+						some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
 						A standard error will be returned if the vendor ID is not provided when it is required.
 					</xs:documentation>
 				</xs:annotation>
@@ -49,19 +56,19 @@
 					<xs:documentation>
 						The app id is an "agreed upon" unique identifier that identifies the application that is creating a message.
 						The client application sends this along with the messages so that logging or other business may take place based
-            on the application utilizing the service.
+						on the application utilizing the service.
 						This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by some
-            external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+						external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
 						A standard error will be returned if the app ID is not provided when it is required.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="fiId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="fiId" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The FIID  is used by systems to uniquely identify each financial institution.
 						This ID is determined outside of the process and stored in each system of record, e.g. local application
-            database, vendor configuration file, FI core database, etc.
+						database, vendor configuration file, FI core database, etc.
 						This is helpful for applications that are multi-tenant and service more than one financial institution.
 						See dataSourceId for more information about multiple data sources for a single FI.
 						A standard error will be returned if the FIID is not provided when it is required.
@@ -72,52 +79,60 @@
 				<xs:annotation>
 					<xs:documentation>
 						The data source ID  is used by the systems to uniquely identify a registered data source within the financial
-            institution.
+						institution.
 						This is an agreed upon ID determined outside of the process and stored in each system of record.
 						There may be more than one data source ID per financial institution.
 						For instance, one data source ID may represent the financial institution’s core provider and another may be used
-            to represent the credit card provider that is not within the core.
+						to represent the credit card provider that is not within the core.
 						There may be a one-to-many relationship between FIID  and data source ID.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="environment" type="Environment" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Indicates the environment in which the message is to be executed. If not specified, "Production" is assumed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1" default="All">
-        <xs:annotation>
-          <xs:documentation>
-            Applicable to creates and updates.  The return data filter is used to streamline the amount of
-            information to return to the client after an update or create.  The client can request
-            all data from the object, only fields that were updated or created, or no data (just a confirmation
-            that it was successful).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="includeBlankFields" type="xs:boolean" default="true">
-        <xs:annotation>
-          <xs:documentation>
-            A boolean to indicate the inclusion of blank or empty fields in the response message.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="includeZeroNumerics" type="xs:boolean" default="true">
-        <xs:annotation>
-          <xs:documentation>
-            A boolean to indicate the inclusion of zero values in the response message.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="environment" type="Environment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates the environment in which the message is to be executed. If not specified, "Production" is assumed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1" default="All">
+				<xs:annotation>
+					<xs:documentation>
+						Applicable to creates and updates.  The return data filter is used to streamline the amount of
+						information to return to the client after an update or create.  The client can request
+						all data from the object, only fields that were updated or created, or no data (just a confirmation
+						that it was successful).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeBlankFields" type="xs:boolean" default="true">
+				<xs:annotation>
+					<xs:documentation>
+						A boolean to indicate the inclusion of blank or empty fields in the response message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeZeroNumerics" type="xs:boolean" default="true">
+				<xs:annotation>
+					<xs:documentation>
+						A boolean to indicate the inclusion of zero values in the response message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="user" type="User" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of user(s) associated to a message.
 						Typically, there will be only one user associated to a message request, but this provides the flexibility
-            in the event that future use cases have two user ID’s associated to one message.
+						in the event that future use cases have two user ID’s associated to one message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusList" type="StatusList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status list contains all the success, warning, error and other messages when a service point was called.
+						This element allows for the call response pattern to send and receive CUFX message objects bi-directionally.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -126,9 +141,9 @@
 					<xs:documentation>
 						The custom data section allows the flexibility to add additional information to the message context.
 						This should be utilized as a last resort and any use should result in requested modifications to the message
-            or message context .
+						or message context .
 						Note: typically the data required will be in the message (such as party ID, account ID, etc.) rather than
-            contained in the message context.
+						contained in the message context.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -140,7 +155,7 @@
 			<xs:documentation>
 				The message context contains information that is passed as part of each CUFX message call.
 				All the fields are optional, and whether or not they contain information is determined by the specific implementation
-        requirements.
+				requirements.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -148,7 +163,15 @@
 				<xs:annotation>
 					<xs:documentation>
 						The user ID is a unique identifier for the user, based on the type of user (see userIdType below) that is requesting
-            the message to be performed.
+						the message to be performed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processorSessionId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The processor sesion ID is a unique identifier for the user, based on the connection to the processor or core system for
+						the message being performed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -167,128 +190,683 @@
 
 	<xs:simpleType name="UserType">
 		<xs:restriction base="xs:string">
-      <xs:enumeration value="EmployeeId" >
-        <xs:annotation>
-          <xs:documentation>
-            The user ID is an employee ID for logging into the network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+			<xs:enumeration value="EmployeeId" >
+				<xs:annotation>
+					<xs:documentation>
+						The user ID is an employee ID for logging into the network.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 
-      <xs:enumeration value="VendorEmployeeId">
-        <xs:annotation>
-          <xs:documentation>
-            The user ID is a vendor employee ID for logging into the network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
+			<xs:enumeration value="VendorEmployeeId">
+				<xs:annotation>
+					<xs:documentation>
+						The user ID is a vendor employee ID for logging into the network.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<xs:enumeration value="Anonymous" >
-        <xs:annotation>
-          <xs:documentation>
-            The user ID is essentially unknown, i.e. no credentials are required.
-            Business rules will have been applied to either prevent or allow anonymous access to the service in question.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
+				<xs:annotation>
+					<xs:documentation>
+						The user ID is essentially unknown, i.e. no credentials are required.
+						Business rules will have been applied to either prevent or allow anonymous access to the service in question.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<xs:enumeration value="FIUserId" >
-        <xs:annotation>
-          <xs:documentation>
-            The credential group identifier of a party that was used to access the service.  See credential group schema.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
-      <xs:enumeration value="SystemAccountId" >
-        <xs:annotation>
-          <xs:documentation>
-            The system user identifier of a system account that was used to access the service.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
-      <xs:enumeration value="SecurityToken" >
-        <xs:annotation>
-          <xs:documentation>
-            A security token which was created from an identity provider.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      
+				<xs:annotation>
+					<xs:documentation>
+						The credential group identifier of a party that was used to access the service.  See credential group schema.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="SystemAccountId" >
+				<xs:annotation>
+					<xs:documentation>
+						The system user identifier of a system account that was used to access the service.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="SecurityToken" >
+				<xs:annotation>
+					<xs:documentation>
+						A security token which was created from an identity provider.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
 			<xs:enumeration value="Custom" >
-        <xs:annotation>
-          <xs:documentation>
-            The user identification was not one of the above formats.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
+				<xs:annotation>
+					<xs:documentation>
+						The user identification was not one of the above formats.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:simpleType name="ReturnDataFilter">
-    <xs:annotation>
-      <xs:documentation>
-        Applicable to creates and updates.  The return data filter is used to streamline the amount of
-        information to return to the client after an update or create.  The client can request
-        all data from the object, only fields that were updated or created, 
-        or no data (just a confirmation that it was successful).
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="All" />
-      <xs:enumeration value="OnlyCreatedOrChangedData" />
-      <xs:enumeration value="None" />
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="ReturnDataFilter">
+		<xs:annotation>
+			<xs:documentation>
+				Applicable to creates and updates.  The return data filter is used to streamline the amount of
+				information to return to the client after an update or create.  The client can request
+				all data from the object, only fields that were updated or created,
+				or no data (just a confirmation that it was successful).
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="All" />
+			<xs:enumeration value="OnlyCreatedOrChangedData" />
+			<xs:enumeration value="None" />
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name="Environment">
-    <xs:annotation>
-      <xs:documentation>
-        Indicates the environment in which the message should be executed.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Development">
-        <xs:annotation>
-          <xs:documentation>
-            The message is to be executed in a development environment.
-            Test data stores are to be used and various functionality may be disabled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="UAT">
-        <xs:annotation>
-          <xs:documentation>
-            The message is to be executed in a UAT environment.
-            Test data stores are to be used and various functionality may be disabled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Training">
-        <xs:annotation>
-          <xs:documentation>
-            The message is to be executed in a training environment.
-            Data stores containing training data are to be used and various functionality may be disabled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="QA">
-        <xs:annotation>
-          <xs:documentation>
-            The message is to be executed in a QA environment.
-            Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Production">
-        <xs:annotation>
-          <xs:documentation>
-            The message is to be executed in a production environment.
-            Production data stores are to be used and all features and functionality are enabled.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="Environment">
+		<xs:annotation>
+			<xs:documentation>
+				Indicates the environment in which the message should be executed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Development">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a development environment.
+						Test data stores are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UAT">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a UAT environment.
+						Test data stores are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Training">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a training environment.
+						Data stores containing training data are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QA">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a QA environment.
+						Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Production">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a production environment.
+						Production data stores are to be used and all features and functionality are enabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Status">
+		<xs:annotation>
+			<xs:documentation>
+				The message collection/array contains all the messages returned when a service point was called.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="statusType" type="StatusType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Response type classifies the message type in the message response list and allows for high level discrimination of Success, Warning, Error or Other message types.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusCode" type="StatusCode" minOccurs="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Standard CUFX error code returned by the service point.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusSubCode" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message response sub code of the message. Non-standard error code that was in the back end system.  This may be
+						helpful in understanding why a particular error occurred.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="statusMessage" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The response message text.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substitutionList" type="SubstitutionList"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Optional list to send data to the end point about which fields may be in
+						error and/or which values may be out-of-range.  The error message can be
+						scanned for potential substitution ID's (for example '%1', '%2') and replaced
+						with the value from the substitution list.  This is useful for when an end
+						point wants to support multiple languages or wants all of the message to be
+						reconfigured for better consumption.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="StatusType">
+		<xs:annotation>
+			<xs:documentation>
+				Response type classifies the message type in the message response list and allows for high level discrimination of Success, Warning, Error or Other message types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Success">
+				<xs:annotation>
+					<xs:documentation>
+						The message associated with this response type was a success.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Warning">
+				<xs:annotation>
+					<xs:documentation>
+						Informational warning that should not stop processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error">
+				<xs:annotation>
+					<xs:documentation>
+						The message is associated with response was an error.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ValidationException">
+				<xs:annotation>
+					<xs:documentation>
+						The message contained data values that were out of range based on acceptable values.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DataRequestError">
+				<xs:annotation>
+					<xs:documentation>
+						The message contained a data request that was not well-formed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UnsupportedError">
+				<xs:annotation>
+					<xs:documentation>
+						The message is not supported by the server implementation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DataRequestError">
+				<xs:annotation>
+					<xs:documentation>
+						The message contained a data request that was not well-formed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PermissionError">
+				<xs:annotation>
+					<xs:documentation>
+						The message client lacks the necessary security permission to access the object or operation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SystemNonFatalError">
+				<xs:annotation>
+					<xs:documentation>
+						A temporary system error occurred such as a temporary system outage, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SystemFatalError">
+				<xs:annotation>
+					<xs:documentation>
+						A temporary system error occurred such as a temporary system outage, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+						A critical system error occurred such as full system outage, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="StatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The message response list collection/array contains all the messages returned when
+				a service point was called.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded" nillable="true">
+						<xs:annotation>
+							<xs:documentation>
+								A collection of fields that represents an individual response message that occurred when a
+								service point was called.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="StatusCode">
+		<xs:annotation>
+			<xs:documentation>
+				Standard CUFX code returned by the service point.
+				The documentation contains the standard message to return.
+				When '%s' is in the message, it should be replaced with additional
+				details relative to the message content.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="NoDataInRequest">
+				<xs:annotation>
+					<xs:documentation>
+						No data in request. Fomerly value 300.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="NoMatchingRecords">
+				<xs:annotation>
+					<xs:documentation>
+						No matching records were found. Fomerly value 302.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="BadRequest">
+				<xs:annotation>
+					<xs:documentation>
+						Bad request.  Data in the request was invalid. Fomerly value 400.
+						This error code should only be used if there is not a more detailed
+						error listed below that matches the situation.  Any use of this error
+						code should be communicated to the CUFX team so that the condition
+						can be covered in future versions of the error object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="LoginInvalid">
+				<xs:annotation>
+					<xs:documentation>
+						Login Invalid.  The user token or credentials were invalid. Fomerly value 401.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="SessionTokenExpired">
+				<xs:annotation>
+					<xs:documentation>
+						Session token expired. The provided session token was expired or otherwise invalid. Fomerly value 402.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="UserTokenExpired">
+				<xs:annotation>
+					<xs:documentation>
+						User token expired. The provided user token expired. Fomerly value 403.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="RequestedResourceNotFound">
+				<xs:annotation>
+					<xs:documentation>
+						Requested resource was not found. Fomerly value 404.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ConflictAlreadyExists">
+				<xs:annotation>
+					<xs:documentation>
+						Conflict.  The entity submitted for creation already exists. Fomerly value 409.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="IncompleteRequest">
+				<xs:annotation>
+					<xs:documentation>
+						Incomplete request.  The request omitted the following required fields: '%s'. Fomerly value 411.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="PreviousRequestRequired">
+				<xs:annotation>
+					<xs:documentation>
+						Previous request required.  A '%s' request must be made before this one, and was not. Fomerly value 412.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ValueOutOfRange">
+				<xs:annotation>
+					<xs:documentation>
+						Value out of acceptable range.  The value ‘%s’ is not supported for the field ‘%s’ by this
+						service. Valid values must be between ‘%s’ and ‘%s’. Fomerly value 413.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="UnsupportedValue">
+				<xs:annotation>
+					<xs:documentation>
+						Unsupported value.  The value ‘%s’ is not supported for the field ‘%s’ by this service. Valid
+						values include '%s'. Fomerly value 415.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="UnprocessableEntity">
+				<xs:annotation>
+					<xs:documentation>
+						Unprocessable entity.  The request contained the following references to entities that could not be found: '%s'.
+						Fomerly value 422.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="AccountLocked">
+				<xs:annotation>
+					<xs:documentation>
+						Account locked.  The login was valid but the account was disabled, locked or otherwise inaccessible. Fomerly value 423.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="MFALoginFailed">
+				<xs:annotation>
+					<xs:documentation>
+						MFA login failed.  The MFA login information provided was incorrect. Fomerly value 424.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="MACInvalid">
+				<xs:annotation>
+					<xs:documentation>
+						MAC invalid.  The MAC was invalid or missing. Fomerly value 425.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="EncryptionError">
+				<xs:annotation>
+					<xs:documentation>
+						Encryption error.  The provided encrypted data could not be decrypted. Fomerly value 426.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="TooManyRequests">
+				<xs:annotation>
+					<xs:documentation>
+						Too many requests.  The user has sent too many requests in a given amount of time. Fomerly value 429.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidLanguage">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid language.  The requested language '%s' is not supported. Fomerly value 430.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidEmailFormat">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid email format.  The format of the email was invalid. Fomerly value 431.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidPhoneFormat">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid phone format.  The format of the phone was invalid. Fomerly value 432.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidDataSourceId">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid data source ID.  The data source ID was not recognized. Fomerly value 433.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidFiId">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid FI ID.  The financial institution ID was not recognized. Fomerly value 434.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="UnableToParseRequest">
+				<xs:annotation>
+					<xs:documentation>
+						Unable to parse request. Invalid JSON/XML. Fomerly value 435.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="AccessDenied">
+				<xs:annotation>
+					<xs:documentation>
+						Access denied.  Access to resource requested was denied.	subCode may contain additional details. Fomerly value 436.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactNotFound">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact not found.	The artifact ID could not be found in the repository. Fomerly value 437.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="UpdateToFieldNotAllowed">
+				<xs:annotation>
+					<xs:documentation>
+						Update to field not allowed.	The repository does not allow updates to '%s'. Fomerly value 438.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactCouldNotBeDecompressed">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact could not be decompressed.	 artifactCompressionType did not result in a successful
+						decompression of the artifact. Fomerly value 439.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+
+			<xs:enumeration value ="MIMETypeNotSupported">
+				<xs:annotation>
+					<xs:documentation>
+						MIME type not supported. 	Repository rejected the MIME type. Fomerly value 440.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactHasBeenArchived">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact has been archived.	The artifact with the given artifact ID has been archived out of the repository. Fomerly value 441.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactTooLarge">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit. Fomerly value 442.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactTooSmall">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact too small.	The artifact was rejected because the artifact is smaller than its minimum size limit. Fomerly value 443.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ArtifactRejected">
+				<xs:annotation>
+					<xs:documentation>
+						Artifact rejected. 	The repository has rejected the artifact. See the sub error codes for the specific reason.
+						Fomerly value 444.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidDataLengthInField">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid data length in field '%s'. Fomerly value 445.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidFormat">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid format.  The format of the request is not supported. Fomerly value 475.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="InvalidEnvironment">
+				<xs:annotation>
+					<xs:documentation>
+						Invalid environment.  The environment specified in MessageContext is disallowed by the system as configured. Fomerly value 476.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+
+			<xs:enumeration value ="TransactionDatesOutOfOrder">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction dates are out of order.  The transaction end date is before the transaction start date. Fomerly value 497.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="TransactionDateRangeTooWide">
+				<xs:annotation>
+					<xs:documentation>
+						Transaction date range too wide.  Date range is too wide for the data source to handle. Fomerly value 498.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="GeneralError">
+				<xs:annotation>
+					<xs:documentation>
+						General Error.  Review subCode for more information. Fomerly value 499.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value ="ServiceTemporarilyUnavailable">
+				<xs:annotation>
+					<xs:documentation>
+						Service is temporarily unavailable.  Try again later. Fomerly value 503.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SubstitutionList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Optional substitution to send data to the end point about which fields may be in
+								error and/or which values may be out-of-range.  The error message can be
+								scanned for potential substitution ID's (for example '%1', '%2') and replaced
+								with the value from the substitution list.  This is useful for when an end
+								point wants to support multiple languages or wants all of the message to be
+								reconfigured for better consumption.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Substitution">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the substitution as it appears in the error message.
+						For example, %1, %2, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="value" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data that should be placed in the error message wherever the
+						substitution ID shows up in the error message.  This would most
+						likely be a field name, field value, etc.
+						This is done to allow the rest of the error message to be translated
+						by the consuming end point, if the message was not translated by the
+						core.  It's up to the end points to determine which end point will
+						translate if it's supported.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>
 

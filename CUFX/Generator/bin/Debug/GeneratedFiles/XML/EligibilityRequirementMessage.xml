@@ -1,79 +1,188 @@
-<eligibilityRequirementMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/EligibilityRequirementMessage.xsd">
+<eligibilityRequirementMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd">
   <messageContext>
-    <requestId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">requestId1</requestId>
-    <vendorId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">vendorId1</vendorId>
-    <appId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">appId1</appId>
-    <fiId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">fiId1</fiId>
-    <dataSourceId xmlns="http://cufxstandards.com/v3/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v3/MessageContext.xsd">Development</environment>
-    <returnDataFilter xmlns="http://cufxstandards.com/v3/MessageContext.xsd">All</returnDataFilter>
-    <includeBlankFields xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeBlankFields>
-    <includeZeroNumerics xmlns="http://cufxstandards.com/v3/MessageContext.xsd">true</includeZeroNumerics>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId1</userId>
+      <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId2</userId>
+      <processorSessionId>processorSessionId2</processorSessionId>
       <userType>VendorEmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId3</userId>
+      <processorSessionId>processorSessionId3</processorSessionId>
       <userType>Anonymous</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId4</userId>
+      <processorSessionId>processorSessionId4</processorSessionId>
       <userType>FIUserId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
+    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <userId>userId5</userId>
+      <processorSessionId>processorSessionId5</processorSessionId>
       <userType>SystemAccountId</userType>
     </user>
-    <customData xmlns="http://cufxstandards.com/v3/MessageContext.xsd">
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Success</statusType>
+        <statusCode>NoDataInRequest</statusCode>
+        <statusSubCode>statusSubCode1</statusSubCode>
+        <statusMessage>statusMessage1</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <substitution>
+            <id>id1</id>
+            <value>value1</value>
+          </substitution>
+          <substitution>
+            <id>id2</id>
+            <value>value2</value>
+          </substitution>
+          <substitution>
+            <id>id3</id>
+            <value>value3</value>
+          </substitution>
+          <substitution>
+            <id>id4</id>
+            <value>value4</value>
+          </substitution>
+          <substitution>
+            <id>id5</id>
+            <value>value5</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+      <status>
+        <statusType>Warning</statusType>
+        <statusCode>NoMatchingRecords</statusCode>
+        <statusSubCode>statusSubCode2</statusSubCode>
+        <statusMessage>statusMessage2</statusMessage>
+        <substitutionList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
+          <substitution>
+            <id>id6</id>
+            <value>value6</value>
+          </substitution>
+          <substitution>
+            <id>id7</id>
+            <value>value7</value>
+          </substitution>
+          <substitution>
+            <id>id8</id>
+            <value>value8</value>
+          </substitution>
+          <substitution>
+            <id>id9</id>
+            <value>value9</value>
+          </substitution>
+          <substitution>
+            <id>id10</id>
+            <value>value10</value>
+          </substitution>
+        </substitutionList>
+      </status>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name2</name>
         <value>value2</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name3</name>
         <value>value3</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name4</name>
         <value>value4</value>
       </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd">
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name5</name>
         <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
   <eligibilityRequirementFilter>
-    <eligibilityRequirementIdList xmlns="http://cufxstandards.com/v3/EligibilityRequirementFilter.xsd">
-      <requirementId xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">requirementId1</requirementId>
-      <requirementId xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">requirementId2</requirementId>
-      <requirementId xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">requirementId3</requirementId>
-      <requirementId xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">requirementId4</requirementId>
-      <requirementId xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">requirementId5</requirementId>
+    <eligibilityRequirementIdList xmlns="http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <requirementId xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">requirementId1</requirementId>
+      <requirementId xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">requirementId2</requirementId>
+      <requirementId xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">requirementId3</requirementId>
+      <requirementId xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">requirementId4</requirementId>
+      <requirementId xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">requirementId5</requirementId>
     </eligibilityRequirementIdList>
-    <affinityBrandList xmlns="http://cufxstandards.com/v3/EligibilityRequirementFilter.xsd">
-      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
-      <affinityBrand xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">affinityBrand1</affinityBrand>
-      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
-      <affinityBrand xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">affinityBrand2</affinityBrand>
-      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
+    <affinityBrandList xmlns="http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
+      <affinityBrand xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">affinityBrand1</affinityBrand>
+      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
+      <affinityBrand xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">affinityBrand2</affinityBrand>
+      <affinityBrand xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
     </affinityBrandList>
   </eligibilityRequirementFilter>
   <eligibilityRequirementList>
-    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
-    <eligibilityRequirement xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
+    <eligibilityRequirement xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">
       <requirementId>requirementId1</requirementId>
       <description>description1</description>
       <affinityBrandList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <affinityBrand xsi:nil="true" />
         <affinityBrand>affinityBrand1</affinityBrand>
         <affinityBrand xsi:nil="true" />
@@ -82,18 +191,24 @@
       </affinityBrandList>
       <nextActionRequiredId>1</nextActionRequiredId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </eligibilityRequirement>
-    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
-    <eligibilityRequirement xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd">
+    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
+    <eligibilityRequirement xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd">
       <requirementId>requirementId2</requirementId>
       <description>description2</description>
       <affinityBrandList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
         <affinityBrand>affinityBrand3</affinityBrand>
         <affinityBrand xsi:nil="true" />
         <affinityBrand>affinityBrand4</affinityBrand>
@@ -102,13 +217,13 @@
       </affinityBrandList>
       <nextActionRequiredId>-79228162514264337593543950335</nextActionRequiredId>
       <customData>
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
-        <valuePair xmlns="http://cufxstandards.com/v3/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
     </eligibilityRequirement>
-    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v3/EligibilityRequirement.xsd" />
+    <eligibilityRequirement xsi:nil="true" xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd" />
   </eligibilityRequirementList>
 </eligibilityRequirementMessage>

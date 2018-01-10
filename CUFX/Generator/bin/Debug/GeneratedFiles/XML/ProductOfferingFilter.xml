@@ -1,29 +1,54 @@
-<productOfferingFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v3/ProductOfferingFilter.xsd">
+<productOfferingFilter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/ProductOfferingFilter.xsd">
   <productIdList>
-    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
-    <productId xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">productId1</productId>
-    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
-    <productId xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">productId2</productId>
-    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
+    <productId xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">productId1</productId>
+    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
+    <productId xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">productId2</productId>
+    <productId xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
   </productIdList>
   <productTypeList>
-    <productType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">Checking</productType>
-    <productType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">Savings</productType>
-    <productType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">Loan</productType>
-    <productType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">CreditCard</productType>
-    <productType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">LineOfCredit</productType>
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <productType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">Checking</productType>
+    <productType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">Savings</productType>
+    <productType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">Loan</productType>
+    <productType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">CreditCard</productType>
+    <productType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">LineOfCredit</productType>
   </productTypeList>
   <productSubTypeList>
-    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
-    <productSubType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">productSubType1</productSubType>
-    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
-    <productSubType xmlns="http://cufxstandards.com/v3/ProductOffering.xsd">productSubType2</productSubType>
-    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v3/ProductOffering.xsd" />
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
+    <productSubType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">productSubType1</productSubType>
+    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
+    <productSubType xmlns="http://cufxstandards.com/v4/ProductOffering.xsd">productSubType2</productSubType>
+    <productSubType xsi:nil="true" xmlns="http://cufxstandards.com/v4/ProductOffering.xsd" />
   </productSubTypeList>
   <introductoryRate>true</introductoryRate>
   <balanceConsolidationRate>true</balanceConsolidationRate>
   <riskRate>true</riskRate>
-  <interestDateTime>1900-01-01T01:01:01Z</interestDateTime>
+  <interestRateEffectiveDateRange>
+    <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+    <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+  </interestRateEffectiveDateRange>
+  <interestRateExpirationDateRange>
+    <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+    <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+  </interestRateExpirationDateRange>
   <minTerm>P396DT1H1M1S</minTerm>
   <maxTerm>P396DT1H1M1S</maxTerm>
   <pointsRewardsProgram>true</pointsRewardsProgram>

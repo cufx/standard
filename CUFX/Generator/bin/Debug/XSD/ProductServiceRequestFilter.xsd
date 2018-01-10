@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd"
-	xmlns="http://cufxstandards.com/v3/ProductServiceRequestFilter.xsd"
-	version="3.1.$Revision: 963 $"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/ProductServiceRequestFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/ProductServiceRequestFilter.xsd"
+	version="4.0.$Revision: 1220 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:contact="http://cufxstandards.com/v3/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v3/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v3/Relationship.xsd"
-	xmlns:account="http://cufxstandards.com/v3/Account.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v3/ProductServiceRequest.xsd"
-  xmlns:secureMessage="http://cufxstandards.com/v3/SecureMessage.xsd"  
+	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+  xmlns:secureMessage="http://cufxstandards.com/v4/SecureMessage.xsd"  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v3/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v3/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v3/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
 
 	<xs:element name="productServiceRequestFilter" type="ProductServiceRequestFilter">
 		<xs:annotation>
@@ -63,6 +63,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account statuses and sub statuses that should have their associated product service request either returned or affected
+						by a read, update or delete product service request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
