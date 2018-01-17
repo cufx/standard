@@ -65,7 +65,7 @@ xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 					<xs:element name="recurringFromAccountList" type="fundsTransferRecurringBase:RecurringFromAccountList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of bill Id's that should have their associated bills either returned
+								The list of accounts from which the transfer or payment was taken that should have their associated bills either returned
 								or affected by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>
@@ -73,7 +73,7 @@ xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 					<xs:element name="recurringToAccountList" type="fundsTransferRecurringBase:RecurringToAccountList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of bill Id's that should have their associated bills either returned
+								The list of accounts from which the transfer or payment was made to that should have their associated bills either returned
 								or affected by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>
