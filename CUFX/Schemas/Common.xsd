@@ -815,4 +815,16 @@
 			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="CufxVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="1.0.3"></xs:enumeration>
+			<xs:enumeration value ="1.0.6"></xs:enumeration>
+			<xs:enumeration value ="2.0.0"></xs:enumeration>
+			<xs:enumeration value ="3.1.0"></xs:enumeration>
+			<xs:enumeration value ="3.2.0"></xs:enumeration>
+			<xs:enumeration value ="3.3.0"></xs:enumeration>
+			<xs:enumeration value ="4.0.0"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
