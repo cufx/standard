@@ -77,8 +77,9 @@
 					<xs:documentation>
 						Interest rate percent of the loan.
 						Determines the amount charged each time period based on the loan period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.  
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -93,7 +94,10 @@
 			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Calculated annual percentage rate (APR).
+						Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized).
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -102,6 +106,9 @@
 					<xs:documentation>
 						Interest rate that is used for calculations.
 						Most of the time you would only use rate AND APR when there is a split or variable rate.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -145,206 +152,208 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest due.  Generally the amount of interest due as date of inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="paymentFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The loan payment frequency
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the last payment was made.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the last payment made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid year-to-date at the date/time that the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid in the previous year
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of late payment charges due at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatemntBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of the loan balance and interest due at the end of the last statement, i.e,, the just completed statement period.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the next payment is due.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the next payment due.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+			<xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest due.  Generally the amount of interest due as date of inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The loan payment frequency
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the last payment was made.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the last payment made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid year-to-date at the date/time that the request was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid in the previous year
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of late payment charges due at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatemntBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of the loan balance and interest due at the end of the last statement, i.e,, the just completed statement period.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the next payment is due.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the next payment due.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CheckingSavingsMeta">
 		<xs:sequence>
-			<xs:element name="apy" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="annualPercentageYield" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Annual percentage yield.
+						Annual percentage yield. Is a normalized representation of an interest rate, based on a compounding period of one year.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="overDraftProtectionEnabled" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            True if the account is enrolled in overdraft protection
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="overDraftFeesYtd" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of overdraft charges year-to-date at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of charges for insufficient funds year-to-date at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="mtdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of charges for insufficient funds month-to-date at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of interest/dividends earned on the account in the previous year.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
+			<xs:element name="overDraftProtectionEnabled" type="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						True if the account is enrolled in overdraft protection
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="overDraftFeesYtd" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of overdraft charges year-to-date at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of charges for insufficient funds year-to-date at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mtdInsufficientFundsFees" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of charges for insufficient funds month-to-date at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of interest/dividends earned on the account in the previous year.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
 						This is the date of the last interest/dividends posted to the account.
 						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of the last interest/dividends posted to the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Interest Rate earned by the investment.
-            Determines the amount earned each time period based on the period.
-            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-    </xs:sequence>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of the last interest/dividends posted to the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Interest Rate earned by the investment.
+						Determines the amount earned each time period based on the period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CreditCardMeta">
@@ -381,104 +390,108 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of late payment charges due at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the last payment was made.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the last payment made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of the card balance and interest due at the end of the last statement, i.e,, the just completed statement period.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Interest rate percent of the loan.
-            Determines the amount charged each time period based on the loan period.
-            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid year-to-date at the date/time that the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid in the previous year
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Calculated annual percentage rate (APR).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest due.  Generally the amount of interest due as date of inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of late payment charges due at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the last payment was made.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the last payment made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementBalance" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of the card balance and interest due at the end of the last statement, i.e,, the just completed statement period.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interestRate" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Interest rate percent of the loan.
+						Determines the amount charged each time period based on the loan period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid year-to-date at the date/time that the request was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid in the previous year
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized).
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest due.  Generally the amount of interest due as date of inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="InvestmentMeta">
@@ -503,8 +516,9 @@
 					<xs:documentation>
 						Interest Rate earned by the investment.
 						Determines the amount earned each time period based on the period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -515,68 +529,69 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of interest/dividends earned on the account in the previous year.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the date of the last interest/dividends posted to the account.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of the last interest/dividends posted to the account.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="apy" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Annual percentage yield.
-            4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-    </xs:sequence>
+			<xs:element name="ytdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of interest/dividends earned on the account year-to-date at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestEarned" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of interest/dividends earned on the account in the previous year.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastInterestEarnedDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the date of the last interest/dividends posted to the account.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastInterestEarnedAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of the last interest/dividends posted to the account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annualPercentageYield" type="xs:decimal" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Annual percentage yield. Is a normalized representation of an interest rate, based on a compounding period of one year.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="LineOfCreditMeta">
@@ -586,8 +601,9 @@
 					<xs:documentation>
 						Interest rate charged to the line of credit.
 						Determines the amount charged each time period based on the period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -631,109 +647,112 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of late payment charges due at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest due.  Generally the amount of interest due as date of inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid year-to-date at the date/time that the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid in the previous year
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the last payment was made.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the last payment made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="paymentFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The loan payment frequency
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>      
-      <xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Calculated annual percentage rate (APR).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the next payment is due.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the next payment due.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
+			<xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of late payment charges due at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interestDue" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest due.  Generally the amount of interest due as date of inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid year-to-date at the date/time that the request was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid in the previous year
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the last payment was made.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the last payment made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The loan payment frequency
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastTransactionDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent transaction. The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized).
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the next payment is due.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the next payment due.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="MortgageMeta">
@@ -743,8 +762,9 @@
 					<xs:documentation>
 						Interest rate charged to the mortgage.
 						Determines the amount charged each time period based on the period.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-            Decimals available: 999.999
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -781,8 +801,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						The date that payment is due for the mortgage to keep in good standing and avoid penalties.
-						Many times institutions will institute a grace period beyond this date, but this is the 
-            published due date.  The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+						Many times institutions will institute a grace period beyond this date, but this is the
+						published due date.  The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -794,73 +814,73 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="ytdTaxesPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The total in taxes paid year-to-date at the date/time that the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid year-to-date at the date/time that the request was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of interest paid in the previous year
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            This is the amount of late payment charges due at the date/time of the inquiry.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the most recent statement
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date of the previous statment
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The date that the next payment is due.
-            The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The amount of the next payment due.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="ytdTaxesPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The total in taxes paid year-to-date at the date/time that the request was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ytdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid year-to-date at the date/time that the request was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousYtdInterestPaid" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of interest paid in the previous year
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="latePaymentFee" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						This is the amount of late payment charges due at the date/time of the inquiry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pastDueAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The past due amount as a sum of the minimum payments missed plus late fees that have been added to the account since the last payment due date.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lastStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the most recent statement
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="previousStatementDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date of the previous statment
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the next payment is due.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nextPaymentAmount" type="common:Money" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the next payment due.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>
