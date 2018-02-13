@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/ConfigurationFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd"
+	version="4.0.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
+
+	<xs:element name="configurationFilter" type="ConfigurationFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting configuration data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="ConfigurationFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for configuration data.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="fiIdList" type="configuration:FiIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The valid financial institution list for this instance.
+						Identifies that these configuration parameters are related to these financial institutions.
+						The fiIdList that should be returned or affected by a read or update request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="serviceList" type="configuration:ServiceList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of services that should be returned or affected by a read or update request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+
