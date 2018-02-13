@@ -27,17 +27,27 @@
 					A location filter is used to query for locations near an address, for a given type, etc.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="locationId" type="location:LocationId" minOccurs="0" maxOccurs="1">
+			<xs:element name="locationIdList" type="location:LocationIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						A unique identifier for the location.  Use this for trying to retrieve a single location.
+						The list of location Ids that should have their associated location data either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
-				</xs:annotation>	
+				</xs:annotation>
 			</xs:element>
-			<xs:element name="type" type="location:LocationType" minOccurs="0" maxOccurs ="1">
+			<xs:element name="locationTypeList" type="location:LocationTypeList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The type of location (e.g. ATM, branch).
+						The list of location types that should have their associated location data either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="servicesList" type="location:ServicesList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of services or features of the location that should have their associated location data either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -60,14 +70,21 @@
 					<xs:documentation>
 						Maximum number of results to return.
 					</xs:documentation>
-				</xs:annotation>				
+				</xs:annotation>
 			</xs:element>
 			<xs:element name="maxDistance" type="common:Distance" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Maximum distance (e.g. 25 miles) to search for locations from the searchFromAddress.
 					</xs:documentation>
-				</xs:annotation>				
+				</xs:annotation>
+			</xs:element>
+			<xs:element	name="isLocationOpen" type ="xs:boolean" minOccurs ="0" maxOccurs ="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Filters for locations that are currently open. If not provided will return all results bases on provided criteria.
+					</xs:documentation >
+				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
