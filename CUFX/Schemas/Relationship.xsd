@@ -29,7 +29,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="relationship" type="Relationship" minOccurs="0" maxOccurs="unbounded" >
+					<xs:element name="relationship" type="Relationship" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The relationships collection/array contains all the relationships, for instance, that the
@@ -57,6 +57,7 @@
 						The relationship ID is a persistent and unique identifier for the relationship.
 						It should be unique for all relationships across the institution and remain
 						the same over the life of the relationship with the financial institution.
+						Some financial institutions may call this a membership ID.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -350,7 +351,14 @@
 
 	<xs:complexType name ="Holder">
 		<xs:sequence>
-			<xs:element	name="qualifier" type="PrimaryJoint" minOccurs ="1" maxOccurs ="1">
+			<xs:element	name="isHolder" type ="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of holder on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+			<xs:element	name="qualifier" type="PrimaryJoint" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies if it's a primary (only one on the account) or a joint owner.
@@ -358,10 +366,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
-						Primary or joint holder has access to funds.	Only one primary party can exist on a relationship.
+						Primary or joint holder has access to funds.  Only one primary party can exist on a relationship.
 					</xs:documentation >
 				</xs:annotation>
 			</xs:element>
@@ -370,6 +378,13 @@
 
 	<xs:complexType name ="Beneficiary">
 		<xs:sequence>
+			<xs:element	name="isBeneficiary" type ="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of beneficiary on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
 			<xs:element	name="qualifier" type="BeneficiaryQualifier" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -378,7 +393,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default ="Unauthorized">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies if beneficiary has access to the funds.  Most often this is unauthorized, but for
@@ -421,6 +436,13 @@
 
 	<xs:complexType name ="Payee">
 		<xs:sequence>
+			<xs:element	name="isPayee" type ="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of payee on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
 			<xs:element	name="qualifier" type="PayeeQualifier" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -429,7 +451,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="xs:string" minOccurs ="1" maxOccurs ="1" default ="DIVIDEND_ONLY">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Always dividend-only.  Payee does not have access to any other funds.
@@ -440,41 +462,58 @@
 	</xs:complexType>
 
 	<xs:complexType name ="Guarantor">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								Specifies whether guarantor has access to the funds on the account.
-							</xs:documentation >
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element	name="isGuarantor" type ="xs:boolean" minOccurs ="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of guarantor on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether guarantor has access to the funds on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
 	</xs:complexType>
 
 	<xs:complexType name ="CollateralGrantor">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
-						<xs:annotation>
-							<xs:documentation>
-								Specifies whether collateral grantor has access to the funds on the account.
-								Typically they do not, but this leaves the ability to change from the default
-								to allow for flexiblity.
-							</xs:documentation >
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+
+		<xs:sequence>
+			<xs:element	name="isCollateralGrantor" type ="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of collateral grantor on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="0" maxOccurs ="1" default="Unauthorized">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether collateral grantor has access to the funds on the account.
+						Typically they do not, but this leaves the ability to change from the default
+						to allow for flexiblity.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
 	</xs:complexType>
 
 	<xs:complexType name ="SafeDepositBoxUser">
 		<xs:sequence>
+			<xs:element	name="isSafeDepositBoxUser" type ="xs:boolean" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies whether the party has a relationship status of safe deposit box user on the account.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element	name="qualifier" type="SafeDepositBoxUserQualifier" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -483,7 +522,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1" default="Unauthorized">
+			<xs:element	name="authority" type ="common:Authority" minOccurs ="1" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies whether safe deposit box user has access to the funds on the account.
