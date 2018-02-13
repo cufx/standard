@@ -488,7 +488,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name= "creditLimitIncreaseRequestList" type ="CreditLimitIncreaseRequestList">
+					<xs:element name= "creditLimitIncreaseRequestList" type ="CreditLimitIncreaseRequestList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								This is a collection of credit limit increase requests.
@@ -1715,16 +1715,20 @@
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="loanCategory" type="LoanAccountCategory" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						A loan account category that should have its associated loans either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanCategory" type="LoanAccountCategory" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A loan account category that should have its associated loans either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="NoteNumber">
@@ -1738,15 +1742,42 @@
 	</xs:simpleType>
 
 	<xs:complexType name="CreditLimitIncreaseRequestList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of credit limit increase request that should have their associated loans either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="creditLimitIncreaseRequest" type="CreditLimitIncreaseRequest" minOccurs ="0" maxOccurs ="unbounded" >
+						<xs:annotation>
+							<xs:documentation>
+								A credit limit increase request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CreditLimitIncreaseRequest">
+		<xs:annotation>
+			<xs:documentation>
+				A credit limit increase request.
+			</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="requestDate" type="xs:dateTime" minOccurs="0" >
+			<xs:element name="requestDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
 						The date on which the credit limit increase request was made.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="limitIncreaseDate" type="xs:dateTime" minOccurs="0" >
+			<xs:element name="limitIncreaseDate" type="xs:dateTime" minOccurs ="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
 						The date on which the credit limit was increased.
@@ -1754,7 +1785,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="newLimitRequest" type="xs:decimal" minOccurs="0" >
+			<xs:element name="newLimitRequest" type="xs:decimal" minOccurs ="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
 						Amount of credit limit increase requested.
@@ -1762,15 +1793,15 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="memo" type="xs:string" minOccurs="0"   >
+			<xs:element name="memo" type="xs:string" minOccurs ="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
 						A general memo field.  This field can be used to provide details on why an increase was requested.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
 		</xs:sequence>
+
 	</xs:complexType>
 
 </xs:schema>
