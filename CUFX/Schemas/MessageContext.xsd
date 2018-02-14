@@ -380,6 +380,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Informational">
+				<xs:annotation>
+					<xs:documentation>
+						Additional information about the response, including verbose responses.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Warning">
 				<xs:annotation>
 					<xs:documentation>
@@ -391,62 +398,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The message is associated with response was an error.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="ValidationException">
-				<xs:annotation>
-					<xs:documentation>
-						The message contained data values that were out of range based on acceptable values.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="DataRequestError">
-				<xs:annotation>
-					<xs:documentation>
-						The message contained a data request that was not well-formed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="UnsupportedError">
-				<xs:annotation>
-					<xs:documentation>
-						The message is not supported by the server implementation.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="DataRequestError">
-				<xs:annotation>
-					<xs:documentation>
-						The message contained a data request that was not well-formed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="PermissionError">
-				<xs:annotation>
-					<xs:documentation>
-						The message client lacks the necessary security permission to access the object or operation.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SystemNonFatalError">
-				<xs:annotation>
-					<xs:documentation>
-						A temporary system error occurred such as a temporary system outage, etc.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="SystemFatalError">
-				<xs:annotation>
-					<xs:documentation>
-						A temporary system error occurred such as a temporary system outage, etc.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Other">
-				<xs:annotation>
-					<xs:documentation>
-						A critical system error occurred such as full system outage, etc.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -487,339 +438,332 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value ="NoDataInRequest">
+			<xs:enumeration value ="ValueOutOfRangeError">
 				<xs:annotation>
 					<xs:documentation>
-						No data in request. Fomerly value 300.
+						ValueOutOfRangeError.  The value '%s' is not supported for the field '%s' by this
+						service. Valid values must be between '%s' and '%s'. Fomerly value 413.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
-			<xs:enumeration value ="NoMatchingRecords">
+			<xs:enumeration value ="UnsupportedValueError">
 				<xs:annotation>
 					<xs:documentation>
-						No matching records were found. Fomerly value 302.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="BadRequest">
-				<xs:annotation>
-					<xs:documentation>
-						Bad request.  Data in the request was invalid. Fomerly value 400.
-						This error code should only be used if there is not a more detailed
-						error listed below that matches the situation.  Any use of this error
-						code should be communicated to the CUFX team so that the condition
-						can be covered in future versions of the error object.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="LoginInvalid">
-				<xs:annotation>
-					<xs:documentation>
-						Login Invalid.  The user token or credentials were invalid. Fomerly value 401.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="SessionTokenExpired">
-				<xs:annotation>
-					<xs:documentation>
-						Session token expired. The provided session token was expired or otherwise invalid. Fomerly value 402.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="UserTokenExpired">
-				<xs:annotation>
-					<xs:documentation>
-						User token expired. The provided user token expired. Fomerly value 403.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="RequestedResourceNotFound">
-				<xs:annotation>
-					<xs:documentation>
-						Requested resource was not found. Fomerly value 404.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ConflictAlreadyExists">
-				<xs:annotation>
-					<xs:documentation>
-						Conflict.  The entity submitted for creation already exists. Fomerly value 409.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="IncompleteRequest">
-				<xs:annotation>
-					<xs:documentation>
-						Incomplete request.  The request omitted the following required fields: '%s'. Fomerly value 411.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="PreviousRequestRequired">
-				<xs:annotation>
-					<xs:documentation>
-						Previous request required.  A '%s' request must be made before this one, and was not. Fomerly value 412.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ValueOutOfRange">
-				<xs:annotation>
-					<xs:documentation>
-						Value out of acceptable range.  The value ‘%s’ is not supported for the field ‘%s’ by this
-						service. Valid values must be between ‘%s’ and ‘%s’. Fomerly value 413.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="UnsupportedValue">
-				<xs:annotation>
-					<xs:documentation>
-						Unsupported value.  The value ‘%s’ is not supported for the field ‘%s’ by this service. Valid
+						UnsupportedValueError.  The value '%s' is not supported for the field '%s' by this service. Valid
 						values include '%s'. Fomerly value 415.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
-			<xs:enumeration value ="UnprocessableEntity">
+			<xs:enumeration value ="DatesOutOfOrderError">
 				<xs:annotation>
 					<xs:documentation>
-						Unprocessable entity.  The request contained the following references to entities that could not be found: '%s'.
+						DatesOutOfOrderError.  The end date is before the start date. Fomerly value 497.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DateRangeTooWideError">
+				<xs:annotation>
+					<xs:documentation>
+						DateRangeTooWideError.  Date range is too wide for the data source to handle. Fomerly value 498.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidFieldFormat">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidFieldFormat.  The format of the field is not supported. The format '%s' is not supported for
+						the field '%s' by this service. Valid values include '%s' Fomerly value 475.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="OtherValidationError">
+				<xs:annotation>
+					<xs:documentation>
+						OtherValidationError. Values were within range but some other business rule failed with the while validating the data in the request.  Use %s to include what record rejected and why.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="NoDataInRequest">
+				<xs:annotation>
+					<xs:documentation>
+						NoDataInRequest. Endpoint expected values in request but there were none. Fomerly value 300.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="IncompleteRequest">
+				<xs:annotation>
+					<xs:documentation>
+						IncompleteRequest.  The request omitted the following required fields: '%s'. Fomerly value 411.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RecordHasBeenArchivedError">
+				<xs:annotation>
+					<xs:documentation>
+						RecordHasBeenArchivedError.	The record was found, but is not available for viewing as it has been archived in offline storage. Fomerly value 441.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="LoginInvalidError">
+				<xs:annotation>
+					<xs:documentation>
+						LoginInvalidError.  The user token or credentials were invalid. Fomerly value 401.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserPermissionError">
+				<xs:annotation>
+					<xs:documentation>
+						UserPermissionError. User was able to login but was unable to process request because user did not have proper permissions to either the object type, instance of object or capability on that object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppPermissionError">
+				<xs:annotation>
+					<xs:documentation>
+						AppPermissionError. Client app lacks necessary security to perform the action.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserSessionTokenExpiredError">
+				<xs:annotation>
+					<xs:documentation>
+						UserSessionTokenExpiredError. Endpoint no longer recognizes a user session token as valid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppSessionTokenExpiredError">
+				<xs:annotation>
+					<xs:documentation>
+						AppSessionTokenExpiredError. Endpoint no longer recognizes an application session token as valid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserCredentialsLockedOut">
+				<xs:annotation>
+					<xs:documentation>
+						UserCredentialsLockedOut. User provided proper credentials, but system indicates that system no longer allows this user to access the requested resources.
+						The resource '%s' has been locked out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppCredentialsLockedOut">
+				<xs:annotation>
+					<xs:documentation>
+						AppCredentialsLockedOut. App provided proper credentials, but system indicates that system no longer allows this app to access the requested resources.
+						The app resource '%s' has been locked out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ConflictAlreadyExists">
+				<xs:annotation>
+					<xs:documentation>
+						ConflictAlreadyExists.  The entity submitted for creation already exists. Fomerly value 409.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UpdateToFieldNotAllowed">
+				<xs:annotation>
+					<xs:documentation>
+						UpdateToFieldNotAllowed. The repository does not allow updates to '%s'. Fomerly value 438.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidMACAddressError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidMACAddressError.  The MAC address was invalid or missing. Fomerly value 425.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidIPAddressError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidIPAddressError.  Client’s IP address is not valid or does not have permissions to access the endpoint.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidLanguageError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidLanguageError.  The requested language '%s' is not supported. Fomerly value 430.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidDataSourceIdError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidDataSourceIdError.  The data source ID was not recognized. Fomerly value 433.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidFiIdError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidFiIdError.  The financial institution ID was not recognized. Fomerly value 434.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidEnvironmentError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidEnvironmentError.  The environment specified in MessageContext is disallowed by the system as configured. Fomerly value 476.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="PreviousRequestRequired">
+				<xs:annotation>
+					<xs:documentation>
+						PreviousRequestRequired.  A '%s' request must be made before this one, and was not. Fomerly value 412.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="MalformedRequestError">
+				<xs:annotation>
+					<xs:documentation>
+						MalformedRequestError.  Malformed request to endpoint based on CUFX standard.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnsupportedMethodError">
+				<xs:annotation>
+					<xs:documentation>
+						UnsupportedMethodError.  End point does not support the method.  For example: GET is supported but not a POST or DELETE.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnsupportedServiceError">
+				<xs:annotation>
+					<xs:documentation>
+						UnsupportedServiceError.  Service exists but endpoint does not support the service for this FiId and/or app combination.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RequestedServiceNotFound">
+				<xs:annotation>
+					<xs:documentation>
+						RequestedServiceNotFound.  The client application requested a service that does not exist.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="EncryptionError">
+				<xs:annotation>
+					<xs:documentation>
+						EncryptionError.  The provided encrypted data could not be decrypted. Fomerly value 426.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="MIMETypeNotSupportedError">
+				<xs:annotation>
+					<xs:documentation>
+						MIMETypeNotSupported.  Repository rejected the MIME type. Fomerly value 440.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectTooLargeError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectTooLarge.	The '%s' object was rejected because it exceeded the size limit. Fomerly value 442.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectTooSmallError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectTooSmall.	The '%s' object was rejected because it is smaller than its minimum size requirement. Fomerly value 443.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectNotFoundError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectNotFoundError.  The object could not be found in the repository. Fomerly value 437.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectRejectedError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectRejectedError. The repository has rejected the object. See the sub error codes for the specific reason.
+						Example: Restricted content or copyright detected. Fomerly value 444.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="CompressionError">
+				<xs:annotation>
+					<xs:documentation>
+						CompressionError.  Endpoint could not compress the object '%s' as requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DecompressionError">
+				<xs:annotation>
+					<xs:documentation>
+						DecompressionError.  Endpoint could not decompress the object '%s' as requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="TooManyRequestsError">
+				<xs:annotation>
+					<xs:documentation>
+						TooManyRequests.  The user has sent too many requests in a given amount of time. Fomerly value 429.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceTemporarilyUnavailableError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceTemporarilyUnavailableError.  This is for a short term outage.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceUnavailableError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceUnavailableError.  Endpoint is not available for requests at this time.  This is due to an extended system outage.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceFailureError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceFailureError.  Endpoint failed while processing the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="GeneralError">
+				<xs:annotation>
+					<xs:documentation>
+						General Error.  Review subCode for more information. Fomerly value 400 or 499.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="NoMatchingRecordsWarning">
+				<xs:annotation>
+					<xs:documentation>
+						NoMatchingRecordsWarning. No matching records were found. Fomerly value 302.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RecordNotFoundWarning">
+				<xs:annotation>
+					<xs:documentation>
+						RecordNotFoundWarning.  The request contained the following references to entities that could not be found: '%s'.
 						Fomerly value 422.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
-			<xs:enumeration value ="AccountLocked">
+			<xs:enumeration value="GeneralWarning">
 				<xs:annotation>
 					<xs:documentation>
-						Account locked.  The login was valid but the account was disabled, locked or otherwise inaccessible. Fomerly value 423.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="MFALoginFailed">
-				<xs:annotation>
-					<xs:documentation>
-						MFA login failed.  The MFA login information provided was incorrect. Fomerly value 424.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="MACInvalid">
-				<xs:annotation>
-					<xs:documentation>
-						MAC invalid.  The MAC was invalid or missing. Fomerly value 425.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="EncryptionError">
-				<xs:annotation>
-					<xs:documentation>
-						Encryption error.  The provided encrypted data could not be decrypted. Fomerly value 426.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="TooManyRequests">
-				<xs:annotation>
-					<xs:documentation>
-						Too many requests.  The user has sent too many requests in a given amount of time. Fomerly value 429.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidLanguage">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid language.  The requested language '%s' is not supported. Fomerly value 430.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidEmailFormat">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid email format.  The format of the email was invalid. Fomerly value 431.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidPhoneFormat">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid phone format.  The format of the phone was invalid. Fomerly value 432.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidDataSourceId">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid data source ID.  The data source ID was not recognized. Fomerly value 433.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidFiId">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid FI ID.  The financial institution ID was not recognized. Fomerly value 434.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="UnableToParseRequest">
-				<xs:annotation>
-					<xs:documentation>
-						Unable to parse request. Invalid JSON/XML. Fomerly value 435.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="AccessDenied">
-				<xs:annotation>
-					<xs:documentation>
-						Access denied.  Access to resource requested was denied.	subCode may contain additional details. Fomerly value 436.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactNotFound">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact not found.	The artifact ID could not be found in the repository. Fomerly value 437.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="UpdateToFieldNotAllowed">
-				<xs:annotation>
-					<xs:documentation>
-						Update to field not allowed.	The repository does not allow updates to '%s'. Fomerly value 438.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactCouldNotBeDecompressed">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact could not be decompressed.	 artifactCompressionType did not result in a successful
-						decompression of the artifact. Fomerly value 439.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-
-			<xs:enumeration value ="MIMETypeNotSupported">
-				<xs:annotation>
-					<xs:documentation>
-						MIME type not supported. 	Repository rejected the MIME type. Fomerly value 440.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactHasBeenArchived">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact has been archived.	The artifact with the given artifact ID has been archived out of the repository. Fomerly value 441.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactTooLarge">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit. Fomerly value 442.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactTooSmall">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact too small.	The artifact was rejected because the artifact is smaller than its minimum size limit. Fomerly value 443.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ArtifactRejected">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact rejected. 	The repository has rejected the artifact. See the sub error codes for the specific reason.
-						Fomerly value 444.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidDataLengthInField">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid data length in field '%s'. Fomerly value 445.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidFormat">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid format.  The format of the request is not supported. Fomerly value 475.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="InvalidEnvironment">
-				<xs:annotation>
-					<xs:documentation>
-						Invalid environment.  The environment specified in MessageContext is disallowed by the system as configured. Fomerly value 476.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-
-			<xs:enumeration value ="TransactionDatesOutOfOrder">
-				<xs:annotation>
-					<xs:documentation>
-						Transaction dates are out of order.  The transaction end date is before the transaction start date. Fomerly value 497.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="TransactionDateRangeTooWide">
-				<xs:annotation>
-					<xs:documentation>
-						Transaction date range too wide.  Date range is too wide for the data source to handle. Fomerly value 498.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="GeneralError">
-				<xs:annotation>
-					<xs:documentation>
-						General Error.  Review subCode for more information. Fomerly value 499.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value ="ServiceTemporarilyUnavailable">
-				<xs:annotation>
-					<xs:documentation>
-						Service is temporarily unavailable.  Try again later. Fomerly value 503.
+						A general warning occurred. Review subCode for more information.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:complexType name="SubstitutionList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
