@@ -11,6 +11,14 @@
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
+	<xs:element name="recurringId" type="RecurringId">
+		<xs:annotation>
+			<xs:documentation>
+				ID to uniquely identify a recurring payment or transfer request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
 	<xs:simpleType name="RecurringId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
