@@ -244,12 +244,13 @@ namespace CUFX.Generator
 					{
 						Console.WriteLine("Could not find type [{0}] in system or custom assemblies.  Parent type [{1}]", typeName, type);
 					}
-				
-					// Is this an array of strings?
-					if (typeName == "System.String")
+
+                    // Is this an array of strings?
+                    // changed replications to 1 from 5 d.lacroix
+                    if (typeName == "System.String")
 					{
 						List<string> strings = new List<string>();
-						for (int i = 0; i < 5; i++)
+						for (int i = 0; i < 1; i++)
 							strings.Add("String" + i);
 
 						p.SetValue(result, strings.ToArray(), null);
@@ -257,8 +258,8 @@ namespace CUFX.Generator
 					else if (typeToCreate != null && assemblyToUse != null)
 					{
 						object[] list = BuildList(assemblyToUse, typeName);
-						var arr = Array.CreateInstance(typeToCreate, 5);
-						Array.Copy(list.ToArray(), arr, 5);
+						var arr = Array.CreateInstance(typeToCreate, 1);
+						Array.Copy(list.ToArray(), arr, 1);
 
 						p.SetValue(result, arr, null);
 					}
@@ -287,8 +288,9 @@ namespace CUFX.Generator
 
 		public static object[] BuildList(Assembly assembly, string type)
 		{
-			List<object> list = new List<object>();
-			for (int i = 0; i < 5; i++)
+            // changed replications to 1 from 5 d.lacroix
+            List<object> list = new List<object>();
+			for (int i = 0; i < 1; i++)
 			{
 				object o = BuildSingleObject(assembly, type);
 				list.Add(o);
