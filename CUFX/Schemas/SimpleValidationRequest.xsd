@@ -144,6 +144,27 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="SimpleValidationStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of validation status that should be returned or affected by a read, update or delete simple validation request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="simpleValidationStatus" type="SimpleValidationStatus" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Validation type specified by the service provider (Exs.: OFAC, CU Loss, etc.).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:simpleType name="ValidationType">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
