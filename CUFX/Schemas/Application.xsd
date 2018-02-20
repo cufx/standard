@@ -142,7 +142,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="applicantId" type="xs:string" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="applicantId" type="ApplicantId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the applicant.
@@ -399,7 +399,37 @@
 		</xs:complexContent>
 	</xs:complexType >
 
+	<xs:simpleType name="ApplicantId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identifier for the applicant.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
+	<xs:complexType name="ApplicantIdList">
+		<xs:annotation>
+			<xs:documentation>
+				List of applicant ID's used for filtering on read, update or delete application service
+				requests.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="applicantId" type="ApplicantId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the applicant.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType >
 	<xs:simpleType name="ApplicationId">
 		<xs:annotation>
 			<xs:documentation>

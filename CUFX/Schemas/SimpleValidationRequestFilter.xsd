@@ -37,7 +37,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="applicantList" type="application:ApplicantList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="applicantIdList" type="application:ApplicantIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of applicants that should be returned or affected by a read, update or delete simple validation request.
