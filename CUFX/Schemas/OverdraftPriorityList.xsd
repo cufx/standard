@@ -48,15 +48,31 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="overdraftPriorityAccount" type="OverdraftPriorityAccount" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="overdraftPriorityAccountList" type="OverdraftPriorityAccountList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						An entry in an account's overdraft priority list, i.e.
-						where should funds be pulled from to cover the overdraft and its order based on priority.
+						List of overdraft priority priorty accounts. Where should funds be pulled from to cover the overdraft and its order based on priority.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="OverdraftPriorityAccountList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="overdraftPriorityAccount" type="OverdraftPriorityAccount" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An entry in an account's overdraft priority list, i.e.
+								where should funds be pulled from to cover the overdraft and its order based on priority.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="OverdraftPriorityAccount">
