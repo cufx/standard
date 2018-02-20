@@ -134,6 +134,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value = "InProcess">
+				<xs:annotation>
+					<xs:documentation>
+						Validation Request is still being processed – check back at a later time to find out result.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value = "Error">
 				<xs:annotation>
 					<xs:documentation>
