@@ -299,15 +299,19 @@
 				to the message.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Each combination of name and value.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Each combination of name and value.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="ValuePair">
@@ -322,7 +326,7 @@
 	<xs:complexType name="ListBase">
 		<xs:annotation>
 			<xs:documentation>
-			  Defintion to provide general list support features. 
+				Defintion to provide general list support features.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
