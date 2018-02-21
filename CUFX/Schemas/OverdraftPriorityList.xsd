@@ -62,7 +62,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="overdraftPriorityAccount" type="OverdraftPriorityAccount" minOccurs ="0" maxOccurs="unbounded">
+					<xs:element name="overdraftPriorityAccount" type="OverdraftPriorityAccount" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								An entry in an account's overdraft priority list, i.e.
