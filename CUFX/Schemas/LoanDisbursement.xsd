@@ -39,7 +39,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="loanId" type="account:AccountId" minOccurs="0" maxOccurs="1">
+					<xs:element name="loanId" type="LoanId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for the loan that corresponds to these disbursements.
@@ -103,7 +103,7 @@
 					for a loan, such as disbursing the funds to a check, a dealer, the member's share, etc.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="loanDisbursementId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="loanDisbursementId" type="LoanDisbursementId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for this loan disbursement record.
@@ -256,4 +256,70 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:simpleType name="LoanDisbursementId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identifier for this loan disbursement record.
+					This should be a globally unique identifier, meaning it should be unique across
+					all loans, not just this loan.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="LoanId">
+		<xs:restriction base="account:AccountId">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identifier for the loan that corresponds to these disbursements.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="LoanDisbursementIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan disbursement Ids that should be returned or affected by a read, update or delete loan disbursement request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanDisbursementId" type="LoanDisbursementId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for this loan disbursement record.
+								This should be a globally unique identifier, meaning it should be unique across
+								all loans, not just this loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LoanIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan Ids that should be returned or affected by a read, update or delete loan disbursement request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanId" type="LoanId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the loan that corresponds to these disbursements.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+							
 </xs:schema>

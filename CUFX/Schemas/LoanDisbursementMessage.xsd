@@ -5,50 +5,59 @@
 	xmlns="http://cufxstandards.com/v4/LoanDisbursementMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-  xmlns:loanDisbursement="http://cufxstandards.com/v4/LoanDisbursement.xsd"
-
+    xmlns:loanDisbursement="http://cufxstandards.com/v4/LoanDisbursement.xsd"
+    xmlns:loanDisbursementFilter="http://cufxstandards.com/v4/LoanDisbursementFilter.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/LoanDisbursement.xsd" schemaLocation="LoanDisbursement.xsd" />
-  
-  <xs:element name="loanDisbursementMessage" type="LoanDisbursementMessage">
-    <xs:annotation>
-      <xs:documentation>
-        All values that can be sent in a loan disbursement message.  Contains message context and a loan disbursement list.
-        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/LoanDisbursement.xsd" schemaLocation="LoanDisbursement.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/LoanDisbursementFilter.xsd" schemaLocation="LoanDisbursementFilter.xsd" />
 
-  <xs:complexType name="LoanDisbursementMessage">
-    <xs:annotation>
-      <xs:documentation>
-        All values that can be sent in a loan disbursement message.  Contains message context and a loan disbursement list.
-        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
-        example specifications for usage.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The message context contains information that is passed as part of each CUFX message call.  It
-            identifies who is sending the request in and enables the service provider to execute some level
-            of security or processing.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="loanDisbursementList" type="loanDisbursement:LoanDisbursementList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            All the loan data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence >
-  </xs:complexType >
+	<xs:element name="loanDisbursementMessage" type="LoanDisbursementMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a loan disbursement message.  Contains message context and a loan disbursement list.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="LoanDisbursementMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a loan disbursement message.  Contains message context and a loan disbursement list.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call.  It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="loanDisbursementFilter" type="loanDisbursementFilter:LoanDisbursementFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete loan disbursement request.
+						Does not apply to a create message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="loanDisbursementList" type="loanDisbursement:LoanDisbursementList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All the loan disbursement data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
 </xs:schema>
 
