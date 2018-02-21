@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v4/Configuration.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.0.$Revision: 1225 $"
 	xmlns="http://cufxstandards.com/v4/Configuration.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -165,7 +165,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
+			<xs:element name="cufxVersion" type="common:CufxVersion" minOccurs ="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The version for the service. (Key value)
@@ -345,7 +345,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="cufxVersion" type="CufxVersion" minOccurs ="1" maxOccurs="1">
+			<xs:element name="cufxVersion" type="common:CufxVersion" minOccurs ="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The CUFX version of the method that must be executed first.  The CUFX version is part of the key
@@ -531,38 +531,53 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:simpleType name="CufxVersion">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value ="1.0.3"></xs:enumeration>
-			<xs:enumeration value ="1.0.6"></xs:enumeration>
-			<xs:enumeration value ="2.0.0"></xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="ServiceName">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value ="AccessProfile"></xs:enumeration>
 			<xs:enumeration value ="Account"></xs:enumeration>
+			<xs:enumeration value ="Activity"></xs:enumeration>
 			<xs:enumeration value ="Application"></xs:enumeration>
 			<xs:enumeration value ="Artifact"></xs:enumeration>
+			<xs:enumeration value ="Bill"></xs:enumeration>
+			<xs:enumeration value ="BillPayee"></xs:enumeration>
+			<xs:enumeration value ="BillPaymentOccurrence"></xs:enumeration>
+			<xs:enumeration value ="BillPaymentReoccurring"></xs:enumeration>
 			<xs:enumeration value ="Card"></xs:enumeration>
-			<xs:enumeration value ="Configuration"></xs:enumeration>
+			<xs:enumeration value ="Collateral"></xs:enumeration>
 			<xs:enumeration value ="Contact"></xs:enumeration>
 			<xs:enumeration value ="CredentialGroup"></xs:enumeration>
-			<xs:enumeration value ="Deposit"></xs:enumeration>
+			<xs:enumeration value ="CreditReport"></xs:enumeration>
 			<xs:enumeration value ="DepositFunding"></xs:enumeration>
+			<xs:enumeration value ="Deposit"></xs:enumeration>
+			<xs:enumeration value ="Document"></xs:enumeration>
 			<xs:enumeration value ="EligibilityRequirement"></xs:enumeration>
-			<xs:enumeration value ="Loan"></xs:enumeration>
+			<xs:enumeration value ="FeeSchedule"></xs:enumeration>
+			<xs:enumeration value ="Hold"></xs:enumeration>
+			<xs:enumeration value ="InvestmentHolding"></xs:enumeration>
+			<xs:enumeration value ="Investment"></xs:enumeration>
 			<xs:enumeration value ="LoanDisbursement"></xs:enumeration>
+			<xs:enumeration value ="Loan"></xs:enumeration>
+			<xs:enumeration value ="Location"></xs:enumeration>
+			<xs:enumeration value ="MicroDepositFunding"></xs:enumeration>
+			<xs:enumeration value ="Notes"></xs:enumeration>
 			<xs:enumeration value ="OverdraftPriority"></xs:enumeration>
-			<xs:enumeration value ="Party"></xs:enumeration>
 			<xs:enumeration value ="PartyAssociation"></xs:enumeration>
+			<xs:enumeration value ="Party"></xs:enumeration>
+			<xs:enumeration value ="PermissionList"></xs:enumeration>
 			<xs:enumeration value ="Preference"></xs:enumeration>
 			<xs:enumeration value ="ProductOffering"></xs:enumeration>
 			<xs:enumeration value ="ProductServiceRequest"></xs:enumeration>
+			<xs:enumeration value ="RegisteredDevice"></xs:enumeration>
 			<xs:enumeration value ="Relationship"></xs:enumeration>
+			<xs:enumeration value ="RemoteDeposit"></xs:enumeration>
+			<xs:enumeration value ="Secure"></xs:enumeration>
+			<xs:enumeration value ="SecureMessage"></xs:enumeration>
 			<xs:enumeration value ="SimpleValidationRequest"></xs:enumeration>
-			<xs:enumeration value ="CreditReporting"></xs:enumeration>
-			<xs:enumeration value ="Identification"></xs:enumeration>
+			<xs:enumeration value ="SystemStatus"></xs:enumeration>
+			<xs:enumeration value ="Transaction"></xs:enumeration>
+			<xs:enumeration value ="TransferOccurrence"></xs:enumeration>
+			<xs:enumeration value ="TransferRecurring"></xs:enumeration>
+			<xs:enumeration value ="Wire"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 

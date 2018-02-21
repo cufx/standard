@@ -1,35 +1,35 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-	<xs:schema
-	targetNamespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
-	version="4.0.$Revision: 1220 $"
-	xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+<xs:schema
+targetNamespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
+version="4.0.$Revision: 1222 $"
+xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+xmlns:account="http://cufxstandards.com/v4/Account.xsd"
   xmlns:fundsTransferCommonBase="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
   xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
 	 
-	elementFormDefault="qualified"
-	attributeFormDefault="unqualified">
+elementFormDefault="qualified"
+attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:complexType name="FundsTransferRecurringBase" abstract="true" >
 		<xs:annotation>
 			<xs:documentation>
 				This complex type is used for abstracting the recurring transfers, bill payments, ACH payments, wires, etc.
-				The request is that a payment or transfer was requested.  
+				The request is that a payment or transfer was requested.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="recurringId" type="fundsTransferCommonBase:RecurringId" minOccurs="0" maxOccurs="1"  >
 				<xs:annotation>
-				  <xs:documentation>
-					ID to uniquely identify a recurring payment or transfer request.
-				  </xs:documentation>
+					<xs:documentation>
+						ID to uniquely identify a recurring payment or transfer request.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="recurringAmount" type="common:Money"  minOccurs="0" maxOccurs="1">
@@ -47,14 +47,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		    <xs:element name="recurringToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account to which the transfer or payment was made.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
- 			<xs:element name="recurringStatus" type="fundsTransferCommonBase:RecurringStatus" minOccurs="0" maxOccurs="1">
+			<xs:element name="recurringStatus" type="fundsTransferCommonBase:RecurringStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Status of the Recurring payment or transfer.
@@ -99,11 +99,11 @@
 			</xs:element>
 			<xs:element name="createdByFiUserId" type="credentialGroup:FiUserId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-				  <xs:documentation>
-					The Unique identifier used to identify the user that requested the recurring transfer or payment.
-				  </xs:documentation>
+					<xs:documentation>
+						The Unique identifier used to identify the user that requested the recurring transfer or payment.
+					</xs:documentation>
 				</xs:annotation>
-			  </xs:element>
+			</xs:element>
 			<xs:element name="frequency" type="common:FrequencyType" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>
@@ -171,7 +171,7 @@
 						supported.  The time is assumed to be 00:00Z if omitted.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>			
+			</xs:element>
 			<xs:element name="scheduledEndDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1" >
 				<xs:annotation>
 					<xs:documentation>
@@ -232,7 +232,57 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-    </xs:sequence>    
+		</xs:sequence>
 	</xs:complexType>
 
-	</xs:schema>
+	<xs:complexType name="RecurringFromAccountList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of accounts from which the transfer or payment was taken.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="recurringFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="unbounded">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RecurringToAccountList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of accounts from which the transfer or payment was made to.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="recurringToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="unbounded">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RecurringStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of statuses of the Recurring payment or transfer.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="recurringStatus" type="fundsTransferCommonBase:RecurringStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Status of the Recurring payment or transfer.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

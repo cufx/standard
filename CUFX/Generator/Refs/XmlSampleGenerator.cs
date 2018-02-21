@@ -44,7 +44,7 @@ namespace Microsoft.Xml.XMLGen {
         internal XmlQualifiedName XsdNil= new XmlQualifiedName("nil", NsXsi );
         
         //Default options
-        private int maxThreshold = 5;
+        private int maxThreshold = 1;
         private int listLength = 3;
 
         //To pick-up recursive element defs

@@ -1,6 +1,6 @@
 <feeScheduleMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/FeeScheduleMessage.xsd">
   <messageContext>
-    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
     <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
     <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
     <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
@@ -15,26 +15,6 @@
       <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId2</userId>
-      <processorSessionId>processorSessionId2</processorSessionId>
-      <userType>VendorEmployeeId</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId3</userId>
-      <processorSessionId>processorSessionId3</processorSessionId>
-      <userType>Anonymous</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId4</userId>
-      <processorSessionId>processorSessionId4</processorSessionId>
-      <userType>FIUserId</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId5</userId>
-      <processorSessionId>processorSessionId5</processorSessionId>
-      <userType>SystemAccountId</userType>
-    </user>
     <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
       <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -43,97 +23,11 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <status xsi:nil="true" />
-      <status>
-        <statusType>Success</statusType>
-        <statusCode>NoDataInRequest</statusCode>
-        <statusSubCode>statusSubCode1</statusSubCode>
-        <statusMessage>statusMessage1</statusMessage>
-        <substitutionList>
-          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
-          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
-          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
-          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
-          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
-          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-          <substitution>
-            <id>id1</id>
-            <value>value1</value>
-          </substitution>
-          <substitution>
-            <id>id2</id>
-            <value>value2</value>
-          </substitution>
-          <substitution>
-            <id>id3</id>
-            <value>value3</value>
-          </substitution>
-          <substitution>
-            <id>id4</id>
-            <value>value4</value>
-          </substitution>
-          <substitution>
-            <id>id5</id>
-            <value>value5</value>
-          </substitution>
-        </substitutionList>
-      </status>
-      <status xsi:nil="true" />
-      <status>
-        <statusType>Warning</statusType>
-        <statusCode>NoMatchingRecords</statusCode>
-        <statusSubCode>statusSubCode2</statusSubCode>
-        <statusMessage>statusMessage2</statusMessage>
-        <substitutionList>
-          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
-          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
-          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
-          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
-          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
-          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
-          <substitution>
-            <id>id6</id>
-            <value>value6</value>
-          </substitution>
-          <substitution>
-            <id>id7</id>
-            <value>value7</value>
-          </substitution>
-          <substitution>
-            <id>id8</id>
-            <value>value8</value>
-          </substitution>
-          <substitution>
-            <id>id9</id>
-            <value>value9</value>
-          </substitution>
-          <substitution>
-            <id>id10</id>
-            <value>value10</value>
-          </substitution>
-        </substitutionList>
-      </status>
-      <status xsi:nil="true" />
     </statusList>
     <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name2</name>
-        <value>value2</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name3</name>
-        <value>value3</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name4</name>
-        <value>value4</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name5</name>
-        <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
@@ -146,10 +40,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
     </partyIdList>
     <relationshipIdList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -159,10 +49,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId1</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId2</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId3</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId4</relationshipId>
-      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId5</relationshipId>
     </relationshipIdList>
     <contactIdList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -172,10 +58,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId1</contactId>
-      <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId2</contactId>
-      <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId3</contactId>
-      <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId4</contactId>
-      <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId5</contactId>
     </contactIdList>
     <accountIdList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -185,10 +67,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId2</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId3</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId4</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId5</accountId>
     </accountIdList>
     <accountStatusList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -203,30 +81,6 @@
         </accountStatus>
         <accountSubStatus>accountSubStatus1</accountSubStatus>
       </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Approved</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus2</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Closed</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus3</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>ClosedReadyToPurge</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus4</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Dormant</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus5</accountSubStatus>
-      </accountStatusPair>
     </accountStatusList>
     <taxIdList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -236,10 +90,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <taxId xmlns="http://cufxstandards.com/v4/Party.xsd">taxId1</taxId>
-      <taxId xmlns="http://cufxstandards.com/v4/Party.xsd">taxId2</taxId>
-      <taxId xmlns="http://cufxstandards.com/v4/Party.xsd">taxId3</taxId>
-      <taxId xmlns="http://cufxstandards.com/v4/Party.xsd">taxId4</taxId>
-      <taxId xmlns="http://cufxstandards.com/v4/Party.xsd">taxId5</taxId>
     </taxIdList>
     <partyTypeList xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -248,10 +98,6 @@
       <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-      <partyType xmlns="http://cufxstandards.com/v4/Party.xsd">Individual</partyType>
-      <partyType xmlns="http://cufxstandards.com/v4/Party.xsd">Organization</partyType>
-      <partyType xmlns="http://cufxstandards.com/v4/Party.xsd">Trust</partyType>
-      <partyType xmlns="http://cufxstandards.com/v4/Party.xsd">Estate</partyType>
       <partyType xmlns="http://cufxstandards.com/v4/Party.xsd">Individual</partyType>
     </partyTypeList>
   </feeScheduleFilter>
@@ -264,10 +110,6 @@
     <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
     <fee xmlns="http://cufxstandards.com/v4/FeeSchedule.xsd">
       <feeId>feeId1</feeId>
-      <feeId>feeId2</feeId>
-      <feeId>feeId3</feeId>
-      <feeId>feeId4</feeId>
-      <feeId>feeId5</feeId>
       <type>type1</type>
       <relatedTo>
         <partyId>partyId1</partyId>
@@ -281,94 +123,6 @@
           <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
           <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
           <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
-        </price>
-      </priceList>
-    </fee>
-    <fee xmlns="http://cufxstandards.com/v4/FeeSchedule.xsd">
-      <feeId>feeId6</feeId>
-      <feeId>feeId7</feeId>
-      <feeId>feeId8</feeId>
-      <feeId>feeId9</feeId>
-      <feeId>feeId10</feeId>
-      <type>type2</type>
-      <relatedTo>
-        <partyId>partyId2</partyId>
-      </relatedTo>
-      <frequency>Annual</frequency>
-      <minimumFrequency>-79228162514264337593543950335</minimumFrequency>
-      <maximumFrequency>-79228162514264337593543950335</maximumFrequency>
-      <priceList>
-        <description>description2</description>
-        <price>
-          <value xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</value>
-          <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AED</currencyCode>
-          <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</exchangeRate>
-        </price>
-      </priceList>
-    </fee>
-    <fee xmlns="http://cufxstandards.com/v4/FeeSchedule.xsd">
-      <feeId>feeId11</feeId>
-      <feeId>feeId12</feeId>
-      <feeId>feeId13</feeId>
-      <feeId>feeId14</feeId>
-      <feeId>feeId15</feeId>
-      <type>type3</type>
-      <relatedTo>
-        <partyId>partyId3</partyId>
-      </relatedTo>
-      <frequency>AtMaturity</frequency>
-      <minimumFrequency>79228162514264337593543950335</minimumFrequency>
-      <maximumFrequency>79228162514264337593543950335</maximumFrequency>
-      <priceList>
-        <description>description3</description>
-        <price>
-          <value xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</value>
-          <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AFN</currencyCode>
-          <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</exchangeRate>
-        </price>
-      </priceList>
-    </fee>
-    <fee xmlns="http://cufxstandards.com/v4/FeeSchedule.xsd">
-      <feeId>feeId16</feeId>
-      <feeId>feeId17</feeId>
-      <feeId>feeId18</feeId>
-      <feeId>feeId19</feeId>
-      <feeId>feeId20</feeId>
-      <type>type4</type>
-      <relatedTo>
-        <partyId>partyId4</partyId>
-      </relatedTo>
-      <frequency>Bimonthly</frequency>
-      <minimumFrequency>0</minimumFrequency>
-      <maximumFrequency>0</maximumFrequency>
-      <priceList>
-        <description>description4</description>
-        <price>
-          <value xmlns="http://cufxstandards.com/v4/Common.xsd">0.9</value>
-          <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">ALL</currencyCode>
-          <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">0.9</exchangeRate>
-        </price>
-      </priceList>
-    </fee>
-    <fee xmlns="http://cufxstandards.com/v4/FeeSchedule.xsd">
-      <feeId>feeId21</feeId>
-      <feeId>feeId22</feeId>
-      <feeId>feeId23</feeId>
-      <feeId>feeId24</feeId>
-      <feeId>feeId25</feeId>
-      <type>type5</type>
-      <relatedTo>
-        <partyId>partyId5</partyId>
-      </relatedTo>
-      <frequency>Biweekly</frequency>
-      <minimumFrequency>2</minimumFrequency>
-      <maximumFrequency>2</maximumFrequency>
-      <priceList>
-        <description>description5</description>
-        <price>
-          <value xmlns="http://cufxstandards.com/v4/Common.xsd">1.1</value>
-          <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">AMD</currencyCode>
-          <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1.1</exchangeRate>
         </price>
       </priceList>
     </fee>

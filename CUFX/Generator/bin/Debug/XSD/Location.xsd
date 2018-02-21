@@ -2,7 +2,7 @@
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/Location.xsd"
 	xmlns="http://cufxstandards.com/v4/Location.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.0.$Revision: 1230 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -127,10 +127,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="additionalDataList" type="AdditionalDataList" minOccurs="0" maxOccurs="1">
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Additional data not taken into account in the other data elemements.
+						Name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications.  ANY use of this field must be
+						reported to the architecture or working group committee to ensure that fields are somehow
+						handled in the future release of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -253,4 +257,49 @@
 			<xs:enumeration value="Other"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="LocationIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of location Ids that should have their associated location data either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="locationId" type="LocationId" minOccurs ="0" maxOccurs ="unbounded" >
+						<xs:annotation>
+							<xs:documentation>
+								A unique identifier for the location.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LocationTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of location types that should have their associated location data either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="locationType" type="LocationType" minOccurs ="0" maxOccurs ="unbounded" >
+						<xs:annotation>
+							<xs:documentation>
+								The type of location (e.g. ATM, branch).
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 </xs:schema>

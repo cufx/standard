@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.0.$Revision: 1235 $"
 	xmlns="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
@@ -696,6 +696,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration >
+			<xs:enumeration value ="DividendOnly">
+				<xs:annotation>
+					<xs:documentation>
+						Has access to only to dividend funds and can perform dividend only transactions.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -813,6 +820,18 @@
 			<xs:enumeration value="Male" />
 			<xs:enumeration value="Female" />
 			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CufxVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="1.0.3"></xs:enumeration>
+			<xs:enumeration value ="1.0.6"></xs:enumeration>
+			<xs:enumeration value ="2.0.0"></xs:enumeration>
+			<xs:enumeration value ="3.1.0"></xs:enumeration>
+			<xs:enumeration value ="3.2.0"></xs:enumeration>
+			<xs:enumeration value ="3.3.0"></xs:enumeration>
+			<xs:enumeration value ="4.0.0"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

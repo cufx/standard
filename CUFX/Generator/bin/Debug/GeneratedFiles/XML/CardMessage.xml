@@ -1,6 +1,6 @@
 <cardMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/CardMessage.xsd">
   <messageContext>
-    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">cufxVersion1</cufxVersion>
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
     <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
     <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
     <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
@@ -15,26 +15,6 @@
       <processorSessionId>processorSessionId1</processorSessionId>
       <userType>EmployeeId</userType>
     </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId2</userId>
-      <processorSessionId>processorSessionId2</processorSessionId>
-      <userType>VendorEmployeeId</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId3</userId>
-      <processorSessionId>processorSessionId3</processorSessionId>
-      <userType>Anonymous</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId4</userId>
-      <processorSessionId>processorSessionId4</processorSessionId>
-      <userType>FIUserId</userType>
-    </user>
-    <user xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
-      <userId>userId5</userId>
-      <processorSessionId>processorSessionId5</processorSessionId>
-      <userType>SystemAccountId</userType>
-    </user>
     <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
       <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -43,97 +23,11 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <status xsi:nil="true" />
-      <status>
-        <statusType>Success</statusType>
-        <statusCode>NoDataInRequest</statusCode>
-        <statusSubCode>statusSubCode1</statusSubCode>
-        <statusMessage>statusMessage1</statusMessage>
-        <substitutionList>
-          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
-          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
-          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
-          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
-          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
-          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-          <substitution>
-            <id>id1</id>
-            <value>value1</value>
-          </substitution>
-          <substitution>
-            <id>id2</id>
-            <value>value2</value>
-          </substitution>
-          <substitution>
-            <id>id3</id>
-            <value>value3</value>
-          </substitution>
-          <substitution>
-            <id>id4</id>
-            <value>value4</value>
-          </substitution>
-          <substitution>
-            <id>id5</id>
-            <value>value5</value>
-          </substitution>
-        </substitutionList>
-      </status>
-      <status xsi:nil="true" />
-      <status>
-        <statusType>Warning</statusType>
-        <statusCode>NoMatchingRecords</statusCode>
-        <statusSubCode>statusSubCode2</statusSubCode>
-        <statusMessage>statusMessage2</statusMessage>
-        <substitutionList>
-          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
-          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
-          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
-          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
-          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
-          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
-          <substitution>
-            <id>id6</id>
-            <value>value6</value>
-          </substitution>
-          <substitution>
-            <id>id7</id>
-            <value>value7</value>
-          </substitution>
-          <substitution>
-            <id>id8</id>
-            <value>value8</value>
-          </substitution>
-          <substitution>
-            <id>id9</id>
-            <value>value9</value>
-          </substitution>
-          <substitution>
-            <id>id10</id>
-            <value>value10</value>
-          </substitution>
-        </substitutionList>
-      </status>
-      <status xsi:nil="true" />
     </statusList>
     <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
         <name>name1</name>
         <value>value1</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name2</name>
-        <value>value2</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name3</name>
-        <value>value3</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name4</name>
-        <value>value4</value>
-      </valuePair>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name5</name>
-        <value>value5</value>
       </valuePair>
     </customData>
   </messageContext>
@@ -146,10 +40,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <cardId xmlns="http://cufxstandards.com/v4/Card.xsd">cardId1</cardId>
-      <cardId xmlns="http://cufxstandards.com/v4/Card.xsd">cardId2</cardId>
-      <cardId xmlns="http://cufxstandards.com/v4/Card.xsd">cardId3</cardId>
-      <cardId xmlns="http://cufxstandards.com/v4/Card.xsd">cardId4</cardId>
-      <cardId xmlns="http://cufxstandards.com/v4/Card.xsd">cardId5</cardId>
     </cardIdList>
     <partyIdList xmlns="http://cufxstandards.com/v4/CardFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -159,10 +49,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId2</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId3</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId4</partyId>
-      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId5</partyId>
     </partyIdList>
     <accountIdList xmlns="http://cufxstandards.com/v4/CardFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -172,10 +58,6 @@
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId2</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId3</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId4</accountId>
-      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId5</accountId>
     </accountIdList>
     <accountStatusList xmlns="http://cufxstandards.com/v4/CardFilter.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -189,30 +71,6 @@
           <depositAccountStatus>Active</depositAccountStatus>
         </accountStatus>
         <accountSubStatus>accountSubStatus1</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Approved</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus2</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Closed</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus3</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>ClosedReadyToPurge</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus4</accountSubStatus>
-      </accountStatusPair>
-      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
-        <accountStatus>
-          <depositAccountStatus>Dormant</depositAccountStatus>
-        </accountStatus>
-        <accountSubStatus>accountSubStatus5</accountSubStatus>
       </accountStatusPair>
     </accountStatusList>
     <activationDateRange xmlns="http://cufxstandards.com/v4/CardFilter.xsd">
@@ -254,22 +112,6 @@
           <accountId>accountId1</accountId>
           <priority>1</priority>
         </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId2</accountId>
-          <priority>79228162514264337593543950335</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId3</accountId>
-          <priority>2</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId4</accountId>
-          <priority>79228162514264337593543950334</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId5</accountId>
-          <priority>3</priority>
-        </linkedAccount>
       </linkedAccountList>
       <partyId>partyId1</partyId>
       <overrideAddressContactId>overrideAddressContactId1</overrideAddressContactId>
@@ -295,7 +137,6 @@
         </coordinate>
       </cardAddress>
       <nameOnCard>nameOnCard1</nameOnCard>
-      <nameOnCard>nameOnCard2</nameOnCard>
       <activationDateTime>1900-01-01T01:01:01Z</activationDateTime>
       <cardStatus>Inactive</cardStatus>
       <blockedReason>blockedReason1</blockedReason>
@@ -309,345 +150,9 @@
         <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
         <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <countryCode>countryCode1</countryCode>
-        <countryCode>countryCode2</countryCode>
-        <countryCode>countryCode3</countryCode>
-        <countryCode>countryCode4</countryCode>
-        <countryCode>countryCode5</countryCode>
       </merchantCountryCodes>
       <cardDesignImageArtifactId>
         <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId1</artifactUniqueId>
-      </cardDesignImageArtifactId>
-    </card>
-    <card xmlns="http://cufxstandards.com/v4/Card.xsd">
-      <cardId>cardId2</cardId>
-      <cardNumber>cardNumber2</cardNumber>
-      <cardType>Credit</cardType>
-      <cardSubType>cardSubType2</cardSubType>
-      <expirationDate>0001-01-01</expirationDate>
-      <pin>pin2</pin>
-      <cvv2>cvv22</cvv2>
-      <linkedAccountList>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
-        <linkedAccount>
-          <accountId>accountId6</accountId>
-          <priority>79228162514264337593543950333</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId7</accountId>
-          <priority>4</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId8</accountId>
-          <priority>79228162514264337593543950332</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId9</accountId>
-          <priority>5</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId10</accountId>
-          <priority>79228162514264337593543950331</priority>
-        </linkedAccount>
-      </linkedAccountList>
-      <partyId>partyId2</partyId>
-      <overrideAddressContactId>overrideAddressContactId2</overrideAddressContactId>
-      <cardAddress>
-        <line1 xmlns="http://cufxstandards.com/v4/Common.xsd">line12</line1>
-        <line2 xmlns="http://cufxstandards.com/v4/Common.xsd">line22</line2>
-        <line3 xmlns="http://cufxstandards.com/v4/Common.xsd">line32</line3>
-        <line4 xmlns="http://cufxstandards.com/v4/Common.xsd">line42</line4>
-        <line5 xmlns="http://cufxstandards.com/v4/Common.xsd">line52</line5>
-        <line6 xmlns="http://cufxstandards.com/v4/Common.xsd">line62</line6>
-        <line7 xmlns="http://cufxstandards.com/v4/Common.xsd">line72</line7>
-        <line8 xmlns="http://cufxstandards.com/v4/Common.xsd">line82</line8>
-        <line9 xmlns="http://cufxstandards.com/v4/Common.xsd">line92</line9>
-        <line10 xmlns="http://cufxstandards.com/v4/Common.xsd">line102</line10>
-        <city xmlns="http://cufxstandards.com/v4/Common.xsd">city2</city>
-        <stateProvince xmlns="http://cufxstandards.com/v4/Common.xsd">stateProvince2</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode2</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AE</countryCode>
-        <country xmlns="http://cufxstandards.com/v4/Common.xsd">country2</country>
-        <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
-          <latitude>-79228162514264337593543950335</latitude>
-          <longitude>-79228162514264337593543950335</longitude>
-        </coordinate>
-      </cardAddress>
-      <nameOnCard>nameOnCard3</nameOnCard>
-      <nameOnCard>nameOnCard4</nameOnCard>
-      <activationDateTime>0001-01-01T00:00:00Z</activationDateTime>
-      <cardStatus>Active</cardStatus>
-      <blockedReason>blockedReason2</blockedReason>
-      <blockedDateTime>0001-01-01T00:00:00Z</blockedDateTime>
-      <virtualNumber>virtualNumber2</virtualNumber>
-      <merchantCountryCodes>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex2</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">-79228162514264337593543950335</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex2</returnPositionIndex>
-        <countryCode>countryCode6</countryCode>
-        <countryCode>countryCode7</countryCode>
-        <countryCode>countryCode8</countryCode>
-        <countryCode>countryCode9</countryCode>
-        <countryCode>countryCode10</countryCode>
-      </merchantCountryCodes>
-      <cardDesignImageArtifactId>
-        <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId2</artifactUniqueId>
-      </cardDesignImageArtifactId>
-    </card>
-    <card xmlns="http://cufxstandards.com/v4/Card.xsd">
-      <cardId>cardId3</cardId>
-      <cardNumber>cardNumber3</cardNumber>
-      <cardType>Debit</cardType>
-      <cardSubType>cardSubType3</cardSubType>
-      <expirationDate>9999-12-31</expirationDate>
-      <pin>pin3</pin>
-      <cvv2>cvv23</cvv2>
-      <linkedAccountList>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
-        <linkedAccount>
-          <accountId>accountId11</accountId>
-          <priority>6</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId12</accountId>
-          <priority>79228162514264337593543950330</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId13</accountId>
-          <priority>7</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId14</accountId>
-          <priority>79228162514264337593543950329</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId15</accountId>
-          <priority>8</priority>
-        </linkedAccount>
-      </linkedAccountList>
-      <partyId>partyId3</partyId>
-      <overrideAddressContactId>overrideAddressContactId3</overrideAddressContactId>
-      <cardAddress>
-        <line1 xmlns="http://cufxstandards.com/v4/Common.xsd">line13</line1>
-        <line2 xmlns="http://cufxstandards.com/v4/Common.xsd">line23</line2>
-        <line3 xmlns="http://cufxstandards.com/v4/Common.xsd">line33</line3>
-        <line4 xmlns="http://cufxstandards.com/v4/Common.xsd">line43</line4>
-        <line5 xmlns="http://cufxstandards.com/v4/Common.xsd">line53</line5>
-        <line6 xmlns="http://cufxstandards.com/v4/Common.xsd">line63</line6>
-        <line7 xmlns="http://cufxstandards.com/v4/Common.xsd">line73</line7>
-        <line8 xmlns="http://cufxstandards.com/v4/Common.xsd">line83</line8>
-        <line9 xmlns="http://cufxstandards.com/v4/Common.xsd">line93</line9>
-        <line10 xmlns="http://cufxstandards.com/v4/Common.xsd">line103</line10>
-        <city xmlns="http://cufxstandards.com/v4/Common.xsd">city3</city>
-        <stateProvince xmlns="http://cufxstandards.com/v4/Common.xsd">stateProvince3</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode3</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AF</countryCode>
-        <country xmlns="http://cufxstandards.com/v4/Common.xsd">country3</country>
-        <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
-          <latitude>79228162514264337593543950335</latitude>
-          <longitude>79228162514264337593543950335</longitude>
-        </coordinate>
-      </cardAddress>
-      <nameOnCard>nameOnCard5</nameOnCard>
-      <nameOnCard>nameOnCard6</nameOnCard>
-      <activationDateTime>9999-12-31T23:59:59.9999999Z</activationDateTime>
-      <cardStatus>Blocked</cardStatus>
-      <blockedReason>blockedReason3</blockedReason>
-      <blockedDateTime>9999-12-31T23:59:59.9999999Z</blockedDateTime>
-      <virtualNumber>virtualNumber3</virtualNumber>
-      <merchantCountryCodes>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex3</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">79228162514264337593543950335</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex3</returnPositionIndex>
-        <countryCode>countryCode11</countryCode>
-        <countryCode>countryCode12</countryCode>
-        <countryCode>countryCode13</countryCode>
-        <countryCode>countryCode14</countryCode>
-        <countryCode>countryCode15</countryCode>
-      </merchantCountryCodes>
-      <cardDesignImageArtifactId>
-        <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId3</artifactUniqueId>
-      </cardDesignImageArtifactId>
-    </card>
-    <card xmlns="http://cufxstandards.com/v4/Card.xsd">
-      <cardId>cardId4</cardId>
-      <cardNumber>cardNumber4</cardNumber>
-      <cardType>HomeEquity</cardType>
-      <cardSubType>cardSubType4</cardSubType>
-      <expirationDate>1899-11-30</expirationDate>
-      <pin>pin4</pin>
-      <cvv2>cvv24</cvv2>
-      <linkedAccountList>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
-        <linkedAccount>
-          <accountId>accountId16</accountId>
-          <priority>79228162514264337593543950328</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId17</accountId>
-          <priority>9</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId18</accountId>
-          <priority>79228162514264337593543950327</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId19</accountId>
-          <priority>10</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId20</accountId>
-          <priority>79228162514264337593543950326</priority>
-        </linkedAccount>
-      </linkedAccountList>
-      <partyId>partyId4</partyId>
-      <overrideAddressContactId>overrideAddressContactId4</overrideAddressContactId>
-      <cardAddress>
-        <line1 xmlns="http://cufxstandards.com/v4/Common.xsd">line14</line1>
-        <line2 xmlns="http://cufxstandards.com/v4/Common.xsd">line24</line2>
-        <line3 xmlns="http://cufxstandards.com/v4/Common.xsd">line34</line3>
-        <line4 xmlns="http://cufxstandards.com/v4/Common.xsd">line44</line4>
-        <line5 xmlns="http://cufxstandards.com/v4/Common.xsd">line54</line5>
-        <line6 xmlns="http://cufxstandards.com/v4/Common.xsd">line64</line6>
-        <line7 xmlns="http://cufxstandards.com/v4/Common.xsd">line74</line7>
-        <line8 xmlns="http://cufxstandards.com/v4/Common.xsd">line84</line8>
-        <line9 xmlns="http://cufxstandards.com/v4/Common.xsd">line94</line9>
-        <line10 xmlns="http://cufxstandards.com/v4/Common.xsd">line104</line10>
-        <city xmlns="http://cufxstandards.com/v4/Common.xsd">city4</city>
-        <stateProvince xmlns="http://cufxstandards.com/v4/Common.xsd">stateProvince4</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode4</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AG</countryCode>
-        <country xmlns="http://cufxstandards.com/v4/Common.xsd">country4</country>
-        <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
-          <latitude>0.9</latitude>
-          <longitude>0.9</longitude>
-        </coordinate>
-      </cardAddress>
-      <nameOnCard>nameOnCard7</nameOnCard>
-      <nameOnCard>nameOnCard8</nameOnCard>
-      <activationDateTime>1899-11-30T01:01:01Z</activationDateTime>
-      <cardStatus>Inactive</cardStatus>
-      <blockedReason>blockedReason4</blockedReason>
-      <blockedDateTime>1899-11-30T01:01:01Z</blockedDateTime>
-      <virtualNumber>virtualNumber4</virtualNumber>
-      <merchantCountryCodes>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">0</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">0</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex4</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">0</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex4</returnPositionIndex>
-        <countryCode>countryCode16</countryCode>
-        <countryCode>countryCode17</countryCode>
-        <countryCode>countryCode18</countryCode>
-        <countryCode>countryCode19</countryCode>
-        <countryCode>countryCode20</countryCode>
-      </merchantCountryCodes>
-      <cardDesignImageArtifactId>
-        <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId4</artifactUniqueId>
-      </cardDesignImageArtifactId>
-    </card>
-    <card xmlns="http://cufxstandards.com/v4/Card.xsd">
-      <cardId>cardId5</cardId>
-      <cardNumber>cardNumber5</cardNumber>
-      <cardType>Prepaid</cardType>
-      <cardSubType>cardSubType5</cardSubType>
-      <expirationDate>1900-02-02</expirationDate>
-      <pin>pin5</pin>
-      <cvv2>cvv25</cvv2>
-      <linkedAccountList>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
-        <linkedAccount>
-          <accountId>accountId21</accountId>
-          <priority>11</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId22</accountId>
-          <priority>79228162514264337593543950325</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId23</accountId>
-          <priority>12</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId24</accountId>
-          <priority>79228162514264337593543950324</priority>
-        </linkedAccount>
-        <linkedAccount>
-          <accountId>accountId25</accountId>
-          <priority>13</priority>
-        </linkedAccount>
-      </linkedAccountList>
-      <partyId>partyId5</partyId>
-      <overrideAddressContactId>overrideAddressContactId5</overrideAddressContactId>
-      <cardAddress>
-        <line1 xmlns="http://cufxstandards.com/v4/Common.xsd">line15</line1>
-        <line2 xmlns="http://cufxstandards.com/v4/Common.xsd">line25</line2>
-        <line3 xmlns="http://cufxstandards.com/v4/Common.xsd">line35</line3>
-        <line4 xmlns="http://cufxstandards.com/v4/Common.xsd">line45</line4>
-        <line5 xmlns="http://cufxstandards.com/v4/Common.xsd">line55</line5>
-        <line6 xmlns="http://cufxstandards.com/v4/Common.xsd">line65</line6>
-        <line7 xmlns="http://cufxstandards.com/v4/Common.xsd">line75</line7>
-        <line8 xmlns="http://cufxstandards.com/v4/Common.xsd">line85</line8>
-        <line9 xmlns="http://cufxstandards.com/v4/Common.xsd">line95</line9>
-        <line10 xmlns="http://cufxstandards.com/v4/Common.xsd">line105</line10>
-        <city xmlns="http://cufxstandards.com/v4/Common.xsd">city5</city>
-        <stateProvince xmlns="http://cufxstandards.com/v4/Common.xsd">stateProvince5</stateProvince>
-        <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode5</postalCode>
-        <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AI</countryCode>
-        <country xmlns="http://cufxstandards.com/v4/Common.xsd">country5</country>
-        <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
-          <latitude>1.1</latitude>
-          <longitude>1.1</longitude>
-        </coordinate>
-      </cardAddress>
-      <nameOnCard>nameOnCard9</nameOnCard>
-      <nameOnCard>nameOnCard10</nameOnCard>
-      <activationDateTime>1900-02-02T01:01:01Z</activationDateTime>
-      <cardStatus>Active</cardStatus>
-      <blockedReason>blockedReason5</blockedReason>
-      <blockedDateTime>1900-02-02T01:01:01Z</blockedDateTime>
-      <virtualNumber>virtualNumber5</virtualNumber>
-      <merchantCountryCodes>
-        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</currentPage>
-        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">2</totalPages>
-        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">2</pageSize>
-        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex5</positionIndex>
-        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">2</returnPage>
-        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex5</returnPositionIndex>
-        <countryCode>countryCode21</countryCode>
-        <countryCode>countryCode22</countryCode>
-        <countryCode>countryCode23</countryCode>
-        <countryCode>countryCode24</countryCode>
-        <countryCode>countryCode25</countryCode>
-      </merchantCountryCodes>
-      <cardDesignImageArtifactId>
-        <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId5</artifactUniqueId>
       </cardDesignImageArtifactId>
     </card>
   </cardList>

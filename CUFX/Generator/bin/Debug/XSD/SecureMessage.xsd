@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
   targetNamespace="http://cufxstandards.com/v4/SecureMessage.xsd"
-  version="4.0.$Revision: 1220 $"
+  version="4.0.$Revision: 1226 $"
   xmlns="http://cufxstandards.com/v4/SecureMessage.xsd"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -328,6 +328,29 @@
 						<xs:annotation>
 							<xs:documentation>
 								A secure message subject line that should have its associated secure messages either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BodyContainsList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of bodyContains strings somewhere within its body and that should have their associated secure messages either
+				returned or affected by a read, update or delete secure message request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="bodyContains" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								String contained in the body that should have their associated secure messages either returned or affected
 								by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>
@@ -716,6 +739,5 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-
 
 </xs:schema>
