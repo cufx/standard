@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionList.xsd"
-	version="4.0.$Revision$"
+	version="4.1.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PermissionList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -374,10 +374,10 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element type="common:Money" name="maxAmount"/>
-			<xs:element type="xs:integer" name="maxNumber"/>
-			<xs:element type="common:Money" name="rollingAmount"/>
-			<xs:element type="xs:integer" name="rollingNumber"/>
+			<xs:element  name="maxAmount" type="common:Money" />
+			<xs:element  name="maxNumber" type="xs:integer" />
+			<xs:element  name="rollingAmount" type="common:Money" />
+			<xs:element  name="rollingNumber" type="xs:integer"/>
 		</xs:sequence>
 	</xs:complexType>
 

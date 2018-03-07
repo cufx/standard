@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionListFilter.xsd"
-	version="4.0.$Revision$"
+	version="4.1.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -35,9 +35,9 @@
 
 	<xs:complexType name="PermissionListFilter">
 		<xs:sequence>
-			<xs:element name="actors" minOccurs="0" maxOccurs="unbounded" type="accessProfile:Actor">
+			<xs:element name="actors" type="accessProfile:Actor" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>
+					<xs:documentation> 
 						The users, parties, or other authenticated entities to search for.
 					</xs:documentation>
 				</xs:annotation>
