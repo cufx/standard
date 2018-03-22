@@ -5,11 +5,13 @@
 	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
 	elementFormDefault="qualified"
 
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
 
 	<xs:complexType name="MessageContext">
 		<xs:annotation>
@@ -35,6 +37,13 @@
 					<xs:documentation>
 						The request ID is a unique identifier which identifies the request from the source system. The client application
 						sends this along with the messages so that it can be logged as a reference for troubleshooting purposes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configurationId" type="configuration:ConfigurationId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique target configuration identifier for the message. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
