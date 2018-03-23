@@ -5,12 +5,14 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
@@ -59,6 +61,13 @@
 						Identifies that these configuration parameters are related to these financial institutions.
 						The FI ID is the "key" in the CUFX data model for identifying the FI for all services.
 						The FI ID will be passed in the message context to filter the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiList" type="FiList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Financial institution within this configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -119,6 +128,26 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="ConfigurationFiId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ConfigurationFiVendorId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and financial institution and vendor.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="ServiceTimeZoneUTCOffset">
 		<xs:annotation>
 			<xs:documentation>
@@ -144,7 +173,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="fiId" type="xs:string" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								A valid financial institution for this instance.
@@ -173,8 +202,183 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="FiList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="financialInstitution" type="FinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								List of financial institution within this configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="FinancialInstitution">
+		<xs:annotation>
+			<xs:documentation>
+				Definition for the configuration parameters for the financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The unique identifier for the configuration and financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The FIID  is used by systems to uniquely identify each financial institution.
+						This ID is determined outside of the process and stored in each system of record, e.g. local application
+						database, vendor configuration file, FI core database, etc.
+						This is helpful for applications that are multi-tenant and service more than one financial institution.
+						See dataSourceId for more information about multiple data sources for a single FI.
+						A standard error will be returned if the FIID is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The party ID is a persistent and unique identifier for the party that is not related to the accounts
+						they own, but tied to that person or business. It should be unique for all parties across the
+						institution and remain the same over the life of the relationship with the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configurationFiVendorList" type="ConfigurationFiVendorList" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of valid unique identifications of configuration and Vendor for the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFiIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Configuration Fi ID's that should have their associated accounts either returned or affected
+				by a read, update or delete account request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the configuration and financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFiVendorList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiVendor" type="ConfigurationFiVendor" minOccurs ="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The list of valid unique identifications of configuration and Vendor for the financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFiVendor">
+		<xs:sequence>
+			<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						unique identification for the configuration, Fi and Vendor.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorId" type="common:VendorId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+						assigned by the FI or established in concert by the vendor and FI.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The party ID is a persistent and unique identifier for the party that is not related to the accounts
+						they own, but tied to that person or business. It should be unique for all parties across the
+						institution and remain the same over the life of the relationship with the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFiVendorIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								unique identification for the configuration, Fi and Vendor.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:complexType name="Service">
 		<xs:sequence>
+			<xs:element name="serviceId" type="xs:string" minOccurs ="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identification for the combination of Service name, Protocol, and cufxVersion by configuration. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="serviceName" type="ServiceName" minOccurs ="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -234,17 +438,13 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="serviceTimeZoneUTOffset" type="xs:integer"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="serviceTimeZoneUTCOffset" type="ServiceTimeZoneUTCOffset"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						If provided, serviceTimeZoneUTOffset overrides the endpointTimeZoneUTOffset.
-						The offset of the time zone from Universal Time where this service resides.
-						For example:
-						Atlantic Standard Time (AST) =  UT - 4 hours  (serviceTimeZoneUTOffset would be -4)
-						Eastern Standard Time (EST)  =  UT - 5 hours
-						Central Standard Time (CST)  =  UT - 6 hours
-						Mountain Standard Time (MST) =  UT - 7 hours
-						Pacific Standard Time (PST)  =  UT - 8 hours
+						The offset of the time zone from Universal Time where this service resides.  If the service
+						provides a serviceTimeZoneUTCOffset, it overrides this value for the configuration. 
+						For example
+						Format : [+|-]HH:MM
 						If the location observes daylight savings time, this value may need to be updated.
 					</xs:documentation>
 				</xs:annotation>
@@ -591,7 +791,9 @@
 			<xs:enumeration value ="BillPaymentOccurrence"></xs:enumeration>
 			<xs:enumeration value ="BillPaymentReoccurring"></xs:enumeration>
 			<xs:enumeration value ="Card"></xs:enumeration>
+			<xs:enumeration value ="Category"></xs:enumeration>
 			<xs:enumeration value ="Collateral"></xs:enumeration>
+			<xs:enumeration value ="Configuration"></xs:enumeration>
 			<xs:enumeration value ="Contact"></xs:enumeration>
 			<xs:enumeration value ="CredentialGroup"></xs:enumeration>
 			<xs:enumeration value ="CreditReport"></xs:enumeration>
@@ -618,7 +820,6 @@
 			<xs:enumeration value ="RegisteredDevice"></xs:enumeration>
 			<xs:enumeration value ="Relationship"></xs:enumeration>
 			<xs:enumeration value ="RemoteDeposit"></xs:enumeration>
-			<xs:enumeration value ="Secure"></xs:enumeration>
 			<xs:enumeration value ="SecureMessage"></xs:enumeration>
 			<xs:enumeration value ="SimpleValidationRequest"></xs:enumeration>
 			<xs:enumeration value ="SystemStatus"></xs:enumeration>

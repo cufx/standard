@@ -875,4 +875,122 @@
 			<xs:enumeration value="4.1.0" />
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="AmountDetailList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of line items that describe the breakdown of a given amount. The sum of the line items should match 
+				the total of the amount being detailed.  			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="lineItem" type="LineItem" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Describes individual line item amounts.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LineItem">
+		<xs:annotation>
+			<xs:documentation>
+				Describes individual line item amounts. 
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="lineItemId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item identification number. If provided, each line item id should be unique.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemReference" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item reference. Provides for alternate cross reference. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date the line item was applied to the total amount. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="lineItemAmount" type="Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="FiId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The FIID  is used by systems to uniquely identify each financial institution.
+					This ID is determined outside of the process and stored in each system of record, e.g. local application
+					database, vendor configuration file, FI core database, etc.
+					This is helpful for applications that are multi-tenant and service more than one financial institution.
+					See dataSourceId for more information about multiple data sources for a single FI.
+					A standard error will be returned if the FIID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VendorId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+					assigned by the FI or established in concert by the vendor and FI.
+					The client application sends this along with the messages so that logging or other business may take place based
+					on the vendor utilizing the service.
+					This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by
+					some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+					A standard error will be returned if the vendor ID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="VendorIdList">
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+								assigned by the FI or established in concert by the vendor and FI.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
