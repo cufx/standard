@@ -112,6 +112,28 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="InvestmentPartyIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of investment party ID’s that should have their associated investment / party id cross references either 
+				returned or affected by a read, update or delete account request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the investment party. Must be a valid party ID.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:complexType name="InvestmentParty">
 		<xs:annotation>
 			<xs:documentation>
