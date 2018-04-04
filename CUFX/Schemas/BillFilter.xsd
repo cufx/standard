@@ -21,57 +21,57 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
 
-  <xs:element name="billFilter" type="BillFilter">
-    <xs:annotation>
-      <xs:documentation>
-	      The list of filter options for services requesting Bill data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="billFilter" type="BillFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting Bill data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="BillFilter">
-    <xs:annotation>
-      <xs:documentation>
-	      The list of filter options for services requesting Bill data. The options can be used in
-	      combination or by themselves. It is up to the data source to either return or affect the
-	      data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="billIdList" type="bill:BillIdList" minOccurs ="0" maxOccurs ="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of bill Id's that should have their associated bills either returned
-			      or affected by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
+	<xs:complexType name="BillFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting Bill data. The options can be used in
+				combination or by themselves. It is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="billIdList" type="bill:BillIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of bill Id's that should have their associated bills either returned
+						or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of party ID's that should be returned or affected by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should be returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of relationship ID's that should have their associated bill payees either returned or affected
-			      by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationship ID's that should have their associated bill payees either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of account ID's that should have their associated payees either returned or affected
-			      by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated payees either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
@@ -81,23 +81,32 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="billFromPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of bill pay ID's that should have their associated bill pay records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			
-      <xs:element name="billFromPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of bill pay ID's that should have their associated bill pay records either returned or affected
-			      by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
-			
-      <xs:element name="isEBill" type="xs:boolean" minOccurs="1" maxOccurs="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      Filter that is used to search for eBills.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
+			<xs:element name="billStatusList" type="bill:BillStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of bill statuses that should have their associated bills either returned
+						or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="isEBill" type="xs:boolean" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search for eBills.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="billSentDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
@@ -107,7 +116,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="billPaymentClearedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -116,15 +125,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-				
-      <xs:element name="billStatusList" type="bill:BillStatusList" minOccurs="0" maxOccurs="1">
-	      <xs:annotation>
-		      <xs:documentation>
-			      The list of bill statuses that should have their associated bill records either returned or affected
-			      by a read, update or delete request.
-		      </xs:documentation>
-	      </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+
+			<xs:element name="billStatusList" type="bill:BillStatusList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of bill statuses that should have their associated bill records either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
