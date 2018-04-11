@@ -53,21 +53,29 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="occurrenceFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account from which the transfer or payment was taken.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="occurrenceAmountDetailList" type="common:AmountDetailList"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Occurrence amount line item detail list. Sum of line items to equal amount in occurrence amount.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="occurrenceToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The account to which the transfer or payment was made.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="occurrenceFromAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account from which the transfer or payment was taken.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="occurrenceToAccount" type="account:AccountBase" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account to which the transfer or payment was made.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="occurrenceStatus" type="fundsTransferCommonBase:OccurrenceStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -166,7 +174,7 @@
 			<xs:element name="note" type="xs:string" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A user's "note to self." 
+						A user's "note to self."
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -183,8 +191,8 @@
 						The occurrence type for the transfer or payment. This element is optional and if not present assumes account to account.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>	
-	  	<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Transfer level name/data pairs list of fields that are not yet available in the general specification.
@@ -193,7 +201,7 @@
 						working group committee to ensure that fields are somehow handled in the future	release of specifications.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>			
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="OccurrenceType">
@@ -213,18 +221,18 @@
 			<xs:enumeration value="CheckWithdrawal">
 				<xs:annotation>
 					<xs:documentation>
-						Transfer funds to a check. For example, member requests a check payable to the member to be mailed to the member's home address.    
+						Transfer funds to a check. For example, member requests a check payable to the member to be mailed to the member's home address.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-      <xs:enumeration value="AccountValidation">
-        <xs:annotation>
-          <xs:documentation>
-            Transfer funds to an account at another financial institution for purposes of validating the external account.
-            For example, use with account micro deposits via ACH.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
+			<xs:enumeration value="AccountValidation">
+				<xs:annotation>
+					<xs:documentation>
+						Transfer funds to an account at another financial institution for purposes of validating the external account.
+						For example, use with account micro deposits via ACH.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
