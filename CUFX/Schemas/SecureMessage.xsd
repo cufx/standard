@@ -11,7 +11,7 @@
   xmlns:card="http://cufxstandards.com/v4/Card.xsd"
   xmlns:document="http://cufxstandards.com/v4/Document.xsd"
   xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
-  xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+  xmlns:user="http://cufxstandards.com/v4/User.xsd"
   xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
   xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
 
@@ -25,7 +25,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Document.xsd" schemaLocation="Document.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
@@ -580,22 +580,15 @@
 			<xs:annotation>
 				<xs:documentation>
 					Details related to a secure message receiver or sender.
-					Note that messageContext:User contains the necessary information for identifying
+					Note that user:User contains the necessary information for identifying
 					internal users, system accounts, external users and external fiUserId accounts.
 					If this information is not present, the party ID, account, relationship, etc. may be the "receiver."
 					If both the user info is available and the info is provided below, then it's an AND condition.
 					e.g. The message was sent to fiUserId='cufxuser', partyid='123' on account='12334'.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:extension base="messageContext:User">
+			<xs:extension base="user:User">
 				<xs:sequence>
-					<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								This is a party to which message relates.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 
 					<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
