@@ -4,68 +4,82 @@
 	version="4.1.$Revision$"
 	xmlns="http://cufxstandards.com/v4/CreditReportRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+    xmlns:application="http://cufxstandards.com/v4/Application.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+    xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
-  
-  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+
+	<xs:import namespace="http://cufxstandards.com/v4/Application.xsd" schemaLocation="Application.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 
-  <xs:element name="creditReportRequest" type="CreditReportRequest">
-    <xs:annotation>
-      <xs:documentation>
-        Top level element for credit report requests.
-        Note: more than one applicant can be submitted to get multiple
-        credit bureau reports returned.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="creditReportRequest" type="CreditReportRequest">
+		<xs:annotation>
+			<xs:documentation>
+				Top level element for credit report requests.
+				Note: more than one applicant can be submitted to get multiple
+				credit bureau reports returned.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="CreditReportRequest">
-    <xs:annotation>
-      <xs:documentation>
-        Fields requested to make credit report requests.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name ="applicantList" minOccurs ="1" maxOccurs ="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="applicant" type="party:Party" minOccurs ="1" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>
-                  Each applicant for which a credit report is requested.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="maxReportAgeInDays" type="xs:integer" minOccurs ="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Optional cache directive: if the service provider supports this and has a 
-            credit report previously pulled within the last “n” days, that report will be
-            returned rather than pulling another report.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="reportTypeList" minOccurs ="1" maxOccurs ="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="reportType" type="xs:string" minOccurs ="1" maxOccurs="unbounded">
-              <xs:annotation>
-                <xs:documentation>
-                  For example, Experian CreditProfile, TransUnion EmploymentReport, as defined and 
-                  supported by individual service providers. Can request more than one report type to
-                  be returned for each applicant if available.
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+	<xs:complexType name="CreditReportRequest">
+		<xs:annotation>
+			<xs:documentation>
+				Fields requested to make credit report requests.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name ="applicantList" type="application:ApplicantList" minOccurs ="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Each applicant for which a credit report is requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="maxReportAgeInDays" type="xs:integer" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Optional cache directive: if the service provider supports this and has a
+						credit report previously pulled within the last “n” days, that report will be
+						returned rather than pulling another report.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="reportTypeList" type="ReportTypeList" minOccurs ="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						For example, Experian CreditProfile, TransUnion EmploymentReport, as defined and
+						supported by individual service providers. Can request more than one report type to
+						be returned for each applicant if available.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReportTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				List of credit report types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="reportType" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								For example, Experian CreditProfile, TransUnion EmploymentReport, as defined and
+								supported by individual service providers. Can request more than one report type to
+								be returned for each applicant if available.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
