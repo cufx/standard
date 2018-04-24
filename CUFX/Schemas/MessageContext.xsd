@@ -4,14 +4,18 @@
 	version="4.1.$Revision$"
 	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
+    xmlns:user="http://cufxstandards.com/v4/User.xsd"
 	elementFormDefault="qualified"
 
 	attributeFormDefault="unqualified">
-
+	
+	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:complexType name="MessageContext">
 		<xs:annotation>
@@ -43,7 +47,7 @@
 			<xs:element name="configurationId" type="configuration:ConfigurationId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The unique target configuration identifier for the message. 
+						The unique target configuration identifier for the message.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -60,7 +64,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="appId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="appId" type="app:AppId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The app id is an "agreed upon" unique identifier that identifies the application that is creating a message.
@@ -111,7 +115,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="environment" type="Environment" minOccurs="0" maxOccurs="1">
+			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Indicates the environment in which the message is to be executed. If not specified, "Production" is assumed.
@@ -142,7 +146,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="userList" type="UserList" minOccurs="0" maxOccurs="1">
+			<xs:element name="sessionId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The  session ID is a unique identifier for the session, based on the connection to the processor or core system for
+						the message being performed.
+						processorSessionId found in the User object is depreciated in favor of sessionId.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userList" type="user:UserList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of user(s) associated to a message.
@@ -173,126 +186,6 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="User">
-		<xs:annotation>
-			<xs:documentation>
-				The message context contains information that is passed as part of each CUFX message call.
-				All the fields are optional, and whether or not they contain information is determined by the specific implementation
-				requirements.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="userId" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The user ID is a unique identifier for the user, based on the type of user (see userIdType below) that is requesting
-						the message to be performed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="processorSessionId" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The processor sesion ID is a unique identifier for the user, based on the connection to the processor or core system for
-						the message being performed.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="userType" type="UserType" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The user ID type identifies what type of user is requesting the service.
-						The following values can be passed in.
-						Note: if ANONYMOUS is used, most likely the user ID will be blank, not provided or some constant value.
-						FI_USER_ID would be used in the case a consumer is trying to perform functions via online banking.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="UserList">
-		<xs:annotation>
-			<xs:documentation>
-				List of user(s) associated to a message.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="user" type="User" minOccurs="0" maxOccurs="unbounded" >
-						<xs:annotation>
-							<xs:documentation>
-								The collection of user data. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:simpleType name="UserType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="EmployeeId" >
-				<xs:annotation>
-					<xs:documentation>
-						The user ID is an employee ID for logging into the network.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="VendorEmployeeId">
-				<xs:annotation>
-					<xs:documentation>
-						The user ID is a vendor employee ID for logging into the network.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="Anonymous" >
-				<xs:annotation>
-					<xs:documentation>
-						The user ID is essentially unknown, i.e. no credentials are required.
-						Business rules will have been applied to either prevent or allow anonymous access to the service in question.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="FIUserId" >
-				<xs:annotation>
-					<xs:documentation>
-						The credential group identifier of a party that was used to access the service.  See credential group schema.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="SystemAccountId" >
-				<xs:annotation>
-					<xs:documentation>
-						The system user identifier of a system account that was used to access the service.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="SecurityToken" >
-				<xs:annotation>
-					<xs:documentation>
-						A security token which was created from an identity provider.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-
-			<xs:enumeration value="Custom" >
-				<xs:annotation>
-					<xs:documentation>
-						The user identification was not one of the above formats.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="ReturnDataFilter">
 		<xs:annotation>
 			<xs:documentation>
@@ -309,55 +202,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="Environment">
-		<xs:annotation>
-			<xs:documentation>
-				Indicates the environment in which the message should be executed.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="Development">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a development environment.
-						Test data stores are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="UAT">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a UAT environment.
-						Test data stores are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Training">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a training environment.
-						Data stores containing training data are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="QA">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a QA environment.
-						Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Production">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a production environment.
-						Production data stores are to be used and all features and functionality are enabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>
 	<xs:complexType name="Status">
 		<xs:annotation>
 			<xs:documentation>
