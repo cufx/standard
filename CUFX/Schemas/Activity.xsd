@@ -439,6 +439,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="OnHold">
+				<xs:annotation>
+					<xs:documentation>
+						The activity is intentionally on hold.
+						The details of why it is on hold will be in the notes related to the request/activity.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
