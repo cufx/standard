@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://cufxstandards.com/v4/UserFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/UserFilter.xsd"
+	version="4.1.$Revision$"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:user="http://cufxstandards.com/v4/User.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+    xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+
+	<xs:element name="userFilter" type="UserFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting user data.
+				The options can be used in combination or by themselves. It is up to the data source
+				to either return or affect the data requested or return a standard error identifying
+				why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="UserFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of access profile ID's that should have their associated access profiles either returned or affected
+				by a read, update or delete account request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="userIdList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of user id's that should be returned or affected by a read, update or delete user request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="userTypeList" type="user:UserTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of user types that should be returned or affected by a read, update or delete user request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party id's that should be returned or affected by a read, update or delete user request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>

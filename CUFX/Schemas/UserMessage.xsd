@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/UserMessage.xsd"
+	version="4.1.$Revision$"
+	xmlns="http://cufxstandards.com/v4/UserMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:user="http://cufxstandards.com/v4/User.xsd"
+	xmlns:userFilter="http://cufxstandards.com/v4/UserFilter.xsd"
+    xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/UserFilter.xsd" schemaLocation="UserFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+
+	<xs:element name="userMessage" type="UserMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a user message.  Contains message context, user filter and
+				user list.  This is a wrapper used to more easily serialize the complete message.  All values are
+				optional.  See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="UserMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a user message.  Contains message context, user filter and and
+				user list.  This is a wrapper used to more easily serialize the complete message.  All values are
+				optional.  See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call. It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userFilter" type="userFilter:UserFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete user request.
+						Does not apply to a create message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userList" type="user:UserList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All the user data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>
+
