@@ -119,6 +119,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="configurationAppIdList" type="ConfigurationAppIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of supported configuration App Ids.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -192,6 +201,37 @@
 							<xs:documentation>
 								A valid financial institution for this instance.
 								Identifies that these configuration parameters are related to this financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationAppId">
+		<xs:annotation>
+			<xs:documentation>
+				unique configuration identification for a App.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationAppIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of valid configuration app ids. 				
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								unique configuration identification for a App.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
