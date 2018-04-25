@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/ProductServiceEnrollmentMessage.xsd"
+	version="4.1.$Revision$"
+	xmlns="http://cufxstandards.com/v4/ProductServiceEnrollmentMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+    xmlns:productServiceEnrollment="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd"
+	xmlns:productServiceEnrollmentFilter="http://cufxstandards.com/v4/ProductServiceEnrollmentFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd" schemaLocation="ProductServiceEnrollment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceEnrollmentFilter.xsd" schemaLocation="ProductServiceEnrollmentFilter.xsd" />
+
+	<xs:element name="productServiceEnrollmentMessage" type="ProductServiceEnrollmentMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a product offering message.  Contains message context, product offering filter and a
+				product offering list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
+				See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="ProductServiceEnrollmentMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a product offering message.  Contains message context, product offering filter and a
+				product offering list.  This is a wrapper used to more easily serialize the complete message.  All values are optional.
+				See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call. It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="productServiceEnrollmentFilter" type="productServiceEnrollmentFilter:ProductServiceEnrollmentFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete product offering request.
+						Does not apply to a create message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="productServiceEnrollmentList" type="productServiceEnrollment:ProductServiceEnrollmentList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All the product offering data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>
+
