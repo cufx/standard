@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/App.xsd"
+	version="4.1.$Revision: 1257 $"
+    xmlns="http://cufxstandards.com/v4/App.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:location="http://cufxstandards.com/v4/Location.xsd"
+	  
+	elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
+	<xs:import schemaLocation="Location.xsd" namespace="http://cufxstandards.com/v4/Location.xsd"/>
+
+	<xs:element name="appList" type="AppList" >
+		<xs:annotation>
+			<xs:documentation>
+				List of apps.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="AppList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="app" type="App" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app data.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="App">
+		<xs:sequence>
+
+			<xs:element name="appId" type="AppId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app id is the unique identifier that identifies the application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appType" type="AppType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app ID type identifies what type of app is requesting the service.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="vendorId" type="common:VendorId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique id for the application vendor.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appHash" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Program hash to validate against the store.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="isAppHashValidated" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Default to false until results of appHash have been validated.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="path" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Directory location of program in host OS.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						App level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="AppId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The app id is the unique identifier that identifies the application.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AppType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Software" >
+				<xs:annotation>
+					<xs:documentation>
+						Application Software.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="Mobile">
+				<xs:annotation>
+					<xs:documentation>
+						Mobile Application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="Web" >
+				<xs:annotation>
+					<xs:documentation>
+						Web internet based application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						The credential group identifier of a party that was used to access the service.  See credential group schema.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AppIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="appId" type="AppId" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app ids to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="AppTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="appType" type="AppType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>
