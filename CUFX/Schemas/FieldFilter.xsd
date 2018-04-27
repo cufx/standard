@@ -12,7 +12,7 @@
 
 	<xs:import namespace="http://cufxstandards.com/v4/Field.xsd" schemaLocation="Field.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
-	
+
 	<xs:element name="fieldFilter" type="FieldFilter">
 		<xs:annotation>
 			<xs:documentation>
@@ -24,7 +24,7 @@
 	<xs:complexType name="FieldFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of filter options for field requirement read, update or delete request. 
+				The list of filter options for field requirement read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -44,10 +44,26 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="fieldTypeList" type="field:FieldTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of a field types ids to be returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldRequirementTypeList" type="field:FieldRequirementTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of a field requirement types to be returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="productServiceRequestIdList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of a product or service Ids to be returned or affected by a read, update or delete request. 
+						The list of a product or service Ids to be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -41,35 +41,6 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:element name="fieldRequirementList" type="FieldRequirementList">
-		<xs:annotation>
-			<xs:documentation>
-				List of data that a party must provide for a given field.
-			</xs:documentation>
-		</xs:annotation>
-	</xs:element>
-
-	<xs:complexType name="FieldRequirementList">
-		<xs:annotation>
-			<xs:documentation>
-				List of data that a user provides 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Required data that a party must provide for product or service field requirement.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
 	<xs:complexType name="Field">
 		<xs:sequence>
 			<xs:element name="fieldId" type="FieldId" minOccurs="0" maxOccurs="1">
@@ -88,7 +59,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fieldType" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="fieldType" type="FieldType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The expected type for the  field.
@@ -166,12 +137,12 @@
 			<xs:element name="fieldRequirementDescription" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Description of the requirement. Availble to optionally replace or modify fieldPrompt. 
+						Description of the requirement. Availble to optionally replace or modify fieldPrompt.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fieldRequirementType" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The format of the content of fieldRequirement. Example: Java Script, Pattern, html, C sharp Snippet.
@@ -192,6 +163,35 @@
 			</xs:element>
 
 		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="fieldRequirementList" type="FieldRequirementList">
+		<xs:annotation>
+			<xs:documentation>
+				List of data that a party must provide for a given field.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="FieldRequirementList">
+		<xs:annotation>
+			<xs:documentation>
+				List of data that a user provides
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Required data that a party must provide for product or service field requirement.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:simpleType name="FieldId">
@@ -243,4 +243,57 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+	<xs:simpleType name="FieldType">
+		<xs:annotation>
+			<xs:documentation>
+				The expected type for the  field.
+				May be a Boolean, String, GUID, or other data types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldType" type="FieldType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The expected type for the  field.
+								May be a Boolean, String, GUID, or other data types.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="FieldRequirementType">
+		<xs:annotation>
+			<xs:documentation>
+				The format of the content of fieldRequirement. Example: Java Script, Pattern, html, C sharp Snippet.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldRequirementTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The format of the content of fieldRequirement. Example: Java Script, Pattern, html, C sharp Snippet.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 </xs:schema>
