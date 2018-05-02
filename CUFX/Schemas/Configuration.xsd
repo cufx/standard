@@ -70,7 +70,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiIdList" type="FiIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiIdList" type="FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The valid financial institution ID list for this instance.
@@ -80,7 +80,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="FiList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiList" type="FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Financial institution within this configuration.
@@ -153,7 +153,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="ConfigurationFiId">
+	<xs:simpleType name="ConfigurationFinancialInstitutionId">
 		<xs:annotation>
 			<xs:documentation>
 				The unique identifier for the configuration and financial institution.
@@ -163,7 +163,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="ConfigurationFiVendorId">
+	<xs:simpleType name="ConfigurationFinancialInstitutionVendorId">
 		<xs:annotation>
 			<xs:documentation>
 				The unique identifier for the configuration and financial institution and vendor.
@@ -188,7 +188,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="FiIdList">
+	<xs:complexType name="FinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
 				The valid financial institution list for this instance.
@@ -198,7 +198,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								A valid financial institution for this instance.
@@ -248,7 +248,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="FiList">
+	<xs:complexType name="FinancialInstitutionList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
@@ -271,14 +271,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The unique identifier for the configuration and financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The FIID  is used by systems to uniquely identify each financial institution.
@@ -290,16 +290,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The party ID is a persistent and unique identifier for the party that is not related to the accounts
+						The financial institution's party ID is a persistent and unique identifier for the party that is not related to the accounts
 						they own, but tied to that person or business. It should be unique for all parties across the
 						institution and remain the same over the life of the relationship with the financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="configurationFiVendorList" type="ConfigurationFiVendorList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="configurationFiVendorList" type="ConfigurationFinancialInstitutionVendorList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of valid unique identifications of configuration and Vendor for the financial institution.
@@ -319,7 +319,7 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiIdList">
+	<xs:complexType name="ConfigurationFinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
 				The list of Configuration Fi ID's that should have their associated configurations either returned or affected
@@ -329,7 +329,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the configuration and financial institution.
@@ -341,11 +341,11 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendorList">
+	<xs:complexType name="ConfigurationFinancialInstitutionVendorList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiVendor" type="ConfigurationFiVendor" minOccurs ="0" maxOccurs="1">
+					<xs:element name="configurationFiVendor" type="ConfigurationFinancialInstitutionVendor" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								The list of valid unique identifications of configuration and Vendor for the financial institution.
@@ -357,12 +357,12 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendor">
+	<xs:complexType name="ConfigurationFinancialInstitutionVendor">
 		<xs:sequence>
-			<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationFiVendorId" type="ConfigurationFinancialInstitutionVendorId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						unique identification for the configuration, Fi and Vendor.
+						unique identification for the configuration, financial institution and Vendor.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -371,15 +371,15 @@
 				<xs:annotation>
 					<xs:documentation>
 						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
-						assigned by the FI or established in concert by the vendor and FI.
+						assigned by the financial institution or established in concert by the vendor and financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="vendorPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The party ID is a persistent and unique identifier for the party that is not related to the accounts
+						The vendor's party ID is a persistent and unique identifier for the party that is not related to the accounts
 						they own, but tied to that person or business. It should be unique for all parties across the
 						institution and remain the same over the life of the relationship with the financial institution.
 					</xs:documentation>
@@ -399,14 +399,14 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendorIdList">
+	<xs:complexType name="ConfigurationFinancialInstitutionVendorIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs="1">
+					<xs:element name="configurationFiVendorId" type="ConfigurationFinancialInstitutionVendorId" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								unique identification for the configuration, Fi and Vendor.
+								unique identification for the configuration, financial institution and Vendor.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -874,6 +874,7 @@
 			<xs:enumeration value ="AccessProfile"></xs:enumeration>
 			<xs:enumeration value ="Account"></xs:enumeration>
 			<xs:enumeration value ="Activity"></xs:enumeration>
+			<xs:enumeration value ="App"></xs:enumeration>		
 			<xs:enumeration value ="Application"></xs:enumeration>
 			<xs:enumeration value ="Artifact"></xs:enumeration>
 			<xs:enumeration value ="Bill"></xs:enumeration>
@@ -892,7 +893,7 @@
 			<xs:enumeration value ="Document"></xs:enumeration>
 			<xs:enumeration value ="EligibilityRequirement"></xs:enumeration>
 			<xs:enumeration value ="FeeSchedule"></xs:enumeration>
-			<xs:enumeration value ="FieldRequirement"></xs:enumeration>
+			<xs:enumeration value ="Field"></xs:enumeration>
 			<xs:enumeration value ="Hold"></xs:enumeration>
 			<xs:enumeration value ="InvestmentHolding"></xs:enumeration>
 			<xs:enumeration value ="Investment"></xs:enumeration>
@@ -908,6 +909,7 @@
 			<xs:enumeration value ="PermissionList"></xs:enumeration>
 			<xs:enumeration value ="Preference"></xs:enumeration>
 			<xs:enumeration value ="ProductOffering"></xs:enumeration>
+			<xs:enumeration value ="ProductServiceEnrollment"></xs:enumeration>
 			<xs:enumeration value ="ProductServiceRequest"></xs:enumeration>
 			<xs:enumeration value ="RegisteredDevice"></xs:enumeration>
 			<xs:enumeration value ="Relationship"></xs:enumeration>
@@ -946,7 +948,7 @@
 					<xs:element name="MethodId" type="MethodId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								unique identification for the configuration.
+								unique identification for the method.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
