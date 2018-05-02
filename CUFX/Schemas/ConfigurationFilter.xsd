@@ -38,7 +38,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiIdList" type="configuration:FiIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiIdList" type="configuration:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The valid financial institution list for this instance.
@@ -49,7 +49,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationFiIdList" type="configuration:ConfigurationFiIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationFiIdList" type="configuration:ConfigurationFinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Configuration Fi ID's that should have their associated configurations either returned or affected
@@ -58,7 +58,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationFiVendorIdList" type="configuration:ConfigurationFiVendorIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationFiVendorIdList" type="configuration:ConfigurationFinancialInstitutionVendorIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of valid unique identifications of configuration and Vendor that should have their associated
