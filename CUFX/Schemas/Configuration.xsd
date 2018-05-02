@@ -577,7 +577,8 @@
 			<xs:element name="uri"  type="xs:anyURI"  minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The base URI for the service.  For example: POST https://api.dataprovider.com/deposit?subMethod=GET
+						The base URI for the method.  For example: POST https://api.dataprovider.com/deposit?subMethod=GET
+						This could also be a relative URI. For example: POST https://../deposit?subMethod=GET
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
