@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Loan.xsd"
-	version="4.0.$Revision: 1229 $"
+	version="4.1.$Revision: 1265 $"
 	xmlns="http://cufxstandards.com/v4/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -1606,7 +1606,7 @@
 			<xs:element name="loanPartyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						This object is subset with additional fields of the party data.
+						Loan Party Id
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1632,6 +1632,28 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="LoanPartyIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan party ID’s that should have their associated loan / party id cross references either
+				returned or affected by a read, update or delete account request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the loan party. Must be a valid party ID.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="LoanPartyRelationshipType">

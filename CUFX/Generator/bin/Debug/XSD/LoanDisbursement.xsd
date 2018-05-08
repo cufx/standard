@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="LoanDisbursement"
 	 targetNamespace="http://cufxstandards.com/v4/LoanDisbursement.xsd"
-	 version="4.0.$Revision: 1220 $"
+	 version="4.1.$Revision: 1257 $"
     xmlns="http://cufxstandards.com/v4/LoanDisbursement.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	 xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -15,82 +15,86 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Loan.xsd" schemaLocation="Loan.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 
-  <xs:element name ="loanDisbursementList" type ="LoanDisbursementList">
-    <xs:annotation>
-      <xs:documentation>
-        Collection of loan disbursements.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  
-  <xs:complexType name="LoanDisbursementList">
-		<xs:sequence>
-			<xs:annotation>
-				<xs:documentation>
-					Collection of loan disbursements.
-				</xs:documentation>
-			</xs:annotation>
-			<xs:element name="loanDisbursement" type="LoanDisbursement" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						Details related to loan account.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="loanId" type="account:AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Unique identifier for the loan that corresponds to these disbursements.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+	<xs:element name ="loanDisbursementList" type ="LoanDisbursementList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of loan disbursements.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="LoanDisbursementList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:annotation>
+						<xs:documentation>
+							Collection of loan disbursements.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:element name="loanDisbursement" type="LoanDisbursement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to loan account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="loanId" type="LoanId" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the loan that corresponds to these disbursements.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
 	</xs:complexType>
 
-  <xs:complexType name="LoanDisbursement">
-    <xs:choice>
-      <xs:annotation>
-        <xs:documentation>
-          A loan disbursement contains all the information necessary to disburse the funds
-          for a loan, such as disbursing the funds to a check, a dealer, the member's share, etc.
-        </xs:documentation>
-      </xs:annotation>
-      <xs:element name="loanDisbursementCheck" type="LoanDisbursementCheck" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A check disbursement would be used to produce a check with the given payee for the given amount.
-            The check would draw from the funds of the new loan.  The host system is expected to calculate the
-            check number and print out the check.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="loanDisbursementDepositToAccount" type="LoanDisbursementDepositToAccount" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A deposit to account disbursement would deposit the given amount from the loan,
-            to the provided account and suffix.  This does not have to be the same account
-            as the member.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="loanDisbursementDealerAch" type="LoanDisbursementDealerAch" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A dealer ACH loan disbursement would be used, for example, in the case of an indirect loan
-            where the proceeds of the loan are being ACH'd to the dealer.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="loanDisbursementGL" type="LoanDisbursementGL" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            A disbursement to a general ledger account.  Could be used to pay business partners, GAP, etc.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:choice>
-  </xs:complexType>
-  
+	<xs:complexType name="LoanDisbursement">
+		<xs:choice>
+			<xs:annotation>
+				<xs:documentation>
+					A loan disbursement contains all the information necessary to disburse the funds
+					for a loan, such as disbursing the funds to a check, a dealer, the member's share, etc.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="loanDisbursementCheck" type="LoanDisbursementCheck" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A check disbursement would be used to produce a check with the given payee for the given amount.
+						The check would draw from the funds of the new loan.  The host system is expected to calculate the
+						check number and print out the check.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="loanDisbursementDepositToAccount" type="LoanDisbursementDepositToAccount" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A deposit to account disbursement would deposit the given amount from the loan,
+						to the provided account and suffix.  This does not have to be the same account
+						as the member.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="loanDisbursementDealerAch" type="LoanDisbursementDealerAch" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A dealer ACH loan disbursement would be used, for example, in the case of an indirect loan
+						where the proceeds of the loan are being ACH'd to the dealer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="loanDisbursementGL" type="LoanDisbursementGL" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A disbursement to a general ledger account.  Could be used to pay business partners, GAP, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
 	<xs:complexType name="LoanDisbursementBase">
 		<xs:sequence>
 			<xs:annotation>
@@ -99,7 +103,7 @@
 					for a loan, such as disbursing the funds to a check, a dealer, the member's share, etc.
 				</xs:documentation>
 			</xs:annotation>
-			<xs:element name="loanDisbursementId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="loanDisbursementId" type="LoanDisbursementId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for this loan disbursement record.
@@ -183,7 +187,7 @@
 								The account type on the host that would have the funds deposited to it.
 							</xs:documentation>
 						</xs:annotation>
-					</xs:element>					
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -194,7 +198,7 @@
 			<xs:annotation>
 				<xs:documentation>
 					A dealer ACH loan disbursement would be used, for example, in the case of an indirect loan
-					where the proceeds of the loan are being ACH'd to the dealer.  
+					where the proceeds of the loan are being ACH'd to the dealer.
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="LoanDisbursementBase">
@@ -231,7 +235,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-  
+
 	<xs:complexType name="LoanDisbursementGL">
 		<xs:complexContent>
 			<xs:annotation>
@@ -251,5 +255,71 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
-	</xs:complexType>					
+	</xs:complexType>
+	
+	<xs:simpleType name="LoanDisbursementId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identifier for this loan disbursement record.
+					This should be a globally unique identifier, meaning it should be unique across
+					all loans, not just this loan.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="LoanId">
+		<xs:restriction base="account:AccountId">
+			<xs:annotation>
+				<xs:documentation>
+					Unique identifier for the loan that corresponds to these disbursements.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="LoanDisbursementIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan disbursement Ids that should be returned or affected by a read, update or delete loan disbursement request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanDisbursementId" type="LoanDisbursementId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for this loan disbursement record.
+								This should be a globally unique identifier, meaning it should be unique across
+								all loans, not just this loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LoanIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of loan Ids that should be returned or affected by a read, update or delete loan disbursement request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="loanId" type="LoanId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Unique identifier for the loan that corresponds to these disbursements.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+							
 </xs:schema>

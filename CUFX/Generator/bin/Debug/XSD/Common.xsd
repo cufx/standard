@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
-	version="4.0.$Revision: 1235 $"
+	version="4.1.$Revision: 1278 $"
 	xmlns="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
+    xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
@@ -299,30 +299,50 @@
 				to the message.
 			</xs:documentation>
 		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Each combination of name and value.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ValuePair">
+		<xs:annotation>
+			<xs:documentation>
+				Value Pairs allow for customization of specification where additional elements are needed.
+			</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
-						Each combination of name and value.
+						Name of additonal element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Value of the addtional element.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
 
-	<xs:complexType name="ValuePair">
-		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" />
-				<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" />
-			</xs:sequence>
-		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ListBase">
 		<xs:annotation>
 			<xs:documentation>
-			  Defintion to provide general list support features. 
+				Defintion to provide general list support features.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -378,10 +398,20 @@
 
 	<xs:complexType name="Coordinate">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="latitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-				<xs:element name="longitude" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-			</xs:sequence>
+			<xs:element name="latitude" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Latitude value.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="longitude" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Longitude value.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -399,10 +429,20 @@
 
 	<xs:complexType name="Distance">
 		<xs:sequence>
-			<xs:sequence>
-				<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" />
-				<xs:element name="value" type="xs:decimal" minOccurs="1" maxOccurs="1" />
-			</xs:sequence>
+			<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Distance unit of measure.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Numerical value of the distance as defined by unit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -825,13 +865,182 @@
 
 	<xs:simpleType name="CufxVersion">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value ="1.0.3"></xs:enumeration>
-			<xs:enumeration value ="1.0.6"></xs:enumeration>
-			<xs:enumeration value ="2.0.0"></xs:enumeration>
-			<xs:enumeration value ="3.1.0"></xs:enumeration>
-			<xs:enumeration value ="3.2.0"></xs:enumeration>
-			<xs:enumeration value ="3.3.0"></xs:enumeration>
-			<xs:enumeration value ="4.0.0"></xs:enumeration>
+			<xs:enumeration value="1.0.3" />
+			<xs:enumeration value="1.0.6" />
+			<xs:enumeration value="2.0.0" />
+			<xs:enumeration value="3.1.0" />
+			<xs:enumeration value="3.2.0" />
+			<xs:enumeration value="3.3.0" />
+			<xs:enumeration value="4.0.0" />
+			<xs:enumeration value="4.1.0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AmountDetailList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of line items that describe the breakdown of a given amount. The sum of the line items should match 
+				the total of the amount being detailed.  			
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="lineItem" type="LineItem" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Describes individual line item amounts.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LineItem">
+		<xs:annotation>
+			<xs:documentation>
+				Describes individual line item amounts. 
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="lineItemId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item identification number. If provided, each line item id should be unique.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemReference" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item reference. Provides for alternate cross reference. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date the line item was applied to the total amount. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="lineItemAmount" type="Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="FiId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The FIID  is used by systems to uniquely identify each financial institution.
+					This ID is determined outside of the process and stored in each system of record, e.g. local application
+					database, vendor configuration file, FI core database, etc.
+					This is helpful for applications that are multi-tenant and service more than one financial institution.
+					See dataSourceId for more information about multiple data sources for a single FI.
+					A standard error will be returned if the FIID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VendorId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+					assigned by the FI or established in concert by the vendor and FI.
+					The client application sends this along with the messages so that logging or other business may take place based
+					on the vendor utilizing the service.
+					This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by
+					some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+					A standard error will be returned if the vendor ID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="VendorIdList">
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+								assigned by the FI or established in concert by the vendor and FI.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name="Environment">
+		<xs:annotation>
+			<xs:documentation>
+				Indicates the environment in which the message should be executed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Development">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a development environment.
+						Test data stores are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UAT">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a UAT environment.
+						Test data stores are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Training">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a training environment.
+						Data stores containing training data are to be used and various functionality may be disabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QA">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a QA environment.
+						Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Production">
+				<xs:annotation>
+					<xs:documentation>
+						The message is to be executed in a production environment.
+						Production data stores are to be used and all features and functionality are enabled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

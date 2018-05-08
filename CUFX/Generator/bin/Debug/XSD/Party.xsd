@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.1.$Revision: 1262 $"
 	xmlns="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -84,7 +84,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="characteristics" type="Characteristics">
+			<xs:element name="characteristics" type="Characteristics" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						All the fields related to the party that define it as an entity.
@@ -1109,19 +1109,22 @@
 				Fields related to when the party is a trust.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Legal name of the trust.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element name="trustName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Legal name of the trust.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="trustType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Further defines the type of trust. Exemption, Living, Employee, Revocable, Irrovocable, Naked, Clifford.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="Estate">
@@ -1130,19 +1133,22 @@
 				Fields related to when the party is an estate.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Legal name of the estate.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
+		<xs:sequence>
+			<xs:element name="estateName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Legal name of the estate.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="estateType" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Further defines the type of estate. Freehold, Leasehold, Life, Non-Freehold, Concurrent
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="CitizenshipList">

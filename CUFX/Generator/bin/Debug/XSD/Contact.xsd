@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Contact.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.1.$Revision: 1275 $"
 	xmlns="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -13,7 +13,7 @@
 	<xs:element name= "contactList" type ="ContactList">
 		<xs:annotation>
 			<xs:documentation>
-				The contact list collection/array contains all the contacts, for instance, that the credential set is
+				The contact list collection/array contains all the contacts points that the credential set is
 				authorized to access at the Institution based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
@@ -22,7 +22,7 @@
 	<xs:complexType name="ContactList">
 		<xs:annotation>
 			<xs:documentation>
-				The contact list collection/array contains all the contacts, for instance, that the credential set is
+				The contact list collection/array contains all the contacts points, that the credential set is
 				authorized to access at the Institution based on applied filters.
 			</xs:documentation>
 		</xs:annotation>
@@ -32,7 +32,7 @@
 					<xs:element name="contact" type="Contact" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The contact list collection/array contains all the contacts, for instance, that the credential set is
+								The contact list collection/array contains all the contacts points, that the credential set is
 								authorized to access at the Institution based on applied filters.
 							</xs:documentation>
 						</xs:annotation>
@@ -50,6 +50,7 @@
 						Unique identifier within system to uniquely identify this contact point.  On creation,
 						this may be provided by the system that is submitting the request or may be blank if
 						the repository calculates the contact ID and returns it in the response.
+						For example if a person has 2 addresses, 2 emails, and 3 phone numners, there will be 7 contact ids.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -57,7 +58,7 @@
 			<xs:element name="contactType" type="ContactType" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						High level category for contacting the party.
+						High level category for contact point for the party.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -74,6 +75,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						Details on the contact point based on the contact type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="contactPointDescription" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes additional information regarding the contact point selection.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -301,6 +310,8 @@
 					<xs:documentation>
 						Description beyond the phone number info. For example,
 						Bob's phone when he's on vacation.
+						This element is now secondary in priority to contactPointDescription and should be considered 
+						deprecated.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/ProductOffering.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.1.$Revision: 1285 $"
 	elementFormDefault="qualified"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/v4/ProductOffering.xsd"
@@ -43,21 +43,21 @@
 
 	<xs:complexType name="ProductOffering">
 		<xs:sequence>
-			<xs:element name="productId" type="ProductId" minOccurs="1" maxOccurs="1">
+			<xs:element name="productId" type="ProductId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for each product offering.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productType" type="account:AccountType" minOccurs="1" maxOccurs="1">
+			<xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Defines a general category for the product types.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productSubType" type="ProductSubType" minOccurs="1" maxOccurs="1">
+			<xs:element name="productSubType" type="ProductSubType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Product sub type identifies how the product will be identified in the back end system.

@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionListFilter.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.1.$Revision: 1270 $"
 	xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:permissionList="http://cufxstandards.com/v4/PermissionList.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:permissionList="http://cufxstandards.com/v4/PermissionList.xsd"
+	xmlns:productOffering="http://cufxstandards.com/v4/ProductOffering.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-  xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/PermissionList.xsd" schemaLocation="PermissionList.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/PermissionList.xsd" schemaLocation="PermissionList.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ProductOffering.xsd" schemaLocation="ProductOffering.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+
 
 	<xs:element name="permissionListFilter" type="PermissionListFilter">
 		<xs:annotation>
@@ -35,7 +38,7 @@
 
 	<xs:complexType name="PermissionListFilter">
 		<xs:sequence>
-			<xs:element name="actors" minOccurs="0" maxOccurs="unbounded" type="accessProfile:Actor">
+			<xs:element name="actors" type="accessProfile:Actor" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The users, parties, or other authenticated entities to search for.
@@ -99,6 +102,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						Resource relationships to search for.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="productIdList" type="productOffering:ProductIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of product Ids that should have their associated permission lists either returned or affected
+						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

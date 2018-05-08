@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
   targetNamespace="http://cufxstandards.com/v4/Account.xsd"
-	version="4.0.$Revision: 1220 $"
+	version="4.1.$Revision: 1277 $"
 	xmlns="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v4/Meta.xsd"
@@ -315,6 +315,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="availableAmountDetailList" type="common:AmountDetailList"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Available amount line items for break out.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -604,6 +611,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						This account is a special type of checking account connected to a pre-paid card.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+						Other account type.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
