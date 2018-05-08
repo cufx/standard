@@ -272,7 +272,7 @@
 				</xs:annotation>
       </xs:element>
       
-      <xs:element name="currentValue" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="currentValue" type="CurrentValue" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If the application is only installed once and applies to all
@@ -466,6 +466,16 @@
 		</xs:restriction>
 	</xs:simpleType>
     
+  <xs:simpleType name="CurrentValue">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The current value of the parameter.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+  
 	<xs:complexType name="AppIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">

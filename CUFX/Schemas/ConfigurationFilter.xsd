@@ -7,14 +7,16 @@
 
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
+	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
 
-	<xs:element name="configurationFilter" type="ConfigurationFilter">
+  <xs:element name="configurationFilter" type="ConfigurationFilter">
 		<xs:annotation>
 			<xs:documentation>
 				The list of filter options for services requesting configuration data.
@@ -49,11 +51,11 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationFiIdList" type="configuration:ConfigurationFinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
+       <xs:element name="configurationFiIdList" type="configuration:ConfigurationFinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Configuration Fi ID's that should have their associated configurations either returned or affected
-						by a read, update or delete account request.
+						by a read, update or delete configuration request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -67,10 +69,76 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="vendorIdList" type="common:VendorIdList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="configurationAppIdList" type="configuration:ConfigurationAppIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid configuration app Id's associated to the configuration that should either be returned or affected by a read,
+            update or delete configuration request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="appIdList" type="app:AppIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid system level app Id's associated to the configuration that should either be returned or affected by a read,
+            update or delete configuration request.
+            This will return back any that match at the configuration level or the financial instiution level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationAppParameterIdList" type="configuration:ConfigurationAppParameterIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid unique identifications of configuration app parameter Id's that should have their associated
+            configurations either returned or affected by a read, update or delete account request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="appParameterIdList" type="app:AppParameterIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid system level app parameter ID's associated to the configuration that should have their associated
+            configurations either returned or affected by a read, update or delete account request.
+            This will return back any that match at the configuration level or the financial instiution level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="parameterNameList" type="app:ParameterNameList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of app parameter names that should have their associated configuration records returned
+            or affected by a read, update or delete app request.
+            This will return back any that match at the configuration level or the financial instiution level.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="configurationFiAppIdList" type="configuration:ConfigurationFinancialInstitutionAppIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid unique identifications of configuration, financial institution and app that should have their associated
+            configurations either returned or affected by a read, update or delete account request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationFiAppParameterIdList" type="configuration:ConfigurationFinancialInstitutionAppParameterIdList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of valid unique identifications of configuration, financial institution and app that should have their associated
+            configurations either returned or affected by a read, update or delete account request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="vendorIdList" type="common:VendorIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of vendor ids that should have their associated configurations either returned or
+						The list of vendor ids associated to a financial institution that should have their associated configurations either returned or
 						affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
