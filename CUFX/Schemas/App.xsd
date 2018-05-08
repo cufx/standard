@@ -16,7 +16,7 @@
 	<xs:element name="appList" type="AppList" >
 		<xs:annotation>
 			<xs:documentation>
-				List of apps.
+				List of apps. An App is a program compiled and deployed to a computer. 
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -72,7 +72,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="appHash" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="appHash" type="AppHash" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Program hash to validate against the store.
@@ -88,13 +88,21 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="path" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="path" type="AppPath" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Directory location of program in host OS.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+            
+	    <xs:element name="appParameterList" type="AppParameterList" >
+		    <xs:annotation>
+			    <xs:documentation>
+				    List of application parameters.
+			    </xs:documentation>
+		    </xs:annotation>
+	    </xs:element>
 
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -121,6 +129,26 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:simpleType name="AppHash">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Program hash to validate against the store..
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+  
+  <xs:simpleType name="AppPath">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Directory location of program in host OS.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+  
 	<xs:simpleType name="AppType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Software" >
@@ -150,13 +178,294 @@
 			<xs:enumeration value="Other" >
 				<xs:annotation>
 					<xs:documentation>
-						The credential group identifier of a party that was used to access the service.  See credential group schema.
+						Some other application type that has yet to be defined.
+            Please request addition to specification if you believe
+            others will benefit by the addition.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:complexType name="AppParameterList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="app" type="AppParameter" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app data.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+  
+  <xs:complexType name="AppParameter">
+		<xs:sequence>
+			<xs:element name="appParameterId" type="AppParameterId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app Parameter id is the unique identifier that identifies the application parameter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+  		<xs:element name="parameterName" type="ParameterName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the parameter as it wil appear when published to the applications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+ 
+      <xs:element name="parameterScope" type="ParameterScope" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The scope of the parameter.  Possible values are User, Machine, Application, FinancialInstitution, ... 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+      <xs:element name="parameterType" type="ParameterType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Type type of parameter such as Registry, OS, or XML entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+      <xs:element name="parameterDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A meaningful description of what the parameter represents.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+      <xs:element name="parameterPath" type="ParameterPath" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The location where the parameter resides.
+            For example: could be directory and file name.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+      <xs:element name="parameterXPath" type="ParameterXPath" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The XPath in an XML file of a parameter.
+            For example: /FinancialInstitution/Name
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    
+      <xs:element name="parameterDefaultValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The default value upon initial installation.
+            This value can be used to reset back to default installation values.
+    			</xs:documentation>
+				</xs:annotation>
+      </xs:element>
+      
+      <xs:element name="currentValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If the application is only installed once and applies to all
+            configurations, then the current value will be located here.
+            See configuration->configuraitonAppList->configurationApp->
+              configurationAppParameterList->configurationAppParameter->currentValue
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						App Parameter level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+  	</xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="AppParameterId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The app Parameter id is the unique identifier that identifies the application parameter.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+  
+  <xs:simpleType name="ParameterName">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The name of the parameter as it wil appear when published to the applications.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType> 
+ 
+  <xs:simpleType name="ParameterScope">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="User" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter is set for each individual user logged into a computer.
+            For example: A Windows HKEY_CURRENT_USER registry entry or a 
+            Machine.config file.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="Machine">
+				<xs:annotation>
+					<xs:documentation>
+						The parameter applies to the entire machine.
+            For example: A Windows HKEY_LOCAL_MACHINE setting for security.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="Application" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter applies to the specific application.
+            For example: An IIS entry in the web.config file.
+            For example: 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+      <xs:enumeration value="Configuration" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter applies to all financial institutions
+            within a configuration.
+            To find the current value for the parameter within the configuration see 
+              configuration->configuraitonAppList->configurationApp->
+              configurationAppParameterList->configurationAppParameter->currentValue
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      
+      <xs:enumeration value="FinancialInstitution" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter applies to a specific financial institution
+            that owns the license.
+            For example: An IIS entry in the web.config file.
+            To find the current value for the parameter for the financial institution see 
+              configuration->configuraitonFiList->financialInstitution->configurationFiApp->
+              configurationFiAppParameterList->configurationFiAppParameter->currentValue
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      
+      <xs:enumeration value="Session" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter applies to the current session only.
+            For example: An session specific parameter. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						Some other parameter scope that has yet to be defined.
+            Please request addition to specification if you believe
+            others will benefit by the addition.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+  <xs:simpleType name="ParameterType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Registry" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter is being managed in the registry.
+            For example: THe Windows Registry.  See Scope for where it applies.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="OS">
+				<xs:annotation>
+					<xs:documentation>
+						The parameter is being set at the OS level.
+            For example: Using a set command on Windows command line.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+			<xs:enumeration value="XML" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter is in an XML file.  See 
+            For example: An IIS entry in the web.config file.  
+            See Path and XPath for specific location and path in the XML file.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+      
+      <xs:enumeration value="FlatFileWithNameValuePairs" >
+				<xs:annotation>
+					<xs:documentation>
+						The parameter is in flat text file.  See 
+            For example: An entry in a configuration  text file.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+    
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						Some other parameter type that has yet to be defined.
+            Please request addition to specification if you believe
+            others will benefit by the addition.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+   
+  <xs:simpleType name="ParameterPath">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The location where the parameter resides. For example: could be directory and file name.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+  
+  <xs:simpleType name="ParameterXPath">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The XPath in an XML file of a parameter. For example: /FinancialInstitution/Name
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+    
 	<xs:complexType name="AppIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
@@ -189,4 +498,133 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="AppHashList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="appHash" type="AppHash" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app hashes to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+  
+	<xs:complexType name="AppPathList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="path" type="AppPath" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app paths to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="AppParameterIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="appParameterId" type="AppParameterId" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter ids to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="ParameterNameList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="parameterName" type="ParameterName" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter names to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="ParameterScopeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="parameterScope" type="ParameterScope" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter scopes to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="ParameterTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="parameterScope" type="ParameterType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="ParameterPathList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="parameterPath" type="ParameterPath" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter aths to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+  <xs:complexType name="ParameterXPathList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="parameterXPath" type="ParameterXPath" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter aths to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
+
+	
