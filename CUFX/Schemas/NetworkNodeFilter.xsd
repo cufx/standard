@@ -1,0 +1,168 @@
+﻿<xs:schema
+    targetNamespace="http://cufxstandards.com/v4/NetworkNodeFilter.xsd"
+    version="4.1.$Revision$"
+    xmlns="http://cufxstandards.com/v4/NetworkNodeFilter.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+    xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
+  <xs:import schemaLocation="NetworkNode.xsd" namespace="http://cufxstandards.com/v4/NetworkNode.xsd"/>
+
+  <xs:element name="networkNodeFilter" type="NetworkNodeFilter" >
+    <xs:annotation>
+      <xs:documentation>
+        The list of filter options for services requesting network node data.
+        The options can be used in combination or by themselves. It is up to the data source
+        to either return or affect the data requested or return a standard error identifying
+        why the request was rejected.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="NetworkNodeFilter">
+    <xs:sequence>
+      <xs:element name="networkNodeIdList" type="networkNode:NetworkNodeIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node Id's to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeStatusList" type="networkNode:NetworkNodeStatusList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="networkNodeTypeList" type="networkNode:NetworkNodeTypeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeAddressIdList" type="networkNode:NetworkNodeAddressIdList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeAddressValueList" type="networkNode:NetworkNodeAddressValueList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeAddressScopeList" type="networkNode:NetworkNodeAddressScopeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeAddressTypeList" type="networkNode:NetworkNodeAddressTypeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="networkNodeAddressPortList" type="networkNode:NetworkNodeAddressPortList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Collection of network node types to filter on.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Network node address level name/data pairs list of fields that are not yet available in the general
+            specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+            data providers or processed by all client applications. ANY use of this field must be reported to the
+            architecture or working group committee to ensure that fields are somehow handled in the future release
+            of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="NetworkNodeAddressId">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The network node Address ID is a unique identifier for the network node address.
+          This could be a mac address, IP V4 or V6 address, generated GUID, etc.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NetworkNodeAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IPV4" >
+        <xs:annotation>
+          <xs:documentation>
+            is the fourth version of the Internet Protocol (IP). It is one of the core protocols of
+            standards-based internetworking methods in the Internet, and was the first version
+            deployed for production in the ARPANET in 1983.
+            https://en.wikipedia.org/wiki/IPv4
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="IPV6" >
+        <xs:annotation>
+          <xs:documentation>
+            Most recent version of the Internet Protocol (IP), the communications protocol that
+            provides an identification and location system for computers on networks and
+            routes traffic across the Internet.
+            https://en.wikipedia.org/wiki/IPv6
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MAC" >
+        <xs:annotation>
+          <xs:documentation>
+            A media access control address (MAC address) of a device is a unique identifier
+            assigned to network interface controllers for communications at the data link
+            layer of a network segmen
+            https://en.wikipedia.org/wiki/MAC_address
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="URL" >
+        <xs:annotation>
+          <xs:documentation>
+            A reference to a web resource that specifies its location on a computer
+            network and a mechanism for retrieving it.
+            https://en.wikipedia.org/wiki/URL
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Other" >
+        <xs:annotation>
+          <xs:documentation>
+            A network node address type yet to be defined by the specification.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
