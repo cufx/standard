@@ -1405,10 +1405,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="networkNode" type="networkNode:NetworkNodeAddress" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="networkNodeAddress" type="networkNode:NetworkNodeAddress" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The details of the network node address within the configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Configuration Field Not Supported level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+            or processed by all client applications. ANY use of this field must be reported to the architecture or
+            working group committee to ensure that fields are somehow handled in the future release of specifications.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
