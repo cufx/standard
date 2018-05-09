@@ -216,7 +216,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="statusCode" type="StatusCode" minOccurs="1" maxOccurs ="1">
+			<xs:element name="statusCode" type="StatusCode" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Standard CUFX error code returned by the service point.
