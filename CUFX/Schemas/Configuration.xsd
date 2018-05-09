@@ -132,7 +132,7 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="configurationNetworkNodeList" type="ConfigurationNetworkNodeList" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="configurationNetworkNodeAddressList" type="ConfigurationNetworkNodeAddressList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The list of network node are in or comprise this configuration.
@@ -232,10 +232,10 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="appId" type="app:AppId" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="app" type="app:App" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the app at the sytstem level.
+            The details of the system level app within the configuration.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -258,7 +258,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
     </xs:sequence>
   </xs:complexType>
 
@@ -319,10 +318,10 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="appParameter" type="app:AppParameter" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the app parameter at the sytstem level.
+            The App Parameter as set up at the system level.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1376,11 +1375,11 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="ConfigurationNetworkNodeList">
+  <xs:complexType name="ConfigurationNetworkNodeAddressList">
     <xs:complexContent>
       <xs:extension base="common:ListBase">
         <xs:sequence>
-          <xs:element name="configurationNetworkNodeList" type="ConfigurationNetworkNode" minOccurs ="0" maxOccurs ="unbounded">
+          <xs:element name="configurationNetworkNodeAddressList" type="ConfigurationNetworkNodeAddress" minOccurs ="0" maxOccurs ="unbounded">
             <xs:annotation>
               <xs:documentation>
                 A list of network nodes that is in or comprises the configuration.
@@ -1392,35 +1391,41 @@
     </xs:complexContent>
   </xs:complexType>
 
-  <xs:complexType name="ConfigurationNetworkNode">
+  <xs:complexType name="ConfigurationNetworkNodeAddress">
     <xs:annotation>
       <xs:documentation>
-        A network node that is in or comprises the configuration.
+        A network node address that is in or comprises the configuration.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="configurationNetworkNodeId " type="ConfigurationNetworkNodeId" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="configurationNetworkNodeAddressId " type="ConfigurationNetworkNodeAddressId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for the combination of configuration, application and Parameter.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-      </xs:sequence>
+      <xs:element name="networkNode" type="networkNode:NetworkNodeAddress" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The details of the network node address within the configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
 
-  <xs:simpleType name="ConfigurationNetworkNodeId">
+  <xs:simpleType name="ConfigurationNetworkNodeAddressId">
     <xs:annotation>
       <xs:documentation>
-        The unique identifier for the configuration and network node combination.
+        The unique identifier for the configuration and network node address combination.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="ConfigurationNetworkNodeIdList">
+  <xs:complexType name="ConfigurationNetworkNodeAddressIdList">
     <xs:annotation>
       <xs:documentation>
         The list of Configuration Fi App Parameter ID's that should have their associated configurations either returned or affected
@@ -1430,14 +1435,7 @@
     <xs:complexContent>
       <xs:extension base="common:ListBase">
         <xs:sequence>
-          <xs:element name="configurationNetworkNodeId" type="ConfigurationNetworkNodeId" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                The unique identifier for the configuration, financial institution and App.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-          <xs:element name="networkNodeId" type="networkNode:NetworkNodeId" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="configurationNetworkNodeAddressId" type="ConfigurationNetworkNodeAddressId" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>
                 The unique identifier for the configuration, financial institution and App.
