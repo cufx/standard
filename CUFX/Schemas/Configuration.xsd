@@ -7,7 +7,8 @@
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-
+	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+            
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -15,8 +16,9 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
 
-	<xs:element name="configurationList" type="ConfigurationList">
+  <xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
 			<xs:documentation>
 				The list of configurations available in the CUFX instance.
@@ -1405,23 +1407,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Unique identifier for the app parameter at the sytstem level.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-      <xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The current value of the app parameter as set up at the configuration and financial institution level.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
-    </xs:sequence>
+      </xs:sequence>
   </xs:complexType>
 
   <xs:simpleType name="ConfigurationNetworkNodeId">
@@ -1445,6 +1431,13 @@
       <xs:extension base="common:ListBase">
         <xs:sequence>
           <xs:element name="configurationNetworkNodeId" type="ConfigurationNetworkNodeId" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                The unique identifier for the configuration, financial institution and App.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="networkNodeId" type="networkNode:NetworkNodeId" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>
                 The unique identifier for the configuration, financial institution and App.
