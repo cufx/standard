@@ -58,6 +58,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="configurationName" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the configuration.  It should be unique so it's easier to determine the environment if you have multiple environments.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="configurationDescription" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -68,10 +75,24 @@
 			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Indicates the environmental status of the configuration. If not specified, "Production" is assumed.
+						Indicates the environmental type of the configuration. If not specified, "Production" is assumed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      <xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates the status of the overall configuration.  Valid values are for example: Online, Offline, ReadyToPurge
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="configurationStatusComment" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            More detail as to why the configuration is in a particular status.  For example, Waiting on Services setup.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 			<xs:element name="fiIdList" type="FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -163,6 +184,15 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:simpleType name="ConfigurationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Online"></xs:enumeration>
+      <xs:enumeration value ="Offline"></xs:enumeration>
+      <xs:enumeration value ="ReadyToPurge"></xs:enumeration>
+      <xs:enumeration value ="Other"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
   <xs:simpleType name="ServiceTimeZoneUTCOffset">
 		<xs:annotation>
 			<xs:documentation>
