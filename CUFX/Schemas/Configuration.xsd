@@ -254,7 +254,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for the combination of configuration and application
@@ -340,7 +340,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="unbounded">
+      <xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             Unique identifier for the combination of configuration, application and Parameter.
@@ -427,14 +427,14 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The unique identifier for the configuration and financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The FIID  is used by systems to uniquely identify each financial institution.
@@ -1248,7 +1248,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The name that will show up in the value pair within the custom data.  For instance,
