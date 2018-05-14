@@ -42,6 +42,42 @@
 				</xs:annotation>
 			</xs:element>
 
+      <xs:element name="configurationCreatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to search the configuration create dates.
+            Usage see common.xsd DateRange.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationCreatedByList" type="configuration:ConfigurationCreatedByList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to search who may have created the configurations.
+            Usage see common.xsd DateRange.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationUpdatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to search the configuration updated dates.
+            Usage see common.xsd DateRange.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationLastUpdatedByList" type="configuration:ConfigurationLastUpdatedByList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filter that is used to search who may have last updated the configurations.
+            Usage see common.xsd DateRange.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
 			<xs:element name="fiIdList" type="configuration:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>

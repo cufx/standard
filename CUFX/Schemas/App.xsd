@@ -191,7 +191,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="app" type="AppParameter" minOccurs="1" maxOccurs="unbounded">
+					<xs:element name="appParameter" type="AppParameter" minOccurs="1" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Collection of app data.

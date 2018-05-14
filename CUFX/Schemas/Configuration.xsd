@@ -8,6 +8,7 @@
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+  xmlns:user="http://cufxstandards.com/v4/User.xsd"
             
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -17,6 +18,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
   <xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
@@ -161,6 +163,44 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="configurationCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time this configuration was created.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assumed to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A unique identifier such as a user ID, etc. of who created the configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationLastUpdatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time this configuration was last updated.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assumed to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A unique identifier such as a user ID, etc. of who last updated the configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -257,15 +297,31 @@
       <xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            Unique identifier for the combination of configuration and application
+            Unique identifier for the combination of configuration and app.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="app" type="app:App" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="appId" type="app:AppId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The details of the system level app within the configuration.
+            The appId to retrieve the details of the system level app.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationAppDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The description of the app if it has been customimized for this configuration. 
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Directory location of program in host OS for this configuration in case it is different than the general app installation.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -273,7 +329,7 @@
       <xs:element name="configurationAppParameterList" type="ConfigurationAppParameterList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
-            The parameters as they are set up at the configuration level.
+            The app parameters as they are set up at the configuration level.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -348,7 +404,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="appParameter" type="app:AppParameter" minOccurs ="0" maxOccurs ="1">
+      <xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
             The App Parameter as set up at the system level.
@@ -356,6 +412,24 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="configurationParameterPath" type="app:ParameterPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The location where the parameter resides within this configuration.
+            For example: could be directory and file name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationParameterXPath" type="app:ParameterXPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The XPath in an XML file of a parameter within this configuration.
+            For example: /Configuration/0001/App/0001/Parameter/0001
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -640,6 +714,22 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="configurationFiAppDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The description of the app if it has been customimized for this configuration financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationFiAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Directory location of program in host OS for this configuration financial institution in case it is different than the general app installation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="configurationFiAppParameterList" type="ConfigurationFinancialInstitutionAppParameterList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -733,6 +823,24 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="configurationFiParameterPath" type="app:ParameterPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The location where the parameter resides within this configuration financial institution.
+            For example: could be directory and file name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationFiParameterXPath" type="app:ParameterXPath" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The XPath in an XML file of a parameter within this configuration financial institution.
+            For example: /Configuration/0001/FinancialIntituion/0001/App/0001/Parameter/0001
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>
@@ -744,7 +852,7 @@
       <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Configuration App Parameter level name/data pairs list of fields that are not yet available in the general specification.
+            Configuration Financial Institution App Parameter level name/data pairs list of fields that are not yet available in the general specification.
             This should be used as a LAST RESORT as any customizations will not be supported by all data providers
             or processed by all client applications. ANY use of this field must be reported to the architecture or
             working group committee to ensure that fields are somehow handled in the future release of specifications.
@@ -917,6 +1025,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+   
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1479,6 +1588,50 @@
             <xs:annotation>
               <xs:documentation>
                 The unique identifier for the configuration, financial institution and App.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ConfigurationCreatedByList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of users that created a configuration that should have their associated configurations either returned or affected
+        by a read, update or delete configuration request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                The unique identifier for the user that created the configuration.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ConfigurationLastUpdatedByList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of users that last modified a configuration that should have their associated configurations either returned or affected
+        by a read, update or delete configuration request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="configurationLastModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                The unique identifier for the user that last modified the configuration.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
