@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 	targetNamespace="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	version="4.1.$Revision: 1311 $"
+  xmlns="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+  xmlns:user="http://cufxstandards.com/v4/User.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+
+  <xs:element name="fiList" type="FinancialInstitutionList">
+    <xs:annotation>
+      <xs:documentation>
+        The master list of financial institutions available in the CUFX instance.
+        A financial institution must be in a specific configuration list to have access to a specific set of data.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="FinancialInstitutionList">
+    <xs:annotation>
+      <xs:documentation>
+        The master list of financial institutions available in the CUFX instance.
+        A financial institution must be in a configuration list to have access to a specific set of data.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="financialInstitution" type="FinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A financial instution that has permissions to this CUFX instance.
+                A financial institution must be in the configuration list to have access to a specific set of data.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitution">
+    <xs:sequence>
+      <xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            Unique identification for the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="fiName" type="FinancialInstitutionName" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name of the financial institution. 
+            More details can be found in the partyId within the specific configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="fiDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Description of the financial institution.
+            More details can be found in the partyId within the specific configuration.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="fiStatus" type="FinancialInstitutionStatus" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates the status of the overall financial institution.  
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="fiStatusComment" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            More detail as to why the financial institution is in a particular status.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="fiTimeZoneUTCOffset" type="common:TimeZoneUTCOffset" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            For display purposes of date/times on screens, the offset of the time zone from
+            Universal Time where the financial institution resides.  Depending on the
+            implemention, if a service in a configuration provides a serviceTimeZoneUTOffset, 
+            it may override this value for the service.
+            For example
+            Format : [+|-]HH:MM
+            If the location observes daylight savings time, this value may need to be updated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The financial institution's default party ID which is a persistent and unique identifier
+            for the financial instution that is not related to the accounts it owns, but tied to the business.
+            The party records would contain all the tax reporting, DBA, contact points such as
+            addresses, emails, websites, and phone numbers that the financial institution can be contacted at.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fiCurrencySupportList" type="common:CurrencySupportList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Valid values for currency that the financial institution works with.
+            If zero currencies are listed then USD is the only supported currency.
+            See each configuration service as it may or may not support all the currencies.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fiAcceptLanguageList" type="common:AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies which language(s) the financial institution works with.
+            If none are specified then the default is US English (en-us).
+            See each configuration service as it may or may not support all the languagues
+            that the financial instution works with.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+ 
+      <xs:element name="fiCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time this financial institution was created.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assumed to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fiCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A unique identifier of who created the financial institution in the system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fiLastUpdatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The date and time this financial institution was last updated.
+            The date/time should be ISO 8601 UTC format.
+            yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+            formats are supported.  The time is assumed to be 00:00Z if omitted.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="fiLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            A unique identifier such as a user ID of who last updated the financial institution.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Financial Institution level name/data pairs list of fields that are not yet available in the general specification.
+            This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+            or processed by all client applications. ANY use of this field must be reported to the architecture or
+            working group committee to ensure that fields are somehow handled in the future release of specifications.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="FinancialInstitutionName">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The financial institution name  is used by systems to identify each financial institution.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="FinancialInstitutionStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value ="Online"></xs:enumeration>
+      <xs:enumeration value ="Offline"></xs:enumeration>
+      <xs:enumeration value ="Deleted"></xs:enumeration>
+      <xs:enumeration value ="Other"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="FinancialInstitutionIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of financial institutions ID's that should have their associated financial institution records either returned or affected
+        by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A valid financial institution id for this instance.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitutionNameList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of financial institution names that should have their associated financial institution
+        records either returned or affected by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiName" type="FinancialInstitutionName" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A valid financial institution name for this instance.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitutionStatusList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of financial institution statuses that should have their associated financial institution
+        records either returned or affected by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiStatus" type="FinancialInstitutionStatus" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A valid financial institution status for this instance.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitutionPartyIdList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of financial institution default party Id's that should have their associated financial institution
+        records either returned or affected by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="partyId" type="party:PartyId" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A valid financial institution default partyId for this instance.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+ 
+  <xs:complexType name="FinancialInstitutionCreatedByList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of users that created a financial institution that should have their associated
+        financial institution they created either returned or affected
+        by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                The unique identifier for the user that created the financial institution.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitutionLastUpdatedByList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of users that last modified a financial institution that should have their
+        associated financial institutions if they are the user that last updated the financial
+        institution either returned or affected by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiLastModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                The unique identifier for the user that last modified the financial institution.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  
+</xs:schema>

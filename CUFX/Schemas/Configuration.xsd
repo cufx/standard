@@ -9,7 +9,8 @@
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
   xmlns:user="http://cufxstandards.com/v4/User.xsd"
-            
+  xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -19,22 +20,33 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
   <xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
   <xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+  <xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
 
   <xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of configurations available in the CUFX instance.
-				There will be one configuration for one or more financial institutions.
-			</xs:documentation>
+        The list of configurations available in the CUFX instance.
+        A configuration is a collection supported financial institutions, services, 
+        methods, limitations and options within each configuration.
+        There maybe more than one configuration for one or more financial institutions.
+        These configurations can be utilized for whatever purpose the endpoint
+        needs to break out into multiple configurations.  For example,
+        It may be necessary to have multiple test configurations in the same CUFX
+        instance to reduce hardware expense and complexity.  Another option is to support
+        different types of applications but within the same end point.
+      </xs:documentation>
 		</xs:annotation>
 	</xs:element>
 
 	<xs:complexType name="ConfigurationList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of configurations available in the CUFX instance.
-				There will be one configuration for one or more financial institutions.
-			</xs:documentation>
+        The list of configurations available in the CUFX instance.
+        There will be one configuration for one or more financial institutions.
+        These configurations can be utilized for whatever purpose the endpoint
+        needs to break out into multiple configurations.  For example,
+        It may be necessary to have multiple test configurations in the same endpoint.
+      </xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
@@ -42,7 +54,8 @@
 					<xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The list of supported services, methods, limitations and options within the CUFX instance.
+								The list of supported financial institutions, services, methods, limitations
+                and options within the CUFX instance.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -56,7 +69,7 @@
 			<xs:element name="configurationId" type="ConfigurationId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						unique identification for the configuration.
+						Unique identification for the configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -95,7 +108,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-			<xs:element name="fiIdList" type="FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiIdList" type="fi:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The valid financial institution ID list for this instance.
@@ -105,7 +118,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiList" type="ConfigurationFinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Financial institution within this configuration.
@@ -128,7 +141,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="serviceTimeZoneUTCOffset" type="ServiceTimeZoneUTCOffset" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="serviceTimeZoneUTCOffset" type="common:TimeZoneUTCOffset" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The offset of the time zone from Universal Time where this service resides.  If the service
@@ -232,44 +245,6 @@
       <xs:enumeration value ="Other"></xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
-  <xs:simpleType name="ServiceTimeZoneUTCOffset">
-		<xs:annotation>
-			<xs:documentation>
-				The offset of the time zone from Universal Time where this service resides.  If the service
-				provides a serviceTimeZoneUTOffset, it overrides this value for that service.
-				For example
-				Format : [+|-]HH:MM
-				If the location observes daylight savings time, this value may need to be updated.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:token">
-			<xs:pattern value="([\-\+])(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])"/>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="FinancialInstitutionIdList">
-		<xs:annotation>
-			<xs:documentation>
-				The valid financial institution list for this instance.
-				Identifies that these configuration parameters are related to these financial institutions.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								A valid financial institution for this instance.
-								Identifies that these configuration parameters are related to this financial institution.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 
   <xs:complexType name="ConfigurationAppList">
     <xs:complexContent>
@@ -478,11 +453,11 @@
     </xs:complexContent>
   </xs:complexType>
  
-	<xs:complexType name="FinancialInstitutionList">
+	<xs:complexType name="ConfigurationFinancialInstitutionList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="financialInstitution" type="FinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="financialInstitution" type="ConfigurationFinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								List of financial institution within this configuration.
@@ -494,7 +469,7 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="FinancialInstitution">
+	<xs:complexType name="ConfigurationFinancialInstitution">
 		<xs:annotation>
 			<xs:documentation>
 				Definition for the configuration parameters for the financial institution.
@@ -523,16 +498,17 @@
 			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The financial institution's party ID is a persistent and unique identifier for the party that is not related to the accounts
-						they own, but tied to that person or business. It should be unique for all parties across the
-						institution and remain the same over the life of the relationship with the financial institution.
-					</xs:documentation>
+            The financial institution's party ID which is a persistent and unique identifier
+            for the financial instution that is not related to the accounts it owns, but tied to the business.
+            The party records would contain all the tax reporting, DBA, contact points such as
+            addresses, emails, websites, and phone numbers that the financial institution can be contacted at.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="configurationFiVendorList" type="ConfigurationFinancialInstitutionVendorList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of of configuration and Vendor for the financial institution.
+						The list of Vendors for the financial institution within this configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -953,7 +929,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="currencySupportList" type="CurrencySupportList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="currencySupportList" type="common:CurrencySupportList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Valid values for currency.  If zero currencies are listed then USD is the only supported currency.
@@ -961,7 +937,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="acceptLanguageList" type="AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="acceptLanguageList" type="common:AcceptLanguageList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies which language(s) can be received by the end point. This instructs it to
@@ -980,7 +956,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="serviceTimeZoneUTCOffset" type="ServiceTimeZoneUTCOffset"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="serviceTimeZoneUTCOffset" type="common:TimeZoneUTCOffset"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The offset of the time zone from Universal Time where this service resides.  If the service
@@ -991,6 +967,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
 			<xs:element name="status" type="SystemStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1009,6 +986,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
 			<xs:element name="customDataUseList" type="CustomDataUseList"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1180,47 +1158,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="CurrencySupportList">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Currency supported by the service.  If none were supplied, then USD is the only valid currency.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="AcceptLanguageList">
-		<xs:annotation>
-			<xs:documentation>
-				Specifies which language(s) can be received by the end point. This instructs it
-				to generate its response data and return its data and errors in the accepted language(s).
-				If none are specified then the default is US English (en-us).
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Specifies a valid language-region which can be received by the end point, which instructs it
-								to generate its response data and return its data and errors in the accepted language(s).
-								Combination of a language and a region.  For example en-us.
-								http://www.iana.org/assignments/language-subtag-registry
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 
 	<xs:complexType name="FieldNotSupportedList">
 		<xs:annotation>
