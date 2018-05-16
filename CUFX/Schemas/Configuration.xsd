@@ -8,8 +8,8 @@
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-  xmlns:user="http://cufxstandards.com/v4/User.xsd"
-  xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+    xmlns:user="http://cufxstandards.com/v4/User.xsd"
+    xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -118,7 +118,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="ConfigurationFinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiList" type="FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Financial institution within this configuration.
