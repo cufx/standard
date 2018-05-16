@@ -163,7 +163,8 @@
 			<xs:element name="configurationAppList" type="ConfigurationAppList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of supported Apps in this configuration.
+						The list of supported Apps in this configuration.  the configuration app points back to the
+            system level app and lists out any changes for the configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -335,7 +336,7 @@
 			<xs:element name="configurationAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Directory location of program in host OS for this configuration in case it is different than the general app installation.
+						Directory location of program in host OS for this configuration in case it is different than the system level app installation.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -378,8 +379,9 @@
 					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								An app as it's installed in the configuration.
-							</xs:documentation>
+                A list of configuraiton app Id's that point to how an app as it's
+                installed/specialized in the configuration.
+              </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -394,8 +396,9 @@
 					<xs:element name="configurationAppParameter" type="ConfigurationAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								An app as it's installed in the configuration.
-							</xs:documentation>
+                A list of configuraiton app parameter Id's that point to how an
+                app parameter is set/specialized in the configuration for an app.
+              </xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -421,7 +424,7 @@
 			<xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The App Parameter as set up at the system level.
+						The App Parameter ID that points to the app as it is set up at the system level.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -483,7 +486,7 @@
 					<xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								An app as it's installed in the configuration.
+								The list of app parameters ID's that have been set/specialized for a configuration.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -697,7 +700,7 @@
 					<xs:element name="configurationFiApp" type="ConfigurationFinancialInstitutionApp" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								An app as it's installed in the configuration.
+								An app as it's installed/specialized in the configuration for a financial institution.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -725,6 +728,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the app at the sytstem level.
+            Used for defaulting back to defaults or finding out what original values are and
+            seeing the app attributes that do not change at the configuration/financial institution level.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -740,7 +745,8 @@
 			<xs:element name="configurationFiAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Directory location of program in host OS for this configuration financial institution in case it is different than the general app installation.
+						Directory location of program in host OS for this configuration and financial institution
+            in case it is different than the system level app attributes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -806,7 +812,7 @@
 					<xs:element name="configurationFiAppParameter" type="ConfigurationFinancialInstitutionAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								An app as it's installed in the configuration and financial institution combination.
+								An app parameter as it's installed/specialized in the configuration for the financial institution.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -818,7 +824,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppParameter">
 		<xs:annotation>
 			<xs:documentation>
-				Definition for the app parameters within the configuration and financial institution.
+				Definition for the app parameters within the configuration for a financial institution.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -841,7 +847,7 @@
 			<xs:element name="configurationFiParameterPath" type="app:ParameterPath" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The location where the parameter resides within this configuration financial institution.
+						The location where the parameter resides within this configuration for a financial institution.
 						For example: could be directory and file name.
 					</xs:documentation>
 				</xs:annotation>
@@ -850,7 +856,7 @@
 			<xs:element name="configurationFiParameterXPath" type="app:ParameterXPath" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The XPath in an XML file of a parameter within this configuration financial institution.
+						The XPath in an XML file of a parameter within this configuration for a financial institution.
 						For example: /Configuration/0001/FinancialIntituion/0001/App/0001/Parameter/0001
 					</xs:documentation>
 				</xs:annotation>
@@ -859,7 +865,7 @@
 			<xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The current value of the app parameter as set up at the configuration and financial institution level.
+						The current value of the app parameter as set up in the configuration for a financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1497,7 +1503,7 @@
 					<xs:element name="configurationNetworkNodeAddressList" type="ConfigurationNetworkNodeAddress" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A list of network nodes that is in or comprises the configuration.
+								A list of network node addresses that are in or comprise the configuration.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1516,7 +1522,7 @@
 			<xs:element name="configurationNetworkNodeAddressId " type="ConfigurationNetworkNodeAddressId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Unique identifier for the combination of configuration, application and Parameter.
+						Unique identifier for the combination of configuration, application and network node address.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1530,7 +1536,8 @@
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Configuration Field Not Supported level name/data pairs list of fields that are not yet available in the general specification.
+						Configuration Network Node Adddress level Not Supported level name/data pairs list of fields 
+            that are not yet available in the general specification.
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
@@ -1553,7 +1560,8 @@
 	<xs:complexType name="ConfigurationNetworkNodeAddressIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration Fi App Parameter ID's that should have their associated configurations either returned or affected
+				The list of Configuration network node address ID's that should have their associated
+        configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1563,7 +1571,7 @@
 					<xs:element name="configurationNetworkNodeAddressId" type="ConfigurationNetworkNodeAddressId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The unique identifier for the configuration, financial institution and App.
+								The unique identifier for the configuration, financial institution and network node address.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
