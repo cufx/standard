@@ -38,11 +38,38 @@
 			<xs:element name="configurationIdList" type="configuration:ConfigurationIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of configuration ID's that should have their associated configurations either returned
-						or affected by a read, update or delete account request.
-					</xs:documentation>
+            The list of configuration ID's that should have their associated configurations either returned
+            or affected by a read, update or delete configuration request.
+          </xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
+      <xs:element name="configurationNameList" type="configuration:ConfigurationNameList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of configuration names that should have their associated configurations either returned
+            or affected by a read, update or delete configuration request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="environmentList" type="common:EnvironmentList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of configuration environment(s) that should have their associated configurations either returned
+            or affected by a read, update or delete configuration request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="configurationStatusList" type="configuration:ConfigurationStatusList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of configuration statuses that should have their associated configurations either returned
+            or affected by a read, update or delete configuration request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
 
       <xs:element name="configurationCreatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>

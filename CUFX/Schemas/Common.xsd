@@ -1046,6 +1046,27 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+  <xs:complexType name="EnvironmentList">
+    <xs:annotation>
+      <xs:documentation>
+        List of valid environments to have their associated record(s) returned.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ListBase">
+        <xs:sequence>
+          <xs:element name="environment" type="Environment" minOccurs ="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A valid environment to have its associated record(s) returned
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
   <xs:complexType name="CurrencySupportList">
     <xs:complexContent>
       <xs:extension base="ListBase">
