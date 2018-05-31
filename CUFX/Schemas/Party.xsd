@@ -398,7 +398,7 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="organizationSubType" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="organizationSubType" type="OrganizationSubType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Organization sub type is the textual representation
@@ -410,11 +410,10 @@
         </xs:annotation>
       </xs:element>
 
-			<xs:element name="organizationName" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="organizationName" type="OrganizationName" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Standard/legal name of the organization.
-						Used if type is NOT INDIVIDUAL.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1685,4 +1684,99 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+  <xs:complexType name="OrganizationTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of organization types that should have their associated parties either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                An organization type that should have its associated parties either returned or affected
+                by a read, update or delete request.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="OrganizationSubType">
+    <xs:annotation>
+      <xs:documentation>
+        Organization sub type is the textual representation
+        of what kind of organization it is.
+        Completed if party type is Organization.
+        For example: FinancialInstitution, Vendor, CUSO, Bank, Government Agency, etc.
+        It is up to the endpoints to determine what they will pass in sub type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="OrganizationSubTypeList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of organization sub types that should have their associated parties either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="organizationSubType" type="OrganizationSubType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                An organization type that should have its associated parties either returned or affected
+                by a read, update or delete request.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="OrganizationName">
+    <xs:annotation>
+      <xs:documentation>
+        Standard/legal name of the organization.
+        Completed if party type is Organization.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="OrganizationNameList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of organization names that should have their associated parties either returned or affected
+        by a read, update or delete request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="organizationName" type="OrganizationName" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                An organization name that should have its associated parties either returned or affected
+                by a read, update or delete request.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 </xs:schema>

@@ -127,7 +127,34 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="contactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
+      <xs:element name="organizationNameList" type="party:OrganizationNameList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of organizations that should have their associated party records either returned or affected
+            by a read, update or delete party request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="organizationTypeList" type="party:OrganizationTypeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of organizations types that should have their associated party records either returned or affected
+            by a read, update or delete party request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="organizationSubTypeList" type="party:OrganizationSubTypeList" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of organizations sub types that should have their associated party records either returned or affected
+            by a read, update or delete party request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="contactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of contact types that should have their associated parties either returned or affected
