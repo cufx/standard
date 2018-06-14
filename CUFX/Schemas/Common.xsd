@@ -999,50 +999,13 @@
 	<xs:simpleType name="Environment">
 		<xs:annotation>
 			<xs:documentation>
-				Indicates the environment in which the message should be executed.
-			</xs:documentation>
+        Indicates the environment in which the message should be executed.
+        Depends upon agreements between endpoints what is passed for each environment.
+        Examples might be: Dev, QAInternal, UAT, Training, Sandbox, Production.
+      </xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Development">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a development environment.
-						Test data stores are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="UAT">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a UAT environment.
-						Test data stores are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Training">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a training environment.
-						Data stores containing training data are to be used and various functionality may be disabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="QA">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a QA environment.
-						Data stores intended for quality assurance procedures are to be used and all features and functionality are enabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value="Production">
-				<xs:annotation>
-					<xs:documentation>
-						The message is to be executed in a production environment.
-						Production data stores are to be used and all features and functionality are enabled.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
+		
 		</xs:restriction>
 	</xs:simpleType>
 

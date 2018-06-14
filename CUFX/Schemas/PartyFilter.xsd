@@ -107,6 +107,24 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
+      <xs:element name="partyStatusList" type="party:PartyStatusList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party statuses that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      
+      <xs:element name="partyStatusCommentList" type="party:PartyStatusCommentList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party status comments that should have their associated parties either returned or affected
+						by a read, update or delete party request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -167,8 +185,17 @@
 			<xs:element name="partyDateCreatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to search by partyDateCreated date/time.
+						Filter that is used to search by partyDateTimeCreated date/time.
 						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      
+      <xs:element name="partyCreatedByList" type="party:PartyCreatedByList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party created by user IDs that should have their associated parties either returned or affected
+						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -176,8 +203,17 @@
 			<xs:element name="partyDateModifiedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to search by partyDateModified date/time.
+						Filter that is used to search by partyDateTimeModified date/time.
 						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+      
+      <xs:element name="partyModifiedByList" type="party:PartyModifiedByList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party modified by user IDs that should have their associated parties either returned or affected
+						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -185,7 +221,7 @@
 			<xs:element name="partyDateDeletedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Filter that is used to search partyDateDeleted date/time.
+						Filter that is used to search partyDateTimeDeleted date/time.
 						Usage see common.xsd DateRange.
 					</xs:documentation>
 				</xs:annotation>

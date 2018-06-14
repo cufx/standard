@@ -73,6 +73,14 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+
+      <xs:element name="fiOrganizationType" type="party:OrganizationType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates the type of the financial institution.  As in Corporation, NotForProfit, etc.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
       <xs:element name="fiStatus" type="FinancialInstitutionStatus" minOccurs="0" maxOccurs="1">
         <xs:annotation>
