@@ -60,6 +60,15 @@
         </xs:annotation>
       </xs:element>
 
+      <xs:element name="fiStatusCommentList" type="fi:FinancialInstitutionStatusCommentList" minOccurs ="0" maxOccurs ="1">
+        <xs:annotation>
+          <xs:documentation>
+            The list of financial institution status comments that should have their associated financial
+            institutions either returned or affected by a read, update or delete account request.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="partyIdList" type="fi:FinancialInstitutionPartyIdList" minOccurs ="0" maxOccurs ="1">
         <xs:annotation>
           <xs:documentation>

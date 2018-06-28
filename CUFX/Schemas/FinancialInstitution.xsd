@@ -90,7 +90,7 @@
         </xs:annotation>
       </xs:element>
       
-      <xs:element name="fiStatusComment" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="fiStatusComment" type="FinancialInstitutionStatusComment" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             More detail as to why the financial institution is in a particular status.
@@ -214,6 +214,16 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="FinancialInstitutionStatusComment">
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          The financial institution status is used to identify why a financial institution is in a particular status.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="FinancialInstitutionIdList">
     <xs:annotation>
       <xs:documentation>
@@ -272,6 +282,28 @@
             <xs:annotation>
               <xs:documentation>
                 A valid financial institution status for this instance.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="FinancialInstitutionStatusCommentList">
+    <xs:annotation>
+      <xs:documentation>
+        The list of financial institution status comments that should have their associated financial institution
+        records either returned or affected by a read, update or delete financial institution request.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="common:ListBase">
+        <xs:sequence>
+          <xs:element name="fiStatusComment" type="FinancialInstitutionStatusComment" minOccurs ="0" maxOccurs ="unbounded">
+            <xs:annotation>
+              <xs:documentation>
+                A financial institution status comment for this instance.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
