@@ -433,7 +433,7 @@
 					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-                A list of configuraiton app Id's that point to how an app as it's
+                A list of configuration app Id's that point to how an app as it's
                 installed/specialized in the configuration.
               </xs:documentation>
 						</xs:annotation>
@@ -450,9 +450,9 @@
 					<xs:element name="configurationAppParameter" type="ConfigurationAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-                A list of configuraiton app parameter Id's that point to how an
-                app parameter is set/specialized in the configuration for an app.
-              </xs:documentation>
+								A list of configuration app parameter Id's that point to how an
+								app parameter is set/specialized in the configuration for an app.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
