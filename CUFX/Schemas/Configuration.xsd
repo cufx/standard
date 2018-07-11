@@ -1028,7 +1028,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="currencySupportList" type="common:CurrencySupportList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="currencySupportList" type="common:CurrencyList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Valid values for currency.  If zero currencies are listed then USD is the only supported currency.
@@ -1036,7 +1036,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="acceptLanguageList" type="common:AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="acceptLanguageList" type="common:LanguageList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies which language(s) can be received by the end point. This instructs it to

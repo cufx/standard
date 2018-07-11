@@ -123,7 +123,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="fiCurrencySupportList" type="common:CurrencySupportList" minOccurs ="0" maxOccurs="1">
+      <xs:element name="fiCurrencySupportList" type="common:CurrencyList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Valid values for currency that the financial institution works with.
@@ -133,7 +133,7 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="fiAcceptLanguageList" type="common:AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+      <xs:element name="fiAcceptLanguageList" type="common:LanguageList" minOccurs ="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Specifies which language(s) the financial institution works with.

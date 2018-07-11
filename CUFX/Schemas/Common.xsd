@@ -1029,14 +1029,14 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="CurrencySupportList">
+	<xs:complexType name="CurrencyList">
 		<xs:complexContent>
 			<xs:extension base="ListBase">
 				<xs:sequence>
-					<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
+					<xs:element name="currency" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Currency supported by the service.  If none were supplied, then USD is the only valid currency.
+								A currency.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1045,23 +1045,19 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="AcceptLanguageList">
+	<xs:complexType name="LanguageList">
 		<xs:annotation>
 			<xs:documentation>
-				Specifies which language(s) can be received by the end point. This instructs it
-				to generate its response data and return its data and errors in the accepted language(s).
-				If none are specified then the default is US English (en-us).
+				The list of languages.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ListBase">
 				<xs:sequence>
-					<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
+					<xs:element name="language" type="Language" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Specifies a valid language-region which can be received by the end point, which instructs it
-								to generate its response data and return its data and errors in the accepted language(s).
-								Combination of a language and a region.  For example en-us.
+								Specifies a valid language-region.  For example en-us.
 								http://www.iana.org/assignments/language-subtag-registry
 							</xs:documentation>
 						</xs:annotation>
@@ -1071,6 +1067,16 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:simpleType name="Language">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Specifies a valid language-region.  For example en-us.
+					http://www.iana.org/assignments/language-subtag-registry
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="TimeZoneUTCOffset">
 		<xs:annotation>
