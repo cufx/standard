@@ -29,7 +29,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="field" type="Field" minOccurs="0" maxOccurs="1">
+					<xs:element name="field" type="Field" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Field data.
@@ -182,7 +182,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="1">
+					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Required data that a party must provide for product or service field requirement.
