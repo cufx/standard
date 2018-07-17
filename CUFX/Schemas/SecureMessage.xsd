@@ -233,7 +233,14 @@
 				</xs:annotation >
 			</xs:element>
 
-
+			<xs:element name="doNotReply" type="xs:boolean" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						A boolean to indicate that no message response is expected. When true no response message 
+						should be sent. When null value is assumed to be false.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
