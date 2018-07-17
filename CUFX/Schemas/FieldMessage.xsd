@@ -16,7 +16,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/FieldFilter.xsd" schemaLocation="FieldFilter.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
 	
-	<xs:element name="fieldRequirementMessage" type="FieldRequirementMessage">
+	<xs:element name="fieldMessage" type="FieldMessage">
 		<xs:annotation>
 			<xs:documentation>
 				All values that can be sent in an field message.  Contains message context, field filter and field list.  
@@ -26,7 +26,7 @@
 		</xs:annotation>
 	</xs:element>
 
-	<xs:complexType name="FieldRequirementMessage">
+	<xs:complexType name="FieldMessage">
 		<xs:annotation>
 			<xs:documentation>
 				All values that can be sent in an field message.  Contains message context, field filter and field list.
