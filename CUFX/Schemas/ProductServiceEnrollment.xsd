@@ -34,7 +34,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="productServiceEnrollment" type="ProductServiceEnrollment" minOccurs="0" maxOccurs="1">
+					<xs:element name="productServiceEnrollment" type="ProductServiceEnrollment" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Product service enrollment data.
