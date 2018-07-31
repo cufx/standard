@@ -75,7 +75,7 @@
 			<xs:element name="appHash" type="AppHash" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Program hash to validate against the store.
+						Program hash to validate against the publisher.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -425,7 +425,7 @@
 				</xs:annotation>
 			</xs:enumeration>
 
-			<xs:enumeration value="FlatFileWithNameValuePairs" >
+			<xs:enumeration value="KeyValuePairs" >
 				<xs:annotation>
 					<xs:documentation>
 						The parameter is in flat text file.  See
