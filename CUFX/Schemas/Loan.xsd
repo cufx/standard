@@ -1665,9 +1665,13 @@
 				may be visible to the user and must be human-readable.  If the same
 				party exists at the relationship level, the account level
 				relationship type overrides the relationship.
+
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:choice>
+		<xs:sequence>
 			<xs:element name="borrower" type="Borrower" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1707,7 +1711,7 @@
 					</xs:documentation >
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name ="Borrower">
