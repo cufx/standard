@@ -90,10 +90,10 @@
 			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-            Indicates the environment in which the message should be executed.
-            Depends upon agreements between endpoints what is passed for each environment.
-            Examples might be: Dev, QAInternal, UAT, Sandbox, Production.
-          </xs:documentation>
+						Indicates the environment in which the message should be executed.
+						Depends upon agreements between endpoints what is passed for each environment.
+						Examples might be: Dev, QAInternal, UAT, Sandbox, Production.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs="0" maxOccurs="1">
@@ -166,7 +166,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of supported Apps in this configuration.  the configuration app points back to the
-            system level app and lists out any changes for the configuration.
+						system level app and lists out any changes for the configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -240,38 +240,38 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:simpleType name="ConfigurationName">
-    <xs:annotation>
-      <xs:documentation>
-        Unique name for the configuration.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="ConfigurationName">
+		<xs:annotation>
+			<xs:documentation>
+				Unique name for the configuration.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="ConfigurationNameList">
-    <xs:annotation>
-      <xs:documentation>
-        List of valid configuration names for this endpoint.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="configurationName" type="ConfigurationName" minOccurs ="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                A valid configuration name for this endpoint.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="ConfigurationNameList">
+		<xs:annotation>
+			<xs:documentation>
+				List of valid configuration names for this endpoint.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationName" type="ConfigurationName" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid configuration name for this endpoint.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:simpleType name="ConfigurationStatus">
+	<xs:simpleType name="ConfigurationStatus">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value ="Online"></xs:enumeration>
 			<xs:enumeration value ="Offline"></xs:enumeration>
@@ -281,26 +281,26 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="ConfigurationStatusList">
-    <xs:annotation>
-      <xs:documentation>
-        List of valid configuration statuses for this endpoint.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs ="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                A valid configuration Status for this endpoint.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="ConfigurationStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				List of valid configuration statuses for this endpoint.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid configuration Status for this endpoint.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:simpleType name="ServiceTimeZoneUTCOffset">
 		<xs:annotation>
@@ -433,9 +433,9 @@
 					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-                A list of configuration app Id's that point to how an app as it's
-                installed/specialized in the configuration.
-              </xs:documentation>
+								A list of configuration app Id's that point to how an app as it's
+								installed/specialized in the configuration.
+							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
@@ -782,8 +782,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the app at the sytstem level.
-            Used for defaulting back to defaults or finding out what original values are and
-            seeing the app attributes that do not change at the configuration/financial institution level.
+						Used for defaulting back to defaults or finding out what original values are and
+						seeing the app attributes that do not change at the configuration/financial institution level.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -800,7 +800,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Directory location of program in host OS for this configuration and financial institution
-            in case it is different than the system level app attributes.
+						in case it is different than the system level app attributes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1590,8 +1590,8 @@
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Configuration Network Node Adddress level Not Supported level name/data pairs list of fields 
-            that are not yet available in the general specification.
+						Configuration Network Node Adddress level Not Supported level name/data pairs list of fields
+						that are not yet available in the general specification.
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
@@ -1615,7 +1615,7 @@
 		<xs:annotation>
 			<xs:documentation>
 				The list of Configuration network node address ID's that should have their associated
-        configurations either returned or affected
+				configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
