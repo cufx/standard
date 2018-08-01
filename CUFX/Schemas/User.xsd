@@ -43,7 +43,7 @@
 			<xs:element name="userId" type="UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The user ID is a unique identifier for the user, based on the type of user (see UserType below) that is requesting
+						The user ID is a unique identifier for the user, based on the type of user (see User Id Type below) that is requesting
 						the message to be performed.
 					</xs:documentation>
 				</xs:annotation>
@@ -59,7 +59,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="userType" type="UserType" minOccurs="0" maxOccurs="1">
+			<xs:element name="userIdType" type="UserIdType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The user ID type identifies what type of user is requesting the service.
@@ -101,7 +101,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="UserType">
+	<xs:simpleType name="UserIdType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="EmployeeId" >
 				<xs:annotation>
@@ -178,14 +178,14 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="UserTypeList">
+	<xs:complexType name="UserIdTypeList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="userType" type="UserType" minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="userType" type="UserIdType" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Collection of user types to return in a filter request.
+								Collection of user id types to return in a filter request.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
