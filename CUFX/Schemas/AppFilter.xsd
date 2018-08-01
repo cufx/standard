@@ -75,15 +75,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="appPathList" type="app:AppPathList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of app paths that should have their associated app records returned
-						or affected by a read, update or delete app request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="appParameterIdList" type="app:AppParameterIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -115,24 +106,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of app parameter types that should have their associated app records returned
-						or affected by a read, update or delete app request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="parameterPathList" type="app:ParameterPathList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of app parameter paths that should have their associated app records returned
-						or affected by a read, update or delete app request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="parameterXPathList" type="app:ParameterXPathList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of app parameter Xpaths that should have their associated app records returned
 						or affected by a read, update or delete app request.
 					</xs:documentation>
 				</xs:annotation>

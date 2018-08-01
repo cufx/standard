@@ -80,22 +80,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="isAppHashValidated" type="xs:boolean" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Default to false until results of appHash have been validated.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="path" type="AppPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Directory location of program in host OS.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="appParameterList" type="AppParameterList" >
 				<xs:annotation>
 					<xs:documentation>
@@ -134,16 +118,6 @@
 			<xs:annotation>
 				<xs:documentation>
 					Program hash to validate against the store..
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="AppPath">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					Directory location of program in host OS.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>
@@ -241,24 +215,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						A meaningful description of what the parameter represents.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="parameterPath" type="ParameterPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The location where the parameter resides.
-						For example: could be directory and file name.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="parameterXPath" type="ParameterXPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The XPath in an XML file of a parameter.
-						For example: /FinancialInstitution/Name
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -446,26 +402,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="ParameterPath">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The location where the parameter resides. For example: could be directory and file name.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
-	<xs:simpleType name="ParameterXPath">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The XPath in an XML file of a parameter. For example: /FinancialInstitution/Name
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:simpleType name="CurrentValue">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -516,22 +452,6 @@
 						<xs:annotation>
 							<xs:documentation>
 								Collection of app hashes to return in a filter request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="AppPathList">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="path" type="AppPath" minOccurs="0" maxOccurs ="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Collection of app paths to return in a filter request.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -604,36 +524,5 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ParameterPathList">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="parameterPath" type="ParameterPath" minOccurs="0" maxOccurs ="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Collection of app parameter aths to return in a filter request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="ParameterXPathList">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="parameterXPath" type="ParameterXPath" minOccurs="0" maxOccurs ="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Collection of app parameter aths to return in a filter request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 </xs:schema>
 
