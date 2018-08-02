@@ -387,14 +387,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Directory location of program in host OS for this configuration in case it is different than the system level app installation.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="configurationAppParameterList" type="ConfigurationAppParameterList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -479,24 +471,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The App Parameter ID that points to the app as it is set up at the system level.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="configurationParameterPath" type="app:ParameterPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The location where the parameter resides within this configuration.
-						For example: could be directory and file name.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="configurationParameterXPath" type="app:ParameterXPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The XPath in an XML file of a parameter within this configuration.
-						For example: /Configuration/0001/App/0001/Parameter/0001
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -796,15 +770,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationFiAppPath" type="app:AppPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Directory location of program in host OS for this configuration and financial institution
-						in case it is different than the system level app attributes.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="configurationFiAppParameterList" type="ConfigurationFinancialInstitutionAppParameterList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -894,24 +859,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the app parameter at the sytstem level.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="configurationFiParameterPath" type="app:ParameterPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The location where the parameter resides within this configuration for a financial institution.
-						For example: could be directory and file name.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="configurationFiParameterXPath" type="app:ParameterXPath" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The XPath in an XML file of a parameter within this configuration for a financial institution.
-						For example: /Configuration/0001/FinancialIntituion/0001/App/0001/Parameter/0001
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
