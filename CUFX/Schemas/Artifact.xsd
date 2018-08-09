@@ -133,6 +133,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="artifactUri" type="ArtifactUri" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The URI location of the artifact image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="artifactArchived" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -205,5 +212,15 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+	<xs:simpleType name ="ArtifactUri">
+		<xs:restriction base ="xs:anyURI">
+			<xs:annotation>
+				<xs:documentation>
+					The URI location of the artifact image.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
