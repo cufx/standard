@@ -15,7 +15,7 @@
 	<xs:element name="fieldList" type="FieldList">
 		<xs:annotation>
 			<xs:documentation>
-				List of fields that a party must provide for a given interaction.
+				List of fields to provide for a given interaction.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -23,7 +23,7 @@
 	<xs:complexType name="FieldList">
 		<xs:annotation>
 			<xs:documentation>
-				List of fields that a party must provide for a given interaction.
+				List of fields to provide for a given interaction.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -72,6 +72,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Description providing instruction on how to populate the fieldValue, intended for presentation to a user.
+						May also be a url for supporting information.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -126,10 +127,19 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fieldRequirement" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="fieldTechnicalRequirement" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Technical requirement to be handled programatically as part of presentation / interaction.
+						examples "A-Z" "0-9" "Alphanumeric" 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldSelection" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The value of a valid population for the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -137,7 +147,7 @@
 			<xs:element name="fieldRequirementDescription" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Description of the requirement. Availble to optionally replace or modify fieldPrompt.
+						Description of the requirement. Available to optionally replace or modify fieldPrompt.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -185,7 +195,7 @@
 					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Required data that a party must provide for product or service field requirement.
+								Criteria that must be met for the field to be considered valid.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
