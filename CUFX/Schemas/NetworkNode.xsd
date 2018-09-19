@@ -9,634 +9,446 @@
     elementFormDefault="qualified"
     attributeFormDefault="unqualified">
 
-  <xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
+	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
 
-  <xs:element name="networkNodeList" type="NetworkNodeList" >
-    <xs:annotation>
-      <xs:documentation>
-        List of network nodes.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="networkNodeList" type="NetworkNodeList" >
+		<xs:annotation>
+			<xs:documentation>
+				List of network nodes.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="NetworkNodeList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNode" type="NetworkNode" minOccurs="0" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node data.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="NetworkNodeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNode" type="NetworkNode" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node data.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:complexType name="NetworkNode">
-    <xs:sequence>
-      <xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The network node ID is a unique identifier for the network node.  
-            It does not represent the address of the network node on the network as a network node 
-            may have multiple addresses related to it.  See networkNodeAddressList
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="NetworkNode">
+		<xs:sequence>
+			<xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The network node ID is a unique identifier for the network node.
+						It does not represent the address of the network node on the network as a network node
+						may have multiple addresses related to it.  See networkNodeAddressList
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkId" type="NetworkId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The network ID is a unique identifier for the network that contains the node.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkId" type="NetworkId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The network ID is a unique identifier for the network that contains the node.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeDescription" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Description for the network node.  Use, owner, etc.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description for the network node.  Use, owner, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeStatus" type="NetworkNodeStatus" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Status of the node running on the network.  Free form field but could be for example:
-            Building: During the build state the system may be in a sporadically available and
-            sub systems may not be completely deployed and should not be relied on
-            for processing requests.
-            WaitingOnCredentials: The admininistrated has not yet delivered the credentials to 
-            connect into the network.
-            Available: Fully deployed and running.
-            Offline: Temporarily down
-            Removed: Has been permantently removed from the network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeStatus" type="NetworkNodeStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Status of the node running on the network.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeType" type="NetworkNodeType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The networkNode type identifies what type of network node is defined.
-           </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeType" type="NetworkNodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The networkNode type identifies what type of network node is defined.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeAddressList" type="NetworkNodeAddressList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Collection of network node addresses associated to the netework node.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeAddressList" type="NetworkNodeAddressList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of network node addresses associated to the network node.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Network node level name/data pairs list of fields that are not yet available in the general
-            specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
-            data providers or processed by all client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future release
-            of specifications.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Network node level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-  <xs:simpleType name="NetworkNodeId">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          The unique identifier created by the system and or the network node for identification.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="NetworkNodeStatus">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          Status of the node running on the network.  Free form field but could be for example:
-          Building: During the build state the system may be in a sporadically available and
-          sub systems may not be completely deployed and should not be relied on
-          for processing requests.
-          WaitingOnCredentials: The admininistrated has not yet delivered the credentials to
-          connect into the network.
-          Available: Fully deployed and running.
-          Offline: Temporarily down
-          Removed: Has been permantently removed from the network.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="NetworkNodeId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The unique identifier created by the system and or the network node for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name="NetworkNodeType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ApplicationServer" >
-        <xs:annotation>
-          <xs:documentation>
-            A software framework that provides both facilities to create web applications and
-            a server environment to run them
-            https://en.wikipedia.org/wiki/Application_server
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Bridge" >
-        <xs:annotation>
-          <xs:documentation>
-            A computer networking device that creates a single aggregate network from multiple
-            communication networks or network segments.
-            https://en.wikipedia.org/wiki/Bridging_(networking)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ClientComputer" >
-        <xs:annotation>
-          <xs:documentation>
-            A multi-purpose computer whose size, capabilities, and price make it feasible for individual use.
-            https://en.wikipedia.org/wiki/Personal_computer
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Firewall" >
-        <xs:annotation>
-          <xs:documentation>
-            A network security system that monitors and controls incoming and outgoing network traffic
-            based on predetermined security rules.  A firewall typically establishes a barrier between
-            a trusted internal network and untrusted external network, such as the Internet.
-            https://en.wikipedia.org/wiki/Firewall_(computing)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Hub" >
-        <xs:annotation>
-          <xs:documentation>
-            Network hardware device for connecting multiple Ethernet devices together and making 
-            them act as a single network segment.
-            https://en.wikipedia.org/wiki/Ethernet_hub
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="IoTDevice" >
-        <xs:annotation>
-          <xs:documentation>
-            Physical device, vehicle, home appliance and other items embedded with electronics, software,
-            sensors, actuators, and connectivity which enables these objects to connect and exchange data.
-            Each device is uniquely identifiable through its embedded computing system but is able to 
-            inter-operate within the existing Internet infrastructure.
-            https://en.wikipedia.org/wiki/Internet_of_things
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Modem" >
-        <xs:annotation>
-          <xs:documentation>
-            Network hardware device that modulates one or more carrier wave signals
-            to encode digital information for transmission and demodulates signals
-            to decode the transmitted information.
-            https://en.wikipedia.org/wiki/Modem
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ProxyServer" >
-        <xs:annotation>
-          <xs:documentation>
-            A computer system or an application that acts as an intermediary for requests
-            from clients seeking resources from other servers.[1] A client connects to the
-            proxy server, requesting some service, such as a file, connection, web page,
-            or other resource available from a different server and the proxy server
-            evaluates the request as a way to simplify and control its complexity.
-            https://en.wikipedia.org/wiki/Router_(computing)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Router" >
-        <xs:annotation>
-          <xs:documentation>
-            Networking device that forwards data packets between computer networks.
-            Routers perform the traffic directing functions on the Internet. 
-            https://en.wikipedia.org/wiki/Router_(computing)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DatabaseServer" >
-        <xs:annotation>
-          <xs:documentation>
-            Server which houses a database application that provides database services
-            to other computer programs or to computers, as defined by the client–server model.
-            https://en.wikipedia.org/wiki/Database_server
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="FileServer" >
-        <xs:annotation>
-          <xs:documentation>
-            A computer attached to a network that provides a location for shared disk
-            access, i.e. shared storage of computer files (such as text, image, sound, video)
-            that can be accessed by the workstations that are able to reach the computer that
-            shares the access through a computer network.
-            https://en.wikipedia.org/wiki/File_server
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="PrintServer" >
-        <xs:annotation>
-          <xs:documentation>
-            A device that connects printers to client computers over a network.
-            It accepts print jobs from the computers and sends the jobs to the appropriate
-            printers, queuing the jobs locally to accommodate the fact that work may
-            arrive more quickly than the printer can actually handle.
-            https://en.wikipedia.org/wiki/Print_server
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="OtherServer" >
-        <xs:annotation>
-          <xs:documentation>
-            A server is a computer program or a device that provides functionality
-            for other programs or devices, called "clients"
-            https://en.wikipedia.org/wiki/Server_(computing)
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Switch" >
-        <xs:annotation>
-          <xs:documentation>
-            A computer networking device that connects devices together on a computer network
-            by using packet switching to receive, process, and forward data to the destination device.
-            https://en.wikipedia.org/wiki/Network_switch
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="WebServer" >
-        <xs:annotation>
-          <xs:documentation>
-            Server software, or hardware dedicated to running said software,
-            that can serve contents to the World Wide Web.
-            https://en.wikipedia.org/wiki/Web_server
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other" >
-        <xs:annotation>
-          <xs:documentation>
-            The NetworkNode identification was not one of the above formats.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="NetworkNodeStatus">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Status of the node running on the network.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeAddressList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddress" type="NetworkNodeAddress" minOccurs="1" maxOccurs="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node addresses associated to the netework node.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NetworkNodeType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The networkNode type identifies what type of network node is defined.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeAddress">
-    <xs:sequence>
-      <xs:element name="networkNodeAddressId" type="NetworkNodeAddressId" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Unique identifier for the network node address for create, read, update, and delete purposes.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="NetworkNodeAddressList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeAddress" type="NetworkNodeAddress" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node addresses associated to the network node.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-      <xs:element name="networkNodeAddressDescription" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Description to help identify what the address is for in the network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="NetworkNodeAddress">
+		<xs:sequence>
+			<xs:element name="networkNodeAddressId" type="NetworkNodeAddressId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the network node address for create, read, update, and delete purposes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeAddressValue" type="NetworkNodeAddressValue" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The network node Address is an identifier for the network node.
-            This could be a mac address, IP V4 or V6 address, etc.
-            If needed, the port can either be included in the network address or broken out in the 
-            networkNodePort field.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeAddressDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description to help identify what the address is for in the network.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeAddressScope" type="NetworkNodeAddressScope" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The network node scope for the address.  For example: Local and Global
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeAddressValue" type="NetworkNodeAddressValue" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The network node Address is an identifier for the network node.
+						This could be a mac address, IP V4 or V6 address, etc.
+						If needed, the port can either be included in the network address or broken out in the
+						networkNodePort field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="networkNodeAddressType" type="NetworkNodeAddressType" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The networkNode type identifies what type of network node is defined.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-        
-      <xs:element name="networkNodeAddressPort" type="NetworkNodeAddressPort" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            If needed and not included in the NetworkNodeAddress, the network port type identifies
-            the specific port that communications are performed on.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="networkNodeAddressScopeIsLocal" type="NetworkNodeAddressScopeIsLocal" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The network node scope of the address property based on standard IPV4 and IPV6 conventions is local.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Network node address level name/data pairs list of fields that are not yet available in the general
-            specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
-            data providers or processed by all client applications. ANY use of this field must be reported to the
-            architecture or working group committee to ensure that fields are somehow handled in the future release
-            of specifications.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      
-    </xs:sequence>
-  </xs:complexType>
+			<xs:element name="networkNodeAddressType" type="NetworkNodeAddressType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The networkNode type identifies what type of network node is defined.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-  <xs:simpleType name="NetworkId">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          The network ID is a unique identifier for the network that contains the network node.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+			<xs:element name="networkNodeAddressPort" type="NetworkNodeAddressPort" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If needed and not included in the NetworkNodeAddress, the network port type identifies
+						the specific port that communications are performed on.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-  <xs:simpleType name="NetworkNodeAddressId">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-            The network node Address ID is a unique identifier for the network node address.  
-            This could be a mac address, IP V4 or V6 address, generated GUID, etc.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Network node address level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-  <xs:simpleType name="NetworkNodeAddressValue">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          The network node Address value is an identifier for the network node.
-          This could be a mac address, IP V4 or V6 address, etc.
-          If needed, the port can either be included in the network address or broken out in the
-          networkNodePort field.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+		</xs:sequence>
+	</xs:complexType>
 
-  <xs:simpleType name="NetworkNodeAddressScope">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Local" >
-        <xs:annotation>
-          <xs:documentation>
-            Scope of Address is local and not addressable from the outside network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Global" >
-        <xs:annotation>
-          <xs:documentation>
-            Scope of Address is globally addressable from outside the network.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  
-  <xs:simpleType name="NetworkNodeAddressType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="IPV4" >
-        <xs:annotation>
-          <xs:documentation>
-            is the fourth version of the Internet Protocol (IP). It is one of the core protocols of
-            standards-based internetworking methods in the Internet, and was the first version
-            deployed for production in the ARPANET in 1983.
-            https://en.wikipedia.org/wiki/IPv4
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="IPV6" >
-        <xs:annotation>
-          <xs:documentation>
-            Most recent version of the Internet Protocol (IP), the communications protocol that
-            provides an identification and location system for computers on networks and
-            routes traffic across the Internet.
-            https://en.wikipedia.org/wiki/IPv6
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MAC" >
-        <xs:annotation>
-          <xs:documentation>
-            A media access control address (MAC address) of a device is a unique identifier
-            assigned to network interface controllers for communications at the data link
-            layer of a network segmen
-            https://en.wikipedia.org/wiki/MAC_address
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="URL" >
-        <xs:annotation>
-          <xs:documentation>
-            A reference to a web resource that specifies its location on a computer
-            network and a mechanism for retrieving it.
-            https://en.wikipedia.org/wiki/URL
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Other" >
-        <xs:annotation>
-          <xs:documentation>
-            A network node address type yet to be defined by the specification.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="NetworkId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The network ID is a unique identifier for the network that contains the network node.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:simpleType name="NetworkNodeAddressPort">
-    <xs:restriction base="xs:string">
-      <xs:annotation>
-        <xs:documentation>
-          If needed and not included in the NetworkNodeAddress, the network port type identifies
-          the specific port that communications are performed on.
-        </xs:documentation>
-      </xs:annotation>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="NetworkNodeAddressId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The network node Address ID is a unique identifier for the network node address.
+					This could be a mac address, IP V4 or V6 address, generated GUID, etc.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkIdList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkId" type="NetworkId" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network ids to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  
-  <xs:complexType name="NetworkNodeIdList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node ids to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NetworkNodeAddressValue">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The network node Address value is an identifier for the network node.
+					This could be a mac address, IP V4 or V6 address, etc.
+					If needed, the port can either be included in the network address or broken out in the
+					networkNodePort field.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeStatusList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeStatus" type="NetworkNodeStatus" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  
-  <xs:complexType name="NetworkNodeTypeList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeType" type="NetworkNodeType" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NetworkNodeAddressScopeIsLocal">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					The network node scope of the address property based on standard IPV4 and IPV6 conventions is local.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeAddressIdList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddressId" type="NetworkNodeAddressId" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NetworkNodeAddressType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IPV4" >
+				<xs:annotation>
+					<xs:documentation>
+						is the fourth version of the Internet Protocol (IP). It is one of the core protocols of
+						standards-based internetworking methods in the Internet, and was the first version
+						deployed for production in the ARPANET in 1983.
+						https://en.wikipedia.org/wiki/IPv4
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IPV6" >
+				<xs:annotation>
+					<xs:documentation>
+						Most recent version of the Internet Protocol (IP), the communications protocol that
+						provides an identification and location system for computers on networks and
+						routes traffic across the Internet.
+						https://en.wikipedia.org/wiki/IPv6
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MAC" >
+				<xs:annotation>
+					<xs:documentation>
+						A media access control address (MAC address) of a device is a unique identifier
+						assigned to network interface controllers for communications at the data link
+						layer of a network segmen
+						https://en.wikipedia.org/wiki/MAC_address
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="URL" >
+				<xs:annotation>
+					<xs:documentation>
+						A reference to a web resource that specifies its location on a computer
+						network and a mechanism for retrieving it.
+						https://en.wikipedia.org/wiki/URL
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other" >
+				<xs:annotation>
+					<xs:documentation>
+						A network node address type yet to be defined by the specification.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeAddressValueList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddressValue" type="NetworkNodeAddressValue" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:simpleType name="NetworkNodeAddressPort">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					If needed and not included in the NetworkNodeAddress, the network port type identifies
+					the specific port that communications are performed on.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="NetworkNodeAddressScopeList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddressScope" type="NetworkNodeAddressScope" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="NetworkIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkId" type="NetworkId" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network ids to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:complexType name="NetworkNodeAddressTypeList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddressType" type="NetworkNodeAddressType" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="NetworkNodeIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node ids to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:complexType name="NetworkNodeAddressPortList">
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="networkNodeAddressPort" type="NetworkNodeAddressPort" minOccurs="0" maxOccurs ="unbounded">
-            <xs:annotation>
-              <xs:documentation>
-                Collection of network node types to return in a filter request.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="NetworkNodeStatusList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeStatus" type="NetworkNodeStatus" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkNodeTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeType" type="NetworkNodeType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkNodeAddressIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeAddressId" type="NetworkNodeAddressId" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkNodeAddressValueList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeAddressValue" type="NetworkNodeAddressValue" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkNodeAddressTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeAddressType" type="NetworkNodeAddressType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="NetworkNodeAddressPortList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="networkNodeAddressPort" type="NetworkNodeAddressPort" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of network node types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 </xs:schema>
