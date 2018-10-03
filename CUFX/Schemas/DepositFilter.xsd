@@ -41,14 +41,6 @@
 		<xs:complexContent>
 			<xs:extension base="accountfilter:AccountFilter">
 				<xs:sequence>
-					<xs:element name="depositPartyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The list of deposit party ID's that should have their associated deposit account / party id cross
-								references either returned or affected by a read, update or delete account request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="maturityDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>

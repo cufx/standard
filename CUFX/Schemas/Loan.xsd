@@ -1634,28 +1634,6 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="LoanPartyIdList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of loan party ID’s that should have their associated loan / party id cross references either
-				returned or affected by a read, update or delete account request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="loanPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								Unique identifier for the loan party. Must be a valid party ID.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
 	<xs:complexType name="LoanPartyRelationshipType">
 		<xs:annotation>
 			<xs:documentation>

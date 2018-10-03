@@ -40,14 +40,6 @@
 		<xs:complexContent>
 			<xs:extension base="accountFilter:AccountFilter">
 				<xs:sequence>
-					<xs:element name="investmentPartyIdList" type="investment:InvestmentPartyIdList" minOccurs ="0" maxOccurs ="1">
-						<xs:annotation>
-							<xs:documentation>
-								The list of investment party ID’s that should have their associated investment / party id cross references either
-								returned or affected by a read, update or delete account request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
