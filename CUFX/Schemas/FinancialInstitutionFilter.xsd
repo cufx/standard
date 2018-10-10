@@ -9,6 +9,8 @@
 	xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -17,6 +19,8 @@
 	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:element name="fiFilter" type="FinancialInstitutionFilter">
 		<xs:annotation>
@@ -60,10 +64,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="fi:FinancialInstitutionPartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of financial institution default party Id's that should have their associated financial
+						The list of financial institution party Id's that should have their associated financial
 						institutions either returned or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -78,7 +82,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiCreatedByList" type="fi:FinancialInstitutionCreatedByList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiCreatedByList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to search who may have created the financial institutions.
@@ -96,7 +100,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiLastUpdatedByList" type="fi:FinancialInstitutionLastUpdatedByList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiLastUpdatedByList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Filter that is used to search who may have last updated the financial institutions.
