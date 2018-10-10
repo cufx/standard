@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="FundsTransferFilterBase"
-  targetNamespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
-  version="4.1.$Revision$"
-  xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+	version="4.1.$Revision$"
+	xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
-  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-  xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-  xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-  elementFormDefault="qualified">
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	
+	elementFormDefault="qualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
@@ -52,7 +53,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="accountIDList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -104,7 +105,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 
 			<xs:element name="minAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
@@ -133,7 +134,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="batchIdList" type="fundsTransferCommonBase:BatchIdList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -142,7 +143,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

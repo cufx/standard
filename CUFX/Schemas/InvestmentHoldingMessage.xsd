@@ -5,7 +5,7 @@
 	xmlns="http://cufxstandards.com/v4/InvestmentHoldingMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-  xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
 	xmlns:investmentHoldingFilter="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd"
 
 	elementFormDefault="qualified"
@@ -18,7 +18,7 @@
 	<xs:element name="investmentHoldingMessage" type="InvestmentHoldingMessage">
 		<xs:annotation>
 			<xs:documentation>
-				All values that can be sent in a investment holding message.  Contains message context, investmentHolding filter 
+				All values that can be sent in a investment holding message.  Contains message context, investmentHolding filter
 				and a investment holding list.
 				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
 				example specifications for usage.
@@ -29,7 +29,7 @@
 	<xs:complexType name="InvestmentHoldingMessage">
 		<xs:annotation>
 			<xs:documentation>
-				All values that can be sent in a investment holding message.  Contains message context, investment holding filter 
+				All values that can be sent in a investment holding message.  Contains message context, investment holding filter
 				and a investment holdinglist.
 				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
 				example specifications for usage.

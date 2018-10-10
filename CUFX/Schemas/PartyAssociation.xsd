@@ -146,21 +146,21 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="financialInstitution" type="FinancialInstitution">
-        <xs:annotation>
-          <xs:documentation>
-            Organization (parent) provides financial services to Organization, Individual, Trust or Estate (child).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="financialInstitution" type="FinancialInstitution">
+				<xs:annotation>
+					<xs:documentation>
+						Organization (parent) provides financial services to Organization, Individual, Trust or Estate (child).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="vendor" type="Vendor">
-        <xs:annotation>
-          <xs:documentation>
-            Organization (parent) provides vendor services to Organization (child).
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="vendor" type="Vendor">
+				<xs:annotation>
+					<xs:documentation>
+						Organization (parent) provides vendor services to Organization (child).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -548,73 +548,73 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-  <xs:complexType name="FinancialInstitution">
-    <xs:annotation>
-      <xs:documentation>
-        Organization provides financial serivces to Organization, Individual, Estate or Trust.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="qualifier" type="FinancialInstitutionQualifier" minOccurs ="1" maxOccurs ="1">
-            <xs:annotation>
-              <xs:documentation>
-                Financial Institution services types.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="FinancialInstitution">
+		<xs:annotation>
+			<xs:documentation>
+				Organization provides financial serivces to Organization, Individual, Estate or Trust.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="qualifier" type="FinancialInstitutionQualifier" minOccurs ="1" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Financial Institution services types.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:simpleType name="FinancialInstitutionQualifier">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ProvidesServices">
-        <xs:annotation>
-          <xs:documentation>
-            Financial Institution provides credit union services.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
+	<xs:simpleType name="FinancialInstitutionQualifier">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ProvidesServices">
+				<xs:annotation>
+					<xs:documentation>
+						Financial Institution provides credit union services.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 
-  <xs:complexType name="Vendor">
-    <xs:annotation>
-      <xs:documentation>
-        Organization provides financial serivces to Organization, Individual, Estate or Trust.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="common:ListBase">
-        <xs:sequence>
-          <xs:element name="qualifier" type="VendorQualifier" minOccurs ="1" maxOccurs ="1">
-            <xs:annotation>
-              <xs:documentation>
-                Financial Institution services types.
-              </xs:documentation>
-            </xs:annotation>
-          </xs:element>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+	<xs:complexType name="Vendor">
+		<xs:annotation>
+			<xs:documentation>
+				Organization provides financial serivces to Organization, Individual, Estate or Trust.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="qualifier" type="VendorQualifier" minOccurs ="1" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Financial Institution services types.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
-  <xs:simpleType name="VendorQualifier">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ProvidesServices">
-        <xs:annotation>
-          <xs:documentation>
-            Vendor provides services.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  
-  <xs:simpleType name="PartyAssociationId">
+	<xs:simpleType name="VendorQualifier">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ProvidesServices">
+				<xs:annotation>
+					<xs:documentation>
+						Vendor provides services.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PartyAssociationId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
 				<xs:documentation>

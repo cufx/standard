@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-   targetNamespace="http://cufxstandards.com/v4/Category.xsd"
+	targetNamespace="http://cufxstandards.com/v4/Category.xsd"
 	version="4.1.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Category.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -77,14 +77,14 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="isCategoryActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Is category active.  This will allow specific categories to not be shown if they
-            are not active yet or after they have been closed out.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="isCategoryActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Is category active.  This will allow specific categories to not be shown if they
+						are not active yet or after they have been closed out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="parentCategoryId" type="CategoryId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -101,7 +101,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

@@ -5,8 +5,9 @@
 	version="4.1.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:loanDisbursement="http://cufxstandards.com/v4/LoanDisbursement.xsd"
-    xmlns:common="http://cufxstandards.com/v4/Common.xsd"
- 	elementFormDefault="qualified"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
@@ -48,7 +49,7 @@
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-					    Loan disbursement request level name/data pairs list of fields that are not yet available in the general
+						Loan disbursement request level name/data pairs list of fields that are not yet available in the general
 						specification. This should be used as a LAST RESORT as any customizations will not be supported by all
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future

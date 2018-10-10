@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v4/ActivityFilter.xsd"
-  version="4.1.$Revision: 1062 $"
-  xmlns="http://cufxstandards.com/v4/ActivityFilter.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
+	targetNamespace="http://cufxstandards.com/v4/ActivityFilter.xsd"
+	version="4.1.$Revision: 1062 $"
+	xmlns="http://cufxstandards.com/v4/ActivityFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 
-  elementFormDefault="qualified" >
+	elementFormDefault="qualified" >
 
 	<xs:import namespace ="http://cufxstandards.com/v4/Activity.xsd" schemaLocation ="Activity.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Common.xsd" schemaLocation ="Common.xsd" />
@@ -52,7 +52,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="creatorList" type="activity:CreatorList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -61,11 +61,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="activityRelatedTo" type="activity:RelatedToGroups">
 				<xs:annotation>
 					<xs:documentation>
-						List of contacts, parties, relationships and accounts related to this activities to be returned or 
+						List of contacts, parties, relationships and accounts related to this activities to be returned or
 						affected by a read, update or delete activity request.
 					</xs:documentation>
 				</xs:annotation>
@@ -76,7 +76,7 @@
 					<xs:documentation>
 						If present and set true, return activities that are scheduled.
 						If present and set false, then return activities that are not scheduled.
-						If not set, no effect on the returned activites. 
+						If not set, no effect on the returned activites.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -154,7 +154,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="activityMinAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>

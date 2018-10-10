@@ -1,23 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v4/SecureMessage.xsd"
-  version="4.1.$Revision$"
-  xmlns="http://cufxstandards.com/v4/SecureMessage.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-  xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-  xmlns:card="http://cufxstandards.com/v4/Card.xsd"
-  xmlns:document="http://cufxstandards.com/v4/Document.xsd"
-  xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
-  xmlns:user="http://cufxstandards.com/v4/User.xsd"
-  xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
-  xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
+	targetNamespace="http://cufxstandards.com/v4/SecureMessage.xsd"
+	version="4.1.$Revision$"
+	xmlns="http://cufxstandards.com/v4/SecureMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+	xmlns:document="http://cufxstandards.com/v4/Document.xsd"
+	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
 
- 
-  elementFormDefault="qualified"
-  attributeFormDefault="unqualified">
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
@@ -236,7 +235,7 @@
 			<xs:element name="allowReply" type="xs:boolean" minOccurs="0" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
-						A boolean to indicate that a response is permitted. When false a response message 
+						A boolean to indicate that a response is permitted. When false a response message
 						should be not be sent. When not specified the value is assumed to be true.
 					</xs:documentation>
 				</xs:annotation>

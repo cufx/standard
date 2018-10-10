@@ -5,62 +5,62 @@
 	xmlns="http://cufxstandards.com/v4/RegisteredDeviceMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-  xmlns:registeredDeviceFilter="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
-  xmlns:registeredDevice="http://cufxstandards.com/v4/RegisteredDevice.xsd"
+	xmlns:registeredDeviceFilter="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
+	xmlns:registeredDevice="http://cufxstandards.com/v4/RegisteredDevice.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd" schemaLocation="RegisteredDeviceFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd" schemaLocation="RegisteredDeviceFilter.xsd" />
 
-  <xs:element name="registeredDeviceMessage" type="RegisteredDeviceMessage">
-    <xs:annotation>
-      <xs:documentation>
-        All values that can be sent in a registered device message.  Contains message context and registered device filter.
-        This is a wrapper used to more easily serialize the complete message.  All values are optional.  See example
-        specifications for usage.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="registeredDeviceMessage" type="RegisteredDeviceMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a registered device message.  Contains message context and registered device filter.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See example
+				specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="RegisteredDeviceMessage">
-    <xs:annotation>
-      <xs:documentation>
-        All values that can be sent in a validate registered device request message.  Contains message context and a validate
-        registered device request list.  This is a wrapper used to more easily serialize the complete message.  All values
-        are optional.  See example specifications for usage.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The message context contains information that is passed as part of each CUFX message call.  It
-            identifies who is sending the request in and enables the service provider to execute some level
-            of security or processing.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="registeredDeviceFilter" type="registeredDeviceFilter:RegisteredDeviceFilter" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            Filter applied to registered devices for which this request should apply to.
-            Applies to read, update and delete.  Create messages will not have a filter.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="registeredDeviceList" type="registeredDevice:RegisteredDeviceList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            List of filters applied to registered devices for which this request should apply to.
-            Applies to create and update messages.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence >
-  </xs:complexType >
+	<xs:complexType name="RegisteredDeviceMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a validate registered device request message.  Contains message context and a validate
+				registered device request list.  This is a wrapper used to more easily serialize the complete message.  All values
+				are optional.  See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call.  It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="registeredDeviceFilter" type="registeredDeviceFilter:RegisteredDeviceFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter applied to registered devices for which this request should apply to.
+						Applies to read, update and delete.  Create messages will not have a filter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="registeredDeviceList" type="registeredDevice:RegisteredDeviceList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						List of filters applied to registered devices for which this request should apply to.
+						Applies to create and update messages.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
 </xs:schema>
 
 

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="WireFilter"
-    targetNamespace="http://cufxstandards.com/v4/WireFilter.xsd"
-    version="4.1.$Revision$"
-    xmlns="http://cufxstandards.com/v4/WireFilter.xsd"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:wire="http://cufxstandards.com/v4/Wire.xsd"
-    xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
-		xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-           
-    elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
+	targetNamespace="http://cufxstandards.com/v4/WireFilter.xsd"
+	version="4.1.$Revision$"
+	xmlns="http://cufxstandards.com/v4/WireFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wire="http://cufxstandards.com/v4/Wire.xsd"
+	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Wire.xsd" schemaLocation="Wire.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
@@ -40,7 +40,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					
+
 					<xs:element name="escrowNumber" type="xs:string" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -48,7 +48,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					
+
 					<xs:element name="escrowOfficerName" type="xs:string" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -88,7 +88,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					
+
 					<xs:element name="externalAccountSWIFTCode" type="xs:string" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>

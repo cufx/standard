@@ -5,10 +5,10 @@
 	xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
-  xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:document="http://cufxstandards.com/v4/Document.xsd"
-  xmlns:secureMessage="http://cufxstandards.com/v4/SecureMessage.xsd"
-                      
+	xmlns:secureMessage="http://cufxstandards.com/v4/SecureMessage.xsd"
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -16,7 +16,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation ="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Document.xsd" schemaLocation="Document.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
-
 
 	<xs:element name="productServiceRequestList" type="ProductServiceRequestList">
 		<xs:annotation>

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v4/Activity.xsd"
-  version="4.1.$Revision: 1062 $"
-  xmlns="http://cufxstandards.com/v4/Activity.xsd"
+	targetNamespace="http://cufxstandards.com/v4/Activity.xsd"
+	version="4.1.$Revision: 1062 $"
+	xmlns="http://cufxstandards.com/v4/Activity.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:credential="http://cufxstandards.com/v4/CredentialGroup.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  
-  elementFormDefault="qualified">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+	elementFormDefault="qualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
@@ -278,7 +278,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-
 	</xs:complexType>
 
 	<xs:complexType name ="ActivityId">

@@ -7,16 +7,16 @@
 	xmlns:mstns="http://cufxstandards.com/v4/TransferOccurrenceMessage.xsd"
 	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:transferFilter="http://cufxstandards.com/v4/TransferFilter.xsd"
-  xmlns:transferOccurrence="http://cufxstandards.com/v4/TransferOccurrence.xsd"
-  xmlns:transferRecurring="http://cufxstandards.com/v4/TransferRecurring.xsd"         
-           
+	xmlns:transferOccurrence="http://cufxstandards.com/v4/TransferOccurrence.xsd"
+	xmlns:transferRecurring="http://cufxstandards.com/v4/TransferRecurring.xsd"
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" /> 
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/TransferFilter.xsd" schemaLocation="TransferFilter.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/TransferRecurring.xsd" schemaLocation="TransferRecurring.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/TransferOccurrence.xsd" schemaLocation="TransferOccurrence.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/TransferRecurring.xsd" schemaLocation="TransferRecurring.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/TransferOccurrence.xsd" schemaLocation="TransferOccurrence.xsd" />
 
 	<xs:element name="transferOccurrenceMessage" type="TransferOccurrenceMessage">
 		<xs:annotation>
@@ -42,7 +42,7 @@
 					<xs:documentation>
 						The message context contains information that is passed as part of each CUFX message call.  It
 						identifies who is sending the request in and enables the service provider to execute some level
-            of security or processing.
+						of security or processing.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -53,13 +53,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="transferOccurrenceList" type="transferOccurrence:TransferOccurrenceList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            All of the transfer data.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="transferOccurrenceList" type="transferOccurrence:TransferOccurrenceList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All of the transfer data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
