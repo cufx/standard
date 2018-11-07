@@ -169,6 +169,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						For a blocked card, specifies the reason for the block.
+						Element deprecated in favor of cardStatusReason.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -176,13 +177,21 @@
 				<xs:annotation>
 					<xs:documentation>
 						For a blocked card, specifies the date on which the card was blocked.
+						Element deprecated in favor of cardStatusDateTime.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="suspendedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+			<xs:element name="cardStatusDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						For a suspended card, specifies the date on which the card was suspended.
+						The date and time the current card status was applied.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cardStatusReason" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies the reason for the current card status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -235,18 +244,36 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Active"/>
 			<xs:enumeration value="AssignPIN"/>
-			<xs:enumeration value="Blocked"/>
+			<xs:enumeration value="Blocked" >
+				<xs:annotation>
+					<xs:documentation>
+						The card has been disabled typically controlled by the FI. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Closed"/>
 			<xs:enumeration value="Expedite"/>
 			<xs:enumeration value="Expired"/>
-			<xs:enumeration value="HotCarded"/>
+			<xs:enumeration value="HotCarded">
+				<xs:annotation>
+					<xs:documentation>
+						Card is to be captured and destroyed at next presentation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Inactive"/>
 			<xs:enumeration value="Issued"/>
 			<xs:enumeration value="Lost"/>
 			<xs:enumeration value="ReadOnly"/>
 			<xs:enumeration value="Restricted"/>
 			<xs:enumeration value="Stolen"/>
-			<xs:enumeration value="Suspended"/>
+			<xs:enumeration value="Suspended" >
+				<xs:annotation>
+					<xs:documentation>
+						The card has been disabled typically controlled by the card owner. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
