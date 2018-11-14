@@ -143,7 +143,9 @@
 			<xs:element name="networkNodeAddressId" type="NetworkNodeAddressId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Unique identifier for the network node address for create, read, update, and delete purposes.
+						Unique identifier for the network node address.
+						The network node Address ID is a unique identifier for the network node address.
+						This could be a mac address, IP V4 or V6 address, generated GUID, etc.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -161,8 +163,7 @@
 					<xs:documentation>
 						The network node Address is an identifier for the network node.
 						This could be a mac address, IP V4 or V6 address, etc.
-						If needed, the port can either be included in the network address or broken out in the
-						networkNodePort field.
+						Port can be found in the networkNodePort field.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -186,8 +187,7 @@
 			<xs:element name="networkNodeAddressPort" type="NetworkNodeAddressPort" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						If needed and not included in the NetworkNodeAddress, the network port type identifies
-						the specific port that communications are performed on.
+						The network port type identifies the specific port that communications are performed on.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -234,8 +234,7 @@
 				<xs:documentation>
 					The network node Address value is an identifier for the network node.
 					This could be a mac address, IP V4 or V6 address, etc.
-					If needed, the port can either be included in the network address or broken out in the
-					networkNodePort field.
+					Port can be found in the networkNodePort field.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>
