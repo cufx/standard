@@ -9,6 +9,7 @@
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 
 	elementFormDefault="qualified"
@@ -19,6 +20,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="partyFilter" type="PartyFilter">
@@ -191,7 +193,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyCreatedByList" type="party:PartyCreatedByList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyCreatedByList" type="user:UserIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party created by user IDs that should have their associated parties either returned or affected
@@ -209,7 +211,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyModifiedByList" type="party:PartyModifiedByList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyModifiedByList" type="user:UserIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party modified by user IDs that should have their associated parties either returned or affected

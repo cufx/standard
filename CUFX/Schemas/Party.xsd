@@ -1835,53 +1835,6 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="PartyCreatedByList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of party created by user IDs that should have their associated parties either returned or affected
-				by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="partyCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								A party created by user ID that should have its associated parties either returned or affected
-								by a read, update or delete request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-
-	<xs:complexType name="PartyModifiedByList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of party created by user IDs that should have their associated parties either returned or affected
-				by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="partyModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								A party modified by user ID that should have its associated parties either returned or affected
-								by a read, update or delete request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
 	<xs:complexType name="OrganizationTypeList">
 		<xs:annotation>
 			<xs:documentation>
