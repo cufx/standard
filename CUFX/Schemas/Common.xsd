@@ -77,6 +77,16 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="NetworkNodeId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The unique identifier created by the system and or the network node for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="NoteList">
 		<xs:annotation>
 			<xs:documentation>

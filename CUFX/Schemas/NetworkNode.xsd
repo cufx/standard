@@ -37,7 +37,7 @@
 
 	<xs:complexType name="NetworkNode">
 		<xs:sequence>
-			<xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs="1">
+			<xs:element name="networkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The network node ID is a unique identifier for the network node.
@@ -101,16 +101,6 @@
 
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="NetworkNodeId">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The unique identifier created by the system and or the network node for identification.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:simpleType name="NetworkNodeStatus">
 		<xs:restriction base="xs:string">
@@ -343,7 +333,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="networkNodeId" type="NetworkNodeId" minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="networkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Collection of network node ids to return in a filter request.

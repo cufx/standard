@@ -101,20 +101,21 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="sendingNetworkNodeId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="sendingNetworkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						network node id of the originating node.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="receivingNetworkNodeId" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="receivingNetworkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						network node id of the receiving node.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+		
 			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
