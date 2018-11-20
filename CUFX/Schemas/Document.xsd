@@ -545,7 +545,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="signedWithIpAddress" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="signedWithIpAddress" type="common:IpAddress" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						When electronically signed, the following IP address was used in the session.
