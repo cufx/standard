@@ -81,6 +81,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="applicationStatusDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date time of the most current application status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name ="productAppliedForList" type="ProductAppliedForList">
 				<xs:annotation>
 					<xs:documentation>
