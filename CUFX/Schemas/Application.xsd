@@ -377,6 +377,34 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="Suspended">
+				<xs:annotation>
+					<xs:documentation>
+						The application is in suspended status. Process is hold waiting for additional action.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Pending">
+				<xs:annotation>
+					<xs:documentation>
+						The application is in Pending status. Application is in process waiting on completion of an action. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Cancelled">
+				<xs:annotation>
+					<xs:documentation>
+						The application has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						The application is in other status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
