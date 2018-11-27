@@ -89,7 +89,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Optional boolean to define if the field is required or optional.
-						If not popluated, then it will assume to be optional.
+						If not populated, then it will assume to be optional.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -131,7 +131,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Technical requirement to be handled programatically as part of presentation / interaction.
-						examples "A-Z" "0-9" "Alphanumeric"
+						examples "A-Z", "0-9", "Alphanumeric"
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -155,7 +155,7 @@
 			<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The format of the content of fieldRequirement. Example: Java Script, Pattern, html, C sharp Snippet.
+						The format of the content of fieldRequirement. Example: Java Script, Pattern, HTML, C# snippet.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -297,7 +297,7 @@
 					<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The format of the content of fieldRequirement. Example: Java Script, Pattern, html, C sharp Snippet.
+								The format of the content of fieldRequirement. Example: Java Script, Pattern, HTML, C# snippet.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
