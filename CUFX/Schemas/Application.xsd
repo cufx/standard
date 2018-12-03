@@ -358,14 +358,14 @@
 			<xs:enumeration value ="InDiscussion">
 				<xs:annotation>
 					<xs:documentation>
-						The internal resource has contacted the applicants and is negotiating with the party.
+						The internal resource has contacted the applicants and is pending negotiating with the party.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="Approved">
 				<xs:annotation>
 					<xs:documentation>
-						The financial institution has approved the application and is waiting for commitment from the applicants.
+						The financial institution has approved the application and is pending the commitment from the applicants.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -405,13 +405,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The application is in suspended status. Process is hold waiting for additional action.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
-			<xs:enumeration value ="Pending">
-				<xs:annotation>
-					<xs:documentation>
-						The application is in Pending status. Application is in process waiting on completion of an action. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
