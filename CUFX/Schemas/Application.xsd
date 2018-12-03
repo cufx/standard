@@ -97,7 +97,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name ="productAppliedForList" type="ProductAppliedForList">
+			<xs:element name ="productAppliedForList" type="ProductAppliedForList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Products applied for and their requested amounts, quoted rates, etc.
