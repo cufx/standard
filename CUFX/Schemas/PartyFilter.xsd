@@ -119,10 +119,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyStatusCommentList" type="party:PartyStatusCommentList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partySubStatusList" type="party:PartySubStatusList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party status comments that should have their associated parties either returned or affected
+						The list of party sub status that should have their associated parties either returned or affected
 						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
