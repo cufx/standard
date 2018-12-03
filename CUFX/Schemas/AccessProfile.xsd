@@ -54,7 +54,7 @@
 
 	<xs:complexType name="AccessProfile">
 		<xs:sequence>
-			<xs:element name="accessProfileId" type="AccessProfileId"  >
+			<xs:element name="accessProfileId" type="AccessProfileId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						An identification descriptor that identifies the access profile.
@@ -62,7 +62,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="actor" type="Actor"  >
+			<xs:element name="actor" type="Actor" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The person, place or thing that is accessing the application.
@@ -115,18 +115,18 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="softwareClient" type="SoftwareClient">
+			<xs:element name="softwareClient" type="SoftwareClient" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The software client information.
+						The software client information profile, i.e. user agent information or other software information.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="device" type="Device">
+			<xs:element name="device" type="Device" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The device information.
+						The device information profile that is accessing the system information.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
