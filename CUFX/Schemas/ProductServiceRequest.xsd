@@ -259,7 +259,7 @@
 				</xs:annotation >
 			</xs:element>
 
-			<xs:element name="requestRelatedTo" type="activity:RelatedToGroups">
+			<xs:element name="requestRelatedTo" type="activity:RelatedToGroups" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of contacts, parties, relationships and accounts related to this request.

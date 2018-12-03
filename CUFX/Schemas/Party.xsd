@@ -69,7 +69,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name= "taxInformationList" type ="TaxInformationList">
+			<xs:element name= "taxInformationList" type ="TaxInformationList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The tax information collection/array contains all the tax identifiers for a party.

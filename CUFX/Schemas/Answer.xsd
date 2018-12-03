@@ -35,7 +35,7 @@
 
 	<xs:complexType name="Answer">
 		<xs:sequence>
-			<xs:element name="party" type="party:Party">
+			<xs:element name="party" type="party:Party"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The original party data that was made in the original identification request.

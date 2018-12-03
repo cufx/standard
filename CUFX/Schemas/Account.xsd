@@ -306,7 +306,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="transactionList" type="transaction:TransactionList">
+					<xs:element name="transactionList" type="transaction:TransactionList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								If there's a start date where provided or required, the transaction list collection/array
@@ -663,21 +663,21 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
+			<xs:element name="depositAccountStatus" type="DepositAccountStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a deposit
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentStatus" type="InvestmentStatus">
+			<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is an investment
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="loanAccountStatus" type ="LoanAccountStatus">
+			<xs:element name="loanAccountStatus" type ="LoanAccountStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a loan

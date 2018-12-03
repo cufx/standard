@@ -76,7 +76,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="activityRelatedTo" type="RelatedToGroups">
+			<xs:element name="activityRelatedTo" type="RelatedToGroups" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of contacts, parties, relationships and accounts related to this activity.

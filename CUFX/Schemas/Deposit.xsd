@@ -296,7 +296,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="depositPartyRelationshipType" type="DepositPartyRelationshipType">
+			<xs:element name="depositPartyRelationshipType" type="DepositPartyRelationshipType" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Level of ownership that the party has over the account.

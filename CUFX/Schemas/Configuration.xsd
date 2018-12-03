@@ -1081,14 +1081,14 @@
 
 	<xs:complexType name="Method">
 		<xs:sequence>
-			<xs:element name="methodId" type="MethodId">
+			<xs:element name="methodId" type="MethodId" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique id for the method.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="methodName" type="MethodName">
+			<xs:element name="methodName" type="MethodName" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Generic name for the method.

@@ -69,7 +69,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="applicationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+			<xs:element name="applicationDate" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The creation date of the application.
@@ -90,7 +90,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="applicationModifiedDateTime" type="xs:dateTime"   minOccurs="0" maxOccurs="1">
+			<xs:element name="applicationModifiedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The date time of a change to the application content.
@@ -179,7 +179,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relationshipId" type="relationship:RelationshipId">
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Key fields that point to an existing relationship that product(s) should
@@ -255,7 +255,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+			<xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The product type is the textual representation of the kind of account.
@@ -264,7 +264,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productSubType" type="xs:string"   minOccurs="0" maxOccurs="1">
+			<xs:element name="productSubType" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The product sub type identifies the specific product type
@@ -272,7 +272,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productApplicationStatus" type="ApplicationStatus">
+			<xs:element name="productApplicationStatus" type="ApplicationStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Individual status within the application of the product itself.
@@ -299,7 +299,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loan" type="loan:Loan">
+			<xs:element name="loan" type="loan:Loan" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details of the loan product (credit card, mortgage, auto, etc.) applied for.
@@ -307,7 +307,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="deposit" type="deposit:Deposit">
+			<xs:element name="deposit" type="deposit:Deposit" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details of the deposit product applied for.
@@ -315,7 +315,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investment" type="investment:Investment">
+			<xs:element name="investment" type="investment:Investment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details of the investment product applied for.

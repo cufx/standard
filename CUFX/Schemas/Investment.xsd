@@ -149,7 +149,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="investmentPartyRelationshipType" type="InvestmentPartyRelationshipType">
+			<xs:element name="investmentPartyRelationshipType" type="InvestmentPartyRelationshipType" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Level of ownership that the party has over the account.

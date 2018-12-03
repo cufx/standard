@@ -80,7 +80,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="appParameterList" type="AppParameterList" >
+			<xs:element name="appParameterList" type="AppParameterList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of application parameters.
