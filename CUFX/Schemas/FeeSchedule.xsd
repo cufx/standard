@@ -111,6 +111,13 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="feeEffectiveDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The period of time in which this fee is effective. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
