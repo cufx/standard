@@ -90,7 +90,7 @@
 			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Indicates the environment in which the message should be executed.
+						Indicates the environment for which the configuration represents.
 						Depends upon agreements between endpoints what is passed for each environment.
 						Examples might be: Dev, QAInternal, UAT, Sandbox, Production.
 					</xs:documentation>
