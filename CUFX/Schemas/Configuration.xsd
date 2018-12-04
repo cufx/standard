@@ -26,14 +26,14 @@
 		<xs:annotation>
 			<xs:documentation>
 				The list of configurations available in the CUFX instance.
-				A configuration is a collection supported financial institutions, services,
+				A configuration is a collection of supported financial institutions, environments, services,
 				methods, limitations and options within each configuration.
-				There maybe more than one configuration for one or more financial institutions.
+				There may be more than one configuration for one or more financial institutions.
 				These configurations can be utilized for whatever purpose the endpoint
 				needs to break out into multiple configurations.  For example,
 				It may be necessary to have multiple test configurations in the same CUFX
 				instance to reduce hardware expense and complexity.  Another option is to support
-				different types of applications but within the same end point.
+				different combinations of configurations but within the same end point.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
