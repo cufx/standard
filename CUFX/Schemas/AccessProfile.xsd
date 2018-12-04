@@ -248,7 +248,7 @@
 			<xs:element name="rawSoftwareClientDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
-						This is a collection of data from the client system that is accessing the host application.
+						This is a raw footprint of data from the client system that is accessing the application.
 						If the user string is present, this can hold the full/unedited user agent string or other identifying text.
 						Some of the information in this field may be parsed to populate fields below.
 					</xs:documentation>
@@ -335,7 +335,7 @@
 			<xs:element name="rawDeviceDetail" type="xs:string" minOccurs="0" maxOccurs="1" >
 				<xs:annotation>
 					<xs:documentation>
-						This is a collection of data about the device from the client system that is accessing the host application.
+						This is a raw footprint of data about the device from the client system that is accessing the application.
 						The device might be a tablet, mobile phone, computer, or phone number in the case of IVR system.
 						Some of the information in this field may be parsed to populate fields below.
 					</xs:documentation>
