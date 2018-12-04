@@ -1098,7 +1098,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:token">
-			<xs:pattern value="([\-\+])(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])"/>
+			<xs:pattern value="([\-\+])([01][0-9]|2[0-3])(:[0-5][0-9])"/>
 		</xs:restriction>
 	</xs:simpleType>
 
