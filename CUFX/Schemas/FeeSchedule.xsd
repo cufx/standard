@@ -52,10 +52,18 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="feeType" type="FeeType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The fee type. Combination of Fee Category and RegDApplicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="type" type="ExtendedFeeType"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The fee type is the textual representation the kind of fee.
+						Element is deprecated.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -114,24 +122,12 @@
 			<xs:element name="feeEffectiveDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The period of time in which this fee is effective. 
+						The period of time in which this fee is effective.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="CustomFeeType">
-		<xs:annotation>
-			<xs:documentation>
-				A fee unique to the institution or product. A string value that must contain a "custom:" prefix.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="custom:\w+"/>
-		</xs:restriction>
-	</xs:simpleType>
-
 
 	<xs:complexType name="FeeType">
 		<xs:sequence>
@@ -153,6 +149,28 @@
 		</xs:sequence>
 	</xs:complexType>
 
+	<xs:complexType name="FeeTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of fee Types that should have their associated transaction records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="feeType" type="FeeType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The fee type.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:simpleType name="FeeId">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -163,6 +181,29 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="FeeIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of fee ID's that should have their associated transaction records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="feeId" type="FeeId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The fee ID is a persistent and unique identifier for the fee.
+								It must be unique for all users across the institution and remain the same over the life of the fee.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:simpleType name="FeeCategory">
 		<xs:annotation>
@@ -387,6 +428,7 @@
 			<xs:annotation>
 				<xs:documentation>
 					The fee type is the textual representation of the kind of fee.
+					This type definition is deprecated.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>
