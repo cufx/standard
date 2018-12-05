@@ -602,7 +602,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration Fi ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI ID's that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -669,7 +669,7 @@
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Configuration Fi Vendor level name/data pairs list of fields that are not yet available in the general specification.
+						Configuration FI Vendor level name/data pairs list of fields that are not yet available in the general specification.
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
@@ -790,7 +790,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration Fi App ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App ID's that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -883,7 +883,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppParameterIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration Fi App Parameter ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App Parameter ID's that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
