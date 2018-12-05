@@ -14,7 +14,8 @@
 	<xs:element name="networkNodeList" type="NetworkNodeList" >
 		<xs:annotation>
 			<xs:documentation>
-				List of network nodes.
+				List of network nodes that participate in the execution of a solution. Network nodes may be either hardware or software
+				based instantiations of nodes.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -26,7 +27,8 @@
 					<xs:element name="networkNode" type="NetworkNode" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Collection of network node data.
+								A network node that participates in the execution of a solution. Network nodes may be either hardware or software
+								based instantiations of nodes.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -36,6 +38,12 @@
 	</xs:complexType>
 
 	<xs:complexType name="NetworkNode">
+		<xs:annotation>
+			<xs:documentation>
+				A network node that participates in the execution of a solution. Network nodes may be either hardware or software
+				based instantiations of nodes. Network nodes may be either local or externally located.  
+			</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="networkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
