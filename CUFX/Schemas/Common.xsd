@@ -1102,5 +1102,14 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="TimeZoneName">
+		<xs:annotation>
+			<xs:documentation>
+				The time zone name. See reference https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 

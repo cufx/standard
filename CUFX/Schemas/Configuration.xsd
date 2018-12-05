@@ -151,6 +151,16 @@
 						For example
 						Format : [+|-]HH:MM
 						If the location observes daylight savings time, this value may need to be updated.
+						It is intended that serviceTimeZoneName or serviceTimeZoneUTCOffset may be used to
+						determine the correct time zone offset.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceTimeZoneName" type="common:TimeZoneName" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the time zone. It is intended that serviceTimeZoneName or serviceTimeZoneUTCOffset may be used to 
+						determine the correct time zone offset.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
