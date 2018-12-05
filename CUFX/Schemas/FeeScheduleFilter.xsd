@@ -38,7 +38,7 @@
 			<xs:element name="feeIdList" type="feeSchedule:FeeIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of fee ID's that should be returned or affected by a read, update or delete party request.
+						The list of fee ID's that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -46,7 +46,7 @@
 			<xs:element name="feeTypeList" type="feeSchedule:FeeTypeList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of fee types that should be returned or affected by a read, update or delete party request.
+						The list of fee types that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -54,7 +54,7 @@
 			<xs:element name="feeEffectiveDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The fee effective date time that should be returned or affected by a read, update or delete party request.
+						The fee effective date time that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -62,7 +62,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete party request.
+						The list of party ID's that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -71,7 +71,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of relationship ID's that should have their associated parties either returned or affected
-						by a read, update or delete party request.
+						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -80,7 +80,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of contact ID's that should have their associated parties either returned or affected
-						by a read, update or delete party request.
+						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -89,7 +89,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of account ID's that should have their associated parties either returned or affected
-						by a read, update or delete party request.
+						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -98,7 +98,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of account statuses and sub statuses that should have their associated parties either returned or affected
-						by a read, update or delete account request.
+						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -106,7 +106,7 @@
 			<xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of tax ID's that should be returned or affected by a read, update or delete party request.
+						The list of tax ID's that should be returned or affected by a read, update or delete Fee Schedule request.
 						This element is deprecated.
 					</xs:documentation>
 				</xs:annotation>
@@ -116,7 +116,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The list of party types that should have their associated parties either returned or affected
-						by a read, update or delete party request.
+						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
