@@ -1,71 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/CardFilter.xsd"
-  version="4.1.$Revision: 1257 $"
-  xmlns="http://cufxstandards.com/v4/CardFilter.xsd"
+	version="4.1.$Revision: 1365 $"
+	xmlns="http://cufxstandards.com/v4/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
   xmlns:account="http://cufxstandards.com/v4/Account.xsd"
   xmlns:card="http://cufxstandards.com/v4/Card.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 					 
-  elementFormDefault="qualified"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Card.xsd" schemaLocation="Card.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
-  <xs:element name="cardFilter" type="CardFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting card data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="cardFilter" type="CardFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting card data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-  <xs:complexType name="CardFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting card data. The options can be used in
-        combination or by themselves. It is up to the data source to either return or affect the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="cardIdList" type="card:CardIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of Card ID's that should have their associated cards either returned or affected
-            by a read, update or delete card request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="CardFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting card data. The options can be used in
+				combination or by themselves. It is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cardIdList" type="card:CardIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of Card ID's that should have their associated cards either returned or affected
+						by a read, update or delete card request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of party ID's that should be returned or affected by a read, update or
-            delete card request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should be returned or affected by a read, update or
+						delete card request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of account ID's that should have their associated cards either returned or affected
-            by a read, update or delete card request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated cards either returned or affected
+						by a read, update or delete card request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of account statuses and sub statuses that should have their cards accounts either returned or affected
 						by a read, update or delete card request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="cardStatusList" type="card:CardStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of card statuses that should have its associated Card data either returned or affected
+						by a read, update or delete requst.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -78,7 +87,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="expirationDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -96,7 +105,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-    </xs:sequence>
-  </xs:complexType>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>

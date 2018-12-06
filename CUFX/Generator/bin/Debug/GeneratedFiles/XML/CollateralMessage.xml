@@ -2,14 +2,18 @@
   <messageContext>
     <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
     <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <configurationId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">configurationId1</configurationId>
     <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
     <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
     <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
     <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <sendingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sendingNetworkNodeId1</sendingNetworkNodeId>
+    <receivingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">receivingNetworkNodeId1</receivingNetworkNodeId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">environment1</environment>
     <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
     <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
     <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <sessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sessionId1</sessionId>
     <userList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
       <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -17,10 +21,23 @@
       <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-      <user>
+      <user xmlns="http://cufxstandards.com/v4/User.xsd">
         <userId>userId1</userId>
         <processorSessionId>processorSessionId1</processorSessionId>
-        <userType>EmployeeId</userType>
+        <userIdType>EmployeeId</userIdType>
+        <partyId>partyId1</partyId>
+        <customData>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
+            <name>name1</name>
+            <value>value1</value>
+          </valuePair>
+        </customData>
       </user>
     </userList>
     <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
@@ -39,10 +56,7 @@
       <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name1</name>
-        <value>value1</value>
-      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
     </customData>
   </messageContext>
   <collateralFilter>
@@ -105,6 +119,246 @@
         <titleNumber>titleNumber1</titleNumber>
         <titleState>titleState1</titleState>
       </motorVehicleCollateral>
+      <aircraftCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <serialNumber>serialNumber1</serialNumber>
+        <faaRegistrationNumber>faaRegistrationNumber1</faaRegistrationNumber>
+        <inspectionReportYN>true</inspectionReportYN>
+        <faaCoverLetterYN>true</faaCoverLetterYN>
+        <aircraftForCommercialUse>true</aircraftForCommercialUse>
+        <descAvionicsEngines>descAvionicsEngines1</descAvionicsEngines>
+        <descOfLogBooks>descOfLogBooks1</descOfLogBooks>
+        <airportHomeBase>airportHomeBase1</airportHomeBase>
+        <hours>1</hours>
+      </aircraftCollateral>
+      <shipCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <nameOfVessel>nameOfVessel1</nameOfVessel>
+        <officialNumber>officialNumber1</officialNumber>
+        <marinaPort>marinaPort1</marinaPort>
+        <grossTonnage>grossTonnage1</grossTonnage>
+        <netTonnage>netTonnage1</netTonnage>
+      </shipCollateral>
+      <trailerCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <serialNumber>serialNumber1</serialNumber>
+      </trailerCollateral>
+      <boatCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <bodyStyle>bodyStyle1</bodyStyle>
+        <serialNumber>serialNumber1</serialNumber>
+        <marinaPort>marinaPort1</marinaPort>
+        <descOfEnginesEquip>descOfEnginesEquip1</descOfEnginesEquip>
+        <descOfLogBooks>descOfLogBooks1</descOfLogBooks>
+      </boatCollateral>
+      <otherTitledCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <bodyStyle>bodyStyle1</bodyStyle>
+        <serialNumber>serialNumber1</serialNumber>
+      </otherTitledCollateral>
+      <mobileHomeCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <year>1</year>
+        <manufacturer>manufacturer1</manufacturer>
+        <make>make1</make>
+        <model>model1</model>
+        <color>color1</color>
+        <isVehicleUsed>true</isVehicleUsed>
+        <uccCode>uccCode1</uccCode>
+        <serialNumber>serialNumber1</serialNumber>
+        <bodyStyle>bodyStyle1</bodyStyle>
+        <descOfEquipment>descOfEquipment1</descOfEquipment>
+      </mobileHomeCollateral>
+      <realEstateCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <taxId xsi:nil="true" />
+        <parcelIDNNumber xsi:nil="true" />
+        <section xsi:nil="true" />
+        <block xsi:nil="true" />
+        <lot xsi:nil="true" />
+        <firstLien xsi:nil="true" />
+        <existingLiens xsi:nil="true" />
+        <dwelling xsi:nil="true" />
+        <numberOfUnits xsi:nil="true" />
+        <ownerOccupied xsi:nil="true" />
+        <principalDwelling xsi:nil="true" />
+        <assumable xsi:nil="true" />
+        <manufacturedHousing xsi:nil="true" />
+        <construction xsi:nil="true" />
+        <yearBuilt xsi:nil="true" />
+        <condoPUD xsi:nil="true" />
+        <legalDescription xsi:nil="true" />
+        <rentalProperty xsi:nil="true" />
+        <yearAcquired xsi:nil="true" />
+        <originalCost xsi:nil="true" />
+        <presentValue xsi:nil="true" />
+        <improvements xsi:nil="true" />
+        <timeshare xsi:nil="true" />
+      </realEstateCollateral>
+      <uccCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <financingStatement xsi:nil="true" />
+        <generalDescription xsi:nil="true" />
+        <tortClaimDescription xsi:nil="true" />
+        <immovableDescription xsi:nil="true" />
+      </uccCollateral>
+      <savingsCDCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <securityCollateralValueLimit xsi:nil="true" />
+        <securityMarketValueLimit xsi:nil="true" />
+        <accountNumber>accountNumber1</accountNumber>
+        <faceValue xsi:nil="true" />
+        <issuerType xsi:nil="true" />
+        <certified xsi:nil="true" />
+        <possessoryInterestRate xsi:nil="true" />
+        <amount>
+          <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+          <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+          <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+        </amount>
+        <percentage>1</percentage>
+      </savingsCDCollateral>
+      <securitiesCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <securityMarketValueLimit xsi:nil="true" />
+        <possessoryNumber xsi:nil="true" />
+        <faceValue xsi:nil="true" />
+        <issuer xsi:nil="true" />
+        <numberOfShares xsi:nil="true" />
+        <cusipNumber xsi:nil="true" />
+        <heldBy xsi:nil="true" />
+        <bookEntry xsi:nil="true" />
+        <valuationFrequency xsi:nil="true" />
+      </securitiesCollateral>
+      <letterOfCreditCollateral>
+        <collateralId>collateralId1</collateralId>
+        <collateralCode>collateralCode1</collateralCode>
+        <collateralPledgedDate>1900-01-01</collateralPledgedDate>
+        <description>description1</description>
+        <securedCode>securedCode1</securedCode>
+        <ownerOfCollateral>ownerOfCollateral1</ownerOfCollateral>
+        <loanToValuePercentage>1</loanToValuePercentage>
+        <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
+        <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <securityMarketValueLimit xsi:nil="true" />
+        <possessoryNumber xsi:nil="true" />
+        <issueDate xsi:nil="true" />
+      </letterOfCreditCollateral>
     </collateral>
   </collateralList>
 </collateralMessage>

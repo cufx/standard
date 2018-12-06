@@ -45,6 +45,8 @@
     <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
       <accountStatus>
         <depositAccountStatus>Active</depositAccountStatus>
+        <investmentStatus>Active</investmentStatus>
+        <loanAccountStatus>Active</loanAccountStatus>
       </accountStatus>
       <accountSubStatus>accountSubStatus1</accountSubStatus>
     </accountStatusPair>
@@ -85,6 +87,8 @@
     <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
     <subType xmlns="http://cufxstandards.com/v4/Preference.xsd">
       <eAlertSubType>AddressChanged</eAlertSubType>
+      <emailFormatSubType>Html</emailFormatSubType>
+      <widgetSubType>DisplayStatus</widgetSubType>
     </subType>
   </preferenceSubTypeList>
   <preferenceStatusList>

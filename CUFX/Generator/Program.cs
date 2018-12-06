@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace CUFX.Generator
 {
-	class Program
-	{
+    class Program
+    {
         const string OutputFOlders = "JSON,WCF,XML,HTML";
         public static string sGeneratedPath = string.Empty;
         private static bool CreateOutputFolders()
@@ -49,7 +49,7 @@ namespace CUFX.Generator
                     {
                         System.IO.Directory.CreateDirectory(sGeneratedPath + "\\" + word);
                         Console.WriteLine(sGeneratedPath + "\\" + word + " Created OK");
-                    }  
+                    }
                 }
                 bDone = true;
             }
@@ -62,28 +62,28 @@ namespace CUFX.Generator
             return bDone;
         }
 
-		static void Main(string[] args)
-		{
-            
+        static void Main(string[] args)
+        {
+
 
             if (CreateOutputFolders() == false)
             {
                 Console.ReadKey();
                 Environment.Exit(99);
             }
-			const string xsltFilePath = "xs3p.xsl";
+            const string xsltFilePath = "xs3p.xsl";
 
-			// Load XSLT
-			XsltSettings settings = new XsltSettings(true, true);
-			XslCompiledTransform transformer = new XslCompiledTransform();
-			transformer.Load(xsltFilePath, settings, new XmlUrlResolver());
+            // Load XSLT
+            XsltSettings settings = new XsltSettings(true, true);
+            XslCompiledTransform transformer = new XslCompiledTransform();
+            transformer.Load(xsltFilePath, settings, new XmlUrlResolver());
 
-            string schemaProjectDirectory = System.Environment.CurrentDirectory + "\\XSD"; 
+            string schemaProjectDirectory = System.Environment.CurrentDirectory + "\\XSD";
 
-			// Look in the project output directory for all xsd files
-			string[] files = Directory.GetFiles(schemaProjectDirectory, "*.xsd");
+            // Look in the project output directory for all xsd files
+            string[] files = Directory.GetFiles(schemaProjectDirectory, "*.xsd");
 
-			// Create the output directories for the generated HTML files, and code example files
+            // Create the output directories for the generated HTML files, and code example files
             //string outputDirectory = Path.Combine(Environment.CurrentDirectory, "Generated HTML Docs");
             //if (!Directory.Exists(outputDirectory))
             //    Directory.CreateDirectory(outputDirectory);
@@ -92,10 +92,10 @@ namespace CUFX.Generator
             //if (!Directory.Exists(exampleDirectory))
             //    Directory.CreateDirectory(exampleDirectory);
 
-			// For each XSD file, create the HTML documentation, and examples (.cs, .vb, .xml, json)
+            // For each XSD file, create the HTML documentation, and examples (.cs, .vb, .xml, json)
             Console.WriteLine("Generating Files.....");
-			foreach (string xsdFilePath in files)
-			{
+            foreach (string xsdFilePath in files)
+            {
                 //Don't create HTML documentation or XML samples for base schema
                 if (xsdFilePath == schemaProjectDirectory + "\\Common.xsd" ||
                     xsdFilePath == schemaProjectDirectory + "\\ISOCountryCodeType-V2006.xsd" ||
@@ -107,53 +107,53 @@ namespace CUFX.Generator
                 }
 
 
-				#region Generate the HTML documentation
+                #region Generate the HTML documentation
                 string outHtmlFileName = Path.Combine(sGeneratedPath + "\\HTML\\", Path.GetFileNameWithoutExtension(xsdFilePath)) + ".html";
-				using (StreamWriter outHtmlfile = new StreamWriter(outHtmlFileName))
-				{
-					string documentTitle = Path.GetFileNameWithoutExtension(xsdFilePath);
-					documentTitle = documentTitle.Replace("CUFX_", "");
-					documentTitle = documentTitle.Replace("_", " ");
+                using (StreamWriter outHtmlfile = new StreamWriter(outHtmlFileName))
+                {
+                    string documentTitle = Path.GetFileNameWithoutExtension(xsdFilePath);
+                    documentTitle = documentTitle.Replace("CUFX_", "");
+                    documentTitle = documentTitle.Replace("_", " ");
 
-					XsltArgumentList argsList = new XsltArgumentList();
-					argsList.AddParam("title", "", documentTitle);
-					argsList.AddParam("currentDateTime", "", DateTime.Now.ToString("d"));
+                    XsltArgumentList argsList = new XsltArgumentList();
+                    argsList.AddParam("title", "", documentTitle);
+                    argsList.AddParam("currentDateTime", "", DateTime.Now.ToString("d"));
 
-					using (XmlTextReader xsdReader = new XmlTextReader(xsdFilePath))
-					{
-						XPathNavigator nav = new XPathDocument(xsdReader).CreateNavigator();
+                    using (XmlTextReader xsdReader = new XmlTextReader(xsdFilePath))
+                    {
+                        XPathNavigator nav = new XPathDocument(xsdReader).CreateNavigator();
 
-						try
-						{
-							transformer.Transform(nav, argsList, outHtmlfile);
-						}
-						catch (XsltException xsltEx)
-						{
-							Console.WriteLine("Could not transform the XSD file [{0}]. Message: [{1}] line: [{2}], position: [{3}]", xsdFilePath, xsltEx.Message, xsltEx.LineNumber, xsltEx.LinePosition);
-							Console.ReadKey();
-						}
-						xsdReader.Close();
-					}
-					outHtmlfile.Close();
+                        try
+                        {
+                            transformer.Transform(nav, argsList, outHtmlfile);
+                        }
+                        catch (XsltException xsltEx)
+                        {
+                            Console.WriteLine("Could not transform the XSD file [{0}]. Message: [{1}] line: [{2}], position: [{3}]", xsdFilePath, xsltEx.Message, xsltEx.LineNumber, xsltEx.LinePosition);
+                            Console.ReadKey();
+                        }
+                        xsdReader.Close();
+                    }
+                    outHtmlfile.Close();
                     //Console.WriteLine("HTML Files Created");
-				}
-				#endregion
+                }
+                #endregion
 
-				#region Generate the XML/JSON examples
+                #region Generate the XML/JSON examples
                 string outXmlFileName = Path.Combine(sGeneratedPath + "\\XML\\", Path.GetFileNameWithoutExtension(xsdFilePath)) + ".xml";
-				using (XmlTextWriter outXmlFile = new XmlTextWriter(outXmlFileName, null))
-				{
-					outXmlFile.Formatting = System.Xml.Formatting.Indented;
-					XmlQualifiedName qname = new XmlQualifiedName("AccountList",
-														"http://cufxstandards.com/v2/Account.xsd");
-					XmlSampleGenerator generator = new XmlSampleGenerator(xsdFilePath, qname);
-					generator.WriteXml(outXmlFile);
+                using (XmlTextWriter outXmlFile = new XmlTextWriter(outXmlFileName, null))
+                {
+                    outXmlFile.Formatting = System.Xml.Formatting.Indented;
+                    XmlQualifiedName qname = new XmlQualifiedName("AccountList",
+                                                        "http://cufxstandards.com/v2/Account.xsd");
+                    XmlSampleGenerator generator = new XmlSampleGenerator(xsdFilePath, qname);
+                    generator.WriteXml(outXmlFile);
                     //Console.WriteLine("XML Files Created");
-				}
+                }
 
                 string outJSONFileName = Path.Combine(sGeneratedPath + "\\JSON\\", Path.GetFileNameWithoutExtension(xsdFilePath)) + ".json";
                 JsonGenerator.GenerateJsonFromXml(outXmlFileName, outJSONFileName);
-				#endregion
+                #endregion
 
                 // Generate one .cs for all the types and place it in the Schemas project
                 //string cufxCsFile = Path.Combine(schemaProjectDirectory, "CUFX.cs");
@@ -177,10 +177,10 @@ namespace CUFX.Generator
             Console.WriteLine("HTML & XML Files Created.....");
 
             #region Generate the WCF examples
-			// Generate one .cs for all the types and place it in the Schemas project
+            // Generate one .cs for all the types and place it in the Schemas project
             string cufxCsFile = Path.Combine(sGeneratedPath + "\\WCF\\", "CUFX.cs");
             //CodeGeneratorV1.GenerateCodeFromXsds(files, sGeneratedPath + "\\WCF\\CUFX.vb", sGeneratedPath + "\\WCF\\CUFX.cs");
-            
+
             //Working Single WCF Generator
             CodeGenerator.GenerateCodeFromXsds(files, cufxCsFile);
 
@@ -191,15 +191,15 @@ namespace CUFX.Generator
 
             //if (wasSuccessful)
             //{
-                Console.WriteLine("WCF File Created");
+            Console.WriteLine("WCF File Created");
             //}
             #endregion
 
-            
+
 
             Console.WriteLine("JSON File Created");
-			Console.WriteLine("Press any key to close");
-			Console.ReadLine();
-		}
-	}
+            Console.WriteLine("Press any key to close");
+            Console.ReadLine();
+        }
+    }
 }

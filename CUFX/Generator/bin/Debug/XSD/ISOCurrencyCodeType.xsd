@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	targetNamespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
-	version="4.1.$Revision: 1257 $"
-	xmlns="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"      
+	version="4.1.$Revision: 1365 $"
+	xmlns="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -17,7 +17,7 @@
 		<xs:annotation>
 			<xs:documentation>ISO 4217:2008</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:NMTOKEN">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value="AED">
 				<xs:annotation>
 					<xs:documentation>Dirham</xs:documentation>

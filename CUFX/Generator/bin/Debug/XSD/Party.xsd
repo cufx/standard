@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
-	version="4.1.$Revision: 1262 $"
+	version="4.1.$Revision: 1373 $"
 	xmlns="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
 	xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
-  xmlns:document="http://cufxstandards.com/v4/Document.xsd"
+	xmlns:document="http://cufxstandards.com/v4/Document.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
@@ -19,6 +20,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Document.xsd" schemaLocation="Document.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
 	<xs:element name= "partyList" type ="PartyList">
@@ -80,6 +82,23 @@
 					<xs:documentation>
 						The party type is the textual representation of what the party record represents.
 						If Organization is Noted, then certain fields like first and last name won't apply.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyStatus" type="PartyStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The party status is the textual representation of the status of the party within the system.
+						This field is an string as status may be difficult to pin down to a specific enumeration list.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyStatusComment" type="PartyStatusComment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						More detail as to why the party is in a particular status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -155,6 +174,7 @@
 			<xs:element name="partyDateCreated" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
+						DEPRECATED in next major release due to name and data type correction.
 						Date the party was created in the source system.
 						The date/time should be ISO 8601 UTC format.
 						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
@@ -163,9 +183,29 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="partyDateTimeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date and time the party was created in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier of who created the party in the system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="partyDateModified" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
+						DEPRECATED in next major release due to name and data type correction.
 						Date the party data was modified in the source system.
 						The date/time should be ISO 8601 UTC format.
 						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
@@ -174,13 +214,52 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="partyDateTimeModified" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date and time the party data was modified in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID of who last updated the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="partyDateDeleted" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						DEPRECATED in next major release due to name and data type correction.
+						Date the party data was deleted or mark as inactive in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyDateTimeDeleted" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Date the party data was deleted or mark as inactive in the source system.
 						The date/time should be ISO 8601 UTC format.
 						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
 						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyDeletedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID of who deleted record.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -345,7 +424,14 @@
 	</xs:complexType>
 
 	<xs:complexType name="Characteristics">
-		<xs:choice>
+		<xs:annotation>
+			<xs:documentation>
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
 			<xs:element name="organization" type="Organization" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -377,7 +463,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 
@@ -398,11 +484,22 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="organizationName" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="organizationSubType" type="OrganizationSubType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Organization sub type is the textual representation
+						of what kind of organization it is.
+						Completed if party type is Organization.
+						For example: FinancialInstitution, Vendor, CUSO, Bank, Government Agency, etc.
+						It is up to the endpoints to determine what they will pass in sub type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="organizationName" type="OrganizationName" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Standard/legal name of the organization.
-						Used if type is NOT INDIVIDUAL.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1209,6 +1306,16 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="PartyStatus">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="PartyStatusComment">
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:complexType name="Residence">
 		<xs:annotation>
 			<xs:documentation>
@@ -1443,7 +1550,14 @@
 	</xs:complexType>
 
 	<xs:complexType name="IdDocumentType">
-		<xs:choice>
+		<xs:annotation>
+			<xs:documentation>
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
 			<xs:element name="individualDocument" type="IndividualDocument" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1478,7 +1592,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:simpleType name="IndividualDocument">
@@ -1505,6 +1619,7 @@
 			<xs:enumeration value="ForeignDriversLicense" />
 			<xs:enumeration value="InsuranceCard" />
 			<xs:enumeration value="OrganizationalMembershipCard" />
+			<xs:enumeration value="Passport" />
 			<xs:enumeration value="PropertyTaxBill" />
 			<xs:enumeration value="SocialSecurityCard" />
 			<xs:enumeration value="StudentId" />
@@ -1665,6 +1780,147 @@
 						<xs:annotation>
 							<xs:documentation>
 								A party type that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PartyStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of party statuses that should have their associated parties either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="partyStatus" type="PartyStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A party status that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PartyStatusCommentList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of party status comments that should have their associated parties either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="partyStatusComment" type="PartyStatusComment" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A party status comment that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="OrganizationTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of organization types that should have their associated parties either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="organizationType" type="OrganizationType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An organization type that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="OrganizationSubType">
+		<xs:annotation>
+			<xs:documentation>
+				Organization sub type is the textual representation
+				of what kind of organization it is.
+				Completed if party type is Organization.
+				For example: FinancialInstitution, Vendor, CUSO, Bank, Government Agency, etc.
+				It is up to the endpoints to determine what they will pass in sub type.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="OrganizationSubTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of organization sub types that should have their associated parties either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="organizationSubType" type="OrganizationSubType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An organization type that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="OrganizationName">
+		<xs:annotation>
+			<xs:documentation>
+				Standard/legal name of the organization.
+				Completed if party type is Organization.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="OrganizationNameList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of organization names that should have their associated parties either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="organizationName" type="OrganizationName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An organization name that should have its associated parties either returned or affected
 								by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>

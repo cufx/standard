@@ -18,8 +18,8 @@ using System.Text.RegularExpressions;
 
 namespace CUFX.Generator
 {
-	public class JsonGenerator
-	{
+    public class JsonGenerator
+    {
         public static bool GenerateJsonFromXml(string sourceXMLFile, string jsonFile)
         {
             // To convert an XML node contained in string xml into a JSON string   
@@ -48,31 +48,31 @@ namespace CUFX.Generator
 
             return true;
         }
-		public static bool GenerateJsonFromCs(string sourceCsFile, string jsonFile)
-		{
-			CSharpCodeProvider provider = new CSharpCodeProvider();
+        public static bool GenerateJsonFromCs(string sourceCsFile, string jsonFile)
+        {
+            CSharpCodeProvider provider = new CSharpCodeProvider();
 
-			// Build the parameters for source compilation.
-			CompilerParameters cp = new CompilerParameters();
+            // Build the parameters for source compilation.
+            CompilerParameters cp = new CompilerParameters();
 
-			// Add an assembly reference.
-			cp.ReferencedAssemblies.Add("System.dll");
-			cp.ReferencedAssemblies.Add("System.Xml.dll");
+            // Add an assembly reference.
+            cp.ReferencedAssemblies.Add("System.dll");
+            cp.ReferencedAssemblies.Add("System.Xml.dll");
             cp.ReferencedAssemblies.Add("System.Runtime.Serialization.dll");
 
-			// Generate an executable instead of 
-			// a class library.
-			cp.GenerateExecutable = false;
-            
-			// Set the assembly file name to generate. (TODO: Delete?)
+            // Generate an executable instead of 
+            // a class library.
+            cp.GenerateExecutable = false;
+
+            // Set the assembly file name to generate. (TODO: Delete?)
             //cp.OutputAssembly = dllFile;
             cp.IncludeDebugInformation = true;
             cp.TempFiles = new TempFileCollection(".", true);
-			// Save the assembly as a physical file.
-			cp.GenerateInMemory = false;
+            // Save the assembly as a physical file.
+            cp.GenerateInMemory = false;
 
-			// Invoke compilation.
-			CompilerResults cr = provider.CompileAssemblyFromFile(cp, sourceCsFile);
+            // Invoke compilation.
+            CompilerResults cr = provider.CompileAssemblyFromFile(cp, sourceCsFile);
 
             if (cr.Errors.HasErrors)
             {
@@ -83,219 +83,219 @@ namespace CUFX.Generator
                     Console.WriteLine(e.Current);
                 }
                 throw new FileNotFoundException(@"Error compiling the generated CUFX file.");
-            }            
+            }
             Assembly assembly = cr.CompiledAssembly;
-         
-			JsonSerializer serializer = new JsonSerializer();
-			using (StreamWriter outJsonFile = new StreamWriter(jsonFile))
-			{
-				foreach (Type type in assembly.GetTypes())
-				{
-					try
-					{
-						if (type.IsAbstract)
-						{
-							Type subclass = GetFirstSubclass(type, assembly);
+
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter outJsonFile = new StreamWriter(jsonFile))
+            {
+                foreach (Type type in assembly.GetTypes())
+                {
+                    try
+                    {
+                        if (type.IsAbstract)
+                        {
+                            Type subclass = GetFirstSubclass(type, assembly);
 
                             // Cannot build JSON objects for Abstract classes that have no concrete subclasses
-							if (subclass == null)
-							{
-								Console.WriteLine("Could not create abstract type [{0}]", type.FullName);
-								continue;
-							}
+                            if (subclass == null)
+                            {
+                                Console.WriteLine("Could not create abstract type [{0}]", type.FullName);
+                                continue;
+                            }
 
                             // Builds the JSON version of the CS Object (or null if unable to build object)
-							var subClassObj = BuildSingleObject(assembly, subclass.FullName);
+                            var subClassObj = BuildSingleObject(assembly, subclass.FullName);
 
                             // Append the JSON object to the .json file
-							if (subClassObj != null)
-							{
-								string jsonText = JsonConvert.SerializeObject(subClassObj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
-								outJsonFile.WriteLine("\n" + type.FullName);
-								outJsonFile.Write(jsonText);
-							}
-						}
-						else
+                            if (subClassObj != null)
+                            {
+                                string jsonText = JsonConvert.SerializeObject(subClassObj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
+                                outJsonFile.WriteLine("\n" + type.FullName);
+                                outJsonFile.Write(jsonText);
+                            }
+                        }
+                        else
                         {
                             // Builds the JSON version of the CS Object (or null if unable to build object)
-							var obj = BuildSingleObject(assembly, type.FullName);
-                            
+                            var obj = BuildSingleObject(assembly, type.FullName);
+
                             // Append the JSON object to the .json file
-							if (obj != null)
-							{
-								string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
-								outJsonFile.WriteLine("\n" + type.FullName);
-								outJsonFile.Write(jsonText);
-							}
-						}
-					}
-					catch (Exception ex)
-					{
-						Console.WriteLine("Could not create object: [{0}] Message: [{1}]", type.FullName, ex.Message);
-					}
-				}
-			}
+                            if (obj != null)
+                            {
+                                string jsonText = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented, new IsoDateTimeConverter());
+                                outJsonFile.WriteLine("\n" + type.FullName);
+                                outJsonFile.Write(jsonText);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Could not create object: [{0}] Message: [{1}]", type.FullName, ex.Message);
+                    }
+                }
+            }
 
-			if (cr.Errors.Count > 0)
-			{
-				// Display compilation errors.
-				Console.WriteLine("Errors building {0} into {1}",
-					 sourceCsFile, cr.PathToAssembly);
-				foreach (CompilerError ce in cr.Errors)
-				{
-					Console.WriteLine("  {0}", ce.ToString());
-					Console.WriteLine();
-				}
-			}
+            if (cr.Errors.Count > 0)
+            {
+                // Display compilation errors.
+                Console.WriteLine("Errors building {0} into {1}",
+                     sourceCsFile, cr.PathToAssembly);
+                foreach (CompilerError ce in cr.Errors)
+                {
+                    Console.WriteLine("  {0}", ce.ToString());
+                    Console.WriteLine();
+                }
+            }
 
-			// Return the results of compilation. 
-			if (cr.Errors.Count > 0)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
+            // Return the results of compilation. 
+            if (cr.Errors.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-		public static Type GetFirstSubclass(Type abstractBaseClass, Assembly assembly)
-		{
-			Type[] types = assembly.GetTypes();
+        public static Type GetFirstSubclass(Type abstractBaseClass, Assembly assembly)
+        {
+            Type[] types = assembly.GetTypes();
 
-			foreach (Type type in types)
-			{
+            foreach (Type type in types)
+            {
 
-				 if (type.IsSubclassOf(abstractBaseClass))
-					return type;
-			}
+                if (type.IsSubclassOf(abstractBaseClass))
+                    return type;
+            }
 
-			Console.WriteLine("No derived classes found for abstract base class [{0}]", abstractBaseClass.FullName);
-			return null;
-		}
+            Console.WriteLine("No derived classes found for abstract base class [{0}]", abstractBaseClass.FullName);
+            return null;
+        }
 
         // Builds each object within the file. Returns null if the object can't/shouldn't be built
         // such as in the case when an Abstract object has no subclasses and therefore nothing to build.
-		public static object BuildSingleObject(Assembly assembly, string type)
-		{
-			Assembly systemAssembly = Assembly.Load("mscorlib");
+        public static object BuildSingleObject(Assembly assembly, string type)
+        {
+            Assembly systemAssembly = Assembly.Load("mscorlib");
 
-			var entityType = assembly.GetType(type);
+            var entityType = assembly.GetType(type);
 
-			if (entityType == null)
-			{
-				// System type?
-				entityType = systemAssembly.GetType(type);
-			}
+            if (entityType == null)
+            {
+                // System type?
+                entityType = systemAssembly.GetType(type);
+            }
 
-			if (entityType == null)
-			{
-				Console.WriteLine("Could not find type for: " + type);
-				return null;
-			}
-      
+            if (entityType == null)
+            {
+                Console.WriteLine("Could not find type for: " + type);
+                return null;
+            }
+
             // Can't create JSON object for Abstract object with no concrete subclasses
             if (entityType != null && entityType.IsAbstract)
-			{
-				Console.WriteLine("Ignoring abstract type: " + type+". No concrete objects to build.");
+            {
+                Console.WriteLine("Ignoring abstract type: " + type + ". No concrete objects to build.");
                 return null;
-			}
-            
-			var builderClassType = typeof(Builder<>);
+            }
 
-			Type[] args = { entityType };
+            var builderClassType = typeof(Builder<>);
 
-			var genericBuilderType = builderClassType.MakeGenericType(args);
+            Type[] args = { entityType };
 
-			var builder = Activator.CreateInstance(genericBuilderType);
+            var genericBuilderType = builderClassType.MakeGenericType(args);
 
-			var createNewMethodInfo = builder.GetType().GetMethod("CreateNew");
+            var builder = Activator.CreateInstance(genericBuilderType);
 
-			var objectBuilder = createNewMethodInfo.Invoke(builder, null);
+            var createNewMethodInfo = builder.GetType().GetMethod("CreateNew");
 
-			var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
+            var objectBuilder = createNewMethodInfo.Invoke(builder, null);
 
-			var result = buildMethodInfo.Invoke(objectBuilder, null);
-			
-			foreach (PropertyInfo p in result.GetType().GetProperties())
-			{
-				if (p.PropertyType.IsArray)
-				{
-					//var objectBuilderList = createListMethodInfo.Invoke(builder, parametersArray);
-					//var buildListMethodInfo = objectBuilderList.GetType().GetMethod("Build");
-					string typeName = p.PropertyType.FullName.Trim(new char[] { '[', ']' });
-					// Is this a system type or custom type?
-					Type systemType = systemAssembly.GetType(typeName);
-					Type customType = assembly.GetType(typeName);
-					Type typeToCreate = null;
-					Assembly assemblyToUse = null;
+            var buildMethodInfo = objectBuilder.GetType().GetMethod("Build");
 
-					if (customType != null && !customType.IsAbstract)
-					{
-						typeToCreate = customType;
-						assemblyToUse = assembly;
-					}
-					else if (systemType != null)
-					{
-						typeToCreate = systemType;
-						assemblyToUse = systemAssembly;
-					}
-					else
-					{
-						Console.WriteLine("Could not find type [{0}] in system or custom assemblies.  Parent type [{1}]", typeName, type);
-					}
+            var result = buildMethodInfo.Invoke(objectBuilder, null);
+
+            foreach (PropertyInfo p in result.GetType().GetProperties())
+            {
+                if (p.PropertyType.IsArray)
+                {
+                    //var objectBuilderList = createListMethodInfo.Invoke(builder, parametersArray);
+                    //var buildListMethodInfo = objectBuilderList.GetType().GetMethod("Build");
+                    string typeName = p.PropertyType.FullName.Trim(new char[] { '[', ']' });
+                    // Is this a system type or custom type?
+                    Type systemType = systemAssembly.GetType(typeName);
+                    Type customType = assembly.GetType(typeName);
+                    Type typeToCreate = null;
+                    Assembly assemblyToUse = null;
+
+                    if (customType != null && !customType.IsAbstract)
+                    {
+                        typeToCreate = customType;
+                        assemblyToUse = assembly;
+                    }
+                    else if (systemType != null)
+                    {
+                        typeToCreate = systemType;
+                        assemblyToUse = systemAssembly;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Could not find type [{0}] in system or custom assemblies.  Parent type [{1}]", typeName, type);
+                    }
 
                     // Is this an array of strings?
                     // changed replications to 1 from 5 d.lacroix
                     if (typeName == "System.String")
-					{
-						List<string> strings = new List<string>();
-						for (int i = 0; i < 1; i++)
-							strings.Add("String" + i);
+                    {
+                        List<string> strings = new List<string>();
+                        for (int i = 0; i < 1; i++)
+                            strings.Add("String" + i);
 
-						p.SetValue(result, strings.ToArray(), null);
-					}
-					else if (typeToCreate != null && assemblyToUse != null)
-					{
-						object[] list = BuildList(assemblyToUse, typeName);
-						var arr = Array.CreateInstance(typeToCreate, 1);
-						Array.Copy(list.ToArray(), arr, 1);
+                        p.SetValue(result, strings.ToArray(), null);
+                    }
+                    else if (typeToCreate != null && assemblyToUse != null)
+                    {
+                        object[] list = BuildList(assemblyToUse, typeName);
+                        var arr = Array.CreateInstance(typeToCreate, 1);
+                        Array.Copy(list.ToArray(), arr, 1);
 
-						p.SetValue(result, arr, null);
-					}
-				}
-				else if (p.GetValue(result, null) == null)
-				{
-					// Attempt to create an object
-					try
-					{
-						object o = BuildSingleObject(assembly, p.PropertyType.FullName);
-						if (o != null)
-						{
-							p.SetValue(result, o, null);
-						}
-						else
-							Console.WriteLine("Null value for property: " + p.PropertyType.FullName);
-					}
-					catch (Exception ex)
-					{
-						throw ex;
-					}
-				}
-			}
-			return result;
-		}
+                        p.SetValue(result, arr, null);
+                    }
+                }
+                else if (p.GetValue(result, null) == null)
+                {
+                    // Attempt to create an object
+                    try
+                    {
+                        object o = BuildSingleObject(assembly, p.PropertyType.FullName);
+                        if (o != null)
+                        {
+                            p.SetValue(result, o, null);
+                        }
+                        else
+                            Console.WriteLine("Null value for property: " + p.PropertyType.FullName);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+            return result;
+        }
 
-		public static object[] BuildList(Assembly assembly, string type)
-		{
+        public static object[] BuildList(Assembly assembly, string type)
+        {
             // changed replications to 1 from 5 d.lacroix
             List<object> list = new List<object>();
-			for (int i = 0; i < 1; i++)
-			{
-				object o = BuildSingleObject(assembly, type);
-				list.Add(o);
-			}
-			return list.ToArray();			
-		}
-	}
+            for (int i = 0; i < 1; i++)
+            {
+                object o = BuildSingleObject(assembly, type);
+                list.Add(o);
+            }
+            return list.ToArray();
+        }
+    }
 }

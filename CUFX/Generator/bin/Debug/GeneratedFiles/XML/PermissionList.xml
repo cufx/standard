@@ -8,10 +8,16 @@
   <permission>
     <actor>
       <fiUserId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">fiUserId1</fiUserId>
+      <partyId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">partyId1</partyId>
+      <relationshipId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">relationshipId1</relationshipId>
     </actor>
     <action>AgreeToTerms</action>
     <resource>
       <accountId>accountId1</accountId>
+      <fiUserId>fiUserId1</fiUserId>
+      <cardId>cardId1</cardId>
+      <relationshipId>relationshipId1</relationshipId>
+      <productId>productId1</productId>
     </resource>
     <maxLimits>
       <dailyMax>

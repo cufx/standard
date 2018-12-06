@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Meta.xsd"
-	version="4.1.$Revision: 1257 $"
+	version="4.1.$Revision: 1339 $"
 	xmlns="http://cufxstandards.com/v4/Meta.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -17,9 +17,13 @@
 				For each account type, optional meta information MAY be
 				provided with these tags depending upon account type
 				returned.
+
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:choice>
+		<xs:sequence>
 			<xs:element name="loanMeta" type="LoanMeta" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -62,7 +66,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="LoanMeta">
@@ -77,7 +81,7 @@
 					<xs:documentation>
 						Interest rate percent of the loan.
 						Determines the amount charged each time period based on the loan period.
-						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.  
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
 						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
 						Decimals available: 999.999
 					</xs:documentation>

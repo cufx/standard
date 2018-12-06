@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/SimpleValidationRequest.xsd"
-	version="4.1.$Revision: 1257 $"
+	version="4.1.$Revision: 1348 $"
 	elementFormDefault="qualified"
 	xmlns="http://cufxstandards.com/v4/SimpleValidationRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -112,7 +112,7 @@
 				An enumeration defining possible results of a simple validation.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base = "xs:string">
+		<xs:restriction base="xs:string">
 			<xs:enumeration value = "Pass">
 				<xs:annotation>
 					<xs:documentation>

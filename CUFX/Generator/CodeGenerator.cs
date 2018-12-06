@@ -64,18 +64,18 @@ namespace CUFX.Generator
             List<XmlQualifiedName> xmlTypes = new List<XmlQualifiedName>();
 
             // Load the XmlSchema and its collection.            
-                using (FileStream fs = new FileStream(xsdFile, FileMode.Open))
-                {
-                    XmlSchema xsd;
-                    xsd = XmlSchema.Read(fs, null);
-                    schemas.Add(xsd);
+            using (FileStream fs = new FileStream(xsdFile, FileMode.Open))
+            {
+                XmlSchema xsd;
+                xsd = XmlSchema.Read(fs, null);
+                schemas.Add(xsd);
 
-                    foreach (XmlSchemaElement element in xsd.Elements.Values)
-                    {
-                        if (!xmlTypes.Contains(element.QualifiedName))
-                            xmlTypes.Add(element.QualifiedName);
-                    }
+                foreach (XmlSchemaElement element in xsd.Elements.Values)
+                {
+                    if (!xmlTypes.Contains(element.QualifiedName))
+                        xmlTypes.Add(element.QualifiedName);
                 }
+            }
 
             schemas.Compile();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-  targetNamespace="http://cufxstandards.com/v4/Account.xsd"
-	version="4.1.$Revision: 1277 $"
+	targetNamespace="http://cufxstandards.com/v4/Account.xsd"
+	version="4.1.$Revision: 1365 $"
 	xmlns="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v4/Meta.xsd"
@@ -11,7 +11,7 @@
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:feeSchedule="http://cufxstandards.com/v4/FeeSchedule.xsd"
 	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
-    
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
@@ -312,13 +312,6 @@
 								If there's a start date where provided or required, the transaction list collection/array
 								should remain empty if no transactions were posted during the provided date period.
 								In this case, the Data Provider should still return all other account information.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="availableAmountDetailList" type="common:AmountDetailList"  minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Available amount line items for break out.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -662,7 +655,14 @@
 	</xs:simpleType>
 
 	<xs:complexType name="AccountStatus">
-		<xs:choice>
+		<xs:annotation>
+			<xs:documentation>
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
 			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
 				<xs:annotation>
 					<xs:documentation>
@@ -684,7 +684,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="AccountStatusList">

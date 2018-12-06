@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v4/Configuration.xsd"
-	version="4.1.$Revision: 1289 $"
+	version="4.1.$Revision: 1365 $"
 	xmlns="http://cufxstandards.com/v4/Configuration.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
+	xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -15,12 +18,22 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
 			<xs:documentation>
 				The list of configurations available in the CUFX instance.
-				There will be one configuration for one or more financial institutions.
+				A configuration is a collection supported financial institutions, services,
+				methods, limitations and options within each configuration.
+				There maybe more than one configuration for one or more financial institutions.
+				These configurations can be utilized for whatever purpose the endpoint
+				needs to break out into multiple configurations.  For example,
+				It may be necessary to have multiple test configurations in the same CUFX
+				instance to reduce hardware expense and complexity.  Another option is to support
+				different types of applications but within the same end point.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -30,6 +43,9 @@
 			<xs:documentation>
 				The list of configurations available in the CUFX instance.
 				There will be one configuration for one or more financial institutions.
+				These configurations can be utilized for whatever purpose the endpoint
+				needs to break out into multiple configurations.  For example,
+				It may be necessary to have multiple test configurations in the same endpoint.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -38,7 +54,8 @@
 					<xs:element name="configuration" type="Configuration" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The list of supported services, methods, limitations and options within the CUFX instance.
+								The list of supported financial institutions, services, methods, limitations
+								and options within the CUFX instance.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -52,7 +69,14 @@
 			<xs:element name="configurationId" type="ConfigurationId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						unique identification for the configuration.
+						Unique identification for the configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configurationName" type="ConfigurationName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Name of the configuration.  It should be unique so it's easier to determine the environment if you have multiple environments.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -66,11 +90,27 @@
 			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Indicates the environmental status of the configuration. If not specified, "Production" is assumed.
+						Indicates the environment in which the message should be executed.
+						Depends upon agreements between endpoints what is passed for each environment.
+						Examples might be: Dev, QAInternal, UAT, Sandbox, Production.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiIdList" type="FiIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates the status of the overall configuration.  Valid values are for example: Online, Offline, ReadyToPurge
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configurationStatusComment" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						More detail as to why the configuration is in a particular status.  For example, Waiting on Services setup.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiIdList" type="FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The valid financial institution ID list for this instance.
@@ -80,7 +120,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="FiList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiList" type="FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of Financial institution within this configuration.
@@ -103,7 +143,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="serviceTimeZoneUTCOffset" type="ServiceTimeZoneUTCOffset" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="serviceTimeZoneUTCOffset" type="common:TimeZoneUTCOffset" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The offset of the time zone from Universal Time where this service resides.  If the service
@@ -122,14 +162,61 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationAppIdList" type="ConfigurationAppIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationAppList" type="ConfigurationAppList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of supported configuration App Ids.
+						The list of supported Apps in this configuration.  the configuration app points back to the
+						system level app and lists out any changes for the configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
+			<xs:element name="configurationNetworkNodeAddressList" type="ConfigurationNetworkNodeAddressList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of network node addresses that are in or comprise this configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date and time this configuration was created.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID, etc. of who created the configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationLastUpdatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date and time this configuration was last updated.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID, etc. of who last updated the configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -146,32 +233,74 @@
 	<xs:simpleType name="ConfigurationId">
 		<xs:annotation>
 			<xs:documentation>
-				unique identification for the configuration.
+				Unique identification for the configuration.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="ConfigurationFiId">
+	<xs:simpleType name="ConfigurationName">
 		<xs:annotation>
 			<xs:documentation>
-				The unique identifier for the configuration and financial institution.
+				Unique name for the configuration.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="ConfigurationFiVendorId">
+	<xs:complexType name="ConfigurationNameList">
 		<xs:annotation>
 			<xs:documentation>
-				The unique identifier for the configuration and financial institution and vendor.
+				List of valid configuration names for this endpoint.
 			</xs:documentation>
 		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationName" type="ConfigurationName" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid configuration name for this endpoint.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationStatus">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Online"></xs:enumeration>
+			<xs:enumeration value ="Offline"></xs:enumeration>
+			<xs:enumeration value ="ReadyToPurge"></xs:enumeration>
+			<xs:enumeration value ="TestMode"></xs:enumeration>
+			<xs:enumeration value ="Other"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				List of valid configuration statuses for this endpoint.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationStatus" type="ConfigurationStatus" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid configuration Status for this endpoint.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:simpleType name="ServiceTimeZoneUTCOffset">
 		<xs:annotation>
@@ -188,7 +317,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="FiIdList">
+	<xs:complexType name="FinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
 				The valid financial institution list for this instance.
@@ -198,7 +327,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								A valid financial institution for this instance.
@@ -211,19 +340,93 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationAppIdList">
+	<xs:complexType name="ConfigurationAppList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationApp" type="ConfigurationApp" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An app as it's installed in the configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationApp">
 		<xs:annotation>
 			<xs:documentation>
-				The list of valid app ids for the configuration.			
+				Definition for the app in the configuration and its parameters.
 			</xs:documentation>
 		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the combination of configuration and app.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appId" type="app:AppId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The appId to retrieve the details of the system level app.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationAppDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the app if it has been customimized for this configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationAppParameterList" type="ConfigurationAppParameterList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app parameters as they are set up at the configuration level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration App level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationAppId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and App combination.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationAppIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="appId" type="app:AppId" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								unique identification for a App.
+								A list of configuration app Id's that point to how an app as it's
+								installed/specialized in the configuration.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -232,14 +435,15 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ServiceList">
+	<xs:complexType name="ConfigurationAppParameterList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="configurationAppParameter" type="ConfigurationAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A service and list of methods within the CUFX instance that are supported by this end point.
+								A list of configuration app parameter Id's that point to how an
+								app parameter is set/specialized in the configuration for an app.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -248,11 +452,82 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="FiList">
+	<xs:complexType name="ConfigurationAppParameter">
+		<xs:annotation>
+			<xs:documentation>
+				Definition for the app parameters within the configuration.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the combination of configuration, application and Parameter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The App Parameter ID that points to the app as it is set up at the system level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The current value of the parameter as they are set up at the configuration level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration App Parameter level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationAppParameterId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration, app and parameter combination.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationAppParameterIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="financialInstitution" type="FinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
+					<xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The list of app parameters ID's that have been set/specialized for a configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="FinancialInstitutionList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="financialInstitution" type="ConfigurationFinancialInstitution" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								List of financial institution within this configuration.
@@ -264,21 +539,21 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="FinancialInstitution">
+	<xs:complexType name="ConfigurationFinancialInstitution">
 		<xs:annotation>
 			<xs:documentation>
 				Definition for the configuration parameters for the financial institution.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The unique identifier for the configuration and financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiId" type="common:FiId" minOccurs ="0" maxOccurs ="unbounded">
+			<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The FIID  is used by systems to uniquely identify each financial institution.
@@ -290,22 +565,32 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The party ID is a persistent and unique identifier for the party that is not related to the accounts
-						they own, but tied to that person or business. It should be unique for all parties across the
-						institution and remain the same over the life of the relationship with the financial institution.
+						The financial institution's party ID which is a persistent and unique identifier
+						for the financial instution that is not related to the accounts it owns, but tied to the business.
+						The party records would contain all the tax reporting, DBA, contact points such as
+						addresses, emails, websites, and phone numbers that the financial institution can be contacted at.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="configurationFiVendorList" type="ConfigurationFiVendorList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="configurationFiVendorList" type="ConfigurationFinancialInstitutionVendorList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of valid unique identifications of configuration and Vendor for the financial institution.
+						The list of Vendors for the financial institution within this configuration.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="configurationFiAppList" type="ConfigurationFinancialInstitutionAppList" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of applications within this configuration for the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -319,7 +604,17 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiIdList">
+	<xs:simpleType name="ConfigurationFinancialInstitutionId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
 				The list of Configuration Fi ID's that should have their associated configurations either returned or affected
@@ -329,7 +624,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiId" type="ConfigurationFiId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationFiId" type="ConfigurationFinancialInstitutionId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the configuration and financial institution.
@@ -341,11 +636,11 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendorList">
+	<xs:complexType name="ConfigurationFinancialInstitutionVendorList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiVendor" type="ConfigurationFiVendor" minOccurs ="0" maxOccurs="1">
+					<xs:element name="configurationFiVendor" type="ConfigurationFinancialInstitutionVendor" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								The list of valid unique identifications of configuration and Vendor for the financial institution.
@@ -357,12 +652,12 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendor">
+	<xs:complexType name="ConfigurationFinancialInstitutionVendor">
 		<xs:sequence>
-			<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="configurationFiVendorId" type="ConfigurationFinancialInstitutionVendorId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						unique identification for the configuration, Fi and Vendor.
+						unique identification for the configuration, financial institution and Vendor.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -371,15 +666,15 @@
 				<xs:annotation>
 					<xs:documentation>
 						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
-						assigned by the FI or established in concert by the vendor and FI.
+						assigned by the financial institution or established in concert by the vendor and financial institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="vendorPartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The party ID is a persistent and unique identifier for the party that is not related to the accounts
+						The vendor's party ID is a persistent and unique identifier for the party that is not related to the accounts
 						they own, but tied to that person or business. It should be unique for all parties across the
 						institution and remain the same over the life of the relationship with the financial institution.
 					</xs:documentation>
@@ -399,14 +694,237 @@
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="ConfigurationFiVendorIdList">
+	<xs:simpleType name="ConfigurationFinancialInstitutionVendorId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and financial institution and vendor.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="ConfigurationFinancialInstitutionVendorIdList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationFiVendorId" type="ConfigurationFiVendorId" minOccurs ="0" maxOccurs="1">
+					<xs:element name="configurationFiVendorId" type="ConfigurationFinancialInstitutionVendorId" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								unique identification for the configuration, Fi and Vendor.
+								unique identification for the configuration, financial institution and Vendor.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionAppList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiApp" type="ConfigurationFinancialInstitutionApp" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An app as it's installed/specialized in the configuration for a financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionApp">
+		<xs:annotation>
+			<xs:documentation>
+				Definition for the app in the configuration and its parameters.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationFiAppId" type="ConfigurationFinancialInstitutionAppId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the combination of configuration, financial institution and application
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appId" type="app:AppId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the app at the sytstem level.
+						Used for defaulting back to defaults or finding out what original values are and
+						seeing the app attributes that do not change at the configuration/financial institution level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationFiAppDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the app if it has been customimized for this configuration financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="configurationFiAppParameterList" type="ConfigurationFinancialInstitutionAppParameterList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The parameters as they are set up at the configuration level and financial institution combination.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration Financial Institution App level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationFinancialInstitutionAppId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration, financial institution, app and parameter combination.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionAppIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Configuration Fi App ID's that should have their associated configurations either returned or affected
+				by a read, update or delete configuration request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiAppId" type="ConfigurationFinancialInstitutionAppId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the configuration, financial institution and App.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionAppParameterList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiAppParameter" type="ConfigurationFinancialInstitutionAppParameter" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An app parameter as it's installed/specialized in the configuration for the financial institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionAppParameter">
+		<xs:annotation>
+			<xs:documentation>
+				Definition for the app parameters within the configuration for a financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationFiAppParameterId" type="ConfigurationFinancialInstitutionAppParameterId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the combination of configuration, application and Parameter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="appParameterId" type="app:AppParameterId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the app parameter at the sytstem level.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="currentValue" type="app:CurrentValue" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The current value of the app parameter as set up in the configuration for a financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration Financial Institution App Parameter level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationFinancialInstitutionAppParameterId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration, financial institution, app and parameter combination.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationFinancialInstitutionAppParameterIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Configuration Fi App Parameter ID's that should have their associated configurations either returned or affected
+				by a read, update or delete configuration request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationFiAppParameterId" type="ConfigurationFinancialInstitutionAppParameterId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the configuration, financial institution and App.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ServiceList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="service" type="Service" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A service and list of methods within the CUFX instance that are supported by this end point.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -457,7 +975,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="currencySupportList" type="CurrencySupportList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="currencySupportList" type="common:CurrencyList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Valid values for currency.  If zero currencies are listed then USD is the only supported currency.
@@ -465,7 +983,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="acceptLanguageList" type="AcceptLanguageList" minOccurs ="0" maxOccurs="1">
+			<xs:element name="acceptLanguageList" type="common:LanguageList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Specifies which language(s) can be received by the end point. This instructs it to
@@ -484,7 +1002,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="serviceTimeZoneUTCOffset" type="ServiceTimeZoneUTCOffset"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="serviceTimeZoneUTCOffset" type="common:TimeZoneUTCOffset"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The offset of the time zone from Universal Time where this service resides.  If the service
@@ -495,6 +1013,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
 			<xs:element name="status" type="SystemStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -513,6 +1032,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
 			<xs:element name="customDataUseList" type="CustomDataUseList"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -529,6 +1049,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -577,7 +1098,8 @@
 			<xs:element name="uri"  type="xs:anyURI"  minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The base URI for the service.  For example: POST https://api.dataprovider.com/deposit?subMethod=GET
+						The base URI for the method.  For example: POST https://api.dataprovider.com/deposit?subMethod=GET
+						This could also be a relative URI. For example: POST https://../deposit?subMethod=GET
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -682,47 +1204,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="CurrencySupportList">
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="currencySupport" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Currency supported by the service.  If none were supplied, then USD is the only valid currency.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="AcceptLanguageList">
-		<xs:annotation>
-			<xs:documentation>
-				Specifies which language(s) can be received by the end point. This instructs it
-				to generate its response data and return its data and errors in the accepted language(s).
-				If none are specified then the default is US English (en-us).
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="acceptLanguage" type="xs:string" minOccurs ="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Specifies a valid language-region which can be received by the end point, which instructs it
-								to generate its response data and return its data and errors in the accepted language(s).
-								Combination of a language and a region.  For example en-us.
-								http://www.iana.org/assignments/language-subtag-registry
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
 
 	<xs:complexType name="FieldNotSupportedList">
 		<xs:annotation>
@@ -774,6 +1255,16 @@
 					<xs:documentation>
 						Comment as to why the field(s) is/are not supported.
 						For example: This end point does not support citizenship as the back end core does not support this concept.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration Field Not Supported level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -849,7 +1340,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The name that will show up in the value pair within the custom data.  For instance,
@@ -874,6 +1365,7 @@
 			<xs:enumeration value ="AccessProfile"></xs:enumeration>
 			<xs:enumeration value ="Account"></xs:enumeration>
 			<xs:enumeration value ="Activity"></xs:enumeration>
+			<xs:enumeration value ="App"></xs:enumeration>
 			<xs:enumeration value ="Application"></xs:enumeration>
 			<xs:enumeration value ="Artifact"></xs:enumeration>
 			<xs:enumeration value ="Bill"></xs:enumeration>
@@ -892,7 +1384,7 @@
 			<xs:enumeration value ="Document"></xs:enumeration>
 			<xs:enumeration value ="EligibilityRequirement"></xs:enumeration>
 			<xs:enumeration value ="FeeSchedule"></xs:enumeration>
-			<xs:enumeration value ="FieldRequirement"></xs:enumeration>
+			<xs:enumeration value ="Field"></xs:enumeration>
 			<xs:enumeration value ="Hold"></xs:enumeration>
 			<xs:enumeration value ="InvestmentHolding"></xs:enumeration>
 			<xs:enumeration value ="Investment"></xs:enumeration>
@@ -908,6 +1400,7 @@
 			<xs:enumeration value ="PermissionList"></xs:enumeration>
 			<xs:enumeration value ="Preference"></xs:enumeration>
 			<xs:enumeration value ="ProductOffering"></xs:enumeration>
+			<xs:enumeration value ="ProductServiceEnrollment"></xs:enumeration>
 			<xs:enumeration value ="ProductServiceRequest"></xs:enumeration>
 			<xs:enumeration value ="RegisteredDevice"></xs:enumeration>
 			<xs:enumeration value ="Relationship"></xs:enumeration>
@@ -918,7 +1411,7 @@
 			<xs:enumeration value ="Transaction"></xs:enumeration>
 			<xs:enumeration value ="TransferOccurrence"></xs:enumeration>
 			<xs:enumeration value ="TransferRecurring"></xs:enumeration>
-			<xs:enumeration value ="User"></xs:enumeration>		
+			<xs:enumeration value ="User"></xs:enumeration>
 			<xs:enumeration value ="Wire"></xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
@@ -946,7 +1439,7 @@
 					<xs:element name="MethodId" type="MethodId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								unique identification for the configuration.
+								unique identification for the method.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1004,4 +1497,131 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="ConfigurationNetworkNodeAddressList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationNetworkNodeAddressList" type="ConfigurationNetworkNodeAddress" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A list of network node addresses that are in or comprise the configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationNetworkNodeAddress">
+		<xs:annotation>
+			<xs:documentation>
+				A network node address that is in or comprises the configuration.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="configurationNetworkNodeAddressId " type="ConfigurationNetworkNodeAddressId" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the combination of configuration, application and network node address.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="networkNodeAddress" type="networkNode:NetworkNodeAddress" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The details of the network node address within the configuration.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration Network Node Adddress level Not Supported level name/data pairs list of fields
+						that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ConfigurationNetworkNodeAddressId">
+		<xs:annotation>
+			<xs:documentation>
+				The unique identifier for the configuration and network node address combination.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="ConfigurationNetworkNodeAddressIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of Configuration network node address ID's that should have their associated
+				configurations either returned or affected
+				by a read, update or delete configuration request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationNetworkNodeAddressId" type="ConfigurationNetworkNodeAddressId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the configuration, financial institution and network node address.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationCreatedByList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of users that created a configuration that should have their associated configurations either returned or affected
+				by a read, update or delete configuration request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the user that created the configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ConfigurationLastUpdatedByList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of users that last modified a configuration that should have their associated configurations either returned or affected
+				by a read, update or delete configuration request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="configurationLastModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The unique identifier for the user that last modified the configuration.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>

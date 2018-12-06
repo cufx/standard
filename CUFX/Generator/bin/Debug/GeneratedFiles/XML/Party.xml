@@ -29,9 +29,12 @@
       </taxInformation>
     </taxInformationList>
     <type>Individual</type>
+    <partyStatus>partyStatus1</partyStatus>
+    <partyStatusComment>partyStatusComment1</partyStatusComment>
     <characteristics>
       <organization>
         <organizationType>SoleProprietorship</organizationType>
+        <organizationSubType>organizationSubType1</organizationSubType>
         <organizationName>organizationName1</organizationName>
         <doingBusinessAsList>
           <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -43,6 +46,177 @@
           <doingBusinessAs xsi:nil="true" />
         </doingBusinessAsList>
       </organization>
+      <individual>
+        <firstName>firstName1</firstName>
+        <middleName>middleName1</middleName>
+        <lastName>lastName1</lastName>
+        <prefix>prefix1</prefix>
+        <suffix>suffix1</suffix>
+        <formattedName>formattedName1</formattedName>
+        <mothersMaidenName>mothersMaidenName1</mothersMaidenName>
+        <nickname>nickname1</nickname>
+        <birthdate>1900-01-01</birthdate>
+        <deathDate>1900-01-01</deathDate>
+        <gender>Male</gender>
+        <cityOfBirth>cityOfBirth1</cityOfBirth>
+        <citizenshipList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <citizenship xsi:nil="true" />
+        </citizenshipList>
+        <employmentStatus>Contract</employmentStatus>
+        <employmentList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <employment>
+            <employmentId>employmentId1</employmentId>
+            <employerPartyId>employerPartyId1</employerPartyId>
+            <employerName>employerName1</employerName>
+            <employmentStartDate>1900-01-01</employmentStartDate>
+            <employmentEndDate>1900-01-01</employmentEndDate>
+            <timeAtEmployer>P396DT1H1M1S</timeAtEmployer>
+            <employeeOccupation>employeeOccupation1</employeeOccupation>
+            <employerAddress>
+              <line1 xmlns="http://cufxstandards.com/v4/Common.xsd">line11</line1>
+              <line2 xmlns="http://cufxstandards.com/v4/Common.xsd">line21</line2>
+              <line3 xmlns="http://cufxstandards.com/v4/Common.xsd">line31</line3>
+              <line4 xmlns="http://cufxstandards.com/v4/Common.xsd">line41</line4>
+              <line5 xmlns="http://cufxstandards.com/v4/Common.xsd">line51</line5>
+              <line6 xmlns="http://cufxstandards.com/v4/Common.xsd">line61</line6>
+              <line7 xmlns="http://cufxstandards.com/v4/Common.xsd">line71</line7>
+              <line8 xmlns="http://cufxstandards.com/v4/Common.xsd">line81</line8>
+              <line9 xmlns="http://cufxstandards.com/v4/Common.xsd">line91</line9>
+              <line10 xmlns="http://cufxstandards.com/v4/Common.xsd">line101</line10>
+              <city xmlns="http://cufxstandards.com/v4/Common.xsd">city1</city>
+              <stateProvince xmlns="http://cufxstandards.com/v4/Common.xsd">stateProvince1</stateProvince>
+              <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode1</postalCode>
+              <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AD</countryCode>
+              <country xmlns="http://cufxstandards.com/v4/Common.xsd">country1</country>
+              <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
+                <latitude>1</latitude>
+                <longitude>1</longitude>
+              </coordinate>
+            </employerAddress>
+            <employerPhone>
+              <phoneType xmlns="http://cufxstandards.com/v4/Contact.xsd">Home</phoneType>
+              <number xmlns="http://cufxstandards.com/v4/Contact.xsd">number1</number>
+              <extension xmlns="http://cufxstandards.com/v4/Contact.xsd">extension1</extension>
+              <planFormat xmlns="http://cufxstandards.com/v4/Contact.xsd">Nanp</planFormat>
+              <description xmlns="http://cufxstandards.com/v4/Contact.xsd">description1</description>
+              <smsRegistered xmlns="http://cufxstandards.com/v4/Contact.xsd">true</smsRegistered>
+            </employerPhone>
+            <employerStatus>Current</employerStatus>
+            <type>FullTime</type>
+            <employmentIncome>
+              <grossIncomeData>
+                <amount>
+                  <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+                  <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+                  <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+                </amount>
+                <frequency>AmortizedSchedule</frequency>
+                <otherFrequencyType>otherFrequencyType1</otherFrequencyType>
+                <excludeIncomeFromCalculations>false</excludeIncomeFromCalculations>
+                <customData>
+                  <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                  <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                  <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                  <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                  <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                  <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                  <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                </customData>
+              </grossIncomeData>
+              <netIncomeData>
+                <amount />
+                <frequency>AmortizedSchedule</frequency>
+                <otherFrequencyType>otherFrequencyType1</otherFrequencyType>
+                <excludeIncomeFromCalculations>false</excludeIncomeFromCalculations>
+              </netIncomeData>
+            </employmentIncome>
+            <customData>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
+          </employment>
+        </employmentList>
+        <additionalIncomeList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <additionalIncome>
+            <amount />
+            <frequency>AmortizedSchedule</frequency>
+            <otherFrequencyType>otherFrequencyType1</otherFrequencyType>
+            <excludeIncomeFromCalculations>false</excludeIncomeFromCalculations>
+            <source>source1</source>
+          </additionalIncome>
+        </additionalIncomeList>
+        <liabilityList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <liability>
+            <description>description1</description>
+            <payment>
+              <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+              <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+              <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+            </payment>
+            <paymentFrequency>AmortizedSchedule</paymentFrequency>
+            <balance>
+              <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+              <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+              <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+            </balance>
+            <excludeLiabilityFromCalculations>true</excludeLiabilityFromCalculations>
+            <customData>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
+          </liability>
+        </liabilityList>
+        <residence>
+          <currentHousingStatus>Rent</currentHousingStatus>
+          <currentHousingOwnershipType>Self</currentHousingOwnershipType>
+          <currentHousingDebtType>OwnWithMortgage</currentHousingDebtType>
+          <currentHousingType>PrimaryResidence</currentHousingType>
+        </residence>
+        <ethnicity>ethnicity1</ethnicity>
+        <race>race1</race>
+      </individual>
+      <trust>
+        <trustName>trustName1</trustName>
+        <trustType>trustType1</trustType>
+      </trust>
+      <estate>
+        <estateName>estateName1</estateName>
+        <estateType>estateType1</estateType>
+      </estate>
     </characteristics>
     <identificationDocumentList>
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -107,17 +281,38 @@
             <postalCode xmlns="http://cufxstandards.com/v4/Common.xsd">postalCode1</postalCode>
             <countryCode xmlns="http://cufxstandards.com/v4/Common.xsd">AD</countryCode>
             <country xmlns="http://cufxstandards.com/v4/Common.xsd">country1</country>
-            <coordinate xmlns="http://cufxstandards.com/v4/Common.xsd">
-              <latitude>1</latitude>
-              <longitude>1</longitude>
-            </coordinate>
             <addressType>Home</addressType>
             <effectiveDateTime>1900-01-01T01:01:01Z</effectiveDateTime>
             <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
             <timeAtAddress>P396DT1H1M1S</timeAtAddress>
             <addressVerifyDateTime>1900-01-01T01:01:01Z</addressVerifyDateTime>
           </address>
+          <phone>
+            <phoneType>Home</phoneType>
+            <number>number1</number>
+            <extension>extension1</extension>
+            <planFormat>Nanp</planFormat>
+            <description>description1</description>
+            <smsRegistered>true</smsRegistered>
+          </phone>
+          <email>
+            <emailType>Home</emailType>
+            <address>address1</address>
+          </email>
+          <instantMessage>
+            <messagingService>messagingService1</messagingService>
+            <user>user1</user>
+          </instantMessage>
+          <social>
+            <socialService>socialService1</socialService>
+            <user>user1</user>
+          </social>
+          <website>
+            <sitename>sitename1</sitename>
+            <user>user1</user>
+          </website>
         </contactPoint>
+        <contactPointDescription>contactPointDescription1</contactPointDescription>
         <timeOfDay>Afternoon</timeOfDay>
         <demonstratedAccess>
           <dateTime>1900-01-01T01:01:01Z</dateTime>
@@ -147,8 +342,14 @@
     </fiUserIdList>
     <householdId>householdId1</householdId>
     <partyDateCreated>1900-01-01</partyDateCreated>
+    <partyDateTimeCreated>1900-01-01T01:01:01Z</partyDateTimeCreated>
+    <partyCreatedBy>partyCreatedBy1</partyCreatedBy>
     <partyDateModified>1900-01-01</partyDateModified>
+    <partyDateTimeModified>1900-01-01T01:01:01Z</partyDateTimeModified>
+    <partyModifiedBy>partyModifiedBy1</partyModifiedBy>
     <partyDateDeleted>1900-01-01</partyDateDeleted>
+    <partyDateTimeDeleted>1900-01-01T01:01:01Z</partyDateTimeDeleted>
+    <partyDeletedBy>partyDeletedBy1</partyDeletedBy>
     <noteList>
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
       <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>

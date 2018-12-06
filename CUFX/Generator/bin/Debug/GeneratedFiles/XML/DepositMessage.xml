@@ -2,14 +2,18 @@
   <messageContext>
     <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
     <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <configurationId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">configurationId1</configurationId>
     <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
     <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
     <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
     <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
-    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">Development</environment>
+    <sendingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sendingNetworkNodeId1</sendingNetworkNodeId>
+    <receivingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">receivingNetworkNodeId1</receivingNetworkNodeId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">environment1</environment>
     <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
     <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
     <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <sessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sessionId1</sessionId>
     <userList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
       <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
       <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -17,10 +21,23 @@
       <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-      <user>
+      <user xmlns="http://cufxstandards.com/v4/User.xsd">
         <userId>userId1</userId>
         <processorSessionId>processorSessionId1</processorSessionId>
-        <userType>EmployeeId</userType>
+        <userIdType>EmployeeId</userIdType>
+        <partyId>partyId1</partyId>
+        <customData>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
+            <name>name1</name>
+            <value>value1</value>
+          </valuePair>
+        </customData>
       </user>
     </userList>
     <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
@@ -39,10 +56,7 @@
       <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
       <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
-      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
-        <name>name1</name>
-        <value>value1</value>
-      </valuePair>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
     </customData>
   </messageContext>
   <depositFilter>
@@ -65,6 +79,8 @@
       <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
         <accountStatus>
           <depositAccountStatus>Active</depositAccountStatus>
+          <investmentStatus>Active</investmentStatus>
+          <loanAccountStatus>Active</loanAccountStatus>
         </accountStatus>
         <accountSubStatus>accountSubStatus1</accountSubStatus>
       </accountStatusPair>
@@ -130,6 +146,8 @@
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
         <depositAccountStatus>Active</depositAccountStatus>
+        <investmentStatus>Active</investmentStatus>
+        <loanAccountStatus>Active</loanAccountStatus>
       </accountStatus>
       <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
       <micrAccountNumber xmlns="http://cufxstandards.com/v4/Account.xsd">micrAccountNumber1</micrAccountNumber>
@@ -319,6 +337,19 @@
             <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
             <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
           </escrowAmount>
+          <transactionArtifactId>
+            <artifactUniqueId xmlns="http://cufxstandards.com/v4/Artifact.xsd">artifactUniqueId1</artifactUniqueId>
+            <artifactIdKeyValueList xmlns="http://cufxstandards.com/v4/Artifact.xsd">
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </artifactIdKeyValueList>
+          </transactionArtifactId>
+          <transactionArtifactUri>http://uri1</transactionArtifactUri>
           <customData>
             <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
             <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -345,6 +376,26 @@
               <qualifier xmlns="http://cufxstandards.com/v4/Relationship.xsd">Primary</qualifier>
               <authority xmlns="http://cufxstandards.com/v4/Relationship.xsd">Authorized</authority>
             </holder>
+            <beneficiary>
+              <isBeneficiary xmlns="http://cufxstandards.com/v4/Relationship.xsd">true</isBeneficiary>
+              <qualifier xmlns="http://cufxstandards.com/v4/Relationship.xsd">Standard</qualifier>
+              <authority xmlns="http://cufxstandards.com/v4/Relationship.xsd">Authorized</authority>
+              <beneficiaryPercent xmlns="http://cufxstandards.com/v4/Relationship.xsd">1.00</beneficiaryPercent>
+              <beneficiaryTypes xmlns="http://cufxstandards.com/v4/Relationship.xsd">Primary</beneficiaryTypes>
+            </beneficiary>
+            <agent>
+              <qualifier xmlns="http://cufxstandards.com/v4/Common.xsd">Custodian</qualifier>
+              <authority xmlns="http://cufxstandards.com/v4/Common.xsd">Unauthorized</authority>
+            </agent>
+            <guarantor>
+              <isGuarantor xmlns="http://cufxstandards.com/v4/Relationship.xsd">true</isGuarantor>
+              <authority xmlns="http://cufxstandards.com/v4/Relationship.xsd">Authorized</authority>
+            </guarantor>
+            <safeDepositBoxUser>
+              <isSafeDepositBoxUser xmlns="http://cufxstandards.com/v4/Relationship.xsd">true</isSafeDepositBoxUser>
+              <qualifier xmlns="http://cufxstandards.com/v4/Relationship.xsd">Colessee</qualifier>
+              <authority xmlns="http://cufxstandards.com/v4/Relationship.xsd">Authorized</authority>
+            </safeDepositBoxUser>
           </depositPartyRelationshipType>
           <ssnOverride>false</ssnOverride>
           <contactIdList>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/Application.xsd"
-  version="4.1.$Revision: 1257 $"
-  xmlns="http://cufxstandards.com/v4/Application.xsd"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-  xmlns:credit="http://cufxstandards.com/v4/CreditReport.xsd"
-  xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-  xmlns:productOffering="http://cufxstandards.com/v4/ProductOffering.xsd"
-  xmlns:loan="http://cufxstandards.com/v4/Loan.xsd"
-  xmlns:deposit="http://cufxstandards.com/v4/Deposit.xsd"
-  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-  xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-  elementFormDefault="qualified" >
+	version="4.1.$Revision: 1365 $"
+	xmlns="http://cufxstandards.com/v4/Application.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:credit="http://cufxstandards.com/v4/CreditReport.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:productOffering="http://cufxstandards.com/v4/ProductOffering.xsd"
+	xmlns:loan="http://cufxstandards.com/v4/Loan.xsd"
+	xmlns:deposit="http://cufxstandards.com/v4/Deposit.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	elementFormDefault="qualified" >
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
@@ -277,9 +277,12 @@
 		<xs:annotation>
 			<xs:documentation>
 				Product detail is a structure pointing to fields based on the product type.
+				Intended choice - Due to cross language serialization issues the choice construct has been removed.
+				It is the responsibility of the implementer to add programmatic logic for this complex type to detect,
+				handle and or error when population of more than one element is present.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:choice>
+		<xs:sequence>
 			<xs:element name="loan" type="loan:Loan">
 				<xs:annotation>
 					<xs:documentation>
@@ -296,7 +299,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-		</xs:choice>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:simpleType name="ApplicationStatus">

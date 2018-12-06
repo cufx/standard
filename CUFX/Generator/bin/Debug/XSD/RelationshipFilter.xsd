@@ -1,5 +1,5 @@
 ﻿<xs:schema targetNamespace="http://cufxstandards.com/v4/RelationshipFilter.xsd"
-	version="4.1.$Revision: 1257 $"			  
+	version="4.1.$Revision: 1365 $"
 	xmlns="http://cufxstandards.com/v4/RelationshipFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
@@ -10,55 +10,55 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-  <xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-  <xs:import namespace="http://cufxstandards.com/v4/Preference.xsd" schemaLocation="Preference.xsd" />
- 
-  <xs:element name="relationshipFilter" type="RelationshipFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting relationship data.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Preference.xsd" schemaLocation="Preference.xsd" />
 
-  <xs:complexType name="RelationshipFilter">
-    <xs:annotation>
-      <xs:documentation>
-        The list of filter options for services requesting relationship data.  The options can be used
-        in combination or by themselves.  It is up to the data source to either return or affect the
-        data requested or return a standard error identifying why the request was rejected.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of party ID's that should be returned or affected by a read, update or delete
-            relationship request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:element name="relationshipFilter" type="RelationshipFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting relationship data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 
-      <xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of relationship ID's that should have their associated relationships either returned
-            or affected by a read, update or delete relationship request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+	<xs:complexType name="RelationshipFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting relationship data.  The options can be used
+				in combination or by themselves.  It is up to the data source to either return or affect the
+				data requested or return a standard error identifying why the request was rejected.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of party ID's that should be returned or affected by a read, update or delete
+						relationship request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
-      <xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of cccount ID's that should have their associated relationships either returned or affected
-            by a read, update or delete relationship request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
+			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of relationship ID's that should have their associated relationships either returned
+						or affected by a read, update or delete relationship request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of cccount ID's that should have their associated relationships either returned or affected
+						by a read, update or delete relationship request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
@@ -69,15 +69,15 @@
 				</xs:annotation>
 			</xs:element>
 
-      <xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            The list of contact ID's that should have their associated relationships either returned or affected
-            by a read, update or delete relationship request.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-			
+			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of contact ID's that should have their associated relationships either returned or affected
+						by a read, update or delete relationship request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="relationshipStatusList" type="relationship:RelationshipStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -95,8 +95,8 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-    </xs:sequence>
-  </xs:complexType>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>
 
