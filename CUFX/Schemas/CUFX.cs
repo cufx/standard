@@ -204,6 +204,8 @@ namespace cufxstandards.com
 
         private string fiUserIdField;
 
+        private string userIdField;
+
         private string partyIdField;
 
         private string relationshipIdField;
@@ -218,6 +220,19 @@ namespace cufxstandards.com
             set
             {
                 this.fiUserIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string userId
+        {
+            get
+            {
+                return this.userIdField;
+            }
+            set
+            {
+                this.userIdField = value;
             }
         }
 
@@ -3859,9 +3874,15 @@ namespace cufxstandards.com
 
         private DepositAccountStatus depositAccountStatusField;
 
+        private bool depositAccountStatusFieldSpecified;
+
         private InvestmentStatus investmentStatusField;
 
+        private bool investmentStatusFieldSpecified;
+
         private LoanAccountStatus loanAccountStatusField;
+
+        private bool loanAccountStatusFieldSpecified;
 
         /// <remarks/>
         public DepositAccountStatus depositAccountStatus
@@ -3873,6 +3894,20 @@ namespace cufxstandards.com
             set
             {
                 this.depositAccountStatusField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool depositAccountStatusSpecified
+        {
+            get
+            {
+                return this.depositAccountStatusFieldSpecified;
+            }
+            set
+            {
+                this.depositAccountStatusFieldSpecified = value;
             }
         }
 
@@ -3890,6 +3925,20 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool investmentStatusSpecified
+        {
+            get
+            {
+                return this.investmentStatusFieldSpecified;
+            }
+            set
+            {
+                this.investmentStatusFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public LoanAccountStatus loanAccountStatus
         {
             get
@@ -3899,6 +3948,20 @@ namespace cufxstandards.com
             set
             {
                 this.loanAccountStatusField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool loanAccountStatusSpecified
+        {
+            get
+            {
+                return this.loanAccountStatusFieldSpecified;
+            }
+            set
+            {
+                this.loanAccountStatusFieldSpecified = value;
             }
         }
     }
@@ -17701,6 +17764,12 @@ namespace cufxstandards.com
 
         private bool blockedDateTimeFieldSpecified;
 
+        private System.DateTime cardStatusDateTimeField;
+
+        private bool cardStatusDateTimeFieldSpecified;
+
+        private string cardStatusReasonField;
+
         private string virtualNumberField;
 
         private MerchantCountryCodeList merchantCountryCodesField;
@@ -17960,6 +18029,46 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
+        public System.DateTime cardStatusDateTime
+        {
+            get
+            {
+                return this.cardStatusDateTimeField;
+            }
+            set
+            {
+                this.cardStatusDateTimeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool cardStatusDateTimeSpecified
+        {
+            get
+            {
+                return this.cardStatusDateTimeFieldSpecified;
+            }
+            set
+            {
+                this.cardStatusDateTimeFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public string cardStatusReason
+        {
+            get
+            {
+                return this.cardStatusReasonField;
+            }
+            set
+            {
+                this.cardStatusReasonField = value;
+            }
+        }
+
+        /// <remarks/>
         public string virtualNumber
         {
             get
@@ -18122,6 +18231,9 @@ namespace cufxstandards.com
 
         /// <remarks/>
         Stolen,
+
+        /// <remarks/>
+        Suspended,
 
         /// <remarks/>
         Other,
@@ -20914,7 +21026,7 @@ namespace cufxstandards.com
 
         private string partyStatusField;
 
-        private string partyStatusCommentField;
+        private string partySubStatusField;
 
         private Characteristics characteristicsField;
 
@@ -21031,15 +21143,15 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public string partyStatusComment
+        public string partySubStatus
         {
             get
             {
-                return this.partyStatusCommentField;
+                return this.partySubStatusField;
             }
             set
             {
-                this.partyStatusCommentField = value;
+                this.partySubStatusField = value;
             }
         }
 
@@ -30539,66 +30651,22 @@ namespace cufxstandards.com
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Party.xsd")]
-    public partial class PartyModifiedByList : ListBase
+    public partial class PartySubStatusList : ListBase
     {
 
-        private string[] partyModifiedByField;
+        private string[] partySubStatusField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("partyModifiedBy")]
-        public string[] partyModifiedBy
+        [System.Xml.Serialization.XmlElementAttribute("partySubStatus")]
+        public string[] partySubStatus
         {
             get
             {
-                return this.partyModifiedByField;
+                return this.partySubStatusField;
             }
             set
             {
-                this.partyModifiedByField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Party.xsd")]
-    public partial class PartyCreatedByList : ListBase
-    {
-
-        private string[] partyCreatedByField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("partyCreatedBy")]
-        public string[] partyCreatedBy
-        {
-            get
-            {
-                return this.partyCreatedByField;
-            }
-            set
-            {
-                this.partyCreatedByField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Party.xsd")]
-    public partial class PartyStatusCommentList : ListBase
-    {
-
-        private string[] partyStatusCommentField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("partyStatusComment")]
-        public string[] partyStatusComment
-        {
-            get
-            {
-                return this.partyStatusCommentField;
-            }
-            set
-            {
-                this.partyStatusCommentField = value;
+                this.partySubStatusField = value;
             }
         }
     }
@@ -34456,6 +34524,196 @@ namespace cufxstandards.com
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/FeeSchedule.xsd")]
+    public partial class FeeIdList : ListBase
+    {
+
+        private string[] feeIdField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("feeId")]
+        public string[] feeId
+        {
+            get
+            {
+                return this.feeIdField;
+            }
+            set
+            {
+                this.feeIdField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/FeeSchedule.xsd")]
+    public partial class FeeTypeList : ListBase
+    {
+
+        private FeeType[] feeTypeField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("feeType")]
+        public FeeType[] feeType
+        {
+            get
+            {
+                return this.feeTypeField;
+            }
+            set
+            {
+                this.feeTypeField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/FeeSchedule.xsd")]
+    public partial class FeeType
+    {
+
+        private FeeCategory feeCategoryField;
+
+        private bool feeCategoryFieldSpecified;
+
+        private bool isRegDApplicableField;
+
+        private bool isRegDApplicableFieldSpecified;
+
+        /// <remarks/>
+        public FeeCategory feeCategory
+        {
+            get
+            {
+                return this.feeCategoryField;
+            }
+            set
+            {
+                this.feeCategoryField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool feeCategorySpecified
+        {
+            get
+            {
+                return this.feeCategoryFieldSpecified;
+            }
+            set
+            {
+                this.feeCategoryFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public bool isRegDApplicable
+        {
+            get
+            {
+                return this.isRegDApplicableField;
+            }
+            set
+            {
+                this.isRegDApplicableField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool isRegDApplicableSpecified
+        {
+            get
+            {
+                return this.isRegDApplicableFieldSpecified;
+            }
+            set
+            {
+                this.isRegDApplicableFieldSpecified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/FeeSchedule.xsd")]
+    public enum FeeCategory
+    {
+
+        /// <remarks/>
+        Unpaid,
+
+        /// <remarks/>
+        Overdraft,
+
+        /// <remarks/>
+        Withdrawal,
+
+        /// <remarks/>
+        Advance,
+
+        /// <remarks/>
+        Deposit,
+
+        /// <remarks/>
+        Payment,
+
+        /// <remarks/>
+        StopFee,
+
+        /// <remarks/>
+        Overlimit,
+
+        /// <remarks/>
+        BillPayment,
+
+        /// <remarks/>
+        Transfer,
+
+        /// <remarks/>
+        WithdrawaltoBelowBase,
+
+        /// <remarks/>
+        ClosingWithinBaseCountDays,
+
+        /// <remarks/>
+        WithdrawalWhenBalanceBelowBase,
+
+        /// <remarks/>
+        TellerUsage,
+
+        /// <remarks/>
+        CheckPrinting,
+
+        /// <remarks/>
+        CheckOther,
+
+        /// <remarks/>
+        NewShare,
+
+        /// <remarks/>
+        DocumentStamp,
+
+        /// <remarks/>
+        ATMCustom,
+
+        /// <remarks/>
+        AudioCustom,
+
+        /// <remarks/>
+        OnlineServices,
+
+        /// <remarks/>
+        InternationalTransaction,
+
+        /// <remarks/>
+        PaymentSkip,
+
+        /// <remarks/>
+        OtherRegulationZ,
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/FeeSchedule.xsd")]
     public partial class FeeList : ListBase
     {
 
@@ -34483,6 +34741,8 @@ namespace cufxstandards.com
 
         private string[] feeIdField;
 
+        private FeeType feeTypeField;
+
         private string typeField;
 
         private RelatedTo relatedToField;
@@ -34495,6 +34755,8 @@ namespace cufxstandards.com
 
         private FeePriceList priceListField;
 
+        private DateRange feeEffectiveDateRangeField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("feeId")]
         public string[] feeId
@@ -34506,6 +34768,19 @@ namespace cufxstandards.com
             set
             {
                 this.feeIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        public FeeType feeType
+        {
+            get
+            {
+                return this.feeTypeField;
+            }
+            set
+            {
+                this.feeTypeField = value;
             }
         }
 
@@ -34586,6 +34861,19 @@ namespace cufxstandards.com
             set
             {
                 this.priceListField = value;
+            }
+        }
+
+        /// <remarks/>
+        public DateRange feeEffectiveDateRange
+        {
+            get
+            {
+                return this.feeEffectiveDateRangeField;
+            }
+            set
+            {
+                this.feeEffectiveDateRangeField = value;
             }
         }
     }
@@ -34673,6 +34961,74 @@ namespace cufxstandards.com
             set
             {
                 this.priceField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Common.xsd")]
+    public partial class DateRange
+    {
+
+        private System.DateTime startDateTimeField;
+
+        private bool startDateTimeFieldSpecified;
+
+        private System.DateTime endDateTimeField;
+
+        private bool endDateTimeFieldSpecified;
+
+        /// <remarks/>
+        public System.DateTime startDateTime
+        {
+            get
+            {
+                return this.startDateTimeField;
+            }
+            set
+            {
+                this.startDateTimeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool startDateTimeSpecified
+        {
+            get
+            {
+                return this.startDateTimeFieldSpecified;
+            }
+            set
+            {
+                this.startDateTimeFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public System.DateTime endDateTime
+        {
+            get
+            {
+                return this.endDateTimeField;
+            }
+            set
+            {
+                this.endDateTimeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool endDateTimeSpecified
+        {
+            get
+            {
+                return this.endDateTimeFieldSpecified;
+            }
+            set
+            {
+                this.endDateTimeFieldSpecified = value;
             }
         }
     }
@@ -37719,6 +38075,8 @@ namespace cufxstandards.com
 
         private MethodName methodNameField;
 
+        private bool methodNameFieldSpecified;
+
         private string uriField;
 
         private MethodDependencyList methodDependencyListField;
@@ -37748,6 +38106,20 @@ namespace cufxstandards.com
             set
             {
                 this.methodNameField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool methodNameSpecified
+        {
+            get
+            {
+                return this.methodNameFieldSpecified;
+            }
+            set
+            {
+                this.methodNameFieldSpecified = value;
             }
         }
 
@@ -38779,6 +39151,8 @@ namespace cufxstandards.com
 
         private string serviceTimeZoneUTCOffsetField;
 
+        private string serviceTimeZoneNameField;
+
         private ServiceList serviceListField;
 
         private ConfigurationAppList configurationAppListField;
@@ -38942,6 +39316,19 @@ namespace cufxstandards.com
             set
             {
                 this.serviceTimeZoneUTCOffsetField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string serviceTimeZoneName
+        {
+            get
+            {
+                return this.serviceTimeZoneNameField;
+            }
+            set
+            {
+                this.serviceTimeZoneNameField = value;
             }
         }
 
@@ -40827,6 +41214,8 @@ namespace cufxstandards.com
 
         private ApplicationStatus productApplicationStatusField;
 
+        private bool productApplicationStatusFieldSpecified;
+
         private ProductDetail productDetailField;
 
         /// <remarks/>
@@ -40896,6 +41285,20 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool productApplicationStatusSpecified
+        {
+            get
+            {
+                return this.productApplicationStatusFieldSpecified;
+            }
+            set
+            {
+                this.productApplicationStatusFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
         public ProductDetail productDetail
         {
             get
@@ -40940,6 +41343,15 @@ namespace cufxstandards.com
 
         /// <remarks/>
         Lost,
+
+        /// <remarks/>
+        Suspended,
+
+        /// <remarks/>
+        Cancelled,
+
+        /// <remarks/>
+        Other,
     }
 
     /// <remarks/>
@@ -40950,6 +41362,8 @@ namespace cufxstandards.com
         private Loan loanField;
 
         private Deposit depositField;
+
+        private Investment investmentField;
 
         /// <remarks/>
         public Loan loan
@@ -40974,6 +41388,19 @@ namespace cufxstandards.com
             set
             {
                 this.depositField = value;
+            }
+        }
+
+        /// <remarks/>
+        public Investment investment
+        {
+            get
+            {
+                return this.investmentField;
+            }
+            set
+            {
+                this.investmentField = value;
             }
         }
     }
@@ -41014,6 +41441,14 @@ namespace cufxstandards.com
         private ApplicationStatus applicationStatusField;
 
         private bool applicationStatusFieldSpecified;
+
+        private System.DateTime applicationStatusDateTimeField;
+
+        private bool applicationStatusDateTimeFieldSpecified;
+
+        private System.DateTime applicationModifiedDateTimeField;
+
+        private bool applicationModifiedDateTimeFieldSpecified;
 
         private ProductAppliedForList productAppliedForListField;
 
@@ -41088,6 +41523,60 @@ namespace cufxstandards.com
             set
             {
                 this.applicationStatusFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public System.DateTime applicationStatusDateTime
+        {
+            get
+            {
+                return this.applicationStatusDateTimeField;
+            }
+            set
+            {
+                this.applicationStatusDateTimeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool applicationStatusDateTimeSpecified
+        {
+            get
+            {
+                return this.applicationStatusDateTimeFieldSpecified;
+            }
+            set
+            {
+                this.applicationStatusDateTimeFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public System.DateTime applicationModifiedDateTime
+        {
+            get
+            {
+                return this.applicationModifiedDateTimeField;
+            }
+            set
+            {
+                this.applicationModifiedDateTimeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool applicationModifiedDateTimeSpecified
+        {
+            get
+            {
+                return this.applicationModifiedDateTimeFieldSpecified;
+            }
+            set
+            {
+                this.applicationModifiedDateTimeFieldSpecified = value;
             }
         }
 
@@ -41337,9 +41826,6 @@ namespace cufxstandards.com
 
         /// <remarks/>
         Web,
-
-        /// <remarks/>
-        Other,
     }
 
     /// <remarks/>
@@ -42247,6 +42733,28 @@ namespace cufxstandards.com
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/AccessProfile.xsd")]
+    public partial class ActorList : ListBase
+    {
+
+        private Actor[] actorField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("actor")]
+        public Actor[] actor
+        {
+            get
+            {
+                return this.actorField;
+            }
+            set
+            {
+                this.actorField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/AccessProfile.xsd")]
     public partial class AccessProfileIdList : ListBase
     {
 
@@ -42468,6 +42976,8 @@ namespace cufxstandards.com
 
         private DateRange createAccessDateRangeField;
 
+        private ActorList actorListField;
+
         /// <remarks/>
         public AccessProfileIdList accessProfileIdList
         {
@@ -42493,72 +43003,17 @@ namespace cufxstandards.com
                 this.createAccessDateRangeField = value;
             }
         }
-    }
-
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Common.xsd")]
-    public partial class DateRange
-    {
-
-        private System.DateTime startDateTimeField;
-
-        private bool startDateTimeFieldSpecified;
-
-        private System.DateTime endDateTimeField;
-
-        private bool endDateTimeFieldSpecified;
 
         /// <remarks/>
-        public System.DateTime startDateTime
+        public ActorList actorList
         {
             get
             {
-                return this.startDateTimeField;
+                return this.actorListField;
             }
             set
             {
-                this.startDateTimeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool startDateTimeSpecified
-        {
-            get
-            {
-                return this.startDateTimeFieldSpecified;
-            }
-            set
-            {
-                this.startDateTimeFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        public System.DateTime endDateTime
-        {
-            get
-            {
-                return this.endDateTimeField;
-            }
-            set
-            {
-                this.endDateTimeField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool endDateTimeSpecified
-        {
-            get
-            {
-                return this.endDateTimeFieldSpecified;
-            }
-            set
-            {
-                this.endDateTimeFieldSpecified = value;
+                this.actorListField = value;
             }
         }
     }
@@ -42821,6 +43276,7 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute(true)]
         public bool includeBlankFields
         {
             get
@@ -42834,6 +43290,7 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
+        [System.ComponentModel.DefaultValueAttribute(true)]
         public bool includeZeroNumerics
         {
             get
@@ -47151,6 +47608,12 @@ namespace cufxstandards.com
     public partial class FeeScheduleFilter
     {
 
+        private FeeIdList feeIdListField;
+
+        private FeeTypeList feeTypeListField;
+
+        private DateRange feeEffectiveDateRangeField;
+
         private PartyIdList partyIdListField;
 
         private RelationshipIdList relationshipIdListField;
@@ -47164,6 +47627,45 @@ namespace cufxstandards.com
         private TaxIdList taxIdListField;
 
         private PartyTypeList partyTypeListField;
+
+        /// <remarks/>
+        public FeeIdList feeIdList
+        {
+            get
+            {
+                return this.feeIdListField;
+            }
+            set
+            {
+                this.feeIdListField = value;
+            }
+        }
+
+        /// <remarks/>
+        public FeeTypeList feeTypeList
+        {
+            get
+            {
+                return this.feeTypeListField;
+            }
+            set
+            {
+                this.feeTypeListField = value;
+            }
+        }
+
+        /// <remarks/>
+        public DateRange feeEffectiveDateRange
+        {
+            get
+            {
+                return this.feeEffectiveDateRangeField;
+            }
+            set
+            {
+                this.feeEffectiveDateRangeField = value;
+            }
+        }
 
         /// <remarks/>
         public PartyIdList partyIdList
@@ -49097,57 +49599,6 @@ namespace cufxstandards.com
     }
 
     /// <remarks/>
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName = "NoteMessage", Namespace = "http://cufxstandards.com/v4/NotesMessage.xsd")]
-    public partial class NoteMessage1
-    {
-
-        private MessageContext messageContextField;
-
-        private NotesFilter notesFilterField;
-
-        private DetailedNoteList detailedNoteListField;
-
-        /// <remarks/>
-        public MessageContext messageContext
-        {
-            get
-            {
-                return this.messageContextField;
-            }
-            set
-            {
-                this.messageContextField = value;
-            }
-        }
-
-        /// <remarks/>
-        public NotesFilter notesFilter
-        {
-            get
-            {
-                return this.notesFilterField;
-            }
-            set
-            {
-                this.notesFilterField = value;
-            }
-        }
-
-        /// <remarks/>
-        public DetailedNoteList detailedNoteList
-        {
-            get
-            {
-                return this.detailedNoteListField;
-            }
-            set
-            {
-                this.detailedNoteListField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd")]
     public partial class OverdraftPriorityListFilter
     {
@@ -49419,7 +49870,7 @@ namespace cufxstandards.com
 
         private PartyStatusList partyStatusListField;
 
-        private PartyStatusCommentList partyStatusCommentListField;
+        private PartySubStatusList partySubStatusListField;
 
         private bool includeNotesFlagField;
 
@@ -49437,11 +49888,11 @@ namespace cufxstandards.com
 
         private DateRange partyDateCreatedDateRangeField;
 
-        private PartyCreatedByList partyCreatedByListField;
+        private UserIdList partyCreatedByListField;
 
         private DateRange partyDateModifiedDateRangeField;
 
-        private PartyModifiedByList partyModifiedByListField;
+        private UserIdList partyModifiedByListField;
 
         private DateRange partyDateDeletedDateRangeField;
 
@@ -49563,15 +50014,15 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public PartyStatusCommentList partyStatusCommentList
+        public PartySubStatusList partySubStatusList
         {
             get
             {
-                return this.partyStatusCommentListField;
+                return this.partySubStatusListField;
             }
             set
             {
-                this.partyStatusCommentListField = value;
+                this.partySubStatusListField = value;
             }
         }
 
@@ -49681,7 +50132,7 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public PartyCreatedByList partyCreatedByList
+        public UserIdList partyCreatedByList
         {
             get
             {
@@ -49707,7 +50158,7 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public PartyModifiedByList partyModifiedByList
+        public UserIdList partyModifiedByList
         {
             get
             {
@@ -49789,11 +50240,26 @@ namespace cufxstandards.com
     public partial class PermissionListFilter
     {
 
+        private ActorList actorListField;
+
         private Actor[] actorsField;
 
         private string actionListField;
 
         private Resources resourcesField;
+
+        /// <remarks/>
+        public ActorList actorList
+        {
+            get
+            {
+                return this.actorListField;
+            }
+            set
+            {
+                this.actorListField = value;
+            }
+        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("actors")]
