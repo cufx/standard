@@ -48162,9 +48162,9 @@ namespace cufxstandards.com
 
         private MessageContext messageContextField;
 
-        private FinancialInstitutionFilter fiFilterField;
+        private FinancialInstitutionFilter financialInstitutionFilterField;
 
-        private FinancialInstitutionList1 fiListField;
+        private FinancialInstitutionList1 financialInstitutionListField;
 
         /// <remarks/>
         public MessageContext messageContext
@@ -48180,28 +48180,28 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public FinancialInstitutionFilter fiFilter
+        public FinancialInstitutionFilter financialInstitutionFilter
         {
             get
             {
-                return this.fiFilterField;
+                return this.financialInstitutionFilterField;
             }
             set
             {
-                this.fiFilterField = value;
+                this.financialInstitutionFilterField = value;
             }
         }
 
         /// <remarks/>
-        public FinancialInstitutionList1 fiList
+        public FinancialInstitutionList1 financialInstitutionList
         {
             get
             {
-                return this.fiListField;
+                return this.financialInstitutionListField;
             }
             set
             {
-                this.fiListField = value;
+                this.financialInstitutionListField = value;
             }
         }
     }
