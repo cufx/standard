@@ -5,8 +5,8 @@
 	xmlns="http://cufxstandards.com/v4/FinancialInstitutionMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
-	xmlns:fiFilter="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
+	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	xmlns:financialInstitutionFilter="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -43,7 +43,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiFilter" type="fiFilter:FinancialInstitutionFilter" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiFilter" type="financialInstitutionFilter:FinancialInstitutionFilter" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Any filters applied to a read, update or delete financial institution request.
@@ -51,7 +51,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="fi:FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiList" type="financialInstitution:FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						All the financial institution data.
