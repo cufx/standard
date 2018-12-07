@@ -43,7 +43,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiFilter" type="financialInstitutionFilter:FinancialInstitutionFilter" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="financialInstitutionFilter" type="financialInstitutionFilter:FinancialInstitutionFilter" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Any filters applied to a read, update or delete financial institution request.
@@ -51,7 +51,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiList" type="financialInstitution:FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="financialInstitutionList" type="financialInstitution:FinancialInstitutionList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						All the financial institution data.
