@@ -6,7 +6,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
@@ -37,7 +37,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="fiIdList" type="fi:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiIdList" type="financialInstitution:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of financial institution ID's that should have their associated financial institutions either returned
@@ -46,7 +46,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiNameList" type="fi:FinancialInstitutionNameList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiNameList" type="financialInstitution:FinancialInstitutionNameList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of financial institution names that should have their associated financial
@@ -55,7 +55,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiStatusList" type="fi:FinancialInstitutionStatusList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiStatusList" type="financialInstitution:FinancialInstitutionStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of financial institution statuses that should have their associated financial

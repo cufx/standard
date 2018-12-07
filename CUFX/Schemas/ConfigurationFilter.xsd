@@ -9,7 +9,7 @@
 	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-	xmlns:fi="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -107,7 +107,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiIdList" type="fi:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="fiIdList" type="financialInstitution:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The valid financial institution list for this instance.
