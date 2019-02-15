@@ -454,6 +454,20 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="AmountMismatch">
+				<xs:annotation>
+					<xs:documentation>
+						The amount contained in the image does not match the value requested for processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Missing">
+				<xs:annotation>
+					<xs:documentation>
+						The image is missing for validation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
