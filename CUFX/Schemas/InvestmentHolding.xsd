@@ -289,8 +289,35 @@
 			<xs:enumeration value="Money market account" />
 			<xs:enumeration value="Mutual fund" />
 			<xs:enumeration value="Real Estate" />
-			<xs:enumeration value="REIT" />
+			<xs:enumeration value="REIT" >
+				<xs:annotation>
+					<xs:documentation>
+						Real Estate Investment Trust.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RRIF" >
+				<xs:annotation>
+					<xs:documentation>
+						Registered Retirement Income Fund.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RRSP" >
+				<xs:annotation>
+					<xs:documentation>
+						Registered Retirement Savings Plan.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Stock" />
+			<xs:enumeration value="TFSA" >
+				<xs:annotation>
+					<xs:documentation>
+						Tax Free Savings Account.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
