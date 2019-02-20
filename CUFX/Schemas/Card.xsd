@@ -388,5 +388,21 @@
 		</xs:complexContent>
 	</xs:complexType>
 
+	<xs:complexType name="CardTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="cardType" type="CardType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Card type that should have its associated Card data either returned or affected
+								by a read, update or delete requst.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 </xs:schema>

@@ -70,6 +70,15 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="cardTypeList" type="card:CardTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of card types that should have its associated Card data either returned or affected
+						by a read, update or delete requst.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="cardStatusList" type="card:CardStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
