@@ -503,9 +503,17 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
+					<xs:element name="parameterType" type="ParameterType" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of app parameter types to return in a filter request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="parameterScope" type="ParameterType" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
+								Deprecated.  Element named incorrectly. Use parameterType. 
 								Collection of app parameter types to return in a filter request.
 							</xs:documentation>
 						</xs:annotation>
