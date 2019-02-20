@@ -993,7 +993,7 @@
 		<xs:complexContent>
 			<xs:extension base="ListBase">
 				<xs:sequence>
-					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="1">
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
