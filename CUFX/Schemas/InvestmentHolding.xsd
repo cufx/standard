@@ -296,6 +296,8 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="Stock" />
+			<xs:enumeration value="Other" />
 			<xs:enumeration value="RRIF" >
 				<xs:annotation>
 					<xs:documentation>
@@ -310,7 +312,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Stock" />
 			<xs:enumeration value="TFSA" >
 				<xs:annotation>
 					<xs:documentation>
@@ -318,7 +319,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value="Other" />
 		</xs:restriction>
 	</xs:simpleType>
 
