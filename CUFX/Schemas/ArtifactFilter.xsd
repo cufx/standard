@@ -48,7 +48,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="PartyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						A list of Party Id's to be returned or affected by a read, update or delete artifact request.
