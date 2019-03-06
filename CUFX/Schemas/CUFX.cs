@@ -51,6 +51,8 @@ namespace cufxstandards.com
 
         private Device deviceField;
 
+        private CustomData customDataField;
+
         /// <remarks/>
         public string accessProfileId
         {
@@ -193,6 +195,19 @@ namespace cufxstandards.com
             set
             {
                 this.deviceField = value;
+            }
+        }
+
+        /// <remarks/>
+        public CustomData customData
+        {
+            get
+            {
+                return this.customDataField;
+            }
+            set
+            {
+                this.customDataField = value;
             }
         }
     }
@@ -5773,6 +5788,8 @@ namespace cufxstandards.com
 
         private bool interestRateFieldSpecified;
 
+        private Money originalBalanceField;
+
         /// <remarks/>
         public decimal annualPercentageYield
         {
@@ -6041,6 +6058,19 @@ namespace cufxstandards.com
             set
             {
                 this.interestRateFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public Money originalBalance
+        {
+            get
+            {
+                return this.originalBalanceField;
+            }
+            set
+            {
+                this.originalBalanceField = value;
             }
         }
     }
@@ -16844,6 +16874,15 @@ namespace cufxstandards.com
 
         /// <remarks/>
         Other,
+
+        /// <remarks/>
+        RRIF,
+
+        /// <remarks/>
+        RRSP,
+
+        /// <remarks/>
+        TFSA,
     }
 
     /// <remarks/>
@@ -17776,6 +17815,8 @@ namespace cufxstandards.com
 
         private ArtifactId cardDesignImageArtifactIdField;
 
+        private CustomData customDataField;
+
         /// <remarks/>
         public string cardId
         {
@@ -18104,6 +18145,19 @@ namespace cufxstandards.com
             set
             {
                 this.cardDesignImageArtifactIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        public CustomData customData
+        {
+            get
+            {
+                return this.customDataField;
+            }
+            set
+            {
+                this.customDataField = value;
             }
         }
     }
@@ -20118,6 +20172,12 @@ namespace cufxstandards.com
 
         /// <remarks/>
         EndorsementUsability,
+
+        /// <remarks/>
+        AmountMismatch,
+
+        /// <remarks/>
+        Missing,
     }
 
     /// <remarks/>
@@ -21538,6 +21598,8 @@ namespace cufxstandards.com
 
         private bool backupWithholdingEffectiveDateFieldSpecified;
 
+        private CustomData customDataField;
+
         public TaxInformation()
         {
             this.reportingFlagField = true;
@@ -21770,6 +21832,19 @@ namespace cufxstandards.com
             set
             {
                 this.backupWithholdingEffectiveDateFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public CustomData customData
+        {
+            get
+            {
+                return this.customDataField;
+            }
+            set
+            {
+                this.customDataField = value;
             }
         }
     }
@@ -39492,10 +39567,11 @@ namespace cufxstandards.com
     public partial class VendorIdList : ListBase
     {
 
-        private string vendorIdField;
+        private string[] vendorIdField;
 
         /// <remarks/>
-        public string vendorId
+        [System.Xml.Serialization.XmlElementAttribute("vendorId")]
+        public string[] vendorId
         {
             get
             {
@@ -39822,6 +39898,28 @@ namespace cufxstandards.com
             set
             {
                 this.customDataField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cufxstandards.com/v4/Card.xsd")]
+    public partial class CardTypeList : ListBase
+    {
+
+        private CardType[] cardTypeField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("cardType")]
+        public CardType[] cardType
+        {
+            get
+            {
+                return this.cardTypeField;
+            }
+            set
+            {
+                this.cardTypeField = value;
             }
         }
     }
@@ -41638,19 +41736,19 @@ namespace cufxstandards.com
     public partial class ParameterTypeList : ListBase
     {
 
-        private ParameterType[] parameterScopeField;
+        private ParameterType[] parameterTypeField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("parameterScope")]
-        public ParameterType[] parameterScope
+        [System.Xml.Serialization.XmlElementAttribute("parameterType")]
+        public ParameterType[] parameterType
         {
             get
             {
-                return this.parameterScopeField;
+                return this.parameterTypeField;
             }
             set
             {
-                this.parameterScopeField = value;
+                this.parameterTypeField = value;
             }
         }
     }
@@ -44396,7 +44494,7 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        public PartyIdList PartyIdList
+        public PartyIdList partyIdList
         {
             get
             {
@@ -44582,18 +44680,15 @@ namespace cufxstandards.com
 
         private BillPayeeIdList billFromPayeeIdListField;
 
-        private BillStatusList billStatusListField;
-
         private bool isEBillField;
 
         private DateRange billSentDateRangeField;
 
         private DateRange billPaymentClearedDateRangeField;
 
-        private BillStatusList billStatusList1Field;
+        private BillStatusList billStatusListField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public BillIdList billIdList
         {
             get
@@ -44607,7 +44702,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public PartyIdList partyIdList
         {
             get
@@ -44621,7 +44715,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
         public RelationshipIdList relationshipIdList
         {
             get
@@ -44635,7 +44728,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
         public AccountIdList accountIdList
         {
             get
@@ -44649,7 +44741,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
         public AccountStatusList accountStatusList
         {
             get
@@ -44663,7 +44754,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
         public BillPayeeIdList billFromPayeeIdList
         {
             get
@@ -44677,21 +44767,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
-        public BillStatusList billStatusList
-        {
-            get
-            {
-                return this.billStatusListField;
-            }
-            set
-            {
-                this.billStatusListField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
         public bool isEBill
         {
             get
@@ -44705,7 +44780,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
         public DateRange billSentDateRange
         {
             get
@@ -44719,7 +44793,6 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
         public DateRange billPaymentClearedDateRange
         {
             get
@@ -44733,16 +44806,15 @@ namespace cufxstandards.com
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("billStatusList", Order = 10)]
-        public BillStatusList billStatusList1
+        public BillStatusList billStatusList
         {
             get
             {
-                return this.billStatusList1Field;
+                return this.billStatusListField;
             }
             set
             {
-                this.billStatusList1Field = value;
+                this.billStatusListField = value;
             }
         }
     }
@@ -45715,6 +45787,8 @@ namespace cufxstandards.com
 
         private AccountStatusList accountStatusListField;
 
+        private CardTypeList cardTypeListField;
+
         private CardStatusList cardStatusListField;
 
         private DateRange activationDateRangeField;
@@ -45772,6 +45846,19 @@ namespace cufxstandards.com
             set
             {
                 this.accountStatusListField = value;
+            }
+        }
+
+        /// <remarks/>
+        public CardTypeList cardTypeList
+        {
+            get
+            {
+                return this.cardTypeListField;
+            }
+            set
+            {
+                this.cardTypeListField = value;
             }
         }
 
