@@ -38118,6 +38118,10 @@ namespace cufxstandards.com
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("4.1.0")]
         Item410,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("4.2.0")]
+        Item420,
     }
 
     /// <remarks/>
