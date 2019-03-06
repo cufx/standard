@@ -60,8 +60,23 @@
     </customData>
   </messageContext>
   <permissionListFilter>
+    <actorList xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <actor xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">
+        <fiUserId>fiUserId1</fiUserId>
+        <userId>userId1</userId>
+        <partyId>partyId1</partyId>
+        <relationshipId>relationshipId1</relationshipId>
+      </actor>
+    </actorList>
     <actors xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd">
       <fiUserId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">fiUserId1</fiUserId>
+      <userId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">userId1</userId>
       <partyId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">partyId1</partyId>
       <relationshipId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">relationshipId1</relationshipId>
     </actors>
@@ -140,6 +155,7 @@
     <permission xmlns="http://cufxstandards.com/v4/PermissionList.xsd">
       <actor>
         <fiUserId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">fiUserId1</fiUserId>
+        <userId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">userId1</userId>
         <partyId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">partyId1</partyId>
         <relationshipId xmlns="http://cufxstandards.com/v4/AccessProfile.xsd">relationshipId1</relationshipId>
       </actor>
@@ -167,15 +183,11 @@
           <rollingNumber>1</rollingNumber>
         </dailyMax>
         <weeklyMax>
-          <maxAmount />
           <maxNumber>1</maxNumber>
-          <rollingAmount />
           <rollingNumber>1</rollingNumber>
         </weeklyMax>
         <monthlyMax>
-          <maxAmount />
           <maxNumber>1</maxNumber>
-          <rollingAmount />
           <rollingNumber>1</rollingNumber>
         </monthlyMax>
       </maxLimits>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/ProductOffering.xsd"
-	version="4.1.$Revision: 1285 $"
+	version="4.2.$Revision: 1386 $"
 	elementFormDefault="qualified"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/v4/ProductOffering.xsd"
@@ -93,7 +93,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="interestRateList" type="InterestRateList" minOccurs="1" maxOccurs="1">
+			<xs:element name="interestRateList" type="InterestRateList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						For each product type, provide the list of available Interest Rates that might apply to the product.

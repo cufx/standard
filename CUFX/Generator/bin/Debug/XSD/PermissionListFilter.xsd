@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionListFilter.xsd"
-	version="4.1.$Revision: 1270 $"
+	version="4.2.$Revision: 1388 $"
 	xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
@@ -38,10 +38,18 @@
 
 	<xs:complexType name="PermissionListFilter">
 		<xs:sequence>
+			<xs:element name="actorList" type="accessProfile:ActorList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The users, parties, or other authenticated entities to search for.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="actors" type="accessProfile:Actor" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>
 						The users, parties, or other authenticated entities to search for.
+						This implementation is deprecated. Please use actorList.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

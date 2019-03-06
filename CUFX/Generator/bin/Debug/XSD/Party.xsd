@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
-	version="4.1.$Revision: 1373 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -69,7 +69,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name= "taxInformationList" type ="TaxInformationList">
+			<xs:element name= "taxInformationList" type ="TaxInformationList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The tax information collection/array contains all the tax identifiers for a party.
@@ -95,10 +95,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyStatusComment" type="PartyStatusComment" minOccurs="0" maxOccurs="1">
+			<xs:element name="partySubStatus" type="PartySubStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						More detail as to why the party is in a particular status.
+						The party sub status as to why the party is in a particular status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1311,7 +1311,7 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="PartyStatusComment">
+	<xs:simpleType name="PartySubStatus">
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
@@ -1812,20 +1812,20 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:complexType name="PartyStatusCommentList">
+	<xs:complexType name="PartySubStatusList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of party status comments that should have their associated parties either returned or affected
+				The list of party sub status that should have their associated parties either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="partyStatusComment" type="PartyStatusComment" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="partySubStatus" type="PartySubStatus" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A party status comment that should have its associated parties either returned or affected
+								A party sub status that should have its associated parties either returned or affected
 								by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>

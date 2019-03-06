@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/CreditReport.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1396 $"
 	xmlns="http://cufxstandards.com/v4/CreditReport.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -65,7 +65,7 @@
 			<xs:element name="creditSource" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						E.g. Experian, Equifax, TransUnion, FastStart, FICA, etc.
+						E.g., Experian, Equifax, TransUnion, FastStart, FICA, etc.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -111,7 +111,7 @@
 			<xs:element name="creditScore" type="xs:integer" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						E.g. 812, 615.
+						E.g., 812, 615.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -132,7 +132,7 @@
 			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Name/data pairs list of fields that are not yet available in
+						Credit report name/data pairs list of fields that are not yet available in
 						the general specification.  This should be used as a LAST RESORT
 						as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Document.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1374 $"
 	xmlns="http://cufxstandards.com/v4/Document.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -545,7 +545,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="signedWithIpAddress" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="signedWithIpAddress" type="common:IpAddress" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						When electronically signed, the following IP address was used in the session.

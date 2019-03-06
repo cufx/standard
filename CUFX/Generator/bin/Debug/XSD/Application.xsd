@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/Application.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/Application.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -11,6 +11,7 @@
 	xmlns:deposit="http://cufxstandards.com/v4/Deposit.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:investment="http://cufxstandards.com/v4/Investment.xsd"
 	elementFormDefault="qualified" >
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
@@ -21,6 +22,7 @@
 	<xs:import namespace ="http://cufxstandards.com/v4/Deposit.xsd" schemaLocation ="Deposit.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation ="Relationship.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Account.xsd" schemaLocation ="Account.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v4/Investment.xsd" schemaLocation ="Investment.xsd" />
 
 	<xs:element name="applicationList" type="ApplicationList">
 		<xs:annotation>
@@ -67,7 +69,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="applicationDate" type="xs:date"   minOccurs="0" maxOccurs="1">
+			<xs:element name="applicationDate" type="xs:date" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The creation date of the application.
@@ -81,7 +83,21 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name ="productAppliedForList" type="ProductAppliedForList">
+			<xs:element name="applicationStatusDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date time of the most current application status.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="applicationModifiedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date time of a change to the application content.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name ="productAppliedForList" type="ProductAppliedForList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Products applied for and their requested amounts, quoted rates, etc.
@@ -163,7 +179,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relationshipId" type="relationship:RelationshipId">
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Key fields that point to an existing relationship that product(s) should
@@ -239,7 +255,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+			<xs:element name="productType" type="account:AccountType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The product type is the textual representation of the kind of account.
@@ -248,7 +264,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productSubType" type="xs:string"   minOccurs="0" maxOccurs="1">
+			<xs:element name="productSubType" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The product sub type identifies the specific product type
@@ -256,7 +272,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productApplicationStatus" type="ApplicationStatus">
+			<xs:element name="productApplicationStatus" type="ApplicationStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Individual status within the application of the product itself.
@@ -283,7 +299,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loan" type="loan:Loan">
+			<xs:element name="loan" type="loan:Loan" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details of the loan product (credit card, mortgage, auto, etc.) applied for.
@@ -291,11 +307,19 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="deposit" type="deposit:Deposit">
+			<xs:element name="deposit" type="deposit:Deposit" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Details of the deposit product applied for.
 						Will contain the ids of the products created in the response.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investment" type="investment:Investment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Details of the investment product applied for.
+						Will contain the ids of the investment products created in the response.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -334,14 +358,14 @@
 			<xs:enumeration value ="InDiscussion">
 				<xs:annotation>
 					<xs:documentation>
-						The internal resource has contacted the applicants and is negotiating with the party.
+						The internal resource has contacted the applicants and is pending negotiating with the party.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="Approved">
 				<xs:annotation>
 					<xs:documentation>
-						The financial institution has approved the application and is waiting for commitment from the applicants.
+						The financial institution has approved the application and is pending the commitment from the applicants.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -374,6 +398,27 @@
 					<xs:documentation>
 						The applicants have rejected the conditions of the application and are not interested
 						in further proposals and the process is complete for the application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Suspended">
+				<xs:annotation>
+					<xs:documentation>
+						The application is in suspended status. Process is hold waiting for additional action.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Cancelled">
+				<xs:annotation>
+					<xs:documentation>
+						The application has been cancelled.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						The application is in other status.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>

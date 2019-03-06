@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
-	version="4.1.$Revision: 1370 $"
+	version="4.2.$Revision: 1406 $"
 	xmlns="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
@@ -1098,9 +1098,18 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:token">
-			<xs:pattern value="([\-\+])(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])"/>
+			<xs:pattern value="([\-\+])([01][0-9]|2[0-3])(:[0-5][0-9])"/>
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="TimeZoneName">
+		<xs:annotation>
+			<xs:documentation>
+				The time zone name. See reference https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 

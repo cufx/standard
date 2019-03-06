@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Deposit.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/Deposit.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -296,7 +296,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="depositPartyRelationshipType" type="DepositPartyRelationshipType">
+			<xs:element name="depositPartyRelationshipType" type="DepositPartyRelationshipType" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Level of ownership that the party has over the account.

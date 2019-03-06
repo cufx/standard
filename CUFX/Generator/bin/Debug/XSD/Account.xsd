@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Account.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v4/Meta.xsd"
@@ -306,7 +306,7 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="transactionList" type="transaction:TransactionList">
+					<xs:element name="transactionList" type="transaction:TransactionList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								If there's a start date where provided or required, the transaction list collection/array
@@ -663,21 +663,21 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="depositAccountStatus" type="DepositAccountStatus">
+			<xs:element name="depositAccountStatus" type="DepositAccountStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a deposit
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentStatus" type="InvestmentStatus">
+			<xs:element name="investmentStatus" type="InvestmentStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is an investment
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="loanAccountStatus" type ="LoanAccountStatus">
+			<xs:element name="loanAccountStatus" type ="LoanAccountStatus" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Current status if account is a loan

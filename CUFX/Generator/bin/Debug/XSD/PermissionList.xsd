@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionList.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/PermissionList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -58,7 +58,7 @@
 					<xs:documentation>
 						The user, party, or other authenticated entity that will be permitted to perform the action.
 						If the permission model has been implemented, it will take precedent over the relationships defined in account
-						schemas.  The configuration service will define if the permision model has been implemented.
+						schemas.  The configuration service will define if the permission model has been implemented.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -76,7 +76,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maxLimits" type="MaxLimits">
+			<xs:element name="maxLimits" type="MaxLimits" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Limits encompassing daily, weekly, and monthly maximums for this action specific to this resource, if specified.
@@ -98,35 +98,35 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="accountId" type="account:AccountId">
+			<xs:element name="accountId" type="account:AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The account to which the permitted action applies.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="fiUserId" type="credentialGroup:FiUserId">
+			<xs:element name="fiUserId" type="credentialGroup:FiUserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The user to which the permitted action applies.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="cardId" type="card:CardId">
+			<xs:element name="cardId" type="card:CardId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The card to which the permitted action applies.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relationshipId" type="relationship:RelationshipId">
+			<xs:element name="relationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The relationship to which the permitted action applies.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="productId" type="productoffering:ProductId">
+			<xs:element name="productId" type="productoffering:ProductId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The product ID associated with the permission.
@@ -378,10 +378,10 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element  name="maxAmount" type="common:Money" />
-			<xs:element  name="maxNumber" type="xs:integer" />
-			<xs:element  name="rollingAmount" type="common:Money" />
-			<xs:element  name="rollingNumber" type="xs:integer"/>
+			<xs:element  name="maxAmount" type="common:Money" minOccurs="0" maxOccurs="1" />
+			<xs:element  name="maxNumber" type="xs:integer" minOccurs="0" maxOccurs="1" />
+			<xs:element  name="rollingAmount" type="common:Money" minOccurs="0" maxOccurs="1" />
+			<xs:element  name="rollingNumber" type="xs:integer" minOccurs="0" maxOccurs="1" />
 		</xs:sequence>
 	</xs:complexType>
 
@@ -392,9 +392,9 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="dailyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="weeklyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="monthlyMax" type="PermissionMaximums" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="dailyMax" type="PermissionMaximums" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="weeklyMax" type="PermissionMaximums" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="monthlyMax" type="PermissionMaximums" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

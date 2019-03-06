@@ -7,6 +7,10 @@
   <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
   <fee>
     <feeId>feeId1</feeId>
+    <feeType>
+      <feeCategory>Unpaid</feeCategory>
+      <isRegDApplicable>true</isRegDApplicable>
+    </feeType>
     <type>type1</type>
     <relatedTo>
       <partyId>partyId1</partyId>
@@ -24,5 +28,9 @@
         <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
       </price>
     </priceList>
+    <feeEffectiveDateRange>
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </feeEffectiveDateRange>
   </fee>
 </feeList>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/PartyFilter.xsd"
-	version="4.1.$Revision: 1373 $"
+	version="4.2.$Revision: 1384 $"
 	xmlns="http://cufxstandards.com/v4/PartyFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
@@ -119,10 +119,10 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyStatusCommentList" type="party:PartyStatusCommentList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partySubStatusList" type="party:PartySubStatusList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party status comments that should have their associated parties either returned or affected
+						The list of party sub status that should have their associated parties either returned or affected
 						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>

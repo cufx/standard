@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/MessageContext.xsd"
-	version="4.1.$Revision: 1370 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
@@ -133,14 +133,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="includeBlankFields" type="xs:boolean" default="true">
+			<xs:element name="includeBlankFields" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
 				<xs:annotation>
 					<xs:documentation>
 						A boolean to indicate the inclusion of blank or empty fields in the response message.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="includeZeroNumerics" type="xs:boolean" default="true">
+			<xs:element name="includeZeroNumerics" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
 				<xs:annotation>
 					<xs:documentation>
 						A boolean to indicate the inclusion of zero values in the response message.

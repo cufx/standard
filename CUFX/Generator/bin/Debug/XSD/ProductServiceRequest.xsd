@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
-	version="4.1.$Revision: 1365 $"
+	version="4.2.$Revision: 1393 $"
 	xmlns="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
@@ -65,6 +65,7 @@
 				The product service request object defines all the fields necessary to define
 				that an existing or potential party is interested in a particular product or service.
 				The product service request can migrate through several statuses as the product service request progresses.
+				To enroll in a product or service please see Application.xsd or ProductServiceEnrollment.xsd.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -258,7 +259,7 @@
 				</xs:annotation >
 			</xs:element>
 
-			<xs:element name="requestRelatedTo" type="activity:RelatedToGroups">
+			<xs:element name="requestRelatedTo" type="activity:RelatedToGroups" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of contacts, parties, relationships and accounts related to this request.
