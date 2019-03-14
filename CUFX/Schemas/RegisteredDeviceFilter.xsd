@@ -5,6 +5,7 @@
 	xmlns="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
 	xmlns:registeredDevice="http://cufxstandards.com/v4/RegisteredDevice.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
@@ -13,6 +14,7 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
@@ -90,6 +92,18 @@
 						providers.  Assume it’s NOT encrypted if this flag is not provided.
 						The message context will be used by the service to understand which client is calling the service
 						to know which encryption algorithm to apply.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Registered device level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
