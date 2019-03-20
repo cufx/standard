@@ -324,8 +324,8 @@
 			<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-						or the organizational Employer Identification Number (EIN).
+						Individual Social Security Number (SSN), Individual Tax Payer Number (TIN), 
+						the organizational Employer Identification Number (EIN), or Social Insurance Number (SIN).
 						Data validation is the responsibility of the receiving application.
 					</xs:documentation>
 				</xs:annotation>
@@ -541,6 +541,7 @@
 			<xs:enumeration value="ForeignNational" />
 			<xs:enumeration value="ForeignNumberNoTIN" />
 			<xs:enumeration value="Other" />
+			<xs:enumeration value="SocialInsuranceNumber" />
 		</xs:restriction>
 	</xs:simpleType>
 
