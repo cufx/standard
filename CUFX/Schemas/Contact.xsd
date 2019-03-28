@@ -5,10 +5,13 @@
 	xmlns="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
 	<xs:element name= "contactList" type ="ContactList">
 		<xs:annotation>
@@ -327,6 +330,29 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="countryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.  This is the ISO 3166 2 Character
+						Country Code.  Back end systems can translate this into the
+						country description.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.
+						This is typically read-only as it is recommended to be
+						calculated based on the Country Code.
+						Description based on the ISO 3166 2 Character Country Code.
+						Back end systems can translate this to a description from the country code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 		</xs:sequence >
 	</xs:complexType >
 
