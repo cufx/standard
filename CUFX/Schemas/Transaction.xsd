@@ -127,6 +127,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="otherTransactionStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Free form text that describes the transaction type "Other" when it is set in the status element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="postedActualBalance" type="common:Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -509,7 +516,14 @@
 			<xs:enumeration value ="Hold">
 				<xs:annotation>
 					<xs:documentation>
-						Transaction is on hold.
+						Transaction is on hold. See Hold message for additional information on the hold.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						Other transaction status, see
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
