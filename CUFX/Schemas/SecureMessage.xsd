@@ -199,7 +199,6 @@
 						in case the secure message contains multiple documents.  If functionality is available,
 						the documents will have a status as to whether they require a signature and whether
 						they are signed or not.
-						Deprecated. Please use documentList noted below. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -249,15 +248,6 @@
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="documentList" type="document:DocumentList" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The documents attached to the secure message.  This provides the list of document detail
-						related to the communication for subsequent retrival.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
