@@ -1,3 +1,5 @@
+.Synopsis
+Generates the index.html file in any subdirectories named "HTML".
 .Example
 .\Out-Index.ps1
 Wrote C:\Projects\CUFX\trunk\CUFX\Generator\bin\Debug\GeneratedFiles\HTML\index.html
