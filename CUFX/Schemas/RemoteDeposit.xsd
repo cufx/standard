@@ -335,13 +335,6 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="CARMismatchFailed">
-				<xs:annotation>
-					<xs:documentation>
-						CAR read OK, but the amount does not match the amount specified in the remote deposit request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value ="FoldedCorners">
 				<xs:annotation>
 					<xs:documentation>
