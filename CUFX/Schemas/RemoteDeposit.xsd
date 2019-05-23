@@ -468,6 +468,62 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="AlreadyProcessed">
+				<xs:annotation>
+					<xs:documentation>
+						The deposit has already been processed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="TooRisky">
+				<xs:annotation>
+					<xs:documentation>
+						The deposit is too risky.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="LimitExceeded">
+				<xs:annotation>
+					<xs:documentation>
+						The deposit exceeds the current limit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidUser">
+				<xs:annotation>
+					<xs:documentation>
+						The user making the deposit is invalid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserRegistrationPending">
+				<xs:annotation>
+					<xs:documentation>
+						User registration is still pending.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidAccount">
+				<xs:annotation>
+					<xs:documentation>
+						The deposit account is invalid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="EndorsementNotRestrictive">
+				<xs:annotation>
+					<xs:documentation>
+						The endorsement on the back of the check is not restrictive enough.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Unknown">
+				<xs:annotation>
+					<xs:documentation>
+						An unknown image validation issue.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
