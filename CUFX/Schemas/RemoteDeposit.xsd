@@ -398,13 +398,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			<xs:enumeration value ="SpotNoise">
-				<xs:annotation>
-					<xs:documentation>
-						The check image noise was too great.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value ="DateUsability">
 				<xs:annotation>
 					<xs:documentation>
@@ -465,6 +458,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						The image is missing for validation.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ImageQuality">
+				<xs:annotation>
+					<xs:documentation>
+						The image quality is too low.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
