@@ -122,17 +122,10 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="frontImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
+			<xs:element name="imageList" type="RemoteDepositImageList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The front image of the check, on retrieval, the artifact may contain only the id depending on the filter.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="backImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The back image of the check, on retrieval, the artifact may contain only the id depending on the filter.
+						The collection of images for the remote deposit.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -147,13 +140,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						The current status of the remote deposit.  This may be part of a session or after the session has ended.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="imageValidationIssueList" type="ImageValidationIssueList" minOccurs="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						If there were any image validation issues, they would be in this list.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -272,7 +258,7 @@
 			<xs:enumeration value ="DuplicateItem">
 				<xs:annotation>
 					<xs:documentation>
-						This item has already been sumbitted to the target system.
+						This item has already been submitted to the target system.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -304,28 +290,73 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="ConfirmationRequired">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit request requires a user confirmation before continuing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="ImageValidationIssueList">
+	<xs:complexType name="ImageValidationResultList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
-							Collection of image validation issues.
+							Collection of image validation results.
 						</xs:documentation>
 					</xs:annotation>
-					<xs:element name="imageValidationIssue" type="ImageValidationIssue" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="imageValidationResult" type="ImageValidationResult" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Details related to an image validation issue.
+								Details related to an image validation.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+  
+	<xs:complexType name="ImageValidationResult">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The result of validation performed on the provided image.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="issue" type="ImageValidationIssue" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The issue for the provided image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fixable" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if the issue is fixable by resubmitting a new image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="confirmable" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if the issue is confirmable by the user.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="message" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The third party message provided a detailed description of the issue.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:simpleType name ="ImageValidationIssue">
@@ -499,7 +530,7 @@
 	<xs:complexType name="RemoteDepositActionList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
+				The list of actions that may be filtered to identify remote deposits to be affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -521,7 +552,7 @@
 	<xs:complexType name="RemoteDepositIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of remote reposit ID's that should be returned or affected by a read, update or delete request.
+				The list of remote deposit ID's that should be returned or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -539,6 +570,88 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+
+	<xs:simpleType name ="RemoteDepositImageSide">
+		<xs:annotation>
+			<xs:documentation>
+				An enumeration of possible image sides.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="Front">
+				<xs:annotation>
+					<xs:documentation>
+						The front image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Back">
+				<xs:annotation>
+					<xs:documentation>
+						The back image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RemoteDepositImageList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of remote deposit images that should be returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="remoteDepositImage" type="RemoteDepositImage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A RemoteDepositImage that contains images for the associated remote deposits either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositImage">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The remote deposit image contains all information related to a image for a remote deposit.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="depositImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The image of the deposit, on retrieval, the artifact may contain only the id depending on the filter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageSide" type="RemoteDepositImageSide" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The side of the image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="colorSpace" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The color space of the image (ex. Grayscale, BlackWhite, Full).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageValidationResults" type="ImageValidationResultList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						If there were any image validation issues, they would be in this list.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
-
-
