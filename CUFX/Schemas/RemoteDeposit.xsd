@@ -272,7 +272,7 @@
 			<xs:enumeration value ="DuplicateItem">
 				<xs:annotation>
 					<xs:documentation>
-						This item has already been sumbitted to the target system.
+						This item has already been submitted to the target system.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -339,6 +339,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						CAR read OK, but the amount does not match the amount specified in the remote deposit request.
+						NOTE: Enumeration deprecated for intended removal in v5.0
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -513,7 +514,7 @@
 	<xs:complexType name="RemoteDepositActionList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of actions that may be filtered to identify remote deposts to be affected by a read, update or delete request.
+				The list of actions that may be filtered to identify remote deposits to be affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -535,7 +536,7 @@
 	<xs:complexType name="RemoteDepositIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of remote reposit ID's that should be returned or affected by a read, update or delete request.
+				The list of remote deposit ID's that should be returned or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
