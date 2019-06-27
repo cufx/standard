@@ -147,6 +147,7 @@
 					<xs:documentation>
 						Pointers to the document in the artifact repository.  This is provided as a list in case the document is made
 						up of multiple components.
+						This element is deprecated in favor of documentArtifactList. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -221,6 +222,15 @@
 						providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future
 						release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="documentArtifactList" type="artifact:ArtifactList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The artifacts collection/array contains all the artifacts, for instance, that the credential set is
+						authorized to access at the Institution based on applied filters.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
