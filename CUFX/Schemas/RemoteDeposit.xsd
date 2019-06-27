@@ -304,6 +304,34 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="UnacceptableRisk">
+				<xs:annotation>
+					<xs:documentation>
+					  The remote deposit has exceeded risk confidence thresholds.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnknownUser">
+				<xs:annotation>
+					<xs:documentation>
+					  The remote deposit request was declined because the user is unknown.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidAccount">
+				<xs:annotation>
+					<xs:documentation>
+					  The remote deposit request was declined because the target account is invalid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ConfirmationRequired">
+				<xs:annotation>
+					<xs:documentation>
+						The remote deposit request requires a user confirmation before continuing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -473,6 +501,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						The image quality is too low.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Unknown">
+				<xs:annotation>
+					<xs:documentation>
+						An unknown image validation issue.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
