@@ -252,6 +252,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="statusReferenceId" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status reference identification for the individual message objects contained in a given 
+						message list. The reference is intended to be the Id of the given object, the temp Id of
+						the given object, or may be a GUID or UUID.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
