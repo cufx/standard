@@ -6,6 +6,7 @@
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
 	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
+	xmlns:feeSchedule="http://cufxstandards.com/v4/FeeSchedule.xsd"
 
 	version="4.3.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -18,6 +19,7 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
 
 
 	<xs:element name="remoteDepositList" type="RemoteDepositList">
@@ -110,7 +112,35 @@
 			<xs:element name="amount" type="common:Money" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The amount of the deposit.
+						The amount of the deposit automatically captured.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userEnteredAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the deposit provided by the user.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="immediatelyAvailableAmount" type="common:Money" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the deposit that will be immediately available to the member.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="remoteDepositFeeList" type="feeSchedule:FeeList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Details related to remote deposit fees.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="businessDaysHeld" type="xs:integer" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Number of business days for which a deposit will be held.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -351,6 +381,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="imageValidationIssueOther" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Description for when ImageValidationIssue is Other 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -508,6 +545,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						An unknown image validation issue.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						Other image validation issue. To further describe this issue, 
+						use the corresponding imageValidationIssueOther field.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
