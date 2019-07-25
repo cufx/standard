@@ -267,7 +267,7 @@
 			<xs:element name="referenceIndex" type="xs:integer"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The reference index corresponds to the positional order of the orginating object message is the list.
+						The reference index corresponds to the order of the orginating object message in the list.
 						Example: if 3 account objects were included in the originating AccountMessage then status responses can be
 						provided for each object by reference (0, 1, 2). 
 						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses
