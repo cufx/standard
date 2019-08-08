@@ -537,7 +537,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="signaturePartyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="signaturePartyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Which party signed the document.

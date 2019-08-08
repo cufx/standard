@@ -10,7 +10,6 @@
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:collateral="http://cufxstandards.com/v4/Collateral.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -20,7 +19,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Collateral.xsd" schemaLocation="Collateral.xsd" />
 
 	<xs:element name="loanList" type="LoanList">
@@ -1603,7 +1601,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loanPartyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="loanPartyId" type="common:PartyId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Loan Party Id

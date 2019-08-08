@@ -1112,5 +1112,16 @@
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
-</xs:schema>
 
+	<xs:simpleType name ="PartyId">
+		<xs:annotation>
+			<xs:documentation>
+				The party ID is a persistent and unique identifier for the party not related to the accounts
+				they own but tied to that person or organization. It should be unique for all parties across the
+				institution and remain the same over the life of the relationship with the financial institution.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" ></xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
