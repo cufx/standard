@@ -1124,4 +1124,26 @@
 		<xs:restriction base="xs:string" ></xs:restriction>
 	</xs:simpleType>
 
+	<xs:complexType name="PartyIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of party ID's that should be returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A party ID that should have its associated parties either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 </xs:schema>

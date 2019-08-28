@@ -6,18 +6,15 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	
+	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+
 	elementFormDefault="qualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-
+	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 
 	<xs:complexType name="FundsTransferFilterBase" abstract="true">
 		<xs:annotation>
@@ -72,7 +69,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of account ID's that should have their associated payments or transfers either returned or affected

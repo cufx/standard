@@ -5,10 +5,12 @@
 	xmlns="http://cufxstandards.com/v4/CreditReport.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="creditReportList" type="CreditReportList">
 		<xs:annotation>
