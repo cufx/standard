@@ -7,14 +7,12 @@
 	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified" >
 
 	<xs:import namespace ="http://cufxstandards.com/v4/Account.xsd" schemaLocation ="Account.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation ="Artifact.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Common.xsd" schemaLocation ="Common.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/Party.xsd" schemaLocation ="Party.xsd" />
 	<xs:element name="artifactFilter" type="ArtifactFilter">
 		<xs:annotation>
 			<xs:documentation>
@@ -48,7 +46,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						A list of Party Id's to be returned or affected by a read, update or delete artifact request.

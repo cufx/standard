@@ -3,14 +3,14 @@
 	version="4.2.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:partyAssociation="http://cufxstandards.com/v4/PartyAssociation.xsd"
-xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/PartyAssociation.xsd" schemaLocation="PartyAssociation.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="partyAssociationFilter" type="PartyAssociationFilter">
 		<xs:annotation>
@@ -38,7 +38,7 @@ xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="parentPartyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="parentPartyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of parent party ID's that should have their party association returned or affected by
@@ -47,7 +47,7 @@ xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="childPartyIdList" type="party:PartyIdList"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="childPartyIdList" type="common:PartyIdList"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of child party ID's that should have their party association returned or affected by a

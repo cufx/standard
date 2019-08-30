@@ -5,13 +5,11 @@
 	xmlns="http://cufxstandards.com/v4/User.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	  
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
-	<xs:import schemaLocation="Party.xsd" namespace="http://cufxstandards.com/v4/Party.xsd"/>
 
 	<xs:element name="userList" type="UserList" >
 		<xs:annotation>
@@ -68,7 +66,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The party id the user information is related to.
