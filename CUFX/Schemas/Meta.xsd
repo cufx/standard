@@ -95,7 +95,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
+			<xs:element name="annualPercentageRate" type="common:AnnualPercentageRate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized).
