@@ -280,6 +280,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="apr" type="common:AnnualPercentageRate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The interest rate calculated as an annual percentage rate, as defined by the FI.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
