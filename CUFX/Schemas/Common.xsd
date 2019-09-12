@@ -1113,5 +1113,19 @@
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="AnnualPercentageRate">
+		<xs:annotation>
+			<xs:documentation>
+				Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized). 
+				Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+				4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+				Decimals available: 999.999 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
 
