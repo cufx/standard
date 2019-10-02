@@ -256,7 +256,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						The reference identification for the individual message objects contained in a given 
-						object message list. The reference is intended to be the Id of the given object, the temp Id of
+						object message list at the highest parent level. The reference is intended to be the Id of the given object, the temp Id of
 						the given object, or any implementation specific reference to uniquely identify the originating object.
 						Example: In an AccountMessage the AccoundId of the input object is recommended.
 						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses 
@@ -267,7 +267,7 @@
 			<xs:element name="referenceIndex" type="xs:integer"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The reference index corresponds to the order of the orginating object message in the list.
+						The reference index corresponds to the order of the orginating object message in the list at the highest parent level.
 						Example: if 3 account objects were included in the originating AccountMessage then status responses can be
 						provided for each object by reference (0, 1, 2). 
 						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses

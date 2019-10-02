@@ -231,6 +231,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="otherBillStatus" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of bill status when billStatus is set to Other.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -334,6 +341,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						This value indicates that the bill has been scheduled to be paid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+						See otherBillStatus for more detail.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
