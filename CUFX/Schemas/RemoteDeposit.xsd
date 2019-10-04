@@ -137,7 +137,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="businessDaysHeld" type="xs:integer" minOccurs="0" maxOccurs="1">
+			<xs:element name="businessDaysHeld" type="xs:positiveinteger" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Number of business days for which a deposit will be held.
