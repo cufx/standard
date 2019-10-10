@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
 	version="4.3.$Revision$"
@@ -1601,6 +1601,13 @@
 					<xs:documentation>
 						Documentation types for estates.
 						Used only when Type equals Estate.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherDocument" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For use with for all other document types.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
