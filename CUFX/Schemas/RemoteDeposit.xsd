@@ -133,11 +133,12 @@
 			<xs:element name="remoteDepositFeeList" type="feeSchedule:FeeList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Details related to remote deposit fees.
+						Details related to the remote deposit fees as applicable for this deposit. Not intended
+						to pass a list of all possible fees. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="businessDaysHeld" type="xs:integer" minOccurs="0" maxOccurs="1">
+			<xs:element name="businessDaysHeld" type="xs:positiveinteger" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Number of business days for which a deposit will be held.
@@ -404,7 +405,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						CAR read OK, but the amount does not match the amount specified in the remote deposit request.
-						NOTE: Enumeration deprecated for intended removal in v5.0
+						NOTE: Enumeration deprecated for intended removal in v5.0. Use enum AmountMismatch. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
