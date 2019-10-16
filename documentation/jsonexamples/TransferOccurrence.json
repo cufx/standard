@@ -1,0 +1,192 @@
+{
+  "transferOccurrenceList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "transferOccurrence": {
+      "occurrenceId": "occurrenceId1",
+      "recurringId": "recurringId1",
+      "occurrenceAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "occurrenceAmountDetailList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "lineItem": {
+          "lineItemId": "lineItemId1",
+          "lineItemReference": "lineItemReference1",
+          "lineItemDescription": "lineItemDescription1",
+          "lineItemDate": "1900-01-01",
+          "lineItemAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          }
+        }
+      },
+      "occurrenceFromAccount": {
+        "accountId": "accountId1",
+        "type": "Checking",
+        "openDate": "1900-01-01",
+        "closeDate": "1900-01-01",
+        "accountStatus": {
+          "depositAccountStatus": "Active",
+          "investmentStatus": "Active",
+          "loanAccountStatus": "Active"
+        },
+        "accountSubStatus": "accountSubStatus1",
+        "micrAccountNumber": "micrAccountNumber1",
+        "routingNumber": "routingNumber1",
+        "displayAccountId": "displayAccountId1"
+      },
+      "occurrenceToAccount": {
+        "accountId": "accountId1",
+        "type": "Checking",
+        "openDate": "1900-01-01",
+        "closeDate": "1900-01-01",
+        "accountSubStatus": "accountSubStatus1",
+        "micrAccountNumber": "micrAccountNumber1",
+        "routingNumber": "routingNumber1",
+        "displayAccountId": "displayAccountId1"
+      },
+      "occurrenceStatus": "Scheduled",
+      "fundsWithdrawalType": "WhenRequested",
+      "occurrenceMemo": "occurrenceMemo1",
+      "estimatedProcessDateTime": "1900-01-01T01:01:01Z",
+      "createdDateTime": "1900-01-01T01:01:01Z",
+      "processingStartedDateTime": "1900-01-01T01:01:01Z",
+      "processedDateTime": "1900-01-01T01:01:01Z",
+      "completedDateTime": "1900-01-01T01:01:01Z",
+      "lastUpdatedDateTime": "1900-01-01T01:01:01Z",
+      "occurrenceConfirmationCode": "occurrenceConfirmationCode1",
+      "queuedForPosting": "true",
+      "note": "note1",
+      "batchId": "batchId1",
+      "occurrenceType": "AccountToAccount",
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": {
+          "name": "name1",
+          "value": "value1"
+        }
+      },
+      "fromCard": {
+        "cardId": "cardId1",
+        "cardNumber": "cardNumber1",
+        "cardType": "Atm",
+        "cardSubType": "cardSubType1",
+        "expirationDate": "1900-01-01",
+        "pin": "pin1",
+        "cvv2": "cvv21",
+        "linkedAccountList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "linkedAccount": {
+            "accountId": "accountId1",
+            "priority": "1"
+          }
+        },
+        "partyId": "partyId1",
+        "overrideAddressContactId": "overrideAddressContactId1",
+        "cardAddress": {
+          "line1": "line11",
+          "line2": "line21",
+          "line3": "line31",
+          "line4": "line41",
+          "line5": "line51",
+          "line6": "line61",
+          "line7": "line71",
+          "line8": "line81",
+          "line9": "line91",
+          "line10": "line101",
+          "city": "city1",
+          "stateProvince": "stateProvince1",
+          "postalCode": "postalCode1",
+          "countryCode": "AD",
+          "country": "country1",
+          "coordinate": {
+            "latitude": "1",
+            "longitude": "1"
+          }
+        },
+        "nameOnCard": "nameOnCard1",
+        "activationDateTime": "1900-01-01T01:01:01Z",
+        "cardStatus": "Active",
+        "blockedReason": "blockedReason1",
+        "blockedDateTime": "1900-01-01T01:01:01Z",
+        "cardStatusDateTime": "1900-01-01T01:01:01Z",
+        "cardStatusReason": "cardStatusReason1",
+        "virtualNumber": "virtualNumber1",
+        "merchantCountryCodes": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "countryCode": "countryCode1"
+        },
+        "cardDesignImageArtifactId": {
+          "artifactUniqueId": "artifactUniqueId1",
+          "artifactIdKeyValueList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": null
+          }
+        },
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      },
+      "toCard": {
+        "cardId": "cardId1",
+        "cardNumber": "cardNumber1",
+        "cardType": "Atm",
+        "cardSubType": "cardSubType1",
+        "expirationDate": "1900-01-01",
+        "pin": "pin1",
+        "cvv2": "cvv21",
+        "linkedAccountList": null,
+        "partyId": "partyId1",
+        "overrideAddressContactId": "overrideAddressContactId1",
+        "nameOnCard": "nameOnCard1",
+        "activationDateTime": "1900-01-01T01:01:01Z",
+        "cardStatus": "Active",
+        "blockedReason": "blockedReason1",
+        "blockedDateTime": "1900-01-01T01:01:01Z",
+        "cardStatusDateTime": "1900-01-01T01:01:01Z",
+        "cardStatusReason": "cardStatusReason1",
+        "virtualNumber": "virtualNumber1"
+      }
+    }
+  }
+}

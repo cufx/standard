@@ -1,0 +1,212 @@
+{
+  "permissionListMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "permissionListFilter": {
+      "actorList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "actor": {
+          "fiUserId": "fiUserId1",
+          "userId": "userId1",
+          "partyId": "partyId1",
+          "relationshipId": "relationshipId1"
+        }
+      },
+      "actors": {
+        "fiUserId": "fiUserId1",
+        "userId": "userId1",
+        "partyId": "partyId1",
+        "relationshipId": "relationshipId1"
+      },
+      "actionList": "AgreeToTerms",
+      "resources": {
+        "accountIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "accountId": "accountId1"
+        },
+        "accountStatusList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "accountStatusPair": {
+            "accountStatus": {
+              "depositAccountStatus": "Active",
+              "investmentStatus": "Active",
+              "loanAccountStatus": "Active"
+            },
+            "accountSubStatus": "accountSubStatus1"
+          }
+        },
+        "fiUserIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "fiUserId": "fiUserId1"
+        },
+        "cardIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "cardId": "cardId1"
+        },
+        "relationshipIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "relationshipId": "relationshipId1"
+        },
+        "productIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "productId": {
+            "@xsi:nil": "true"
+          }
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "permissionList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "permission": {
+        "actor": {
+          "fiUserId": "fiUserId1",
+          "userId": "userId1",
+          "partyId": "partyId1",
+          "relationshipId": "relationshipId1"
+        },
+        "action": "AgreeToTerms",
+        "resource": {
+          "accountId": "accountId1",
+          "fiUserId": "fiUserId1",
+          "cardId": "cardId1",
+          "relationshipId": "relationshipId1",
+          "productId": "productId1"
+        },
+        "maxLimits": {
+          "dailyMax": {
+            "maxAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "maxNumber": "1",
+            "rollingAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "rollingNumber": "1"
+          },
+          "weeklyMax": {
+            "maxNumber": "1",
+            "rollingNumber": "1"
+          },
+          "monthlyMax": {
+            "maxNumber": "1",
+            "rollingNumber": "1"
+          }
+        }
+      }
+    }
+  }
+}
