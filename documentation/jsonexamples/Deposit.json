@@ -1,0 +1,323 @@
+{
+  "depositList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "deposit": {
+      "accountId": "accountId1",
+      "type": "Checking",
+      "openDate": "1900-01-01",
+      "closeDate": "1900-01-01",
+      "accountStatus": {
+        "depositAccountStatus": "Active",
+        "investmentStatus": "Active",
+        "loanAccountStatus": "Active"
+      },
+      "accountSubStatus": "accountSubStatus1",
+      "micrAccountNumber": "micrAccountNumber1",
+      "routingNumber": "routingNumber1",
+      "displayAccountId": "displayAccountId1",
+      "idType": "Reserved",
+      "description": "description1",
+      "subType": "subType1",
+      "accountEscheatDate": "1900-01-01",
+      "accountEscheatAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "chargeOffDate": "1900-01-01",
+      "chargeOffAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "accountNickName": "accountNickName1",
+      "branch": "branch1",
+      "actualBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "availableBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "cashAdvanceAvailableBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "cashAdvanceBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "cashAdvanceLimit": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "minimumBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "externalAccountBankAddress": {
+        "line1": "line11",
+        "line2": "line21",
+        "line3": "line31",
+        "line4": "line41",
+        "line5": "line51",
+        "line6": "line61",
+        "line7": "line71",
+        "line8": "line81",
+        "line9": "line91",
+        "line10": "line101",
+        "city": "city1",
+        "stateProvince": "stateProvince1",
+        "postalCode": "postalCode1",
+        "countryCode": "AD",
+        "country": "country1",
+        "coordinate": {
+          "latitude": "1",
+          "longitude": "1"
+        }
+      },
+      "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+      "externalAccountIBANCode": "externalAccountIBANCode1",
+      "externalAccountBankCode": "externalAccountBankCode1",
+      "externalAccountFlag": "true",
+      "externalAccountVerified": "true",
+      "externalTransferFrom": "true",
+      "externalTransferTo": "true",
+      "transferFrom": "true",
+      "transferTo": "true",
+      "rateType": "Fixed",
+      "sourceCode": "sourceCode1",
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "relationshipId": "relationshipId1",
+      "accountNoteList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "note": {
+          "noteId": "noteId1",
+          "recordType": "Account",
+          "noteCode": "noteCode1",
+          "noteText": "noteText1",
+          "noteCreatedDateTime": "1900-01-01T01:01:01Z",
+          "noteExpirationDate": "1900-01-01",
+          "noteCreator": "noteCreator1"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": {
+          "name": "name1",
+          "value": "value1"
+        }
+      },
+      "meta": {
+        "@xsi:nil": "true"
+      },
+      "transactionList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "transaction": {
+          "transactionId": "transactionId1",
+          "accountId": "accountId1",
+          "type": "Debit",
+          "amount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "description": "description1",
+          "checkNumber": "checkNumber1",
+          "dateTimePosted": "1900-01-01T01:01:01Z",
+          "dateTimeEffective": "1900-01-01T01:01:01Z",
+          "status": "Posted",
+          "otherTransactionStatus": "otherTransactionStatus1",
+          "postedActualBalance": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "postedAvailableBalance": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "principalAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "interestAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "transactionFeeList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "transactionFee": {
+              "transactionFeeId": "transactionFeeId1",
+              "transactionFeeDateTimePosted": "1900-01-01T01:01:01Z",
+              "transactionfeeAmount": {
+                "value": "1",
+                "currencyCode": "USD",
+                "exchangeRate": "1"
+              },
+              "transactionFeeCode": "transactionFeeCode1",
+              "transactionFeeDescription": "transactionFeeDescription1"
+            }
+          },
+          "merchantCategoryCode": "merchantCategoryCode1",
+          "category": "category1",
+          "source": "Ach",
+          "escrowAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "transactionArtifactId": {
+            "artifactUniqueId": "artifactUniqueId1",
+            "artifactIdKeyValueList": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
+            }
+          },
+          "transactionArtifactUri": "http://uri1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": null
+          },
+          "noteIdList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "noteID": "noteID1"
+          }
+        }
+      },
+      "depositPartyList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "depositParty": {
+          "depositPartyId": "depositPartyId1",
+          "depositPartyRelationshipType": {
+            "holder": {
+              "isHolder": "true",
+              "qualifier": "Primary",
+              "authority": "Authorized"
+            },
+            "beneficiary": {
+              "isBeneficiary": "true",
+              "qualifier": "Standard",
+              "authority": "Authorized",
+              "beneficiaryPercent": "1.00",
+              "beneficiaryTypes": "Primary"
+            },
+            "agent": {
+              "qualifier": "Custodian",
+              "authority": "Unauthorized"
+            },
+            "guarantor": {
+              "isGuarantor": "true",
+              "authority": "Authorized"
+            },
+            "safeDepositBoxUser": {
+              "isSafeDepositBoxUser": "true",
+              "qualifier": "Colessee",
+              "authority": "Authorized"
+            }
+          },
+          "ssnOverride": "false",
+          "contactIdList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "contactId": "contactId1"
+          }
+        }
+      },
+      "bumpEffectiveDate": "1900-01-01",
+      "bumpExpirationDate": "1900-01-01",
+      "bumpRate": "1",
+      "dividendPostCode": "ToAccount",
+      "dividendRate": "1",
+      "annualPercentageYield": "1",
+      "dividendTransferAccountId": "dividendTransferAccountId1",
+      "dividendType": "dividendType1",
+      "irsCode": "irsCode1",
+      "maturityPostCode": "Renew",
+      "maturityTransferAccountId": "maturityTransferAccountId1",
+      "minimumDeposit": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "minimumWithdrawal": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "overdraftTolerance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      }
+    }
+  }
+}
