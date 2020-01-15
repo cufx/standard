@@ -1249,10 +1249,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The maturity date of the loan.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
