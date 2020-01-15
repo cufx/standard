@@ -123,7 +123,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The date that the loan must be paid off.
