@@ -1127,6 +1127,15 @@
 		<xs:restriction base="xs:decimal">
 		</xs:restriction>
 	</xs:simpleType>
-	
+	<xs:simpleType name="MaturityDate">
+		<xs:restriction base="xs:date">
+			<xs:annotation>
+				<xs:documentation>
+					The date which a documentation instrument matures. 
+					The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>	
 </xs:schema>
 
