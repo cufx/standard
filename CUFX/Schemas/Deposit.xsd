@@ -257,6 +257,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="TransferAndRenew">
+				<xs:annotation>
+					<xs:documentation>
+						Transfers part of the funds to another account at maturity, and then 
+						renew account with the remainder of the funds.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
