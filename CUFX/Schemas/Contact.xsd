@@ -135,6 +135,57 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="contactDateTimeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                     		<xs:annotation>
+                                	<xs:documentation>
+                                        	Date and time the contact was created in the source system.
+                                           	The date/time should be ISO 8601 UTC format.
+                                		yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+                                        </xs:documentation>
+ 				</xs:annotation>
+            		</xs:element>
+			<xs:element name="contactCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+	   			<xs:annotation>
+                                	<xs:documentation>
+                  				A unique identifier of who created the contact in the system.
+         				</xs:documentation>
+           			</xs:annotation>
+        		</xs:element>
+          		<xs:element name="contactDateTimeModified" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date and time the contact data was modified in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+            		</xs:element>
+         		<xs:element name="contactModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+                    			<xs:documentation>
+           					A unique identifier such as a user ID of who last updated the contact in the source system.
+        				</xs:documentation>
+				</xs:annotation>
+     			</xs:element>
+   			<xs:element name="contactDateTimeDeleted" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                		<xs:annotation>
+  					<xs:documentation>
+             					Date the contact data was deleted or mark as inactive in the source system.
+                         			The date/time should be ISO 8601 UTC format.
+                                		yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+                                            	formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+  				</xs:annotation>
+        		</xs:element>
+                	<xs:element name="contactDeletedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID of who deleted record.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -168,7 +219,7 @@
 			<xs:element name="email" type="Email" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to email contact points when email type is selected.
+						Fields related to email contact point when email type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -176,7 +227,7 @@
 			<xs:element name="instantMessage" type="InstantMessage" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to instant message contact points when instant message type is selected.
+						Fields related to instant message contact point when instant message type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -184,7 +235,7 @@
 			<xs:element name="social" type="SocialContactPoint" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to social contact points when social type is selected.
+						Fields related to social contact point when social type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -192,7 +243,14 @@
 			<xs:element name="website" type="Website" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to website contact points when website type is selected.
+						Fields related to website contact point when website type is selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sms" type="Phone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to the mobile or VOIP phone contact point when SMS (text) type is selected. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -676,6 +734,7 @@
 			<xs:enumeration value="Social" />
 			<xs:enumeration value="Website" />
 			<xs:enumeration value="Other" />
+			<xs:enumeration value="SMS" />
 		</xs:restriction>
 	</xs:simpleType>
 
