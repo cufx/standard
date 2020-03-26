@@ -1496,6 +1496,7 @@
 
 	<xs:simpleType name="LoanPaymentMethodType">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="AmortizationTransfer" />
 			<xs:enumeration value="AutomaticDebit" />
 			<xs:enumeration value="AutomaticTransfer" />
 			<xs:enumeration value="BillPay" />
