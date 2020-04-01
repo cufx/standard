@@ -179,6 +179,22 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="maturityTransferAmount" type="common:Money" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Amount to transfer out upon maturity.
+								If maturityTransferAmount and maturityTransferPercent are both populated, 
+								then maturityTransferAmount should be take precedence.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="maturityTransferPercent" type="xs:decimal" minOccurs ="0" maxOccurs ="1" default ="1.00">
+						<xs:annotation>
+							<xs:documentation>
+								The percentage of the amount to transfer out upon maturity. Default is 100%.
+							</xs:documentation >
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -254,6 +270,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						Funds should remain in the account until transferred manually.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TransferAndRenew">
+				<xs:annotation>
+					<xs:documentation>
+						Transfers part of the funds to another account at maturity, and then 
+						renew account with the remainder of the funds.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
