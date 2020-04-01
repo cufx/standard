@@ -130,7 +130,7 @@
 			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
+						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing. Element deprecated in favor of eBillEnrollmentStatus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
