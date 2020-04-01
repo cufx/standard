@@ -179,6 +179,24 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="maturityTransferAmount" type="common:Money" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Amount to transfer out upon maturity.  
+								Either maturityTransferAmount or maturityTransferPercent would be populated in a maturity transfer, 
+								not both.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="maturityTransferPercent" type="xs:decimal" minOccurs ="0" maxOccurs ="1" default ="1.00">
+						<xs:annotation>
+							<xs:documentation>
+								The percentage of the amount to transfer out upon maturity. Default is 100%.
+								Either maturityTransferAmount or maturityTransferPercent would be populated in a maturity transfer, 
+								not both.
+							</xs:documentation >
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
