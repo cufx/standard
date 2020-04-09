@@ -125,13 +125,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="addedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
