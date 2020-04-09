@@ -130,7 +130,7 @@
 			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
+						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing. Element deprecated in favor of eBillEnrollmentStatus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -265,6 +265,20 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="eBillEnrollmentStatus" type="EBillEnrollmentStatus"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status of the ebill enrollment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherEBillEnrollmentStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Free form text that describes the EBillEnrollmentStatus type "Other" when it is set in the eBillEnrollmentStatus element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -389,6 +403,88 @@
 						<xs:annotation>
 							<xs:documentation>
 								A bill pay global ID that should have its associated bill pay global id either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="EBillEnrollmentStatus ">
+		<xs:annotation>
+			<xs:documentation>
+				This is enumeration of statuses for the ebill Enrollment.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">			
+			<xs:enumeration value="Ineligible">
+				<xs:annotation>
+					<xs:documentation>
+						The user is ineligible to enroll in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enrolled">
+				<xs:annotation>
+					<xs:documentation>
+						The user is currently enrolled in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NotEnrolled">
+				<xs:annotation>
+					<xs:documentation>
+						The user is currently not enrolled in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PendingEnrollment">
+				<xs:annotation>
+					<xs:documentation>
+						The user has a pending enrollment in progress for ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PendingUnenrollment">
+				<xs:annotation>
+					<xs:documentation>
+						The user has a pending unenrollment in progress for ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error">
+				<xs:annotation>
+					<xs:documentation>
+						The user has an unspecified error with their ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+						This value can be used when no other statuses relate to the ebill enrollment
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="EBillEnrollmentStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of ebill enrollment statuses that should have their associated bill payee records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="eBillEnrollmentStatus" type="EBillEnrollmentStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An ebill enrollment status that should have its associated bill payee records either returned or affected
 								by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>
