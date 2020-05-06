@@ -171,19 +171,6 @@
 						<xs:annotation>
 							<xs:documentation>
 								Code used to indicate how the loan is to be reported to credit bureaus
-
-								Individual - This individual has contractual responsibility for this account and is primarily responsible
-								for its payment.
-								Joint - This individual is contractually obligated to repay all debts arising on this account. There are
-								other people associated with this account who may or may not have contractual responsibility.
-								Authorized User - This individual is an authorized user of this account; another individual has contractual
-								responsibility.
-								Co-Signer - This individual is liable for the credit, but does not receive the benefit of the loan. Note:
-								this individual is required to sign the Co-Signer Notice (Reg AA).
-								Maker - This individual is responsible for this account, which is guaranteed by a Co-maker (co-signer).
-								Co-Maker - The individual guarantees this account along with the Maker. Note: this is the same as the co-borrower.
-								Terminated - No further responsibility.
-								Undesignated - Responsibility not specified.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1390,15 +1377,72 @@
 
 	<xs:simpleType name="EcoaGroupType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Individual" />
-			<xs:enumeration value="Joint" />
-			<xs:enumeration value="AuthorizedUser" />
-			<xs:enumeration value="CoSigner" />
-			<xs:enumeration value="Maker" />
-			<xs:enumeration value="CoMaker" />
-			<xs:enumeration value="Terminated" />
-			<xs:enumeration value="Undesignated" />
-			<xs:enumeration value="BusinessOrCommercial" />
+			<xs:enumeration value="Individual">
+				<xs:annotation>
+					<xs:documentation>
+						This individual has contractual responsibility for this account and is primarily responsible for its payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joint">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is contractually obligated to repay all debts arising on this account. There are
+						other people associated with this account who may or may not have contractual responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AuthorizedUser">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is an authorized user of this account; another individual has contractual
+						responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CoSigner">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is liable for the credit, but does not receive the benefit of the loan.
+						Note: this individual is required to sign the Co-Signer Notice (Reg AA).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Maker">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is responsible for this account, which is guaranteed by a Co-maker (co-signer).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CoMaker">
+				<xs:annotation>
+					<xs:documentation>
+						The individual guarantees this account along with the Maker. Note: this is the same as the co-borrower.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Terminated">
+				<xs:annotation>
+					<xs:documentation>
+						No further responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Undesignated">
+				<xs:annotation>
+					<xs:documentation>
+						Responsibility not specified.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BusinessOrCommercial">
+				<xs:annotation>
+					<xs:documentation>
+						A business or commmercial entity has contractual responsibility for this account and is primarily responsible for its payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
