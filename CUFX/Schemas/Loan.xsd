@@ -165,26 +165,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Code used to indicate how the loan is to be reported to credit bureaus
-
-								Individual - This individual has contractual responsibility for this account and is primarily responsible
-								for its payment.
-								Joint - This individual is contractually obligated to repay all debts arising on this account. There are
-								other people associated with this account who may or may not have contractual responsibility.
-								Authorized User - This individual is an authorized user of this account; another individual has contractual
-								responsibility.
-								Co-Signer - This individual is liable for the credit, but does not receive the benefit of the loan. Note:
-								this individual is required to sign the Co-Signer Notice (Reg AA).
-								Maker - This individual is responsible for this account, which is guaranteed by a Co-maker (co-signer).
-								Co-Maker - The individual guarantees this account along with the Maker. Note: this is the same as the co-borrower.
-								Terminated - No further responsibility.
-								Undesignated - Responsibility not specified.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="creditReportingCode" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -1626,6 +1606,15 @@
 					<xs:documentation>
 						Collection of contacts for the party within this account.  Only contains the
 						contact ID for each contact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Code used to indicate how the loan is to be reported to credit bureaus.
+						ecoaGroup is an attribtute of the loan party and not directly
+						of the loan instrument. ecoaGroup moved to loanParty in release v5.0.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
