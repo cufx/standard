@@ -1612,9 +1612,7 @@
 			<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Code used to indicate how the loan is to be reported to credit bureaus.
-						ecoaGroup is an attribtute of the loan party and not directly
-						of the loan instrument. ecoaGroup moved to loanParty in release v5.0.
+						Code used to indicate how the loan party is to be reported to credit bureaus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
