@@ -313,6 +313,27 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="statementCode" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Used in statement generation programs.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Used to define/categorize the statement groups
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Date for the statement cut-off.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
