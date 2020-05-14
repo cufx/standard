@@ -400,27 +400,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="statementCode" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used in statement generation programs.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used to define/categorize loans into statement groups
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Date for statement cut-off (billing date).
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="debtIncomeRatio" type="xs:decimal" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
