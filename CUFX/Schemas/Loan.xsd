@@ -171,6 +171,8 @@
 						<xs:annotation>
 							<xs:documentation>
 								Code used to indicate how the loan is to be reported to credit bureaus
+								Deprecation - ecoaGroup is an attribtute of the loan party and not directly
+								of the loan instrument. ecoaGroup will be moved to loanParty in release v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1453,6 +1455,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						A business or commmercial entity has contractual responsibility for this account and is primarily responsible for its payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deceased">
+				<xs:annotation>
+					<xs:documentation>
+						This individual associated to this account is deceased. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
