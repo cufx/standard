@@ -5,8 +5,8 @@
 	xmlns="http://cufxstandards.com/v4/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-  xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-  xmlns:card="http://cufxstandards.com/v4/Card.xsd"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:card="http://cufxstandards.com/v4/Card.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 					 
 	elementFormDefault="qualified"
@@ -57,6 +57,7 @@
 					<xs:documentation>
 						The list of account ID's that should have their associated cards either returned or affected
 						by a read, update or delete card request.
+						Deprecated.  Use AccountAccountTypePair.  accountIdList will be removed in release v5.0. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -123,6 +124,14 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountAccountTypePair" type="account:AccountAccountTypePair" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID / account type pairs that should have their associated cards either returned or affected
+						by a read, update or delete card request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
