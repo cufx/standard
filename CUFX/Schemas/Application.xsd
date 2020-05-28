@@ -506,4 +506,26 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string" />
 	</xs:simpleType>
+	<xs:complexType name="ApplicationStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				List of application statuses used for filtering on read, update or delete application service
+				requests.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="applicationStatus" type="ApplicationStatus" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Status of the application to indicate how the application is progressing
+								from a workflow standpoint.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType >
 </xs:schema>
