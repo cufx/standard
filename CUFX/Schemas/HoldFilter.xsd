@@ -59,7 +59,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated cards either returned or affected
+						The list of account ID's that should have their associated accounts either returned or affected
 						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -160,6 +160,14 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated accounts either returned or affected
+						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
