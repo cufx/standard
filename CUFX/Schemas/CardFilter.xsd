@@ -57,7 +57,6 @@
 					<xs:documentation>
 						The list of account ID's that should have their associated cards either returned or affected
 						by a read, update or delete card request.
-						Deprecated.  Use AccountAccountTypePair.  accountIdList will be removed in release v5.0. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -127,10 +126,10 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID / account type pairs that should have their associated cards either returned or affected
+						The list of account types that should have their associated cards either returned or affected
 						by a read, update or delete card request.
 					</xs:documentation>
 				</xs:annotation>
