@@ -288,6 +288,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="collateralSubType" type="CollateralSubType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The collateralSubType supports discreet sub classifications of the collateral by an institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1065,5 +1072,35 @@
 			<xs:enumeration value="Annually"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="CollateralSubType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The collateralSubType supports discreet sub classifications of the collateral by an institution.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CollateralSubTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of CollateralSubType's that should have their associated collateral records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="collateralSubType" type="CollateralSubType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The collateralSubType supports discreet sub classifications of the collateral by an institution.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 </xs:schema>
