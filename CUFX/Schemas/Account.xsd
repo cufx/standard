@@ -588,7 +588,7 @@
 			<xs:enumeration value="Mortgage">
 				<xs:annotation>
 					<xs:documentation>
-						Loan that is a line of credit but NOT a credit card.
+						Loan that is made in exchange for taking title of property.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -611,6 +611,34 @@
 				<xs:annotation>
 					<xs:documentation>
 						Other account type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installment">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is made in installments. Loan is typically unsecured. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Commercial">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is a made to a business organization. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CommercialLineOfCredit">
+				<xs:annotation>
+					<xs:documentation>
+						Line of Credit that is a made to a business organization. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GeneralLedger">
+				<xs:annotation>
+					<xs:documentation>
+						A general ledger account of the financial institution. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
