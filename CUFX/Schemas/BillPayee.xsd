@@ -183,6 +183,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="userDefinedName" type="xs:string"   minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -276,15 +285,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						Free form text that describes the EBillEnrollmentStatus type "Other" when it is set in the eBillEnrollmentStatus element.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account type is the textual representation of the kind of account.
-						This value is visible to the user and must be human-readable.
-						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
