@@ -179,6 +179,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="prefillable" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -234,15 +244,6 @@
 						authorized to access at the Institution based on applied filters.
 						Note that the documentFilter contains the boolean includeArtifactObjectFlag to manage whether 
 						the base 64 binary objects are to be returned. This facility is provided to manage the size of the message. 
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The account type is the textual representation of the kind of account.
-						This value is visible to the user and must be human-readable.
-						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
