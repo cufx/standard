@@ -67,7 +67,7 @@ elementFormDefault="qualified"
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account IDs that should have their associated payees either returned or affected
+						The list of account IDs that should have their associated bill pay records either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -134,6 +134,25 @@ elementFormDefault="qualified"
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated bills either returned or affected
+						by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account ids and account type pairs that should have their associated bills either returned or affected
+						by a read, update or delete bill pay record request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

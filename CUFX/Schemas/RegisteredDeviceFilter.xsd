@@ -25,7 +25,7 @@
 		<xs:annotation>
 			<xs:documentation>
 				The collection/array list contains all the devices to be created, read, updated or deleted with this
-				request.
+				registered device request.
 			</xs:documentation>
 		</xs:annotation>
 	</xs:element>
@@ -34,7 +34,7 @@
 		<xs:annotation>
 			<xs:documentation>
 				The collection/array contains all the devices to be created, read, updated or deleted with
-				this request.
+				this registered device request.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -78,8 +78,8 @@
 			<xs:element name="accountStatusList" type="account:AccountStatusList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account statuses and sub statuses that should have their associated device records either returned or affected
-						by a read, update or request.
+						The list of account statuses and sub statuses that should have their associated registered device records either returned or affected
+						by a read, update or delete registered device request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -104,6 +104,25 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated registered devices either returned or affected
+						by a read, update or delete registered device request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account ids and account type pairs that should have their associated registered devices either returned or affected
+						by a read, update or delete registered device request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
