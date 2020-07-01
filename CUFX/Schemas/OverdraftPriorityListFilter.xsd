@@ -52,7 +52,7 @@
 			<xs:element name="overdraftPriorityIdList" type="overdraft:OverdraftPriorityIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The ID's of the overdraft priority list entries to be returned or affected by a read, update or delete request.
+						The IDs of the overdraft priority list entries to be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -68,7 +68,7 @@
 			<xs:element name="overdraftFromAccountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The account ID's that an overdraft should pull from to be returned or affected by a read, update or delete request.
+						The account IDs that an overdraft should pull from to be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -81,6 +81,25 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated overdraft priority list either returned or affected
+						by a read, update or delete overdraft priority request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account ids and account type pairs that should have their associated overdraft priority list either returned or affected
+						by a read, update or delete overdraft priority request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

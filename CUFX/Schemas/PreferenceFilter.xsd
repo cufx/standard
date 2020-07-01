@@ -43,7 +43,7 @@
 			<xs:element name="preferenceIdList" type="preference:PreferenceIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of preference ID's that should be returned or affected by a read, update or delete preference request.
+						The list of preference IDs that should be returned or affected by a read, update or delete preference request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -51,7 +51,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete preference request.
+						The list of party IDs that should be returned or affected by a read, update or delete preference request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -59,7 +59,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated preferences either returned or affected
+						The list of relationship IDs that should have their associated preferences either returned or affected
 						by a read, update or delete preference request.
 					</xs:documentation>
 				</xs:annotation>
@@ -68,7 +68,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Account ID's that should have their associated preferences either returned or affected
+						The list of Account IDs that should have their associated preferences either returned or affected
 						by a read, update or delete preference request.
 					</xs:documentation>
 				</xs:annotation>
@@ -94,7 +94,7 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact ID's that should have their associated preferences either returned or affected
+						The list of contact IDs that should have their associated preferences either returned or affected
 						by a read, update or delete preference request.
 					</xs:documentation>
 				</xs:annotation>
@@ -144,6 +144,25 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated preferences either returned or affected
+						by a read, update or delete preference request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account ids and account type pairs that should have their associated preferences either returned or affected
+						by a read, update or delete preference request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

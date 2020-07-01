@@ -45,7 +45,7 @@
 			<xs:element name="noteIdList" type="common:NoteIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Note Id's that should have their associated records either returned or affected
+						The list of Note Ids that should have their associated records either returned or affected
 						by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -84,7 +84,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account Id's that should have their associated notes either returned or affected
+						The list of account Ids that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -102,7 +102,7 @@
 			<xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of application Id's that should have their associated notes either returned or affected
+						The list of application Ids that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -111,7 +111,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party Id's that should be returned or affected by a read, update or
+						The list of party Ids that should be returned or affected by a read, update or
 						delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -120,7 +120,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Relationship Id's that should have their associated notes either returned or affected
+						The list of Relationship Ids that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -129,7 +129,7 @@
 			<xs:element name="productServiceRequestIdList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of productServiceRequestId's that should have their associated notes either returned or affected
+						The list of productServiceRequestIds that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 
 						The product service request ID is a persistent and unique identifier for the product
@@ -143,7 +143,7 @@
 			<xs:element name="activityIdList" type="activity:ActivityIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A list of activity ID's that should have their associated notes either returned or affected
+						A list of activity IDs that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -177,6 +177,25 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account types that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account ids and account type pairs that should have their associated notes either returned or affected
+						by a read, update or delete note request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
