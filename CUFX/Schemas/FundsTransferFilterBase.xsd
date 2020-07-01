@@ -30,7 +30,7 @@
 			<xs:element name="occurrenceIdList" type="fundsTransferCommonBase:OccurrenceIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of transfer occurrence ID's that should have their associated transfers returned or affected by a read,
+						The list of transfer occurrence IDs that should have their associated transfers returned or affected by a read,
 						update or delete transfer request.
 					</xs:documentation>
 				</xs:annotation>
@@ -39,7 +39,7 @@
 			<xs:element name="recurringIdList" type="fundsTransferCommonBase:RecurringIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of recurring transfer ID's that should have their associated transfers returned or affected by a read,
+						The list of recurring transfer IDs that should have their associated transfers returned or affected by a read,
 						update or delete transfer request.
 					</xs:documentation>
 				</xs:annotation>
@@ -75,7 +75,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated payments or transfers either returned or affected
+						The list of account IDs that should have their associated payments or transfers either returned or affected
 						by a read, update or delete payments or transfers request.
 					</xs:documentation>
 				</xs:annotation>
@@ -84,7 +84,7 @@
 			<xs:element name="relationshipIdList" type ="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated payments or transfers either returned or affected
+						The list of relationship IDs that should have their associated payments or transfers either returned or affected
 						by a read, update or delete payments or transfers request.
 					</xs:documentation>
 				</xs:annotation>

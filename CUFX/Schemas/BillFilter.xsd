@@ -41,7 +41,7 @@ elementFormDefault="qualified"
 			<xs:element name="billIdList" type="bill:BillIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of bill Id's that should have their associated bills either returned
+						The list of bill Ids that should have their associated bills either returned
 						or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -50,7 +50,7 @@ elementFormDefault="qualified"
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete request.
+						The list of party IDs that should be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -58,7 +58,7 @@ elementFormDefault="qualified"
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated bill payees either returned or affected
+						The list of relationship IDs that should have their associated bill payees either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -67,7 +67,7 @@ elementFormDefault="qualified"
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated payees either returned or affected
+						The list of account IDs that should have their associated payees either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -85,7 +85,7 @@ elementFormDefault="qualified"
 			<xs:element name="billFromPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of bill pay ID's that should have their associated bill pay records either returned or affected
+						The list of bill pay IDs that should have their associated bill pay records either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>

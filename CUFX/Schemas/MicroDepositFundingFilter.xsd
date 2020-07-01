@@ -56,7 +56,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should have their associated micro deposits either returned or affected
+						The list of party IDs that should have their associated micro deposits either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -65,7 +65,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated micro deposits either returned or affected
+						The list of relationship IDs that should have their associated micro deposits either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -74,7 +74,7 @@
 			<xs:element name="sourceAccountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of source account ID's that should have their associated micro deposits either returned or affected
+						The list of source account IDs that should have their associated micro deposits either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -92,7 +92,7 @@
 			<xs:element name="externalAccountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of external account ID's that should have their associated micro deposits either returned or affected
+						The list of external account IDs that should have their associated micro deposits either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>

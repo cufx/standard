@@ -52,7 +52,7 @@
 			<xs:element name="overdraftPriorityIdList" type="overdraft:OverdraftPriorityIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The ID's of the overdraft priority list entries to be returned or affected by a read, update or delete request.
+						The IDs of the overdraft priority list entries to be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -68,7 +68,7 @@
 			<xs:element name="overdraftFromAccountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The account ID's that an overdraft should pull from to be returned or affected by a read, update or delete request.
+						The account IDs that an overdraft should pull from to be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

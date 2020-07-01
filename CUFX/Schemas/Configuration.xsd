@@ -418,7 +418,7 @@
 					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A list of configuration app Id's that point to how an app as it's
+								A list of configuration app Ids that point to how an app as it's
 								installed/specialized in the configuration.
 							</xs:documentation>
 						</xs:annotation>
@@ -435,7 +435,7 @@
 					<xs:element name="configurationAppParameter" type="ConfigurationAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A list of configuration app parameter Id's that point to how an
+								A list of configuration app parameter Ids that point to how an
 								app parameter is set/specialized in the configuration for an app.
 							</xs:documentation>
 						</xs:annotation>
@@ -507,7 +507,7 @@
 					<xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The list of app parameters ID's that have been set/specialized for a configuration.
+								The list of app parameters IDs that have been set/specialized for a configuration.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -610,7 +610,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -798,7 +798,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI App ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -891,7 +891,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppParameterIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI App Parameter ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App Parameter IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1290,7 +1290,7 @@
 	<xs:complexType name="ConfigurationIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of configuration ID's that should have their associated configurations either returned or affected
+				The list of configuration IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1422,7 +1422,7 @@
 	<xs:complexType name="MethodIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Method ID's that should have their associated configurations either returned or affected
+				The list of Method IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1454,7 +1454,7 @@
 	<xs:complexType name="MethodDependencyIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of method dependency ID's that should have their associated configurations either returned or affected
+				The list of method dependency IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1554,7 +1554,7 @@
 	<xs:complexType name="ConfigurationNetworkNodeAddressIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration network node address ID's that should have their associated
+				The list of Configuration network node address IDs that should have their associated
 				configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>

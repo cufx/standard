@@ -41,7 +41,7 @@
 			<xs:element name="holdIdList" type="hold:HoldIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of hold ID's that should have their associated holds either returned or affected
+						The list of hold IDs that should have their associated holds either returned or affected
 						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -50,7 +50,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or
+						The list of party IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -59,7 +59,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated accounts either returned or affected
+						The list of account IDs that should have their associated accounts either returned or affected
 						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -77,7 +77,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should be returned or affected by a read, update or
+						The list of relationship IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -86,7 +86,7 @@
 			<xs:element name="transactionIdList" type="transaction:TransactionIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of transaction ID's that should be returned or affected by a read, update or
+						The list of transaction IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
