@@ -49,7 +49,7 @@
 					<xs:element name="billPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of BillPayee ID's that should have their associated billPayments either returned or affected
+								The list of BillPayee IDs that should have their associated billPayments either returned or affected
 								by a read, update or delete billPayment request.
 							</xs:documentation>
 						</xs:annotation>
@@ -57,7 +57,7 @@
 					<xs:element name="billIdList" type="bill:BillIdList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of bill Id's that should have their associated bills either returned
+								The list of bill Ids that should have their associated bills either returned
 								or affected by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>

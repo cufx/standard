@@ -28,7 +28,7 @@
 	<xs:complexType name="UserFilter">
 		<xs:annotation>
 			<xs:documentation>
-				The list of access profile ID's that should have their associated access profiles either returned or affected
+				The list of access profile IDs that should have their associated access profiles either returned or affected
 				by a read, update or delete account request.
 			</xs:documentation>
 		</xs:annotation>
@@ -36,7 +36,7 @@
 			<xs:element name="userIdList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of user id's that should be returned or affected by a read, update or delete user request.
+						The list of user Ids that should be returned or affected by a read, update or delete user request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -52,7 +52,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party id's that should be returned or affected by a read, update or delete user request.
+						The list of party Ids that should be returned or affected by a read, update or delete user request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

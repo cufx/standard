@@ -156,7 +156,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that relate to this document and may appear on the document.  This information is used if
+						The list of party IDs that relate to this document and may appear on the document.  This information is used if
 						the document is requested to be prefilled.
 					</xs:documentation>
 				</xs:annotation>
@@ -264,7 +264,7 @@
 	<xs:complexType name="DocumentIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of document ID's that should have their associated documents either returned or affected
+				The list of document IDs that should have their associated documents either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>

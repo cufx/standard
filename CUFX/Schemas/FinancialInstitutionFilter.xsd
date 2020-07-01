@@ -40,7 +40,7 @@
 			<xs:element name="fiIdList" type="financialInstitution:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of financial institution ID's that should have their associated financial institutions either returned
+						The list of financial institution IDs that should have their associated financial institutions either returned
 						or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -67,7 +67,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of financial institution party Id's that should have their associated financial
+						The list of financial institution party Ids that should have their associated financial
 						institutions either returned or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
