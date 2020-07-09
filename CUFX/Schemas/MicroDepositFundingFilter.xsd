@@ -117,6 +117,25 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="sourceAccountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of source account types that should have their associated micro deposits either returned or affected
+						by a read, update or delete micro deposit request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="sourceAccountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of source account ids and account type pairs that should have their associated micro deposits either returned or affected
+						by a read, update or delete micro deposit request. This filter supports financial institutions that need to have account id and account
+						type as a pair to establish a unique key.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 		</xs:sequence>
 	</xs:complexType>
