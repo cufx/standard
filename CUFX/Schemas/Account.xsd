@@ -315,6 +315,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="interestPostingFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The time interval for posting interest to the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
