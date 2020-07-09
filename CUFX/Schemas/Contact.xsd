@@ -4,7 +4,6 @@
 	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:acount="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
 	xmlns:user="http://cufxstandards.com/v4/User.xsd"
@@ -12,7 +11,6 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
@@ -187,14 +185,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who deleted record.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account ids and account type pairs that are related to this contact. This supports financial institutions that need to have account id and account
-						type as a pair to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
