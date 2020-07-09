@@ -481,7 +481,7 @@
 					<xs:documentation>
 						The Account Id is intended and recommended to be a persistent and unique identifier for the account.
 						It should be unique for all users across the institution and remain the same over the life of the account.
-						It may contain a prefix to define the Account Type for consumption, such as SV-1234 or IL-1234.
+						It may contain a composite set of elements to create a unique key. 
 						In observed business practice Account Id is often a non-unique value and creates a unique key in combination 
 						with Account Type.  The accountAccountTypeList filter is designed to support this condition. 
 					</xs:documentation>
