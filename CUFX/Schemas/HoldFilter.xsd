@@ -182,6 +182,25 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="startCheckNumber" type="common:CheckNumber"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The starting check number that should have their associated holds either returned or affected
+						by a read, update or delete hold request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="endCheckNumber" type="common:CheckNumber"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The ending check number that should have their associated holds either returned or affected
+						by a read, update or delete hold request. This field can be omitted for a single check stop payment request.
+						Optionally, for a single check stop payment request, set this field to the same value as the 'startCheckNumber'.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
