@@ -497,6 +497,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="otherLoanAccountCategory" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The description of the Loan Account Category when LoanAccountCategory is set to OtherLoan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -1488,7 +1495,7 @@
 			<xs:enumeration value="Commercial" />
 			<xs:enumeration value="CommercialLineOfCredit" />
 			<xs:enumeration value="Mortgage" />
-			
+			<xs:enumeration value="OtherLoan" />
 		</xs:restriction>
 	</xs:simpleType>
 
