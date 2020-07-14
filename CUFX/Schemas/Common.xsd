@@ -1147,5 +1147,149 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name ="AchStandardEntryClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="ACK">
+				<xs:annotation>
+					<xs:documentation>
+						Acknowledgment Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ATX">
+				<xs:annotation>
+					<xs:documentation>
+						Financial EDI Acknowledgment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="ARC">
+				<xs:annotation>
+					<xs:documentation>
+						Accounts Receivable Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration 
+			<xs:enumeration value ="BOC">
+				<xs:annotation>
+					<xs:documentation>
+						Back Office Conversion Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CCD">
+				<xs:annotation>
+					<xs:documentation>
+						Corporate Credit Debit Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CIE">
+				<xs:annotation>
+					<xs:documentation>
+						Customer-Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="COR">
+				<xs:annotation>
+					<xs:documentation>
+						Notification of Change or Refused Notification of Change.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CTX">
+				<xs:annotation>
+					<xs:documentation>
+						Corporate Trade Exchange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="DNE">
+				<xs:annotation>
+					<xs:documentation>
+						Death Notification Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="ENR">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Enrollment Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="IAT">
+				<xs:annotation>
+					<xs:documentation>
+						International ACH Transaction.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="MTE">
+				<xs:annotation>
+					<xs:documentation>
+						Machine Transfer Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="POP">
+				<xs:annotation>
+					<xs:documentation>
+						Point of Purchase Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="PPD">
+				<xs:annotation>
+					<xs:documentation>
+						Prearranged Payment and Deposit Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="RCK">
+				<xs:annotation>
+					<xs:documentation>
+						Re-Presented Check Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TEL">
+				<xs:annotation>
+					<xs:documentation>
+						Telephone Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TRC">
+				<xs:annotation>
+					<xs:documentation>
+						Truncated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TRX">
+				<xs:annotation>
+					<xs:documentation>
+						Truncated Entries Exchange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="WEB">
+				<xs:annotation>
+					<xs:documentation>
+						Internet Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="XCK">
+				<xs:annotation>
+					<xs:documentation>
+						Destroyed Check Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 
