@@ -816,6 +816,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="maritalStatus" type="Maritalstatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The current marital status of the individual.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1948,4 +1955,25 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	<xs:simpleType name="MaritalStatus">
+		<xs:annotation>
+			<xs:documentation>
+				The current marital status of the individual.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Annulled" />
+			<xs:enumeration value="CommonLaw" />
+			<xs:enumeration value="Divorced" />
+			<xs:enumeration value="DomesticPartner" />
+			<xs:enumeration value="Interlocutory" />			
+			<xs:enumeration value="LegallySeparated" />
+			<xs:enumeration value="Married" />
+			<xs:enumeration value="RegisteredDomesticPartner" />
+			<xs:enumeration value="Separated" />
+			<xs:enumeration value="Single" />
+			<xs:enumeration value="Widowed" />	
+			<xs:enumeration value="Unknown" />		
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
