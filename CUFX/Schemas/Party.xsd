@@ -1962,10 +1962,16 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Single" />
-			<xs:enumeration value="Married" />
+			<xs:enumeration value="Annulled" />
+			<xs:enumeration value="CommonLaw" />
 			<xs:enumeration value="Divorced" />
+			<xs:enumeration value="DomesticPartner" />
+			<xs:enumeration value="Interlocutory" />			
+			<xs:enumeration value="LegallySeparated" />
+			<xs:enumeration value="Married" />
+			<xs:enumeration value="RegisteredDomesticPartner" />
 			<xs:enumeration value="Separated" />
+			<xs:enumeration value="Single" />
 			<xs:enumeration value="Widowed" />	
 			<xs:enumeration value="Unknown" />		
 		</xs:restriction>
