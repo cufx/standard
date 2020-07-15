@@ -78,6 +78,7 @@
 							<xs:documentation>
 								The account subtype identifies the specific account type
 								that the back end system will recognize.
+								Deprecated - See accountSubType in AccountBase. - Planned removal in v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -500,6 +501,13 @@
 						The account type is the textual representation of the kind of account.
 						This value is visible to the user and must be human-readable.
 						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1184,5 +1192,13 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
-
+	<xs:simpleType name="AccountSubType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The account subtype identifies the specific account type that the back end system will recognize.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
