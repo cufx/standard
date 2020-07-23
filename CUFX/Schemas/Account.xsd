@@ -814,7 +814,7 @@
 	</xs:complexType>
 	
 	<xs:complexType name="AccountIdentificationList">
-		xs:annotation>
+		<xs:annotation>
 			<xs:documentation>
 				Collection of account identifications to associate accounts affected by a read, update or delete request. 
 				This filter supports financial institutions that have a complex account identification struture to establish a unique key.
@@ -836,7 +836,7 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountIdentification">
-		xs:annotation>
+		<xs:annotation>
 			<xs:documentation>
 				The set of account identification elements to specify accounts for a read, update or delete request. 
 			</xs:documentation>
