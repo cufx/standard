@@ -478,6 +478,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value ="NoSolicitation"  >
+				<xs:annotation>
+					<xs:documentation>
+						Determines if party(ies) wishes to stop or inhibit solicitations.
+						If value is True then solicitation is prohibited.  If value is False or record does not exist then solicitation 
+						activity can occur.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
