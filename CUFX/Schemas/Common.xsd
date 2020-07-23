@@ -1147,5 +1147,94 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	
+	<xs:complexType name="PreferenceSettingList">
+		<xs:annotation>
+			<xs:documentation>
+				List of preference settings related to an object.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="preferenceSetting" type="PreferenceSetting" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The preference setting related to the object
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PreferenceSetting">
+		<xs:annotation>
+			<xs:documentation>
+				The preference setting related to the object. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+
+			<xs:element name="preferenceId" type="PreferenceId"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the preference.  This is not provided as an input,
+						but as an output after the preference has been created.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceType" type="PreferenceSettingType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Preference type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceSettingSubType" type="xs:PreferenceSettingSubType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Sub type of the preference
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingBoolean" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The boolean preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingDateTime" type="xs:DateTime"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date time preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingText" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The text preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingInteger" type="xs:Integer"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The numneric preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
 
