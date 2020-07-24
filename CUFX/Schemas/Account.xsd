@@ -768,6 +768,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountAccountTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				Deprecated - the type AccountAccountTypeList will be removed in v5.0. Use AccountIdentificationList 
+			</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
@@ -784,6 +789,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountAccountTypePair">
+		xs:annotation>
+			<xs:documentation>
+				Deprecated - the type AccountAccountTypePair will be removed in v5.0. Use AccountIdentification 
+			</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -802,7 +812,71 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="AccountIdentificationList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of account identifications to associate accounts affected by a read, update or delete request. 
+				This filter supports financial institutions that have a complex account identification struture to establish a unique key.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="accountIdentification" type="AccountIdentification" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The set of account identification elements to specify accounts for a read, update or delete request. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
+	<xs:complexType name="AccountIdentification">
+		<xs:annotation>
+			<xs:documentation>
+				The set of account identification elements to specify accounts for a read, update or delete request. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An account ID that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account type that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="AccountSubType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize and 
+						that should have its associated accounts either returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountToFromIndicator" type="AccountToFromIndicator" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						AccountToFromIndicator is used to filter for account identifications in messages that have TO and FROM account structure. 
+						If a value is not present then the search criteria should evaluate both To and From account structures if applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType
+	
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:annotation>
 			<xs:documentation>
@@ -1199,6 +1273,31 @@
 					The account subtype identifies the specific account type that the back end system will recognize.
 				</xs:documentation>
 			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AccountToFromIndicator">
+		<xs:annotation>
+			<xs:documentation>
+				AccountToFromIndicator is used to filter for account identifications in messages that have TO and FROM account structure. 
+				If a value is not present then the search criteria should evaluate both To and From account structures if applicable.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="To" >
+				<xs:annotation>
+					<xs:documentation>
+						Return or affect accounts identified as the To account, or destination account. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="From" >
+				<xs:annotation>
+					<xs:documentation>
+						Return or affect accounts identified as the From account, or source account. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
