@@ -240,6 +240,13 @@ attributeFormDefault="unqualified">
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="achStandardEntryClass" type="common:AchStandardEntryClass"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						SEC defined ACH Standard Entry Class code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
