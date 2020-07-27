@@ -1291,5 +1291,55 @@
 			</xs:enumeration >
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:complexType name="WithholdingInfo">
+		<xs:annotation>
+			<xs:documentation>
+				Fields related to require tax withholding 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			
+			<xs:element name="withholdingType" type="xs:string"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the type of withingholding. Polulation may include but is not restricted to Federal, State, and Local.
+						withholdingType is not enumerated to support the range of potential types. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="numberOfWithholdings" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of withholdings declared.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="WithholdingsRate" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The rate of withholding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdingsOption" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the the withholding option as defined by the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdingsAmount" type="common:money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional amount of withholdings.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
 
