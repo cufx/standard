@@ -1128,6 +1128,7 @@
 		<xs:restriction base="xs:decimal">
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="MaturityDate">
 		<xs:restriction base="xs:date">
 			<xs:annotation>
@@ -1138,6 +1139,7 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="CheckNumber">
 		<xs:restriction base="xs:string">
 			<xs:annotation>
@@ -1147,6 +1149,7 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name ="AchStandardEntryClass">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value ="ACK">
@@ -1292,19 +1295,53 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:simpleType name ="WithholdingFilingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Single">
+				<xs:annotation>
+					<xs:documentation>
+						Single filing status or Married filing Seperately.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Married">
+				<xs:annotation>
+					<xs:documentation>
+						Married filing jointly or qualifying widower.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="HeadOfHousehold">
+				<xs:annotation>
+					<xs:documentation>
+						Head of Household. Unmarried and pay more than half of the costs of keeling up a home for yourself and a 
+						qualifying individual.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration 
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:complexType name="WithholdingInfo">
 		<xs:annotation>
 			<xs:documentation>
-				Fields related to require tax withholding 
+				Fields related to require tax withholding information. 
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			
 			<xs:element name="withholdingType" type="xs:string"  minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Describes the type of withingholding. Polulation may include but is not restricted to Federal, State, and Local.
-						withholdingType is not enumerated to support the range of potential types. 
+						Describes the type of withingholding. Polulation may include but is not restricted to Federal, State, Local, W-4.
+						withholdingType is not enumerated to support the range of business cases for Domestic and international usage. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingFilingStatus" type="WithholdingFilingStatus"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the withholding filing status to be applied for withholdings calculation. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1312,34 +1349,69 @@
 			<xs:element name="numberOfWithholdings" type="xs:string"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The number of withholdings declared.
+						The number of withholdings or allowances declared. Example form W-4 line 5. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingsAmount" type="common:money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional amount of withholdings to be withheld from a payment such as a paycheck. Example W-4 line 6
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingsExempt" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						WithHoldings are exempt when set to True.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="WithholdingsRate" type="xs:string"  minOccurs="0" maxOccurs="1">
+			<xs:element name="WithholdingsRate" type="xs:decimal"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The rate of withholding.
+						The rate of withholding to apply to a qualifying transaction. 
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="WithholdingsOption" type="xs:string"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Describes the the withholding option as defined by the financial institution.
+						Describes the withholding option as defined by the financial institution 
+						and allows for the range of special instructions that may be applicable.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="WithholdingsAmount" type="common:money"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Additional amount of withholdings.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 		</xs:sequence>
 	</xs:complexType>
+			
+	<xs:complexType name="WithholdingsInfoList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of withholding information.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="withholdingInfo" type="WithholdingInfo" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Fields related to require tax withholding information.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+			
 </xs:schema>
 
