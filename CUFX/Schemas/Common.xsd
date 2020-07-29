@@ -1291,5 +1291,17 @@
 			</xs:enumeration >
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="AchPrenoteIndicator">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					ACH Prenote Indicator is set to True when an alert of the transfer will be sent to the receiving institution
+					in advance of the actual transfer. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
 
