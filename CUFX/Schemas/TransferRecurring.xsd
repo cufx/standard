@@ -51,6 +51,15 @@
 				</xs:documentation>
 			</xs:annotation>
 			<xs:extension base="fundsTransferRecurringBase:FundsTransferRecurringBase">
+				<xs:sequence>
+					<xs:element name="noteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								List of notes on account, loan, etc..
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
