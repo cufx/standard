@@ -251,6 +251,56 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="paymentChangeDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account may be subject to a payment change.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateReviewDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of days to prior to the next payment change date to begin an account rate review. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="billProduceDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of days to prior to the next billing date to create the billing record. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateChangeFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The frequency of interest rate adjustments on loan. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateChangeFrequencyDuration" type="common:FrequencyDuration" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of time periods when rateChangeFrequencyType is of type XDays, XMonths or Xyears. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentChangeFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The frequency of payment changes on loan. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentChangeFrequencyDuration" type="common:FrequencyDuration" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of time periods when paymentChangeFrequencyType is of type XDays, XMonths or Xyears. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
