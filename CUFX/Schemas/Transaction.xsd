@@ -249,6 +249,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="entryMethod" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Method used for the entry of the transaction at the source of the transaction.  Value may be a code or a description dependent upon 
+						the institutional usage.  Especially useful for credit and debit card entry methods but could be used for other transaction sources.  
+						Example entry methods include but not restricted to Manual Entry, Bar Code, Chip / Smart Card, Track 1 Read, Contactless Chip, 
+						Mobile eCommerce, and EMV.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
