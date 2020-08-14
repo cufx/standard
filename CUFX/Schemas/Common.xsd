@@ -869,6 +869,16 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="FrequencyDuration">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The number of time periods when FrequencyType is of type XDays, XMonths or XYears. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:simpleType name="Gender">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Male" />
