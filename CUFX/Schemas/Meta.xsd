@@ -268,10 +268,10 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="billProduceDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="paymentReviewDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The number of days to prior to the next billing date to create the billing record. 
+						The number of days to prior to the next payment change date to begin an payment review.  
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
