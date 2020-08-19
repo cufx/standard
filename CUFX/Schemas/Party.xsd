@@ -457,6 +457,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -468,6 +469,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+      
+			<xs:element name="withholdingsInfoList" type="common:WithholdingsInfoList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of withholding information that is applicable to the party.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>	
+      
 			<xs:element name="taxIdExpirationDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
