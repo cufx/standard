@@ -1300,7 +1300,7 @@
 			<xs:enumeration value ="Single">
 				<xs:annotation>
 					<xs:documentation>
-						Single filing status or Married filing Seperately.
+						Single filing status or Married filing seperately.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1370,7 +1370,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="WithholdingsRate" type="xs:decimal"  minOccurs="0" maxOccurs="1">
+			<xs:element name="withholdingsRate" type="xs:decimal"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The rate of withholding to apply to a qualifying transaction. 
@@ -1381,7 +1381,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="WithholdingsOption" type="xs:string"  minOccurs="0" maxOccurs="1">
+			<xs:element name="withholdingsOption" type="xs:string"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Describes the withholding option as defined by the financial institution 
