@@ -330,6 +330,28 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>		
+					<xs:element name="overDraftProtectionAccountId" type="AccountId" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account.  
+								The Account Id is intended and recommended to be a persistent and unique identifier for the account.
+								It should be unique for all users across the institution and remain the same over the life of the account.
+								It may contain a composite set of elements to create a unique key. 
+								In observed business practice Account Id is often a non-unique value and creates a unique key in combination 
+								with Account Type.  The accountAccountTypeList filter is designed to support this condition. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="type" type="overDraftProtectionAccountType"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account type.
+								The account type is the textual representation of the kind of account.
+								This value is visible to the user and must be human-readable.
+								Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -507,7 +529,7 @@
 					<xs:documentation>
 						The account type is the textual representation of the kind of account.
 						This value is visible to the user and must be human-readable.
-						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -584,7 +606,7 @@
 			<xs:enumeration value="Savings">
 				<xs:annotation>
 					<xs:documentation>
-						Savings and club accounts.  This can optionally include CD's, but it's up to the institution.
+						Savings and club accounts.  This can optionally include CDs, but it's up to the institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -619,7 +641,7 @@
 			<xs:enumeration value="Investment">
 				<xs:annotation>
 					<xs:documentation>
-						Investment accounts such as brokerage and this can optionally include CD's and/or
+						Investment accounts such as brokerage and this can optionally include CDs and/or
 						money markets, but it's up to the institution.
 					</xs:documentation>
 				</xs:annotation>
@@ -824,7 +846,7 @@
 		<xs:annotation>
 			<xs:documentation>
 				Collection of account identifications to associate accounts affected by a read, update or delete request. 
-				This filter supports financial institutions that have a complex account identification struture to establish a unique key.
+				This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>

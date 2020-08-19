@@ -68,6 +68,21 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="noteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								List of notes on account, loan, etc..
+              </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="achPrenoteIndicator" type="common:AchPrenoteIndicator"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								ACH Prenote Indicator is set to True when an alert of the transfer will be sent to the receiving institution
+								in advance of the actual transfer.   
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
