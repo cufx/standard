@@ -64,6 +64,15 @@
             <backupWithholdingReason>backupWithholdingReason1</backupWithholdingReason>
             <backupWithholdingExemptionReason>ExceptFromWithholding</backupWithholdingExemptionReason>
             <backupWithholdingEffectiveDate>1900-01-01</backupWithholdingEffectiveDate>
+            <customData>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
           </taxInformation>
         </taxInformationList>
         <type xmlns="http://cufxstandards.com/v4/Party.xsd">Individual</type>
@@ -150,6 +159,9 @@
                   <planFormat xmlns="http://cufxstandards.com/v4/Contact.xsd">Nanp</planFormat>
                   <description xmlns="http://cufxstandards.com/v4/Contact.xsd">description1</description>
                   <smsRegistered xmlns="http://cufxstandards.com/v4/Contact.xsd">true</smsRegistered>
+                  <countryCode xmlns="http://cufxstandards.com/v4/Contact.xsd">AD</countryCode>
+                  <country xmlns="http://cufxstandards.com/v4/Contact.xsd">country1</country>
+                  <otherPhoneType xmlns="http://cufxstandards.com/v4/Contact.xsd">otherPhoneType1</otherPhoneType>
                 </employerPhone>
                 <employerStatus>Current</employerStatus>
                 <type>FullTime</type>
@@ -324,6 +336,7 @@
                 <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
                 <timeAtAddress>P396DT1H1M1S</timeAtAddress>
                 <addressVerifyDateTime>1900-01-01T01:01:01Z</addressVerifyDateTime>
+                <otherAddressType>otherAddressType1</otherAddressType>
               </address>
               <phone>
                 <phoneType>Home</phoneType>
@@ -332,10 +345,14 @@
                 <planFormat>Nanp</planFormat>
                 <description>description1</description>
                 <smsRegistered>true</smsRegistered>
+                <countryCode>AD</countryCode>
+                <country>country1</country>
+                <otherPhoneType>otherPhoneType1</otherPhoneType>
               </phone>
               <email>
                 <emailType>Home</emailType>
                 <address>address1</address>
+                <otherEmailType>otherEmailType1</otherEmailType>
               </email>
               <instantMessage>
                 <messagingService>messagingService1</messagingService>
@@ -358,6 +375,7 @@
               <userName>userName1</userName>
             </demonstratedAccess>
             <badContactPoint>true</badContactPoint>
+            <preferenceOrder>1</preferenceOrder>
             <customData>
               <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
               <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
