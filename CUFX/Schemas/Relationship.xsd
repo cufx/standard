@@ -111,7 +111,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="relationshipCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="relationshipCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
                                 	<xs:documentation>
                                                 A unique identifier of who created the relationship in the system.
@@ -130,7 +130,7 @@
 				</xs:annotation>
 			</xs:element>
  
-			<xs:element name="relationshipModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="relationshipModifiedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who last updated the relationship in the source system.
@@ -149,7 +149,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="relationshipDeletedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="relationshipDeletedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who deleted record.
