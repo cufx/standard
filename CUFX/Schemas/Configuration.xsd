@@ -1582,7 +1582,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the user that created the configuration.
