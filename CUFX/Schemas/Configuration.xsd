@@ -8,7 +8,6 @@
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -18,7 +17,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
@@ -198,7 +196,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="configurationCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID, etc. of who created the configuration.
@@ -217,7 +215,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="configurationLastUpdatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID, etc. of who last updated the configuration.
@@ -1606,7 +1604,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationLastModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationLastModifiedBy" type="common:UserId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the user that last modified the configuration.
