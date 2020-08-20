@@ -6,14 +6,12 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
-	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 	
 	<xs:element name= "contactList" type="ContactList">
 		<xs:annotation>
@@ -147,7 +145,7 @@
                                         </xs:documentation>
  				</xs:annotation>
             		</xs:element>
-			<xs:element name="contactCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="contactCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 	   			<xs:annotation>
                                 	<xs:documentation>
                   				A unique identifier of who created the contact in the system.
@@ -164,7 +162,7 @@
 					</xs:documentation>
 				</xs:annotation>
             		</xs:element>
-         		<xs:element name="contactModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+         		<xs:element name="contactModifiedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
                     			<xs:documentation>
            					A unique identifier such as a user ID of who last updated the contact in the source system.
@@ -181,7 +179,7 @@
 					</xs:documentation>
   				</xs:annotation>
         		</xs:element>
-                	<xs:element name="contactDeletedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+                	<xs:element name="contactDeletedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who deleted record.
