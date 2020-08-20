@@ -1189,7 +1189,7 @@
 						Accounts Receivable Entry.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration 
+			</xs:enumeration >
 			<xs:enumeration value ="BOC">
 				<xs:annotation>
 					<xs:documentation>
@@ -1335,7 +1335,7 @@
 						qualifying individual.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:enumeration 
+			</xs:enumeration> 
 		</xs:restriction>
 	</xs:simpleType>
 	
@@ -1371,7 +1371,7 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="withholdingsAmount" type="common:money"  minOccurs="0" maxOccurs="1">
+			<xs:element name="withholdingsAmount" type="Money"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Additional amount of withholdings to be withheld from a payment such as a paycheck. Example W-4 line 6
