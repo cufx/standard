@@ -5,14 +5,12 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:element name="fiList" type="FinancialInstitutionList">
 		<xs:annotation>
@@ -155,7 +153,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="fiCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier of who created the financial institution in the system.
@@ -174,7 +172,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="fiLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="fiLastUpdatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who last updated the financial institution.
