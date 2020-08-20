@@ -1440,5 +1440,15 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="UserId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The unique identifier created by the system and or the user for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 
