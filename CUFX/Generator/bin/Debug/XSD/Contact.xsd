@@ -1,14 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Contact.xsd"
-	version="4.2.$Revision: 1339 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
 	<xs:element name= "contactList" type ="ContactList">
 		<xs:annotation>
@@ -109,6 +112,15 @@
 					<xs:documentation>
 						Has the contact point been attempted and for some reason come back as invalid.
 						For instance, a bounced email, returned mail, disconnected phone, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceOrder" type="xs:positiveInteger" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies the preference order of communication for the given contact.
+						The lowest order will have the highest preference.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -259,6 +271,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="otherAddressType" type="xs:string"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Description of address type when addressType is set to other. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -327,6 +346,35 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="countryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.  This is the ISO 3166 2 Character
+						Country Code.  Back end systems can translate this into the
+						country description.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.
+						This is typically read-only as it is recommended to be
+						calculated based on the Country Code.
+						Description based on the ISO 3166 2 Character Country Code.
+						Back end systems can translate this to a description from the country code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherPhoneType" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of phone type when phoneType is set to other. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence >
 	</xs:complexType >
 
@@ -347,6 +395,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element >
+			<xs:element name="otherEmailType" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of email type when emailType is set to other. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -540,8 +595,8 @@
 			<xs:enumeration value="Nanp">
 				<xs:annotation>
 					<xs:documentation>
-						(North American Number Plan Administration):
-						+1-NPA-NXX-xxxx  : Example: 1-847-555-1212
+						(North American Number Plan Administration)
+						+1-NPA-NXX-xxxx   Example 1-847-555-1212
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -550,8 +605,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						(North American Number Plan
-						without the Country Code):  NPA-NXX-xxxx
-						: Example 847-555-1212
+						without the Country Code)  NPA-NXX-xxxx
+						Example 847-555-1212
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
