@@ -664,6 +664,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Loan that is made in installments. Loan is typically unsecured. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of Installment.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -671,6 +672,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Loan that is a made to a business organization. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of Commercial.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -678,6 +680,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						Line of Credit that is a made to a business organization. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of CommercialLineOfCredit.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -685,6 +688,14 @@
 				<xs:annotation>
 					<xs:documentation>
 						A general ledger account of the financial institution. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OtherLoan">
+				<xs:annotation>
+					<xs:documentation>
+						A loan account that is not of typical loan account sub type. 
+						This enumeration is considered deprecated. Recommend using account type loan and subAccount of OtherLoan.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
