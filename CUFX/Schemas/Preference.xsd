@@ -1381,5 +1381,162 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+		<xs:complexType name="PreferenceSettingList">
+		<xs:annotation>
+			<xs:documentation>
+				List of preference settings related to an object.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="preferenceSetting" type="PreferenceSetting" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The preference setting related to the object
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PreferenceSetting">
+		<xs:annotation>
+			<xs:documentation>
+				The preference setting related to the object. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+
+			<xs:element name="preferenceId" type="PreferenceId"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the preference.  This is not provided as an input,
+						but as an output after the preference has been created.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="deliveryChannel" type="credential:DeliveryChannel" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The delivery channel to apply the preference to.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceType" type="preferenceType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Preference type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceSettingSubType" type="SubType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Sub type of the preference
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingBoolean" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The boolean preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingDateTime" type="xs:DateTime"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date time preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingText" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The text preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="PreferenceSettingInteger" type="xs:Integer"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The numneric preference setting as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="preferenceStatus" type="PreferenceStatus" minOccurs="0" maxOccurs="1" default="Active">
+				<xs:annotation>
+					<xs:documentation>
+						The preference status can either be a Template, Inactive or Active.
+						- If Template, then this indicates that the preference is available for consumption by the all parties.
+						Once the party creates the preference, it would be saved with the account information, etc. to
+						relate it to the accounts, parties, relationships, and cards appropriate for the party.
+						- If Active, preference should be used when determining actions to take for the party, relationship, etc.
+						- If Inactive, then the preference record should be ignored.  This is helpful for retaining values if a
+						preference is temporarily inactivated but the current values should be retained for future use.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+						<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The preference frequency rate.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="alertCustomText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						When type is EAlert and subType is ScheduledMessage, additional custom text to send in an alert.
+						For preference status of Template, this value represents the default value if provided.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="whereToContactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If preference requires a contact point for delivery then this is the collection of contacts to be reached at.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="actionableAlert" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Valid only for preference records of EAlert type.
+						Determines if the alert, when sent to the party, is expecting a response back from the party.
+						For example, if a party receives an alert that states that their loan is overdue, it could
+						ask a question that the user needs to respond to in order to make the payment.  An additional
+						example might be if a transaction went through that appears to be fraudulent, the alert could
+						expect a response back from the party to allow the posting to occur.
+						This field is typically not managed by the party but is set by the system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="widgetName" type="WidgetName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						When the preference is of type Widget, this pulls all the preferences related to
+						a specific widget together for the party on the accounts, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 
 </xs:schema>
