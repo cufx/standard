@@ -1410,7 +1410,6 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-
 			<xs:element name="preferenceId" type="PreferenceId"  minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1489,7 +1488,8 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-						<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+			
+			<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The preference frequency rate.
