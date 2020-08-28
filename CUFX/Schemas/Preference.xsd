@@ -175,6 +175,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="valueDataType" type="DataType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data type of the preference value content. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -1389,7 +1397,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
-			<xs:extension base="ListBase">
+			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:element name="preferenceSetting" type="PreferenceSetting" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
@@ -1410,7 +1418,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="preferenceId" type="PreferenceId"  minOccurs="1" maxOccurs="1">
+			<xs:element name="preferenceId" type="PreferenceId" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the preference.  This is not provided as an input,
@@ -1427,7 +1435,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="preferenceType" type="preferenceType"  minOccurs="0" maxOccurs="1">
+			<xs:element name="preferenceType" type="PreferenceType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Preference type
@@ -1435,42 +1443,28 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="preferenceSettingSubType" type="SubType"  minOccurs="0" maxOccurs="1">
+			<xs:element name="preferenceSettingSubType" type="SubType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Sub type of the preference
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-			<xs:element name="PreferenceSettingBoolean" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+			
+			<xs:element name="preferenceValue" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The boolean preference setting as applicable.
+						The value specified for the preference.  This can either be a numeric, boolean, date/time or text value
+						depending upon the type and sub type of the preference.
+						For preference status of Template, this value represents the default value if provided.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="PreferenceSettingDateTime" type="xs:DateTime"  minOccurs="0" maxOccurs="1">
+			<xs:element name="preferenceValueDataType" type="DataType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The date time preference setting as applicable.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="PreferenceSettingText" type="xs:string"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The text preference setting as applicable.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="PreferenceSettingInteger" type="xs:Integer"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The numneric preference setting as applicable.
+						The data type of the preference value content. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1538,5 +1532,24 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:simpleType name="DataType">
+		<xs:annotation>
+			<xs:documentation>
+				Data type values.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="string"/>
+			<xs:enumeration value="integer"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="dateTime"/>
+			<xs:enumeration value="boolean"/>
+			<xs:enumeration value="long"/>
+			<xs:enumeration value="double"/>
+			<xs:enumeration value="float"/>
+			<xs:enumeration value="decimal"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
