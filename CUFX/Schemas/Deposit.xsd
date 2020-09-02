@@ -195,6 +195,13 @@
 							</xs:documentation >
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="serviceChargeWaivedReason" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The reason that the deposit service charge is waived. Population is determined by the financial institution. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
