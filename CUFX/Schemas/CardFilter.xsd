@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/CardFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/CardFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
@@ -134,12 +134,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Collection of account ids and account type pairs that should have their associated cards either returned or affected
-						by a read, update or delete card request. This filter supports financial institutions that need to have account id and account
-						type as a pair to establish a unique key.
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

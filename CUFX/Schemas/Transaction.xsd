@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Transaction.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Transaction.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -249,6 +249,15 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="entryMethod" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Method used for the entry of the transaction at the source of the transaction.  
+						Value may be a code or a description dependent upon the institutional usage. 
+						As example entry methods may include but not limited to Manual Entry, Bar Code, Contactless Chip.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -330,6 +339,7 @@
 			<xs:enumeration value ="Other" />
 			<xs:enumeration value ="Payroll" />
 			<xs:enumeration value ="PinPurchase" />
+			<xs:enumeration value ="POS" />			
 			<xs:enumeration value ="SharedBranch" />
 			<xs:enumeration value ="Signature" />
 			<xs:enumeration value ="Wire" />
