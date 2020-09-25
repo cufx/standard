@@ -352,6 +352,14 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="overDraftProtectionAccountSubType" type="AccountSubType"   minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account sub type.
+								The account subtype identifies the specific account type that the back end system will recognize.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
