@@ -7,7 +7,6 @@
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
 	xmlns:preference="http://cufxstandards.com/v4/Preference.xsd"
-	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Preference.xsd" schemaLocation="Preference.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 	
 	<xs:element name= "contactList" type="ContactList">
 		<xs:annotation>
