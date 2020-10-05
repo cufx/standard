@@ -37,7 +37,7 @@
 			<xs:element name="remoteDepositIdList" type="remoteDeposit:RemoteDepositIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Remote Deposits Ids that uniquely identify each remote deposit to be affected by the request.
+						The list of Remote Deposits IDs that uniquely identify each remote deposit to be affected by the request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -182,4 +182,3 @@
 	</xs:simpleType>
 
 </xs:schema>
-
