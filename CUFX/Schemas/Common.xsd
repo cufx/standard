@@ -1497,5 +1497,16 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	
+	<xs:simpleType name="IncludeNotesFlag">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					If this is not provided, it will not return notes.
+					If it is provided and it's true, it will return all active non-expired notes.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
 
