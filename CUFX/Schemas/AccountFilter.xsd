@@ -94,7 +94,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:element name="includeNotesFlag" type="common:IncludeNotesFlag" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If this is not provided, it will not return notes.
