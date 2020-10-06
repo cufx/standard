@@ -326,9 +326,21 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="Ach" />
+			<xs:enumeration value ="Ach">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Clearing House.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value ="Adjustment" />
-			<xs:enumeration value ="Atm" />
+			<xs:enumeration value ="Atm">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Teller Machine.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value ="BalanceTransfer" />
 			<xs:enumeration value ="BillPay" />
 			<xs:enumeration value ="BulkDeposit" />
@@ -340,13 +352,25 @@
 			<xs:enumeration value ="InterestEarned" />
 			<xs:enumeration value ="InterestPaid" />
 			<xs:enumeration value ="InterestRefund" />
-			<xs:enumeration value ="Ivr" />
+			<xs:enumeration value ="Ivr">
+				<xs:annotation>
+					<xs:documentation>
+						Interactive Voice Response.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value ="Kiosk" />
 			<xs:enumeration value ="MobileBanking" />
 			<xs:enumeration value ="Other" />
 			<xs:enumeration value ="Payroll" />
 			<xs:enumeration value ="PinPurchase" />
-			<xs:enumeration value ="POS" />			
+			<xs:enumeration value ="POS">
+				<xs:annotation>
+					<xs:documentation>
+						Point Of Sale.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
 			<xs:enumeration value ="SharedBranch" />
 			<xs:enumeration value ="Signature" />
 			<xs:enumeration value ="Wire" />
