@@ -304,6 +304,14 @@
 							<xs:documentation>
 								For each account type, optional meta information MAY be provided with these tags depending
 								upon the account type returned.
+								Account types of Checking, Savings, PrePaidCard use checkingSavingsMeta.
+								Account types of Loan, CommercialLoan, Installment, OtherLoan use loanMeta.
+								Account type of CreditCard use creditCardMeta.
+								Account type of Investment use investmentMeta.
+								Account types of LineOfCredit, CommercialLineOfCredit use lineOfCreditMeta.
+								Account type of Mortgage use mortgageMeta.
+								Account type of Other may use any of the defined meta, but additional endpoint documentation recommended.
+								Account type of GeneralLedger no meta defined
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
