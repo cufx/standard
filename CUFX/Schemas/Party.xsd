@@ -307,14 +307,22 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="nonresidentAlienSpecialWithholdingRate" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="nonresidentAlienSpecialWithholdingStatus" type="NonresidentAlienSpecialWithholdingStatus" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						NonresidentAlienSpecialWithholdingStatus specifies if a claim has been made for a tax treaty benefit.
+						Status values are None, Claimed, or Exempt.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nonresidentAlienSpecialWithholdingRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Special withholding rate that is claimed by the party when filing IRS Form W-8BEN Certificate of Foreign Status 
-						of Beneficial Owner for United States Tax Withholding.
-						0000 = No special withholding rate or exemption
-						1-9998 = Special withholding rate using four digits as example enter 1025 for 10.25% withholding. 
-						9999 = Special exemption from withholding
+						of Beneficial Owner for United States Tax Withholding. NonresidentAlienSpecialWithholdingStatus is set as Claimed.
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -2031,6 +2039,36 @@
 			<xs:enumeration value="Single" />
 			<xs:enumeration value="Widowed" />	
 			<xs:enumeration value="Unknown" />		
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name ="NonresidentAlienSpecialWithholdingStatus">
+		<xs:annotation>
+			<xs:documentation>
+				NonresidentAlienSpecialWithholdingStatus specifies if a claim has been made for a tax treaty benefit.
+			</xs:documentation>
+		</xs:annotation>							
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="None">
+				<xs:annotation>
+					<xs:documentation>
+						No special withholding rate or exemption. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Claimed">
+				<xs:annotation>
+					<xs:documentation>
+						Claimed special withholding rate applies see nonresidentAlienSpecialWithholdingRate. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Exempt">
+				<xs:annotation>
+					<xs:documentation>
+						Special exemption from withholding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
