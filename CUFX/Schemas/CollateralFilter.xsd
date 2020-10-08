@@ -85,15 +85,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			<xs:element name="accountTypeList" type="account:AccountTypeList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of account types that should have their associated collateral either returned or affected
-						by a read, update or delete collateral request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 
 			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>

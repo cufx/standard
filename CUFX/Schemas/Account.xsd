@@ -304,6 +304,14 @@
 							<xs:documentation>
 								For each account type, optional meta information MAY be provided with these tags depending
 								upon the account type returned.
+								Account types of Checking, Savings, PrePaidCard use checkingSavingsMeta.
+								Account types of Loan, CommercialLoan, Installment, OtherLoan use loanMeta.
+								Account type of CreditCard use creditCardMeta.
+								Account type of Investment use investmentMeta or checkingSavingsMeta.
+								Account types of LineOfCredit, CommercialLineOfCredit use lineOfCreditMeta.
+								Account type of Mortgage use mortgageMeta.
+								Account type of Other may use any of the defined meta, but additional endpoint documentation recommended.
+								Account type of GeneralLedger no meta defined
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -349,6 +357,14 @@
 								The account type is the textual representation of the kind of account.
 								This value is visible to the user and must be human-readable.
 								Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="overDraftProtectionAccountSubType" type="AccountSubType"   minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account sub type.
+								The account subtype identifies the specific account type that the back end system will recognize.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -942,6 +958,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						Account is charged off.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ChargeOffClosed " >
+				<xs:annotation>
+					<xs:documentation>
+						Account is charged off and closed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>

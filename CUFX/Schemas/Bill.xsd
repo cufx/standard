@@ -124,6 +124,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="isEBill" type="xs:boolean" minOccurs="1" maxOccurs="1">
 				<xs:annotation>

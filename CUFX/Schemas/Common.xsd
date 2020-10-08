@@ -1339,6 +1339,46 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+	<xs:simpleType name ="WithholdingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Federal">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for the federal government or a national government.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="State">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for a state government or a province.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="Local">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for a local government.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+			<xs:enumeration value ="W-4">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for US Government form W-4.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for all other forms of withholding. Further defined by element otherWithholdingType.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:complexType name="WithholdingInfo">
 		<xs:annotation>
 			<xs:documentation>
@@ -1346,11 +1386,18 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="withholdingType" type="xs:string"  minOccurs="1" maxOccurs="1">
+			<xs:element name="withholdingType" type="WithholdingType"  minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Describes the type of withingholding. Polulation may include but is not restricted to Federal, State, Local, W-4.
-						withholdingType is not enumerated to support the range of business cases for Domestic and international usage. 
+						Describes the type of withingholding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="otherWithholdingType" type="xs:string"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the type of withingholding when WithholdingType is set to Other.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1446,6 +1493,17 @@
 			<xs:annotation>
 				<xs:documentation>
 					The unique identifier created by the system and or the user for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IncludeNotesFlag">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					If this is not provided, it will not return notes.
+					If it is provided and it's true, it will return all active non-expired notes.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:restriction>

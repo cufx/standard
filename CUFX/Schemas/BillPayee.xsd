@@ -130,7 +130,8 @@
 			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing. Element deprecated in favor of eBillEnrollmentStatus.
+						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
+						Element deprecated in favor of eBillEnrollmentStatus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -189,6 +190,13 @@
 						The account type is the textual representation of the kind of account.
 						This value is visible to the user and must be human-readable.
 						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -466,7 +474,7 @@
 			<xs:enumeration value="Error">
 				<xs:annotation>
 					<xs:documentation>
-						The user has an unspecified error with their ebills
+						The user has an unspecified error with their ebill enrollment 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
