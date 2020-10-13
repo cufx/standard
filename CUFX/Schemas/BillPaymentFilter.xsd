@@ -4,6 +4,7 @@
 	xmlns="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
 	version="4.4.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
 	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
 	xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
@@ -13,6 +14,7 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
@@ -124,6 +126,14 @@
 							<xs:documentation>
 								Filter that is used to search by completed date. The date that all the scheduled transfers or payments are completed.
 								Usage see common.xsd DateRange.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Collection of account identifications to associate accounts affected by a read, update or delete request. 
+								This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
