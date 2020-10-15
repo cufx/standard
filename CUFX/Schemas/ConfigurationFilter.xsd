@@ -174,7 +174,7 @@
 			<xs:element name="configurationAppIdList" type="configuration:ConfigurationAppIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of valid configuration app Ids associated to the configuration that should either be returned or affected by a read,
+						The list of valid configuration app IDs associated to the configuration that should either be returned or affected by a read,
 						update or delete configuration request.
 					</xs:documentation>
 				</xs:annotation>
@@ -183,7 +183,7 @@
 			<xs:element name="appIdList" type="app:AppIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of valid system level app Ids associated to the configuration that should either be returned or affected by a read,
+						The list of valid system level app IDs associated to the configuration that should either be returned or affected by a read,
 						update or delete configuration request.
 						This will return back any that match at the configuration level or the financial instiution level.
 					</xs:documentation>
@@ -193,7 +193,7 @@
 			<xs:element name="configurationAppParameterIdList" type="configuration:ConfigurationAppParameterIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of valid unique identifications of configuration app parameter Ids that should have their associated
+						The list of valid unique identifications of configuration app parameter IDs that should have their associated
 						configurations either returned or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -240,7 +240,7 @@
 			<xs:element name="configurationNetworkNodeAddressIdList" type="configuration:ConfigurationNetworkNodeAddressIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of valid configuration network node address Ids in the configuration that should have their associated
+						The list of valid configuration network node address IDs in the configuration that should have their associated
 						configurations either returned or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -278,4 +278,3 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
-
