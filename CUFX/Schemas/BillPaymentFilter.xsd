@@ -4,7 +4,6 @@
 	xmlns="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
 	version="4.4.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
 	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
 	xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
@@ -14,7 +13,6 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
