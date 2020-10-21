@@ -156,6 +156,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="investmentContactList" type="contact:ContactList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -163,13 +164,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="investmentPartyRelationshipId" type="relationship:RelationshipId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The relationship ID for the investment party.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
