@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/InvestmentFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/InvestmentFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-xmlns:accountFilter="http://cufxstandards.com/v4/AccountFilter.xsd"
+	xmlns:accountFilter="http://cufxstandards.com/v4/AccountFilter.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:investment="http://cufxstandards.com/v4/Investment.xsd"
 	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
@@ -43,7 +43,7 @@ xmlns:accountFilter="http://cufxstandards.com/v4/AccountFilter.xsd"
 					<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of account ID's that should have their associated accounts either returned or affected
+								The list of account IDs that should have their associated accounts either returned or affected
 								by a read, update or delete account request.
 							</xs:documentation>
 						</xs:annotation>

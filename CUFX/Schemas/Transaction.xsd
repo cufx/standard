@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Transaction.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Transaction.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -68,6 +68,23 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Intended for read only response purposes as part of filtering.
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="type" type="TransactionType" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -92,7 +109,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="checkNumber" type="CheckNumber" minOccurs="0" maxOccurs ="1">
+			<xs:element name="checkNumber" type="common:CheckNumber" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The number of the check.
@@ -235,7 +252,16 @@
 			<xs:element name="noteIdList" type="common:NoteIdList"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Note Id's associated to the transaction.
+						The list of Note IDs associated to the transaction.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entryMethod" type="xs:string" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Method used for the entry of the transaction at the source of the transaction.  
+						Value may be a code or a description dependent upon the institutional usage. 
+						As example entry methods may include but not limited to Manual Entry, Bar Code, Contactless Chip.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -273,7 +299,7 @@
 	<xs:complexType name="TransactionIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of transaction ID's that should have their associated transaction records either returned or affected
+				The list of transaction IDs that should have their associated transaction records either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -300,8 +326,22 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="Ach" />
-			<xs:enumeration value ="Atm" />
+			<xs:enumeration value ="Ach">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Clearing House.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Adjustment" />
+			<xs:enumeration value ="Atm">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Teller Machine.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="BalanceTransfer" />
 			<xs:enumeration value ="BillPay" />
 			<xs:enumeration value ="BulkDeposit" />
 			<xs:enumeration value ="Cash" />
@@ -312,12 +352,25 @@
 			<xs:enumeration value ="InterestEarned" />
 			<xs:enumeration value ="InterestPaid" />
 			<xs:enumeration value ="InterestRefund" />
-			<xs:enumeration value ="Ivr" />
+			<xs:enumeration value ="Ivr">
+				<xs:annotation>
+					<xs:documentation>
+						Interactive Voice Response.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value ="Kiosk" />
 			<xs:enumeration value ="MobileBanking" />
 			<xs:enumeration value ="Other" />
 			<xs:enumeration value ="Payroll" />
 			<xs:enumeration value ="PinPurchase" />
+			<xs:enumeration value ="POS">
+				<xs:annotation>
+					<xs:documentation>
+						Point Of Sale.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>			
 			<xs:enumeration value ="SharedBranch" />
 			<xs:enumeration value ="Signature" />
 			<xs:enumeration value ="Wire" />
@@ -454,16 +507,6 @@
 		</xs:complexContent>
 	</xs:complexType>
 
-	<xs:simpleType name="CheckNumber">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The number on the face of the check indicating the id of that check in a series.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
-
 	<xs:complexType name="CheckNumberList">
 		<xs:annotation>
 			<xs:documentation>
@@ -473,7 +516,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="checkNumber" type="CheckNumber" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="checkNumber" type="common:CheckNumber" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The list of check numbers that should be returned or affected by a read, update or delete request.

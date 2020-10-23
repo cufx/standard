@@ -1,5 +1,5 @@
 <xs:schema targetNamespace="http://cufxstandards.com/v4/DocumentFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/DocumentFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -37,7 +37,7 @@
 			<xs:element name="documentIdList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of document ID's that should have their associated documents returned or affected by a read,
+						The list of document IDs that should have their associated documents returned or affected by a read,
 						update or delete document request.
 					</xs:documentation>
 				</xs:annotation>
@@ -121,7 +121,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should have their associated documents returned or affected by a
+						The list of party IDs that should have their associated documents returned or affected by a
 						read, update or delete document request.
 					</xs:documentation>
 				</xs:annotation>
@@ -130,7 +130,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated documents either returned or affected
+						The list of relationship IDs that should have their associated documents either returned or affected
 						by a read, update or delete document request.
 					</xs:documentation>
 				</xs:annotation>
@@ -139,7 +139,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated documents either returned or affected
+						The list of account IDs that should have their associated documents either returned or affected
 						by a read, update or delete document request.
 					</xs:documentation>
 				</xs:annotation>
@@ -174,12 +174,22 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="includeArtifactObjectFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If set true then the response shall include the base 64 binary objects. When false or
 						not set do not return the base 64 binary. This is intended to manage the response message
 						size. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

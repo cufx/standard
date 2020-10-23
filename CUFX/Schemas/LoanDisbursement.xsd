@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="LoanDisbursement"
 	 targetNamespace="http://cufxstandards.com/v4/LoanDisbursement.xsd"
-	 version="4.3.$Revision$"
+	 version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/LoanDisbursement.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -208,6 +208,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="toAccountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The account subtype identifies the specific account type that the back end system will recognize.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -302,7 +309,7 @@
 	<xs:complexType name="LoanDisbursementIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of loan disbursement Ids that should be returned or affected by a read, update or delete loan disbursement request.
+				The list of loan disbursement IDs that should be returned or affected by a read, update or delete loan disbursement request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
@@ -324,7 +331,7 @@
 	<xs:complexType name="LoanIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of loan Ids that should be returned or affected by a read, update or delete loan disbursement request.
+				The list of loan IDs that should be returned or affected by a read, update or delete loan disbursement request.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>

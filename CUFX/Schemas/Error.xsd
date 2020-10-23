@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Error.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Error.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -92,7 +92,7 @@
 					<xs:documentation>
 						Optional list to send data to the end point about which fields may be in
 						error and/or which values may be out-of-range.  The error message can be
-						scanned for potential substitution ID's (for example '%1', '%2') and replaced
+						scanned for potential substitution IDs (for example '%1', '%2') and replaced
 						with the value from the substitution list.  This is useful for when an end
 						point wants to support multiple languages or wants all of the message to be
 						reconfigured for better consumption.
@@ -530,7 +530,7 @@
 					<xs:documentation>
 						Optional substitution to send data to the end point about which fields may be in
 						error and/or which values may be out-of-range.  The error message can be
-						scanned for potential substitution ID's (for example '%1', '%2') and replaced
+						scanned for potential substitution IDs (for example '%1', '%2') and replaced
 						with the value from the substitution list.  This is useful for when an end
 						point wants to support multiple languages or wants all of the message to be
 						reconfigured for better consumption.

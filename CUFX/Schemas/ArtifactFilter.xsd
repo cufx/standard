@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/ArtifactFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/ArtifactFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
@@ -35,7 +35,7 @@
 			<xs:element name="artifactIdList" type="artifact:ArtifactIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A list of artifact ID's to be returned or affected by a read, update or delete artifact request.
+						A list of artifact IDs to be returned or affected by a read, update or delete artifact request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -43,7 +43,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A list of Account Id's to be returned or affected by a read, update or delete artifact request.
+						A list of Account IDs to be returned or affected by a read, update or delete artifact request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -51,7 +51,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A list of Party Id's to be returned or affected by a read, update or delete artifact request.
+						A list of Party IDs to be returned or affected by a read, update or delete artifact request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -124,6 +124,15 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

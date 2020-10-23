@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v4/Preference.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Preference.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -175,6 +175,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="valueDataType" type="DataType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data type of the preference value content. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
 			<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -232,6 +240,15 @@
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete preference request. 
+						This supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -467,6 +484,15 @@
 					<xs:documentation>
 						The value contains information that can be interpreted by the end points.  The data to drive
 						the preference is most likely in customData name/value pairs.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="NoSolicitation"  >
+				<xs:annotation>
+					<xs:documentation>
+						Determines if party(ies) wishes to stop or inhibit solicitations.
+						If value is True then solicitation is prohibited.  If value is False or record does not exist then solicitation 
+						activity can occur.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1249,7 +1275,7 @@
 	<xs:complexType name="PreferenceIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Preference ID's that should have their preference accounts either returned or affected
+				The list of Preference IDs that should have their preference accounts either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1364,5 +1390,167 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
+	
+	<xs:complexType name="PreferenceSettingList">
+		<xs:annotation>
+			<xs:documentation>
+				List of preference settings related to an object.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="preferenceSetting" type="PreferenceSetting" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The preference setting related to the object
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="PreferenceSetting">
+		<xs:annotation>
+			<xs:documentation>
+				The preference setting related to the object. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="preferenceId" type="PreferenceId" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the preference.  This is not provided as an input,
+						but as an output after the preference has been created.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="deliveryChannel" type="credential:DeliveryChannel" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The delivery channel to apply the preference to.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceType" type="PreferenceType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Preference type
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceSettingSubType" type="SubType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Sub type of the preference
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="preferenceValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The value specified for the preference.  This can either be a numeric, boolean, date/time or text value
+						depending upon the type and sub type of the preference.
+						For preference status of Template, this value represents the default value if provided.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="preferenceValueDataType" type="DataType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data type of the preference value content. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="preferenceStatus" type="PreferenceStatus" minOccurs="0" maxOccurs="1" default="Active">
+				<xs:annotation>
+					<xs:documentation>
+						The preference status can either be a Template, Inactive or Active.
+						- If Template, then this indicates that the preference is available for consumption by the all parties.
+						Once the party creates the preference, it would be saved with the account information, etc. to
+						relate it to the accounts, parties, relationships, and cards appropriate for the party.
+						- If Active, preference should be used when determining actions to take for the party, relationship, etc.
+						- If Inactive, then the preference record should be ignored.  This is helpful for retaining values if a
+						preference is temporarily inactivated but the current values should be retained for future use.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="preferenceFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The preference frequency rate.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="alertCustomText" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						When type is EAlert and subType is ScheduledMessage, additional custom text to send in an alert.
+						For preference status of Template, this value represents the default value if provided.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="whereToContactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						If preference requires a contact point for delivery then this is the collection of contacts to be reached at.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="actionableAlert" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Valid only for preference records of EAlert type.
+						Determines if the alert, when sent to the party, is expecting a response back from the party.
+						For example, if a party receives an alert that states that their loan is overdue, it could
+						ask a question that the user needs to respond to in order to make the payment.  An additional
+						example might be if a transaction went through that appears to be fraudulent, the alert could
+						expect a response back from the party to allow the posting to occur.
+						This field is typically not managed by the party but is set by the system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="widgetName" type="WidgetName" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						When the preference is of type Widget, this pulls all the preferences related to
+						a specific widget together for the party on the accounts, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="DataType">
+		<xs:annotation>
+			<xs:documentation>
+				Data type values.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="string"/>
+			<xs:enumeration value="integer"/>
+			<xs:enumeration value="date"/>
+			<xs:enumeration value="dateTime"/>
+			<xs:enumeration value="boolean"/>
+			<xs:enumeration value="long"/>
+			<xs:enumeration value="double"/>
+			<xs:enumeration value="float"/>
+			<xs:enumeration value="decimal"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
