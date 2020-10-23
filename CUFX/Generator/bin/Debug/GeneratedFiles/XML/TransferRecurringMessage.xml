@@ -1,0 +1,281 @@
+<transferRecurringMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/TransferRecurringMessage.xsd">
+  <messageContext>
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <configurationId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">configurationId1</configurationId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <sendingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sendingNetworkNodeId1</sendingNetworkNodeId>
+    <receivingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">receivingNetworkNodeId1</receivingNetworkNodeId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">environment1</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <sessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sessionId1</sessionId>
+    <userList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <user xmlns="http://cufxstandards.com/v4/User.xsd">
+        <userId>userId1</userId>
+        <processorSessionId>processorSessionId1</processorSessionId>
+        <userIdType>EmployeeId</userIdType>
+        <partyId>partyId1</partyId>
+        <customData>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
+            <name>name1</name>
+            <value>value1</value>
+          </valuePair>
+        </customData>
+      </user>
+    </userList>
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+  </messageContext>
+  <transferFilter>
+    <occurrenceIdList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <occurrenceId xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">occurrenceId1</occurrenceId>
+    </occurrenceIdList>
+    <recurringIdList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <recurringId xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">recurringId1</recurringId>
+    </recurringIdList>
+    <transferCompletedDateRange xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </transferCompletedDateRange>
+    <accountIDList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+    </accountIDList>
+    <accountStatusList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountStatusPair xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountStatus>
+          <depositAccountStatus>Active</depositAccountStatus>
+          <investmentStatus>Active</investmentStatus>
+          <loanAccountStatus>Active</loanAccountStatus>
+        </accountStatus>
+        <accountSubStatus>accountSubStatus1</accountSubStatus>
+      </accountStatusPair>
+    </accountStatusList>
+    <partyIdList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <partyId xmlns="http://cufxstandards.com/v4/Party.xsd">partyId1</partyId>
+    </partyIdList>
+    <relationshipIdList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <relationshipId xmlns="http://cufxstandards.com/v4/Relationship.xsd">relationshipId1</relationshipId>
+    </relationshipIdList>
+    <occurrenceStatusList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <occurrenceStatus xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">Scheduled</occurrenceStatus>
+    </occurrenceStatusList>
+    <recurringStatusList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <recurringStatus xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">Requested</recurringStatus>
+    </recurringStatusList>
+    <minAmount xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+    </minAmount>
+    <maxAmount xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+      <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+      <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+    </maxAmount>
+    <batchIdList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <batchId xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">batchId1</batchId>
+    </batchIdList>
+    <customData xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+  </transferFilter>
+  <transferRecurringList>
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <transferRecurring xmlns="http://cufxstandards.com/v4/TransferRecurring.xsd">
+      <recurringId xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">recurringId1</recurringId>
+      <recurringAmount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+      </recurringAmount>
+      <recurringAmountDetailList xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <lineItem xmlns="http://cufxstandards.com/v4/Common.xsd">
+          <lineItemId>lineItemId1</lineItemId>
+          <lineItemReference>lineItemReference1</lineItemReference>
+          <lineItemDescription>lineItemDescription1</lineItemDescription>
+          <lineItemDate>1900-01-01</lineItemDate>
+          <lineItemAmount>
+            <value>1</value>
+            <currencyCode>USD</currencyCode>
+            <exchangeRate>1</exchangeRate>
+          </lineItemAmount>
+        </lineItem>
+      </recurringAmountDetailList>
+      <recurringFromAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+        <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+        <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
+        <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
+        <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
+          <depositAccountStatus>Active</depositAccountStatus>
+          <investmentStatus>Active</investmentStatus>
+          <loanAccountStatus>Active</loanAccountStatus>
+        </accountStatus>
+        <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
+        <micrAccountNumber xmlns="http://cufxstandards.com/v4/Account.xsd">micrAccountNumber1</micrAccountNumber>
+        <routingNumber xmlns="http://cufxstandards.com/v4/Account.xsd">routingNumber1</routingNumber>
+        <displayAccountId xmlns="http://cufxstandards.com/v4/Account.xsd">displayAccountId1</displayAccountId>
+      </recurringFromAccount>
+      <recurringToAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+        <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+        <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
+        <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
+        <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
+        <micrAccountNumber xmlns="http://cufxstandards.com/v4/Account.xsd">micrAccountNumber1</micrAccountNumber>
+        <routingNumber xmlns="http://cufxstandards.com/v4/Account.xsd">routingNumber1</routingNumber>
+        <displayAccountId xmlns="http://cufxstandards.com/v4/Account.xsd">displayAccountId1</displayAccountId>
+      </recurringToAccount>
+      <recurringStatus xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">Requested</recurringStatus>
+      <recurringMemo xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">recurringMemo1</recurringMemo>
+      <isElectronic xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">true</isElectronic>
+      <isOpenEnded xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">true</isOpenEnded>
+      <isCompleted xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">true</isCompleted>
+      <isUserDeleted xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">true</isUserDeleted>
+      <createdByFiUserId xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">createdByFiUserId1</createdByFiUserId>
+      <frequency xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">AmortizedSchedule</frequency>
+      <totalPaymentCount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1</totalPaymentCount>
+      <paymentsLeft xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1</paymentsLeft>
+      <fundsWithdrawalType xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">WhenRequested</fundsWithdrawalType>
+      <createRequestDateTime xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</createRequestDateTime>
+      <firstScheduledDateTime xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</firstScheduledDateTime>
+      <lastModifiedDate xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</lastModifiedDate>
+      <nextScheduledDateTime xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</nextScheduledDateTime>
+      <scheduledEndDateTime xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</scheduledEndDateTime>
+      <completedDateTime xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">1900-01-01T01:01:01Z</completedDateTime>
+      <recurringConfirmationCode xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">recurringConfirmationCode1</recurringConfirmationCode>
+      <recurringOccurrenceIdList xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <occurrenceId xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd">occurrenceId1</occurrenceId>
+      </recurringOccurrenceIdList>
+      <initialAmount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+      </initialAmount>
+      <finalAmount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+        <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+        <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+      </finalAmount>
+      <customData xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      </customData>
+    </transferRecurring>
+  </transferRecurringList>
+</transferRecurringMessage>

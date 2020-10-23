@@ -1,0 +1,193 @@
+{
+  "productOfferingMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "productOfferingFilter": {
+      "productIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "productId": {
+          "@xsi:nil": "true"
+        }
+      },
+      "productTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "productType": "Checking"
+      },
+      "productSubTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "productSubType": {
+          "@xsi:nil": "true"
+        }
+      },
+      "introductoryRate": "true",
+      "balanceConsolidationRate": "true",
+      "riskRate": "true",
+      "interestRateEffectiveDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "interestRateExpirationDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "minTerm": "P396DT1H1M1S",
+      "maxTerm": "P396DT1H1M1S",
+      "pointsRewardsProgram": "true",
+      "brand": "brand1",
+      "riskRateClassification": "riskRateClassification1",
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "productOfferingList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "productOffering": {
+        "productId": "productId1",
+        "productType": "Checking",
+        "productSubType": "productSubType1",
+        "systemProductKeys": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        },
+        "description": "description1",
+        "pointsRewardsProgram": "true",
+        "interestRateList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "interestRate": {
+            "interestRateId": "interestRateId1",
+            "interestPointsRewardsProgram": "true",
+            "introductoryRate": "true",
+            "balanceConsolidationRate": "true",
+            "riskRate": "true",
+            "riskRateClassificationMinimum": "riskRateClassificationMinimum1",
+            "riskRateClassificationMaximum": "riskRateClassificationMaximum1",
+            "interestRateDescription": "interestRateDescription1",
+            "interestRateCriteria": "interestRateCriteria1",
+            "minimumBalance": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "maximumBalance": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "term": "P396DT1H1M1S",
+            "effectiveDateTime": "1900-01-01T01:01:01Z",
+            "expirationDateTime": "1900-01-01T01:01:01Z",
+            "interestRate": "1",
+            "annualPercentageRate": "1"
+          }
+        },
+        "brand": "brand1",
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      }
+    }
+  }
+}

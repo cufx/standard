@@ -1,0 +1,115 @@
+{
+  "billPaymentRecurringList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "billPaymentRecurring": {
+      "recurringId": "recurringId1",
+      "recurringAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "recurringAmountDetailList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "lineItem": {
+          "lineItemId": "lineItemId1",
+          "lineItemReference": "lineItemReference1",
+          "lineItemDescription": "lineItemDescription1",
+          "lineItemDate": "1900-01-01",
+          "lineItemAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          }
+        }
+      },
+      "recurringFromAccount": {
+        "accountId": "accountId1",
+        "type": "Checking",
+        "openDate": "1900-01-01",
+        "closeDate": "1900-01-01",
+        "accountStatus": {
+          "depositAccountStatus": "Active",
+          "investmentStatus": "Active",
+          "loanAccountStatus": "Active"
+        },
+        "accountSubStatus": "accountSubStatus1",
+        "micrAccountNumber": "micrAccountNumber1",
+        "routingNumber": "routingNumber1",
+        "displayAccountId": "displayAccountId1"
+      },
+      "recurringToAccount": {
+        "accountId": "accountId1",
+        "type": "Checking",
+        "openDate": "1900-01-01",
+        "closeDate": "1900-01-01",
+        "accountSubStatus": "accountSubStatus1",
+        "micrAccountNumber": "micrAccountNumber1",
+        "routingNumber": "routingNumber1",
+        "displayAccountId": "displayAccountId1"
+      },
+      "recurringStatus": "Requested",
+      "recurringMemo": "recurringMemo1",
+      "isElectronic": "true",
+      "isOpenEnded": "true",
+      "isCompleted": "true",
+      "isUserDeleted": "true",
+      "createdByFiUserId": "createdByFiUserId1",
+      "frequency": "AmortizedSchedule",
+      "totalPaymentCount": "1",
+      "paymentsLeft": "1",
+      "fundsWithdrawalType": "WhenRequested",
+      "createRequestDateTime": "1900-01-01T01:01:01Z",
+      "firstScheduledDateTime": "1900-01-01T01:01:01Z",
+      "lastModifiedDate": "1900-01-01T01:01:01Z",
+      "nextScheduledDateTime": "1900-01-01T01:01:01Z",
+      "scheduledEndDateTime": "1900-01-01T01:01:01Z",
+      "completedDateTime": "1900-01-01T01:01:01Z",
+      "recurringConfirmationCode": "recurringConfirmationCode1",
+      "recurringOccurrenceIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "occurrenceId": "occurrenceId1"
+      },
+      "initialAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "finalAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": {
+          "name": "name1",
+          "value": "value1"
+        }
+      },
+      "billPayeeId": "billPayeeId1",
+      "nextDebitDateTime": "1900-01-01T01:01:01Z",
+      "billId": "billId1"
+    }
+  }
+}

@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+
+	<xs:complexType name="Money">
+		<xs:annotation>
+			<xs:documentation>
+				Standard definition for money values to include both the value and the currency.
+				Currency defaults to USD (United States $) if not specified.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="value" minOccurs ="1" maxOccurs="1" type="xs:decimal">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the money as defined by the currency code.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="1" default ="USD">
+				<xs:annotation>
+					<xs:documentation>
+						Currency code in ISO 4217 3 character format.
+						If currency code isn't provided, it should be defaulted to USD.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="exchangeRate" type="xs:decimal" minOccurs ="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Exchange rate of the foreign currency to the USD (at the time of the transaction
+						involving this Money object).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="IpAddress">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					IP Address string
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CoreRecordType">
+		<xs:annotation>
+			<xs:documentation>
+				Enumeration of the different types of top-level records.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Account"/>
+			<xs:enumeration value="Application"/>
+			<xs:enumeration value="Loan"/>
+			<xs:enumeration value="Portfolio"/>
+			<xs:enumeration value="Deposit"/>
+			<xs:enumeration value="ProductServiceRequest"/>
+			<xs:enumeration value="Request"/>
+			<xs:enumeration value="Activity"/>
+			<xs:enumeration value="Transaction"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="NetworkNodeId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The unique identifier created by the system and or the network node for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteList">
+		<xs:annotation>
+			<xs:documentation>
+				List of notes on account, loan, etc..
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="note" type="Note" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Details related to a specific note.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Note">
+		<xs:annotation>
+			<xs:documentation>
+				Details related to a specific note.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="noteId" type="NoteId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique identifier for the note in the processor system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="recordType" type="CoreRecordType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Determines what type of core record this is linked to.  This is optional because it may be implicit based on the context.
+						However, there may be times that it is not so obvious - i.e. in Loan which can be used when creating either
+						a Loan Application Record and/or a Loan Record.  This would be required to determine for which record type (Loan App or Loan)
+						to create the note.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteCode" type="NoteCode" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The code associated to this note.  It could determine the type of note or
+						reference predefined notes configured on the core.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteText" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						The text(s) of the note.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteCreatedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						UTC date and time when the note was created.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteExpirationDate" type="xs:date" minOccurs="0" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						The date this note expires.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="noteCreator" type="NoteCreator" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Either the name or ID of person, system or end user that created the note.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="NoteId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The note ID is a persistent and unique identifier for the note.
+					It must be unique within the account.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteIdList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note ID's that should have their associated accounts either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="noteID" type="NoteId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An Note ID that should have its associated records either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="NoteCode">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The code associated to this note.  It could determine the type of note or
+					reference predefined notes configured on the core.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteCodeList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note codes's that should have their associated records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="noteCode" type="NoteCode" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A Note Code that should have its associated records either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="NoteCreator">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Either the name or ID of person, system or end user that created the note.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="NoteCreatorList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of note creators that should have their associated records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="noteCode" type="NoteCreator" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An Note Creator that should have its associated records either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PersonNameList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of persons that should have their associated records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="personName" type="PersonName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A Person that should have its associated records either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CustomData">
+		<xs:annotation>
+			<xs:documentation>
+				The custom data section allows the flexibility to add additional information to the message.
+				This should be utilized as a last resort. Any use should result in requested modifications
+				to the message.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="valuePair" type="ValuePair"  minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Each combination of name and value.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ValuePair">
+		<xs:annotation>
+			<xs:documentation>
+				Value Pairs allow for customization of specification where additional elements are needed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Name of additonal element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Value of the addtional element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name="ListBase">
+		<xs:annotation>
+			<xs:documentation>
+				Defintion to provide general list support features.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:sequence>
+				<xs:element name="currentPage" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. Current page of information presented in the message response.
+							Typically used in combination with totalPages and pageSize.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalPages" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. Total pages of information available as a result of the query.
+							Typically used in combination with currentPage and pageSize.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="pageSize" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The total number of records that may be returned as part of 1 page.
+							Typically used in combination with currentPage and totalPages.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="positionIndex" type="xs:string"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The record position index of the current message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="returnPage" type="xs:integer"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The requested page value to be returned in the message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="returnPositionIndex" type="xs:string"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Pagination support. The requested record position to be returned in the message response.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Coordinate">
+		<xs:sequence>
+			<xs:element name="latitude" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Latitude value.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="longitude" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Longitude value.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="DayOfTheWeek">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Monday" />
+			<xs:enumeration value="Tuesday" />
+			<xs:enumeration value="Wednesday" />
+			<xs:enumeration value="Thursday" />
+			<xs:enumeration value="Friday" />
+			<xs:enumeration value="Saturday" />
+			<xs:enumeration value="Sunday" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Distance">
+		<xs:sequence>
+			<xs:element name="unit" type="xs:string" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Distance unit of measure.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="value" type="xs:decimal" minOccurs="1" maxOccurs="1" >
+				<xs:annotation>
+					<xs:documentation>
+						Numerical value of the distance as defined by unit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Address">
+		<xs:annotation>
+			<xs:documentation>
+				Fields related to address contact points.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+
+			<xs:element name="line1" type="xs:string"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Street address (Physical Address).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line2" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.  Typically contains additional
+						information such as an apartment number, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line3" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line4" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line5" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line6" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line7" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line8" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line9" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="line10" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional Address Information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="city" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						City where party resides.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="stateProvince" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						State or province (international) where party resides.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="postalCode" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Postal code or zip code where party resides.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="countryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where party resides.  This is the ISO 3166 2 Character
+						Country Code.  Back end systems can translate this into the
+						country description.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where party resides.
+						This is typically read-only as it is recommended to be
+						calculated based on the Country Code.
+						Description based on the ISO 3166 2 Character Country Code.
+						Back end systems can translate this to a description from the country code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="coordinate" type="Coordinate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The optional latitude anad longitude coordinates for the address.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonName">
+		<xs:annotation>
+			<xs:documentation>
+				Name of a person.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="firstName" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The person's given first name.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="middleName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The person’s middle name.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lastName" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The person’s last name or surname.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The person’s prefix to their name, as in their title.  Typical examples are Dr., Mr., Mrs., etc..
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The person’s suffix to their name.  Typical examples are Jr., III, etc..
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="formattedName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						All person name fields combined into one.
+						This is typically a read-only field that can be returned by the data source.
+						To remain flexible, this field can be either written to
+						or returned by the data source.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="nickname" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The party’s casual or familiar name reference.
+						Typical examples might be Tim if the party's first name
+						is Timothy, or Jenny if the first name is Jennifer.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name ="Agent">
+		<xs:sequence>
+			<xs:element	name="qualifier" type="AgentQualifier" minOccurs ="1" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies the type of agent that is acting on behalf of the account or relationship holders.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element	name="authority" type ="Authority" minOccurs ="1" maxOccurs ="1" default ="Unauthorized">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies if the agent has access to the funds.
+					</xs:documentation >
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DateRange">
+		<xs:annotation>
+			<xs:documentation>
+				Date range is used to search using startDateTime and endDateTime pairs.  If
+				used for transactions, indicates UTC posted date and times unless otherwise specified
+				where the object is implemented.
+				If the range is not supplied and used in a filter, the response returns all records.
+				If startDateTime and endDateTime are specified the result will return only items between
+				the two dates, the startDateTime must be before or the same as the endDateTime.
+				If startDateTime is specified and endDateTime is not specfied the result will return all items
+				after the startDateTime.
+				If startDateTime is not specified and endDateTime is specified the result will return all items
+				before the endDateTime.
+				If neither startDateTime or endDateTime are present, date criteria will not be applied.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="startDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="endDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name ="Authority">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Authorized">
+				<xs:annotation>
+					<xs:documentation>
+						Has access to funds and can perform transactions.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Unauthorized">
+				<xs:annotation>
+					<xs:documentation>
+						Does not have access to funds and cannot perform transactions.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="DividendOnly">
+				<xs:annotation>
+					<xs:documentation>
+						Has access to only to dividend funds and can perform dividend only transactions.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="AgentQualifier">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Custodian">
+				<xs:annotation>
+					<xs:documentation>
+						Party acts on behalf of the account holder or borrower.
+						If this is at the relationship level, they can manage all
+						deposits and loans within the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="Trustee" >
+				<xs:annotation>
+					<xs:documentation>
+						Party acting on behalf of the trust account based on a trust agreement.
+						If this is at the relationship level, the party can manage all deposits
+						and loans within the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="PowerOfAttorney" >
+				<xs:annotation>
+					<xs:documentation>
+						Party acting on behalf of the account holder or borrower based on a power
+						of attorney letter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="Representative" >
+				<xs:annotation>
+					<xs:documentation>
+						Party which can deposit government checks on behalf of the deposit account holder.
+						If this is at the relationship level, they can deposit government checks in any of
+						the deposits within the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CtrTransactor" >
+				<xs:annotation>
+					<xs:documentation>
+						Party reported to government for CTR transactions on behalf of the account holder or borrower.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="AttorneyTrust" >
+				<xs:annotation>
+					<xs:documentation>
+						Party is attorney-in-fact managing an account for a client.
+						If this is at the relationship level, the party can manage
+						all deposits and loans within the relationship.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="ResponsibleIndividual" >
+				<xs:annotation>
+					<xs:documentation>
+						Party that is the adult caretaker of a Coverdell ESA deposit account.
+						Typically this is the parent of the beneficiary upon distribution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="Signer" >
+				<xs:annotation>
+					<xs:documentation>
+						Party with signature capability on the deposit or loan.
+						If this is at the relationship level, the party has signature capability on all
+						deposits and loans within the relationship.
+						Depending on the loan arrangement, the authorized signer may be liable for the loan.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="InvestmentCompany" >
+				<xs:annotation>
+					<xs:documentation>
+						Investment Company that is managing the investment on behalf of the investment account holder.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="FrequencyType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AmortizedSchedule"/>
+			<xs:enumeration value="Annual" />
+			<xs:enumeration value="AtMaturity" />
+			<xs:enumeration value="Bimonthly" />
+			<xs:enumeration value="Biweekly" />
+			<xs:enumeration value="BiweeklySkipFirst" />
+			<xs:enumeration value="BiweeklySkipLast" />
+			<xs:enumeration value="Daily" />
+			<xs:enumeration value="EventTrigger" />
+			<xs:enumeration value="Hourly"/>
+			<xs:enumeration value="Immediate" />
+			<xs:enumeration value="Monthly" />
+			<xs:enumeration value="None" />
+			<xs:enumeration value="OneTime" />
+			<xs:enumeration value="Other" />
+			<xs:enumeration value="PerUse"/>
+			<xs:enumeration value="Quarterly" />
+			<xs:enumeration value="SemiAnnual" />
+			<xs:enumeration value="SemiMonthly" />
+			<xs:enumeration value="Triannual "/>
+			<xs:enumeration value="Weekly" />
+			<xs:enumeration value="WeeklySkipFirst" />
+			<xs:enumeration value="WeeklySkipLast" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Gender">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Male" />
+			<xs:enumeration value="Female" />
+			<xs:enumeration value="Other" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CufxVersion">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.0.3" />
+			<xs:enumeration value="1.0.6" />
+			<xs:enumeration value="2.0.0" />
+			<xs:enumeration value="3.1.0" />
+			<xs:enumeration value="3.2.0" />
+			<xs:enumeration value="3.3.0" />
+			<xs:enumeration value="4.0.0" />
+			<xs:enumeration value="4.1.0" />
+			<xs:enumeration value="4.2.0" />
+			<xs:enumeration value="4.3.0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="AmountDetailList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of line items that describe the breakdown of a given amount. The sum of the line items should match
+				the total of the amount being detailed.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="lineItem" type="LineItem" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Describes individual line item amounts.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LineItem">
+		<xs:annotation>
+			<xs:documentation>
+				Describes individual line item amounts.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="lineItemId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item identification number. If provided, each line item id should be unique.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemReference" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The line item reference. Provides for alternate cross reference.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The description of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date the line item was applied to the total amount.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="lineItemAmount" type="Money" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The amount of the line item.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="FinancialInstitutionId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The financial institution ID  is used by systems to uniquely identify each financial institution.
+					This ID is determined outside of the process and stored in each system of record, e.g. local application
+					database, vendor configuration file, FI core database, etc.
+					This is helpful for applications that are multi-tenant and	service more than one financial institution.
+					See dataSourceId for more information about multiple data sources for a single FI.
+					A standard error will be returned if the FIID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="VendorId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+					assigned by the FI or established in concert by the vendor and FI.
+					The client application sends this along with the messages so that logging or other business may take place based
+					on the vendor utilizing the service.
+					This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by
+					some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+					A standard error will be returned if the vendor ID is not provided when it is required.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="VendorIdList">
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+								assigned by the FI or established in concert by the vendor and FI.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="Environment">
+		<xs:annotation>
+			<xs:documentation>
+				Indicates the environment in which the message should be executed.
+				Depends upon agreements between endpoints what is passed for each environment.
+				Examples might be: Dev, QAInternal, UAT, Training, Sandbox, Production.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="EnvironmentList">
+		<xs:annotation>
+			<xs:documentation>
+				List of valid environments to have their associated record(s) returned.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="environment" type="Environment" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A valid environment to have its associated record(s) returned
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CurrencyList">
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="currency" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A currency.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="LanguageList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of languages.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="language" type="Language" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Specifies a valid language-region.  For example en-us.
+								http://www.iana.org/assignments/language-subtag-registry
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="Language">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					Specifies a valid language-region.  For example en-us.
+					http://www.iana.org/assignments/language-subtag-registry
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TimeZoneUTCOffset">
+		<xs:annotation>
+			<xs:documentation>
+				The offset of the time zone from Universal Time from the reference point.
+				For example
+				Format : [+|-]HH:MM
+				If the location observes daylight savings time, this value may need to be updated.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="([\-\+])([01][0-9]|2[0-3])(:[0-5][0-9])"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TimeZoneName">
+		<xs:annotation>
+			<xs:documentation>
+				The time zone name. See reference https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AnnualPercentageRate">
+		<xs:annotation>
+			<xs:documentation>
+				Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized). 
+				Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+				4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+				Decimals available: 999.999 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
+

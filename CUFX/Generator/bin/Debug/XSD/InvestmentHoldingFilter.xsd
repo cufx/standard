@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:investment="http://cufxstandards.com/v4/Investment.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Investment.xsd" schemaLocation="Investment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+
+	<xs:element name= "investmentHoldingFilter" type="InvestmentHoldingFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array list contains all the investment holdings to be read, updated or deleted with this
+				request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentHoldingFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array contains all the investment holdings to be read, updated or deleted with
+				this request.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of account ID's that should have their associated investment holdings either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of holding ID's that should have their associated investment holdings either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="investmentHoldingAsOfDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to start searching the date/time stamp of the evaluation of the investment or security.
+						If neither investmentHoldingAsOf StartDateTime or investmentHoldingAsOf EndDateTime is provided,
+						NO transaction history data will be returned.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Investment holding level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+

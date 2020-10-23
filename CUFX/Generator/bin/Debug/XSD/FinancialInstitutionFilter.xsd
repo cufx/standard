@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
+	xmlns="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
+	version="4.3.$Revision: 1311 $"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+	xmlns:app="http://cufxstandards.com/v4/App.xsd"
+	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+
+	<xs:element name="fiFilter" type="FinancialInstitutionFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for services requesting financial institution data.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="FinancialInstitutionFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The list of filter options for financial institution data.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="fiIdList" type="financialInstitution:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of financial institution ID's that should have their associated financial institutions either returned
+						or affected by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiNameList" type="financialInstitution:FinancialInstitutionNameList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of financial institution names that should have their associated financial
+						institutions either returned or affected by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiStatusList" type="financialInstitution:FinancialInstitutionStatusList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of financial institution statuses that should have their associated financial
+						institutions either returned or affected by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of financial institution party Id's that should have their associated financial
+						institutions either returned or affected by a read, update or delete account request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiCreatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the financial institution create dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiCreatedByList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search who may have created the financial institutions.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiUpdatedDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search the financial institution updated dates.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fiLastUpdatedByList" type="user:UserIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Filter that is used to search who may have last updated the financial institutions.
+						Usage see common.xsd DateRange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Financial institution level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
+

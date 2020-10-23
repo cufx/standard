@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/MessageContext.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:app="http://cufxstandards.com/v4/App.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
+	xmlns:user="http://cufxstandards.com/v4/User.xsd"
+	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
+
+	<xs:complexType name="MessageContext">
+		<xs:annotation>
+			<xs:documentation>
+				The message context contains information that is passed as part of each CUFX message call.
+				All the fields are optional, and whether or not they contain information is determined by the specific
+				implementation requirements.
+				For example, in a multi-tenant environment where multiple financial institutions are hosted, the Financial
+				Institution ID (FIID) may be a required field, necessary for distinguishing which FI the message pertains to.
+				For a single tenant environment with only one financial institution, the Financial Institution ID may not be necessary.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cufxVersion" type="common:CufxVersion" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The CUFX release version for this request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requestId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The request ID is a unique identifier which identifies the request from the source system. The client application
+						sends this along with the messages so that it can be logged as a reference for troubleshooting purposes.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="configurationId" type="configuration:ConfigurationId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The unique target configuration identifier for the message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vendorId" type="common:VendorId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
+						assigned by the FI or established in concert by the vendor and FI.
+						The client application sends this along with the messages so that logging or other business may take place based
+						on the vendor utilizing the service.
+						This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by
+						some external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+						A standard error will be returned if the vendor ID is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appId" type="app:AppId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The app id is an "agreed upon" unique identifier that identifies the application that is creating a message.
+						The client application sends this along with the messages so that logging or other business may take place based
+						on the application utilizing the service.
+						This ID is not generated per data or security request but is generated "out-of-band" (i.e. prior generation by some
+						external mechanism) of this process and stored in the Financial Institution's and Vendor’s systems.
+						A standard error will be returned if the app ID is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fiId" type="common:FinancialInstitutionId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The FIID  is used by systems to uniquely identify each financial institution.
+						This ID is determined outside of the process and stored in each system of record, e.g. local application
+						database, vendor configuration file, FI core database, etc.
+						This is helpful for applications that are multi-tenant and service more than one financial institution.
+						See dataSourceId for more information about multiple data sources for a single FI.
+						A standard error will be returned if the FIID is not provided when it is required.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dataSourceId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data source ID  is used by the systems to uniquely identify a registered data source within the financial
+						institution.
+						This is an agreed upon ID determined outside of the process and stored in each system of record.
+						There may be more than one data source ID per financial institution.
+						For instance, one data source ID may represent the financial institution’s core provider and another may be used
+						to represent the credit card provider that is not within the core.
+						There may be a one-to-many relationship between FIID  and data source ID.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sendingNetworkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						network node id of the originating node.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="receivingNetworkNodeId" type="common:NetworkNodeId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						network node id of the receiving node.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		
+			<xs:element name="environment" type="common:Environment" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates the environment in which the message is to be executed. If not specified, "Production" is assumed.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="returnDataFilter" type="ReturnDataFilter" minOccurs="0" maxOccurs="1" default="All">
+				<xs:annotation>
+					<xs:documentation>
+						Applicable to creates and updates.  The return data filter is used to streamline the amount of
+						information to return to the client after an update or create.  The client can request
+						all data from the object, only fields that were updated or created, or no data (just a confirmation
+						that it was successful).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeBlankFields" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
+				<xs:annotation>
+					<xs:documentation>
+						A boolean to indicate the inclusion of blank or empty fields in the response message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeZeroNumerics" type="xs:boolean" minOccurs="0" maxOccurs="1" default="true">
+				<xs:annotation>
+					<xs:documentation>
+						A boolean to indicate the inclusion of zero values in the response message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sessionId" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The  session ID is a unique identifier for the session, based on the connection to the processor or core system for
+						the message being performed.
+						processorSessionId found in the User object is depreciated in favor of sessionId.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="userList" type="user:UserList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						List of user(s) associated to a message.
+						Typically, there will be only one user associated to a message request, but this provides the flexibility
+						in the event that future use cases have two user ID’s or more associated to one message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusList" type="StatusList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status list contains all the success, warning, error and other messages when a service point was called.
+						This element allows for the call response pattern to send and receive CUFX message objects bi-directionally.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The custom data section allows the flexibility to add additional information to the message context.
+						This should be utilized as a last resort and any use should result in requested modifications to the message
+						or message context .
+						Note: typically the data required will be in the message (such as party ID, account ID, etc.) rather than
+						contained in the message context.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="ReturnDataFilter">
+		<xs:annotation>
+			<xs:documentation>
+				Applicable to creates and updates.  The return data filter is used to streamline the amount of
+				information to return to the client after an update or create.  The client can request
+				all data from the object, only fields that were updated or created,
+				or no data (just a confirmation that it was successful).
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="All" />
+			<xs:enumeration value="OnlyCreatedOrChangedData" />
+			<xs:enumeration value="None" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Status">
+		<xs:annotation>
+			<xs:documentation>
+				The message collection/array contains all the messages returned when a service point was called.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="statusType" type="StatusType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Response type classifies the message type in the message response list and allows for high level discrimination of Success, Warning, Error or Other message types.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusCode" type="StatusCode" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Standard CUFX error code returned by the service point.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="statusSubCode" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message response sub code of the message. Non-standard error code that was in the back end system.  This may be
+						helpful in understanding why a particular error occurred.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="statusMessage" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The response message text.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substitutionList" type="SubstitutionList"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Optional list to send data to the end point about which fields may be in
+						error and/or which values may be out-of-range.  The error message can be
+						scanned for potential substitution ID's (for example '%1', '%2') and replaced
+						with the value from the substitution list.  This is useful for when an end
+						point wants to support multiple languages or wants all of the message to be
+						reconfigured for better consumption.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="referenceId" type="xs:string"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The reference identification for the individual message objects contained in a given 
+						object message list at the highest parent level. The reference is intended to be the Id of the given object, the temp Id of
+						the given object, or any implementation specific reference to uniquely identify the originating object.
+						Example: In an AccountMessage the AccoundId of the input object is recommended.
+						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses 
+						to the originating objects in the message list. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="referenceIndex" type="xs:integer"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The reference index corresponds to the order of the orginating object message in the list at the highest parent level.
+						Example: if 3 account objects were included in the originating AccountMessage then status responses can be
+						provided for each object by reference (0, 1, 2). 
+						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses
+						to the originating objects in the message list. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="StatusType">
+		<xs:annotation>
+			<xs:documentation>
+				Response type classifies the message type in the message response list and allows for high level discrimination of Success, Warning, Error or Other message types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Success">
+				<xs:annotation>
+					<xs:documentation>
+						The message associated with this response type was a success.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Informational">
+				<xs:annotation>
+					<xs:documentation>
+						Additional information about the response, including verbose responses.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Warning">
+				<xs:annotation>
+					<xs:documentation>
+						Informational warning that should not stop processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error">
+				<xs:annotation>
+					<xs:documentation>
+						The message is associated with response was an error.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="StatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The message response list collection/array contains all the messages returned when
+				a service point was called.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0" maxOccurs="unbounded" nillable="true">
+						<xs:annotation>
+							<xs:documentation>
+								A collection of fields that represents an individual response message that occurred when a
+								service point was called.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="StatusCode">
+		<xs:annotation>
+			<xs:documentation>
+				Standard CUFX code returned by the service point.
+				The documentation contains the standard message to return.
+				When '%s' is in the message, it should be replaced with additional
+				details relative to the message content.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="ValueOutOfRangeError">
+				<xs:annotation>
+					<xs:documentation>
+						ValueOutOfRangeError.  The value '%s' is not supported for the field '%s' by this
+						service. Valid values must be between '%s' and '%s'. Formerly value 413.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnsupportedValueError">
+				<xs:annotation>
+					<xs:documentation>
+						UnsupportedValueError.  The value '%s' is not supported for the field '%s' by this service. Valid
+						values include '%s'. Formerly value 415.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DatesOutOfOrderError">
+				<xs:annotation>
+					<xs:documentation>
+						DatesOutOfOrderError.  The end date is before the start date. Formerly value 497.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DateRangeTooWideError">
+				<xs:annotation>
+					<xs:documentation>
+						DateRangeTooWideError.  Date range is too wide for the data source to handle. Formerly value 498.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidFieldFormat">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidFieldFormat.  The format of the field is not supported. The format '%s' is not supported for
+						the field '%s' by this service. Valid values include '%s' Formerly value 475.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="OtherValidationError">
+				<xs:annotation>
+					<xs:documentation>
+						OtherValidationError. Values were within range but some other business rule failed with the while validating the data in the request.  Use %s to include what record rejected and why.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="NoDataInRequest">
+				<xs:annotation>
+					<xs:documentation>
+						NoDataInRequest. Endpoint expected values in request but there were none. Formerly value 300.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="IncompleteRequest">
+				<xs:annotation>
+					<xs:documentation>
+						IncompleteRequest.  The request omitted the following required fields: '%s'. Formerly value 411.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RecordHasBeenArchivedError">
+				<xs:annotation>
+					<xs:documentation>
+						RecordHasBeenArchivedError.	The record was found, but is not available for viewing as it has been archived in offline storage. Formerly value 441.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="LoginInvalidError">
+				<xs:annotation>
+					<xs:documentation>
+						LoginInvalidError.  The user token or credentials were invalid. Formerly value 401.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserPermissionError">
+				<xs:annotation>
+					<xs:documentation>
+						UserPermissionError. User was able to login but was unable to process request because user did not have proper permissions to either the object type, instance of object or capability on that object.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppPermissionError">
+				<xs:annotation>
+					<xs:documentation>
+						AppPermissionError. Client app lacks necessary security to perform the action.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserSessionTokenExpiredError">
+				<xs:annotation>
+					<xs:documentation>
+						UserSessionTokenExpiredError. Endpoint no longer recognizes a user session token as valid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppSessionTokenExpiredError">
+				<xs:annotation>
+					<xs:documentation>
+						AppSessionTokenExpiredError. Endpoint no longer recognizes an application session token as valid.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UserCredentialsLockedOut">
+				<xs:annotation>
+					<xs:documentation>
+						UserCredentialsLockedOut. User provided proper credentials, but system indicates that system no longer allows this user to access the requested resources.
+						The resource '%s' has been locked out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="AppCredentialsLockedOut">
+				<xs:annotation>
+					<xs:documentation>
+						AppCredentialsLockedOut. App provided proper credentials, but system indicates that system no longer allows this app to access the requested resources.
+						The app resource '%s' has been locked out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ConflictAlreadyExists">
+				<xs:annotation>
+					<xs:documentation>
+						ConflictAlreadyExists.  The entity submitted for creation already exists. Formerly value 409.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UpdateToFieldNotAllowed">
+				<xs:annotation>
+					<xs:documentation>
+						UpdateToFieldNotAllowed. The repository does not allow updates to '%s'. Formerly value 438.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidMACAddressError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidMACAddressError.  The MAC address was invalid or missing. Formerly value 425.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidIPAddressError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidIPAddressError.  Client’s IP address is not valid or does not have permissions to access the endpoint.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidLanguageError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidLanguageError.  The requested language '%s' is not supported. Formerly value 430.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidDataSourceIdError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidDataSourceIdError.  The data source ID was not recognized. Formerly value 433.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidFiIdError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidFiIdError.  The financial institution ID was not recognized. Formerly value 434.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="InvalidEnvironmentError">
+				<xs:annotation>
+					<xs:documentation>
+						InvalidEnvironmentError.  The environment specified in MessageContext is disallowed by the system as configured. Formerly value 476.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="PreviousRequestRequired">
+				<xs:annotation>
+					<xs:documentation>
+						PreviousRequestRequired.  A '%s' request must be made before this one, and was not. Formerly value 412.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="MalformedRequestError">
+				<xs:annotation>
+					<xs:documentation>
+						MalformedRequestError.  Malformed request to endpoint based on CUFX standard.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnsupportedMethodError">
+				<xs:annotation>
+					<xs:documentation>
+						UnsupportedMethodError.  End point does not support the method.  For example: GET is supported but not a POST or DELETE.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="UnsupportedServiceError">
+				<xs:annotation>
+					<xs:documentation>
+						UnsupportedServiceError.  Service exists but endpoint does not support the service for this FiId and/or app combination.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RequestedServiceNotFound">
+				<xs:annotation>
+					<xs:documentation>
+						RequestedServiceNotFound.  The client application requested a service that does not exist.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="EncryptionError">
+				<xs:annotation>
+					<xs:documentation>
+						EncryptionError.  The provided encrypted data could not be decrypted. Formerly value 426.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="MIMETypeNotSupportedError">
+				<xs:annotation>
+					<xs:documentation>
+						MIMETypeNotSupported.  Repository rejected the MIME type. Formerly value 440.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectTooLargeError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectTooLarge.	The '%s' object was rejected because it exceeded the size limit. Formerly value 442.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectTooSmallError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectTooSmall.	The '%s' object was rejected because it is smaller than its minimum size requirement. Formerly value 443.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectNotFoundError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectNotFoundError.  The object could not be found in the repository. Formerly value 437.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ObjectRejectedError">
+				<xs:annotation>
+					<xs:documentation>
+						ObjectRejectedError. The repository has rejected the object. See the sub error codes for the specific reason.
+						Example: Restricted content or copyright detected. Formerly value 444.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="CompressionError">
+				<xs:annotation>
+					<xs:documentation>
+						CompressionError.  Endpoint could not compress the object '%s' as requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="DecompressionError">
+				<xs:annotation>
+					<xs:documentation>
+						DecompressionError.  Endpoint could not decompress the object '%s' as requested.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="TooManyRequestsError">
+				<xs:annotation>
+					<xs:documentation>
+						TooManyRequests.  The user has sent too many requests in a given amount of time. Formerly value 429.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceTemporarilyUnavailableError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceTemporarilyUnavailableError.  This is for a short term outage.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceUnavailableError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceUnavailableError.  Endpoint is not available for requests at this time.  This is due to an extended system outage.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ServiceFailureError">
+				<xs:annotation>
+					<xs:documentation>
+						ServiceFailureError.  Endpoint failed while processing the request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="GeneralError">
+				<xs:annotation>
+					<xs:documentation>
+						General Error.  Review subCode for more information. Formerly value 400 or 499.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="NoMatchingRecordsWarning">
+				<xs:annotation>
+					<xs:documentation>
+						NoMatchingRecordsWarning. No matching records were found. Formerly value 302.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="RecordNotFoundWarning">
+				<xs:annotation>
+					<xs:documentation>
+						RecordNotFoundWarning.  The request contained the following references to entities that could not be found: '%s'.
+						Formerly value 422.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GeneralWarning">
+				<xs:annotation>
+					<xs:documentation>
+						A general warning occurred. Review subCode for more information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SubstitutionList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="substitution" type="Substitution" minOccurs ="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Optional substitution to send data to the end point about which fields may be in
+								error and/or which values may be out-of-range.  The error message can be
+								scanned for potential substitution ID's (for example '%1', '%2') and replaced
+								with the value from the substitution list.  This is useful for when an end
+								point wants to support multiple languages or wants all of the message to be
+								reconfigured for better consumption.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Substitution">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the substitution as it appears in the error message.
+						For example, %1, %2, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="value" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The data that should be placed in the error message wherever the
+						substitution ID shows up in the error message.  This would most
+						likely be a field name, field value, etc.
+						This is done to allow the rest of the error message to be translated
+						by the consuming end point, if the message was not translated by the
+						core.  It's up to the end points to determine which end point will
+						translate if it's supported.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+

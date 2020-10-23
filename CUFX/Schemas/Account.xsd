@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Account.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:meta="http://cufxstandards.com/v4/Meta.xsd"
@@ -78,6 +78,7 @@
 							<xs:documentation>
 								The account subtype identifies the specific account type
 								that the back end system will recognize.
+								Deprecated - See accountSubType in AccountBase. - Planned removal in v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -303,6 +304,14 @@
 							<xs:documentation>
 								For each account type, optional meta information MAY be provided with these tags depending
 								upon the account type returned.
+								Account types of Checking, Savings, PrePaidCard use checkingSavingsMeta.
+								Account types of Loan, CommercialLoan, Installment, OtherLoan use loanMeta.
+								Account type of CreditCard use creditCardMeta.
+								Account type of Investment use investmentMeta or checkingSavingsMeta.
+								Account types of LineOfCredit, CommercialLineOfCredit use lineOfCreditMeta.
+								Account type of Mortgage use mortgageMeta.
+								Account type of Other may use any of the defined meta, but additional endpoint documentation recommended.
+								Account type of GeneralLedger no meta defined
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -312,6 +321,50 @@
 								If there's a start date where provided or required, the transaction list collection/array
 								should remain empty if no transactions were posted during the provided date period.
 								In this case, the Data Provider should still return all other account information.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="interestPostingFrequency" type="common:FrequencyType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The time interval for posting interest to the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="withholdingsInfoList" type="common:WithholdingsInfoList" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The list of withholding information that is applicable to the account.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>		
+					<xs:element name="overDraftProtectionAccountId" type="AccountId" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account.  
+								The Account ID is intended and recommended to be a persistent and unique identifier for the account.
+								It should be unique for all users across the institution and remain the same over the life of the account.
+								It may contain a composite set of elements to create a unique key. 
+								In observed business practice Account ID is often a non-unique value and creates a unique key in combination 
+								with Account Type.  The accountAccountTypeList filter is designed to support this condition. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="overDraftProtectionAccountType" type="AccountType"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account type.
+								The account type is the textual representation of the kind of account.
+								This value is visible to the user and must be human-readable.
+								Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="overDraftProtectionAccountSubType" type="AccountSubType"   minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The associated overdraft protection account sub type.
+								The account subtype identifies the specific account type that the back end system will recognize.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -431,7 +484,7 @@
 	<xs:complexType name="AccountIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of account ID's that should have their associated accounts either returned or affected
+				The list of account IDs that should have their associated accounts either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -479,9 +532,11 @@
 			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The account ID is a persistent and unique identifier for the account.
-						It must be unique for all users across the institution and remain the same over the life of the account.
-						It may contain a prefix to define the Account Type for consumption, such as SV-1234 or IL-1234.
+						The Account ID is intended and recommended to be a persistent and unique identifier for the account.
+						It should be unique for all users across the institution and remain the same over the life of the account.
+						It may contain a composite set of elements to create a unique key. 
+						In observed business practice Account ID is often a non-unique value and creates a unique key in combination 
+						with Account Type.  The accountAccountTypeList filter is designed to support this condition. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -490,7 +545,14 @@
 					<xs:documentation>
 						The account type is the textual representation of the kind of account.
 						This value is visible to the user and must be human-readable.
-						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -560,7 +622,7 @@
 			<xs:enumeration value="Savings">
 				<xs:annotation>
 					<xs:documentation>
-						Savings and club accounts.  This can optionally include CD's, but it's up to the institution.
+						Savings and club accounts.  This can optionally include CDs, but it's up to the institution.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -588,14 +650,14 @@
 			<xs:enumeration value="Mortgage">
 				<xs:annotation>
 					<xs:documentation>
-						Loan that is a line of credit but NOT a credit card.
+						Loan that is made in exchange for taking title of property.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="Investment">
 				<xs:annotation>
 					<xs:documentation>
-						Investment accounts such as brokerage and this can optionally include CD's and/or
+						Investment accounts such as brokerage and this can optionally include CDs and/or
 						money markets, but it's up to the institution.
 					</xs:documentation>
 				</xs:annotation>
@@ -611,6 +673,45 @@
 				<xs:annotation>
 					<xs:documentation>
 						Other account type.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Installment">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is made in installments. Loan is typically unsecured. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of Installment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CommercialLoan">
+				<xs:annotation>
+					<xs:documentation>
+						Loan that is a made to a business organization. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of Commercial.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CommercialLineOfCredit">
+				<xs:annotation>
+					<xs:documentation>
+						Line of Credit that is a made to a business organization. 
+						This enumeration is considered deprecated. Recommend using account type Loan and subAccount of CommercialLineOfCredit.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GeneralLedger">
+				<xs:annotation>
+					<xs:documentation>
+						A general ledger account of the financial institution. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OtherLoan">
+				<xs:annotation>
+					<xs:documentation>
+						A loan account type that has not been prevously defined.  
+						This enumeration is considered deprecated. Recommend using account type loan and subAccount of OtherLoan.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -723,6 +824,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountAccountTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				Deprecated - the type AccountAccountTypeList will be removed in v5.0. Use AccountIdentificationList 
+			</xs:documentation>
+		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
@@ -739,6 +845,11 @@
 	</xs:complexType>
 
 	<xs:complexType name="AccountAccountTypePair">
+		<xs:annotation>
+			<xs:documentation>
+				Deprecated - the type AccountAccountTypePair will be removed in v5.0. Use AccountIdentification 
+			</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -757,7 +868,71 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="AccountIdentificationList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of account identifications to associate accounts affected by a read, update or delete request. 
+				This filter supports financial institutions that have a complex account identification structure to establish a unique key.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="accountIdentification" type="AccountIdentification" minOccurs="0" maxOccurs ="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The set of account identification elements to specify accounts for a read, update or delete request. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
+	<xs:complexType name="AccountIdentification">
+		<xs:annotation>
+			<xs:documentation>
+				The set of account identification elements to specify accounts for a read, update or delete request. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An account ID that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account type that should have its associated accounts either returned or affected
+						by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="AccountSubType" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize and 
+						that should have its associated accounts either returned or affected by a read, update or delete request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountToFromIndicator" type="AccountToFromIndicator" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						AccountToFromIndicator is used to filter for account identifications in messages that have TO and FROM account structure. 
+						If a value is not present then the search criteria should evaluate both To and From account structures if applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:simpleType name="DepositAccountStatus">
 		<xs:annotation>
 			<xs:documentation>
@@ -776,6 +951,20 @@
 				<xs:annotation>
 					<xs:documentation>
 						Account has been approved, not yet active.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ChargedOff" >
+				<xs:annotation>
+					<xs:documentation>
+						Account is charged off.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ChargeOffClosed " >
+				<xs:annotation>
+					<xs:documentation>
+						Account is charged off and closed.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1140,5 +1329,38 @@
 			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="AccountSubType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The account subtype identifies the specific account type that the back end system will recognize.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
 
+	<xs:simpleType name="AccountToFromIndicator">
+		<xs:annotation>
+			<xs:documentation>
+				AccountToFromIndicator is used to filter for account identifications in messages that have TO and FROM account structure. 
+				If a value is not present then the search criteria should evaluate both To and From account structures if applicable.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="To" >
+				<xs:annotation>
+					<xs:documentation>
+						Return or affect accounts identified as the To account, or destination account. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="From" >
+				<xs:annotation>
+					<xs:documentation>
+						Return or affect accounts identified as the From account, or source account. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
