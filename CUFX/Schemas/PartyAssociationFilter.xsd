@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/PartyAssociationFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PartyAssociationFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -34,7 +34,7 @@
 			<xs:element name="partyAssociationIdList" type="partyAssociation:PartyAssociationIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party association IDs that should have their party association returned or affected
+						The list of party association ID's that should have their party association returned or affected
 						by a read, update or delete party association request.
 					</xs:documentation>
 				</xs:annotation>
@@ -43,7 +43,7 @@
 			<xs:element name="parentPartyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of parent party IDs that should have their party association returned or affected by
+						The list of parent party ID's that should have their party association returned or affected by
 						a read, update or delete party association request.
 					</xs:documentation>
 				</xs:annotation>
@@ -52,7 +52,7 @@
 			<xs:element name="childPartyIdList" type="party:PartyIdList"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of child party IDs that should have their party association returned or affected by a
+						The list of child party ID's that should have their party association returned or affected by a
 						read, update or delete party association request.
 					</xs:documentation>
 				</xs:annotation>

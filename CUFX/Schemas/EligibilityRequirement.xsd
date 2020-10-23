@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/EligibilityRequirement.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/EligibilityRequirement.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -78,7 +78,7 @@
 						Not present unless the member selects this eligibility requirement and there are additional
 						actions required besides continuing with the application, only then will this tell the
 						application what action should be requested.  It is up to the application provider to work
-						with the financial institution to determine what the nextActionRequiredIds represent
+						with the financial institution to determine what the nextActionRequiredId's represent
 						and to present that in the applicable language.
 						For example, "Please go to the nearest branch to complete the application", "Please login
 						to complete your application", or other instances of gathering additional information

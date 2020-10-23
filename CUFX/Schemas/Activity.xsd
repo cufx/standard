@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Activity.xsd"
-	version="4.4.$Revision$: 1062 $"
+	version="4.3.$Revision: 1062 $"
 	xmlns="http://cufxstandards.com/v4/Activity.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -546,7 +546,7 @@
 			<xs:element name ="contactIdList" type ="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Use if this is for an existing contact.  Contains a list of existing unique contact IDs
+						Use if this is for an existing contact.  Contains a list of existing unique contact ID's
 						for how the party(ies) wishes to be contacted.
 					</xs:documentation>
 				</xs:annotation>
@@ -583,14 +583,6 @@
 					<xs:documentation>
 						Collection of key fields that point to a list of
 						existing accounts for which the request applies.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account identifications to associate accounts affected by a read, update or delete request. 
-						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

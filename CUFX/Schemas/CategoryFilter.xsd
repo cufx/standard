@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/CategoryFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/CategoryFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:category="http://cufxstandards.com/v4/Category.xsd"
@@ -33,7 +33,7 @@
 			<xs:element name="categoryIdList" type="category:CategoryIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						A list of category IDs to be returned or affected by a read, update or delete category request.
+						A list of category ID's to be returned or affected by a read, update or delete category request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -48,7 +48,7 @@
 			<xs:element name="returnChildrenCategories" type="xs:boolean" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						When True return all children categories associated to the parent category IDs.
+						When True return all children categories associated to the parent category Ids.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -67,3 +67,5 @@
 		</xs:sequence >
 	</xs:complexType>
 </xs:schema>
+
+

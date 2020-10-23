@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/ArtifactFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.2.$Revision: 1365 $"
 	xmlns="http://cufxstandards.com/v4/ArtifactFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
@@ -48,7 +48,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="PartyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						A list of Party Id's to be returned or affected by a read, update or delete artifact request.
@@ -112,18 +112,6 @@
 					<xs:documentation>
 						Filter that is used to search the artifact deleted dates.
 						Usage see common.xsd DateRange.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Artifact level name/data pairs list of fields that are not yet available in the general
-						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
-						data providers or processed by all client applications. ANY use of this field must be reported to the
-						architecture or working group committee to ensure that fields are somehow handled in the future release
-						of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

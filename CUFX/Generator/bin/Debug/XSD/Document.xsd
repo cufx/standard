@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Document.xsd"
-	version="4.4.$Revision$"
+	version="4.2.$Revision: 1374 $"
 	xmlns="http://cufxstandards.com/v4/Document.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -147,8 +147,6 @@
 					<xs:documentation>
 						Pointers to the document in the artifact repository.  This is provided as a list in case the document is made
 						up of multiple components.
-						This element can be used seperately or in combination with documentArtifactList as needed to 
-						manage the capabilities and size of the message.   
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -223,17 +221,6 @@
 						providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future
 						release of specifications.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="documentArtifactList" type="artifact:ArtifactList" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The artifacts collection/array contains all the artifacts, for instance, that the credential set is
-						authorized to access at the Institution based on applied filters.
-						Note that the documentFilter contains the boolean includeArtifactObjectFlag to manage whether 
-						the base 64 binary objects are to be returned. This facility is provided to manage the size of the message. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/LoanDisbursementFilter.xsd"
 	xmlns="http://cufxstandards.com/v4/LoanDisbursementFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:loanDisbursement="http://cufxstandards.com/v4/LoanDisbursement.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -33,7 +33,7 @@
 			<xs:element name="loanDisbursementIdList" type="loanDisbursement:LoanDisbursementIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of loan disbursement IDs that should be returned or affected by a read, update or delete loan disbursement request.
+						The list of loan disbursement Ids that should be returned or affected by a read, update or delete loan disbursement request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -41,7 +41,7 @@
 			<xs:element name="loanIdList" type="loanDisbursement:LoanIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of loan IDs that should be returned or affected by a read, update or delete loan disbursement request.
+						The list of loan Ids that should be returned or affected by a read, update or delete loan disbursement request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -60,3 +60,4 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/MessageContext.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/MessageContext.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
@@ -245,33 +245,10 @@
 					<xs:documentation>
 						Optional list to send data to the end point about which fields may be in
 						error and/or which values may be out-of-range.  The error message can be
-						scanned for potential substitution IDs (for example '%1', '%2') and replaced
+						scanned for potential substitution ID's (for example '%1', '%2') and replaced
 						with the value from the substitution list.  This is useful for when an end
 						point wants to support multiple languages or wants all of the message to be
 						reconfigured for better consumption.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="referenceId" type="xs:string"   minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The reference identification for the individual message objects contained in a given 
-						object message list at the highest parent level. The reference is intended to be the ID of the given object, the temp ID of
-						the given object, or any implementation specific reference to uniquely identify the originating object.
-						Example: In an AccountMessage the AccoundId of the input object is recommended.
-						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses 
-						to the originating objects in the message list. 
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="referenceIndex" type="xs:integer"   minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The reference index corresponds to the order of the orginating object message in the list at the highest parent level.
-						Example: if 3 account objects were included in the originating AccountMessage then status responses can be
-						provided for each object by reference (0, 1, 2). 
-						Use of referenceId and or referenceIndex is to allow for the discrete association of status responses
-						to the originating objects in the message list. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -354,7 +331,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						ValueOutOfRangeError.  The value '%s' is not supported for the field '%s' by this
-						service. Valid values must be between '%s' and '%s'. Formerly value 413.
+						service. Valid values must be between '%s' and '%s'. Fomerly value 413.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -362,21 +339,21 @@
 				<xs:annotation>
 					<xs:documentation>
 						UnsupportedValueError.  The value '%s' is not supported for the field '%s' by this service. Valid
-						values include '%s'. Formerly value 415.
+						values include '%s'. Fomerly value 415.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="DatesOutOfOrderError">
 				<xs:annotation>
 					<xs:documentation>
-						DatesOutOfOrderError.  The end date is before the start date. Formerly value 497.
+						DatesOutOfOrderError.  The end date is before the start date. Fomerly value 497.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="DateRangeTooWideError">
 				<xs:annotation>
 					<xs:documentation>
-						DateRangeTooWideError.  Date range is too wide for the data source to handle. Formerly value 498.
+						DateRangeTooWideError.  Date range is too wide for the data source to handle. Fomerly value 498.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -384,7 +361,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						InvalidFieldFormat.  The format of the field is not supported. The format '%s' is not supported for
-						the field '%s' by this service. Valid values include '%s' Formerly value 475.
+						the field '%s' by this service. Valid values include '%s' Fomerly value 475.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -398,28 +375,28 @@
 			<xs:enumeration value ="NoDataInRequest">
 				<xs:annotation>
 					<xs:documentation>
-						NoDataInRequest. Endpoint expected values in request but there were none. Formerly value 300.
+						NoDataInRequest. Endpoint expected values in request but there were none. Fomerly value 300.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="IncompleteRequest">
 				<xs:annotation>
 					<xs:documentation>
-						IncompleteRequest.  The request omitted the following required fields: '%s'. Formerly value 411.
+						IncompleteRequest.  The request omitted the following required fields: '%s'. Fomerly value 411.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="RecordHasBeenArchivedError">
 				<xs:annotation>
 					<xs:documentation>
-						RecordHasBeenArchivedError.	The record was found, but is not available for viewing as it has been archived in offline storage. Formerly value 441.
+						RecordHasBeenArchivedError.	The record was found, but is not available for viewing as it has been archived in offline storage. Fomerly value 441.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="LoginInvalidError">
 				<xs:annotation>
 					<xs:documentation>
-						LoginInvalidError.  The user token or credentials were invalid. Formerly value 401.
+						LoginInvalidError.  The user token or credentials were invalid. Fomerly value 401.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -470,21 +447,21 @@
 			<xs:enumeration value ="ConflictAlreadyExists">
 				<xs:annotation>
 					<xs:documentation>
-						ConflictAlreadyExists.  The entity submitted for creation already exists. Formerly value 409.
+						ConflictAlreadyExists.  The entity submitted for creation already exists. Fomerly value 409.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="UpdateToFieldNotAllowed">
 				<xs:annotation>
 					<xs:documentation>
-						UpdateToFieldNotAllowed. The repository does not allow updates to '%s'. Formerly value 438.
+						UpdateToFieldNotAllowed. The repository does not allow updates to '%s'. Fomerly value 438.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="InvalidMACAddressError">
 				<xs:annotation>
 					<xs:documentation>
-						InvalidMACAddressError.  The MAC address was invalid or missing. Formerly value 425.
+						InvalidMACAddressError.  The MAC address was invalid or missing. Fomerly value 425.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -498,35 +475,35 @@
 			<xs:enumeration value ="InvalidLanguageError">
 				<xs:annotation>
 					<xs:documentation>
-						InvalidLanguageError.  The requested language '%s' is not supported. Formerly value 430.
+						InvalidLanguageError.  The requested language '%s' is not supported. Fomerly value 430.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="InvalidDataSourceIdError">
 				<xs:annotation>
 					<xs:documentation>
-						InvalidDataSourceIdError.  The data source ID was not recognized. Formerly value 433.
+						InvalidDataSourceIdError.  The data source ID was not recognized. Fomerly value 433.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="InvalidFiIdError">
 				<xs:annotation>
 					<xs:documentation>
-						InvalidFiIdError.  The financial institution ID was not recognized. Formerly value 434.
+						InvalidFiIdError.  The financial institution ID was not recognized. Fomerly value 434.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="InvalidEnvironmentError">
 				<xs:annotation>
 					<xs:documentation>
-						InvalidEnvironmentError.  The environment specified in MessageContext is disallowed by the system as configured. Formerly value 476.
+						InvalidEnvironmentError.  The environment specified in MessageContext is disallowed by the system as configured. Fomerly value 476.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="PreviousRequestRequired">
 				<xs:annotation>
 					<xs:documentation>
-						PreviousRequestRequired.  A '%s' request must be made before this one, and was not. Formerly value 412.
+						PreviousRequestRequired.  A '%s' request must be made before this one, and was not. Fomerly value 412.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -561,35 +538,35 @@
 			<xs:enumeration value ="EncryptionError">
 				<xs:annotation>
 					<xs:documentation>
-						EncryptionError.  The provided encrypted data could not be decrypted. Formerly value 426.
+						EncryptionError.  The provided encrypted data could not be decrypted. Fomerly value 426.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="MIMETypeNotSupportedError">
 				<xs:annotation>
 					<xs:documentation>
-						MIMETypeNotSupported.  Repository rejected the MIME type. Formerly value 440.
+						MIMETypeNotSupported.  Repository rejected the MIME type. Fomerly value 440.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="ObjectTooLargeError">
 				<xs:annotation>
 					<xs:documentation>
-						ObjectTooLarge.	The '%s' object was rejected because it exceeded the size limit. Formerly value 442.
+						ObjectTooLarge.	The '%s' object was rejected because it exceeded the size limit. Fomerly value 442.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="ObjectTooSmallError">
 				<xs:annotation>
 					<xs:documentation>
-						ObjectTooSmall.	The '%s' object was rejected because it is smaller than its minimum size requirement. Formerly value 443.
+						ObjectTooSmall.	The '%s' object was rejected because it is smaller than its minimum size requirement. Fomerly value 443.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="ObjectNotFoundError">
 				<xs:annotation>
 					<xs:documentation>
-						ObjectNotFoundError.  The object could not be found in the repository. Formerly value 437.
+						ObjectNotFoundError.  The object could not be found in the repository. Fomerly value 437.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -597,7 +574,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						ObjectRejectedError. The repository has rejected the object. See the sub error codes for the specific reason.
-						Example: Restricted content or copyright detected. Formerly value 444.
+						Example: Restricted content or copyright detected. Fomerly value 444.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -618,7 +595,7 @@
 			<xs:enumeration value ="TooManyRequestsError">
 				<xs:annotation>
 					<xs:documentation>
-						TooManyRequests.  The user has sent too many requests in a given amount of time. Formerly value 429.
+						TooManyRequests.  The user has sent too many requests in a given amount of time. Fomerly value 429.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -646,14 +623,14 @@
 			<xs:enumeration value ="GeneralError">
 				<xs:annotation>
 					<xs:documentation>
-						General Error.  Review subCode for more information. Formerly value 400 or 499.
+						General Error.  Review subCode for more information. Fomerly value 400 or 499.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value ="NoMatchingRecordsWarning">
 				<xs:annotation>
 					<xs:documentation>
-						NoMatchingRecordsWarning. No matching records were found. Formerly value 302.
+						NoMatchingRecordsWarning. No matching records were found. Fomerly value 302.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -661,7 +638,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						RecordNotFoundWarning.  The request contained the following references to entities that could not be found: '%s'.
-						Formerly value 422.
+						Fomerly value 422.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -685,7 +662,7 @@
 							<xs:documentation>
 								Optional substitution to send data to the end point about which fields may be in
 								error and/or which values may be out-of-range.  The error message can be
-								scanned for potential substitution IDs (for example '%1', '%2') and replaced
+								scanned for potential substitution ID's (for example '%1', '%2') and replaced
 								with the value from the substitution list.  This is useful for when an end
 								point wants to support multiple languages or wants all of the message to be
 								reconfigured for better consumption.
@@ -725,3 +702,4 @@
 	</xs:complexType>
 
 </xs:schema>
+

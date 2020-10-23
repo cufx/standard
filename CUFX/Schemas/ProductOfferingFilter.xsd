@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/ProductOfferingFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/ProductOfferingFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
@@ -33,7 +33,7 @@
 			<xs:element name="productIdList" type="productOffering:ProductIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of product IDs that should be returned or affected by a read, update or delete request.
+						The list of product ID's that should be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

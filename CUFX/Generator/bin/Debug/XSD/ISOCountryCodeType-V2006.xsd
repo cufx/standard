@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
-	version="4.4.$Revision$"
+	version="4.2.$Revision: 1362 $"
 	xmlns="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
@@ -10,7 +10,7 @@
 
 	<xs:simpleType name="ISOCountryCodeType">
 		<xs:annotation>
-			<xs:documentation>ISO 3166-1  Year 2006</xs:documentation>
+			<xs:documentation>ISO 3166-1:2006</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="AD">

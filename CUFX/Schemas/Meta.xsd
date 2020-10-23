@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Meta.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Meta.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -95,7 +95,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="annualPercentageRate" type="common:AnnualPercentageRate" minOccurs="0" maxOccurs="1">
+			<xs:element name="annualPercentageRate" type="xs:decimal" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized).
@@ -123,7 +123,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="maturityDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The date that the loan must be paid off.
@@ -514,7 +514,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="maturityDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The date that the investment will pay out the full balance including any gains.
@@ -537,7 +537,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						How often the interest is paid.  This field is open text but some examples might be daily, monthly, etc.
-						Deprecated - Use Account-interestPostingFrequency. Planned removal in release v5.0.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -787,7 +786,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="maturityDate" type="xs:date" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The date that the loan must be paid off.

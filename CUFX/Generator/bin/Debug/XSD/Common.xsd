@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
-	version="4.4.$Revision$"
+	version="4.2.$Revision: 1406 $"
 	xmlns="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
@@ -29,7 +29,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="1" default ="USD">
+			<xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
 				<xs:annotation>
 					<xs:documentation>
 						Currency code in ISO 4217 3 character format.
@@ -74,7 +74,6 @@
 			<xs:enumeration value="ProductServiceRequest"/>
 			<xs:enumeration value="Request"/>
 			<xs:enumeration value="Activity"/>
-			<xs:enumeration value="Transaction"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -884,8 +883,6 @@
 			<xs:enumeration value="3.3.0" />
 			<xs:enumeration value="4.0.0" />
 			<xs:enumeration value="4.1.0" />
-			<xs:enumeration value="4.2.0" />
-			<xs:enumeration value="4.3.0" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -996,7 +993,7 @@
 		<xs:complexContent>
 			<xs:extension base="ListBase">
 				<xs:sequence>
-					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="unbounded">
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
@@ -1114,19 +1111,5 @@
 		<xs:restriction base="xs:string">
 		</xs:restriction>
 	</xs:simpleType>
-	
-	<xs:simpleType name="AnnualPercentageRate">
-		<xs:annotation>
-			<xs:documentation>
-				Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized). 
-				Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
-				4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
-				Decimals available: 999.999 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:decimal">
-		</xs:restriction>
-	</xs:simpleType>
-	
 </xs:schema>
 

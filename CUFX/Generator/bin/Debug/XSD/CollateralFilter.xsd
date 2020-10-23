@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/CollateralFilter.xsd"
 	xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.2.$Revision: 1365 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:loan="http://cufxstandards.com/v4/Loan.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:collateral="http://cufxstandards.com/v4/Collateral.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Loan.xsd" schemaLocation="Loan.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Collateral.xsd" schemaLocation="Collateral.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="collateralFilter" type="CollateralFilter">
 		<xs:annotation>
@@ -46,18 +44,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						Description of the type of collateral/security.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						Collateral level name/data pairs list of fields that are not yet available in the general
-						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
-						data providers or processed by all client applications. ANY use of this field must be reported to the
-						architecture or working group committee to ensure that fields are somehow handled in the future release
-						of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
