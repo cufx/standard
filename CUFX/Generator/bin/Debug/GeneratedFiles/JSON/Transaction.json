@@ -1,0 +1,108 @@
+{
+  "transactionList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "transaction": {
+      "transactionId": "transactionId1",
+      "accountId": "accountId1",
+      "type": "Debit",
+      "amount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "description": "description1",
+      "checkNumber": "checkNumber1",
+      "dateTimePosted": "1900-01-01T01:01:01Z",
+      "dateTimeEffective": "1900-01-01T01:01:01Z",
+      "status": "Posted",
+      "otherTransactionStatus": "otherTransactionStatus1",
+      "postedActualBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "postedAvailableBalance": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "principalAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "interestAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "transactionFeeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "transactionFee": {
+          "transactionFeeId": "transactionFeeId1",
+          "transactionFeeDateTimePosted": "1900-01-01T01:01:01Z",
+          "transactionfeeAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "transactionFeeCode": "transactionFeeCode1",
+          "transactionFeeDescription": "transactionFeeDescription1"
+        }
+      },
+      "merchantCategoryCode": "merchantCategoryCode1",
+      "category": "category1",
+      "source": "Ach",
+      "escrowAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "transactionArtifactId": {
+        "artifactUniqueId": "artifactUniqueId1",
+        "artifactIdKeyValueList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": {
+            "name": "name1",
+            "value": "value1"
+          }
+        }
+      },
+      "transactionArtifactUri": "http://uri1",
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      },
+      "noteIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "noteID": "noteID1"
+      }
+    }
+  }
+}

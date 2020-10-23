@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/Field.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/Field.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+
+	
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+
+	<xs:element name="fieldList" type="FieldList">
+		<xs:annotation>
+			<xs:documentation>
+				List of fields to provide for a given interaction.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="FieldList">
+		<xs:annotation>
+			<xs:documentation>
+				List of fields to provide for a given interaction.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="field" type="Field" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Field data.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Field">
+		<xs:sequence>
+			<xs:element name="fieldId" type="FieldId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The Field identifier of the requirment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The name of the field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldType" type="FieldType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The expected type for the  field.
+						May be a Boolean, String, GUID, or other data types.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldPrompt" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description providing instruction on how to populate the fieldValue, intended for presentation to a user.
+						May also be a url for supporting information.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldValue" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The selected or entered field value to be returned to the calling application.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="isFieldRequired" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Optional boolean to define if the field is required or optional.
+						If not populated, then it will assume to be optional.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldRequirementList" type="FieldRequirementList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The requirements for the field.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Enrollment requirement level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FieldRequirement">
+		<xs:sequence>
+			<xs:element name="fieldRequirementId" type="FieldRequirementId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The Field requirement identifier.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldTechnicalRequirement" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Technical requirement to be handled programatically as part of presentation / interaction.
+						examples "A-Z", "0-9", "Alphanumeric"
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldSelection" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The value of a valid population for the response.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldRequirementDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of the requirement. Available to optionally replace or modify fieldPrompt.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The format of the content of fieldRequirement. Example: Java Script, Pattern, HTML, C# snippet.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Field requirment level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="fieldRequirementList" type="FieldRequirementList">
+		<xs:annotation>
+			<xs:documentation>
+				List of data that a party must provide for a given field.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="FieldRequirementList">
+		<xs:annotation>
+			<xs:documentation>
+				List of data that a user provides
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldRequirement" type="FieldRequirement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Criteria that must be met for the field to be considered valid.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="FieldId">
+		<xs:annotation>
+			<xs:documentation>
+				Identifier for the field.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldId" type="FieldId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Identifier for the field.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="FieldRequirementId">
+		<xs:annotation>
+			<xs:documentation>
+				Identifier for the field requirement.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldRequirementIdList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldRequirementId" type="FieldRequirementId" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Identifier for field requirement.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="FieldType">
+		<xs:annotation>
+			<xs:documentation>
+				The expected type for the  field.
+				May be a Boolean, String, GUID, or other data types.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldType" type="FieldType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The expected type for the  field.
+								May be a Boolean, String, GUID, or other data types.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="FieldRequirementType">
+		<xs:annotation>
+			<xs:documentation>
+				The format of the content of fieldRequirement. Example: Java Script, Pattern, HTML, C# snippet.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:complexType name="FieldRequirementTypeList">
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="fieldRequirementType" type="FieldRequirementType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								The format of the content of fieldRequirement. Example: Java Script, Pattern, HTML, C# snippet.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence >
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

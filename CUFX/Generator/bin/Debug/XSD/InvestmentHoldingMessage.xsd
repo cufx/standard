@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/InvestmentHoldingMessage.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/InvestmentHoldingMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
+	xmlns:investmentHoldingFilter="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd" schemaLocation="InvestmentHoldingFilter.xsd" />
+
+	<xs:element name="investmentHoldingMessage" type="InvestmentHoldingMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a investment holding message.  Contains message context, investmentHolding filter
+				and a investment holding list.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentHoldingMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in a investment holding message.  Contains message context, investment holding filter
+				and a investment holdinglist.
+				This is a wrapper used to more easily serialize the complete message.  All values are optional.  See
+				example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call.  It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investmentHoldingFilter" type="investmentHoldingFilter:InvestmentHoldingFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete investment holding message request.
+						Does not apply to a create investment holding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="investmentHoldingList" type="investmentHolding:InvestmentHoldingList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All of the investment holding data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>
+

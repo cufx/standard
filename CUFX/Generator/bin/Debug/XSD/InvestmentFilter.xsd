@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/InvestmentFilter.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/InvestmentFilter.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+xmlns:accountFilter="http://cufxstandards.com/v4/AccountFilter.xsd"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:investment="http://cufxstandards.com/v4/Investment.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
+
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/AccountFilter.xsd" schemaLocation="AccountFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Investment.xsd" schemaLocation="Investment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+
+
+	<xs:element name= "investmentFilter" type="InvestmentFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array list contains all the investment accounts to be read, updated or deleted with this
+				request.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="InvestmentFilter">
+		<xs:annotation>
+			<xs:documentation>
+				The collection/array contains all the Investment accounts to be read, updated or deleted with
+				this request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="accountFilter:AccountFilter">
+				<xs:sequence>
+					<xs:element name="holdingIdList" type="investmentHolding:HoldingIdList" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								The list of account ID's that should have their associated accounts either returned or affected
+								by a read, update or delete account request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="holdingAsOfDateRange" type="common:DateRange" minOccurs ="0" maxOccurs ="1">
+						<xs:annotation>
+							<xs:documentation>
+								Filter that is used to start searching the date/time stamp of the evaluation of the investment or security.
+								If neither holdingAsOf StartDateTime or holdingAsOf EndDateTime is provided,
+								NO transaction history data will be returned.
+								Usage see common.xsd DateRange.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

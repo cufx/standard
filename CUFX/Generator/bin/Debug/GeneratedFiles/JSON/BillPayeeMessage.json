@@ -1,0 +1,254 @@
+{
+  "billPayeeMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "billPayeeFilter": {
+      "billPayeeGlobalIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "billPayeeGlobalId": "billPayeeGlobalId1"
+      },
+      "billPayeeIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "billPayeeId": "billPayeeId1"
+      },
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "relationshipIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "relationshipId": "relationshipId1"
+      },
+      "accountIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountId": "accountId1"
+      },
+      "accountStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountStatusPair": {
+          "accountStatus": {
+            "depositAccountStatus": "Active",
+            "investmentStatus": "Active",
+            "loanAccountStatus": "Active"
+          },
+          "accountSubStatus": "accountSubStatus1"
+        }
+      },
+      "payeeName": "payeeName1",
+      "isElectronic": "true",
+      "userDefinedName": "userDefinedName1",
+      "payeeCategory": "payeeCategory1",
+      "payeeStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "payeeStatus": "Active"
+      },
+      "earlyPaymentDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "nextPaymenDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "payeeAddedDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "payeeUpdatedDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "billPayeeList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "billPayee": {
+        "billPayeeId": "billPayeeId1",
+        "billPayeeGlobalId": "billPayeeGlobalId1",
+        "payeeName": "payeeName1",
+        "payeeAddress": {
+          "line1": "line11",
+          "line2": "line21",
+          "line3": "line31",
+          "line4": "line41",
+          "line5": "line51",
+          "line6": "line61",
+          "line7": "line71",
+          "line8": "line81",
+          "line9": "line91",
+          "line10": "line101",
+          "city": "city1",
+          "stateProvince": "stateProvince1",
+          "postalCode": "postalCode1",
+          "countryCode": "AD",
+          "country": "country1",
+          "coordinate": {
+            "latitude": "1",
+            "longitude": "1"
+          },
+          "addressType": "Home",
+          "effectiveDateTime": "1900-01-01T01:01:01Z",
+          "expirationDateTime": "1900-01-01T01:01:01Z",
+          "timeAtAddress": "P396DT1H1M1S",
+          "addressVerifyDateTime": "1900-01-01T01:01:01Z",
+          "otherAddressType": "otherAddressType1"
+        },
+        "payeePhone": {
+          "phoneType": "Home",
+          "number": "number1",
+          "extension": "extension1",
+          "planFormat": "Nanp",
+          "description": "description1",
+          "smsRegistered": "true",
+          "countryCode": "AD",
+          "country": "country1",
+          "otherPhoneType": "otherPhoneType1"
+        },
+        "payeeEmail": {
+          "emailType": "Home",
+          "address": "address1",
+          "otherEmailType": "otherEmailType1"
+        },
+        "processorName": "processorName1",
+        "payeeACHRoutingNumber": "payeeACHRoutingNumber1",
+        "payeeACHAccountNumber": "payeeACHAccountNumber1",
+        "isElectronic": "true",
+        "isEBillProvider": "true",
+        "isEBillEnrolled": "true",
+        "addedDateTime": "1900-01-01T01:01:01Z",
+        "updatedDateTime": "1900-01-01T01:01:01Z",
+        "minimumDaysToPay": "1",
+        "partyId": "partyId1",
+        "relationshipId": "relationshipId1",
+        "accountId": "accountId1",
+        "userDefinedName": "userDefinedName1",
+        "payeeAccountNumber": "payeeAccountNumber1",
+        "accountHolderName": "accountHolderName1",
+        "payeeCategory": "payeeCategory1",
+        "payeeStatus": "Active",
+        "defaultPaymentFromAccountId": "defaultPaymentFromAccountId1",
+        "earlyPaymentDateTime": "1900-01-01T01:01:01Z",
+        "nextPaymentDateTime": "1900-01-01T01:01:01Z",
+        "isRecurringPaymentEnabled": "true",
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      }
+    }
+  }
+}

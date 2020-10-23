@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/RegisteredDevice.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/RegisteredDevice.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
@@ -114,6 +114,24 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Registered Device level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete registered device request. 
+						This supports financial institutions that have a complex account identification structure to establish a unique key.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -130,7 +148,7 @@
 	<xs:complexType name="RegisteredDeviceIdList">
 		<xs:annotation>
 			<xs:documentation>
-				List of device ID's used for filtering or referencing in other schema's for foreign key relationships.
+				List of device IDs used for filtering or referencing in other schema's for foreign key relationships.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>

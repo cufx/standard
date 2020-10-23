@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/HoldFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/HoldFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -41,7 +41,7 @@
 			<xs:element name="holdIdList" type="hold:HoldIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of hold ID's that should have their associated holds either returned or affected
+						The list of hold IDs that should have their associated holds either returned or affected
 						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -50,7 +50,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or
+						The list of party IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -59,7 +59,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated cards either returned or affected
+						The list of account IDs that should have their associated accounts either returned or affected
 						by a read, update or delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -77,7 +77,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should be returned or affected by a read, update or
+						The list of relationship IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -86,7 +86,7 @@
 			<xs:element name="transactionIdList" type="transaction:TransactionIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of transaction ID's that should be returned or affected by a read, update or
+						The list of transaction IDs that should be returned or affected by a read, update or
 						delete hold request.
 					</xs:documentation>
 				</xs:annotation>
@@ -160,6 +160,34 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="startCheckNumber" type="common:CheckNumber"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The starting check number that should have their associated holds either returned or affected
+						by a read, update or delete hold request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="endCheckNumber" type="common:CheckNumber"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The ending check number that should have their associated holds either returned or affected
+						by a read, update or delete hold request. This field can be omitted for a single check stop payment request.
+						Optionally, for a single check stop payment request, set this field to the same value as the 'startCheckNumber'.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

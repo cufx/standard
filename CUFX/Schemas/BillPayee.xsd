@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/BillPayee.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/BillPayee.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -131,6 +131,7 @@
 				<xs:annotation>
 					<xs:documentation>
 						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
+						Element deprecated in favor of eBillEnrollmentStatus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -180,6 +181,22 @@
 				<xs:annotation>
 					<xs:documentation>
 						ID of account related to payee.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -265,6 +282,20 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="eBillEnrollmentStatus" type="EBillEnrollmentStatus"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The status of the ebill enrollment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherEBillEnrollmentStatus" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Free form text that describes the EBillEnrollmentStatus type "Other" when it is set in the eBillEnrollmentStatus element.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -344,7 +375,7 @@
 	<xs:complexType name="BillPayeeIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of bill pay ID's that should have their associated bill pay records either returned or affected
+				The list of bill pay IDs that should have their associated bill pay records either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -378,7 +409,7 @@
 	<xs:complexType name="BillPayeeGlobalIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of bill pay global ID's that should have their associated bill pay records that are global either returned or affected
+				The list of bill pay global IDs that should have their associated bill pay records that are global either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -389,6 +420,88 @@
 						<xs:annotation>
 							<xs:documentation>
 								A bill pay global ID that should have its associated bill pay global id either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="EBillEnrollmentStatus">
+		<xs:annotation>
+			<xs:documentation>
+				This is enumeration of statuses for the ebill Enrollment.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">			
+			<xs:enumeration value="Ineligible">
+				<xs:annotation>
+					<xs:documentation>
+						The user is ineligible to enroll in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enrolled">
+				<xs:annotation>
+					<xs:documentation>
+						The user is currently enrolled in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NotEnrolled">
+				<xs:annotation>
+					<xs:documentation>
+						The user is currently not enrolled in ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PendingEnrollment">
+				<xs:annotation>
+					<xs:documentation>
+						The user has a pending enrollment in progress for ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PendingUnenrollment">
+				<xs:annotation>
+					<xs:documentation>
+						The user has a pending unenrollment in progress for ebills
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Error">
+				<xs:annotation>
+					<xs:documentation>
+						The user has an unspecified error with their ebill enrollment 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>
+						This value can be used when no other statuses relate to the ebill enrollment
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="EBillEnrollmentStatusList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of ebill enrollment statuses that should have their associated bill payee records either returned or affected
+				by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="eBillEnrollmentStatus" type="EBillEnrollmentStatus" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								An ebill enrollment status that should have its associated bill payee records either returned or affected
 								by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>

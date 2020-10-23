@@ -1,0 +1,210 @@
+{
+  "holdMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "holdFilter": {
+      "holdIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "holdId": "holdId1"
+      },
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "accountIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountId": "accountId1"
+      },
+      "accountStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountStatusPair": {
+          "accountStatus": {
+            "depositAccountStatus": "Active",
+            "investmentStatus": "Active",
+            "loanAccountStatus": "Active"
+          },
+          "accountSubStatus": "accountSubStatus1"
+        }
+      },
+      "relationshipIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "relationshipId": "relationshipId1"
+      },
+      "transactionIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "transactionId": "transactionId1"
+      },
+      "holdStatus": "Active",
+      "holdTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "holdType": "GeneralPurpose"
+      },
+      "holdReasonTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "holdReasonType": "Unknown"
+      },
+      "minAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "maxAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "holdEffectiveDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "holdList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "hold": {
+        "holdId": "holdId1",
+        "accountId": "accountId1",
+        "transactionId": "transactionId1",
+        "holdType": "GeneralPurpose",
+        "effectiveDate": "1900-01-01T01:01:01Z",
+        "expirationDate": "1900-01-01T01:01:01Z",
+        "actualReleaseDate": "1900-01-01T01:01:01Z",
+        "holdStatus": "Active",
+        "description": "description1",
+        "amount": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "payee": "payee1",
+        "reason": "Unknown",
+        "feeId": "feeId1",
+        "startCheckNumber": "startCheckNumber1",
+        "endCheckNumber": "endCheckNumber1",
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      }
+    }
+  }
+}

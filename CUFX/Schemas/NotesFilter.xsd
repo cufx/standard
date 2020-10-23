@@ -1,24 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/NotesFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/NotesFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
 	xmlns:application="http://cufxstandards.com/v4/Application.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-					 
+
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Activity.xsd" schemaLocation ="Activity.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Application.xsd" schemaLocation="Application.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="notesFilter" type="NotesFilter">
@@ -41,7 +45,7 @@
 			<xs:element name="noteIdList" type="common:NoteIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Note Id's that should have their associated records either returned or affected
+						The list of Note IDs that should have their associated records either returned or affected
 						by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -80,7 +84,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account Id's that should have their associated notes either returned or affected
+						The list of account IDs that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -98,7 +102,7 @@
 			<xs:element name="applicationIdList" type="application:ApplicationIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of application Id's that should have their associated notes either returned or affected
+						The list of application IDs that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -107,7 +111,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party Id's that should be returned or affected by a read, update or
+						The list of party IDs that should be returned or affected by a read, update or
 						delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -116,7 +120,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of Relationship Id's that should have their associated notes either returned or affected
+						The list of Relationship IDs that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
@@ -125,14 +129,31 @@
 			<xs:element name="productServiceRequestIdList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of productServiceRequestId's  that should have their associated notes either returned or affected
+						The list of productServiceRequestIds that should have their associated notes either returned or affected
 						by a read, update or delete note request.
 
 						The product service request ID is a persistent and unique identifier for the product
 						service request.  It should be unique for all product service requests across the
 						institution and remain the same over the life of the product service request within
 						the financial institution.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 
+			<xs:element name="activityIdList" type="activity:ActivityIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						A list of activity IDs that should have their associated notes either returned or affected
+						by a read, update or delete note request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="transactionIdList" type="transaction:TransactionIdList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The list of transaction IDs that should have their associated notes either returned or affected
+						by a read, update or delete note request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -159,8 +180,16 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
 </xs:schema>
-

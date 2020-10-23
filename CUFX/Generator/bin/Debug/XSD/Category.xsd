@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	targetNamespace="http://cufxstandards.com/v4/Category.xsd"
+	version="4.4.$Revision$"
+	xmlns="http://cufxstandards.com/v4/Category.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+
+	<xs:element name="categoryList" type="CategoryList">
+		<xs:annotation>
+			<xs:documentation>
+				The categories collection/array contains all the categories
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="CategoryList">
+		<xs:annotation>
+			<xs:documentation>
+				The categories collection/array contains all the categories for a specified request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="category" type="Category" minOccurs="0" maxOccurs="unbounded">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="Category">
+		<xs:annotation>
+			<xs:documentation>
+				General purpose definition describing a categorization.
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="categoryId" type="CategoryId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An identifier for the category. Must be unique within the list of categories. May be a serial number or letter (1, 2, 3 or
+						A, B, C), a GUID, or other identifier.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="categoryName" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A human-readable name of the category.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="categoryDescription" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of the category.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="categoryType" type="CategoryType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The human-readable string describing the type of category.
+						For example: Payee, Transaction, etc.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="isCategoryActive" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Is category active.  This will allow specific categories to not be shown if they
+						are not active yet or after they have been closed out.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="parentCategoryId" type="CategoryId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An identifier for the parent category. This can be null for root level categories.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="imageId" type="ImageId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						An identifier for image related to the category
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Category level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture
+						or working group committee to ensure that fields are somehow handled in the future release of
+						specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="CategoryId">
+		<xs:annotation>
+			<xs:documentation>
+				An identifier for the category. Must be unique within the list of categories. May be a serial number or letter (1, 2, 3 or
+				A, B, C), a GUID, or other identifier.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="ImageId">
+		<xs:annotation>
+			<xs:documentation>
+				An identifier for image related to the category
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="CategoryType">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The human-readable string describing the type of category.
+					For example: Payee, Transaction, etc.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CategoryIdList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of category Ids to return in a filter request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="categoryId" type="CategoryId" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CategoryTypeList">
+		<xs:annotation>
+			<xs:documentation>
+				Collection of category types to return in a filter request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="categoryType" type="CategoryType" minOccurs="0" maxOccurs="unbounded" nillable="true">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

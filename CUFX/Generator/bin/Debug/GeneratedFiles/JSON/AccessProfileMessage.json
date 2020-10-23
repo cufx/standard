@@ -1,0 +1,152 @@
+{
+  "accessProfileMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "accessProfileFilter": {
+      "accessProfileIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accessProfileId": "accessProfileId1"
+      },
+      "createAccessDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "actorList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "actor": {
+          "fiUserId": "fiUserId1",
+          "userId": "userId1",
+          "partyId": "partyId1",
+          "relationshipId": "relationshipId1"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "accessProfileList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "accessProfile": {
+        "accessProfileId": "accessProfileId1",
+        "actor": {
+          "fiUserId": "fiUserId1",
+          "userId": "userId1",
+          "partyId": "partyId1",
+          "relationshipId": "relationshipId1"
+        },
+        "language": "language1",
+        "locale": "locale1",
+        "characterEncoding": "characterEncoding1",
+        "createAccessDateTime": "1900-01-01T01:01:01Z",
+        "savedAccessProfile": "true",
+        "softwareClient": {
+          "softwareClientId": "softwareClientId1",
+          "rawSoftwareClientDetail": "rawSoftwareClientDetail1",
+          "browserName": "browserName1",
+          "browserVersion": "browserVersion1",
+          "operatingSystemName": "operatingSystemName1",
+          "operatingSystemVersion": "operatingSystemVersion1"
+        },
+        "device": {
+          "deviceId": "deviceId1",
+          "deviceType": "deviceType1",
+          "deviceName": "deviceName1",
+          "rawDeviceDetail": "rawDeviceDetail1",
+          "ipAddress": "ipAddress1",
+          "manufacturer": "manufacturer1"
+        },
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      }
+    }
+  }
+}

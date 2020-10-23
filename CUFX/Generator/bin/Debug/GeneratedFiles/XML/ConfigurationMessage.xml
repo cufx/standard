@@ -1,0 +1,622 @@
+<configurationMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cufxstandards.com/v4/ConfigurationMessage.xsd">
+  <messageContext>
+    <cufxVersion xmlns="http://cufxstandards.com/v4/MessageContext.xsd">1.0.3</cufxVersion>
+    <requestId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">requestId1</requestId>
+    <configurationId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">configurationId1</configurationId>
+    <vendorId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">vendorId1</vendorId>
+    <appId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">appId1</appId>
+    <fiId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">fiId1</fiId>
+    <dataSourceId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">dataSourceId1</dataSourceId>
+    <sendingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sendingNetworkNodeId1</sendingNetworkNodeId>
+    <receivingNetworkNodeId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">receivingNetworkNodeId1</receivingNetworkNodeId>
+    <environment xmlns="http://cufxstandards.com/v4/MessageContext.xsd">environment1</environment>
+    <returnDataFilter xmlns="http://cufxstandards.com/v4/MessageContext.xsd">All</returnDataFilter>
+    <includeBlankFields xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeBlankFields>
+    <includeZeroNumerics xmlns="http://cufxstandards.com/v4/MessageContext.xsd">true</includeZeroNumerics>
+    <sessionId xmlns="http://cufxstandards.com/v4/MessageContext.xsd">sessionId1</sessionId>
+    <userList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <user xmlns="http://cufxstandards.com/v4/User.xsd">
+        <userId>userId1</userId>
+        <processorSessionId>processorSessionId1</processorSessionId>
+        <userIdType>EmployeeId</userIdType>
+        <partyId>partyId1</partyId>
+        <customData>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd">
+            <name>name1</name>
+            <value>value1</value>
+          </valuePair>
+        </customData>
+      </user>
+    </userList>
+    <statusList xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <status xsi:nil="true" />
+    </statusList>
+    <customData xmlns="http://cufxstandards.com/v4/MessageContext.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+  </messageContext>
+  <configurationFilter>
+    <configurationIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationId1</configurationId>
+    </configurationIdList>
+    <configurationNameList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationName xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationName1</configurationName>
+    </configurationNameList>
+    <environmentList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <environment xmlns="http://cufxstandards.com/v4/Common.xsd">environment1</environment>
+    </environmentList>
+    <configurationStatusList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationStatus xmlns="http://cufxstandards.com/v4/Configuration.xsd">Online</configurationStatus>
+    </configurationStatusList>
+    <configurationCreatedDateRange xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </configurationCreatedDateRange>
+    <configurationCreatedByList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationCreatedBy xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationCreatedBy1</configurationCreatedBy>
+    </configurationCreatedByList>
+    <configurationUpdatedDateRange xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
+      <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
+    </configurationUpdatedDateRange>
+    <configurationLastUpdatedByList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationLastModifiedBy xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationLastModifiedBy1</configurationLastModifiedBy>
+    </configurationLastUpdatedByList>
+    <fiIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <fiId xmlns="http://cufxstandards.com/v4/FinancialInstitution.xsd">fiId1</fiId>
+    </fiIdList>
+    <configurationFiIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationFiId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationFiId1</configurationFiId>
+    </configurationFiIdList>
+    <configurationFiVendorIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationFiVendorId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationFiVendorId1</configurationFiVendorId>
+    </configurationFiVendorIdList>
+    <vendorIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <vendorId xmlns="http://cufxstandards.com/v4/Common.xsd">vendorId1</vendorId>
+    </vendorIdList>
+    <serviceList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <service xmlns="http://cufxstandards.com/v4/Configuration.xsd">
+        <serviceId>serviceId1</serviceId>
+        <serviceName>AccessProfile</serviceName>
+        <protocol>REST-XML</protocol>
+        <cufxVersion>1.0.3</cufxVersion>
+        <wsdlUri>http://uri1</wsdlUri>
+        <currencySupportList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <currency xmlns="http://cufxstandards.com/v4/Common.xsd">AED</currency>
+        </currencySupportList>
+        <acceptLanguageList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <language xmlns="http://cufxstandards.com/v4/Common.xsd">language1</language>
+        </acceptLanguageList>
+        <fieldNotSupportedList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <fieldNotSupported>
+            <xsdFile>xsdFile1</xsdFile>
+            <xsdXPath>xsdXPath1</xsdXPath>
+            <comment>comment1</comment>
+            <customData>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
+          </fieldNotSupported>
+        </fieldNotSupportedList>
+        <serviceTimeZoneUTCOffset>Token1</serviceTimeZoneUTCOffset>
+        <status>Online</status>
+        <customDataUseList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <customDataUse>
+            <xsdFile>xsdFile1</xsdFile>
+            <xsdXPath>xsdXPath1</xsdXPath>
+            <name>name1</name>
+            <comment>comment1</comment>
+          </customDataUse>
+        </customDataUseList>
+        <methodList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <method>
+            <methodId>methodId1</methodId>
+            <methodName>Create</methodName>
+            <uri>http://uri1</uri>
+            <methodDependencyList>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <methodDependency>
+                <methodDependencyId>methodDependencyId1</methodDependencyId>
+                <serviceName>AccessProfile</serviceName>
+                <methodName>methodName1</methodName>
+                <cufxVersion>1.0.3</cufxVersion>
+                <customData>
+                  <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                  <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                  <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                  <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                  <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                  <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                  <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                </customData>
+              </methodDependency>
+            </methodDependencyList>
+            <customData>
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
+          </method>
+        </methodList>
+        <customData>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+          <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+        </customData>
+      </service>
+    </serviceList>
+    <methodIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <MethodId xmlns="http://cufxstandards.com/v4/Configuration.xsd">MethodId1</MethodId>
+    </methodIdList>
+    <methodDependencyIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <methodDependencyId xmlns="http://cufxstandards.com/v4/Configuration.xsd">methodDependencyId1</methodDependencyId>
+    </methodDependencyIdList>
+    <configurationAppIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationAppId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationAppId1</configurationAppId>
+    </configurationAppIdList>
+    <appIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <appId xmlns="http://cufxstandards.com/v4/App.xsd">appId1</appId>
+    </appIdList>
+    <configurationAppParameterIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationAppParameterId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationAppParameterId1</configurationAppParameterId>
+    </configurationAppParameterIdList>
+    <appParameterIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <appParameterId xmlns="http://cufxstandards.com/v4/App.xsd">appParameterId1</appParameterId>
+    </appParameterIdList>
+    <parameterNameList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <parameterName xmlns="http://cufxstandards.com/v4/App.xsd">parameterName1</parameterName>
+    </parameterNameList>
+    <configurationFiAppIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationFiAppId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationFiAppId1</configurationFiAppId>
+    </configurationFiAppIdList>
+    <configurationFiAppParameterIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationFiAppParameterId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationFiAppParameterId1</configurationFiAppParameterId>
+    </configurationFiAppParameterIdList>
+    <configurationNetworkNodeAddressIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <configurationNetworkNodeAddressId xmlns="http://cufxstandards.com/v4/Configuration.xsd">configurationNetworkNodeAddressId1</configurationNetworkNodeAddressId>
+    </configurationNetworkNodeAddressIdList>
+    <networkNodeAddressIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <networkNodeId xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeId1</networkNodeId>
+    </networkNodeAddressIdList>
+    <networkNodeIdList xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <networkNodeId xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeId1</networkNodeId>
+    </networkNodeIdList>
+    <customData xmlns="http://cufxstandards.com/v4/ConfigurationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+  </configurationFilter>
+  <configurationList>
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <configuration xmlns="http://cufxstandards.com/v4/Configuration.xsd">
+      <configurationId>configurationId1</configurationId>
+      <configurationName>configurationName1</configurationName>
+      <configurationDescription>configurationDescription1</configurationDescription>
+      <environment>environment1</environment>
+      <configurationStatus>Online</configurationStatus>
+      <configurationStatusComment>configurationStatusComment1</configurationStatusComment>
+      <fiIdList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <fiId>fiId1</fiId>
+      </fiIdList>
+      <fiList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <financialInstitution>
+          <configurationFiId>configurationFiId1</configurationFiId>
+          <fiId>fiId1</fiId>
+          <partyId>partyId1</partyId>
+          <configurationFiVendorList>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <configurationFiVendor>
+              <configurationFiVendorId>configurationFiVendorId1</configurationFiVendorId>
+              <vendorId>vendorId1</vendorId>
+              <partyId>partyId1</partyId>
+              <customData>
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+              </customData>
+            </configurationFiVendor>
+          </configurationFiVendorList>
+          <configurationFiAppList>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <configurationFiApp>
+              <configurationFiAppId>configurationFiAppId1</configurationFiAppId>
+              <appId>appId1</appId>
+              <configurationFiAppDescription>configurationFiAppDescription1</configurationFiAppDescription>
+              <configurationFiAppParameterList>
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <configurationFiAppParameter>
+                  <configurationFiAppParameterId>configurationFiAppParameterId1</configurationFiAppParameterId>
+                  <appParameterId>appParameterId1</appParameterId>
+                  <currentValue>currentValue1</currentValue>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
+                </configurationFiAppParameter>
+              </configurationFiAppParameterList>
+              <customData>
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+              </customData>
+            </configurationFiApp>
+          </configurationFiAppList>
+          <customData>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+          </customData>
+        </financialInstitution>
+      </fiList>
+      <endPointTimeZoneUTOffset>1</endPointTimeZoneUTOffset>
+      <serviceTimeZoneUTCOffset>Token1</serviceTimeZoneUTCOffset>
+      <serviceTimeZoneName>serviceTimeZoneName1</serviceTimeZoneName>
+      <serviceList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      </serviceList>
+      <configurationAppList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <configurationApp>
+          <configurationAppId>configurationAppId1</configurationAppId>
+          <appId>appId1</appId>
+          <configurationAppDescription>configurationAppDescription1</configurationAppDescription>
+          <configurationAppParameterList>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <configurationAppParameter>
+              <configurationAppParameterId>configurationAppParameterId1</configurationAppParameterId>
+              <appParameterId>appParameterId1</appParameterId>
+              <currentValue>currentValue1</currentValue>
+              <customData>
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+              </customData>
+            </configurationAppParameter>
+          </configurationAppParameterList>
+          <customData>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+          </customData>
+        </configurationApp>
+      </configurationAppList>
+      <configurationNetworkNodeAddressList>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <configurationNetworkNodeAddressList>
+          <configurationNetworkNodeAddressId>configurationNetworkNodeAddressId1</configurationNetworkNodeAddressId>
+          <networkNodeAddress>
+            <networkNodeAddressId xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeAddressId1</networkNodeAddressId>
+            <networkNodeAddressDescription xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeAddressDescription1</networkNodeAddressDescription>
+            <networkNodeAddressValue xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeAddressValue1</networkNodeAddressValue>
+            <networkNodeAddressScopeIsLocal xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">true</networkNodeAddressScopeIsLocal>
+            <networkNodeAddressType xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">IPV4</networkNodeAddressType>
+            <networkNodeAddressPort xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">networkNodeAddressPort1</networkNodeAddressPort>
+            <customData xmlns="http://cufxstandards.com/v4/NetworkNode.xsd">
+              <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+              <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+              <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+              <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+              <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+              <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+              <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+            </customData>
+          </networkNodeAddress>
+          <customData>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+          </customData>
+        </configurationNetworkNodeAddressList>
+      </configurationNetworkNodeAddressList>
+      <configurationCreatedDateTime>1900-01-01T01:01:01Z</configurationCreatedDateTime>
+      <configurationCreatedBy>configurationCreatedBy1</configurationCreatedBy>
+      <configurationLastUpdatedDateTime>1900-01-01T01:01:01Z</configurationLastUpdatedDateTime>
+      <configurationLastUpdatedBy>configurationLastUpdatedBy1</configurationLastUpdatedBy>
+      <customData>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      </customData>
+    </configuration>
+  </configurationList>
+</configurationMessage>
