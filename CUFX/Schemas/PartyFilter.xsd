@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/PartyFilter.xsd"
-	version="4.4.$Revision$"
+	version="4.3.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PartyFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
@@ -43,7 +43,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party IDs that should be returned or affected by a read, update or delete party request.
+						The list of party ID's that should be returned or affected by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -51,7 +51,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship IDs that should have their associated parties either returned or affected
+						The list of relationship ID's that should have their associated parties either returned or affected
 						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
@@ -60,7 +60,7 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact IDs that should have their associated parties either returned or affected
+						The list of contact ID's that should have their associated parties either returned or affected
 						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
@@ -69,7 +69,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account IDs that should have their associated parties either returned or affected
+						The list of account ID's that should have their associated parties either returned or affected
 						by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
@@ -87,10 +87,8 @@
 			<xs:element name="accountAccountTypeList" type="account:AccountAccountTypeList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Deprecated - Planned removal in v5.0. Functionality moved and expanded in accountIdentificationList.
-						Collection of account ids and account type pairs that should have their associated parties either returned or affected
-						by a read, update or delete party request. This filter supports financial institutions that need to have account id and account
-						type as a pair to establish a unique key.
+						Collection of account and account type pairs that should have their associated accounts either returned or affected
+						by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -98,7 +96,7 @@
 			<xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of taxIds that should be returned or affected by a read, update or delete party request.
+						The list of taxId's that should be returned or affected by a read, update or delete party request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -239,15 +237,6 @@
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
-			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Collection of account identifications to associate accounts affected by a read, update or delete request. 
-						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
