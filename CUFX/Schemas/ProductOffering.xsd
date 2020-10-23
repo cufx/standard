@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/ProductOffering.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	elementFormDefault="qualified"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://cufxstandards.com/v4/ProductOffering.xsd"
@@ -277,6 +277,13 @@
 					<xs:documentation>
 						Interest rate charged for a loan product or earned by a deposit or investment product.
 						Determines the amount charged each time period based on the period.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annualPercentageRate" type="common:AnnualPercentageRate" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The interest rate calculated as an annual percentage rate, as defined by the FI.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

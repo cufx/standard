@@ -131,6 +131,15 @@
       <contactType xmlns="http://cufxstandards.com/v4/Contact.xsd">Address</contactType>
     </contactTypeList>
     <badContactPoint xmlns="http://cufxstandards.com/v4/ContactFilter.xsd">true</badContactPoint>
+    <customData xmlns="http://cufxstandards.com/v4/ContactFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
   </contactFilter>
   <contactList>
     <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -177,6 +186,7 @@
           <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
           <timeAtAddress>P396DT1H1M1S</timeAtAddress>
           <addressVerifyDateTime>1900-01-01T01:01:01Z</addressVerifyDateTime>
+          <otherAddressType>otherAddressType1</otherAddressType>
         </address>
         <phone>
           <phoneType>Home</phoneType>
@@ -185,10 +195,14 @@
           <planFormat>Nanp</planFormat>
           <description>description1</description>
           <smsRegistered>true</smsRegistered>
+          <countryCode>AD</countryCode>
+          <country>country1</country>
+          <otherPhoneType>otherPhoneType1</otherPhoneType>
         </phone>
         <email>
           <emailType>Home</emailType>
           <address>address1</address>
+          <otherEmailType>otherEmailType1</otherEmailType>
         </email>
         <instantMessage>
           <messagingService>messagingService1</messagingService>
@@ -211,6 +225,7 @@
         <userName>userName1</userName>
       </demonstratedAccess>
       <badContactPoint>true</badContactPoint>
+      <preferenceOrder>1</preferenceOrder>
       <customData>
         <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
         <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>

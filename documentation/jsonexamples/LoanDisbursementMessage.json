@@ -1,0 +1,140 @@
+{
+  "loanDisbursementMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "loanDisbursementFilter": {
+      "loanDisbursementIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "loanDisbursementId": "loanDisbursementId1"
+      },
+      "loanIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "loanId": "loanId1"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "loanDisbursementList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "loanDisbursement": {
+        "loanDisbursementCheck": {
+          "loanDisbursementId": "loanDisbursementId1",
+          "amount": "1",
+          "description": "description1",
+          "comment": "comment1",
+          "payeeLines": "payeeLines1"
+        },
+        "loanDisbursementDepositToAccount": {
+          "loanDisbursementId": "loanDisbursementId1",
+          "amount": "1",
+          "description": "description1",
+          "comment": "comment1",
+          "toAccount": "toAccount1",
+          "toAccountType": "Checking"
+        },
+        "loanDisbursementDealerAch": {
+          "loanDisbursementId": "loanDisbursementId1",
+          "amount": "1",
+          "description": "description1",
+          "comment": "comment1",
+          "dealerId": "dealerId1",
+          "dealerName": "dealerName1",
+          "dealerRtn": "dealerRtn1",
+          "dealerAccountNumber": "dealerAccountNumber1"
+        },
+        "loanDisbursementGL": {
+          "loanDisbursementId": "loanDisbursementId1",
+          "amount": "1",
+          "description": "description1",
+          "comment": "comment1",
+          "glAccount": "glAccount1"
+        },
+        "transactionId": "transactionId1"
+      },
+      "loanId": "loanId1"
+    }
+  }
+}

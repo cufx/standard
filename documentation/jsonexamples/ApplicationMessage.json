@@ -1,0 +1,1780 @@
+{
+  "applicationMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "applicationFilter": {
+      "applicationIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "applicationId": "applicationId1"
+      },
+      "productTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "productType": "Checking"
+      },
+      "productSubTypeList": "productSubTypeList1",
+      "relationshipIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "relationshipId": "relationshipId1"
+      },
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "applicationDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "applicationList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "application": {
+        "applicationId": "applicationId1",
+        "applicationDate": "1900-01-01",
+        "applicationStatus": "New",
+        "applicationStatusDateTime": "1900-01-01T01:01:01Z",
+        "applicationModifiedDateTime": "1900-01-01T01:01:01Z",
+        "productAppliedForList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "productAppliedFor": {
+            "productAppliedForId": "productAppliedForId1",
+            "productType": "Checking",
+            "productSubType": "productSubType1",
+            "productApplicationStatus": "New",
+            "productDetail": {
+              "loan": {
+                "accountId": "accountId1",
+                "type": "Checking",
+                "openDate": "1900-01-01",
+                "closeDate": "1900-01-01",
+                "accountStatus": {
+                  "depositAccountStatus": "Active",
+                  "investmentStatus": "Active",
+                  "loanAccountStatus": "Active"
+                },
+                "accountSubStatus": "accountSubStatus1",
+                "micrAccountNumber": "micrAccountNumber1",
+                "routingNumber": "routingNumber1",
+                "displayAccountId": "displayAccountId1",
+                "idType": "Reserved",
+                "description": "description1",
+                "subType": "subType1",
+                "accountEscheatDate": "1900-01-01",
+                "accountEscheatAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "chargeOffDate": "1900-01-01",
+                "chargeOffAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "accountNickName": "accountNickName1",
+                "branch": "branch1",
+                "actualBalance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "availableBalance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "cashAdvanceAvailableBalance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "cashAdvanceBalance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "cashAdvanceLimit": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "minimumBalance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "externalAccountBankAddress": {
+                  "line1": "line11",
+                  "line2": "line21",
+                  "line3": "line31",
+                  "line4": "line41",
+                  "line5": "line51",
+                  "line6": "line61",
+                  "line7": "line71",
+                  "line8": "line81",
+                  "line9": "line91",
+                  "line10": "line101",
+                  "city": "city1",
+                  "stateProvince": "stateProvince1",
+                  "postalCode": "postalCode1",
+                  "countryCode": "AD",
+                  "country": "country1",
+                  "coordinate": {
+                    "latitude": "1",
+                    "longitude": "1"
+                  }
+                },
+                "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+                "externalAccountIBANCode": "externalAccountIBANCode1",
+                "externalAccountBankCode": "externalAccountBankCode1",
+                "externalAccountFlag": "true",
+                "externalAccountVerified": "true",
+                "externalTransferFrom": "true",
+                "externalTransferTo": "true",
+                "transferFrom": "true",
+                "transferTo": "true",
+                "rateType": "Fixed",
+                "sourceCode": "sourceCode1",
+                "partyIdList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "partyId": "partyId1"
+                },
+                "relationshipId": "relationshipId1",
+                "accountNoteList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "note": {
+                    "noteId": "noteId1",
+                    "recordType": "Account",
+                    "noteCode": "noteCode1",
+                    "noteText": "noteText1",
+                    "noteCreatedDateTime": "1900-01-01T01:01:01Z",
+                    "noteExpirationDate": "1900-01-01",
+                    "noteCreator": "noteCreator1"
+                  }
+                },
+                "customData": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "valuePair": null
+                },
+                "meta": {
+                  "@xsi:nil": "true"
+                },
+                "transactionList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "transaction": {
+                    "transactionId": "transactionId1",
+                    "accountId": "accountId1",
+                    "type": "Debit",
+                    "amount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "description": "description1",
+                    "checkNumber": "checkNumber1",
+                    "dateTimePosted": "1900-01-01T01:01:01Z",
+                    "dateTimeEffective": "1900-01-01T01:01:01Z",
+                    "status": "Posted",
+                    "otherTransactionStatus": "otherTransactionStatus1",
+                    "postedActualBalance": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "postedAvailableBalance": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "principalAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "interestAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "transactionFeeList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "transactionFee": {
+                        "transactionFeeId": "transactionFeeId1",
+                        "transactionFeeDateTimePosted": "1900-01-01T01:01:01Z",
+                        "transactionfeeAmount": {
+                          "value": "1",
+                          "currencyCode": "USD",
+                          "exchangeRate": "1"
+                        },
+                        "transactionFeeCode": "transactionFeeCode1",
+                        "transactionFeeDescription": "transactionFeeDescription1"
+                      }
+                    },
+                    "merchantCategoryCode": "merchantCategoryCode1",
+                    "category": "category1",
+                    "source": "Ach",
+                    "escrowAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "transactionArtifactId": {
+                      "artifactUniqueId": "artifactUniqueId1",
+                      "artifactIdKeyValueList": {
+                        "currentPage": "1",
+                        "totalPages": "1",
+                        "pageSize": "1",
+                        "positionIndex": "positionIndex1",
+                        "returnPage": "1",
+                        "returnPositionIndex": "returnPositionIndex1",
+                        "valuePair": null
+                      }
+                    },
+                    "transactionArtifactUri": "http://uri1",
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
+                    },
+                    "noteIdList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "noteID": "noteID1"
+                    }
+                  }
+                },
+                "loanPartyList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "loanParty": {
+                    "loanPartyId": "loanPartyId1",
+                    "loanPartyRelationshipType": {
+                      "borrower": {
+                        "qualifier": "Primary",
+                        "authority": "Authorized"
+                      },
+                      "agent": {
+                        "qualifier": "Custodian",
+                        "authority": "Unauthorized"
+                      },
+                      "payee": {
+                        "isPayee": "true",
+                        "qualifier": "Dividend",
+                        "authority": "Authorized"
+                      },
+                      "guarantor": {
+                        "isGuarantor": "true",
+                        "authority": "Authorized"
+                      },
+                      "collateralGrantor": {
+                        "isCollateralGrantor": "true",
+                        "authority": "Unauthorized"
+                      }
+                    },
+                    "contactIdList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "contactId": "contactId1"
+                    }
+                  }
+                },
+                "officerId": "officerId1",
+                "processorId": "processorId1",
+                "loanDecisionDate": "1900-01-01",
+                "applicationOriginationDate": "1900-01-01",
+                "applicationDecisionStatus": "Approve",
+                "noteNumber": "noteNumber1",
+                "category": "AverageDailyBalanceLineOfCredit",
+                "purposeCode": "purposeCode1",
+                "requestedAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "noteAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "creditLimit": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "creditLimitExpiration": "1900-01-01",
+                "creditLimitGroupCode": "creditLimitGroupCode1",
+                "ecoaGroup": "Individual",
+                "creditReportingCode": "creditReportingCode1",
+                "isRevolvingLineOfCredit": "true",
+                "minimumAdvanceAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "maximumAdvanceAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "originationDate": "1900-01-01",
+                "fundedDate": "1900-01-01",
+                "disbursalDate": "1900-01-01",
+                "creationDate": "1900-01-01",
+                "lastPaymentDate": "1900-01-01",
+                "lastPaymentAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "term": "1",
+                "termType": "Days",
+                "creditReportList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "creditReport": {
+                    "creditReportId": "creditReportId1",
+                    "creditReportDate": "1900-01-01",
+                    "creditSource": "creditSource1",
+                    "reportType": "reportType1",
+                    "scoreType": "scoreType1",
+                    "partyId": "partyId1",
+                    "taxId": "taxId1",
+                    "creditScore": "1",
+                    "creditTier": "creditTier1",
+                    "reportData": "reportData1",
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
+                    }
+                  }
+                },
+                "loanInterestRateDetail": {
+                  "originalEffectiveRate": "1",
+                  "rateDiscountPercentage": "1",
+                  "rateDiscountReasonCode": "rateDiscountReasonCode1",
+                  "relationshipRateDiscountPercentage": "1",
+                  "relationshipRateDiscountReasonCode": "relationshipRateDiscountReasonCode1",
+                  "annualPercentageRate": "1",
+                  "rate": "1",
+                  "isSplitRate": "true",
+                  "splitRateCode": "splitRateCode1",
+                  "rateMaximum": "1",
+                  "rateMinimum": "1",
+                  "ratePercentageChange": "1",
+                  "margin": "Percentage",
+                  "baseRateIndex": "1",
+                  "rateMarginPercentage": "1",
+                  "maximumFirstRateChangeIncrease": "1",
+                  "maximumFirstRateChangeDecrease": "1",
+                  "maximumPercentageAdjustableRateChangeIncrease": "1",
+                  "maxPercentageAdjustableRateChangeDecrease": "1",
+                  "maxAnnualRateChangeIncrease": "1",
+                  "maxAnnualRateChangeDecrease": "1",
+                  "isRateMarginAboveIndex": "true",
+                  "marginRiskRate": "1",
+                  "scheduledRateChangeDate": "1900-01-01",
+                  "periodicCapAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "periodicCapStartRate": "1",
+                  "periodicCapStartDate": "1900-01-01",
+                  "periodicCapFrequency": "Annual",
+                  "periodicCapFrequencyValue": "1",
+                  "splitRateBalance": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  }
+                },
+                "paymentOption": {
+                  "calculationCode": "calculationCode1",
+                  "type": "Fixed",
+                  "calculationMethod": "calculationMethod1",
+                  "calculationPercentage": "1",
+                  "paymentApplicationOrderCode": "paymentApplicationOrderCode1",
+                  "frequency": "AmortizedSchedule",
+                  "numberOfAnnualPayments": "1",
+                  "adjustmentMethod": "adjustmentMethod1",
+                  "isRoundPayment": "true",
+                  "paymentAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "dueDate": "1900-01-01",
+                  "firstPaymentDueDate": "1900-01-01",
+                  "minimumPaymentAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "latePaymentAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "finalPaymentAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "maturityDate": "1900-01-01",
+                  "paymentDay": "1",
+                  "paymentMethod": "AutomaticDebit",
+                  "otherPaymentMethod": "otherPaymentMethod1",
+                  "couponCode": "couponCode1",
+                  "amountIncludingPrincipalAndInterest": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  }
+                },
+                "interestCalculationType": "Actual360",
+                "dailyPeriodicRate": "1",
+                "totalNumberOfPayments": "1",
+                "prePaidFinanceCharges": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "prepaidInterest": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "interestPaidThruDate": "1900-01-01",
+                "numberOfGraceDays": "1",
+                "balloonAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "balloonDueDate": "1900-01-01",
+                "balloonDueDateTerm": "Months",
+                "balloonDueDateTermValue": "1",
+                "prepaymentPenaltyBasis": "Amount",
+                "prepaymentPenaltyBasisAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "prepaymentPenaltyPercentage": "1",
+                "prepaymentPenaltyExpirationDate": "1900-01-01",
+                "statementCode": "statementCode1",
+                "statementGroup": "statementGroup1",
+                "statementDate": "1900-01-01",
+                "debtIncomeRatio": "1",
+                "loanFeeList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "loanFee": {
+                    "loanFeeId": "loanFeeId1",
+                    "lateChargeFee": {
+                      "lateChargeFormulaCode": "lateChargeFormulaCode1",
+                      "numberOfLateChargeGraceDays": "1",
+                      "addLateChargeToStandardPayment": "true",
+                      "lateChargePercentageRate": "1"
+                    },
+                    "feeAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "includeEscrowInLateCharge": "true",
+                    "feeCode": "feeCode1",
+                    "feeMin": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "feeMax": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "prePaidAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "financedFeeAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "unamortizedFees": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "feeDescription": "feeDescription1"
+                  }
+                },
+                "insuranceAddOnList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "insuranceAddOn": {
+                    "insuranceAddOnId": "insuranceAddOnId1",
+                    "insuranceType": "AccidentalDeathAndDismemberment",
+                    "otherInsuranceType": "otherInsuranceType1",
+                    "insuranceMaximum": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "insuranceAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "insuranceFeeAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "insuranceSubType": "insuranceSubType1",
+                    "insuranceShortDescription": "insuranceShortDescription1",
+                    "insuranceDescription": "insuranceDescription1",
+                    "insurancePostingConsolidationFlag": "true",
+                    "primaryInsuredDateOfBirth": "1900-01-01",
+                    "secondInsuredDateOfBirth": "1900-01-01"
+                  }
+                },
+                "collateralList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "collateral": {
+                    "motorVehicleCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "totalSecuredAmount": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "valuationOfCollateral": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "purchasePrice": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "vehicleIdentificationNumber": "vehicleIdentificationNumber1",
+                      "mileage": "1",
+                      "licensePlateNumber": "licensePlateNumber1",
+                      "licensePlateState": "licensePlateState1",
+                      "licensePlateExpiration": "1900-01-01",
+                      "titleNumber": "titleNumber1",
+                      "titleState": "titleState1"
+                    },
+                    "aircraftCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "serialNumber": "serialNumber1",
+                      "faaRegistrationNumber": "faaRegistrationNumber1",
+                      "inspectionReportYN": "true",
+                      "faaCoverLetterYN": "true",
+                      "aircraftForCommercialUse": "true",
+                      "descAvionicsEngines": "descAvionicsEngines1",
+                      "descOfLogBooks": "descOfLogBooks1",
+                      "airportHomeBase": "airportHomeBase1",
+                      "hours": "1"
+                    },
+                    "shipCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "nameOfVessel": "nameOfVessel1",
+                      "officialNumber": "officialNumber1",
+                      "marinaPort": "marinaPort1",
+                      "grossTonnage": "grossTonnage1",
+                      "netTonnage": "netTonnage1"
+                    },
+                    "trailerCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "serialNumber": "serialNumber1"
+                    },
+                    "boatCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "bodyStyle": "bodyStyle1",
+                      "serialNumber": "serialNumber1",
+                      "marinaPort": "marinaPort1",
+                      "descOfEnginesEquip": "descOfEnginesEquip1",
+                      "descOfLogBooks": "descOfLogBooks1"
+                    },
+                    "otherTitledCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "bodyStyle": "bodyStyle1",
+                      "serialNumber": "serialNumber1"
+                    },
+                    "mobileHomeCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "year": "1",
+                      "manufacturer": "manufacturer1",
+                      "make": "make1",
+                      "model": "model1",
+                      "color": "color1",
+                      "isVehicleUsed": "true",
+                      "uccCode": "uccCode1",
+                      "serialNumber": "serialNumber1",
+                      "bodyStyle": "bodyStyle1",
+                      "descOfEquipment": "descOfEquipment1"
+                    },
+                    "realEstateCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "taxId": {
+                        "@xsi:nil": "true"
+                      },
+                      "parcelIDNNumber": {
+                        "@xsi:nil": "true"
+                      },
+                      "section": {
+                        "@xsi:nil": "true"
+                      },
+                      "block": {
+                        "@xsi:nil": "true"
+                      },
+                      "lot": {
+                        "@xsi:nil": "true"
+                      },
+                      "firstLien": {
+                        "@xsi:nil": "true"
+                      },
+                      "existingLiens": {
+                        "@xsi:nil": "true"
+                      },
+                      "dwelling": {
+                        "@xsi:nil": "true"
+                      },
+                      "numberOfUnits": {
+                        "@xsi:nil": "true"
+                      },
+                      "ownerOccupied": {
+                        "@xsi:nil": "true"
+                      },
+                      "principalDwelling": {
+                        "@xsi:nil": "true"
+                      },
+                      "assumable": {
+                        "@xsi:nil": "true"
+                      },
+                      "manufacturedHousing": {
+                        "@xsi:nil": "true"
+                      },
+                      "construction": {
+                        "@xsi:nil": "true"
+                      },
+                      "yearBuilt": {
+                        "@xsi:nil": "true"
+                      },
+                      "condoPUD": {
+                        "@xsi:nil": "true"
+                      },
+                      "legalDescription": {
+                        "@xsi:nil": "true"
+                      },
+                      "rentalProperty": {
+                        "@xsi:nil": "true"
+                      },
+                      "yearAcquired": {
+                        "@xsi:nil": "true"
+                      },
+                      "originalCost": {
+                        "@xsi:nil": "true"
+                      },
+                      "presentValue": {
+                        "@xsi:nil": "true"
+                      },
+                      "improvements": {
+                        "@xsi:nil": "true"
+                      },
+                      "timeshare": {
+                        "@xsi:nil": "true"
+                      }
+                    },
+                    "uccCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "financingStatement": {
+                        "@xsi:nil": "true"
+                      },
+                      "generalDescription": {
+                        "@xsi:nil": "true"
+                      },
+                      "tortClaimDescription": {
+                        "@xsi:nil": "true"
+                      },
+                      "immovableDescription": {
+                        "@xsi:nil": "true"
+                      }
+                    },
+                    "savingsCDCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "securityCollateralValueLimit": {
+                        "@xsi:nil": "true"
+                      },
+                      "securityMarketValueLimit": {
+                        "@xsi:nil": "true"
+                      },
+                      "accountNumber": "accountNumber1",
+                      "faceValue": {
+                        "@xsi:nil": "true"
+                      },
+                      "issuerType": {
+                        "@xsi:nil": "true"
+                      },
+                      "certified": {
+                        "@xsi:nil": "true"
+                      },
+                      "possessoryInterestRate": {
+                        "@xsi:nil": "true"
+                      },
+                      "amount": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "percentage": "1"
+                    },
+                    "securitiesCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "securityMarketValueLimit": {
+                        "@xsi:nil": "true"
+                      },
+                      "possessoryNumber": {
+                        "@xsi:nil": "true"
+                      },
+                      "faceValue": {
+                        "@xsi:nil": "true"
+                      },
+                      "issuer": {
+                        "@xsi:nil": "true"
+                      },
+                      "numberOfShares": {
+                        "@xsi:nil": "true"
+                      },
+                      "cusipNumber": {
+                        "@xsi:nil": "true"
+                      },
+                      "heldBy": {
+                        "@xsi:nil": "true"
+                      },
+                      "bookEntry": {
+                        "@xsi:nil": "true"
+                      },
+                      "valuationFrequency": {
+                        "@xsi:nil": "true"
+                      }
+                    },
+                    "letterOfCreditCollateral": {
+                      "collateralId": "collateralId1",
+                      "collateralCode": "collateralCode1",
+                      "collateralPledgedDate": "1900-01-01",
+                      "description": "description1",
+                      "securedCode": "securedCode1",
+                      "ownerOfCollateral": "ownerOfCollateral1",
+                      "loanToValuePercentage": "1",
+                      "collateralValueSourceDate": "1900-01-01",
+                      "collateralValueSource": "collateralValueSource1",
+                      "securityMarketValueLimit": {
+                        "@xsi:nil": "true"
+                      },
+                      "possessoryNumber": {
+                        "@xsi:nil": "true"
+                      },
+                      "issueDate": {
+                        "@xsi:nil": "true"
+                      }
+                    }
+                  }
+                },
+                "autoPaymentOption": {
+                  "autoPaymentOption": "Balance",
+                  "otherAutoPaymentOption": "otherAutoPaymentOption1",
+                  "autoPaymentFrequency": "Bimonthly",
+                  "autoPaymentDayOfTheWeek": "Monday",
+                  "autoPaymentDayOfTheMonth": "1",
+                  "autoPaymentAmount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "fromAccountId": "fromAccountId1"
+                },
+                "delinquencyNoticeList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "delinquencyNotice": {
+                    "delinquencyNoticeId": "delinquencyNoticeId1",
+                    "code": "code1",
+                    "delinquencyNoticeDays": "1",
+                    "delinquencyLockDays": "1",
+                    "description": "description1"
+                  }
+                },
+                "skipPayment": {
+                  "numberOfSkipPaymentsAllowed": "1",
+                  "skipPaymentBeginDate": "1900-01-01",
+                  "monthToStartSkipPayments": "January",
+                  "yearToSkipPayment": "1",
+                  "isSkipRecurring": "true"
+                },
+                "promotionCode": "promotionCode1",
+                "loanNoteList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1"
+                },
+                "creditLimitIncreaseRequestList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "creditLimitIncreaseRequest": {
+                    "requestDate": "1900-01-01T01:01:01Z",
+                    "limitIncreaseDate": "1900-01-01T01:01:01Z",
+                    "newLimitRequest": "1",
+                    "memo": "memo1"
+                  }
+                }
+              },
+              "deposit": {
+                "accountId": "accountId1",
+                "type": "Checking",
+                "openDate": "1900-01-01",
+                "closeDate": "1900-01-01",
+                "accountSubStatus": "accountSubStatus1",
+                "micrAccountNumber": "micrAccountNumber1",
+                "routingNumber": "routingNumber1",
+                "displayAccountId": "displayAccountId1",
+                "idType": "Reserved",
+                "description": "description1",
+                "subType": "subType1",
+                "accountEscheatDate": "1900-01-01",
+                "chargeOffDate": "1900-01-01",
+                "accountNickName": "accountNickName1",
+                "branch": "branch1",
+                "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+                "externalAccountIBANCode": "externalAccountIBANCode1",
+                "externalAccountBankCode": "externalAccountBankCode1",
+                "externalAccountFlag": "true",
+                "externalAccountVerified": "true",
+                "externalTransferFrom": "true",
+                "externalTransferTo": "true",
+                "transferFrom": "true",
+                "transferTo": "true",
+                "rateType": "Fixed",
+                "sourceCode": "sourceCode1",
+                "relationshipId": "relationshipId1",
+                "depositPartyList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "depositParty": {
+                    "depositPartyId": "depositPartyId1",
+                    "depositPartyRelationshipType": {
+                      "holder": {
+                        "isHolder": "true",
+                        "qualifier": "Primary",
+                        "authority": "Authorized"
+                      },
+                      "beneficiary": {
+                        "isBeneficiary": "true",
+                        "qualifier": "Standard",
+                        "authority": "Authorized",
+                        "beneficiaryPercent": "1.00",
+                        "beneficiaryTypes": "Primary"
+                      },
+                      "agent": {
+                        "qualifier": "Custodian",
+                        "authority": "Unauthorized"
+                      },
+                      "guarantor": {
+                        "isGuarantor": "true",
+                        "authority": "Authorized"
+                      },
+                      "safeDepositBoxUser": {
+                        "isSafeDepositBoxUser": "true",
+                        "qualifier": "Colessee",
+                        "authority": "Authorized"
+                      }
+                    },
+                    "ssnOverride": "false",
+                    "contactIdList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "contactId": "contactId1"
+                    }
+                  }
+                },
+                "bumpEffectiveDate": "1900-01-01",
+                "bumpExpirationDate": "1900-01-01",
+                "bumpRate": "1",
+                "dividendPostCode": "ToAccount",
+                "dividendRate": "1",
+                "annualPercentageYield": "1",
+                "dividendTransferAccountId": "dividendTransferAccountId1",
+                "dividendType": "dividendType1",
+                "irsCode": "irsCode1",
+                "maturityPostCode": "Renew",
+                "maturityTransferAccountId": "maturityTransferAccountId1",
+                "minimumDeposit": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "minimumWithdrawal": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "overdraftTolerance": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                }
+              },
+              "investment": {
+                "accountId": "accountId1",
+                "type": "Checking",
+                "openDate": "1900-01-01",
+                "closeDate": "1900-01-01",
+                "accountSubStatus": "accountSubStatus1",
+                "micrAccountNumber": "micrAccountNumber1",
+                "routingNumber": "routingNumber1",
+                "displayAccountId": "displayAccountId1",
+                "idType": "Reserved",
+                "description": "description1",
+                "subType": "subType1",
+                "accountEscheatDate": "1900-01-01",
+                "chargeOffDate": "1900-01-01",
+                "accountNickName": "accountNickName1",
+                "branch": "branch1",
+                "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+                "externalAccountIBANCode": "externalAccountIBANCode1",
+                "externalAccountBankCode": "externalAccountBankCode1",
+                "externalAccountFlag": "true",
+                "externalAccountVerified": "true",
+                "externalTransferFrom": "true",
+                "externalTransferTo": "true",
+                "transferFrom": "true",
+                "transferTo": "true",
+                "rateType": "Fixed",
+                "sourceCode": "sourceCode1",
+                "relationshipId": "relationshipId1",
+                "investmentWhereHeld": "investmentWhereHeld1",
+                "investmentPartyList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "investmentParty": {
+                    "investmentPartyId": "investmentPartyId1",
+                    "investmentPartyRelationshipType": {
+                      "holder": {
+                        "isHolder": "true",
+                        "qualifier": "Primary",
+                        "authority": "Authorized"
+                      },
+                      "agent": {
+                        "qualifier": "Custodian",
+                        "authority": "Unauthorized"
+                      }
+                    },
+                    "investmentContactList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "contact": {
+                        "contactId": "contactId1",
+                        "contactType": "Address",
+                        "contactPersonName": {
+                          "firstName": "firstName1",
+                          "middleName": "middleName1",
+                          "lastName": "lastName1",
+                          "prefix": "prefix1",
+                          "suffix": "suffix1",
+                          "formattedName": "formattedName1",
+                          "nickname": "nickname1"
+                        },
+                        "contactPoint": {
+                          "address": {
+                            "line1": "line11",
+                            "line2": "line21",
+                            "line3": "line31",
+                            "line4": "line41",
+                            "line5": "line51",
+                            "line6": "line61",
+                            "line7": "line71",
+                            "line8": "line81",
+                            "line9": "line91",
+                            "line10": "line101",
+                            "city": "city1",
+                            "stateProvince": "stateProvince1",
+                            "postalCode": "postalCode1",
+                            "countryCode": "AD",
+                            "country": "country1",
+                            "addressType": "Home",
+                            "effectiveDateTime": "1900-01-01T01:01:01Z",
+                            "expirationDateTime": "1900-01-01T01:01:01Z",
+                            "timeAtAddress": "P396DT1H1M1S",
+                            "addressVerifyDateTime": "1900-01-01T01:01:01Z",
+                            "otherAddressType": "otherAddressType1"
+                          },
+                          "phone": {
+                            "phoneType": "Home",
+                            "number": "number1",
+                            "extension": "extension1",
+                            "planFormat": "Nanp",
+                            "description": "description1",
+                            "smsRegistered": "true",
+                            "countryCode": "AD",
+                            "country": "country1",
+                            "otherPhoneType": "otherPhoneType1"
+                          },
+                          "email": {
+                            "emailType": "Home",
+                            "address": "address1",
+                            "otherEmailType": "otherEmailType1"
+                          },
+                          "instantMessage": {
+                            "messagingService": "messagingService1",
+                            "user": "user1"
+                          },
+                          "social": {
+                            "socialService": "socialService1",
+                            "user": "user1"
+                          },
+                          "website": {
+                            "sitename": "sitename1",
+                            "user": "user1"
+                          }
+                        },
+                        "contactPointDescription": "contactPointDescription1",
+                        "timeOfDay": "Afternoon",
+                        "demonstratedAccess": {
+                          "dateTime": "1900-01-01T01:01:01Z",
+                          "fullName": "fullName1",
+                          "userName": "userName1"
+                        },
+                        "badContactPoint": "true",
+                        "preferenceOrder": "1",
+                        "customData": {
+                          "currentPage": "1",
+                          "totalPages": "1",
+                          "pageSize": "1",
+                          "positionIndex": "positionIndex1",
+                          "returnPage": "1",
+                          "returnPositionIndex": "returnPositionIndex1",
+                          "valuePair": null
+                        }
+                      }
+                    }
+                  }
+                },
+                "investmentholdingList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "investmentHolding": {
+                    "accountId": "accountId1",
+                    "holdingID": "holdingID1",
+                    "holdingCusipNumber": "holdingCusipNumber1",
+                    "holdingAsOfDateTime": "1900-01-01T01:01:01Z",
+                    "holdingType": "Asset",
+                    "holdingDescription": "holdingDescription1",
+                    "holdingQuantity": "1",
+                    "holdingPrice": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "holdingPriceDateTime": "1900-01-01T01:01:01Z",
+                    "holdingStockSymbol": "holdingStockSymbol1",
+                    "holdingTotalValue": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "holdingYield": "1",
+                    "holdingYieldAsOfDate": "1900-01-01T01:01:01Z",
+                    "holdingAssetClass": "holdingAssetClass1",
+                    "holdingBondClass": "holdingBondClass1",
+                    "holdingBondType": "holdingBondType1",
+                    "holdingMoodyRating": "holdingMoodyRating1",
+                    "holdingStandardAndPoorsRating": "holdingStandardAndPoorsRating1",
+                    "holdingParValue": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "holdingCouponRate": "1",
+                    "holdingCouponFrequency": "AmortizedSchedule",
+                    "holdingCallPrice": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "holdingYieldToCall": "1",
+                    "holdingCallType": "holdingCallType1",
+                    "holdingYieldToMaturity": "1",
+                    "holdingMaturityDate": "1900-01-01T01:01:01Z",
+                    "holdingNextCouponDate": "1900-01-01T01:01:01Z",
+                    "holdingNextCallDate": "1900-01-01T01:01:01Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "applicantList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "applicant": {
+            "applicantId": "applicantId1",
+            "role": "Primary",
+            "creditReportList": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1"
+            },
+            "relationshipId": "relationshipId1",
+            "partyId": "partyId1",
+            "party": {
+              "id": "id1",
+              "taxInformationList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "taxInformation": {
+                  "taxId": "taxId1",
+                  "taxIdEncrypted": "true",
+                  "taxIdType": "SocialSecurityNumber",
+                  "otherTaxIdType": "otherTaxIdType1",
+                  "reportingFlag": "true",
+                  "verifiedTaxIdFlag": "true",
+                  "taxIdWarningCount": "0",
+                  "backupWithholdingFlag": "true",
+                  "backupWithholdingReason": "backupWithholdingReason1",
+                  "backupWithholdingExemptionReason": "ExceptFromWithholding",
+                  "backupWithholdingEffectiveDate": "1900-01-01",
+                  "customData": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "valuePair": null
+                  }
+                }
+              },
+              "type": "Individual",
+              "partyStatus": "partyStatus1",
+              "partySubStatus": "partySubStatus1",
+              "characteristics": {
+                "organization": {
+                  "organizationType": "SoleProprietorship",
+                  "organizationSubType": "organizationSubType1",
+                  "organizationName": "organizationName1",
+                  "doingBusinessAsList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "doingBusinessAs": {
+                      "@xsi:nil": "true"
+                    }
+                  }
+                },
+                "individual": {
+                  "firstName": "firstName1",
+                  "middleName": "middleName1",
+                  "lastName": "lastName1",
+                  "prefix": "prefix1",
+                  "suffix": "suffix1",
+                  "formattedName": "formattedName1",
+                  "mothersMaidenName": "mothersMaidenName1",
+                  "nickname": "nickname1",
+                  "birthdate": "1900-01-01",
+                  "deathDate": "1900-01-01",
+                  "gender": "Male",
+                  "cityOfBirth": "cityOfBirth1",
+                  "citizenshipList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "citizenship": {
+                      "@xsi:nil": "true"
+                    }
+                  },
+                  "employmentStatus": "Contract",
+                  "employmentList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "employment": {
+                      "employmentId": "employmentId1",
+                      "employerPartyId": "employerPartyId1",
+                      "employerName": "employerName1",
+                      "employmentStartDate": "1900-01-01",
+                      "employmentEndDate": "1900-01-01",
+                      "timeAtEmployer": "P396DT1H1M1S",
+                      "employeeOccupation": "employeeOccupation1",
+                      "employerAddress": {
+                        "line1": "line11",
+                        "line2": "line21",
+                        "line3": "line31",
+                        "line4": "line41",
+                        "line5": "line51",
+                        "line6": "line61",
+                        "line7": "line71",
+                        "line8": "line81",
+                        "line9": "line91",
+                        "line10": "line101",
+                        "city": "city1",
+                        "stateProvince": "stateProvince1",
+                        "postalCode": "postalCode1",
+                        "countryCode": "AD",
+                        "country": "country1"
+                      },
+                      "employerPhone": {
+                        "phoneType": "Home",
+                        "number": "number1",
+                        "extension": "extension1",
+                        "planFormat": "Nanp",
+                        "description": "description1",
+                        "smsRegistered": "true",
+                        "countryCode": "AD",
+                        "country": "country1",
+                        "otherPhoneType": "otherPhoneType1"
+                      },
+                      "employerStatus": "Current",
+                      "type": "FullTime",
+                      "employmentIncome": {
+                        "grossIncomeData": {
+                          "amount": {
+                            "value": "1",
+                            "currencyCode": "USD",
+                            "exchangeRate": "1"
+                          },
+                          "frequency": "AmortizedSchedule",
+                          "otherFrequencyType": "otherFrequencyType1",
+                          "excludeIncomeFromCalculations": "false",
+                          "customData": {
+                            "currentPage": "1",
+                            "totalPages": "1",
+                            "pageSize": "1",
+                            "positionIndex": "positionIndex1",
+                            "returnPage": "1",
+                            "returnPositionIndex": "returnPositionIndex1",
+                            "valuePair": null
+                          }
+                        },
+                        "netIncomeData": {
+                          "amount": null,
+                          "frequency": "AmortizedSchedule",
+                          "otherFrequencyType": "otherFrequencyType1",
+                          "excludeIncomeFromCalculations": "false"
+                        }
+                      },
+                      "customData": {
+                        "currentPage": "1",
+                        "totalPages": "1",
+                        "pageSize": "1",
+                        "positionIndex": "positionIndex1",
+                        "returnPage": "1",
+                        "returnPositionIndex": "returnPositionIndex1",
+                        "valuePair": null
+                      }
+                    }
+                  },
+                  "additionalIncomeList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "additionalIncome": {
+                      "amount": null,
+                      "frequency": "AmortizedSchedule",
+                      "otherFrequencyType": "otherFrequencyType1",
+                      "excludeIncomeFromCalculations": "false",
+                      "source": "source1"
+                    }
+                  },
+                  "liabilityList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "liability": {
+                      "description": "description1",
+                      "payment": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "paymentFrequency": "AmortizedSchedule",
+                      "balance": {
+                        "value": "1",
+                        "currencyCode": "USD",
+                        "exchangeRate": "1"
+                      },
+                      "excludeLiabilityFromCalculations": "true",
+                      "customData": {
+                        "currentPage": "1",
+                        "totalPages": "1",
+                        "pageSize": "1",
+                        "positionIndex": "positionIndex1",
+                        "returnPage": "1",
+                        "returnPositionIndex": "returnPositionIndex1",
+                        "valuePair": null
+                      }
+                    }
+                  },
+                  "residence": {
+                    "currentHousingStatus": "Rent",
+                    "currentHousingOwnershipType": "Self",
+                    "currentHousingDebtType": "OwnWithMortgage",
+                    "currentHousingType": "PrimaryResidence"
+                  },
+                  "ethnicity": "ethnicity1",
+                  "race": "race1"
+                },
+                "trust": {
+                  "trustName": "trustName1",
+                  "trustType": "trustType1"
+                },
+                "estate": {
+                  "estateName": "estateName1",
+                  "estateType": "estateType1"
+                }
+              },
+              "identificationDocumentList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "identificationDocument": {
+                  "@xsi:nil": "true"
+                }
+              },
+              "eligibilityRequirementMetList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "eligibilityRequirementMet": {
+                  "@xsi:nil": "true"
+                }
+              },
+              "contactIdList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "contactId": "contactId1"
+              },
+              "contactList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1"
+              },
+              "fiUserIdList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "fiUserId": "fiUserId1"
+              },
+              "householdId": "householdId1",
+              "partyDateCreated": "1900-01-01",
+              "partyDateTimeCreated": "1900-01-01T01:01:01Z",
+              "partyCreatedBy": "partyCreatedBy1",
+              "partyDateModified": "1900-01-01",
+              "partyDateTimeModified": "1900-01-01T01:01:01Z",
+              "partyModifiedBy": "partyModifiedBy1",
+              "partyDateDeleted": "1900-01-01",
+              "partyDateTimeDeleted": "1900-01-01T01:01:01Z",
+              "partyDeletedBy": "partyDeletedBy1",
+              "noteList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1"
+              },
+              "customData": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "valuePair": null
+              }
+            }
+          }
+        },
+        "finalCreditBureauScore": "finalCreditBureauScore1",
+        "applicationNoteList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1"
+        }
+      }
+    }
+  }
+}

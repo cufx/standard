@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://cufxstandards.com/v4/AuditInfoMessage.xsd"
+	version="4.3.$Revision$"
+	xmlns="http://cufxstandards.com/v4/AuditInfoMessage.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+	xmlns:auditInfo="http://cufxstandards.com/v4/AuditInfo.xsd"
+	xmlns:auditInfoFilter="http://cufxstandards.com/v4/AuditInfoFilter.xsd"
+
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/AuditInfo.xsd" schemaLocation="AuditInfo.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/AuditInfoFilter.xsd" schemaLocation="AuditInfoFilter.xsd" />
+
+	<xs:element name="auditInfoMessage" type="AuditInfoMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in an auditInfo message.  Contains message context, auditInfo filter and an
+				auditInfo list.  This is a wrapper used to more easily serialize the complete message.  All values are
+				optional.  See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+
+	<xs:complexType name="AuditInfoMessage">
+		<xs:annotation>
+			<xs:documentation>
+				All values that can be sent in an auditInfo message.  Contains message context, auditInfo filter and an
+				auditInfo list.  This is a wrapper used to more easily serialize the complete message.  All values are
+				optional.  See example specifications for usage.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageContext" type="messageContext:MessageContext" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message context contains information that is passed as part of each CUFX message call. It
+						identifies who is sending the request in and enables the service provider to execute some level
+						of security or processing.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="auditInfoFilter" type="auditInfoFilter:AuditInfoFilter" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Any filters applied to a read, update or delete accessProfile request.
+						Does not apply to a create message.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="auditInfoList" type="auditInfo:auditInfoList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						All the audit Information data.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence >
+	</xs:complexType >
+</xs:schema>

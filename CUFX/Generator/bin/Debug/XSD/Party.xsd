@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
-	version="4.2.$Revision: 1393 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -324,8 +324,8 @@
 			<xs:element name="taxId" type="TaxId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Individual Social Security Number (SSN), Individual Tax Payer Number (TIN)
-						or the organizational Employer Identification Number (EIN).
+						Individual Social Security Number (SSN), Individual Tax Payer Number (TIN), 
+						the organizational Employer Identification Number (EIN), or Social Insurance Number (SIN).
 						Data validation is the responsibility of the receiving application.
 					</xs:documentation>
 				</xs:annotation>
@@ -417,6 +417,17 @@
 						The date the tax ID has submitted their backup withholding information.
 						The date/time should be ISO 8601 UTC format.
 						yyyy-mm-dd (2011-03-28) format is supported.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Tax information level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture
+						or working group committee to ensure that fields are somehow handled in the future release of
+						specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -530,6 +541,7 @@
 			<xs:enumeration value="ForeignNational" />
 			<xs:enumeration value="ForeignNumberNoTIN" />
 			<xs:enumeration value="Other" />
+			<xs:enumeration value="SocialInsuranceNumber" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -1589,6 +1601,13 @@
 					<xs:documentation>
 						Documentation types for estates.
 						Used only when Type equals Estate.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherDocument" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						For use with for all other document types.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

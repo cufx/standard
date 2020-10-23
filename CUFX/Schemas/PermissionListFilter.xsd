@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/PermissionListFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/PermissionListFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
@@ -128,7 +128,7 @@
 			<xs:element name="productIdList" type="productOffering:ProductIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of product Ids that should have their associated permission lists either returned or affected
+						The list of product IDs that should have their associated permission lists either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
