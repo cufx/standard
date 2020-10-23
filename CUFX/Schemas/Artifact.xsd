@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Artifact.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Artifact.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -78,7 +78,23 @@
 						The account ID is a persistent and unique identifier for the account.
 						It must be unique for all users across the institution and remain the same over the life of the account.
 						It may contain a prefix to define the Account Type for consumption, such as SV-1234 or IL-1234.
-						The related account Id of the artifact, to facilitate search and retreval.
+						The related account ID of the artifact, to facilitate search and retreval.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -88,7 +104,7 @@
 						The party ID is a persistent and unique identifier for the party that is not related to the accounts
 						they own, but tied to that person or business. It should be unique for all parties across the
 						institution and remain the same over the life of the relationship with the financial institution.
-						The related Party Id of the artifact, to facilitate search and retreval.
+						The related Party ID of the artifact, to facilitate search and retreval.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -222,7 +238,7 @@
 	<xs:complexType name ="ArtifactIdList">
 		<xs:annotation>
 			<xs:documentation>
-				List of artifact ID's that can be used by other objects to
+				List of artifact IDs that can be used by other objects to
 				point to each artifact in a list.
 			</xs:documentation>
 		</xs:annotation>
