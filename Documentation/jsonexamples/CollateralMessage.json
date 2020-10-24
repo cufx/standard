@@ -1,0 +1,565 @@
+{
+  "collateralMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "collateralFilter": {
+      "collateralIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "collateralId": "collateralId1"
+      },
+      "description": "description1",
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      },
+      "collateralTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "collateralType": "aircraftCollateral"
+      },
+      "collateralSubTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "collateralSubType": "collateralSubType1"
+      },
+      "accountIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountId": "accountId1"
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
+      }
+    },
+    "collateralList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "collateral": {
+        "motorVehicleCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "totalSecuredAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "valuationOfCollateral": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "accountIdentificationList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1"
+          },
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "purchasePrice": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "vehicleIdentificationNumber": "vehicleIdentificationNumber1",
+          "mileage": "1",
+          "licensePlateNumber": "licensePlateNumber1",
+          "licensePlateState": "licensePlateState1",
+          "licensePlateExpiration": "1900-01-01",
+          "titleNumber": "titleNumber1",
+          "titleState": "titleState1"
+        },
+        "aircraftCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "serialNumber": "serialNumber1",
+          "faaRegistrationNumber": "faaRegistrationNumber1",
+          "inspectionReportYN": "true",
+          "faaCoverLetterYN": "true",
+          "aircraftForCommercialUse": "true",
+          "descAvionicsEngines": "descAvionicsEngines1",
+          "descOfLogBooks": "descOfLogBooks1",
+          "airportHomeBase": "airportHomeBase1",
+          "hours": "1"
+        },
+        "shipCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "nameOfVessel": "nameOfVessel1",
+          "officialNumber": "officialNumber1",
+          "marinaPort": "marinaPort1",
+          "grossTonnage": "grossTonnage1",
+          "netTonnage": "netTonnage1"
+        },
+        "trailerCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "serialNumber": "serialNumber1"
+        },
+        "boatCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "bodyStyle": "bodyStyle1",
+          "serialNumber": "serialNumber1",
+          "marinaPort": "marinaPort1",
+          "descOfEnginesEquip": "descOfEnginesEquip1",
+          "descOfLogBooks": "descOfLogBooks1"
+        },
+        "otherTitledCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "bodyStyle": "bodyStyle1",
+          "serialNumber": "serialNumber1"
+        },
+        "mobileHomeCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "year": "1",
+          "manufacturer": "manufacturer1",
+          "make": "make1",
+          "model": "model1",
+          "color": "color1",
+          "isVehicleUsed": "true",
+          "uccCode": "uccCode1",
+          "serialNumber": "serialNumber1",
+          "bodyStyle": "bodyStyle1",
+          "descOfEquipment": "descOfEquipment1"
+        },
+        "realEstateCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "taxId": {
+            "@xsi:nil": "true"
+          },
+          "parcelIDNNumber": {
+            "@xsi:nil": "true"
+          },
+          "section": {
+            "@xsi:nil": "true"
+          },
+          "block": {
+            "@xsi:nil": "true"
+          },
+          "lot": {
+            "@xsi:nil": "true"
+          },
+          "firstLien": {
+            "@xsi:nil": "true"
+          },
+          "existingLiens": {
+            "@xsi:nil": "true"
+          },
+          "dwelling": {
+            "@xsi:nil": "true"
+          },
+          "numberOfUnits": {
+            "@xsi:nil": "true"
+          },
+          "ownerOccupied": {
+            "@xsi:nil": "true"
+          },
+          "principalDwelling": {
+            "@xsi:nil": "true"
+          },
+          "assumable": {
+            "@xsi:nil": "true"
+          },
+          "manufacturedHousing": {
+            "@xsi:nil": "true"
+          },
+          "construction": {
+            "@xsi:nil": "true"
+          },
+          "yearBuilt": {
+            "@xsi:nil": "true"
+          },
+          "condoPUD": {
+            "@xsi:nil": "true"
+          },
+          "legalDescription": {
+            "@xsi:nil": "true"
+          },
+          "rentalProperty": {
+            "@xsi:nil": "true"
+          },
+          "yearAcquired": {
+            "@xsi:nil": "true"
+          },
+          "originalCost": {
+            "@xsi:nil": "true"
+          },
+          "presentValue": {
+            "@xsi:nil": "true"
+          },
+          "improvements": {
+            "@xsi:nil": "true"
+          },
+          "timeshare": {
+            "@xsi:nil": "true"
+          }
+        },
+        "uccCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "financingStatement": {
+            "@xsi:nil": "true"
+          },
+          "generalDescription": {
+            "@xsi:nil": "true"
+          },
+          "tortClaimDescription": {
+            "@xsi:nil": "true"
+          },
+          "immovableDescription": {
+            "@xsi:nil": "true"
+          }
+        },
+        "savingsCDCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "securityCollateralValueLimit": {
+            "@xsi:nil": "true"
+          },
+          "securityMarketValueLimit": {
+            "@xsi:nil": "true"
+          },
+          "accountNumber": "accountNumber1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "faceValue": {
+            "@xsi:nil": "true"
+          },
+          "issuerType": {
+            "@xsi:nil": "true"
+          },
+          "certified": {
+            "@xsi:nil": "true"
+          },
+          "possessoryInterestRate": {
+            "@xsi:nil": "true"
+          },
+          "amount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "percentage": "1",
+          "certificateNumber": "certificateNumber1"
+        },
+        "securitiesCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "securityMarketValueLimit": {
+            "@xsi:nil": "true"
+          },
+          "possessoryNumber": {
+            "@xsi:nil": "true"
+          },
+          "faceValue": {
+            "@xsi:nil": "true"
+          },
+          "issuer": {
+            "@xsi:nil": "true"
+          },
+          "numberOfShares": {
+            "@xsi:nil": "true"
+          },
+          "cusipNumber": {
+            "@xsi:nil": "true"
+          },
+          "heldBy": {
+            "@xsi:nil": "true"
+          },
+          "bookEntry": {
+            "@xsi:nil": "true"
+          },
+          "valuationFrequency": {
+            "@xsi:nil": "true"
+          }
+        },
+        "letterOfCreditCollateral": {
+          "collateralId": "collateralId1",
+          "collateralCode": "collateralCode1",
+          "collateralPledgedDate": "1900-01-01",
+          "description": "description1",
+          "securedCode": "securedCode1",
+          "ownerOfCollateral": "ownerOfCollateral1",
+          "loanToValuePercentage": "1",
+          "collateralValueSourceDate": "1900-01-01",
+          "collateralValueSource": "collateralValueSource1",
+          "collateralType": "aircraftCollateral",
+          "collateralSubType": "collateralSubType1",
+          "collateralSubTypeDescription": "collateralSubTypeDescription1",
+          "securityMarketValueLimit": {
+            "@xsi:nil": "true"
+          },
+          "possessoryNumber": {
+            "@xsi:nil": "true"
+          },
+          "issueDate": {
+            "@xsi:nil": "true"
+          }
+        },
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
+      }
+    }
+  }
+}

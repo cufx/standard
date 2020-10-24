@@ -1,0 +1,63 @@
+{
+  "permissionList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "permission": {
+      "actor": {
+        "fiUserId": "fiUserId1",
+        "userId": "userId1",
+        "partyId": "partyId1",
+        "relationshipId": "relationshipId1"
+      },
+      "action": "AgreeToTerms",
+      "resource": {
+        "accountId": "accountId1",
+        "fiUserId": "fiUserId1",
+        "cardId": "cardId1",
+        "relationshipId": "relationshipId1",
+        "productId": "productId1"
+      },
+      "maxLimits": {
+        "dailyMax": {
+          "maxAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "maxNumber": "1",
+          "rollingAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "rollingNumber": "1"
+        },
+        "weeklyMax": {
+          "maxNumber": "1",
+          "rollingNumber": "1"
+        },
+        "monthlyMax": {
+          "maxNumber": "1",
+          "rollingNumber": "1"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": {
+          "name": "name1",
+          "value": "value1"
+        }
+      }
+    }
+  }
+}

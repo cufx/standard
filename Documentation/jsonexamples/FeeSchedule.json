@@ -1,0 +1,53 @@
+{
+  "feeList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "fee": {
+      "feeId": "feeId1",
+      "feeType": {
+        "feeCategory": "Unpaid",
+        "isRegDApplicable": "true"
+      },
+      "type": "type1",
+      "relatedTo": {
+        "partyId": "partyId1",
+        "relationshipId": "relationshipId1",
+        "accountId": "accountId1",
+        "accountType": "Checking",
+        "accountSubType": "accountSubType1"
+      },
+      "frequency": "AmortizedSchedule",
+      "minimumFrequency": "1",
+      "maximumFrequency": "1",
+      "priceList": {
+        "description": "description1",
+        "price": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        }
+      },
+      "feeEffectiveDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": {
+          "name": "name1",
+          "value": "value1"
+        }
+      }
+    }
+  }
+}

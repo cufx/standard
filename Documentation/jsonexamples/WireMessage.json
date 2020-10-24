@@ -1,0 +1,335 @@
+{
+  "wireMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "wireFilter": {
+      "occurrenceIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "occurrenceId": "occurrenceId1"
+      },
+      "recurringIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "recurringId": "recurringId1"
+      },
+      "transferCompletedDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "accountIDList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountId": "accountId1"
+      },
+      "accountStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountStatusPair": {
+          "accountStatus": {
+            "depositAccountStatus": "Active",
+            "investmentStatus": "Active",
+            "loanAccountStatus": "Active"
+          },
+          "accountSubStatus": "accountSubStatus1"
+        }
+      },
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "relationshipIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "relationshipId": "relationshipId1"
+      },
+      "occurrenceStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "occurrenceStatus": "Scheduled"
+      },
+      "recurringStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "recurringStatus": "Requested"
+      },
+      "minAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "maxAmount": {
+        "value": "1",
+        "currencyCode": "USD",
+        "exchangeRate": "1"
+      },
+      "batchIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "batchId": "batchId1"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
+      },
+      "includeNotesFlag": "true",
+      "wireTransferTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "wireTransferType": "Domestic"
+      },
+      "escrowNumber": "escrowNumber1",
+      "escrowOfficerName": "escrowOfficerName1",
+      "toAccountMicrAccountNumber": "toAccountMicrAccountNumber1",
+      "toAccountRoutingNumber": "toAccountRoutingNumber1",
+      "fromAccountMicrAccountNumber": "fromAccountMicrAccountNumber1",
+      "fromAccountRoutingNumber": "fromAccountRoutingNumber1",
+      "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+      "externalAccountIBANCode": "externalAccountIBANCode1",
+      "externalAccountBankCode": "externalAccountBankCode1"
+    },
+    "wireList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "wire": {
+        "occurrenceId": "occurrenceId1",
+        "recurringId": "recurringId1",
+        "occurrenceAmount": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "occurrenceAmountDetailList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "lineItem": {
+            "lineItemId": "lineItemId1",
+            "lineItemReference": "lineItemReference1",
+            "lineItemDescription": "lineItemDescription1",
+            "lineItemDate": "1900-01-01",
+            "lineItemAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            }
+          }
+        },
+        "occurrenceFromAccount": {
+          "accountId": "accountId1",
+          "type": "Checking",
+          "accountSubType": "accountSubType1",
+          "openDate": "1900-01-01",
+          "closeDate": "1900-01-01",
+          "accountStatus": {
+            "depositAccountStatus": "Active",
+            "investmentStatus": "Active",
+            "loanAccountStatus": "Active"
+          },
+          "accountSubStatus": "accountSubStatus1",
+          "micrAccountNumber": "micrAccountNumber1",
+          "routingNumber": "routingNumber1",
+          "displayAccountId": "displayAccountId1"
+        },
+        "occurrenceToAccount": {
+          "accountId": "accountId1",
+          "type": "Checking",
+          "accountSubType": "accountSubType1",
+          "openDate": "1900-01-01",
+          "closeDate": "1900-01-01",
+          "accountSubStatus": "accountSubStatus1",
+          "micrAccountNumber": "micrAccountNumber1",
+          "routingNumber": "routingNumber1",
+          "displayAccountId": "displayAccountId1"
+        },
+        "occurrenceStatus": "Scheduled",
+        "fundsWithdrawalType": "WhenRequested",
+        "occurrenceMemo": "occurrenceMemo1",
+        "estimatedProcessDateTime": "1900-01-01T01:01:01Z",
+        "createdDateTime": "1900-01-01T01:01:01Z",
+        "processingStartedDateTime": "1900-01-01T01:01:01Z",
+        "processedDateTime": "1900-01-01T01:01:01Z",
+        "completedDateTime": "1900-01-01T01:01:01Z",
+        "lastUpdatedDateTime": "1900-01-01T01:01:01Z",
+        "occurrenceConfirmationCode": "occurrenceConfirmationCode1",
+        "queuedForPosting": "true",
+        "note": "note1",
+        "batchId": "batchId1",
+        "occurrenceType": "AccountToAccount",
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        },
+        "achStandardEntryClass": "ACK",
+        "wireTransferType": "Domestic",
+        "wireTransferSpecialInstructions": "wireTransferSpecialInstructions1",
+        "escrowNumber": "escrowNumber1",
+        "escrowOfficerName": "escrowOfficerName1",
+        "disclosuresConsented": "true",
+        "beneficiaryName": {
+          "firstName": "firstName1",
+          "middleName": "middleName1",
+          "lastName": "lastName1",
+          "prefix": "prefix1",
+          "suffix": "suffix1",
+          "formattedName": "formattedName1",
+          "nickname": "nickname1"
+        },
+        "beneficiaryAddress": {
+          "line1": "line11",
+          "line2": "line21",
+          "line3": "line31",
+          "line4": "line41",
+          "line5": "line51",
+          "line6": "line61",
+          "line7": "line71",
+          "line8": "line81",
+          "line9": "line91",
+          "line10": "line101",
+          "city": "city1",
+          "stateProvince": "stateProvince1",
+          "postalCode": "postalCode1",
+          "countryCode": "AD",
+          "country": "country1",
+          "coordinate": {
+            "latitude": "1",
+            "longitude": "1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
 	xmlns="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
 	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
@@ -49,7 +49,7 @@
 					<xs:element name="billPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of BillPayee ID's that should have their associated billPayments either returned or affected
+								The list of BillPayee IDs that should have their associated billPayments either returned or affected
 								by a read, update or delete billPayment request.
 							</xs:documentation>
 						</xs:annotation>
@@ -57,7 +57,7 @@
 					<xs:element name="billIdList" type="bill:BillIdList" minOccurs="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
-								The list of bill Id's that should have their associated bills either returned
+								The list of bill IDs that should have their associated bills either returned
 								or affected by a read, update or delete request.
 							</xs:documentation>
 						</xs:annotation>

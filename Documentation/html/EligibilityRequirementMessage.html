@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fn="http://www.w3.org/2005/xpath-functions">
+  <head>
+    <title>EligibilityRequirementMessage - Schema Documentation
+						- V4.4.Revision</title>
+    <meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1" />
+    <style type="text/css">
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* More-configurable styles */
+
+/******** General ********/
+
+.logo
+{
+	padding-top:100px;
+	padding-bottom:50px;  
+	width: 480px;
+	height: 135px;
+}
+
+.title
+{
+	font-family: Calibri;
+	color: #4F81BD;
+	text-transform: uppercase;
+	padding-left:10pt;
+	font-size: 26pt;
+}
+/* Document body */
+body {
+   color: Black;
+   background-color: White;
+   font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+   font-size: 10pt;
+   margin-left:75px;
+   margin-right:75px;
+}
+/* Horizontal rules */
+hr
+{
+	height:1pt;
+	color: #4F81BD;
+}
+/* Document title */
+h1
+{
+	font-family: Calibri;
+	font-size: 11pt;
+	letter-spacing: 2px;
+	border-bottom: 1px #ccc solid;
+	padding-top: 5px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	background-color: #4F81BD;
+	color: #FFFFFF;
+}
+/* Main section headers */
+h2
+{
+	font-family: Calibri;
+	padding: 6px;
+	font-size: 11pt;
+	letter-spacing: 1px;
+	background-color: #DBE5F1;
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Sub-section headers */
+h3
+{
+	font-family: Calibri;
+	padding: 6px;
+	border-style: solid none none solid;
+	border-color: #4F81BD;
+	border-width: 1pt;
+	font-size: 11pt;
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties
+{
+	border-collapse:collapse;
+	margin-left:50px;
+}
+table.properties, th, td
+{
+	border: 1pt solid black;
+}
+table.properties th, table.properties th a
+{
+	color: #243F60;
+	text-transform: uppercase;
+}
+table.properties td {
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls
+{
+	color: #243F7A; /* Orange-brown */
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   border: 2px solid #999;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces
+{
+	border-collapse:collapse;
+	margin-left:50px;
+}
+table.properties th, table.namespaces th
+{
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Target namespace of the schema */
+span.targetNS {
+   color: #06C;
+   font-weight: bold;
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   border-collapse:collapse;
+	margin-left:50px;
+}
+
+/* XML Instance Representation table */
+div.sample div.contents {
+   border: 1pt dotted #4F81BD;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent div.contents
+{
+	border: 1pt dotted #4F81BD;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   color: #036; /* Blue */
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Printer-version styles */
+
+@media print {
+
+/* Ensures that controls are hidden when printing */
+div#printerControls {
+   visibility: hidden;
+}
+div#globalControls {
+   visibility: hidden;
+}
+#legend {
+   display: none;
+}
+#legendTOC {
+   display: none;
+}
+#glossary {
+   display: none;
+}
+#glossaryTOC {
+   display: none;
+}
+
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Base styles */
+
+/******** General ********/
+
+/* Unordered lists */
+ul {
+   margin-left: 1.5em;
+   margin-bottom: 0em;
+}
+/* Tables */
+table {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+table th, table td {
+   font-size: 10pt;
+   vertical-align: top;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+table th {
+   font-weight: bold;
+   text-align: left;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties {
+   width: 90%;
+}
+table.properties th {
+   width: 30%;
+}
+/* Boxes that can make its content appear and disappear*/
+div.box {
+   margin: 1em;
+}
+   /* Box caption */
+div.box span.caption {
+   font-weight: bold;
+   color: #243F60;
+}
+   /* Button to open and close the box */
+div.box input.control {
+   width: 1.4em;
+   height: 1.4em;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 11pt;
+}
+   /* Box contents */
+div.box div.contents {
+   margin-top: 3px;
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   white-space: nowrap;
+   font-weight: bold;
+   padding: 5px;
+   margin: 5px;
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   padding: 10px;
+   margin: 5px;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+}
+table.namespaces td {
+}
+/* Target namespace of the schema */
+span.targetNS {
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   width: 90%;
+}
+table.hierarchy th {
+   font-style: italic;
+   width: 20%;
+	color: #243F60;
+	text-transform: uppercase;   
+}
+table.hierarchy th, table.hierarchy td {
+   padding: 5px;
+}
+
+/* XML Instance Representation table */
+div.sample {
+   width: 90%;
+}
+div.sample div.contents {
+   padding: 5px;
+   font-family: Courier, sans-serif;
+   font-size: 10.5pt;
+}
+   /* Normal elements and attributes */
+div.sample div.contents, div.sample div.contents a {
+   color: black;
+}
+   /* Group Headers */
+div.sample div.contents .group, div.sample div.contents .group a {
+   color: #999; /* Light gray */
+}
+   /* Type Information */
+div.sample div.contents .type, div.sample div.contents .type a {
+   color: #999; /* Light gray */
+}
+   /* Occurrence Information */
+div.sample div.contents .occurs, div.sample div.contents .occurs a {
+   color: #999; /* Light gray */
+}
+   /* Fixed values */
+div.sample div.contents .fixed {
+   color: #063; /* Green */
+   font-weight: bold;
+}
+   /* Simple type constraints */
+div.sample div.contents .constraint, div.sample div.contents .constraint a {
+   color: #999; /* Light gray */
+}
+   /* Elements and attributes inherited from base type */
+div.sample div.contents .inherited, div.sample div.contents .inherited a {
+   color: #666; /* Dark gray */
+}
+   /* Elements and attributes added to or changed from base type */
+div.sample div.contents .newFields {
+   font-weight: bold;
+}
+   /* Other type of information */
+div.sample div.contents .other, div.sample div.contents .other a {
+   color: #369; /* Blue */
+   font-style: italic;
+}
+   /* Link to open up window displaying documentation */
+div.sample div.contents a.documentation {
+   text-decoration: none;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+   font-weight: bold;
+   font-size: 11pt;
+   background-color: #FFD;
+   color: #069;
+}
+   /* Invert colors when hovering over link to open up window 
+      displaying documentation */
+div.sample div.contents a.documentation:hover {
+   color: #FFD;
+   background-color: #069;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent {
+   width: 90%;
+}
+div.schemaComponent div.contents {
+   font-family: Courier, sans-serif;
+   font-size: 10.5pt;
+   padding: 5px;
+}
+   /* Syntax characters */
+div.schemaComponent div.contents {
+   color: #00f; /* blue */
+}
+   /* Element and attribute tags */
+div.schemaComponent div.contents .scTag {
+   color: #933; /* maroon */
+}
+   /* Element and attribute content */
+div.schemaComponent div.contents .scContent, div.schemaComponent div.contents .scContent a {
+   color: black;
+   font-weight: bold;
+}
+   /* Comments */
+div.schemaComponent div.contents .comment {
+   color: #999; /* Light gray */
+}
+
+/******** Legend Section ********/
+
+div#legend table, div#legend div {
+   margin-bottom: 3px;
+}
+div#legend div.hint {
+   color: #999; /* Light gray */
+   width: 90%;
+   margin-left: 1em;
+   margin-bottom: 2em;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   font-weight: bold;
+}
+
+
+/******** Footer ********/
+
+.footer {
+   font-size: 8pt;
+}
+</style>
+    <script type="text/javascript">
+<!--
+/* IDs of XML Instance Representation boxes */
+var xiBoxes = new Array('element_eligibilityRequirementMessage_xibox', 'type_EligibilityRequirementMessage_xibox');
+/* IDs of Schema Component Representation boxes */
+var scBoxes = new Array('schema_scbox', 'element_eligibilityRequirementMessage_scbox', 'type_EligibilityRequirementMessage_scbox');
+
+/**
+ * Can get the ID of the button controlling
+ * a collapseable box by concatenating
+ * this string onto the ID of the box itself.
+ */
+var B_SFIX = "_button";
+
+/**
+ * Counter of documentation windows
+ * Used to give each window a unique name
+ */
+var windowCount = 0;
+
+/**
+ * Returns an element in the current HTML document.
+ * 
+ * @param elementID Identifier of HTML element
+ * @return               HTML element object
+ */
+function getElementObject(elementID) {
+    var elemObj = null;
+    if (document.getElementById) {
+        elemObj = document.getElementById(elementID);
+    }
+    return elemObj;
+}             
+
+/**
+ * Closes a collapseable box.
+ * 
+ * @param boxObj       Collapseable box
+ * @param buttonObj Button controlling box
+ */
+function closeBox(boxObj, buttonObj) {
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else {
+     // Change 'display' CSS property of box
+     boxObj.style.display="none";
+
+     // Change text of button 
+     if (boxObj.style.display=="none") {
+        buttonObj.value=" + ";
+     }
+  }
+}
+
+/**
+ * Opens a collapseable box.
+ * 
+ * @param boxObj       Collapseable box
+ * @param buttonObj Button controlling box
+ */
+function openBox(boxObj, buttonObj) {
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else {
+     // Change 'display' CSS property of box
+     boxObj.style.display="block";
+
+     // Change text of button
+     if (boxObj.style.display=="block") {
+        buttonObj.value=" - ";
+     }
+  }
+}
+
+/**
+ * Sets the state of a collapseable box.
+ * 
+ * @param boxID Identifier of box
+ * @param open If true, box is "opened",
+ *             Otherwise, box is "closed".
+ */
+function setState(boxID, open) {
+  var boxObj = getElementObject(boxID);
+  var buttonObj = getElementObject(boxID+B_SFIX);
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else if (open) {
+     openBox(boxObj, buttonObj);
+     // Make button visible
+     buttonObj.style.display="inline";
+  } else {
+     closeBox(boxObj, buttonObj);
+     // Make button visible
+     buttonObj.style.display="inline";
+  }
+}
+
+/**
+ * Switches the state of a collapseable box, e.g.
+ * if it's opened, it'll be closed, and vice versa.
+ * 
+ * @param boxID Identifier of box
+ */
+function switchState(boxID) {
+  var boxObj = getElementObject(boxID);
+  var buttonObj = getElementObject(boxID+B_SFIX);
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else if (boxObj.style.display=="none") {
+     // Box is closed, so open it
+     openBox(boxObj, buttonObj);
+  } else if (boxObj.style.display=="block") {
+     // Box is opened, so close it
+     closeBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Closes all boxes in a given list.
+ * 
+ * @param boxList Array of box IDs
+ */
+function collapseAll(boxList) {
+  var idx;
+  for (idx = 0; idx < boxList.length; idx++) {
+     var boxObj = getElementObject(boxList[idx]);
+     var buttonObj = getElementObject(boxList[idx]+B_SFIX);
+     closeBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Open all boxes in a given list.
+ * 
+ * @param boxList Array of box IDs
+ */
+function expandAll(boxList) {
+  var idx;
+  for (idx = 0; idx < boxList.length; idx++) {
+     var boxObj = getElementObject(boxList[idx]);
+     var buttonObj = getElementObject(boxList[idx]+B_SFIX);
+     openBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Makes all the control buttons of boxes appear.
+ * 
+ * @param boxList Array of box IDs
+ */
+function viewControlButtons(boxList) {
+    var idx;
+    for (idx = 0; idx < boxList.length; idx++) {
+        buttonObj = getElementObject(boxList[idx]+B_SFIX);
+        if (buttonObj != null) {
+            buttonObj.style.display = "inline";
+        }
+    }
+}
+
+/**
+ * Makes all the control buttons of boxes disappear.
+ * 
+ * @param boxList Array of box IDs
+ */
+function hideControlButtons(boxList) {
+    var idx;
+    for (idx = 0; idx < boxList.length; idx++) {
+        buttonObj = getElementObject(boxList[idx]+B_SFIX);
+        if (buttonObj != null) {
+            buttonObj.style.display = "none";
+        }
+    }
+}
+
+/**
+ * Sets the page for either printing mode
+ * or viewing mode. In printing mode, the page
+ * is made to be more readable when printing it out.
+ * In viewing mode, the page is more browsable.
+ *
+ * @param isPrinterVersion If true, display in
+ *                                 printing mode; otherwise, 
+ *                                 in viewing mode
+ */
+function displayMode(isPrinterVersion) {
+    var obj;
+    if (isPrinterVersion) {
+        // Hide global control buttons
+        obj = getElementObject("globalControls");
+        if (obj != null) {
+            obj.style.visibility = "hidden";
+        }
+        // Hide Legend
+        obj = getElementObject("legend");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        obj = getElementObject("legendTOC");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        // Hide Glossary
+        obj = getElementObject("glossary");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        obj = getElementObject("glossaryTOC");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+
+        // Expand all XML Instance Representation tables
+        expandAll(xiBoxes);
+        // Expand all Schema Component Representation tables
+        expandAll(scBoxes);
+
+        // Hide Control buttons
+        hideControlButtons(xiBoxes);
+        hideControlButtons(scBoxes);
+    } else {
+        // View global control buttons
+        obj = getElementObject("globalControls");
+        if (obj != null) {
+            obj.style.visibility = "visible";
+        }
+        // View Legend
+        obj = getElementObject("legend");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        obj = getElementObject("legendTOC");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        // View Glossary
+        obj = getElementObject("glossary");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        obj = getElementObject("glossaryTOC");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+
+        // Expand all XML Instance Representation tables
+        expandAll(xiBoxes);
+        // Collapse all Schema Component Representation tables
+        collapseAll(scBoxes);
+
+        // View Control buttons
+        viewControlButtons(xiBoxes);
+        viewControlButtons(scBoxes);
+    }
+}
+
+/**
+ * Opens up a window displaying the documentation
+ * of a schema component in the XML Instance
+ * Representation table.
+ * 
+ * @param compDesc      Description of schema component 
+ * @param compName      Name of schema component 
+ * @param docTextArray Array containing the paragraphs 
+ *                           of the new document
+ */
+function viewDocumentation(compDesc, compName, docTextArray) {
+  var width = 400;
+  var height = 200;
+  var locX = 100;
+  var locY = 200;
+
+  /* Generate content */
+  var actualText = "<html>";
+  actualText += "<head><title>";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": " + compName;
+  }
+  actualText += "</title></head>";
+  actualText += "<body bgcolor=\"#FFFFEE\">";
+  // Title
+  actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 12pt; font-weight: bold; letter-spacing:1px;\">";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": <span style=\"color:#006699\">" + compName + "</span>";
+  }
+  actualText += "</p>";
+  // Documentation
+  var idx;
+  for (idx = 0; idx < docTextArray.length; idx++) {
+     actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 10pt;\">" + docTextArray[idx] + "</p>";
+  }
+  // Link to close window
+  actualText += "<a href=\"javascript:void(0)\" onclick=\"window.close();\" style=\"font-family: Arial, sans-serif; font-size: 8pt;\">Close</a>";
+  actualText += "</body></html>";
+
+  /* Display window */
+  windowCount++;
+  var docWindow = window.open("", "documentation"+windowCount, "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable,alwaysRaised,dependent,titlebar=no,width="+width+",height="+height+",screenX="+locX+",left="+locX+",screenY="+locY+",top="+locY);
+  docWindow.document.write(actualText);
+}
+
+// -->
+</script>
+  </head>
+  <body>
+    <img class="logo" src="data:image/png;base64,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" />
+    <div class="title">
+      <a name="top">EligibilityRequirementMessage - Schema Documentation
+						- V4.4.Revision</a>
+      <H5>Documents generated: 10/24/2020</H5>
+    </div>
+    <h1>Table of Contents</h1>
+    <div style="float: right;">
+      <div id="printerControls" style="display:none;">
+        <input type="checkbox" onclick="displayMode(this.checked)" />Printer-friendly Version</div>
+      <script type="text/javascript">
+<!--
+
+var pc = getElementObject("printerControls");
+if (pc != null) {
+   pc.style.display="block";
+}
+               
+// -->
+</script>
+      <div id="globalControls" style="display:none">
+        <strong>XML Instance Representation:</strong>
+        <br />
+        <span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(xiBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(xiBoxes)">Collapse All</a> ]</span>
+        <br />
+        <br />
+        <strong>Schema Component Representation:</strong>
+        <br />
+        <span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(scBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(scBoxes)">Collapse All</a> ]</span>
+      </div>
+      <script type="text/javascript">
+<!--
+
+var gc = getElementObject("globalControls");
+if (gc != null) {
+   gc.style.display="block";
+}
+               
+// -->
+</script>
+    </div>
+    <ul>
+      <li>
+        <a href="#SchemaProperties">Schema Document Properties</a>
+      </li>
+      <li>
+        <a href="#SchemaDeclarations">Global Declarations</a>
+        <ul>
+          <li>
+            <a href="#element_eligibilityRequirementMessage">Element: <strong>eligibilityRequirementMessage</strong></a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#SchemaDefinitions">Global Definitions</a>
+        <ul>
+          <li>
+            <a href="#type_EligibilityRequirementMessage">Complex Type: <strong>EligibilityRequirementMessage</strong></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
+    <h2>
+      <a name="SchemaProperties">Schema Document Properties</a>
+    </h2>
+    <table class="properties">
+      <tr>
+        <th>Target Namespace</th>
+        <td>
+          <span class="targetNS">http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Version</th>
+        <td>4.4.Revision</td>
+      </tr>
+      <tr>
+        <th>Element and Attribute Namespaces</th>
+        <td>
+          <ul>
+            <li>Global element and attribute declarations belong to this schema's target namespace.</li>
+            <li>By default, local element declarations belong to this schema's target namespace.</li>
+            <li>By default, local attribute declarations have no namespace.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Schema Composition</th>
+        <td>
+          <ul>
+            <li>This schema imports schema(s) from the following namespace(s):<ul><li><em>http://cufxstandards.com/v4/MessageContext.xsd</em> (at MessageContext.xsd)</li><li><em>http://cufxstandards.com/v4/EligibilityRequirement.xsd</em> (at EligibilityRequirement.xsd)</li><li><em>http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd</em> (at EligibilityRequirementFilter.xsd)</li></ul></li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <h3>Declared Namespaces</h3>
+    <table class="namespaces">
+      <tr>
+        <th>Prefix</th>
+        <th>Namespace</th>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_">Default namespace</a>
+        </td>
+        <td>
+          <span class="targetNS">http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_xml">xml</a>
+        </td>
+        <td>http://www.w3.org/XML/1998/namespace</td>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_xs">xs</a>
+        </td>
+        <td>http://www.w3.org/2001/XMLSchema</td>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_messageContext">messageContext</a>
+        </td>
+        <td>http://cufxstandards.com/v4/MessageContext.xsd</td>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_eligibilityRequirement">eligibilityRequirement</a>
+        </td>
+        <td>http://cufxstandards.com/v4/EligibilityRequirement.xsd</td>
+      </tr>
+      <tr>
+        <td>
+          <a name="ns_eligibilityRequirementFilter">eligibilityRequirementFilter</a>
+        </td>
+        <td>http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd</td>
+      </tr>
+    </table>
+    <div class="schemaComponent box">
+      <div>
+        <input type="button" id="schema_scbox_button" class="control" onclick="switchState('schema_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
+      <div id="schema_scbox" class="contents">
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">targetNamespace</span>="<span class="scContent">http://cufxstandards.com/v4/EligibilityRequirementMessage.xsd</span>" <span class="scTag">version</span>="<span class="scContent">4.4.$Revision$</span>" <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">attributeFormDefault</span>="<span class="scContent">unqualified</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:import</span> <span class="scTag">namespace</span>="<span class="scContent">http://cufxstandards.com/v4/MessageContext.xsd</span>" <span class="scTag">schemaLocation</span>="<span class="scContent">MessageContext.xsd</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:import</span> <span class="scTag">namespace</span>="<span class="scContent">http://cufxstandards.com/v4/EligibilityRequirement.xsd</span>" <span class="scTag">schemaLocation</span>="<span class="scContent">EligibilityRequirement.xsd</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:import</span> <span class="scTag">namespace</span>="<span class="scContent">http://cufxstandards.com/v4/EligibilityRequirementFilter.xsd</span>" <span class="scTag">schemaLocation</span>="<span class="scContent">EligibilityRequirementFilter.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('schema_scbox', false);
+// -->
+</script>
+    </div>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
+    <h2>
+      <a name="SchemaDeclarations">Global Declarations</a>
+    </h2>
+    <h3>Element: <a name="element_eligibilityRequirementMessage" class="name">eligibilityRequirementMessage</a></h3>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>eligibilityRequirementMessage</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>
+          <span class="type">
+            <a title="Jump to &quot;EligibilityRequirementMessage&quot; type definition." href="#type_EligibilityRequirementMessage">EligibilityRequirementMessage</a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>Nillable</th>
+        <td>no</td>
+      </tr>
+      <tr>
+        <th>Abstract</th>
+        <td>no</td>
+      </tr>
+      <tr>
+        <th>Documentation</th>
+        <td>
+				All values that can be sent in an eligibility requirement message.  Contains message context, eligibility requirement
+				filter and an eligibility requirement list.  This is a wrapper used to more easily serialize the complete message.
+				All values are optional.  See example specifications for usage.
+			</td>
+      </tr>
+    </table>
+    <div class="sample box">
+      <div>
+        <input type="button" id="element_eligibilityRequirementMessage_xibox_button" class="control" onclick="switchState('element_eligibilityRequirementMessage_xibox'); return false;" style="display: none" /> <span class="caption">JSON Instance Representation</span></div>
+      <div id="element_eligibilityRequirementMessage_xibox" class="contents">
+        <div style="margin-left: 0em">{eligibilityRequirementMessage<br /><div style="margin-left: 1.5em">"messageContext" :  <span class="type"><a href="#ns_messageContext" title="Find out namespace of 'messageContext' prefix">messageContext</a>:<a title="&quot;MessageContext&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;MessageContext&quot; type definition could not be found.');">MessageContext</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('The message context contains information that is passed as part of each CUFX message call. It identifies who is sending the request in and enables the service provider to execute some level of security or processing.'); viewDocumentation('Element', 'messageContext', docArray);">?</a></div><div style="margin-left: 1.5em">"eligibilityRequirementFilter" :  <span class="type"><a href="#ns_eligibilityRequirementFilter" title="Find out namespace of 'eligibilityRequirementFilter' prefix">eligibilityRequirementFilter</a>:<a title="&quot;EligibilityRequirementFilter&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementFilter&quot; type definition could not be found.');">EligibilityRequirementFilter</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('Any filters applied to the a read, update or delete eligibilityRequirement request. Does not apply to a create message.'); viewDocumentation('Element', 'eligibilityRequirementFilter', docArray);">?</a></div><div style="margin-left: 1.5em">"eligibilityRequirementList" :  <span class="type"><a href="#ns_eligibilityRequirement" title="Find out namespace of 'eligibilityRequirement' prefix">eligibilityRequirement</a>:<a title="&quot;EligibilityRequirementList&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementList&quot; type definition could not be found.');">EligibilityRequirementList</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('All the eligibility requirement data.'); viewDocumentation('Element', 'eligibilityRequirementList', docArray);">?</a></div>eligibilityRequirementMessage}</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('element_eligibilityRequirementMessage_xibox', true);
+// -->
+</script>
+    </div>
+    <div class="schemaComponent box">
+      <div>
+        <input type="button" id="element_eligibilityRequirementMessage_scbox_button" class="control" onclick="switchState('element_eligibilityRequirementMessage_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
+      <div id="element_eligibilityRequirementMessage_scbox" class="contents">
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">eligibilityRequirementMessage</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;EligibilityRequirementMessage&quot; type definition." href="#type_EligibilityRequirementMessage">EligibilityRequirementMessage</a></span></span>"/&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('element_eligibilityRequirementMessage_scbox', false);
+// -->
+</script>
+    </div>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
+    <h2>
+      <a name="SchemaDefinitions">Global Definitions</a>
+    </h2>
+    <h3>Complex Type: <a name="type_EligibilityRequirementMessage" class="name">EligibilityRequirementMessage</a></h3>
+    <table class="properties">
+      <tr>
+        <th>Name</th>
+        <td>EligibilityRequirementMessage</td>
+      </tr>
+      <tr>
+        <th>Abstract</th>
+        <td>no</td>
+      </tr>
+      <tr>
+        <th>Documentation</th>
+        <td>
+				All values that can be sent in an eligibility requirement message.  Contains message context, eligibility requirement
+				filter and an eligibility requirement list.  This is a wrapper used to more easily serialize the complete message.
+				All values are optional.  See example specifications for usage.
+			</td>
+      </tr>
+    </table>
+    <div class="sample box">
+      <div>
+        <input type="button" id="type_EligibilityRequirementMessage_xibox_button" class="control" onclick="switchState('type_EligibilityRequirementMessage_xibox'); return false;" style="display: none" /> <span class="caption">JSON Instance Representation</span></div>
+      <div id="type_EligibilityRequirementMessage_xibox" class="contents">
+        <div style="margin-left: 0em">{<br /><div style="margin-left: 1.5em">"messageContext" :  <span class="type"><a href="#ns_messageContext" title="Find out namespace of 'messageContext' prefix">messageContext</a>:<a title="&quot;MessageContext&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;MessageContext&quot; type definition could not be found.');">MessageContext</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('The message context contains information that is passed as part of each CUFX message call. It identifies who is sending the request in and enables the service provider to execute some level of security or processing.'); viewDocumentation('Element', 'messageContext', docArray);">?</a></div><div style="margin-left: 1.5em">"eligibilityRequirementFilter" :  <span class="type"><a href="#ns_eligibilityRequirementFilter" title="Find out namespace of 'eligibilityRequirementFilter' prefix">eligibilityRequirementFilter</a>:<a title="&quot;EligibilityRequirementFilter&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementFilter&quot; type definition could not be found.');">EligibilityRequirementFilter</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('Any filters applied to the a read, update or delete eligibilityRequirement request. Does not apply to a create message.'); viewDocumentation('Element', 'eligibilityRequirementFilter', docArray);">?</a></div><div style="margin-left: 1.5em">"eligibilityRequirementList" :  <span class="type"><a href="#ns_eligibilityRequirement" title="Find out namespace of 'eligibilityRequirement' prefix">eligibilityRequirement</a>:<a title="&quot;EligibilityRequirementList&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementList&quot; type definition could not be found.');">EligibilityRequirementList</a></span> , <span class="occurs">[0..1]</span> <a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('All the eligibility requirement data.'); viewDocumentation('Element', 'eligibilityRequirementList', docArray);">?</a></div>}</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('type_EligibilityRequirementMessage_xibox', true);
+// -->
+</script>
+    </div>
+    <div class="schemaComponent box">
+      <div>
+        <input type="button" id="type_EligibilityRequirementMessage_scbox_button" class="control" onclick="switchState('type_EligibilityRequirementMessage_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span></div>
+      <div id="type_EligibilityRequirementMessage_scbox" class="contents">
+        <div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">EligibilityRequirementMessage</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">messageContext</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_messageContext" title="Find out namespace of 'messageContext' prefix">messageContext</a>:<a title="&quot;MessageContext&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;MessageContext&quot; type definition could not be found.');">MessageContext</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">eligibilityRequirementFilter</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_eligibilityRequirementFilter" title="Find out namespace of 'eligibilityRequirementFilter' prefix">eligibilityRequirementFilter</a>:<a title="&quot;EligibilityRequirementFilter&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementFilter&quot; type definition could not be found.');">EligibilityRequirementFilter</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">eligibilityRequirementList</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_eligibilityRequirement" title="Find out namespace of 'eligibilityRequirement' prefix">eligibilityRequirement</a>:<a title="&quot;EligibilityRequirementList&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;EligibilityRequirementList&quot; type definition could not be found.');">EligibilityRequirementList</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">1</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div>
+      </div>
+      <script type="text/javascript">
+<!--
+setState('type_EligibilityRequirementMessage_scbox', false);
+// -->
+</script>
+    </div>
+    <div style="text-align: right; clear: both;">
+      <a href="#top">top</a>
+    </div>
+    <hr />
+    <p class="footer">Generated by <a href="http://xml.fiforms.org/xs3p/">xs3p</a> (<a href="http://titanium.dstc.edu.au/xml/xs3p">old link</a>)
+               . Last modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script></p>
+  </body>
+</html>

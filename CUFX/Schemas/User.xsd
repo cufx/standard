@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/User.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/User.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -40,10 +40,10 @@
 	<xs:complexType name="User">
 		<xs:sequence>
 
-			<xs:element name="userId" type="UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="userId" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The user ID is a unique identifier for the user, based on the type of user (see User Id Type below) that is requesting
+						The user ID is a unique identifier for the user, based on the type of user (see User ID Type below) that is requesting
 						the message to be performed.
 					</xs:documentation>
 				</xs:annotation>
@@ -90,16 +90,6 @@
 
 		</xs:sequence>
 	</xs:complexType>
-
-	<xs:simpleType name="UserId">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The unique identifier created by the system and or the user for identification.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
 
 	<xs:simpleType name="UserIdType">
 		<xs:restriction base="xs:string">
@@ -166,7 +156,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="userId" type="UserId" minOccurs="0" maxOccurs ="unbounded">
+					<xs:element name="userId" type="common:UserId" minOccurs="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								Collection of user ids to return in a filter request.

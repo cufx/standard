@@ -1,0 +1,492 @@
+{
+  "partyList": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "currentPage": "1",
+    "totalPages": "1",
+    "pageSize": "1",
+    "positionIndex": "positionIndex1",
+    "returnPage": "1",
+    "returnPositionIndex": "returnPositionIndex1",
+    "party": {
+      "id": "id1",
+      "taxInformationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "taxInformation": {
+          "taxId": "taxId1",
+          "taxIdEncrypted": "true",
+          "taxIdType": "SocialSecurityNumber",
+          "otherTaxIdType": "otherTaxIdType1",
+          "reportingFlag": "true",
+          "verifiedTaxIdFlag": "true",
+          "taxIdWarningCount": "0",
+          "backupWithholdingFlag": "true",
+          "backupWithholdingReason": "backupWithholdingReason1",
+          "backupWithholdingExemptionReason": "ExceptFromWithholding",
+          "backupWithholdingEffectiveDate": "1900-01-01",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          },
+          "withholdingsInfoList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "withholdingInfo": {
+              "withholdingType": "Federal",
+              "otherWithholdingType": "otherWithholdingType1",
+              "withholdingFilingStatus": "Single",
+              "numberOfWithholdings": "numberOfWithholdings1",
+              "withholdingsAmount": {
+                "value": "1",
+                "currencyCode": "USD",
+                "exchangeRate": "1"
+              },
+              "withholdingsExempt": "true",
+              "withholdingsRate": "1",
+              "withholdingsOption": "withholdingsOption1"
+            }
+          },
+          "taxIdExpirationDateTime": "1900-01-01T01:01:01Z"
+        }
+      },
+      "type": "Individual",
+      "partyStatus": "partyStatus1",
+      "partySubStatus": "partySubStatus1",
+      "characteristics": {
+        "organization": {
+          "organizationType": "SoleProprietorship",
+          "organizationSubType": "organizationSubType1",
+          "organizationName": "organizationName1",
+          "doingBusinessAsList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "doingBusinessAs": {
+              "@xsi:nil": "true"
+            }
+          }
+        },
+        "individual": {
+          "firstName": "firstName1",
+          "middleName": "middleName1",
+          "lastName": "lastName1",
+          "prefix": "prefix1",
+          "suffix": "suffix1",
+          "formattedName": "formattedName1",
+          "mothersMaidenName": "mothersMaidenName1",
+          "nickname": "nickname1",
+          "birthdate": "1900-01-01",
+          "deathDate": "1900-01-01",
+          "gender": "Male",
+          "cityOfBirth": "cityOfBirth1",
+          "citizenshipList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "citizenship": {
+              "@xsi:nil": "true"
+            }
+          },
+          "employmentStatus": "Contract",
+          "employmentList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "employment": {
+              "employmentId": "employmentId1",
+              "employerPartyId": "employerPartyId1",
+              "employerName": "employerName1",
+              "employmentStartDate": "1900-01-01",
+              "employmentEndDate": "1900-01-01",
+              "timeAtEmployer": "P396DT1H1M1S",
+              "employeeOccupation": "employeeOccupation1",
+              "employerAddress": {
+                "line1": "line11",
+                "line2": "line21",
+                "line3": "line31",
+                "line4": "line41",
+                "line5": "line51",
+                "line6": "line61",
+                "line7": "line71",
+                "line8": "line81",
+                "line9": "line91",
+                "line10": "line101",
+                "city": "city1",
+                "stateProvince": "stateProvince1",
+                "postalCode": "postalCode1",
+                "countryCode": "AD",
+                "country": "country1",
+                "coordinate": {
+                  "latitude": "1",
+                  "longitude": "1"
+                }
+              },
+              "employerPhone": {
+                "phoneType": "Home",
+                "number": "number1",
+                "extension": "extension1",
+                "planFormat": "Nanp",
+                "description": "description1",
+                "smsRegistered": "true",
+                "countryCode": "AD",
+                "country": "country1",
+                "otherPhoneType": "otherPhoneType1"
+              },
+              "employerStatus": "Current",
+              "type": "FullTime",
+              "employmentIncome": {
+                "grossIncomeData": {
+                  "amount": {
+                    "value": "1",
+                    "currencyCode": "USD",
+                    "exchangeRate": "1"
+                  },
+                  "frequency": "AmortizedSchedule",
+                  "otherFrequencyType": "otherFrequencyType1",
+                  "excludeIncomeFromCalculations": "false",
+                  "customData": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "valuePair": null
+                  }
+                },
+                "netIncomeData": {
+                  "amount": null,
+                  "frequency": "AmortizedSchedule",
+                  "otherFrequencyType": "otherFrequencyType1",
+                  "excludeIncomeFromCalculations": "false"
+                }
+              },
+              "customData": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "valuePair": null
+              }
+            }
+          },
+          "additionalIncomeList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "additionalIncome": {
+              "amount": null,
+              "frequency": "AmortizedSchedule",
+              "otherFrequencyType": "otherFrequencyType1",
+              "excludeIncomeFromCalculations": "false",
+              "source": "source1"
+            }
+          },
+          "liabilityList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "liability": {
+              "description": "description1",
+              "payment": {
+                "value": "1",
+                "currencyCode": "USD",
+                "exchangeRate": "1"
+              },
+              "paymentFrequency": "AmortizedSchedule",
+              "balance": {
+                "value": "1",
+                "currencyCode": "USD",
+                "exchangeRate": "1"
+              },
+              "excludeLiabilityFromCalculations": "true",
+              "customData": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "valuePair": null
+              }
+            }
+          },
+          "residence": {
+            "currentHousingStatus": "Rent",
+            "currentHousingOwnershipType": "Self",
+            "currentHousingDebtType": "OwnWithMortgage",
+            "currentHousingType": "PrimaryResidence"
+          },
+          "ethnicity": "ethnicity1",
+          "race": "race1",
+          "maritalStatus": "Annulled"
+        },
+        "trust": {
+          "trustName": "trustName1",
+          "trustType": "trustType1"
+        },
+        "estate": {
+          "estateName": "estateName1",
+          "estateType": "estateType1"
+        }
+      },
+      "identificationDocumentList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "identificationDocument": {
+          "@xsi:nil": "true"
+        }
+      },
+      "eligibilityRequirementMetList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "eligibilityRequirementMet": {
+          "@xsi:nil": "true"
+        }
+      },
+      "contactIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "contactId": "contactId1"
+      },
+      "contactList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "contact": {
+          "contactId": "contactId1",
+          "contactType": "Address",
+          "contactPersonName": {
+            "firstName": "firstName1",
+            "middleName": "middleName1",
+            "lastName": "lastName1",
+            "prefix": "prefix1",
+            "suffix": "suffix1",
+            "formattedName": "formattedName1",
+            "nickname": "nickname1"
+          },
+          "contactPoint": {
+            "address": {
+              "line1": "line11",
+              "line2": "line21",
+              "line3": "line31",
+              "line4": "line41",
+              "line5": "line51",
+              "line6": "line61",
+              "line7": "line71",
+              "line8": "line81",
+              "line9": "line91",
+              "line10": "line101",
+              "city": "city1",
+              "stateProvince": "stateProvince1",
+              "postalCode": "postalCode1",
+              "countryCode": "AD",
+              "country": "country1",
+              "addressType": "Home",
+              "effectiveDateTime": "1900-01-01T01:01:01Z",
+              "expirationDateTime": "1900-01-01T01:01:01Z",
+              "timeAtAddress": "P396DT1H1M1S",
+              "addressVerifyDateTime": "1900-01-01T01:01:01Z",
+              "otherAddressType": "otherAddressType1"
+            },
+            "phone": {
+              "phoneType": "Home",
+              "number": "number1",
+              "extension": "extension1",
+              "planFormat": "Nanp",
+              "description": "description1",
+              "smsRegistered": "true",
+              "countryCode": "AD",
+              "country": "country1",
+              "otherPhoneType": "otherPhoneType1"
+            },
+            "email": {
+              "emailType": "Home",
+              "address": "address1",
+              "otherEmailType": "otherEmailType1"
+            },
+            "instantMessage": {
+              "messagingService": "messagingService1",
+              "user": "user1"
+            },
+            "social": {
+              "socialService": "socialService1",
+              "user": "user1"
+            },
+            "website": {
+              "sitename": "sitename1",
+              "user": "user1"
+            },
+            "sms": {
+              "phoneType": "Home",
+              "number": "number1",
+              "extension": "extension1",
+              "planFormat": "Nanp",
+              "description": "description1",
+              "smsRegistered": "true",
+              "countryCode": "AD",
+              "country": "country1",
+              "otherPhoneType": "otherPhoneType1"
+            }
+          },
+          "contactPointDescription": "contactPointDescription1",
+          "timeOfDay": "Afternoon",
+          "demonstratedAccess": {
+            "dateTime": "1900-01-01T01:01:01Z",
+            "fullName": "fullName1",
+            "userName": "userName1"
+          },
+          "badContactPoint": "true",
+          "preferenceOrder": "1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": null
+          },
+          "contactDateTimeCreated": "1900-01-01T01:01:01Z",
+          "contactCreatedBy": "contactCreatedBy1",
+          "contactDateTimeModified": "1900-01-01T01:01:01Z",
+          "contactModifiedBy": "contactModifiedBy1",
+          "contactDateTimeDeleted": "1900-01-01T01:01:01Z",
+          "contactDeletedBy": "contactDeletedBy1",
+          "preferenceSettingList": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "preferenceSetting": {
+              "preferenceId": "preferenceId1",
+              "deliveryChannel": "LiveSupport",
+              "preferenceType": "CourtesyPayment",
+              "preferenceSettingSubType": {
+                "eAlertSubType": "AddressChanged",
+                "emailFormatSubType": "Html",
+                "widgetSubType": "DisplayStatus"
+              },
+              "preferenceValue": "preferenceValue1",
+              "preferenceValueDataType": "string",
+              "preferenceStatus": "Active",
+              "preferenceFrequency": "AmortizedSchedule",
+              "alertCustomText": "alertCustomText1",
+              "whereToContactIdList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "contactId": "contactId1"
+              },
+              "actionableAlert": "true",
+              "widgetName": "widgetName1"
+            }
+          }
+        }
+      },
+      "fiUserIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "fiUserId": "fiUserId1"
+      },
+      "householdId": "householdId1",
+      "partyDateCreated": "1900-01-01",
+      "partyDateTimeCreated": "1900-01-01T01:01:01Z",
+      "partyCreatedBy": "partyCreatedBy1",
+      "partyDateModified": "1900-01-01",
+      "partyDateTimeModified": "1900-01-01T01:01:01Z",
+      "partyModifiedBy": "partyModifiedBy1",
+      "partyDateDeleted": "1900-01-01",
+      "partyDateTimeDeleted": "1900-01-01T01:01:01Z",
+      "partyDeletedBy": "partyDeletedBy1",
+      "noteList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "note": {
+          "noteId": "noteId1",
+          "recordType": "Account",
+          "noteCode": "noteCode1",
+          "noteText": "noteText1",
+          "noteCreatedDateTime": "1900-01-01T01:01:01Z",
+          "noteExpirationDate": "1900-01-01",
+          "noteCreator": "noteCreator1"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      },
+      "nonresidentAlienCertificationtype": "nonresidentAlienCertificationtype1",
+      "nonresidentAlienCertificationDateTime": "1900-01-01T01:01:01Z",
+      "nonresidentAlienLimitationOnBenefits": "nonresidentAlienLimitationOnBenefits1",
+      "nonresidentAlienSpecialWithholdingStatus": "None",
+      "nonresidentAlienSpecialWithholdingRate": "1"
+    }
+  }
+}
