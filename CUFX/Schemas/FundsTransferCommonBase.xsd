@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="FundsTransferCommonBase"
 	targetNamespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -63,7 +63,7 @@
 	<xs:complexType name="OccurrenceIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of payments or transfers occurrence ID's that should have their associated occurrence ID either returned
+				The list of payments or transfers occurrence IDs that should have their associated occurrence ID either returned
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>

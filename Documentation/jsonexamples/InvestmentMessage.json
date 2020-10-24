@@ -1,0 +1,685 @@
+{
+  "investmentMessage": {
+    "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "messageContext": {
+      "cufxVersion": "1.0.3",
+      "requestId": "requestId1",
+      "configurationId": "configurationId1",
+      "vendorId": "vendorId1",
+      "appId": "appId1",
+      "fiId": "fiId1",
+      "dataSourceId": "dataSourceId1",
+      "sendingNetworkNodeId": "sendingNetworkNodeId1",
+      "receivingNetworkNodeId": "receivingNetworkNodeId1",
+      "environment": "environment1",
+      "returnDataFilter": "All",
+      "includeBlankFields": "true",
+      "includeZeroNumerics": "true",
+      "sessionId": "sessionId1",
+      "userList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "user": {
+          "userId": "userId1",
+          "processorSessionId": "processorSessionId1",
+          "userIdType": "EmployeeId",
+          "partyId": "partyId1",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": {
+              "name": "name1",
+              "value": "value1"
+            }
+          }
+        }
+      },
+      "statusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "status": {
+          "@xsi:nil": "true"
+        }
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      }
+    },
+    "investmentFilter": {
+      "accountIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountId": "accountId1"
+      },
+      "accountStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountStatusPair": {
+          "accountStatus": {
+            "depositAccountStatus": "Active",
+            "investmentStatus": "Active",
+            "loanAccountStatus": "Active"
+          },
+          "accountSubStatus": "accountSubStatus1"
+        }
+      },
+      "partyIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "partyId": "partyId1"
+      },
+      "relationshipIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "relationshipId": "relationshipId1"
+      },
+      "accountTypeList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountType": "Checking"
+      },
+      "externalAccountFlag": "true",
+      "includeNotesFlag": "true",
+      "transactionDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      },
+      "accountMicrList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "micrAccountNumber": "micrAccountNumber1"
+      },
+      "customData": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "valuePair": null
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
+      },
+      "holdingIdList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "holdingId": "holdingId1"
+      },
+      "holdingAsOfDateRange": {
+        "startDateTime": "1900-01-01T01:01:01Z",
+        "endDateTime": "1900-01-01T01:01:01Z"
+      }
+    },
+    "investmentList": {
+      "currentPage": "1",
+      "totalPages": "1",
+      "pageSize": "1",
+      "positionIndex": "positionIndex1",
+      "returnPage": "1",
+      "returnPositionIndex": "returnPositionIndex1",
+      "investment": {
+        "accountId": "accountId1",
+        "type": "Checking",
+        "accountSubType": "accountSubType1",
+        "openDate": "1900-01-01",
+        "closeDate": "1900-01-01",
+        "accountStatus": {
+          "depositAccountStatus": "Active",
+          "investmentStatus": "Active",
+          "loanAccountStatus": "Active"
+        },
+        "accountSubStatus": "accountSubStatus1",
+        "micrAccountNumber": "micrAccountNumber1",
+        "routingNumber": "routingNumber1",
+        "displayAccountId": "displayAccountId1",
+        "idType": "Reserved",
+        "description": "description1",
+        "subType": "subType1",
+        "accountEscheatDate": "1900-01-01",
+        "accountEscheatAmount": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "chargeOffDate": "1900-01-01",
+        "chargeOffAmount": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "accountNickName": "accountNickName1",
+        "branch": "branch1",
+        "actualBalance": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "availableBalance": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "cashAdvanceAvailableBalance": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "cashAdvanceBalance": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "cashAdvanceLimit": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "minimumBalance": {
+          "value": "1",
+          "currencyCode": "USD",
+          "exchangeRate": "1"
+        },
+        "externalAccountBankAddress": {
+          "line1": "line11",
+          "line2": "line21",
+          "line3": "line31",
+          "line4": "line41",
+          "line5": "line51",
+          "line6": "line61",
+          "line7": "line71",
+          "line8": "line81",
+          "line9": "line91",
+          "line10": "line101",
+          "city": "city1",
+          "stateProvince": "stateProvince1",
+          "postalCode": "postalCode1",
+          "countryCode": "AD",
+          "country": "country1",
+          "coordinate": {
+            "latitude": "1",
+            "longitude": "1"
+          }
+        },
+        "externalAccountSWIFTCode": "externalAccountSWIFTCode1",
+        "externalAccountIBANCode": "externalAccountIBANCode1",
+        "externalAccountBankCode": "externalAccountBankCode1",
+        "externalAccountFlag": "true",
+        "externalAccountVerified": "true",
+        "externalTransferFrom": "true",
+        "externalTransferTo": "true",
+        "transferFrom": "true",
+        "transferTo": "true",
+        "rateType": "Fixed",
+        "sourceCode": "sourceCode1",
+        "partyIdList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "partyId": "partyId1"
+        },
+        "relationshipId": "relationshipId1",
+        "accountNoteList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "note": {
+            "noteId": "noteId1",
+            "recordType": "Account",
+            "noteCode": "noteCode1",
+            "noteText": "noteText1",
+            "noteCreatedDateTime": "1900-01-01T01:01:01Z",
+            "noteExpirationDate": "1900-01-01",
+            "noteCreator": "noteCreator1"
+          }
+        },
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        },
+        "meta": {
+          "@xsi:nil": "true"
+        },
+        "transactionList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "transaction": {
+            "transactionId": "transactionId1",
+            "accountId": "accountId1",
+            "accountType": "Checking",
+            "accountSubType": "accountSubType1",
+            "type": "Debit",
+            "amount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "description": "description1",
+            "checkNumber": "checkNumber1",
+            "dateTimePosted": "1900-01-01T01:01:01Z",
+            "dateTimeEffective": "1900-01-01T01:01:01Z",
+            "status": "Posted",
+            "otherTransactionStatus": "otherTransactionStatus1",
+            "postedActualBalance": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "postedAvailableBalance": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "principalAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "interestAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "transactionFeeList": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "transactionFee": {
+                "transactionFeeId": "transactionFeeId1",
+                "transactionFeeDateTimePosted": "1900-01-01T01:01:01Z",
+                "transactionfeeAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "transactionFeeCode": "transactionFeeCode1",
+                "transactionFeeDescription": "transactionFeeDescription1"
+              }
+            },
+            "merchantCategoryCode": "merchantCategoryCode1",
+            "category": "category1",
+            "source": "Ach",
+            "escrowAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "transactionArtifactId": {
+              "artifactUniqueId": "artifactUniqueId1",
+              "artifactIdKeyValueList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "valuePair": null
+              }
+            },
+            "transactionArtifactUri": "http://uri1",
+            "customData": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
+            },
+            "noteIdList": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "noteID": "noteID1"
+            },
+            "entryMethod": "entryMethod1"
+          }
+        },
+        "interestPostingFrequency": "AmortizedSchedule",
+        "withholdingsInfoList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "withholdingInfo": {
+            "withholdingType": "Federal",
+            "otherWithholdingType": "otherWithholdingType1",
+            "withholdingFilingStatus": "Single",
+            "numberOfWithholdings": "numberOfWithholdings1",
+            "withholdingsAmount": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "withholdingsExempt": "true",
+            "withholdingsRate": "1",
+            "withholdingsOption": "withholdingsOption1"
+          }
+        },
+        "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+        "overDraftProtectionAccountType": "Checking",
+        "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
+        "investmentWhereHeld": "investmentWhereHeld1",
+        "investmentPartyList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "investmentParty": {
+            "investmentPartyId": "investmentPartyId1",
+            "investmentPartyRelationshipType": {
+              "holder": {
+                "isHolder": "true",
+                "qualifier": "Primary",
+                "authority": "Authorized"
+              },
+              "agent": {
+                "qualifier": "Custodian",
+                "authority": "Unauthorized"
+              }
+            },
+            "investmentContactList": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "contact": {
+                "contactId": "contactId1",
+                "contactType": "Address",
+                "contactPersonName": {
+                  "firstName": "firstName1",
+                  "middleName": "middleName1",
+                  "lastName": "lastName1",
+                  "prefix": "prefix1",
+                  "suffix": "suffix1",
+                  "formattedName": "formattedName1",
+                  "nickname": "nickname1"
+                },
+                "contactPoint": {
+                  "address": {
+                    "line1": "line11",
+                    "line2": "line21",
+                    "line3": "line31",
+                    "line4": "line41",
+                    "line5": "line51",
+                    "line6": "line61",
+                    "line7": "line71",
+                    "line8": "line81",
+                    "line9": "line91",
+                    "line10": "line101",
+                    "city": "city1",
+                    "stateProvince": "stateProvince1",
+                    "postalCode": "postalCode1",
+                    "countryCode": "AD",
+                    "country": "country1",
+                    "addressType": "Home",
+                    "effectiveDateTime": "1900-01-01T01:01:01Z",
+                    "expirationDateTime": "1900-01-01T01:01:01Z",
+                    "timeAtAddress": "P396DT1H1M1S",
+                    "addressVerifyDateTime": "1900-01-01T01:01:01Z",
+                    "otherAddressType": "otherAddressType1"
+                  },
+                  "phone": {
+                    "phoneType": "Home",
+                    "number": "number1",
+                    "extension": "extension1",
+                    "planFormat": "Nanp",
+                    "description": "description1",
+                    "smsRegistered": "true",
+                    "countryCode": "AD",
+                    "country": "country1",
+                    "otherPhoneType": "otherPhoneType1"
+                  },
+                  "email": {
+                    "emailType": "Home",
+                    "address": "address1",
+                    "otherEmailType": "otherEmailType1"
+                  },
+                  "instantMessage": {
+                    "messagingService": "messagingService1",
+                    "user": "user1"
+                  },
+                  "social": {
+                    "socialService": "socialService1",
+                    "user": "user1"
+                  },
+                  "website": {
+                    "sitename": "sitename1",
+                    "user": "user1"
+                  },
+                  "sms": {
+                    "phoneType": "Home",
+                    "number": "number1",
+                    "extension": "extension1",
+                    "planFormat": "Nanp",
+                    "description": "description1",
+                    "smsRegistered": "true",
+                    "countryCode": "AD",
+                    "country": "country1",
+                    "otherPhoneType": "otherPhoneType1"
+                  }
+                },
+                "contactPointDescription": "contactPointDescription1",
+                "timeOfDay": "Afternoon",
+                "demonstratedAccess": {
+                  "dateTime": "1900-01-01T01:01:01Z",
+                  "fullName": "fullName1",
+                  "userName": "userName1"
+                },
+                "badContactPoint": "true",
+                "preferenceOrder": "1",
+                "customData": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "valuePair": null
+                },
+                "contactDateTimeCreated": "1900-01-01T01:01:01Z",
+                "contactCreatedBy": "contactCreatedBy1",
+                "contactDateTimeModified": "1900-01-01T01:01:01Z",
+                "contactModifiedBy": "contactModifiedBy1",
+                "contactDateTimeDeleted": "1900-01-01T01:01:01Z",
+                "contactDeletedBy": "contactDeletedBy1",
+                "preferenceSettingList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "preferenceSetting": {
+                    "preferenceId": "preferenceId1",
+                    "deliveryChannel": "LiveSupport",
+                    "preferenceType": "CourtesyPayment",
+                    "preferenceSettingSubType": {
+                      "eAlertSubType": "AddressChanged",
+                      "emailFormatSubType": "Html",
+                      "widgetSubType": "DisplayStatus"
+                    },
+                    "preferenceValue": "preferenceValue1",
+                    "preferenceValueDataType": "string",
+                    "preferenceStatus": "Active",
+                    "preferenceFrequency": "AmortizedSchedule",
+                    "alertCustomText": "alertCustomText1",
+                    "whereToContactIdList": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "contactId": "contactId1"
+                    },
+                    "actionableAlert": "true",
+                    "widgetName": "widgetName1"
+                  }
+                }
+              }
+            },
+            "customData": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
+            }
+          }
+        },
+        "investmentholdingList": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "investmentHolding": {
+            "accountId": "accountId1",
+            "accountType": "Checking",
+            "accountSubType": "accountSubType1",
+            "holdingID": "holdingID1",
+            "holdingCusipNumber": "holdingCusipNumber1",
+            "holdingAsOfDateTime": "1900-01-01T01:01:01Z",
+            "holdingType": "Asset",
+            "holdingDescription": "holdingDescription1",
+            "holdingQuantity": "1",
+            "holdingPrice": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "holdingPriceDateTime": "1900-01-01T01:01:01Z",
+            "holdingStockSymbol": "holdingStockSymbol1",
+            "holdingTotalValue": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "holdingYield": "1",
+            "holdingYieldAsOfDate": "1900-01-01T01:01:01Z",
+            "holdingAssetClass": "holdingAssetClass1",
+            "holdingBondClass": "holdingBondClass1",
+            "holdingBondType": "holdingBondType1",
+            "holdingMoodyRating": "holdingMoodyRating1",
+            "holdingStandardAndPoorsRating": "holdingStandardAndPoorsRating1",
+            "holdingParValue": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "holdingCouponRate": "1",
+            "holdingCouponFrequency": "AmortizedSchedule",
+            "holdingCallPrice": {
+              "value": "1",
+              "currencyCode": "USD",
+              "exchangeRate": "1"
+            },
+            "holdingYieldToCall": "1",
+            "holdingCallType": "holdingCallType1",
+            "holdingYieldToMaturity": "1",
+            "holdingMaturityDate": "1900-01-01T01:01:01Z",
+            "holdingNextCouponDate": "1900-01-01T01:01:01Z",
+            "holdingNextCallDate": "1900-01-01T01:01:01Z",
+            "customData": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
+            }
+          }
+        }
+      }
+    }
+  }
+}

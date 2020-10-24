@@ -1,0 +1,591 @@
+﻿<!DOCTYPE html>
+<html><head><title>CUFX Schemas</title>
+    <style type="text/css">
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* More-configurable styles */
+
+/******** General ********/
+
+.logo
+{
+	padding-top:100px;
+	padding-bottom:50px;  
+	width: 480px;
+	height: 135px;
+}
+
+.title
+{
+	font-family: Calibri;
+	color: #4F81BD;
+	text-transform: uppercase;
+	padding-left:10pt;
+	font-size: 26pt;
+}
+/* Document body */
+body {
+   color: Black;
+   background-color: White;
+   font-family: "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+   font-size: 10pt;
+   margin-left:75px;
+   margin-right:75px;
+}
+/* Horizontal rules */
+hr
+{
+	height:1pt;
+	color: #4F81BD;
+}
+/* Document title */
+h1
+{
+	font-family: Calibri;
+	font-size: 11pt;
+	letter-spacing: 2px;
+	border-bottom: 1px #ccc solid;
+	padding-top: 5px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	background-color: #4F81BD;
+	color: #FFFFFF;
+}
+/* Main section headers */
+h2
+{
+	font-family: Calibri;
+	padding: 6px;
+	font-size: 11pt;
+	letter-spacing: 1px;
+	background-color: #DBE5F1;
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Sub-section headers */
+h3
+{
+	font-family: Calibri;
+	padding: 6px;
+	border-style: solid none none solid;
+	border-color: #4F81BD;
+	border-width: 1pt;
+	font-size: 11pt;
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties
+{
+	border-collapse:collapse;
+	margin-left:50px;
+}
+table.properties, th, td
+{
+	border: 1pt solid black;
+}
+table.properties th, table.properties th a
+{
+	color: #243F60;
+	text-transform: uppercase;
+}
+table.properties td {
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls
+{
+	color: #243F7A; /* Orange-brown */
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   border: 2px solid #999;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces
+{
+	border-collapse:collapse;
+	margin-left:50px;
+}
+table.properties th, table.namespaces th
+{
+	color: #243F60;
+	text-transform: uppercase;
+}
+/* Target namespace of the schema */
+span.targetNS {
+   color: #06C;
+   font-weight: bold;
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   border-collapse:collapse;
+	margin-left:50px;
+}
+
+/* XML Instance Representation table */
+div.sample div.contents {
+   border: 1pt dotted #4F81BD;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent div.contents
+{
+	border: 1pt dotted #4F81BD;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   color: #036; /* Blue */
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Printer-version styles */
+
+@media print {
+
+/* Ensures that controls are hidden when printing */
+div#printerControls {
+   visibility: hidden;
+}
+div#globalControls {
+   visibility: hidden;
+}
+#legend {
+   display: none;
+}
+#legendTOC {
+   display: none;
+}
+#glossary {
+   display: none;
+}
+#glossaryTOC {
+   display: none;
+}
+
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Base styles */
+
+/******** General ********/
+
+/* Unordered lists */
+ul {
+   margin-left: 1.5em;
+   margin-bottom: 0em;
+}
+/* Tables */
+table {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+table th, table td {
+   font-size: 10pt;
+   vertical-align: top;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+table th {
+   font-weight: bold;
+   text-align: left;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties {
+   width: 90%;
+}
+table.properties th {
+   width: 30%;
+}
+/* Boxes that can make its content appear and disappear*/
+div.box {
+   margin: 1em;
+}
+   /* Box caption */
+div.box span.caption {
+   font-weight: bold;
+   color: #243F60;
+}
+   /* Button to open and close the box */
+div.box input.control {
+   width: 1.4em;
+   height: 1.4em;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 11pt;
+}
+   /* Box contents */
+div.box div.contents {
+   margin-top: 3px;
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   white-space: nowrap;
+   font-weight: bold;
+   padding: 5px;
+   margin: 5px;
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   padding: 10px;
+   margin: 5px;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+}
+table.namespaces td {
+}
+/* Target namespace of the schema */
+span.targetNS {
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   width: 90%;
+}
+table.hierarchy th {
+   font-style: italic;
+   width: 20%;
+	color: #243F60;
+	text-transform: uppercase;   
+}
+table.hierarchy th, table.hierarchy td {
+   padding: 5px;
+}
+
+/* XML Instance Representation table */
+div.sample {
+   width: 90%;
+}
+div.sample div.contents {
+   padding: 5px;
+   font-family: Courier, sans-serif;
+   font-size: 10.5pt;
+}
+   /* Normal elements and attributes */
+div.sample div.contents, div.sample div.contents a {
+   color: black;
+}
+   /* Group Headers */
+div.sample div.contents .group, div.sample div.contents .group a {
+   color: #999; /* Light gray */
+}
+   /* Type Information */
+div.sample div.contents .type, div.sample div.contents .type a {
+   color: #999; /* Light gray */
+}
+   /* Occurrence Information */
+div.sample div.contents .occurs, div.sample div.contents .occurs a {
+   color: #999; /* Light gray */
+}
+   /* Fixed values */
+div.sample div.contents .fixed {
+   color: #063; /* Green */
+   font-weight: bold;
+}
+   /* Simple type constraints */
+div.sample div.contents .constraint, div.sample div.contents .constraint a {
+   color: #999; /* Light gray */
+}
+   /* Elements and attributes inherited from base type */
+div.sample div.contents .inherited, div.sample div.contents .inherited a {
+   color: #666; /* Dark gray */
+}
+   /* Elements and attributes added to or changed from base type */
+div.sample div.contents .newFields {
+   font-weight: bold;
+}
+   /* Other type of information */
+div.sample div.contents .other, div.sample div.contents .other a {
+   color: #369; /* Blue */
+   font-style: italic;
+}
+   /* Link to open up window displaying documentation */
+div.sample div.contents a.documentation {
+   text-decoration: none;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+   font-weight: bold;
+   font-size: 11pt;
+   background-color: #FFD;
+   color: #069;
+}
+   /* Invert colors when hovering over link to open up window 
+      displaying documentation */
+div.sample div.contents a.documentation:hover {
+   color: #FFD;
+   background-color: #069;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent {
+   width: 90%;
+}
+div.schemaComponent div.contents {
+   font-family: Courier, sans-serif;
+   font-size: 10.5pt;
+   padding: 5px;
+}
+   /* Syntax characters */
+div.schemaComponent div.contents {
+   color: #00f; /* blue */
+}
+   /* Element and attribute tags */
+div.schemaComponent div.contents .scTag {
+   color: #933; /* maroon */
+}
+   /* Element and attribute content */
+div.schemaComponent div.contents .scContent, div.schemaComponent div.contents .scContent a {
+   color: black;
+   font-weight: bold;
+}
+   /* Comments */
+div.schemaComponent div.contents .comment {
+   color: #999; /* Light gray */
+}
+
+/******** Legend Section ********/
+
+div#legend table, div#legend div {
+   margin-bottom: 3px;
+}
+div#legend div.hint {
+   color: #999; /* Light gray */
+   width: 90%;
+   margin-left: 1em;
+   margin-bottom: 2em;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   font-weight: bold;
+}
+
+
+/******** Footer ********/
+
+.footer {
+   font-size: 8pt;
+}
+</style>
+</head><body> <base target="_blank" />
+<h1>CUFX Schemas</h1> 
+<ul>
+<li><a href='AccessProfile.html'>AccessProfile</a></li>
+<li><a href='AccessProfileFilter.html'>AccessProfileFilter</a></li>
+<li><a href='AccessProfileMessage.html'>AccessProfileMessage</a></li>
+<li><a href='Account.html'>Account</a></li>
+<li><a href='AccountFilter.html'>AccountFilter</a></li>
+<li><a href='AccountMessage.html'>AccountMessage</a></li>
+<li><a href='Activity.html'>Activity</a></li>
+<li><a href='ActivityFilter.html'>ActivityFilter</a></li>
+<li><a href='ActivityMessage.html'>ActivityMessage</a></li>
+<li><a href='Answer.html'>Answer</a></li>
+<li><a href='App.html'>App</a></li>
+<li><a href='AppFilter.html'>AppFilter</a></li>
+<li><a href='Application.html'>Application</a></li>
+<li><a href='ApplicationFilter.html'>ApplicationFilter</a></li>
+<li><a href='ApplicationMessage.html'>ApplicationMessage</a></li>
+<li><a href='AppMessage.html'>AppMessage</a></li>
+<li><a href='Artifact.html'>Artifact</a></li>
+<li><a href='ArtifactFilter.html'>ArtifactFilter</a></li>
+<li><a href='ArtifactMessage.html'>ArtifactMessage</a></li>
+<li><a href='Bill.html'>Bill</a></li>
+<li><a href='BillFilter.html'>BillFilter</a></li>
+<li><a href='BillMessage.html'>BillMessage</a></li>
+<li><a href='BillPayee.html'>BillPayee</a></li>
+<li><a href='BillPayeeFilter.html'>BillPayeeFilter</a></li>
+<li><a href='BillPayeeMessage.html'>BillPayeeMessage</a></li>
+<li><a href='BillPaymentFilter.html'>BillPaymentFilter</a></li>
+<li><a href='BillPaymentOccurrence.html'>BillPaymentOccurrence</a></li>
+<li><a href='BillPaymentOccurrenceMessage.html'>BillPaymentOccurrenceMessage</a></li>
+<li><a href='BillPaymentRecurring.html'>BillPaymentRecurring</a></li>
+<li><a href='BillPaymentRecurringMessage.html'>BillPaymentRecurringMessage</a></li>
+<li><a href='Card.html'>Card</a></li>
+<li><a href='CardFilter.html'>CardFilter</a></li>
+<li><a href='CardMessage.html'>CardMessage</a></li>
+<li><a href='Category.html'>Category</a></li>
+<li><a href='CategoryFilter.html'>CategoryFilter</a></li>
+<li><a href='CategoryMessage.html'>CategoryMessage</a></li>
+<li><a href='Collateral.html'>Collateral</a></li>
+<li><a href='CollateralFilter.html'>CollateralFilter</a></li>
+<li><a href='CollateralMessage.html'>CollateralMessage</a></li>
+<li><a href='Configuration.html'>Configuration</a></li>
+<li><a href='ConfigurationFilter.html'>ConfigurationFilter</a></li>
+<li><a href='ConfigurationMessage.html'>ConfigurationMessage</a></li>
+<li><a href='Contact.html'>Contact</a></li>
+<li><a href='ContactFilter.html'>ContactFilter</a></li>
+<li><a href='ContactMessage.html'>ContactMessage</a></li>
+<li><a href='CredentialGroup.html'>CredentialGroup</a></li>
+<li><a href='CredentialGroupFilter.html'>CredentialGroupFilter</a></li>
+<li><a href='CredentialGroupMessage.html'>CredentialGroupMessage</a></li>
+<li><a href='CreditReport.html'>CreditReport</a></li>
+<li><a href='CreditReportFilter.html'>CreditReportFilter</a></li>
+<li><a href='CreditReportMessage.html'>CreditReportMessage</a></li>
+<li><a href='CreditReportRequest.html'>CreditReportRequest</a></li>
+<li><a href='Deposit.html'>Deposit</a></li>
+<li><a href='DepositFilter.html'>DepositFilter</a></li>
+<li><a href='DepositFunding.html'>DepositFunding</a></li>
+<li><a href='DepositFundingMessage.html'>DepositFundingMessage</a></li>
+<li><a href='DepositMessage.html'>DepositMessage</a></li>
+<li><a href='Document.html'>Document</a></li>
+<li><a href='DocumentFilter.html'>DocumentFilter</a></li>
+<li><a href='DocumentMessage.html'>DocumentMessage</a></li>
+<li><a href='EligibilityRequirement.html'>EligibilityRequirement</a></li>
+<li><a href='EligibilityRequirementFilter.html'>EligibilityRequirementFilter</a></li>
+<li><a href='EligibilityRequirementMessage.html'>EligibilityRequirementMessage</a></li>
+<li><a href='Enrollment.html'>Enrollment</a></li>
+<li><a href='Error.html'>Error</a></li>
+<li><a href='FeeSchedule.html'>FeeSchedule</a></li>
+<li><a href='FeeScheduleFilter.html'>FeeScheduleFilter</a></li>
+<li><a href='FeeScheduleMessage.html'>FeeScheduleMessage</a></li>
+<li><a href='Field.html'>Field</a></li>
+<li><a href='FieldFilter.html'>FieldFilter</a></li>
+<li><a href='FieldMessage.html'>FieldMessage</a></li>
+<li><a href='FieldRequirement.html'>FieldRequirement</a></li>
+<li><a href='FieldRequirementFilter.html'>FieldRequirementFilter</a></li>
+<li><a href='FieldRequirementMessage.html'>FieldRequirementMessage</a></li>
+<li><a href='FinancialInstitution.html'>FinancialInstitution</a></li>
+<li><a href='FinancialInstitutionFilter.html'>FinancialInstitutionFilter</a></li>
+<li><a href='FinancialInstitutionMessage.html'>FinancialInstitutionMessage</a></li>
+<li><a href='FundsTransferCommonBase.html'>FundsTransferCommonBase</a></li>
+<li><a href='FundsTransferFilterBase.html'>FundsTransferFilterBase</a></li>
+<li><a href='FundsTransferOccurrenceBase.html'>FundsTransferOccurrenceBase</a></li>
+<li><a href='FundsTransferRecurringBase.html'>FundsTransferRecurringBase</a></li>
+<li><a href='Hold.html'>Hold</a></li>
+<li><a href='HoldFilter.html'>HoldFilter</a></li>
+<li><a href='HoldMessage.html'>HoldMessage</a></li>
+<li><a href='index-iframe.html'>index-iframe</a></li>
+<li><a href='Investment.html'>Investment</a></li>
+<li><a href='InvestmentFilter.html'>InvestmentFilter</a></li>
+<li><a href='InvestmentHolding.html'>InvestmentHolding</a></li>
+<li><a href='InvestmentHoldingFilter.html'>InvestmentHoldingFilter</a></li>
+<li><a href='InvestmentHoldingMessage.html'>InvestmentHoldingMessage</a></li>
+<li><a href='InvestmentMessage.html'>InvestmentMessage</a></li>
+<li><a href='Loan.html'>Loan</a></li>
+<li><a href='LoanDisbursement.html'>LoanDisbursement</a></li>
+<li><a href='LoanDisbursementFilter.html'>LoanDisbursementFilter</a></li>
+<li><a href='LoanDisbursementMessage.html'>LoanDisbursementMessage</a></li>
+<li><a href='LoanFilter.html'>LoanFilter</a></li>
+<li><a href='LoanMessage.html'>LoanMessage</a></li>
+<li><a href='Location.html'>Location</a></li>
+<li><a href='LocationFilter.html'>LocationFilter</a></li>
+<li><a href='LocationMessage.html'>LocationMessage</a></li>
+<li><a href='MicroDepositFunding.html'>MicroDepositFunding</a></li>
+<li><a href='MicroDepositFundingFilter.html'>MicroDepositFundingFilter</a></li>
+<li><a href='MicroDepositFundingMessage.html'>MicroDepositFundingMessage</a></li>
+<li><a href='NetworkNode.html'>NetworkNode</a></li>
+<li><a href='NetworkNodeFilter.html'>NetworkNodeFilter</a></li>
+<li><a href='NetworkNodeMessage.html'>NetworkNodeMessage</a></li>
+<li><a href='NoteMessage.html'>NoteMessage</a></li>
+<li><a href='Notes.html'>Notes</a></li>
+<li><a href='NotesFilter.html'>NotesFilter</a></li>
+<li><a href='OverdraftPriorityList.html'>OverdraftPriorityList</a></li>
+<li><a href='OverdraftPriorityListFilter.html'>OverdraftPriorityListFilter</a></li>
+<li><a href='OverdraftPriorityMessage.html'>OverdraftPriorityMessage</a></li>
+<li><a href='Party.html'>Party</a></li>
+<li><a href='PartyAssociation.html'>PartyAssociation</a></li>
+<li><a href='PartyAssociationFilter.html'>PartyAssociationFilter</a></li>
+<li><a href='PartyAssociationMessage.html'>PartyAssociationMessage</a></li>
+<li><a href='PartyFilter.html'>PartyFilter</a></li>
+<li><a href='PartyMessage.html'>PartyMessage</a></li>
+<li><a href='PermissionList.html'>PermissionList</a></li>
+<li><a href='PermissionListFilter.html'>PermissionListFilter</a></li>
+<li><a href='PermissionListMessage.html'>PermissionListMessage</a></li>
+<li><a href='Preference.html'>Preference</a></li>
+<li><a href='PreferenceFilter.html'>PreferenceFilter</a></li>
+<li><a href='PreferenceMessage.html'>PreferenceMessage</a></li>
+<li><a href='ProductOffering.html'>ProductOffering</a></li>
+<li><a href='ProductOfferingFilter.html'>ProductOfferingFilter</a></li>
+<li><a href='ProductOfferingMessage.html'>ProductOfferingMessage</a></li>
+<li><a href='ProductServiceEnrollment.html'>ProductServiceEnrollment</a></li>
+<li><a href='ProductServiceEnrollmentFilter.html'>ProductServiceEnrollmentFilter</a></li>
+<li><a href='ProductServiceEnrollmentMessage.html'>ProductServiceEnrollmentMessage</a></li>
+<li><a href='ProductServiceRequest.html'>ProductServiceRequest</a></li>
+<li><a href='ProductServiceRequestFilter.html'>ProductServiceRequestFilter</a></li>
+<li><a href='ProductServiceRequestMessage.html'>ProductServiceRequestMessage</a></li>
+<li><a href='QuestionList.html'>QuestionList</a></li>
+<li><a href='Ratings.html'>Ratings</a></li>
+<li><a href='RegisteredDevice.html'>RegisteredDevice</a></li>
+<li><a href='RegisteredDeviceFilter.html'>RegisteredDeviceFilter</a></li>
+<li><a href='RegisteredDeviceMessage.html'>RegisteredDeviceMessage</a></li>
+<li><a href='Relationship.html'>Relationship</a></li>
+<li><a href='RelationshipFilter.html'>RelationshipFilter</a></li>
+<li><a href='RelationshipMessage.html'>RelationshipMessage</a></li>
+<li><a href='RemoteDeposit.html'>RemoteDeposit</a></li>
+<li><a href='RemoteDepositFilter.html'>RemoteDepositFilter</a></li>
+<li><a href='RemoteDepositMessage.html'>RemoteDepositMessage</a></li>
+<li><a href='SecureMessage.html'>SecureMessage</a></li>
+<li><a href='SecureMessageFilter.html'>SecureMessageFilter</a></li>
+<li><a href='SecureMessageMessage.html'>SecureMessageMessage</a></li>
+<li><a href='SimpleValidationRequest.html'>SimpleValidationRequest</a></li>
+<li><a href='SimpleValidationRequestFilter.html'>SimpleValidationRequestFilter</a></li>
+<li><a href='SimpleValidationRequestMessage.html'>SimpleValidationRequestMessage</a></li>
+<li><a href='SystemStatus.html'>SystemStatus</a></li>
+<li><a href='SystemStatusFilter.html'>SystemStatusFilter</a></li>
+<li><a href='SystemStatusMessage.html'>SystemStatusMessage</a></li>
+<li><a href='Transaction.html'>Transaction</a></li>
+<li><a href='TransactionFilter.html'>TransactionFilter</a></li>
+<li><a href='TransactionMessage.html'>TransactionMessage</a></li>
+<li><a href='TransferFilter.html'>TransferFilter</a></li>
+<li><a href='TransferOccurrence.html'>TransferOccurrence</a></li>
+<li><a href='TransferOccurrenceMessage.html'>TransferOccurrenceMessage</a></li>
+<li><a href='TransferRecurring.html'>TransferRecurring</a></li>
+<li><a href='TransferRecurringMessage.html'>TransferRecurringMessage</a></li>
+<li><a href='User.html'>User</a></li>
+<li><a href='UserFilter.html'>UserFilter</a></li>
+<li><a href='UserMessage.html'>UserMessage</a></li>
+<li><a href='ValidationStatus.html'>ValidationStatus</a></li>
+<li><a href='Wire.html'>Wire</a></li>
+<li><a href='WireFilter.html'>WireFilter</a></li>
+<li><a href='WireMessage.html'>WireMessage</a></li>
+</ul></body></html>
