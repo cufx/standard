@@ -1,25 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/Notes.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Notes.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
 	xmlns:application="http://cufxstandards.com/v4/Application.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
 
 	elementFormDefault="qualified" >
 
-
 	<xs:import namespace ="http://cufxstandards.com/v4/Account.xsd" schemaLocation ="Account.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v4/Activity.xsd" schemaLocation ="Activity.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Application.xsd" schemaLocation ="Application.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation ="Relationship.xsd" />
 	<xs:import namespace ="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation ="ProductServiceRequest.xsd" />
-
+	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
 
 	<xs:element name="detailedNoteList" type="DetailedNoteList">
 		<xs:annotation>
@@ -93,6 +95,24 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+						Note: AccountType may be used or required by an institution in combination with
+						accountId to achieve a unique identifier. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="applicationId" type="application:ApplicationId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -118,6 +138,20 @@
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the product Service request in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="activityId" type="activity:ActivityId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the activity in the back end system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transactionId" type="transaction:TransactionId" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Unique identifier for the transaction in the back end system.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
