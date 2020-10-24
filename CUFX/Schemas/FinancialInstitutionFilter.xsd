@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
 	xmlns="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
-	version="4.3.$Revision: 1311 $"
+	version="4.4.$Revision$: 1311 $"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -40,7 +40,7 @@
 			<xs:element name="fiIdList" type="financialInstitution:FinancialInstitutionIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of financial institution ID's that should have their associated financial institutions either returned
+						The list of financial institution IDs that should have their associated financial institutions either returned
 						or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -67,7 +67,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of financial institution party Id's that should have their associated financial
+						The list of financial institution party IDs that should have their associated financial
 						institutions either returned or affected by a read, update or delete account request.
 					</xs:documentation>
 				</xs:annotation>
@@ -124,4 +124,3 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
-
