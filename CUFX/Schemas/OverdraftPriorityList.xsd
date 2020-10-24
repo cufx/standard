@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/OverdraftPriorityList.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/OverdraftPriorityList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -48,10 +48,36 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="overdraftPriorityAccountList" type="OverdraftPriorityAccountList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						List of overdraft priority priorty accounts. Where should funds be pulled from to cover the overdraft and its order based on priority.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Overdraft Priority level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -105,6 +131,22 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="accountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CD’s and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -121,7 +163,7 @@
 	<xs:complexType name="OverdraftPriorityIdList">
 		<xs:annotation>
 			<xs:documentation>
-				A list of overdraft priority ID's that should have their associated overdraft priority list entry either returned
+				A list of overdraft priority IDs that should have their associated overdraft priority list entry either returned
 				or affected by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
