@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema targetNamespace="http://cufxstandards.com/v4/SecureMessageFilter.xsd"
-	version="4.3.$Revision$"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -42,7 +42,7 @@
 			<xs:element name="secureMessageIdList" type="secureMessage:SecureMessageIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of secure message ID's that should have their associated secure messages
+						The list of secure message IDs that should have their associated secure messages
 						returned or affected by a read, update or delete secure message request.
 						If left unsupplied, then all secure messages are returned based on other filters applied.
 					</xs:documentation>
@@ -52,7 +52,7 @@
 			<xs:element name="threadIdList" type="secureMessage:ThreadIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of thread ID's that should have their associated secure messages
+						The list of thread IDs that should have their associated secure messages
 						returned or affected by a read, update or delete secure message request.
 						If left unsupplied, then all secure messages are returned based on other filters applied.
 					</xs:documentation>
@@ -181,7 +181,7 @@
 			<xs:element name="documentIDList" type="document:DocumentIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of document ID's that should have their associated secure messages returned or affected
+						The list of document IDs that should have their associated secure messages returned or affected
 						by a read, update or delete secure message request.
 					</xs:documentation>
 				</xs:annotation>
@@ -190,7 +190,7 @@
 			<xs:element name="productServiceRequestIDList" type="productServiceRequest:ProductServiceRequestIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of product service request ID's that should have their associated secure messages returned or affected
+						The list of product service request IDs that should have their associated secure messages returned or affected
 						by a read, update or delete secure message request.
 					</xs:documentation>
 				</xs:annotation>
@@ -210,4 +210,3 @@
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
-
