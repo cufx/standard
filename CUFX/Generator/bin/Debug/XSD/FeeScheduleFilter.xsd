@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <xs:schema targetNamespace="http://cufxstandards.com/v4/FeeScheduleFilter.xsd"
-	version="4.2.$Revision: 1404 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/FeeScheduleFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
@@ -40,7 +40,7 @@
 			<xs:element name="feeIdList" type="feeSchedule:FeeIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of fee ID's that should be returned or affected by a read, update or delete Fee Schedule request.
+						The list of fee IDs that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -65,7 +65,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete Fee Schedule request.
+						The list of party IDs that should be returned or affected by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -73,7 +73,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated parties either returned or affected
+						The list of relationship IDs that should have their associated parties either returned or affected
 						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
@@ -82,7 +82,7 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact ID's that should have their associated parties either returned or affected
+						The list of contact IDs that should have their associated parties either returned or affected
 						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
@@ -91,7 +91,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated parties either returned or affected
+						The list of account IDs that should have their associated parties either returned or affected
 						by a read, update or delete Fee Schedule request.
 					</xs:documentation>
 				</xs:annotation>
@@ -109,7 +109,7 @@
 			<xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of tax ID's that should be returned or affected by a read, update or delete Fee Schedule request.
+						The list of tax IDs that should be returned or affected by a read, update or delete Fee Schedule request.
 						This element is deprecated.
 					</xs:documentation>
 				</xs:annotation>
@@ -120,6 +120,27 @@
 					<xs:documentation>
 						The list of party types that should have their associated parties either returned or affected
 						by a read, update or delete Fee Schedule request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fee Schedule level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

@@ -1,7 +1,8 @@
-﻿<xs:schema targetNamespace="http://cufxstandards.com/v4/RelationshipFilter.xsd"
-	version="4.2.$Revision: 1365 $"
+<xs:schema targetNamespace="http://cufxstandards.com/v4/RelationshipFilter.xsd"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/RelationshipFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
@@ -10,6 +11,7 @@
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
+	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
@@ -36,7 +38,7 @@
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete
+						The list of party IDs that should be returned or affected by a read, update or delete
 						relationship request.
 					</xs:documentation>
 				</xs:annotation>
@@ -45,7 +47,7 @@
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated relationships either returned
+						The list of relationship IDs that should have their associated relationships either returned
 						or affected by a read, update or delete relationship request.
 					</xs:documentation>
 				</xs:annotation>
@@ -54,7 +56,7 @@
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of cccount ID's that should have their associated relationships either returned or affected
+						The list of cccount IDs that should have their associated relationships either returned or affected
 						by a read, update or delete relationship request.
 					</xs:documentation>
 				</xs:annotation>
@@ -72,7 +74,7 @@
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of contact ID's that should have their associated relationships either returned or affected
+						The list of contact IDs that should have their associated relationships either returned or affected
 						by a read, update or delete relationship request.
 					</xs:documentation>
 				</xs:annotation>
@@ -87,14 +89,36 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="includeNotesFlag" type="xs:boolean" minOccurs="0" maxOccurs="1">
+			<xs:element name="includeNotesFlag" type="common:IncludeNotesFlag" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If this is not provided, it will not return notes.
-						If it is provided and it's true, it will return all active non-expired notes.
+						If it is provided and it is true, it will return all active non-expired notes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Relationship level name/data pairs list of fields that are not yet available in the general
+						specification.  This should be used as a LAST RESORT as any customizations will not be supported by all
+						data providers or processed by all client applications. ANY use of this field must be reported to the
+						architecture or working group committee to ensure that fields are somehow handled in the future release
+						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
 		</xs:sequence>
 	</xs:complexType>
 

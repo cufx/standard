@@ -70,6 +70,56 @@
       <collateralId xmlns="http://cufxstandards.com/v4/Collateral.xsd">collateralId1</collateralId>
     </collateralIdList>
     <description xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">description1</description>
+    <customData xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+    <collateralTypeList xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <collateralType xmlns="http://cufxstandards.com/v4/Collateral.xsd">aircraftCollateral</collateralType>
+    </collateralTypeList>
+    <collateralSubTypeList xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <collateralSubType xmlns="http://cufxstandards.com/v4/Collateral.xsd">collateralSubType1</collateralSubType>
+    </collateralSubTypeList>
+    <accountIdList xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
+    </accountIdList>
+    <accountIdentificationList xmlns="http://cufxstandards.com/v4/CollateralFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountIdentification xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountId>accountId1</accountId>
+        <accountType>Checking</accountType>
+        <accountSubType>accountSubType1</accountSubType>
+        <accountToFromIndicator>To</accountToFromIndicator>
+      </accountIdentification>
+    </accountIdentificationList>
   </collateralFilter>
   <collateralList>
     <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -99,6 +149,17 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
+        <accountIdentificationList>
+          <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+          <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+          <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+          <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+          <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+          <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        </accountIdentificationList>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -129,6 +190,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -156,6 +220,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -179,6 +246,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -198,6 +268,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -221,6 +294,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -241,6 +317,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <year>1</year>
         <manufacturer>manufacturer1</manufacturer>
         <make>make1</make>
@@ -262,6 +341,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <taxId xsi:nil="true" />
         <parcelIDNNumber xsi:nil="true" />
         <section xsi:nil="true" />
@@ -296,6 +378,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <financingStatement xsi:nil="true" />
         <generalDescription xsi:nil="true" />
         <tortClaimDescription xsi:nil="true" />
@@ -311,9 +396,14 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <securityCollateralValueLimit xsi:nil="true" />
         <securityMarketValueLimit xsi:nil="true" />
         <accountNumber>accountNumber1</accountNumber>
+        <accountType>Checking</accountType>
+        <accountSubType>accountSubType1</accountSubType>
         <faceValue xsi:nil="true" />
         <issuerType xsi:nil="true" />
         <certified xsi:nil="true" />
@@ -324,6 +414,7 @@
           <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
         </amount>
         <percentage>1</percentage>
+        <certificateNumber>certificateNumber1</certificateNumber>
       </savingsCDCollateral>
       <securitiesCollateral>
         <collateralId>collateralId1</collateralId>
@@ -335,6 +426,9 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <securityMarketValueLimit xsi:nil="true" />
         <possessoryNumber xsi:nil="true" />
         <faceValue xsi:nil="true" />
@@ -355,10 +449,22 @@
         <loanToValuePercentage>1</loanToValuePercentage>
         <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
         <collateralValueSource>collateralValueSource1</collateralValueSource>
+        <collateralType>aircraftCollateral</collateralType>
+        <collateralSubType>collateralSubType1</collateralSubType>
+        <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
         <securityMarketValueLimit xsi:nil="true" />
         <possessoryNumber xsi:nil="true" />
         <issueDate xsi:nil="true" />
       </letterOfCreditCollateral>
+      <customData>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      </customData>
     </collateral>
   </collateralList>
 </collateralMessage>

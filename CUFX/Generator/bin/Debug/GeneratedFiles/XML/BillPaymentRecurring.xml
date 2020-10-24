@@ -34,6 +34,7 @@
     <recurringFromAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
@@ -49,6 +50,7 @@
     <recurringToAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
@@ -105,6 +107,7 @@
         <value>value1</value>
       </valuePair>
     </customData>
+    <achStandardEntryClass xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">ACK</achStandardEntryClass>
     <billPayeeId>billPayeeId1</billPayeeId>
     <nextDebitDateTime>1900-01-01T01:01:01Z</nextDebitDateTime>
     <billId>billId1</billId>

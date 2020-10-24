@@ -10,6 +10,7 @@
     "investment": {
       "accountId": "accountId1",
       "type": "Checking",
+      "accountSubType": "accountSubType1",
       "openDate": "1900-01-01",
       "closeDate": "1900-01-01",
       "accountStatus": {
@@ -152,6 +153,8 @@
         "transaction": {
           "transactionId": "transactionId1",
           "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
           "type": "Debit",
           "amount": {
             "value": "1",
@@ -241,9 +244,36 @@
             "returnPage": "1",
             "returnPositionIndex": "returnPositionIndex1",
             "noteID": "noteID1"
-          }
+          },
+          "entryMethod": "entryMethod1"
         }
       },
+      "interestPostingFrequency": "AmortizedSchedule",
+      "withholdingsInfoList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "withholdingInfo": {
+          "withholdingType": "Federal",
+          "otherWithholdingType": "otherWithholdingType1",
+          "withholdingFilingStatus": "Single",
+          "numberOfWithholdings": "numberOfWithholdings1",
+          "withholdingsAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "withholdingsExempt": "true",
+          "withholdingsRate": "1",
+          "withholdingsOption": "withholdingsOption1"
+        }
+      },
+      "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+      "overDraftProtectionAccountType": "Checking",
+      "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
       "investmentWhereHeld": "investmentWhereHeld1",
       "investmentPartyList": {
         "currentPage": "1",
@@ -335,6 +365,17 @@
                 "website": {
                   "sitename": "sitename1",
                   "user": "user1"
+                },
+                "sms": {
+                  "phoneType": "Home",
+                  "number": "number1",
+                  "extension": "extension1",
+                  "planFormat": "Nanp",
+                  "description": "description1",
+                  "smsRegistered": "true",
+                  "countryCode": "AD",
+                  "country": "country1",
+                  "otherPhoneType": "otherPhoneType1"
                 }
               },
               "contactPointDescription": "contactPointDescription1",
@@ -354,8 +395,57 @@
                 "returnPage": "1",
                 "returnPositionIndex": "returnPositionIndex1",
                 "valuePair": null
+              },
+              "contactDateTimeCreated": "1900-01-01T01:01:01Z",
+              "contactCreatedBy": "contactCreatedBy1",
+              "contactDateTimeModified": "1900-01-01T01:01:01Z",
+              "contactModifiedBy": "contactModifiedBy1",
+              "contactDateTimeDeleted": "1900-01-01T01:01:01Z",
+              "contactDeletedBy": "contactDeletedBy1",
+              "preferenceSettingList": {
+                "currentPage": "1",
+                "totalPages": "1",
+                "pageSize": "1",
+                "positionIndex": "positionIndex1",
+                "returnPage": "1",
+                "returnPositionIndex": "returnPositionIndex1",
+                "preferenceSetting": {
+                  "preferenceId": "preferenceId1",
+                  "deliveryChannel": "LiveSupport",
+                  "preferenceType": "CourtesyPayment",
+                  "preferenceSettingSubType": {
+                    "eAlertSubType": "AddressChanged",
+                    "emailFormatSubType": "Html",
+                    "widgetSubType": "DisplayStatus"
+                  },
+                  "preferenceValue": "preferenceValue1",
+                  "preferenceValueDataType": "string",
+                  "preferenceStatus": "Active",
+                  "preferenceFrequency": "AmortizedSchedule",
+                  "alertCustomText": "alertCustomText1",
+                  "whereToContactIdList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1",
+                    "contactId": "contactId1"
+                  },
+                  "actionableAlert": "true",
+                  "widgetName": "widgetName1"
+                }
               }
             }
+          },
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": null
           }
         }
       },
@@ -368,6 +458,8 @@
         "returnPositionIndex": "returnPositionIndex1",
         "investmentHolding": {
           "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
           "holdingID": "holdingID1",
           "holdingCusipNumber": "holdingCusipNumber1",
           "holdingAsOfDateTime": "1900-01-01T01:01:01Z",
@@ -410,7 +502,16 @@
           "holdingYieldToMaturity": "1",
           "holdingMaturityDate": "1900-01-01T01:01:01Z",
           "holdingNextCouponDate": "1900-01-01T01:01:01Z",
-          "holdingNextCallDate": "1900-01-01T01:01:01Z"
+          "holdingNextCallDate": "1900-01-01T01:01:01Z",
+          "customData": {
+            "currentPage": "1",
+            "totalPages": "1",
+            "pageSize": "1",
+            "positionIndex": "positionIndex1",
+            "returnPage": "1",
+            "returnPositionIndex": "returnPositionIndex1",
+            "valuePair": null
+          }
         }
       }
     }

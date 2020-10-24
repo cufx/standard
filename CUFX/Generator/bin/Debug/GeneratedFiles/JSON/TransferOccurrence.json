@@ -37,6 +37,7 @@
       "occurrenceFromAccount": {
         "accountId": "accountId1",
         "type": "Checking",
+        "accountSubType": "accountSubType1",
         "openDate": "1900-01-01",
         "closeDate": "1900-01-01",
         "accountStatus": {
@@ -52,6 +53,7 @@
       "occurrenceToAccount": {
         "accountId": "accountId1",
         "type": "Checking",
+        "accountSubType": "accountSubType1",
         "openDate": "1900-01-01",
         "closeDate": "1900-01-01",
         "accountSubStatus": "accountSubStatus1",
@@ -85,6 +87,7 @@
           "value": "value1"
         }
       },
+      "achStandardEntryClass": "ACK",
       "fromCard": {
         "cardId": "cardId1",
         "cardNumber": "cardNumber1",
@@ -102,7 +105,9 @@
           "returnPositionIndex": "returnPositionIndex1",
           "linkedAccount": {
             "accountId": "accountId1",
-            "priority": "1"
+            "priority": "1",
+            "accountType": "Checking",
+            "accountSubType": "accountSubType1"
           }
         },
         "partyId": "partyId1",
@@ -186,7 +191,25 @@
         "cardStatusDateTime": "1900-01-01T01:01:01Z",
         "cardStatusReason": "cardStatusReason1",
         "virtualNumber": "virtualNumber1"
-      }
+      },
+      "noteList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "note": {
+          "noteId": "noteId1",
+          "recordType": "Account",
+          "noteCode": "noteCode1",
+          "noteText": "noteText1",
+          "noteCreatedDateTime": "1900-01-01T01:01:01Z",
+          "noteExpirationDate": "1900-01-01",
+          "noteCreator": "noteCreator1"
+        }
+      },
+      "achPrenoteIndicator": "true"
     }
   }
 }

@@ -35,6 +35,7 @@
     <occurrenceFromAccount xmlns="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
@@ -50,6 +51,7 @@
     <occurrenceToAccount xmlns="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
@@ -83,6 +85,7 @@
         <value>value1</value>
       </valuePair>
     </customData>
+    <achStandardEntryClass xmlns="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd">ACK</achStandardEntryClass>
     <billPayeeId>billPayeeId1</billPayeeId>
     <billId>billId1</billId>
     <expectedDebitDateTime>1900-01-01T01:01:01Z</expectedDebitDateTime>

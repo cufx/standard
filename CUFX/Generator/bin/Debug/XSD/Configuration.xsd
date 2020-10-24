@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema 	targetNamespace="http://cufxstandards.com/v4/Configuration.xsd"
-	version="4.2.$Revision: 1410 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Configuration.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
@@ -8,7 +8,6 @@
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -18,7 +17,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>
@@ -198,7 +196,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="configurationCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID, etc. of who created the configuration.
@@ -217,7 +215,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="configurationLastUpdatedBy" type="user:UserId" minOccurs="0" maxOccurs="1">
+			<xs:element name="configurationLastUpdatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID, etc. of who last updated the configuration.
@@ -418,7 +416,7 @@
 					<xs:element name="configurationAppId" type="ConfigurationAppId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A list of configuration app Id's that point to how an app as it's
+								A list of configuration app IDs that point to how an app as it's
 								installed/specialized in the configuration.
 							</xs:documentation>
 						</xs:annotation>
@@ -435,7 +433,7 @@
 					<xs:element name="configurationAppParameter" type="ConfigurationAppParameter" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								A list of configuration app parameter Id's that point to how an
+								A list of configuration app parameter IDs that point to how an
 								app parameter is set/specialized in the configuration for an app.
 							</xs:documentation>
 						</xs:annotation>
@@ -507,7 +505,7 @@
 					<xs:element name="configurationAppParameterId" type="ConfigurationAppParameterId" minOccurs ="0" maxOccurs ="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								The list of app parameters ID's that have been set/specialized for a configuration.
+								The list of app parameters IDs that have been set/specialized for a configuration.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -610,7 +608,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -798,7 +796,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI App ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -891,7 +889,7 @@
 	<xs:complexType name="ConfigurationFinancialInstitutionAppParameterIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration FI App Parameter ID's that should have their associated configurations either returned or affected
+				The list of Configuration FI App Parameter IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1290,7 +1288,7 @@
 	<xs:complexType name="ConfigurationIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of configuration ID's that should have their associated configurations either returned or affected
+				The list of configuration IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1422,7 +1420,7 @@
 	<xs:complexType name="MethodIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Method ID's that should have their associated configurations either returned or affected
+				The list of Method IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1454,7 +1452,7 @@
 	<xs:complexType name="MethodDependencyIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of method dependency ID's that should have their associated configurations either returned or affected
+				The list of method dependency IDs that should have their associated configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
 		</xs:annotation>
@@ -1554,7 +1552,7 @@
 	<xs:complexType name="ConfigurationNetworkNodeAddressIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of Configuration network node address ID's that should have their associated
+				The list of Configuration network node address IDs that should have their associated
 				configurations either returned or affected
 				by a read, update or delete configuration request.
 			</xs:documentation>
@@ -1584,7 +1582,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationCreatedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the user that created the configuration.
@@ -1606,7 +1604,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="configurationLastModifiedBy" type="user:UserId" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="configurationLastModifiedBy" type="common:UserId" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The unique identifier for the user that last modified the configuration.

@@ -113,6 +113,15 @@
         "returnPage": "1",
         "returnPositionIndex": "returnPositionIndex1",
         "valuePair": null
+      },
+      "applicationStatusList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "applicationStatus": "New"
       }
     },
     "applicationList": {
@@ -144,6 +153,7 @@
               "loan": {
                 "accountId": "accountId1",
                 "type": "Checking",
+                "accountSubType": "accountSubType1",
                 "openDate": "1900-01-01",
                 "closeDate": "1900-01-01",
                 "accountStatus": {
@@ -283,6 +293,8 @@
                   "transaction": {
                     "transactionId": "transactionId1",
                     "accountId": "accountId1",
+                    "accountType": "Checking",
+                    "accountSubType": "accountSubType1",
                     "type": "Debit",
                     "amount": {
                       "value": "1",
@@ -372,9 +384,36 @@
                       "returnPage": "1",
                       "returnPositionIndex": "returnPositionIndex1",
                       "noteID": "noteID1"
-                    }
+                    },
+                    "entryMethod": "entryMethod1"
                   }
                 },
+                "interestPostingFrequency": "AmortizedSchedule",
+                "withholdingsInfoList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "withholdingInfo": {
+                    "withholdingType": "Federal",
+                    "otherWithholdingType": "otherWithholdingType1",
+                    "withholdingFilingStatus": "Single",
+                    "numberOfWithholdings": "numberOfWithholdings1",
+                    "withholdingsAmount": {
+                      "value": "1",
+                      "currencyCode": "USD",
+                      "exchangeRate": "1"
+                    },
+                    "withholdingsExempt": "true",
+                    "withholdingsRate": "1",
+                    "withholdingsOption": "withholdingsOption1"
+                  }
+                },
+                "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+                "overDraftProtectionAccountType": "Checking",
+                "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
                 "loanPartyList": {
                   "currentPage": "1",
                   "totalPages": "1",
@@ -415,6 +454,15 @@
                       "returnPage": "1",
                       "returnPositionIndex": "returnPositionIndex1",
                       "contactId": "contactId1"
+                    },
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
                     }
                   }
                 },
@@ -535,7 +583,14 @@
                     "value": "1",
                     "currencyCode": "USD",
                     "exchangeRate": "1"
-                  }
+                  },
+                  "paymentChangeDateTime": "1900-01-01T01:01:01Z",
+                  "rateReviewDays": "rateReviewDays1",
+                  "paymentReviewDays": "paymentReviewDays1",
+                  "rateChangeFrequencyType": "AmortizedSchedule",
+                  "rateChangeFrequencyDuration": "rateChangeFrequencyDuration1",
+                  "paymentChangeFrequencyType": "AmortizedSchedule",
+                  "paymentChangeFrequencyDuration": "paymentChangeFrequencyDuration1"
                 },
                 "paymentOption": {
                   "calculationCode": "calculationCode1",
@@ -571,7 +626,7 @@
                   },
                   "maturityDate": "1900-01-01",
                   "paymentDay": "1",
-                  "paymentMethod": "AutomaticDebit",
+                  "paymentMethod": "AmortizationTransfer",
                   "otherPaymentMethod": "otherPaymentMethod1",
                   "couponCode": "couponCode1",
                   "amountIncludingPrincipalAndInterest": {
@@ -727,6 +782,23 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
+                      "accountIdentificationList": {
+                        "currentPage": "1",
+                        "totalPages": "1",
+                        "pageSize": "1",
+                        "positionIndex": "positionIndex1",
+                        "returnPage": "1",
+                        "returnPositionIndex": "returnPositionIndex1",
+                        "accountIdentification": {
+                          "accountId": "accountId1",
+                          "accountType": "Checking",
+                          "accountSubType": "accountSubType1",
+                          "accountToFromIndicator": "To"
+                        }
+                      },
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -757,6 +829,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -784,6 +859,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -807,6 +885,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -826,6 +907,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -849,6 +933,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -869,6 +956,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "year": "1",
                       "manufacturer": "manufacturer1",
                       "make": "make1",
@@ -890,6 +980,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "taxId": {
                         "@xsi:nil": "true"
                       },
@@ -970,6 +1063,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "financingStatement": {
                         "@xsi:nil": "true"
                       },
@@ -993,6 +1089,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "securityCollateralValueLimit": {
                         "@xsi:nil": "true"
                       },
@@ -1000,6 +1099,8 @@
                         "@xsi:nil": "true"
                       },
                       "accountNumber": "accountNumber1",
+                      "accountType": "Checking",
+                      "accountSubType": "accountSubType1",
                       "faceValue": {
                         "@xsi:nil": "true"
                       },
@@ -1017,7 +1118,8 @@
                         "currencyCode": "USD",
                         "exchangeRate": "1"
                       },
-                      "percentage": "1"
+                      "percentage": "1",
+                      "certificateNumber": "certificateNumber1"
                     },
                     "securitiesCollateral": {
                       "collateralId": "collateralId1",
@@ -1029,6 +1131,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "securityMarketValueLimit": {
                         "@xsi:nil": "true"
                       },
@@ -1067,6 +1172,9 @@
                       "loanToValuePercentage": "1",
                       "collateralValueSourceDate": "1900-01-01",
                       "collateralValueSource": "collateralValueSource1",
+                      "collateralType": "aircraftCollateral",
+                      "collateralSubType": "collateralSubType1",
+                      "collateralSubTypeDescription": "collateralSubTypeDescription1",
                       "securityMarketValueLimit": {
                         "@xsi:nil": "true"
                       },
@@ -1076,6 +1184,15 @@
                       "issueDate": {
                         "@xsi:nil": "true"
                       }
+                    },
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
                     }
                   }
                 },
@@ -1090,7 +1207,9 @@
                     "currencyCode": "USD",
                     "exchangeRate": "1"
                   },
-                  "fromAccountId": "fromAccountId1"
+                  "fromAccountId": "fromAccountId1",
+                  "fromAccountType": "Checking",
+                  "fromAccountSubType": "fromAccountSubType1"
                 },
                 "delinquencyNoticeList": {
                   "currentPage": "1",
@@ -1136,11 +1255,14 @@
                     "newLimitRequest": "1",
                     "memo": "memo1"
                   }
-                }
+                },
+                "numberOfPaymentsRemaining": "1",
+                "otherLoanAccountCategory": "otherLoanAccountCategory1"
               },
               "deposit": {
                 "accountId": "accountId1",
                 "type": "Checking",
+                "accountSubType": "accountSubType1",
                 "openDate": "1900-01-01",
                 "closeDate": "1900-01-01",
                 "accountSubStatus": "accountSubStatus1",
@@ -1166,6 +1288,10 @@
                 "rateType": "Fixed",
                 "sourceCode": "sourceCode1",
                 "relationshipId": "relationshipId1",
+                "interestPostingFrequency": "AmortizedSchedule",
+                "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+                "overDraftProtectionAccountType": "Checking",
+                "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
                 "depositPartyList": {
                   "currentPage": "1",
                   "totalPages": "1",
@@ -1211,6 +1337,15 @@
                       "returnPage": "1",
                       "returnPositionIndex": "returnPositionIndex1",
                       "contactId": "contactId1"
+                    },
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
                     }
                   }
                 },
@@ -1239,11 +1374,19 @@
                   "value": "1",
                   "currencyCode": "USD",
                   "exchangeRate": "1"
-                }
+                },
+                "maturityTransferAmount": {
+                  "value": "1",
+                  "currencyCode": "USD",
+                  "exchangeRate": "1"
+                },
+                "maturityTransferPercent": "1.00",
+                "serviceChargeWaivedReason": "serviceChargeWaivedReason1"
               },
               "investment": {
                 "accountId": "accountId1",
                 "type": "Checking",
+                "accountSubType": "accountSubType1",
                 "openDate": "1900-01-01",
                 "closeDate": "1900-01-01",
                 "accountSubStatus": "accountSubStatus1",
@@ -1269,6 +1412,10 @@
                 "rateType": "Fixed",
                 "sourceCode": "sourceCode1",
                 "relationshipId": "relationshipId1",
+                "interestPostingFrequency": "AmortizedSchedule",
+                "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+                "overDraftProtectionAccountType": "Checking",
+                "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
                 "investmentWhereHeld": "investmentWhereHeld1",
                 "investmentPartyList": {
                   "currentPage": "1",
@@ -1360,6 +1507,17 @@
                           "website": {
                             "sitename": "sitename1",
                             "user": "user1"
+                          },
+                          "sms": {
+                            "phoneType": "Home",
+                            "number": "number1",
+                            "extension": "extension1",
+                            "planFormat": "Nanp",
+                            "description": "description1",
+                            "smsRegistered": "true",
+                            "countryCode": "AD",
+                            "country": "country1",
+                            "otherPhoneType": "otherPhoneType1"
                           }
                         },
                         "contactPointDescription": "contactPointDescription1",
@@ -1379,8 +1537,57 @@
                           "returnPage": "1",
                           "returnPositionIndex": "returnPositionIndex1",
                           "valuePair": null
+                        },
+                        "contactDateTimeCreated": "1900-01-01T01:01:01Z",
+                        "contactCreatedBy": "contactCreatedBy1",
+                        "contactDateTimeModified": "1900-01-01T01:01:01Z",
+                        "contactModifiedBy": "contactModifiedBy1",
+                        "contactDateTimeDeleted": "1900-01-01T01:01:01Z",
+                        "contactDeletedBy": "contactDeletedBy1",
+                        "preferenceSettingList": {
+                          "currentPage": "1",
+                          "totalPages": "1",
+                          "pageSize": "1",
+                          "positionIndex": "positionIndex1",
+                          "returnPage": "1",
+                          "returnPositionIndex": "returnPositionIndex1",
+                          "preferenceSetting": {
+                            "preferenceId": "preferenceId1",
+                            "deliveryChannel": "LiveSupport",
+                            "preferenceType": "CourtesyPayment",
+                            "preferenceSettingSubType": {
+                              "eAlertSubType": "AddressChanged",
+                              "emailFormatSubType": "Html",
+                              "widgetSubType": "DisplayStatus"
+                            },
+                            "preferenceValue": "preferenceValue1",
+                            "preferenceValueDataType": "string",
+                            "preferenceStatus": "Active",
+                            "preferenceFrequency": "AmortizedSchedule",
+                            "alertCustomText": "alertCustomText1",
+                            "whereToContactIdList": {
+                              "currentPage": "1",
+                              "totalPages": "1",
+                              "pageSize": "1",
+                              "positionIndex": "positionIndex1",
+                              "returnPage": "1",
+                              "returnPositionIndex": "returnPositionIndex1",
+                              "contactId": "contactId1"
+                            },
+                            "actionableAlert": "true",
+                            "widgetName": "widgetName1"
+                          }
                         }
                       }
+                    },
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
                     }
                   }
                 },
@@ -1393,6 +1600,8 @@
                   "returnPositionIndex": "returnPositionIndex1",
                   "investmentHolding": {
                     "accountId": "accountId1",
+                    "accountType": "Checking",
+                    "accountSubType": "accountSubType1",
                     "holdingID": "holdingID1",
                     "holdingCusipNumber": "holdingCusipNumber1",
                     "holdingAsOfDateTime": "1900-01-01T01:01:01Z",
@@ -1435,7 +1644,16 @@
                     "holdingYieldToMaturity": "1",
                     "holdingMaturityDate": "1900-01-01T01:01:01Z",
                     "holdingNextCouponDate": "1900-01-01T01:01:01Z",
-                    "holdingNextCallDate": "1900-01-01T01:01:01Z"
+                    "holdingNextCallDate": "1900-01-01T01:01:01Z",
+                    "customData": {
+                      "currentPage": "1",
+                      "totalPages": "1",
+                      "pageSize": "1",
+                      "positionIndex": "positionIndex1",
+                      "returnPage": "1",
+                      "returnPositionIndex": "returnPositionIndex1",
+                      "valuePair": null
+                    }
                   }
                 }
               }
@@ -1491,7 +1709,16 @@
                     "returnPage": "1",
                     "returnPositionIndex": "returnPositionIndex1",
                     "valuePair": null
-                  }
+                  },
+                  "withholdingsInfoList": {
+                    "currentPage": "1",
+                    "totalPages": "1",
+                    "pageSize": "1",
+                    "positionIndex": "positionIndex1",
+                    "returnPage": "1",
+                    "returnPositionIndex": "returnPositionIndex1"
+                  },
+                  "taxIdExpirationDateTime": "1900-01-01T01:01:01Z"
                 }
               },
               "type": "Individual",
@@ -1676,7 +1903,8 @@
                     "currentHousingType": "PrimaryResidence"
                   },
                   "ethnicity": "ethnicity1",
-                  "race": "race1"
+                  "race": "race1",
+                  "maritalStatus": "Annulled"
                 },
                 "trust": {
                   "trustName": "trustName1",
@@ -1761,7 +1989,21 @@
                 "returnPage": "1",
                 "returnPositionIndex": "returnPositionIndex1",
                 "valuePair": null
-              }
+              },
+              "nonresidentAlienCertificationtype": "nonresidentAlienCertificationtype1",
+              "nonresidentAlienCertificationDateTime": "1900-01-01T01:01:01Z",
+              "nonresidentAlienLimitationOnBenefits": "nonresidentAlienLimitationOnBenefits1",
+              "nonresidentAlienSpecialWithholdingStatus": "None",
+              "nonresidentAlienSpecialWithholdingRate": "1"
+            },
+            "customData": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
             }
           }
         },
@@ -1773,6 +2015,15 @@
           "positionIndex": "positionIndex1",
           "returnPage": "1",
           "returnPositionIndex": "returnPositionIndex1"
+        },
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
         }
       }
     }

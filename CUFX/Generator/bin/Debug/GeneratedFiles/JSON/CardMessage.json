@@ -145,6 +145,20 @@
         "returnPage": "1",
         "returnPositionIndex": "returnPositionIndex1",
         "valuePair": null
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
       }
     },
     "cardList": {
@@ -171,7 +185,9 @@
           "returnPositionIndex": "returnPositionIndex1",
           "linkedAccount": {
             "accountId": "accountId1",
-            "priority": "1"
+            "priority": "1",
+            "accountType": "Checking",
+            "accountSubType": "accountSubType1"
           }
         },
         "partyId": "partyId1",

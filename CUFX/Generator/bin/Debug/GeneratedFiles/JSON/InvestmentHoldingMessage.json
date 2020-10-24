@@ -94,6 +94,20 @@
         "returnPage": "1",
         "returnPositionIndex": "returnPositionIndex1",
         "valuePair": null
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
       }
     },
     "investmentHoldingList": {
@@ -105,6 +119,8 @@
       "returnPositionIndex": "returnPositionIndex1",
       "investmentHolding": {
         "accountId": "accountId1",
+        "accountType": "Checking",
+        "accountSubType": "accountSubType1",
         "holdingID": "holdingID1",
         "holdingCusipNumber": "holdingCusipNumber1",
         "holdingAsOfDateTime": "1900-01-01T01:01:01Z",
@@ -147,7 +163,16 @@
         "holdingYieldToMaturity": "1",
         "holdingMaturityDate": "1900-01-01T01:01:01Z",
         "holdingNextCouponDate": "1900-01-01T01:01:01Z",
-        "holdingNextCallDate": "1900-01-01T01:01:01Z"
+        "holdingNextCallDate": "1900-01-01T01:01:01Z",
+        "customData": {
+          "currentPage": "1",
+          "totalPages": "1",
+          "pageSize": "1",
+          "positionIndex": "positionIndex1",
+          "returnPage": "1",
+          "returnPositionIndex": "returnPositionIndex1",
+          "valuePair": null
+        }
       }
     }
   }

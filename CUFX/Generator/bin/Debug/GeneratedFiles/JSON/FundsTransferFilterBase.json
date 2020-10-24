@@ -10,6 +10,7 @@
     "account": {
       "accountId": "accountId1",
       "type": "Checking",
+      "accountSubType": "accountSubType1",
       "openDate": "1900-01-01",
       "closeDate": "1900-01-01",
       "accountStatus": {
@@ -152,6 +153,8 @@
         "transaction": {
           "transactionId": "transactionId1",
           "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
           "type": "Debit",
           "amount": {
             "value": "1",
@@ -241,9 +244,36 @@
             "returnPage": "1",
             "returnPositionIndex": "returnPositionIndex1",
             "noteID": "noteID1"
-          }
+          },
+          "entryMethod": "entryMethod1"
         }
-      }
+      },
+      "interestPostingFrequency": "AmortizedSchedule",
+      "withholdingsInfoList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "withholdingInfo": {
+          "withholdingType": "Federal",
+          "otherWithholdingType": "otherWithholdingType1",
+          "withholdingFilingStatus": "Single",
+          "numberOfWithholdings": "numberOfWithholdings1",
+          "withholdingsAmount": {
+            "value": "1",
+            "currencyCode": "USD",
+            "exchangeRate": "1"
+          },
+          "withholdingsExempt": "true",
+          "withholdingsRate": "1",
+          "withholdingsOption": "withholdingsOption1"
+        }
+      },
+      "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
+      "overDraftProtectionAccountType": "Checking",
+      "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1"
     }
   }
 }

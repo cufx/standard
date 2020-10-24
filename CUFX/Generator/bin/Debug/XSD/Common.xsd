@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Common.xsd"
-	version="4.2.$Revision: 1406 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
@@ -29,7 +29,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="1" maxOccurs="1" default ="USD">
+			<xs:element name="currencyCode" type="isoCurrencyCodeType:ISOCurrencyCodeType" minOccurs ="0" maxOccurs="1" default ="USD">
 				<xs:annotation>
 					<xs:documentation>
 						Currency code in ISO 4217 3 character format.
@@ -72,8 +72,13 @@
 			<xs:enumeration value="Portfolio"/>
 			<xs:enumeration value="Deposit"/>
 			<xs:enumeration value="ProductServiceRequest"/>
+			<xs:enumeration value="Relationship"/>
 			<xs:enumeration value="Request"/>
 			<xs:enumeration value="Activity"/>
+			<xs:enumeration value="Transaction"/>
+			<xs:enumeration value="Transfer"/>
+			<xs:enumeration value="TransferOccurrence"/>
+			<xs:enumeration value="TransferRecurring"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -191,7 +196,7 @@
 	<xs:complexType name="NoteIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of note ID's that should have their associated accounts either returned or affected
+				The list of note IDs that should have their associated accounts either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -862,9 +867,22 @@
 			<xs:enumeration value="Weekly" />
 			<xs:enumeration value="WeeklySkipFirst" />
 			<xs:enumeration value="WeeklySkipLast" />
+			<xs:enumeration value="XDays" />
+			<xs:enumeration value="XMonths" />
+			<xs:enumeration value="XYears" />
 		</xs:restriction>
 	</xs:simpleType>
 
+	<xs:simpleType name="FrequencyDuration">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The number of time periods when FrequencyType is of type XDays, XMonths or XYears. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:simpleType name="Gender">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Male" />
@@ -883,6 +901,9 @@
 			<xs:enumeration value="3.3.0" />
 			<xs:enumeration value="4.0.0" />
 			<xs:enumeration value="4.1.0" />
+			<xs:enumeration value="4.2.0" />
+			<xs:enumeration value="4.3.0" />
+			<xs:enumeration value="4.4.0" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -993,7 +1014,7 @@
 		<xs:complexContent>
 			<xs:extension base="ListBase">
 				<xs:sequence>
-					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="1">
+					<xs:element name="vendorId" type="VendorId" minOccurs ="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
 								The vendor ID is a unique identifier which identifies the vendor that is creating a message. The vendor ID is
@@ -1109,6 +1130,382 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AnnualPercentageRate">
+		<xs:annotation>
+			<xs:documentation>
+				Calculated annual percentage rate (APR). Is the interest rate for a whole year (annualized). 
+				Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+				4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+				Decimals available: 999.999 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="MaturityDate">
+		<xs:restriction base="xs:date">
+			<xs:annotation>
+				<xs:documentation>
+					The date which a financial instrument matures. 
+					The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="CheckNumber">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The number on the face of the check indicating the id of that check in a series.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name ="AchStandardEntryClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="ACK">
+				<xs:annotation>
+					<xs:documentation>
+						Acknowledgment Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="ATX">
+				<xs:annotation>
+					<xs:documentation>
+						Financial EDI Acknowledgment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="ARC">
+				<xs:annotation>
+					<xs:documentation>
+						Accounts Receivable Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="BOC">
+				<xs:annotation>
+					<xs:documentation>
+						Back Office Conversion Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CCD">
+				<xs:annotation>
+					<xs:documentation>
+						Corporate Credit Debit Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CIE">
+				<xs:annotation>
+					<xs:documentation>
+						Customer-Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="COR">
+				<xs:annotation>
+					<xs:documentation>
+						Notification of Change or Refused Notification of Change.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="CTX">
+				<xs:annotation>
+					<xs:documentation>
+						Corporate Trade Exchange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="DNE">
+				<xs:annotation>
+					<xs:documentation>
+						Death Notification Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="ENR">
+				<xs:annotation>
+					<xs:documentation>
+						Automated Enrollment Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="IAT">
+				<xs:annotation>
+					<xs:documentation>
+						International ACH Transaction.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="MTE">
+				<xs:annotation>
+					<xs:documentation>
+						Machine Transfer Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="POP">
+				<xs:annotation>
+					<xs:documentation>
+						Point of Purchase Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="PPD">
+				<xs:annotation>
+					<xs:documentation>
+						Prearranged Payment and Deposit Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="RCK">
+				<xs:annotation>
+					<xs:documentation>
+						Re-Presented Check Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TEL">
+				<xs:annotation>
+					<xs:documentation>
+						Telephone Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TRC">
+				<xs:annotation>
+					<xs:documentation>
+						Truncated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="TRX">
+				<xs:annotation>
+					<xs:documentation>
+						Truncated Entries Exchange.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="WEB">
+				<xs:annotation>
+					<xs:documentation>
+						Internet Initiated Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="XCK">
+				<xs:annotation>
+					<xs:documentation>
+						Destroyed Check Entry.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name ="WithholdingFilingStatus">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Single">
+				<xs:annotation>
+					<xs:documentation>
+						Single filing status or Married filing seperately.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Married">
+				<xs:annotation>
+					<xs:documentation>
+						Married filing jointly or qualifying widower.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="HeadOfHousehold">
+				<xs:annotation>
+					<xs:documentation>
+						Head of Household. Unmarried and pay more than half of the costs of keeping up a home for yourself and a 
+						qualifying individual.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name ="WithholdingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value ="Federal">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for the federal government or a national government.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="State">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for a state government or a province.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration >
+			<xs:enumeration value ="Local">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for a local government.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+			<xs:enumeration value ="W-4">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for US Government form W-4.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+			<xs:enumeration value ="Other">
+				<xs:annotation>
+					<xs:documentation>
+						Withholding type for all other forms of withholding. Further defined by element otherWithholdingType.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration> 
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="WithholdingInfo">
+		<xs:annotation>
+			<xs:documentation>
+				Fields related to require tax withholding information. 
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="withholdingType" type="WithholdingType"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the type of withingholding.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="otherWithholdingType" type="xs:string"  minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the type of withingholding when WithholdingType is set to Other.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingFilingStatus" type="WithholdingFilingStatus"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the withholding filing status to be applied for withholdings calculation. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="numberOfWithholdings" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of withholdings or allowances declared. Example form W-4 line 5. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingsAmount" type="Money"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Additional amount of withholdings to be withheld from a payment such as a paycheck. Example W-4 line 6
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingsExempt" type="xs:boolean"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Withholdings are exempt when set to True.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="withholdingsRate" type="xs:decimal"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The rate of withholding to apply to a qualifying transaction. 
+						Value is formatted as a percentile. A passed value of 4.5 is equivalent to 0.045 actual.
+						4.500 may be displayed as 4.500% or 4.5% depending on the user interface.
+						Decimals available: 999.999 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="withholdingsOption" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Describes the withholding option as defined by the financial institution 
+						and allows for the range of special instructions that may be applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+			
+	<xs:complexType name="WithholdingsInfoList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of withholding information.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ListBase">
+				<xs:sequence>
+					<xs:element name="withholdingInfo" type="WithholdingInfo" minOccurs ="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								Fields related to require tax withholding information.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+			
+	<xs:simpleType name="AchPrenoteIndicator">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					ACH Prenote Indicator is set to True when an alert of the transfer will be sent to the receiving institution
+					in advance of the actual transfer. 
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="UserId">
+		<xs:restriction base="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					The unique identifier created by the system and or the user for identification.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IncludeNotesFlag">
+		<xs:restriction base="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>
+					If this is not provided, it will not return notes.
+					If it is provided and it's true, it will return all active non-expired notes.
+				</xs:documentation>
+			</xs:annotation>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>

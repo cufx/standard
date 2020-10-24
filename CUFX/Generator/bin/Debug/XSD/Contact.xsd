@@ -1,16 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Contact.xsd"
-	version="4.2.$Revision: 1339 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+	xmlns:preference="http://cufxstandards.com/v4/Preference.xsd"
+	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-
-	<xs:element name= "contactList" type ="ContactList">
+	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v4/Preference.xsd" schemaLocation="Preference.xsd" />
+	
+	<xs:element name= "contactList" type="ContactList">
 		<xs:annotation>
 			<xs:documentation>
 				The contact list collection/array contains all the contacts points that the credential set is
@@ -113,6 +118,15 @@
 				</xs:annotation>
 			</xs:element>
 
+			<xs:element name="preferenceOrder" type="xs:positiveInteger" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Specifies the preference order of communication for the given contact.
+						The lowest order will have the highest preference.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
 			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -120,6 +134,64 @@
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactDateTimeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date and time the contact was created in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+ 				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactCreatedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
+	   			<xs:annotation>
+					<xs:documentation>
+						A unique identifier of who created the contact in the system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactDateTimeModified" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date and time the contact data was modified in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactModifiedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID of who last updated the contact in the source system.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactDateTimeDeleted" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Date the contact data was deleted or mark as inactive in the source system.
+						The date/time should be ISO 8601 UTC format.
+						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
+						formats are supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contactDeletedBy" type="common:UserId" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						A unique identifier such as a user ID of who deleted record.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="preferenceSettingList" type="preference:PreferenceSettingList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The preference setting related to the object.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -156,7 +228,7 @@
 			<xs:element name="email" type="Email" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to email contact points when email type is selected.
+						Fields related to email contact point when email type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -164,7 +236,7 @@
 			<xs:element name="instantMessage" type="InstantMessage" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to instant message contact points when instant message type is selected.
+						Fields related to instant message contact point when instant message type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -172,7 +244,7 @@
 			<xs:element name="social" type="SocialContactPoint" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to social contact points when social type is selected.
+						Fields related to social contact point when social type is selected.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -180,7 +252,14 @@
 			<xs:element name="website" type="Website" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Fields related to website contact points when website type is selected.
+						Fields related to website contact point when website type is selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sms" type="Phone" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Fields related to the mobile or VOIP phone contact point when SMS (text) type is selected. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -259,6 +338,13 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="otherAddressType" type="xs:string"  minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Description of address type when addressType is set to other. 
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -327,6 +413,35 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+
+			<xs:element name="countryCode" type="isoCountryCodeType:ISOCountryCodeType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.  This is the ISO 3166 2 Character
+						Country Code.  Back end systems can translate this into the
+						country description.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Country where phone resides.
+						This is typically read-only as it is recommended to be
+						calculated based on the Country Code.
+						Description based on the ISO 3166 2 Character Country Code.
+						Back end systems can translate this to a description from the country code.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="otherPhoneType" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of phone type when phoneType is set to other. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence >
 	</xs:complexType >
 
@@ -347,6 +462,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element >
+			<xs:element name="otherEmailType" type="xs:string"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description of email type when emailType is set to other. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -540,8 +662,8 @@
 			<xs:enumeration value="Nanp">
 				<xs:annotation>
 					<xs:documentation>
-						(North American Number Plan Administration):
-						+1-NPA-NXX-xxxx  : Example: 1-847-555-1212
+						(North American Number Plan Administration)
+						+1-NPA-NXX-xxxx   Example 1-847-555-1212
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -550,8 +672,8 @@
 				<xs:annotation>
 					<xs:documentation>
 						(North American Number Plan
-						without the Country Code):  NPA-NXX-xxxx
-						: Example 847-555-1212
+						without the Country Code)  NPA-NXX-xxxx
+						Example 847-555-1212
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -592,7 +714,7 @@
 	<xs:complexType name="ContactIdList">
 		<xs:annotation>
 			<xs:documentation>
-				The list of contact ID's that should have their associated contacts either returned or affected
+				The list of contact IDs that should have their associated contacts either returned or affected
 				by a read, update or delete request.
 			</xs:documentation>
 		</xs:annotation>
@@ -621,6 +743,7 @@
 			<xs:enumeration value="Social" />
 			<xs:enumeration value="Website" />
 			<xs:enumeration value="Other" />
+			<xs:enumeration value="SMS" />
 		</xs:restriction>
 	</xs:simpleType>
 

@@ -101,6 +101,24 @@
       <startDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</startDateTime>
       <endDateTime xmlns="http://cufxstandards.com/v4/Common.xsd">1900-01-01T01:01:01Z</endDateTime>
     </applicationDateRange>
+    <customData xmlns="http://cufxstandards.com/v4/ApplicationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+    </customData>
+    <applicationStatusList xmlns="http://cufxstandards.com/v4/ApplicationFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <applicationStatus xmlns="http://cufxstandards.com/v4/Application.xsd">New</applicationStatus>
+    </applicationStatusList>
   </applicationFilter>
   <applicationList>
     <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -131,6 +149,7 @@
             <loan>
               <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
               <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+              <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
               <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
               <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
               <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
@@ -268,6 +287,8 @@
                 <transaction xmlns="http://cufxstandards.com/v4/Transaction.xsd">
                   <transactionId>transactionId1</transactionId>
                   <accountId>accountId1</accountId>
+                  <accountType>Checking</accountType>
+                  <accountSubType>accountSubType1</accountSubType>
                   <type>Debit</type>
                   <amount>
                     <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
@@ -279,6 +300,7 @@
                   <dateTimePosted>1900-01-01T01:01:01Z</dateTimePosted>
                   <dateTimeEffective>1900-01-01T01:01:01Z</dateTimeEffective>
                   <status>Posted</status>
+                  <otherTransactionStatus>otherTransactionStatus1</otherTransactionStatus>
                   <postedActualBalance>
                     <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
                     <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
@@ -348,8 +370,44 @@
                     <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
                     <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
                   </customData>
+                  <noteIdList>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <noteID xmlns="http://cufxstandards.com/v4/Common.xsd">noteID1</noteID>
+                  </noteIdList>
+                  <entryMethod>entryMethod1</entryMethod>
                 </transaction>
               </transactionList>
+              <interestPostingFrequency xmlns="http://cufxstandards.com/v4/Account.xsd">AmortizedSchedule</interestPostingFrequency>
+              <withholdingsInfoList xmlns="http://cufxstandards.com/v4/Account.xsd">
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <withholdingInfo xmlns="http://cufxstandards.com/v4/Common.xsd">
+                  <withholdingType>Federal</withholdingType>
+                  <otherWithholdingType>otherWithholdingType1</otherWithholdingType>
+                  <withholdingFilingStatus>Single</withholdingFilingStatus>
+                  <numberOfWithholdings>numberOfWithholdings1</numberOfWithholdings>
+                  <withholdingsAmount>
+                    <value>1</value>
+                    <currencyCode>USD</currencyCode>
+                    <exchangeRate>1</exchangeRate>
+                  </withholdingsAmount>
+                  <withholdingsExempt>true</withholdingsExempt>
+                  <withholdingsRate>1</withholdingsRate>
+                  <withholdingsOption>withholdingsOption1</withholdingsOption>
+                </withholdingInfo>
+              </withholdingsInfoList>
+              <overDraftProtectionAccountId xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountId1</overDraftProtectionAccountId>
+              <overDraftProtectionAccountType xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</overDraftProtectionAccountType>
+              <overDraftProtectionAccountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountSubType1</overDraftProtectionAccountSubType>
               <loanPartyList xmlns="http://cufxstandards.com/v4/Loan.xsd">
                 <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
                 <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -391,6 +449,15 @@
                     <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
                     <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId1</contactId>
                   </contactIdList>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
                 </loanParty>
               </loanPartyList>
               <officerId xmlns="http://cufxstandards.com/v4/Loan.xsd">officerId1</officerId>
@@ -511,6 +578,13 @@
                   <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
                   <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
                 </splitRateBalance>
+                <paymentChangeDateTime>1900-01-01T01:01:01Z</paymentChangeDateTime>
+                <rateReviewDays>rateReviewDays1</rateReviewDays>
+                <paymentReviewDays>paymentReviewDays1</paymentReviewDays>
+                <rateChangeFrequencyType>AmortizedSchedule</rateChangeFrequencyType>
+                <rateChangeFrequencyDuration>rateChangeFrequencyDuration1</rateChangeFrequencyDuration>
+                <paymentChangeFrequencyType>AmortizedSchedule</paymentChangeFrequencyType>
+                <paymentChangeFrequencyDuration>paymentChangeFrequencyDuration1</paymentChangeFrequencyDuration>
               </loanInterestRateDetail>
               <paymentOption xmlns="http://cufxstandards.com/v4/Loan.xsd">
                 <calculationCode>calculationCode1</calculationCode>
@@ -546,7 +620,7 @@
                 </finalPaymentAmount>
                 <maturityDate>1900-01-01</maturityDate>
                 <paymentDay>1</paymentDay>
-                <paymentMethod>AutomaticDebit</paymentMethod>
+                <paymentMethod>AmortizationTransfer</paymentMethod>
                 <otherPaymentMethod>otherPaymentMethod1</otherPaymentMethod>
                 <couponCode>couponCode1</couponCode>
                 <amountIncludingPrincipalAndInterest>
@@ -702,6 +776,23 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
+                    <accountIdentificationList>
+                      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                      <accountIdentification xmlns="http://cufxstandards.com/v4/Account.xsd">
+                        <accountId>accountId1</accountId>
+                        <accountType>Checking</accountType>
+                        <accountSubType>accountSubType1</accountSubType>
+                        <accountToFromIndicator>To</accountToFromIndicator>
+                      </accountIdentification>
+                    </accountIdentificationList>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -732,6 +823,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -759,6 +853,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -782,6 +879,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -801,6 +901,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -824,6 +927,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -844,6 +950,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <year>1</year>
                     <manufacturer>manufacturer1</manufacturer>
                     <make>make1</make>
@@ -865,6 +974,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <taxId xsi:nil="true" />
                     <parcelIDNNumber xsi:nil="true" />
                     <section xsi:nil="true" />
@@ -899,6 +1011,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <financingStatement xsi:nil="true" />
                     <generalDescription xsi:nil="true" />
                     <tortClaimDescription xsi:nil="true" />
@@ -914,9 +1029,14 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <securityCollateralValueLimit xsi:nil="true" />
                     <securityMarketValueLimit xsi:nil="true" />
                     <accountNumber>accountNumber1</accountNumber>
+                    <accountType>Checking</accountType>
+                    <accountSubType>accountSubType1</accountSubType>
                     <faceValue xsi:nil="true" />
                     <issuerType xsi:nil="true" />
                     <certified xsi:nil="true" />
@@ -927,6 +1047,7 @@
                       <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
                     </amount>
                     <percentage>1</percentage>
+                    <certificateNumber>certificateNumber1</certificateNumber>
                   </savingsCDCollateral>
                   <securitiesCollateral>
                     <collateralId>collateralId1</collateralId>
@@ -938,6 +1059,9 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <securityMarketValueLimit xsi:nil="true" />
                     <possessoryNumber xsi:nil="true" />
                     <faceValue xsi:nil="true" />
@@ -958,10 +1082,22 @@
                     <loanToValuePercentage>1</loanToValuePercentage>
                     <collateralValueSourceDate>1900-01-01</collateralValueSourceDate>
                     <collateralValueSource>collateralValueSource1</collateralValueSource>
+                    <collateralType>aircraftCollateral</collateralType>
+                    <collateralSubType>collateralSubType1</collateralSubType>
+                    <collateralSubTypeDescription>collateralSubTypeDescription1</collateralSubTypeDescription>
                     <securityMarketValueLimit xsi:nil="true" />
                     <possessoryNumber xsi:nil="true" />
                     <issueDate xsi:nil="true" />
                   </letterOfCreditCollateral>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
                 </collateral>
               </collateralList>
               <autoPaymentOption xmlns="http://cufxstandards.com/v4/Loan.xsd">
@@ -976,6 +1112,8 @@
                   <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
                 </autoPaymentAmount>
                 <fromAccountId>fromAccountId1</fromAccountId>
+                <fromAccountType>Checking</fromAccountType>
+                <fromAccountSubType>fromAccountSubType1</fromAccountSubType>
               </autoPaymentOption>
               <delinquencyNoticeList xmlns="http://cufxstandards.com/v4/Loan.xsd">
                 <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -1022,10 +1160,13 @@
                   <memo>memo1</memo>
                 </creditLimitIncreaseRequest>
               </creditLimitIncreaseRequestList>
+              <numberOfPaymentsRemaining xmlns="http://cufxstandards.com/v4/Loan.xsd">1</numberOfPaymentsRemaining>
+              <otherLoanAccountCategory xmlns="http://cufxstandards.com/v4/Loan.xsd">otherLoanAccountCategory1</otherLoanAccountCategory>
             </loan>
             <deposit>
               <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
               <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+              <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
               <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
               <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
               <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
@@ -1051,6 +1192,10 @@
               <rateType xmlns="http://cufxstandards.com/v4/Account.xsd">Fixed</rateType>
               <sourceCode xmlns="http://cufxstandards.com/v4/Account.xsd">sourceCode1</sourceCode>
               <relationshipId xmlns="http://cufxstandards.com/v4/Account.xsd">relationshipId1</relationshipId>
+              <interestPostingFrequency xmlns="http://cufxstandards.com/v4/Account.xsd">AmortizedSchedule</interestPostingFrequency>
+              <overDraftProtectionAccountId xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountId1</overDraftProtectionAccountId>
+              <overDraftProtectionAccountType xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</overDraftProtectionAccountType>
+              <overDraftProtectionAccountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountSubType1</overDraftProtectionAccountSubType>
               <depositPartyList xmlns="http://cufxstandards.com/v4/Deposit.xsd">
                 <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
                 <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -1097,6 +1242,15 @@
                     <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
                     <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId1</contactId>
                   </contactIdList>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
                 </depositParty>
               </depositPartyList>
               <bumpEffectiveDate xmlns="http://cufxstandards.com/v4/Deposit.xsd">1900-01-01</bumpEffectiveDate>
@@ -1125,10 +1279,18 @@
                 <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
                 <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
               </overdraftTolerance>
+              <maturityTransferAmount xmlns="http://cufxstandards.com/v4/Deposit.xsd">
+                <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>
+                <currencyCode xmlns="http://cufxstandards.com/v4/Common.xsd">USD</currencyCode>
+                <exchangeRate xmlns="http://cufxstandards.com/v4/Common.xsd">1</exchangeRate>
+              </maturityTransferAmount>
+              <maturityTransferPercent xmlns="http://cufxstandards.com/v4/Deposit.xsd">1.00</maturityTransferPercent>
+              <serviceChargeWaivedReason xmlns="http://cufxstandards.com/v4/Deposit.xsd">serviceChargeWaivedReason1</serviceChargeWaivedReason>
             </deposit>
             <investment>
               <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
               <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+              <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
               <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
               <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
               <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>
@@ -1154,6 +1316,10 @@
               <rateType xmlns="http://cufxstandards.com/v4/Account.xsd">Fixed</rateType>
               <sourceCode xmlns="http://cufxstandards.com/v4/Account.xsd">sourceCode1</sourceCode>
               <relationshipId xmlns="http://cufxstandards.com/v4/Account.xsd">relationshipId1</relationshipId>
+              <interestPostingFrequency xmlns="http://cufxstandards.com/v4/Account.xsd">AmortizedSchedule</interestPostingFrequency>
+              <overDraftProtectionAccountId xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountId1</overDraftProtectionAccountId>
+              <overDraftProtectionAccountType xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</overDraftProtectionAccountType>
+              <overDraftProtectionAccountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">overDraftProtectionAccountSubType1</overDraftProtectionAccountSubType>
               <investmentWhereHeld xmlns="http://cufxstandards.com/v4/Investment.xsd">investmentWhereHeld1</investmentWhereHeld>
               <investmentPartyList xmlns="http://cufxstandards.com/v4/Investment.xsd">
                 <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -1216,6 +1382,7 @@
                           <expirationDateTime>1900-01-01T01:01:01Z</expirationDateTime>
                           <timeAtAddress>P396DT1H1M1S</timeAtAddress>
                           <addressVerifyDateTime>1900-01-01T01:01:01Z</addressVerifyDateTime>
+                          <otherAddressType>otherAddressType1</otherAddressType>
                         </address>
                         <phone>
                           <phoneType>Home</phoneType>
@@ -1224,10 +1391,14 @@
                           <planFormat>Nanp</planFormat>
                           <description>description1</description>
                           <smsRegistered>true</smsRegistered>
+                          <countryCode>AD</countryCode>
+                          <country>country1</country>
+                          <otherPhoneType>otherPhoneType1</otherPhoneType>
                         </phone>
                         <email>
                           <emailType>Home</emailType>
                           <address>address1</address>
+                          <otherEmailType>otherEmailType1</otherEmailType>
                         </email>
                         <instantMessage>
                           <messagingService>messagingService1</messagingService>
@@ -1241,6 +1412,17 @@
                           <sitename>sitename1</sitename>
                           <user>user1</user>
                         </website>
+                        <sms>
+                          <phoneType>Home</phoneType>
+                          <number>number1</number>
+                          <extension>extension1</extension>
+                          <planFormat>Nanp</planFormat>
+                          <description>description1</description>
+                          <smsRegistered>true</smsRegistered>
+                          <countryCode>AD</countryCode>
+                          <country>country1</country>
+                          <otherPhoneType>otherPhoneType1</otherPhoneType>
+                        </sms>
                       </contactPoint>
                       <contactPointDescription>contactPointDescription1</contactPointDescription>
                       <timeOfDay>Afternoon</timeOfDay>
@@ -1250,6 +1432,7 @@
                         <userName>userName1</userName>
                       </demonstratedAccess>
                       <badContactPoint>true</badContactPoint>
+                      <preferenceOrder>1</preferenceOrder>
                       <customData>
                         <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
                         <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -1259,8 +1442,57 @@
                         <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
                         <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
                       </customData>
+                      <contactDateTimeCreated>1900-01-01T01:01:01Z</contactDateTimeCreated>
+                      <contactCreatedBy>contactCreatedBy1</contactCreatedBy>
+                      <contactDateTimeModified>1900-01-01T01:01:01Z</contactDateTimeModified>
+                      <contactModifiedBy>contactModifiedBy1</contactModifiedBy>
+                      <contactDateTimeDeleted>1900-01-01T01:01:01Z</contactDateTimeDeleted>
+                      <contactDeletedBy>contactDeletedBy1</contactDeletedBy>
+                      <preferenceSettingList>
+                        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                        <preferenceSetting xmlns="http://cufxstandards.com/v4/Preference.xsd">
+                          <preferenceId>preferenceId1</preferenceId>
+                          <deliveryChannel>LiveSupport</deliveryChannel>
+                          <preferenceType>CourtesyPayment</preferenceType>
+                          <preferenceSettingSubType>
+                            <eAlertSubType>AddressChanged</eAlertSubType>
+                            <emailFormatSubType>Html</emailFormatSubType>
+                            <widgetSubType>DisplayStatus</widgetSubType>
+                          </preferenceSettingSubType>
+                          <preferenceValue>preferenceValue1</preferenceValue>
+                          <preferenceValueDataType>string</preferenceValueDataType>
+                          <preferenceStatus>Active</preferenceStatus>
+                          <preferenceFrequency>AmortizedSchedule</preferenceFrequency>
+                          <alertCustomText>alertCustomText1</alertCustomText>
+                          <whereToContactIdList>
+                            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                            <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId1</contactId>
+                          </whereToContactIdList>
+                          <actionableAlert>true</actionableAlert>
+                          <widgetName>widgetName1</widgetName>
+                        </preferenceSetting>
+                      </preferenceSettingList>
                     </contact>
                   </investmentContactList>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
                 </investmentParty>
               </investmentPartyList>
               <investmentholdingList xmlns="http://cufxstandards.com/v4/Investment.xsd">
@@ -1272,6 +1504,8 @@
                 <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
                 <investmentHolding xmlns="http://cufxstandards.com/v4/InvestmentHolding.xsd">
                   <accountId>accountId1</accountId>
+                  <accountType>Checking</accountType>
+                  <accountSubType>accountSubType1</accountSubType>
                   <holdingID>holdingID1</holdingID>
                   <holdingCusipNumber>holdingCusipNumber1</holdingCusipNumber>
                   <holdingAsOfDateTime>1900-01-01T01:01:01Z</holdingAsOfDateTime>
@@ -1315,6 +1549,15 @@
                   <holdingMaturityDate>1900-01-01T01:01:01Z</holdingMaturityDate>
                   <holdingNextCouponDate>1900-01-01T01:01:01Z</holdingNextCouponDate>
                   <holdingNextCallDate>1900-01-01T01:01:01Z</holdingNextCallDate>
+                  <customData>
+                    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                    <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                  </customData>
                 </investmentHolding>
               </investmentholdingList>
             </investment>
@@ -1362,6 +1605,24 @@
                 <backupWithholdingReason>backupWithholdingReason1</backupWithholdingReason>
                 <backupWithholdingExemptionReason>ExceptFromWithholding</backupWithholdingExemptionReason>
                 <backupWithholdingEffectiveDate>1900-01-01</backupWithholdingEffectiveDate>
+                <customData>
+                  <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                  <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                  <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                  <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                  <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                  <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                  <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+                </customData>
+                <withholdingsInfoList>
+                  <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                  <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                  <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                  <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                  <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                  <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                </withholdingsInfoList>
+                <taxIdExpirationDateTime>1900-01-01T01:01:01Z</taxIdExpirationDateTime>
               </taxInformation>
             </taxInformationList>
             <type xmlns="http://cufxstandards.com/v4/Party.xsd">Individual</type>
@@ -1444,6 +1705,9 @@
                       <planFormat xmlns="http://cufxstandards.com/v4/Contact.xsd">Nanp</planFormat>
                       <description xmlns="http://cufxstandards.com/v4/Contact.xsd">description1</description>
                       <smsRegistered xmlns="http://cufxstandards.com/v4/Contact.xsd">true</smsRegistered>
+                      <countryCode xmlns="http://cufxstandards.com/v4/Contact.xsd">AD</countryCode>
+                      <country xmlns="http://cufxstandards.com/v4/Contact.xsd">country1</country>
+                      <otherPhoneType xmlns="http://cufxstandards.com/v4/Contact.xsd">otherPhoneType1</otherPhoneType>
                     </employerPhone>
                     <employerStatus>Current</employerStatus>
                     <type>FullTime</type>
@@ -1540,6 +1804,7 @@
                 </residence>
                 <ethnicity>ethnicity1</ethnicity>
                 <race>race1</race>
+                <maritalStatus>Annulled</maritalStatus>
               </individual>
               <trust>
                 <trustName>trustName1</trustName>
@@ -1621,7 +1886,21 @@
               <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
               <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
             </customData>
+            <nonresidentAlienCertificationtype xmlns="http://cufxstandards.com/v4/Party.xsd">nonresidentAlienCertificationtype1</nonresidentAlienCertificationtype>
+            <nonresidentAlienCertificationDateTime xmlns="http://cufxstandards.com/v4/Party.xsd">1900-01-01T01:01:01Z</nonresidentAlienCertificationDateTime>
+            <nonresidentAlienLimitationOnBenefits xmlns="http://cufxstandards.com/v4/Party.xsd">nonresidentAlienLimitationOnBenefits1</nonresidentAlienLimitationOnBenefits>
+            <nonresidentAlienSpecialWithholdingStatus xmlns="http://cufxstandards.com/v4/Party.xsd">None</nonresidentAlienSpecialWithholdingStatus>
+            <nonresidentAlienSpecialWithholdingRate xmlns="http://cufxstandards.com/v4/Party.xsd">1</nonresidentAlienSpecialWithholdingRate>
           </party>
+          <customData>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+          </customData>
         </applicant>
       </applicantList>
       <finalCreditBureauScore>finalCreditBureauScore1</finalCreditBureauScore>
@@ -1633,6 +1912,15 @@
         <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
         <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       </applicationNoteList>
+      <customData>
+        <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+        <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+        <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+        <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+        <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+        <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+        <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
+      </customData>
     </application>
   </applicationList>
 </applicationMessage>

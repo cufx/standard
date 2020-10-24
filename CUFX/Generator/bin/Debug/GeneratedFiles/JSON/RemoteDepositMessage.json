@@ -148,6 +148,20 @@
         "returnPage": "1",
         "returnPositionIndex": "returnPositionIndex1",
         "valuePair": null
+      },
+      "accountIdentificationList": {
+        "currentPage": "1",
+        "totalPages": "1",
+        "pageSize": "1",
+        "positionIndex": "positionIndex1",
+        "returnPage": "1",
+        "returnPositionIndex": "returnPositionIndex1",
+        "accountIdentification": {
+          "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
+          "accountToFromIndicator": "To"
+        }
       }
     },
     "remoteDepositList": {
@@ -197,7 +211,9 @@
             "relatedTo": {
               "partyId": "partyId1",
               "relationshipId": "relationshipId1",
-              "accountId": "accountId1"
+              "accountId": "accountId1",
+              "accountType": "Checking",
+              "accountSubType": "accountSubType1"
             },
             "frequency": "AmortizedSchedule",
             "minimumFrequency": "1",
@@ -213,6 +229,15 @@
             "feeEffectiveDateRange": {
               "startDateTime": "1900-01-01T01:01:01Z",
               "endDateTime": "1900-01-01T01:01:01Z"
+            },
+            "customData": {
+              "currentPage": "1",
+              "totalPages": "1",
+              "pageSize": "1",
+              "positionIndex": "positionIndex1",
+              "returnPage": "1",
+              "returnPositionIndex": "returnPositionIndex1",
+              "valuePair": null
             }
           }
         },
@@ -234,6 +259,8 @@
           "artifactType": "artifactType1",
           "externalId": "externalId1",
           "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
           "partyId": "partyId1",
           "artifact": "base64Binary Content",
           "artifactName": "artifactName1",
@@ -260,6 +287,8 @@
           "artifactType": "artifactType1",
           "externalId": "externalId1",
           "accountId": "accountId1",
+          "accountType": "Checking",
+          "accountSubType": "accountSubType1",
           "partyId": "partyId1",
           "artifact": "base64Binary Content",
           "artifactName": "artifactName1",
@@ -274,6 +303,8 @@
           "artifactArchived": "true"
         },
         "accountId": "accountId1",
+        "accountType": "Checking",
+        "accountSubType": "accountSubType1",
         "status": "ExceedsDepositLimit",
         "imageValidationIssueList": {
           "currentPage": "1",
