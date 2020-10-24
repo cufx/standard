@@ -113,6 +113,21 @@
       <value>value1</value>
     </valuePair>
   </customData>
+  <accountIdentificationList xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">
+    <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+    <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+    <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+    <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+    <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+    <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+    <accountIdentification xmlns="http://cufxstandards.com/v4/Account.xsd">
+      <accountId>accountId1</accountId>
+      <accountType>Checking</accountType>
+      <accountSubType>accountSubType1</accountSubType>
+      <accountToFromIndicator>To</accountToFromIndicator>
+    </accountIdentification>
+  </accountIdentificationList>
+  <includeNotesFlag xmlns="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd">true</includeNotesFlag>
   <billPayeeIdList>
     <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
     <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
@@ -141,6 +156,7 @@
     <recurringFromAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountStatus xmlns="http://cufxstandards.com/v4/Account.xsd">
@@ -164,6 +180,7 @@
     <recurringToAccount xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd">
       <accountId xmlns="http://cufxstandards.com/v4/Account.xsd">accountId1</accountId>
       <type xmlns="http://cufxstandards.com/v4/Account.xsd">Checking</type>
+      <accountSubType xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubType1</accountSubType>
       <openDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</openDate>
       <closeDate xmlns="http://cufxstandards.com/v4/Account.xsd">1900-01-01</closeDate>
       <accountSubStatus xmlns="http://cufxstandards.com/v4/Account.xsd">accountSubStatus1</accountSubStatus>

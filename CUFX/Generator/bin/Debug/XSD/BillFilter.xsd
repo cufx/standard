@@ -11,7 +11,7 @@
 	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
 
-elementFormDefault="qualified"
+	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Bill.xsd" schemaLocation="Bill.xsd" />
@@ -41,7 +41,7 @@ elementFormDefault="qualified"
 			<xs:element name="billIdList" type="bill:BillIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of bill Id's that should have their associated bills either returned
+						The list of bill IDs that should have their associated bills either returned
 						or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -50,7 +50,7 @@ elementFormDefault="qualified"
 			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of party ID's that should be returned or affected by a read, update or delete request.
+						The list of party IDs that should be returned or affected by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -58,7 +58,7 @@ elementFormDefault="qualified"
 			<xs:element name="relationshipIdList" type="relationship:RelationshipIdList" minOccurs ="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of relationship ID's that should have their associated bill payees either returned or affected
+						The list of relationship IDs that should have their associated bill payees either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -67,7 +67,7 @@ elementFormDefault="qualified"
 			<xs:element name="accountIdList" type="account:AccountIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of account ID's that should have their associated payees either returned or affected
+						The list of account IDs that should have their associated bill pay records either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -85,7 +85,7 @@ elementFormDefault="qualified"
 			<xs:element name="billFromPayeeIdList" type="billPayee:BillPayeeIdList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The list of bill pay ID's that should have their associated bill pay records either returned or affected
+						The list of bill pay IDs that should have their associated bill pay records either returned or affected
 						by a read, update or delete request.
 					</xs:documentation>
 				</xs:annotation>
@@ -134,6 +134,15 @@ elementFormDefault="qualified"
 						data providers or processed by all client applications. ANY use of this field must be reported to the
 						architecture or working group committee to ensure that fields are somehow handled in the future release
 						of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="accountIdentificationList" type="account:AccountIdentificationList" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Collection of account identifications to associate accounts affected by a read, update or delete request. 
+						This filter supports financial institutions that have a complex account identification structure to establish a unique key.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

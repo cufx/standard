@@ -148,6 +148,20 @@
       <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
       <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
     </customData>
+    <accountIdentificationList xmlns="http://cufxstandards.com/v4/BillFilter.xsd">
+      <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+      <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+      <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+      <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+      <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+      <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+      <accountIdentification xmlns="http://cufxstandards.com/v4/Account.xsd">
+        <accountId>accountId1</accountId>
+        <accountType>Checking</accountType>
+        <accountSubType>accountSubType1</accountSubType>
+        <accountToFromIndicator>To</accountToFromIndicator>
+      </accountIdentification>
+    </accountIdentificationList>
   </billFilter>
   <billList>
     <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
@@ -176,6 +190,8 @@
       <partyId>partyId1</partyId>
       <relationshipId>relationshipId1</relationshipId>
       <accountId>accountId1</accountId>
+      <accountType>Checking</accountType>
+      <accountSubType>accountSubType1</accountSubType>
       <isEBill>true</isEBill>
       <dueAmount>
         <value xmlns="http://cufxstandards.com/v4/Common.xsd">1</value>

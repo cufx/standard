@@ -94,6 +94,29 @@
             <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
             <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
           </customData>
+          <withholdingsInfoList>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <withholdingInfo xmlns="http://cufxstandards.com/v4/Common.xsd">
+              <withholdingType>Federal</withholdingType>
+              <otherWithholdingType>otherWithholdingType1</otherWithholdingType>
+              <withholdingFilingStatus>Single</withholdingFilingStatus>
+              <numberOfWithholdings>numberOfWithholdings1</numberOfWithholdings>
+              <withholdingsAmount>
+                <value>1</value>
+                <currencyCode>USD</currencyCode>
+                <exchangeRate>1</exchangeRate>
+              </withholdingsAmount>
+              <withholdingsExempt>true</withholdingsExempt>
+              <withholdingsRate>1</withholdingsRate>
+              <withholdingsOption>withholdingsOption1</withholdingsOption>
+            </withholdingInfo>
+          </withholdingsInfoList>
+          <taxIdExpirationDateTime>1900-01-01T01:01:01Z</taxIdExpirationDateTime>
         </taxInformation>
       </taxInformationList>
       <type xmlns="http://cufxstandards.com/v4/Party.xsd">Individual</type>
@@ -279,6 +302,7 @@
           </residence>
           <ethnicity>ethnicity1</ethnicity>
           <race>race1</race>
+          <maritalStatus>Annulled</maritalStatus>
         </individual>
         <trust>
           <trustName>trustName1</trustName>
@@ -387,6 +411,17 @@
               <sitename>sitename1</sitename>
               <user>user1</user>
             </website>
+            <sms>
+              <phoneType>Home</phoneType>
+              <number>number1</number>
+              <extension>extension1</extension>
+              <planFormat>Nanp</planFormat>
+              <description>description1</description>
+              <smsRegistered>true</smsRegistered>
+              <countryCode>AD</countryCode>
+              <country>country1</country>
+              <otherPhoneType>otherPhoneType1</otherPhoneType>
+            </sms>
           </contactPoint>
           <contactPointDescription>contactPointDescription1</contactPointDescription>
           <timeOfDay>Afternoon</timeOfDay>
@@ -406,6 +441,46 @@
             <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
             <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
           </customData>
+          <contactDateTimeCreated>1900-01-01T01:01:01Z</contactDateTimeCreated>
+          <contactCreatedBy>contactCreatedBy1</contactCreatedBy>
+          <contactDateTimeModified>1900-01-01T01:01:01Z</contactDateTimeModified>
+          <contactModifiedBy>contactModifiedBy1</contactModifiedBy>
+          <contactDateTimeDeleted>1900-01-01T01:01:01Z</contactDateTimeDeleted>
+          <contactDeletedBy>contactDeletedBy1</contactDeletedBy>
+          <preferenceSettingList>
+            <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+            <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+            <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+            <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+            <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+            <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+            <preferenceSetting xmlns="http://cufxstandards.com/v4/Preference.xsd">
+              <preferenceId>preferenceId1</preferenceId>
+              <deliveryChannel>LiveSupport</deliveryChannel>
+              <preferenceType>CourtesyPayment</preferenceType>
+              <preferenceSettingSubType>
+                <eAlertSubType>AddressChanged</eAlertSubType>
+                <emailFormatSubType>Html</emailFormatSubType>
+                <widgetSubType>DisplayStatus</widgetSubType>
+              </preferenceSettingSubType>
+              <preferenceValue>preferenceValue1</preferenceValue>
+              <preferenceValueDataType>string</preferenceValueDataType>
+              <preferenceStatus>Active</preferenceStatus>
+              <preferenceFrequency>AmortizedSchedule</preferenceFrequency>
+              <alertCustomText>alertCustomText1</alertCustomText>
+              <whereToContactIdList>
+                <currentPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</currentPage>
+                <totalPages xmlns="http://cufxstandards.com/v4/Common.xsd">1</totalPages>
+                <pageSize xmlns="http://cufxstandards.com/v4/Common.xsd">1</pageSize>
+                <positionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">positionIndex1</positionIndex>
+                <returnPage xmlns="http://cufxstandards.com/v4/Common.xsd">1</returnPage>
+                <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
+                <contactId xmlns="http://cufxstandards.com/v4/Contact.xsd">contactId1</contactId>
+              </whereToContactIdList>
+              <actionableAlert>true</actionableAlert>
+              <widgetName>widgetName1</widgetName>
+            </preferenceSetting>
+          </preferenceSettingList>
         </contact>
       </contactList>
       <fiUserIdList xmlns="http://cufxstandards.com/v4/Party.xsd">
@@ -453,6 +528,11 @@
         <returnPositionIndex xmlns="http://cufxstandards.com/v4/Common.xsd">returnPositionIndex1</returnPositionIndex>
         <valuePair xmlns="http://cufxstandards.com/v4/Common.xsd" />
       </customData>
+      <nonresidentAlienCertificationtype xmlns="http://cufxstandards.com/v4/Party.xsd">nonresidentAlienCertificationtype1</nonresidentAlienCertificationtype>
+      <nonresidentAlienCertificationDateTime xmlns="http://cufxstandards.com/v4/Party.xsd">1900-01-01T01:01:01Z</nonresidentAlienCertificationDateTime>
+      <nonresidentAlienLimitationOnBenefits xmlns="http://cufxstandards.com/v4/Party.xsd">nonresidentAlienLimitationOnBenefits1</nonresidentAlienLimitationOnBenefits>
+      <nonresidentAlienSpecialWithholdingStatus xmlns="http://cufxstandards.com/v4/Party.xsd">None</nonresidentAlienSpecialWithholdingStatus>
+      <nonresidentAlienSpecialWithholdingRate xmlns="http://cufxstandards.com/v4/Party.xsd">1</nonresidentAlienSpecialWithholdingRate>
     </party>
     <productServiceEnrollmentRequestDate>1900-01-01T01:01:01Z</productServiceEnrollmentRequestDate>
     <productServiceEnrollmentApprovedDate>1900-01-01T01:01:01Z</productServiceEnrollmentApprovedDate>

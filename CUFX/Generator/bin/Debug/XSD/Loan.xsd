@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
 	targetNamespace="http://cufxstandards.com/v4/Loan.xsd"
-	version="4.2.$Revision: 1360 $"
+	version="4.4.$Revision$"
 	xmlns="http://cufxstandards.com/v4/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -171,19 +171,8 @@
 						<xs:annotation>
 							<xs:documentation>
 								Code used to indicate how the loan is to be reported to credit bureaus
-
-								Individual - This individual has contractual responsibility for this account and is primarily responsible
-								for its payment.
-								Joint - This individual is contractually obligated to repay all debts arising on this account. There are
-								other people associated with this account who may or may not have contractual responsibility.
-								Authorized User - This individual is an authorized user of this account; another individual has contractual
-								responsibility.
-								Co-Signer - This individual is liable for the credit, but does not receive the benefit of the loan. Note:
-								this individual is required to sign the Co-Signer Notice (Reg AA).
-								Maker - This individual is responsible for this account, which is guaranteed by a Co-maker (co-signer).
-								Co-Maker - The individual guarantees this account along with the Maker. Note: this is the same as the co-borrower.
-								Terminated - No further responsibility.
-								Undesignated - Responsibility not specified.
+								Deprecation - ecoaGroup is an attribtute of the loan party and not directly
+								of the loan instrument. ecoaGroup will be moved to loanParty in release v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -311,7 +300,7 @@
 					<xs:element name="totalNumberOfPayments" type="xs:integer" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Total number of payments in the term of the loan.
+								The full number of payments for the life time of the loan.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -406,13 +395,17 @@
 						<xs:annotation>
 							<xs:documentation>
 								Used in statement generation programs.
+								Deprecation: Element is valid for all account types and is being relocated
+								to account.xsd in v5.0 resulting in a sequence breaking change. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
-								Used to define/categorize loans into statement groups
+								Used to define/categorize loans into statement groups.
+								Deprecation: Element is valid for all account types and is being relocated
+								to account.xsd in v5.0 resulting in a sequence breaking change. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -420,6 +413,8 @@
 						<xs:annotation>
 							<xs:documentation>
 								Date for statement cut-off (billing date).
+								Deprecation: Element is valid for all account types and is being relocated
+								to account.xsd in v5.0 resulting in a sequence breaking change. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -495,6 +490,20 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
+					<xs:element name="numberOfPaymentsRemaining" type="xs:integer" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The total number of payments for the remaining life of the loan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="otherLoanAccountCategory" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The description of the Loan Account Category when LoanAccountCategory is set to OtherLoan.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -556,6 +565,22 @@
 				<xs:annotation>
 					<xs:documentation>
 						The account from which to take the payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fromAccountType" type="account:AccountType"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account type is the textual representation of the kind of account.
+						This value is visible to the user and must be human-readable.
+						Note: CDs and MONEY MARKETS can be denoted as INVESTMENT.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fromAccountSubType" type="account:AccountSubType"   minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The account subtype identifies the specific account type that the back end system will recognize.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1128,6 +1153,58 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="paymentChangeDateTime" type="xs:dateTime" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The date that the account may be subject to a payment change.
+						The date/time should be ISO 8601 UTC format.  yyyy-mm-ddThh:mmZ
+						(2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28) formats are
+						supported.  The time is assumed to be 00:00Z if omitted.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateReviewDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of days to prior to the next payment change date to begin an account rate review. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentReviewDays" type="xs:string" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of days to prior to the next payment change date to begin a payment review.  
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateChangeFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The frequency of interest rate adjustments on loan. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rateChangeFrequencyDuration" type="common:FrequencyDuration" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of time periods when rateChangeFrequencyType is of type XDays, XMonths or XYears. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentChangeFrequencyType" type="common:FrequencyType" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The frequency of payment changes on loan. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="paymentChangeFrequencyDuration" type="common:FrequencyDuration" minOccurs ="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The number of time periods when paymentChangeFrequencyType is of type XDays, XMonths or XYears. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1249,10 +1326,11 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="maturityDate" type="xs:date" minOccurs="0" maxOccurs="1">
+			<xs:element name="maturityDate" type="common:MaturityDate" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The maturity date of the loan.
+						The date should be ISO 8601 format yyyy-mm-dd (2011-03-28).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1344,8 +1422,6 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
-	<!-- Simple types - in alpha order -->
 	<xs:simpleType name="AutoPaymentFrequencyType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="Bimonthly" />
@@ -1389,15 +1465,79 @@
 
 	<xs:simpleType name="EcoaGroupType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Individual" />
-			<xs:enumeration value="Joint" />
-			<xs:enumeration value="AuthorizedUser" />
-			<xs:enumeration value="CoSigner" />
-			<xs:enumeration value="Maker" />
-			<xs:enumeration value="CoMaker" />
-			<xs:enumeration value="Terminated" />
-			<xs:enumeration value="Undesignated" />
-			<xs:enumeration value="BusinessOrCommercial" />
+			<xs:enumeration value="Individual">
+				<xs:annotation>
+					<xs:documentation>
+						This individual has contractual responsibility for this account and is primarily responsible for its payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Joint">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is contractually obligated to repay all debts arising on this account. There are
+						other people associated with this account who may or may not have contractual responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AuthorizedUser">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is an authorized user of this account; another individual has contractual
+						responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CoSigner">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is liable for the credit, but does not receive the benefit of the loan.
+						Note: this individual is required to sign the Co-Signer Notice (Reg AA).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Maker">
+				<xs:annotation>
+					<xs:documentation>
+						This individual is responsible for this account, which is guaranteed by a Co-maker (co-signer).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CoMaker">
+				<xs:annotation>
+					<xs:documentation>
+						The individual guarantees this account along with the Maker. Note: this is the same as the co-borrower.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Terminated">
+				<xs:annotation>
+					<xs:documentation>
+						No further responsibility.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Undesignated">
+				<xs:annotation>
+					<xs:documentation>
+						Responsibility not specified.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BusinessOrCommercial">
+				<xs:annotation>
+					<xs:documentation>
+						A business or commmercial entity has contractual responsibility for this account and is primarily responsible for its payment.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Deceased">
+				<xs:annotation>
+					<xs:documentation>
+						This individual associated to this account is deceased. 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -1417,6 +1557,11 @@
 			<xs:enumeration value="LineOfCredit" />
 			<xs:enumeration value="LineOfCreditCombination" />
 			<xs:enumeration value="OpenEnd" />
+			<xs:enumeration value="Installment" />
+			<xs:enumeration value="Commercial" />
+			<xs:enumeration value="CommercialLineOfCredit" />
+			<xs:enumeration value="Mortgage" />
+			<xs:enumeration value="OtherLoan" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -1495,6 +1640,7 @@
 
 	<xs:simpleType name="LoanPaymentMethodType">
 		<xs:restriction base="xs:string">
+			<xs:enumeration value="AmortizationTransfer" />
 			<xs:enumeration value="AutomaticDebit" />
 			<xs:enumeration value="AutomaticTransfer" />
 			<xs:enumeration value="BillPay" />
@@ -1606,7 +1752,7 @@
 			<xs:element name="loanPartyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						Loan Party Id
+						Loan Party ID
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1623,11 +1769,23 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			
 			<xs:element name="contactIdList" type="contact:ContactIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of contacts for the party within this account.  Only contains the
 						contact ID for each contact.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+
+			<xs:element name="customData" type="common:CustomData"  minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Loan party level name/data pairs list of fields that are not yet available in the general specification.
+						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
+						or processed by all client applications. ANY use of this field must be reported to the architecture or
+						working group committee to ensure that fields are somehow handled in the future release of specifications.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
