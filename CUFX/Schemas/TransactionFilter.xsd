@@ -5,7 +5,6 @@
 	xmlns="http://cufxstandards.com/v4/TransactionFilter.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="transactionFilter" type="TransactionFilter">
 		<xs:annotation>
@@ -42,7 +40,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party IDs that should have their associated account transactions either returned or affected
