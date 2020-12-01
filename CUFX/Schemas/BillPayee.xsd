@@ -8,7 +8,6 @@
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -17,7 +16,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name= "billPayeeList" type ="BillPayeeList">
 		<xs:annotation>
@@ -127,14 +125,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="isEBillEnrolled" type="xs:boolean" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						True for parties that are signed up for ebills for this payee. False if the party is not enrolled for ebill processing.
-						Element deprecated in favor of eBillEnrollmentStatus.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="addedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -163,7 +153,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						ID of party related to payee.
