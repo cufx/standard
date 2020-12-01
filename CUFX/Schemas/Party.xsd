@@ -57,7 +57,7 @@
 		</xs:annotation>
 
 		<xs:sequence>
-			<xs:element name="id" type="PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="id" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The party ID is a persistent and unique identifier for the party that is not related to the accounts
@@ -327,39 +327,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-
-	<xs:simpleType name ="PartyId">
-		<xs:annotation>
-			<xs:documentation>
-				The party ID is a persistent and unique identifier for the party not related to the accounts
-				they own but tied to that person or organization. It should be unique for all parties across the
-				institution and remain the same over the life of the relationship with the financial institution.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string" ></xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="PartyIdList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of party IDs that should be returned or affected by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								A party ID that should have its associated parties either returned or affected
-								by a read, update or delete request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name ="TaxInformation">
@@ -943,7 +910,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="employerPartyId" type="PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="employerPartyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If the employer is an existing party, then some fields may not be required.
