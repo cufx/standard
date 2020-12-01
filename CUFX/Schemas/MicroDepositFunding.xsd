@@ -7,7 +7,6 @@
 	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"   
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="microDepositFundingList" type="MicroDepositFundingList">
 		<xs:annotation>
@@ -70,7 +68,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the party.  Typically either the relationship or the party is used
