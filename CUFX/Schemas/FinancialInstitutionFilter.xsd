@@ -9,7 +9,6 @@
 	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
 	xmlns:app="http://cufxstandards.com/v4/App.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:user="http://cufxstandards.com/v4/User.xsd"
 
 	elementFormDefault="qualified"
@@ -19,7 +18,6 @@
 	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/User.xsd" schemaLocation="User.xsd" />
 
 	<xs:element name="fiFilter" type="FinancialInstitutionFilter">
@@ -64,7 +62,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of financial institution party IDs that should have their associated financial
