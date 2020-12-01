@@ -4,7 +4,6 @@
 	version="4.4.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:application="http://cufxstandards.com/v4/Application.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
 	xmlns:simpleValidationRequest="http://cufxstandards.com/v4/SimpleValidationRequest.xsd"
 	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
@@ -13,7 +12,6 @@
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v4/Application.xsd" schemaLocation="Application.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/SimpleValidationRequest.xsd" schemaLocation="SimpleValidationRequest.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
@@ -53,7 +51,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party IDs that should be returned or affected by a read, update or delete party request.
