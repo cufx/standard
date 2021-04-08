@@ -317,6 +317,13 @@
 					</xs:documentation> 
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="address" type="common:Address" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The associated address of the collateral, as applicable.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
