@@ -11293,6 +11293,8 @@ namespace cufxstandards.com {
         
         private AccountIdentificationList accountIdentificationListField;
         
+        private Address addressField;
+        
         /// <remarks/>
         public string collateralId {
             get {
@@ -11486,6 +11488,16 @@ namespace cufxstandards.com {
             }
             set {
                 this.accountIdentificationListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Address address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
             }
         }
     }
@@ -25870,6 +25882,15 @@ namespace cufxstandards.com {
         
         /// <remarks/>
         Other,
+        
+        /// <remarks/>
+        DidValidation,
+        
+        /// <remarks/>
+        VerifiedCredential,
+        
+        /// <remarks/>
+        ConnectionProtocol,
     }
     
     /// <remarks/>
@@ -26026,6 +26047,12 @@ namespace cufxstandards.com {
         
         private CustomData customDataField;
         
+        private DidValidation didValidationField;
+        
+        private VerifiedCredential verifiedCredentialField;
+        
+        private ConnectionProtocol connectionProtocolField;
+        
         /// <remarks/>
         public string credentialId {
             get {
@@ -26136,6 +26163,225 @@ namespace cufxstandards.com {
             }
             set {
                 this.temporaryFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CustomData customData {
+            get {
+                return this.customDataField;
+            }
+            set {
+                this.customDataField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DidValidation didValidation {
+            get {
+                return this.didValidationField;
+            }
+            set {
+                this.didValidationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public VerifiedCredential verifiedCredential {
+            get {
+                return this.verifiedCredentialField;
+            }
+            set {
+                this.verifiedCredentialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ConnectionProtocol connectionProtocol {
+            get {
+                return this.connectionProtocolField;
+            }
+            set {
+                this.connectionProtocolField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/CredentialGroup.xsd")]
+    public partial class DidValidation {
+        
+        private string idField;
+        
+        private string controllerField;
+        
+        private string typeField;
+        
+        private string publicKeyJwkField;
+        
+        private string publicKeyBase58Field;
+        
+        /// <remarks/>
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string controller {
+            get {
+                return this.controllerField;
+            }
+            set {
+                this.controllerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string publicKeyJwk {
+            get {
+                return this.publicKeyJwkField;
+            }
+            set {
+                this.publicKeyJwkField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string publicKeyBase58 {
+            get {
+                return this.publicKeyBase58Field;
+            }
+            set {
+                this.publicKeyBase58Field = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/CredentialGroup.xsd")]
+    public partial class VerifiedCredential {
+        
+        private AttributeList attributeListField;
+        
+        private CustomData customDataField;
+        
+        /// <remarks/>
+        public AttributeList attributeList {
+            get {
+                return this.attributeListField;
+            }
+            set {
+                this.attributeListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CustomData customData {
+            get {
+                return this.customDataField;
+            }
+            set {
+                this.customDataField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/CredentialGroup.xsd")]
+    public partial class AttributeList : ListBase {
+        
+        private ValuePair[] attributeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("attribute")]
+        public ValuePair[] attribute {
+            get {
+                return this.attributeField;
+            }
+            set {
+                this.attributeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://cufxstandards.com/v4/CredentialGroup.xsd")]
+    public partial class ConnectionProtocol {
+        
+        private string protocolNameField;
+        
+        private string protocolFeatureNameField;
+        
+        private string protocolVersionField;
+        
+        private string protocolMessageField;
+        
+        private string protocolResponseField;
+        
+        private CustomData customDataField;
+        
+        /// <remarks/>
+        public string protocolName {
+            get {
+                return this.protocolNameField;
+            }
+            set {
+                this.protocolNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string protocolFeatureName {
+            get {
+                return this.protocolFeatureNameField;
+            }
+            set {
+                this.protocolFeatureNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string protocolVersion {
+            get {
+                return this.protocolVersionField;
+            }
+            set {
+                this.protocolVersionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string protocolMessage {
+            get {
+                return this.protocolMessageField;
+            }
+            set {
+                this.protocolMessageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string protocolResponse {
+            get {
+                return this.protocolResponseField;
+            }
+            set {
+                this.protocolResponseField = value;
             }
         }
         
@@ -34224,6 +34470,10 @@ namespace cufxstandards.com {
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("4.4.0")]
         Item440,
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("4.5.0")]
+        Item450,
     }
     
     /// <remarks/>
