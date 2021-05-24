@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v4/Notes.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Notes.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/Notes.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Notes.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
-	xmlns:application="http://cufxstandards.com/v4/Application.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
-	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:activity="http://cufxstandards.com/v5/Activity.xsd"
+	xmlns:application="http://cufxstandards.com/v5/Application.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v5/ProductServiceRequest.xsd"
+	xmlns:transaction="http://cufxstandards.com/v5/Transaction.xsd"
 
 	elementFormDefault="qualified" >
 
-	<xs:import namespace ="http://cufxstandards.com/v4/Account.xsd" schemaLocation ="Account.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/Activity.xsd" schemaLocation ="Activity.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/Application.xsd" schemaLocation ="Application.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation ="Relationship.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation ="ProductServiceRequest.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Account.xsd" schemaLocation ="Account.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Activity.xsd" schemaLocation ="Activity.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Application.xsd" schemaLocation ="Application.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation ="Relationship.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/ProductServiceRequest.xsd" schemaLocation ="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Transaction.xsd" schemaLocation="Transaction.xsd" />
 
 	<xs:element name="detailedNoteList" type="DetailedNoteList">
 		<xs:annotation>

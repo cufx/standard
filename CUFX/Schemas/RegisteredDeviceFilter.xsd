@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
-	xmlns:registeredDevice="http://cufxstandards.com/v4/RegisteredDevice.xsd"
+	targetNamespace="http://cufxstandards.com/v5/RegisteredDeviceFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/RegisteredDeviceFilter.xsd"
+	xmlns:registeredDevice="http://cufxstandards.com/v5/RegisteredDevice.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
 
 
 	<xs:element name= "registeredDeviceFilter" type ="RegisteredDeviceFilter">

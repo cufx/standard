@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/HoldFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/HoldFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/HoldFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/HoldFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
-	xmlns:hold="http://cufxstandards.com/v4/Hold.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:transaction="http://cufxstandards.com/v5/Transaction.xsd"
+	xmlns:hold="http://cufxstandards.com/v5/Hold.xsd"
 					 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Hold.xsd" schemaLocation="Hold.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Transaction.xsd" schemaLocation="Transaction.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Hold.xsd" schemaLocation="Hold.xsd" />
 
 	<xs:element name="holdFilter" type="HoldFilter">
 		<xs:annotation>

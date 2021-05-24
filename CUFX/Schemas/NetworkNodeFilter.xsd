@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/NetworkNodeFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/NetworkNodeFilter.xsd"
+	targetNamespace="http://cufxstandards.com/v5/NetworkNodeFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/NetworkNodeFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:networkNode="http://cufxstandards.com/v5/NetworkNode.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
-	<xs:import schemaLocation="NetworkNode.xsd" namespace="http://cufxstandards.com/v4/NetworkNode.xsd"/>
+	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v5/Common.xsd"/>
+	<xs:import schemaLocation="NetworkNode.xsd" namespace="http://cufxstandards.com/v5/NetworkNode.xsd"/>
 
 	<xs:element name="networkNodeFilter" type="NetworkNodeFilter" >
 		<xs:annotation>

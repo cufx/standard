@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Card.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Card.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Card.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Card.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:artifact="http://cufxstandards.com/v5/Artifact.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Artifact.xsd" schemaLocation="Artifact.xsd" />
 
 
 	<xs:element name="cardList" type="CardList">

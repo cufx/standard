@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/AccessProfileMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/AccessProfileMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/AccessProfileMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/AccessProfileMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:accessProfile="http://cufxstandards.com/v4/AccessProfile.xsd"
-	xmlns:accessProfileFilter="http://cufxstandards.com/v4/AccessProfileFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:accessProfile="http://cufxstandards.com/v5/AccessProfile.xsd"
+	xmlns:accessProfileFilter="http://cufxstandards.com/v5/AccessProfileFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/AccessProfileFilter.xsd" schemaLocation="AccessProfileFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/AccessProfile.xsd" schemaLocation="AccessProfile.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/AccessProfileFilter.xsd" schemaLocation="AccessProfileFilter.xsd" />
 
 	<xs:element name="accessProfileMessage" type="AccessProfileMessage">
 		<xs:annotation>

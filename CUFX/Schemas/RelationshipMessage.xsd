@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/RelationshipMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/RelationshipMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/RelationshipMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/RelationshipMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:relationshipFilter="http://cufxstandards.com/v4/RelationshipFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:relationshipFilter="http://cufxstandards.com/v5/RelationshipFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/RelationshipFilter.xsd" schemaLocation="RelationshipFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/RelationshipFilter.xsd" schemaLocation="RelationshipFilter.xsd" />
 
 	<xs:element name="relationshipMessage" type="RelationshipMessage">
 		<xs:annotation>

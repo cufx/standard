@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/ContactMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/ContactMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/ContactMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/ContactMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:contactFilter="http://cufxstandards.com/v4/ContactFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:contactFilter="http://cufxstandards.com/v5/ContactFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ContactFilter.xsd" schemaLocation="ContactFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ContactFilter.xsd" schemaLocation="ContactFilter.xsd" />
 
 	<xs:element name="contactMessage" type="ContactMessage">
 		<xs:annotation>

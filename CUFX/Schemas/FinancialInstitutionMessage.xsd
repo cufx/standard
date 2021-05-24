@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/FinancialInstitutionMessage.xsd"
-	version="4.5.$Revision$: 1257 $"
-	xmlns="http://cufxstandards.com/v4/FinancialInstitutionMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/FinancialInstitutionMessage.xsd"
+	version="5.0.$Revision$: 1257 $"
+	xmlns="http://cufxstandards.com/v5/FinancialInstitutionMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:financialInstitution="http://cufxstandards.com/v4/FinancialInstitution.xsd"
-	xmlns:financialInstitutionFilter="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:financialInstitution="http://cufxstandards.com/v5/FinancialInstitution.xsd"
+	xmlns:financialInstitutionFilter="http://cufxstandards.com/v5/FinancialInstitutionFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FinancialInstitutionFilter.xsd" schemaLocation="FinancialInstitutionFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FinancialInstitution.xsd" schemaLocation="FinancialInstitution.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FinancialInstitutionFilter.xsd" schemaLocation="FinancialInstitutionFilter.xsd" />
 
 	<xs:element name="financialInstitutionMessage" type="FinancialInstitutionMessage">
 		<xs:annotation>

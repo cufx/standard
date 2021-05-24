@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema 	targetNamespace="http://cufxstandards.com/v4/Configuration.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Configuration.xsd"
+<xs:schema 	targetNamespace="http://cufxstandards.com/v5/Configuration.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Configuration.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:app="http://cufxstandards.com/v4/App.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
+	xmlns:app="http://cufxstandards.com/v5/App.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v5/ISOCurrencyCodeType.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:networkNode="http://cufxstandards.com/v5/NetworkNode.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/App.xsd" schemaLocation="App.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
 		<xs:annotation>

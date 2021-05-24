@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/QuestionList.xsd"
-	version="4.5.$Revision$"
+	targetNamespace="http://cufxstandards.com/v5/QuestionList.xsd"
+	version="5.0.$Revision$"
 
-	xmlns="http://cufxstandards.com/v4/QuestionList.xsd"
+	xmlns="http://cufxstandards.com/v5/QuestionList.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v4/Application.xsd"/>
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import schemaLocation="Application.xsd" namespace="http://cufxstandards.com/v5/Application.xsd"/>
 
 	<xs:element name="questionList" type="QuestionList" >
 		<xs:annotation>

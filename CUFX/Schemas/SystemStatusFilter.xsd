@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="SystemStatusFilter"
-	targetNamespace="http://cufxstandards.com/v4/SystemStatusFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/SystemStatusFilter.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:systemStatus="http://cufxstandards.com/v4/SystemStatus.xsd"
+	targetNamespace="http://cufxstandards.com/v5/SystemStatusFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/SystemStatusFilter.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:systemStatus="http://cufxstandards.com/v5/SystemStatus.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/SystemStatus.xsd" schemaLocation="SystemStatus.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/SystemStatus.xsd" schemaLocation="SystemStatus.xsd" />
 
 
 	<xs:element name="systemStatusFilter" type="SystemStatusFilter">

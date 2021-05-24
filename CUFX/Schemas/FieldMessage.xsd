@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/FieldMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/FieldMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/FieldMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/FieldMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:field="http://cufxstandards.com/v4/Field.xsd"
-	xmlns:fieldFilter="http://cufxstandards.com/v4/FieldFilter.xsd"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
+	xmlns:field="http://cufxstandards.com/v5/Field.xsd"
+	xmlns:fieldFilter="http://cufxstandards.com/v5/FieldFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Field.xsd" schemaLocation="Field.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FieldFilter.xsd" schemaLocation="FieldFilter.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Field.xsd" schemaLocation="Field.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FieldFilter.xsd" schemaLocation="FieldFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
 	
 	<xs:element name="fieldMessage" type="FieldMessage">
 		<xs:annotation>
