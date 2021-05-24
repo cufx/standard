@@ -6,7 +6,6 @@
 	xmlns:registeredDevice="http://cufxstandards.com/v5/RegisteredDevice.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
 	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 
@@ -15,7 +14,6 @@
 	attributeFormDefault="unqualified">
 
 	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
@@ -48,7 +46,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Collection of key fields that point to a list of existing parties for

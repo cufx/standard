@@ -6,7 +6,6 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v5/FundsTransferCommonBase.xsd"
 	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
 	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 	
@@ -14,7 +13,6 @@
 
 	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
 
@@ -72,7 +70,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of account IDs that should have their associated payments or transfers either returned or affected

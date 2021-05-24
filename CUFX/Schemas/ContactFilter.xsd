@@ -44,7 +44,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party IDs that should be returned or affected by a read, update or delete contact request.

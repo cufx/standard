@@ -8,7 +8,6 @@
 	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
 	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 	xmlns:investmentHolding="http://cufxstandards.com/v5/InvestmentHolding.xsd"
  
 	elementFormDefault="qualified"
@@ -18,7 +17,6 @@
 	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
 
 	<xs:element name="InvestmentList" type="InvestmentList">
@@ -122,7 +120,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+					<xs:element name="investmentPartyId" type="common:PartyId"  minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for the investment party. Must be a valid party ID.
@@ -141,7 +139,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentPartyId" type="common:PartyId"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the party. Must be a valid party ID.
