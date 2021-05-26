@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/ActivityFilter.xsd"
-	version="4.5.$Revision$: 1062 $"
-	xmlns="http://cufxstandards.com/v4/ActivityFilter.xsd"
+	targetNamespace="http://cufxstandards.com/v5/ActivityFilter.xsd"
+	version="5.0.$Revision$: 1062 $"
+	xmlns="http://cufxstandards.com/v5/ActivityFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:activity="http://cufxstandards.com/v4/Activity.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:activity="http://cufxstandards.com/v5/Activity.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 
 	elementFormDefault="qualified" >
 
-	<xs:import namespace ="http://cufxstandards.com/v4/Activity.xsd" schemaLocation ="Activity.xsd" />
-	<xs:import namespace ="http://cufxstandards.com/v4/Common.xsd" schemaLocation ="Common.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Activity.xsd" schemaLocation ="Activity.xsd" />
+	<xs:import namespace ="http://cufxstandards.com/v5/Common.xsd" schemaLocation ="Common.xsd" />
 
 	<xs:element name="activityFilter" type="ActivityFilter">
 		<xs:annotation>

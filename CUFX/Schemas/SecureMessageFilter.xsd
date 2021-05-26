@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v4/SecureMessageFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/SecureMessageFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/SecureMessageFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/SecureMessageFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:document="http://cufxstandards.com/v4/Document.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:secureMessage="http://cufxstandards.com/v4/SecureMessage.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:document="http://cufxstandards.com/v5/Document.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:secureMessage="http://cufxstandards.com/v5/SecureMessage.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v5/ProductServiceRequest.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Document.xsd" schemaLocation="Document.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Document.xsd" schemaLocation="Document.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
 	<xs:element name="secureMessageFilter" type="SecureMessageFilter">
 		<xs:annotation>

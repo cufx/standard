@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
-	xmlns="http://cufxstandards.com/v4/BillPaymentFilter.xsd"
-	version="4.5.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/BillPaymentFilter.xsd"
+	xmlns="http://cufxstandards.com/v5/BillPaymentFilter.xsd"
+	version="5.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
-	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
-	xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
-	xmlns:bill="http://cufxstandards.com/v4/Bill.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd"
+	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd"
+	xmlns:billPayee="http://cufxstandards.com/v5/BillPayee.xsd"
+	xmlns:bill="http://cufxstandards.com/v5/Bill.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Bill.xsd" schemaLocation="Bill.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Bill.xsd" schemaLocation="Bill.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="billPaymentFilter" type="BillPaymentFilter">
 		<xs:annotation>

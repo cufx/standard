@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/BillPaymentOccurrence.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/BillPaymentOccurrence.xsd"
+	targetNamespace="http://cufxstandards.com/v5/BillPaymentOccurrence.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/BillPaymentOccurrence.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:billpayee="http://cufxstandards.com/v4/BillPayee.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd"
-	xmlns:bill="http://cufxstandards.com/v4/Bill.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:billpayee="http://cufxstandards.com/v5/BillPayee.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:fundsTransferOccurrenceBase="http://cufxstandards.com/v5/FundsTransferOccurrenceBase.xsd"
+	xmlns:bill="http://cufxstandards.com/v5/Bill.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Bill.xsd" schemaLocation="Bill.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferOccurrenceBase.xsd" schemaLocation="FundsTransferOccurrenceBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Bill.xsd" schemaLocation="Bill.xsd" />
 
 	<xs:element name="billPaymentOccurrenceList" type ="BillPaymentOccurrenceList">
 		<xs:annotation>

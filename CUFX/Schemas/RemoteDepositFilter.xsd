@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/RemoteDepositFilter.xsd"
-	version="4.5.$Revision$: 775 $"
-	xmlns="http://cufxstandards.com/v4/RemoteDepositFilter.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/RemoteDepositFilter.xsd"
+	version="5.0.$Revision$: 775 $"
+	xmlns="http://cufxstandards.com/v5/RemoteDepositFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:remoteDeposit="http://cufxstandards.com/v4/RemoteDeposit.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:remoteDeposit="http://cufxstandards.com/v5/RemoteDeposit.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="remoteDepositFilter" type="RemoteDepositFilter">
 		<xs:annotation>

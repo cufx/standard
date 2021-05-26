@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/OverdraftPriorityMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/OverdraftPriorityMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/OverdraftPriorityMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/OverdraftPriorityMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:overdraftPriority="http://cufxstandards.com/v4/OverdraftPriorityList.xsd"
-	xmlns:overdraftPriorityFilter="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:overdraftPriority="http://cufxstandards.com/v5/OverdraftPriorityList.xsd"
+	xmlns:overdraftPriorityFilter="http://cufxstandards.com/v5/OverdraftPriorityListFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/OverdraftPriorityList.xsd" schemaLocation="OverdraftPriorityList.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/OverdraftPriorityListFilter.xsd" schemaLocation="OverdraftPriorityListFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/OverdraftPriorityList.xsd" schemaLocation="OverdraftPriorityList.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/OverdraftPriorityListFilter.xsd" schemaLocation="OverdraftPriorityListFilter.xsd" />
 
 	<xs:element name="overdraftPriorityMessage" type="OverdraftPriorityMessage">
 		<xs:annotation>

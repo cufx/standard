@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/SecureMessageMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/SecureMessageMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/SecureMessageMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/SecureMessageMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:secureMessage="http://cufxstandards.com/v4/SecureMessage.xsd"
-	xmlns:secureMessageFilter="http://cufxstandards.com/v4/SecureMessageFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:secureMessage="http://cufxstandards.com/v5/SecureMessage.xsd"
+	xmlns:secureMessageFilter="http://cufxstandards.com/v5/SecureMessageFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/SecureMessageFilter.xsd" schemaLocation="SecureMessageFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/SecureMessage.xsd" schemaLocation="SecureMessage.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/SecureMessageFilter.xsd" schemaLocation="SecureMessageFilter.xsd" />
 
 	<xs:element name="secureMessageMessage" type="SecureMessageMessage">
 		<xs:annotation>

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/BillPaymentRecurring.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/BillPaymentRecurring.xsd"
+	targetNamespace="http://cufxstandards.com/v5/BillPaymentRecurring.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/BillPaymentRecurring.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:billpayee="http://cufxstandards.com/v4/BillPayee.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
-	xmlns:bill="http://cufxstandards.com/v4/Bill.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:billpayee="http://cufxstandards.com/v5/BillPayee.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:fundsTransferRecurringBase="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd"
+	xmlns:bill="http://cufxstandards.com/v5/Bill.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Bill.xsd" schemaLocation="Bill.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd" schemaLocation="FundsTransferRecurringBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Bill.xsd" schemaLocation="Bill.xsd" />
 
 	<xs:element name="billPaymentRecurringList" type ="BillPaymentRecurringList">
 		<xs:annotation>

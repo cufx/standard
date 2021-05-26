@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/AnswerList.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/AnswerList.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	targetNamespace="http://cufxstandards.com/v5/AnswerList.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/AnswerList.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:question="http://cufxstandards.com/v4/QuestionList.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:question="http://cufxstandards.com/v5/QuestionList.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 	  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v4/Common.xsd"/>
-	<xs:import schemaLocation="QuestionList.xsd" namespace="http://cufxstandards.com/v4/QuestionList.xsd"/>
-	<xs:import schemaLocation="Party.xsd" namespace="http://cufxstandards.com/v4/Party.xsd"/>
+	<xs:import schemaLocation="Common.xsd" namespace="http://cufxstandards.com/v5/Common.xsd"/>
+	<xs:import schemaLocation="QuestionList.xsd" namespace="http://cufxstandards.com/v5/QuestionList.xsd"/>
+	<xs:import schemaLocation="Party.xsd" namespace="http://cufxstandards.com/v5/Party.xsd"/>
 
 	<xs:element name="answerList" type="AnswerList" >
 		<xs:annotation>

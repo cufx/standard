@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/AppMessage.xsd"
-	version="4.5.$Revision$: 1257 $"
-	xmlns="http://cufxstandards.com/v4/AppMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/AppMessage.xsd"
+	version="5.0.$Revision$: 1257 $"
+	xmlns="http://cufxstandards.com/v5/AppMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:app="http://cufxstandards.com/v4/App.xsd"
-	xmlns:appFilter="http://cufxstandards.com/v4/AppFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:app="http://cufxstandards.com/v5/App.xsd"
+	xmlns:appFilter="http://cufxstandards.com/v5/AppFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/App.xsd" schemaLocation="App.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/AppFilter.xsd" schemaLocation="AppFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/App.xsd" schemaLocation="App.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/AppFilter.xsd" schemaLocation="AppFilter.xsd" />
 
 	<xs:element name="appMessage" type="AppMessage">
 		<xs:annotation>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="WireFilter"
-	targetNamespace="http://cufxstandards.com/v4/WireFilter.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/WireFilter.xsd"
+	targetNamespace="http://cufxstandards.com/v5/WireFilter.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/WireFilter.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:wire="http://cufxstandards.com/v4/Wire.xsd"
-	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
+	xmlns:wire="http://cufxstandards.com/v5/Wire.xsd"
+	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Wire.xsd" schemaLocation="Wire.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Wire.xsd" schemaLocation="Wire.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 
 	<xs:element name="wireFilter" type="WireFilter">
 		<xs:annotation>

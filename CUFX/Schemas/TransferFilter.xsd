@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/TransferFilter.xsd"
-	xmlns="http://cufxstandards.com/v4/TransferFilter.xsd"
-	version="4.5.$Revision$"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/TransferFilter.xsd"
+	xmlns="http://cufxstandards.com/v5/TransferFilter.xsd"
+	version="5.0.$Revision$"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd"
+	xmlns:fundsTransferFilterBase="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferFilterBase.xsd" schemaLocation="FundsTransferFilterBase.xsd" />
 
 	<xs:element name="transferFilter" type="TransferFilter">
 		<xs:annotation>
