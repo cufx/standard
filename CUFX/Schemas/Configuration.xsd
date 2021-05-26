@@ -6,7 +6,6 @@
 	xmlns:app="http://cufxstandards.com/v5/App.xsd"
 	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 	xmlns:isoCurrencyCodeType="http://cufxstandards.com/v5/ISOCurrencyCodeType.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 	xmlns:networkNode="http://cufxstandards.com/v5/NetworkNode.xsd"
 
 	elementFormDefault="qualified"
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v5/App.xsd" schemaLocation="App.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/ISOCurrencyCodeType.xsd" schemaLocation="ISOCurrencyCodeType.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
 
 	<xs:element name="configurationList" type="ConfigurationList">
@@ -556,7 +554,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The financial institution's party ID which is a persistent and unique identifier
@@ -662,7 +660,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The vendor's party ID is a persistent and unique identifier for the party that is not related to the accounts

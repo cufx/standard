@@ -408,7 +408,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						ID of the party related to the fee, such as a person or a business.

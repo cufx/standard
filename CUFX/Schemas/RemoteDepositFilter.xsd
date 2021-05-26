@@ -7,7 +7,6 @@
 	xmlns:remoteDeposit="http://cufxstandards.com/v5/RemoteDeposit.xsd"
 	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -15,7 +14,6 @@
 	<xs:import namespace="http://cufxstandards.com/v5/RemoteDeposit.xsd" schemaLocation="RemoteDeposit.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="remoteDepositFilter" type="RemoteDepositFilter">
 		<xs:annotation>
@@ -60,7 +58,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The list of party IDs that should be returned or affected by a read, update or delete request.

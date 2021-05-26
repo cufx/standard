@@ -8,7 +8,6 @@
 	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
 	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
 	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
@@ -17,7 +16,6 @@
 	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
 	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="depositList" type="DepositList">
 		<xs:annotation>
@@ -322,7 +320,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="depositPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="depositPartyId" type="common:PartyId"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the party.  Must be a valid party ID.
