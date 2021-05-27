@@ -195,6 +195,13 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="partyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						ID of the related party.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
