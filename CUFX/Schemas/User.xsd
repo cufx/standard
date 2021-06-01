@@ -47,16 +47,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="processorSessionId" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The processor session ID is a unique identifier for the user, based on the connection to the processor or core system for
-						the message being performed.
-						processorSessionId is depreciated in favor of sessionId in the MessageContext.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="userIdType" type="UserIdType" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
