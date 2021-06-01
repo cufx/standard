@@ -59,14 +59,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="type" type="ExtendedFeeType"  minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						The fee type is the textual representation the kind of fee.
-						Element is deprecated.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+
 			<xs:element name="relatedTo" type="RelatedTo"  minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
