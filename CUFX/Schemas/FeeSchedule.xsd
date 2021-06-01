@@ -442,14 +442,4 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="ExtendedFeeType">
-		<xs:restriction base="xs:string">
-			<xs:annotation>
-				<xs:documentation>
-					The fee type is the textual representation of the kind of fee.
-					This type definition is deprecated.
-				</xs:documentation>
-			</xs:annotation>
-		</xs:restriction>
-	</xs:simpleType>
 </xs:schema>
