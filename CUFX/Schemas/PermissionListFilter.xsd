@@ -45,14 +45,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="actors" type="accessProfile:Actor" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
-						The users, parties, or other authenticated entities to search for.
-						This implementation is deprecated. Please use actorList.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="actionList" type="permissionList:ExtendedAction" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
