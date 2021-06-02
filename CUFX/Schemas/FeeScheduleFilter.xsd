@@ -106,15 +106,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="taxIdList" type="party:TaxIdList" minOccurs ="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The list of tax IDs that should be returned or affected by a read, update or delete Fee Schedule request.
-						This element is deprecated.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="partyTypeList" type="party:PartyTypeList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

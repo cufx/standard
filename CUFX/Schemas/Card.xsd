@@ -165,22 +165,6 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="blockedReason" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						For a blocked card, specifies the reason for the block.
-						Element deprecated in favor of cardStatusReason.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="blockedDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						For a blocked card, specifies the date on which the card was blocked.
-						Element deprecated in favor of cardStatusDateTime.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="cardStatusDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>

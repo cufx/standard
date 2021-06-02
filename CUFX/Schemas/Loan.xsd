@@ -165,15 +165,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Code used to indicate how the loan is to be reported to credit bureaus
-								Deprecation - ecoaGroup is an attribtute of the loan party and not directly
-								of the loan instrument. ecoaGroup will be moved to loanParty in release v5.0.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="creditReportingCode" type="xs:string" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
@@ -386,33 +377,6 @@
 						<xs:annotation>
 							<xs:documentation>
 								Prepayment penalty expiration date.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementCode" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used in statement generation programs.
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used to define/categorize loans into statement groups.
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Date for statement cut-off (billing date).
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1784,6 +1748,13 @@
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Code used to indicate how the loan party is to be reported to credit bureaus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
