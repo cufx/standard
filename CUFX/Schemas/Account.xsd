@@ -814,6 +814,25 @@
 		</xs:complexContent>
 	</xs:complexType>
 	
+	<xs:complexType name="AccountStatusPair">
+		<xs:sequence>
+			<xs:element name="accountStatus" type="AccountStatus" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account Status to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="accountSubStatus" type="AccountSubStatus" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Account Sub Status to return in a filter request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="AccountIdentificationList">
 		<xs:annotation>
 			<xs:documentation>
