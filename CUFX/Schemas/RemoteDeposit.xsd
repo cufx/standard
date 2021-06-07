@@ -382,13 +382,6 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="imageValidationResultOther" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Description for when ImageValidationResult is Other 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -405,6 +398,13 @@
 				<xs:annotation>
 					<xs:documentation>
 						The issue for the provided image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageValidationResultOther" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description for when ImageValidationResult is Other 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
