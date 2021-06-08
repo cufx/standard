@@ -25,7 +25,6 @@
         "returnPositionIndex": "returnPositionIndex1",
         "user": {
           "userId": "userId1",
-          "processorSessionId": "processorSessionId1",
           "userIdType": "EmployeeId",
           "partyId": "partyId1",
           "customData": {
@@ -143,7 +142,7 @@
           "relationshipId": "relationshipId1",
           "partyId": "partyId1",
           "party": {
-            "id": "id1",
+            "partyId": "partyId1",
             "taxInformationList": {
               "currentPage": "1",
               "totalPages": "1",
@@ -566,6 +565,15 @@
                     "actionableAlert": "true",
                     "widgetName": "widgetName1"
                   }
+                },
+                "partyIdList": {
+                  "currentPage": "1",
+                  "totalPages": "1",
+                  "pageSize": "1",
+                  "positionIndex": "positionIndex1",
+                  "returnPage": "1",
+                  "returnPositionIndex": "returnPositionIndex1",
+                  "partyId": "partyId1"
                 }
               }
             },
@@ -579,13 +587,10 @@
               "fiUserId": "fiUserId1"
             },
             "householdId": "householdId1",
-            "partyDateCreated": "1900-01-01",
             "partyDateTimeCreated": "1900-01-01T01:01:01Z",
             "partyCreatedBy": "partyCreatedBy1",
-            "partyDateModified": "1900-01-01",
             "partyDateTimeModified": "1900-01-01T01:01:01Z",
             "partyModifiedBy": "partyModifiedBy1",
-            "partyDateDeleted": "1900-01-01",
             "partyDateTimeDeleted": "1900-01-01T01:01:01Z",
             "partyDeletedBy": "partyDeletedBy1",
             "noteList": {
