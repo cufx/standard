@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Loan.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Loan.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Loan.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Loan.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:credit="http://cufxstandards.com/v4/CreditReport.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:collateral="http://cufxstandards.com/v4/Collateral.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:credit="http://cufxstandards.com/v5/CreditReport.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:collateral="http://cufxstandards.com/v5/Collateral.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Collateral.xsd" schemaLocation="Collateral.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/CreditReport.xsd" schemaLocation="CreditReport.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Collateral.xsd" schemaLocation="Collateral.xsd" />
 
 	<xs:element name="loanList" type="LoanList">
 		<xs:annotation>
@@ -164,15 +162,6 @@
 								Used to aggregate a group of loan balances to determine their individual available balance.
 								Used to determine the total available credit amount you are allowed for all loans defined on the core that
 								are included in this group.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Code used to indicate how the loan is to be reported to credit bureaus
-								Deprecation - ecoaGroup is an attribtute of the loan party and not directly
-								of the loan instrument. ecoaGroup will be moved to loanParty in release v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -388,33 +377,6 @@
 						<xs:annotation>
 							<xs:documentation>
 								Prepayment penalty expiration date.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementCode" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used in statement generation programs.
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Used to define/categorize loans into statement groups.
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Date for statement cut-off (billing date).
-								Deprecation: Element is valid for all account types and is being relocated
-								to account.xsd in v5.0 resulting in a sequence breaking change. 
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -1749,7 +1711,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="loanPartyId" type="party:PartyId" minOccurs ="0" maxOccurs ="1">
+			<xs:element name="loanPartyId" type="common:PartyId" minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Loan Party ID
@@ -1786,6 +1748,13 @@
 						This should be used as a LAST RESORT as any customizations will not be supported by all data providers
 						or processed by all client applications. ANY use of this field must be reported to the architecture or
 						working group committee to ensure that fields are somehow handled in the future release of specifications.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ecoaGroup" type="EcoaGroupType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Code used to indicate how the loan party is to be reported to credit bureaus.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

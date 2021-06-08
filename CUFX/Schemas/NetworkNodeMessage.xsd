@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="http://cufxstandards.com/v4/NetworkNodeMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/NetworkNodeMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/NetworkNodeMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/NetworkNodeMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:networkNode="http://cufxstandards.com/v4/NetworkNode.xsd"
-	xmlns:networkNodeFilter="http://cufxstandards.com/v4/NetworkNodeFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:networkNode="http://cufxstandards.com/v5/NetworkNode.xsd"
+	xmlns:networkNodeFilter="http://cufxstandards.com/v5/NetworkNodeFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/NetworkNodeFilter.xsd" schemaLocation="NetworkNodeFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/NetworkNode.xsd" schemaLocation="NetworkNode.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/NetworkNodeFilter.xsd" schemaLocation="NetworkNodeFilter.xsd" />
 
 	<xs:element name="networkNodeMessage" type="NetworkNodeMessage">
 		<xs:annotation>

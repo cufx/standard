@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/ConfigurationMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/ConfigurationMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/ConfigurationMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/ConfigurationMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:configuration="http://cufxstandards.com/v4/Configuration.xsd"
-	xmlns:configurationFilter="http://cufxstandards.com/v4/ConfigurationFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:configuration="http://cufxstandards.com/v5/Configuration.xsd"
+	xmlns:configurationFilter="http://cufxstandards.com/v5/ConfigurationFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Configuration.xsd" schemaLocation="Configuration.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ConfigurationFilter.xsd" schemaLocation="ConfigurationFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Configuration.xsd" schemaLocation="Configuration.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ConfigurationFilter.xsd" schemaLocation="ConfigurationFilter.xsd" />
 
 	<xs:element name="configurationMessage" type="ConfigurationMessage">
 		<xs:annotation>

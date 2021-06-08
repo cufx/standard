@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/ProductServiceEnrollmentMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/ProductServiceEnrollmentMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/ProductServiceEnrollmentMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/ProductServiceEnrollmentMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:productServiceEnrollment="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd"
-	xmlns:productServiceEnrollmentFilter="http://cufxstandards.com/v4/ProductServiceEnrollmentFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:productServiceEnrollment="http://cufxstandards.com/v5/ProductServiceEnrollment.xsd"
+	xmlns:productServiceEnrollmentFilter="http://cufxstandards.com/v5/ProductServiceEnrollmentFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd" schemaLocation="ProductServiceEnrollment.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceEnrollmentFilter.xsd" schemaLocation="ProductServiceEnrollmentFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ProductServiceEnrollment.xsd" schemaLocation="ProductServiceEnrollment.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ProductServiceEnrollmentFilter.xsd" schemaLocation="ProductServiceEnrollmentFilter.xsd" />
 
 	<xs:element name="productServiceEnrollmentMessage" type="ProductServiceEnrollmentMessage">
 		<xs:annotation>

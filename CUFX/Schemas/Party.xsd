@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Party.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Party.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Party.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Party.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
-	xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
-	xmlns:document="http://cufxstandards.com/v4/Document.xsd"
-	xmlns:isoCountryCodeType="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:artifact="http://cufxstandards.com/v5/Artifact.xsd"
+	xmlns:credentialGroup="http://cufxstandards.com/v5/CredentialGroup.xsd"
+	xmlns:document="http://cufxstandards.com/v5/Document.xsd"
+	xmlns:isoCountryCodeType="http://cufxstandards.com/v5/ISOCountryCodeType-V2006.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Document.xsd" schemaLocation="Document.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Artifact.xsd" schemaLocation="Artifact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Document.xsd" schemaLocation="Document.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ISOCountryCodeType-V2006.xsd" schemaLocation="ISOCountryCodeType-V2006.xsd" />
 
 	<xs:element name= "partyList" type ="PartyList">
 		<xs:annotation>
@@ -57,7 +57,7 @@
 		</xs:annotation>
 
 		<xs:sequence>
-			<xs:element name="id" type="PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The party ID is a persistent and unique identifier for the party that is not related to the accounts
@@ -169,18 +169,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyDateCreated" type="xs:date" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						DEPRECATED in next major release due to name and data type correction.
-						Date the party was created in the source system.
-						The date/time should be ISO 8601 UTC format.
-						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-						formats are supported.  The time is assumed to be 00:00Z if omitted.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="partyDateTimeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -200,18 +188,6 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyDateModified" type="xs:date" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						DEPRECATED in next major release due to name and data type correction.
-						Date the party data was modified in the source system.
-						The date/time should be ISO 8601 UTC format.
-						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-						formats are supported.  The time is assumed to be 00:00Z if omitted.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
 			<xs:element name="partyDateTimeModified" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -227,18 +203,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						A unique identifier such as a user ID of who last updated the financial institution.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="partyDateDeleted" type="xs:date" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						DEPRECATED in next major release due to name and data type correction.
-						Date the party data was deleted or mark as inactive in the source system.
-						The date/time should be ISO 8601 UTC format.
-						yyyy-mm-ddThh:mmZ (2011-03-28T12:00Z) or yyyy-mm-dd (2011-03-28)
-						formats are supported.  The time is assumed to be 00:00Z if omitted.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -327,39 +291,6 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-	</xs:complexType>
-
-	<xs:simpleType name ="PartyId">
-		<xs:annotation>
-			<xs:documentation>
-				The party ID is a persistent and unique identifier for the party not related to the accounts
-				they own but tied to that person or organization. It should be unique for all parties across the
-				institution and remain the same over the life of the relationship with the financial institution.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string" ></xs:restriction>
-	</xs:simpleType>
-
-	<xs:complexType name="PartyIdList">
-		<xs:annotation>
-			<xs:documentation>
-				The list of party IDs that should be returned or affected by a read, update or delete request.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="partyId" type="PartyId" minOccurs="0" maxOccurs="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								A party ID that should have its associated parties either returned or affected
-								by a read, update or delete request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name ="TaxInformation">
@@ -943,7 +874,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="employerPartyId" type="PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="employerPartyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						If the employer is an existing party, then some fields may not be required.

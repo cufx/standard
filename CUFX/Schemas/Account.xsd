@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Account.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Account.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Account.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Account.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:meta="http://cufxstandards.com/v4/Meta.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:feeSchedule="http://cufxstandards.com/v4/FeeSchedule.xsd"
-	xmlns:transaction="http://cufxstandards.com/v4/Transaction.xsd"
+	xmlns:meta="http://cufxstandards.com/v5/Meta.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:feeSchedule="http://cufxstandards.com/v5/FeeSchedule.xsd"
+	xmlns:transaction="http://cufxstandards.com/v5/Transaction.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Meta.xsd" schemaLocation="Meta.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Transaction.xsd" schemaLocation="Transaction.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Meta.xsd" schemaLocation="Meta.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Transaction.xsd" schemaLocation="Transaction.xsd" />
 
 	<xs:element name= "accountList" type ="AccountList">
 		<xs:annotation>
@@ -70,15 +68,6 @@
 							<xs:documentation>
 								The account description is the textual representation of the account.
 								This value is visible to the user and must be human-readable.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="subType" type="xs:string"   minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								The account subtype identifies the specific account type
-								that the back end system will recognize.
-								Deprecated - See accountSubType in AccountBase. - Planned removal in v5.0.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -266,7 +255,7 @@
 							</xs:documentation >
 						</xs:annotation >
 					</xs:element >
-					<xs:element name="partyIdList" type="party:PartyIdList" minOccurs="0" maxOccurs="1">
+					<xs:element name="partyIdList" type="common:PartyIdList" minOccurs="0" maxOccurs="1">
 						<xs:annotation>
 							<xs:documentation>
 								A collection of party ID’s that uniquely identify each party associated to this account.
@@ -365,6 +354,27 @@
 							<xs:documentation>
 								The associated overdraft protection account sub type.
 								The account subtype identifies the specific account type that the back end system will recognize.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statementCode" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Used in statement generation programs.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statementGroup" type="xs:string" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								Used to define/categorize the statement groups
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="statementDate" type="xs:date" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>
+								The statement close date.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
@@ -803,7 +813,7 @@
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
-
+	
 	<xs:complexType name="AccountStatusPair">
 		<xs:sequence>
 			<xs:element name="accountStatus" type="AccountStatus" minOccurs="0" maxOccurs ="1">
@@ -817,52 +827,6 @@
 				<xs:annotation>
 					<xs:documentation>
 						Account Sub Status to return in a filter request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="AccountAccountTypeList">
-		<xs:annotation>
-			<xs:documentation>
-				Deprecated - the type AccountAccountTypeList will be removed in v5.0. Use AccountIdentificationList 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:complexContent>
-			<xs:extension base="common:ListBase">
-				<xs:sequence>
-					<xs:element name="accountAccountTypePair" type="AccountAccountTypePair" minOccurs="0" maxOccurs ="unbounded">
-						<xs:annotation>
-							<xs:documentation>
-								Collection of account and account type pairs to return in a filter request.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<xs:complexType name="AccountAccountTypePair">
-		<xs:annotation>
-			<xs:documentation>
-				Deprecated - the type AccountAccountTypePair will be removed in v5.0. Use AccountIdentification 
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="accountId" type="AccountId" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						An account ID that should have its associated accounts either returned or affected
-						by a read, update or delete request.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="accountType" type="AccountType" minOccurs="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						Account type to return in a filter request.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>

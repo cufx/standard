@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/CategoryMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/CategoryMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/CategoryMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/CategoryMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:category="http://cufxstandards.com/v4/Category.xsd"
-	xmlns:categoryFilter="http://cufxstandards.com/v4/CategoryFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:category="http://cufxstandards.com/v5/Category.xsd"
+	xmlns:categoryFilter="http://cufxstandards.com/v5/CategoryFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Category.xsd" schemaLocation="Category.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/CategoryFilter.xsd" schemaLocation="CategoryFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Category.xsd" schemaLocation="Category.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/CategoryFilter.xsd" schemaLocation="CategoryFilter.xsd" />
 
 	<xs:element name="categoryMessage" type="CategoryMessage">
 		<xs:annotation>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/ProductServiceEnrollment.xsd"
+	targetNamespace="http://cufxstandards.com/v5/ProductServiceEnrollment.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/ProductServiceEnrollment.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:field="http://cufxstandards.com/v4/Field.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:productServiceRequest="http://cufxstandards.com/v4/ProductServiceRequest.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:field="http://cufxstandards.com/v5/Field.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
+	xmlns:productServiceRequest="http://cufxstandards.com/v5/ProductServiceRequest.xsd"
 	
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Field.xsd" schemaLocation="Field.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Field.xsd" schemaLocation="Field.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/ProductServiceRequest.xsd" schemaLocation="ProductServiceRequest.xsd" />
 
 	<xs:element name="productServiceEnrollmentList" type="ProductServiceEnrollmentList">
 		<xs:annotation>

@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Investment.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Investment.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Investment.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Investment.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:relationship="http://cufxstandards.com/v4/Relationship.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
-	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:relationship="http://cufxstandards.com/v5/Relationship.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v5/InvestmentHolding.xsd"
  
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Relationship.xsd" schemaLocation="Relationship.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Relationship.xsd" schemaLocation="Relationship.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
 
 	<xs:element name="InvestmentList" type="InvestmentList">
 		<xs:annotation>
@@ -122,7 +120,7 @@
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
-					<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+					<xs:element name="investmentPartyId" type="common:PartyId"  minOccurs ="0" maxOccurs ="1">
 						<xs:annotation>
 							<xs:documentation>
 								Unique identifier for the investment party. Must be a valid party ID.
@@ -141,7 +139,7 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="investmentPartyId" type="party:PartyId"  minOccurs ="0" maxOccurs ="1">
+			<xs:element name="investmentPartyId" type="common:PartyId"  minOccurs ="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
 						Unique identifier for the party. Must be a valid party ID.

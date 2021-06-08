@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema 
-	targetNamespace="http://cufxstandards.com/v4/RemoteDeposit.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/RemoteDeposit.xsd"
+	targetNamespace="http://cufxstandards.com/v5/RemoteDeposit.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/RemoteDeposit.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:artifact="http://cufxstandards.com/v4/Artifact.xsd"
-	xmlns:contact="http://cufxstandards.com/v4/Contact.xsd"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:feeSchedule="http://cufxstandards.com/v4/FeeSchedule.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:artifact="http://cufxstandards.com/v5/Artifact.xsd"
+	xmlns:contact="http://cufxstandards.com/v5/Contact.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:feeSchedule="http://cufxstandards.com/v5/FeeSchedule.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Artifact.xsd" schemaLocation="Artifact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Contact.xsd" schemaLocation="Contact.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Artifact.xsd" schemaLocation="Artifact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Contact.xsd" schemaLocation="Contact.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FeeSchedule.xsd" schemaLocation="FeeSchedule.xsd" />
 
 
 	<xs:element name="remoteDepositList" type="RemoteDepositList">
@@ -151,17 +151,10 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="frontImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
+			<xs:element name="remoteDepositImageList" type="RemoteDepositImageList" minOccurs="0" maxOccurs ="1">
 				<xs:annotation>
 					<xs:documentation>
-						The front image of the check, on retrieval, the artifact may contain only the id depending on the filter.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="backImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						The back image of the check, on retrieval, the artifact may contain only the id depending on the filter.
+						The collection of images for the remote deposit.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -194,14 +187,7 @@
 						The current status of the remote deposit.  This may be part of a session or after the session has ended.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="imageValidationIssueList" type="ImageValidationIssueList" minOccurs="0" maxOccurs ="1">
-				<xs:annotation>
-					<xs:documentation>
-						If there were any image validation issues, they would be in this list.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			</xs:element>	
 			<xs:element name="remoteDepositNoteList" type="common:NoteList" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -380,32 +366,70 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:complexType name="ImageValidationIssueList">
+	<xs:complexType name="ImageValidationResultList">
 		<xs:complexContent>
 			<xs:extension base="common:ListBase">
 				<xs:sequence>
 					<xs:annotation>
 						<xs:documentation>
-							Collection of image validation issues.
+							Collection of image validation results.
 						</xs:documentation>
 					</xs:annotation>
-					<xs:element name="imageValidationIssue" type="ImageValidationIssue" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="imageValidationResult" type="ImageValidationResult" minOccurs="0" maxOccurs="unbounded">
 						<xs:annotation>
 							<xs:documentation>
-								Details related to an image validation issue.
-							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-					<xs:element name="imageValidationIssueOther" type="xs:string" minOccurs="0" maxOccurs="1">
-						<xs:annotation>
-							<xs:documentation>
-								Description for when ImageValidationIssue is Other 
+								Details related to an image validation.
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ImageValidationResult">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The result of validation performed on the provided image.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="issue" type="ImageValidationIssue" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The issue for the provided image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageValidationResultOther" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Description for when ImageValidationResult is Other 
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fixable" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if the issue is fixable by resubmitting a new image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="confirmable" type="xs:boolean" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						Indicates if the issue is confirmable by the user.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="message" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The third party message provided a detailed description of the issue.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 
 	<xs:simpleType name ="ImageValidationIssue">
@@ -415,14 +439,6 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base ="xs:string">
-			<xs:enumeration value ="CARMismatchFailed">
-				<xs:annotation>
-					<xs:documentation>
-						CAR read OK, but the amount does not match the amount specified in the remote deposit request.
-						NOTE: Enumeration deprecated for intended removal in v5.0. Use enum AmountMismatch. 
-					</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 			<xs:enumeration value ="FoldedCorners">
 				<xs:annotation>
 					<xs:documentation>
@@ -648,6 +664,90 @@
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:simpleType name ="RemoteDepositImageSide">
+		<xs:annotation>
+			<xs:documentation>
+				An enumeration of possible image sides.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base ="xs:string">
+			<xs:enumeration value ="Front">
+				<xs:annotation>
+					<xs:documentation>
+						The front image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value ="Back">
+				<xs:annotation>
+					<xs:documentation>
+						The back image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="RemoteDepositImageList">
+		<xs:annotation>
+			<xs:documentation>
+				The list of remote deposit images that should be returned or affected by a read, update or delete request.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:ListBase">
+				<xs:sequence>
+					<xs:element name="remoteDepositImage" type="RemoteDepositImage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>
+								A RemoteDepositImage that contains images for the associated remote deposits either returned or affected
+								by a read, update or delete request.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="RemoteDepositImage">
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>
+					The remote deposit image contains all information related to a image for a remote deposit.
+				</xs:documentation>
+			</xs:annotation>
+			<xs:element name="depositImage" type="artifact:Artifact" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						The image of the deposit, on retrieval, the artifact may contain only the id depending on the filter.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageSide" type="RemoteDepositImageSide" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The side of the image.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="colorSpace" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The color space of the image (ex. Grayscale, BlackWhite, Full).
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="imageValidationResults" type="ImageValidationResultList" minOccurs="0" maxOccurs ="1">
+				<xs:annotation>
+					<xs:documentation>
+						If there were any image validation issues, they would be in this list.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>
 

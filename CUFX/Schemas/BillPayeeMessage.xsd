@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/BillPayeeMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/BillPayeeMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/BillPayeeMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/BillPayeeMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:billPayee="http://cufxstandards.com/v4/BillPayee.xsd"
-	xmlns:billPayeeFilter="http://cufxstandards.com/v4/BillPayeeFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:billPayee="http://cufxstandards.com/v5/BillPayee.xsd"
+	xmlns:billPayeeFilter="http://cufxstandards.com/v5/BillPayeeFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/BillPayeeFilter.xsd" schemaLocation="BillPayeeFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/BillPayee.xsd" schemaLocation="BillPayee.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/BillPayeeFilter.xsd" schemaLocation="BillPayeeFilter.xsd" />
 
 	<xs:element name="billPayeeMessage" type="BillPayeeMessage">
 		<xs:annotation>

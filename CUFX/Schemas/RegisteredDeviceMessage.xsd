@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/RegisteredDeviceMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/RegisteredDeviceMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/RegisteredDeviceMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/RegisteredDeviceMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:registeredDeviceFilter="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd"
-	xmlns:registeredDevice="http://cufxstandards.com/v4/RegisteredDevice.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:registeredDeviceFilter="http://cufxstandards.com/v5/RegisteredDeviceFilter.xsd"
+	xmlns:registeredDevice="http://cufxstandards.com/v5/RegisteredDevice.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/RegisteredDeviceFilter.xsd" schemaLocation="RegisteredDeviceFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/RegisteredDevice.xsd" schemaLocation="RegisteredDevice.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/RegisteredDeviceFilter.xsd" schemaLocation="RegisteredDeviceFilter.xsd" />
 
 	<xs:element name="registeredDeviceMessage" type="RegisteredDeviceMessage">
 		<xs:annotation>

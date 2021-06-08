@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/FundsTransferRecurringBase.xsd"
+	targetNamespace="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/FundsTransferRecurringBase.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:account="http://cufxstandards.com/v4/Account.xsd"
-	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd"
-	xmlns:credentialGroup="http://cufxstandards.com/v4/CredentialGroup.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:account="http://cufxstandards.com/v5/Account.xsd"
+	xmlns:fundsTransferCommonBase="http://cufxstandards.com/v5/FundsTransferCommonBase.xsd"
+	xmlns:credentialGroup="http://cufxstandards.com/v5/CredentialGroup.xsd"
 
 elementFormDefault="qualified"
 attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Account.xsd" schemaLocation="Account.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Account.xsd" schemaLocation="Account.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/FundsTransferCommonBase.xsd" schemaLocation="FundsTransferCommonBase.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/CredentialGroup.xsd" schemaLocation="CredentialGroup.xsd" />
 
 	<xs:complexType name="FundsTransferRecurringBase" abstract="true" >
 		<xs:annotation>

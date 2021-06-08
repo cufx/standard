@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
-	targetNamespace="http://cufxstandards.com/v4/Category.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/Category.xsd"
+	targetNamespace="http://cufxstandards.com/v5/Category.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/Category.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
 
 	<xs:element name="categoryList" type="CategoryList">
 		<xs:annotation>

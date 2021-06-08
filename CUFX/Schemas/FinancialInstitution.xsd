@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema 	targetNamespace="http://cufxstandards.com/v4/FinancialInstitution.xsd"
-	version="4.5.$Revision$: 1311 $"
-	xmlns="http://cufxstandards.com/v4/FinancialInstitution.xsd"
+<xs:schema 	targetNamespace="http://cufxstandards.com/v5/FinancialInstitution.xsd"
+	version="5.0.$Revision$: 1311 $"
+	xmlns="http://cufxstandards.com/v5/FinancialInstitution.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:common="http://cufxstandards.com/v4/Common.xsd"
-	xmlns:party="http://cufxstandards.com/v4/Party.xsd"
+	xmlns:common="http://cufxstandards.com/v5/Common.xsd"
+	xmlns:party="http://cufxstandards.com/v5/Party.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/Common.xsd" schemaLocation="Common.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/Party.xsd" schemaLocation="Party.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Common.xsd" schemaLocation="Common.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/Party.xsd" schemaLocation="Party.xsd" />
 
 	<xs:element name="fiList" type="FinancialInstitutionList">
 		<xs:annotation>
@@ -110,7 +110,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="partyId" type="party:PartyId" minOccurs="0" maxOccurs="1">
+			<xs:element name="partyId" type="common:PartyId" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						The financial institution's default party ID which is a persistent and unique identifier

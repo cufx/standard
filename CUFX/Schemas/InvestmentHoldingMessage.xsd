@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<xs:schema targetNamespace="http://cufxstandards.com/v4/InvestmentHoldingMessage.xsd"
-	version="4.5.$Revision$"
-	xmlns="http://cufxstandards.com/v4/InvestmentHoldingMessage.xsd"
+<xs:schema targetNamespace="http://cufxstandards.com/v5/InvestmentHoldingMessage.xsd"
+	version="5.0.$Revision$"
+	xmlns="http://cufxstandards.com/v5/InvestmentHoldingMessage.xsd"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:messageContext="http://cufxstandards.com/v4/MessageContext.xsd"
-	xmlns:investmentHolding="http://cufxstandards.com/v4/InvestmentHolding.xsd"
-	xmlns:investmentHoldingFilter="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd"
+	xmlns:messageContext="http://cufxstandards.com/v5/MessageContext.xsd"
+	xmlns:investmentHolding="http://cufxstandards.com/v5/InvestmentHolding.xsd"
+	xmlns:investmentHoldingFilter="http://cufxstandards.com/v5/InvestmentHoldingFilter.xsd"
 
 	elementFormDefault="qualified"
 	attributeFormDefault="unqualified">
 
-	<xs:import namespace="http://cufxstandards.com/v4/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
-	<xs:import namespace="http://cufxstandards.com/v4/InvestmentHoldingFilter.xsd" schemaLocation="InvestmentHoldingFilter.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/MessageContext.xsd" schemaLocation="MessageContext.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/InvestmentHolding.xsd" schemaLocation="InvestmentHolding.xsd" />
+	<xs:import namespace="http://cufxstandards.com/v5/InvestmentHoldingFilter.xsd" schemaLocation="InvestmentHoldingFilter.xsd" />
 
 	<xs:element name="investmentHoldingMessage" type="InvestmentHoldingMessage">
 		<xs:annotation>
