@@ -25,7 +25,6 @@
         "returnPositionIndex": "returnPositionIndex1",
         "user": {
           "userId": "userId1",
-          "processorSessionId": "processorSessionId1",
           "userIdType": "EmployeeId",
           "partyId": "partyId1",
           "customData": {
@@ -188,7 +187,6 @@
         "displayAccountId": "displayAccountId1",
         "idType": "Reserved",
         "description": "description1",
-        "subType": "subType1",
         "accountEscheatDate": "1900-01-01",
         "accountEscheatAmount": {
           "value": "1",
@@ -435,6 +433,9 @@
         "overDraftProtectionAccountId": "overDraftProtectionAccountId1",
         "overDraftProtectionAccountType": "Checking",
         "overDraftProtectionAccountSubType": "overDraftProtectionAccountSubType1",
+        "statementCode": "statementCode1",
+        "statementGroup": "statementGroup1",
+        "statementDate": "1900-01-01",
         "loanPartyList": {
           "currentPage": "1",
           "totalPages": "1",
@@ -484,7 +485,8 @@
               "returnPage": "1",
               "returnPositionIndex": "returnPositionIndex1",
               "valuePair": null
-            }
+            },
+            "ecoaGroup": "Individual"
           }
         },
         "officerId": "officerId1",
@@ -512,7 +514,6 @@
         },
         "creditLimitExpiration": "1900-01-01",
         "creditLimitGroupCode": "creditLimitGroupCode1",
-        "ecoaGroup": "Individual",
         "creditReportingCode": "creditReportingCode1",
         "isRevolvingLineOfCredit": "true",
         "minimumAdvanceAmount": {
@@ -687,9 +688,6 @@
         },
         "prepaymentPenaltyPercentage": "1",
         "prepaymentPenaltyExpirationDate": "1900-01-01",
-        "statementCode": "statementCode1",
-        "statementGroup": "statementGroup1",
-        "statementDate": "1900-01-01",
         "debtIncomeRatio": "1",
         "loanFeeList": {
           "currentPage": "1",
