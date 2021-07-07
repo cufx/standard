@@ -2,13 +2,22 @@
 
 ![](http://www.cufxstandards.com/portals/0/HomeImage.950.300.png)
 
-Core integrations are the one technical barrier that can hurt both credit unions and their members. 
+OPEN API STANDARDS MAKE IMPLEMENTATION OF NEW PRODUCTS, SERVICES AND TECHNOLOGY EASIER AND MORE EFFICIENT 
 
-This is not just a bold statement but it is the reality in the credit union world. New technology is reinventing how you interact with members. Every project, application, product and service innovation requires integration with your core system. Your credit union needs more and more data from your integrated systems to truly understand your business, members and processes. So, the technical barrier must go away. It’s not just about getting the next best innovation, it’s about staying relevant in a crowded and competitive marketplace. When your members can change financial institutions with nothing more than a point and click, new tactics are necessary to keep members engaged.
+Through broad industry collaboration, Credit Union Financial Exchange is an open standard protocol for client-server systems and cloud-based APIs for exchanging financial data, thus enabling credit unions to accelerate their digital transformation journey while providing the best user experience to their members.
 
-Credit Union Financial Exchange (CUFX), an industry changing initiative lead by the CUNA Technology Council is the highly efficient systems integration standard, that connects applications (e.g., online banking, lending, IVR) to core processing systems. CUFX can help you:
+CUFX has been the dominant API for credit unions to provide data to financial applications since 2012. It is actively deployed in over hundreds of credit unions and financial technology service providers.
 
-- Reduce complexity and operating expense
-- Improves member experience and employee efficiency
-- Increase speed of delivery of new business functions across the credit union industry
-- Enable application innovation by reducing or eliminating repetitive, time-consuming customizations
+CUFX was created by and continues to be a community of thought and technology leaders to advance a financial services ecosystem standard that reduces technical complexity, drives down costs, improves and speed to market.
+
+The CUFX standards current support these product/service implementations:
+
+Verifiable credentials for digital identities
+New member account opening
+Loan origination
+Account data integration support
+Big data analytics
+Foundation for application data models
+Mobile payment processing
+Enterprise Service Bus & gateway integrations
+Personal and business finance management applications
