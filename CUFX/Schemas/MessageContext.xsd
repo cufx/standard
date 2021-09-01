@@ -184,6 +184,14 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="messagePurposeCode" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						The message purpose code allows for the further definition of the business function to be executed
+						and for the customization of the message response.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 
